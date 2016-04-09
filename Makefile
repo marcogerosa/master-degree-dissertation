@@ -24,7 +24,7 @@ pdflatex:
 	$(DIR)/pdflatex $(FILENAME).tex 
 
 build:
-	# LaTex + BibiTex + (2x) LaTeX + dvips + ps2pdf
+	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
 	$(DIR)/latex $(FILENAME).tex
 	$(DIR)/bibtex $(FILENAME).aux
 	$(DIR)/latex $(FILENAME).tex
