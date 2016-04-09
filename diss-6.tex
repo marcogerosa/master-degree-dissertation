@@ -1,0 +1,421 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{22cm}
+\setlength{\parskip}{0.2cm}
+
+% Para aumentar o espaçamento entre as linha
+\linespread{1.2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Implementação e análise experimental}
+\label{cap:implementacao_e_analise_experimental}
+
+Como foi dito no Capítulo \ref{cap:reparo_de_plano_por_refinamento_reverso}, não existe uma implementação disponível de um sistema de reparo de plano por refinamento reverso. Assim, um dos objetivos deste trabalho é implementar um sistema de reparo desse tipo para disponibilizá-lo, bem como para verificar empiricamente as situações em que o reparo de plano pode ser mais vantajoso do que o replanejamento e como o uso da heurística pode melhorar sua eficiência. \\
+
+%O sistema de reparo de plano por refinamento reverso é uma técnica ainda pouco explorada na área de planejamento. Um dos estudos realizados nesta área envolve o sistema \ac{POPR}\index{POPR} desenvolvido por Roman Krogt e Mathijs M. Weerdt. 
+
+%No artigo \cite{Roman2005} os autores propõem uma maneira de utilizar o planejador VHPOP, com algumas modificações, para escolher quais ações devem ser removidas do plano a fim de que ele atinja seus objetivos. Entretanto, este sistema não se encontra disponível para domínio público. \\
+
+%Tomando como base o sistema descrito no artigo \cite{Roman2005}, foi implementado, o processo de refinamento reverso. No presente capítulo, mais especificamente, são colocadas em prática as técnicas de reparo de plano apresentadas nas seções anteriores, a fim de possibilitar uma comparação empírica com outras abordagens. Foi desenvolvido um simulador, que interage com o sistema de reparo e reproduz as ações de um agente em um ambiente dinâmico, o qual pôde ser reproduzido devido a um gerador de falhas, criado exclusivamente para este fim. A interação entre o sistema de reparo, o simulador e o gerador de falhas produziu um conjunto de resultados experimentais aqui apresentados.\\
+
+\section{Sistema de reparo de plano}
+
+O sistema de reparo de plano por refinamento reverso implementado neste trabalho utiliza como base o \ac{VHPOP}\index{VHPOP}, um planejador de código fonte\index{código fonte} aberto que implementa de forma explícita o planejamento por refinamento. O \ac{VHPOP} foi desenvolvido por Håkan Younes e R.G. Simmons na Universidade Carneguie Mellon em 2003 \cite{Younes2003} em C++\index{C++}. Originalmente, o planejador \ac{VHPOP} recebe como entrada três conjuntos de dados: o domínio\index{domínio}, o estado inicial e o objetivo. Todos os dados de entrada estão no formato {PDDL}. Ao executar o sistema\index{sistema}, o planejador produz, se existir, um plano resposta para o problema (Figura 6.1). \\
+
+\begin{figure}[!ht] % Figura 6.1
+    \centering
+    \label{fig:vhpop}
+    \includegraphics[angle=0,width=0.80\textwidth]{./img/vhpop.ps}
+    \caption[Arquitetura de funcionamento do VHPOP]{Arquitetura de funcionamento do VHPOP.}
+\end{figure}
+
+O sistema de reparo implementado (Figura 6.2) recebe como entrada:
+
+\begin{itemize}
+ \item um plano falho, com indicação das ações já executadas;
+ \item uma descrição do domínio (conjunto de ações do agente);
+ \item o estado atual da simulação;
+ \item uma descrição dos estados objetivos.
+\end{itemize}
+
+Tal sistema devolve como resposta uma falha, se um reparo não for encontrado, caso contrário, uma resposta válida será uma seqüência de ações que atinja o objetivo do problema.
+
+%Entretanto, uma resposta válida da execução do sistema de reparo de plano por
+%Pode acontecer do VHPOP-RE não
+%encontrar um reparo\index{reparo}, pois uma falha\index{falha} pode levar a simulação do sistema a um
+%estado {\it sem saída}, isto é, um estado a partir do qual não exista um plano que
+%alcance o objetivo do problema inicial. \\ 
+
+%%% ---> No trabalho do Perseke é falado sobre o assunto de becos sem saída! <--- %%%%
+
+%refinamento reverso devolverá uma seqüência de ações. Ao ser executada a
+%seqüência de ações devolvida pelo sistema, a simulação sairá do estado
+%corrente e alcançará um estado que faz parte da execução do plano original. \\
+
+\begin{figure}[!ht] % Figura 6.2
+    \centering
+    \label{fig:vhpop_re}
+    \includegraphics[angle=0,width=0.80\textwidth]{./img/vhpop-re.ps}
+    \caption[Sistema VHPOP-RE]{Sistema VHPOP-RE.}
+\end{figure}
+
+
+O sistema de reparo pode ser executado com ou sem o uso de heurística. O sistema sem o uso de heurística (Algoritmo \ref{algoritmo_reparo_plano_sem_heuristica} do Capítulo \ref{cap:reparo_de_plano_por_refinamento_reverso}) chamado de VHPOP-RE,  testa todas as alternativas possíveis para encontrar a solução ótima de reparo. A versão com heurística (Algoritmo \ref{heuristica} do Capítulo \ref{cap:reparo_de_plano_por_refinamento_reverso}), chamada de VHPOP-RE-H, tenta encontrar um reparo fazendo o menor número de tentativas. Com isso, espera-se que esse seja um método mais eficiente de reparo de planos.\\
+
+Os sistemas VHPOP-RE e VHPOP-RE-H foram implementados de forma a encapsular completamente o planejador \ac{VHPOP} (Figura 6.3): a idéia é que após remover ações do plano por refinamento reverso, esses sistemas usem o próprio VHPOP para completar o plano. \\
+
+\begin{center}
+  \begin{figure}[ht!] % Figura 6.3
+    \centering
+	\label{fig:arquitetura_vhpop-re}
+    \includegraphics[angle=0,width=0.80\textwidth]{./img/sistema_reparo_plano_vhpop-re.ps}
+    \caption[Arquitetura de funcionamento do VHPOP-RE]{Arquitetura de funcionamento do VHPOP-RE.}
+  \end{figure}
+\end{center}
+
+\section{Simulador da dinâmica de ambientes de teste}
+
+Além da implementação do VHPOP-RE, foi desenvolvido um sistema de simulação da dinâmica de ambientes de planejamento para testar o sistema de reparo, chamado de SIMULA-PLANO\index{SIMULA-PLANO}. Este sistema tem como objetivo simular a execução de planos em diferentes domínios, com a possibilidade de simular falhas durante a execução de um plano.
+
+O simulador recebe como entrada:
+\begin{itemize}
+ \item uma descrição do domínio (conjunto de ações do agente);
+ \item o estado inicial do ambiente;
+ \item um plano para atingir o objetivo do agente;
+ \item um conjunto de falhas.
+% e o momento específico em que se deseja que elas sejam executadas; 
+\end{itemize}
+
+%Além destes dados, é possível também configurar o simulador para que este execute todos os procedimentos de modo automático, ou de modo interativo, em que a cada etapa é necessário que o usuário intervenha na execução. \\
+
+O conjunto de falhas pode ser informado ao simulador de duas maneiras diferentes: (1) pelo programa de geração de falhas automáticas Seção \ref{cap:6:sec:o_sistema_de_geracao_de_falhas}, ou (2) pela intervenção de um usuário. \\
+
+Durante a execução de um plano, o simulador verifica as pré-condições de todas as ações a serem executadas. Ao detectar que uma ou mais  pré-condições não são satisfeitas, o simulador chama o sistema VHPOP-RE. \\
+
+% \subsection{Interface Web}
+
+Com o intuito de facilitar a visualização, foi desenvolvida uma interface Web\index{interface web} que permite observar a execução das ações do plano com a ocorrência de falhas e as ações de reparo, bem como permite que o usuário interaja com o simulador para a geração de falhas. A Figura 6.4
+%TODO: ~\ref{fig:screenshot_simulador}
+apresenta uma imagem da interface Web durante a execução de um plano no simulador.
+É possível visualizar a ocorrência de uma falha que inviabiliza as pré-condições da ação {\tt A1}, uma vez que o estado passou do estado {\tt S1} ao {\tt SR0}. A partir deste ponto um reparo de plano é executado (ações {\tt AR0}, {\tt AR1} e {\tt AR2}) até retomar o plano original a partir da ação {\tt A2}.
+
+\begin{figure}[ht!] % Figura 6.4
+    \centering
+	\label{fig:screenshot_simulador}
+    \includegraphics[angle=90,height=0.90\textheight]{./img/screen_shot_simulador.ps}
+    \caption[Simulação de execução do plano]{O plano original é mostrado acima  do reparo. Ações já executadas do plano original aparecem com nomes sublinhados. Ações removidas do plano original são ilustradas por retângulos de cor cinza claro. As setas sobrepostas à foto da tela indicam em que ponto do plano original ocorreu a falha, e qual é o ponto da retorno após a execução do reparo.}
+\end{figure}
+
+%\begin{figure}[ht!]
+%    \centering
+%	\label{fig:screenshot_simulador}
+%    \includegraphics[angle=0,width=1.0\textwidth]{./img/screenshot_simulador_2.ps}
+%    \caption{Imagem da tela durante a execução do simulador observado pela
+%interface Web.}
+%\end{figure}
+
+\section{O programa de geração de falhas}
+\label{cap:6:sec:o_sistema_de_geracao_de_falhas}
+
+Para que os testes pudessem ser realizados foi criado um sistema de geração de falhas independente de domínio.
+Criar uma alteração específica significa simplesmente invalidar uma pré-condição e ainda manter um estado consistente. Por exemplo, no domínio do Mundo dos Blocos, ao tentar desempilhar um bloco, uma das pré-condições é que o bloco esteja livre, uma alteração específica colocaria um outro bloco sobre o bloco que se quer desempilhar, para cria uma falha.
+Um dos cuidados que se deve ter é de manter a consistência dos estados: simplesmente fazer com que uma pré-condição se torne falsa, pode gerar estados inconsistentes. Por exemplo, se o $Bloco_A$ estiver sobre o $Bloco_B$, não se pode adicionar a condição $Livre(Bloco_B)$, sem adicionar a condição $Sobre(Bloco_A, mesa)$ ou $Sobre(Bloco_A, Bloco_C)$, isto é, o $Bloco_A$ deve estar em outro lugar que não seja sobre o $Bloco_B$.\\
+
+Sendo assim, a alternativa para manter estados conscientes é executar ações exógenas\footnote{Ações exógenas podem ser as mesmas ações do domínio, porém, elas são supostamente executadas por outro agente que tem como objetivo invalidar os planos do agente principal e por isso podem também ser chamadas de ações exógenas.}\index{ação!exógena} cujos efeitos inviabilizem ao menos uma das pré-condições da ação. O programa de geração de falhas realiza os seguintes passos:
+
+\begin{enumerate}
+ \item sorteia (ou seleciona) uma ação $a_f$ para falhar;
+\item seleciona uma ou mais pré-condições de $a_f$ que serão negadas, $p \subseteq$ pré-condições ($a_f$);
+\item chama o VHPOP, o qual recebe como entrada o subconjunto $p$, o estado $s$ anterior à execução de $a_f$, o domínio; e devolve como saída um plano de ações exógenas; 
+\item solicita ao simulador que execute o plano de ações exógenas imediatamente antes da execução de $a_f$.
+\end{enumerate}
+
+
+%A Figura 6.? ilustra a geração de falha utilizando as três técnicas. \\
+
+%\begin{center}
+%\begin{figure}[ht!] % Figura 6.?
+%    \centering
+%    \includegraphics[angle=0,width=0.6\textwidth]{./img/geracao_falhas.ps}
+%    \caption[Exemplo de geração de falha]{A partir do estado atual, deseja-se fazer com que a ação {\it empilhar} ({\it stack}, descrita no Apêndice \ref{apendice_dominio_blocos}) falhe. Neste exemplo as três técnicas são aplicadas, gerando diferentes estados. É possível visualizar que o método de negação das pré-condições cria um estado inconsistente, pois o braço mecânico não está segurando nada, mas também não está livre. Além disso, não há qualquer informação sobre o {\tt bloco A}.}
+%\end{figure} 
+%\end{center}
+
+% Entretanto, é possível que não haja um conjunto de ações que inviabilize as pré-condições da ação escolhida, ou que tal conjunto seja muito grande. Portanto, delimitou-se a busca a um número máximo de ações. Caso esta busca não encontre nenhum conjunto que satisfaça o objetivo, uma outra ação é escolhida de forma aleatória e o processo recomeça. \\
+
+% As falhas geradas possuem informações que permitem ao simulador\index{simulador} aplicá-las em determinado instante durante a execução do plano. Desta forma torna-se viável realizar uma análise empírica sobre a implementação do sistema de reparo de
+%plano por refinamento reverso, pois é possível aplicar a mesma falha nas diferentes situações propostas por esta dissertação. \\
+
+\section{A arquitetura do sistema}
+
+Os sistemas VHPOP-RE\index{VHPOP-RE}, VHPOP-RE-H e o simulador foram implementados na linguagem de programação C++\index{C++}, gerando aproximadamente 5300 linhas de código. A interface Web do simulador foi implementada utilizando a linguagem de programação Perl\index{Perl}. \\
+% e gerou aproximadamente 900 linhas de código, desconsiderando os templates em \ac{HTML}\index{HTML}. \\
+
+A Figura 6.5
+%TODO: ~\ref{arquitetura} 
+ilustra a arquitetura e dados trocados entre cada segmento do sistema.
+%O simulador recebe como entradas um conjunto de falhas, o plano pré-determinado pelo planejador, bem como o domínio e o problema a ser solucionado. Após a simulação, ele devolve ao sistema de reparo o status da execução das ações. De acordo com as respostas do simulador, o sistema de reparo tomará decisões a respeito de como proceder em cada caso. A interface Web permite a monitoração visual dos estados e ações que foram executadas no simulador.
+Mais detalhes da implementação podem ser vistos no Apêndice \ref{apendice_arquitetura_sistema}, o qual mostra o Diagrama de Classe\index{Diagrama!de Classe} em {UML}. \\
+
+\begin{center}
+  \begin{figure}[ht!] % Figura 6.5
+    \centering
+	\label{arquitetura}
+    \includegraphics[angle=270,width=1.0\textwidth]{./img/arquitetura_implementada.ps}
+    \caption[Arquitetura do sistema de reparo]{Arquitetura do sistema de reparo de plano por refinamento reverso. Os octágonos representam os sistemas implementados nesse trabalho.}
+  \end{figure}
+\end{center}
+
+
+
+\section{Domínios de teste}
+
+Os domínios\index{domínio} de teste utilizados nesta dissertação são instâncias dos domínios: Mundo dos Blocos Coloridos\index{Mundo dos Blocos Coloridos} e Controle de Satélites\index{Controle de Satélites}. \\
+
+\subsection{Mundo dos Blocos Coloridos}
+
+O domínio do Mundo dos Blocos Coloridos é uma variação do domínio do Mundo dos Blocos \cite{Winston1992} que foi definido nessa disseratação para testar problemas interessantes de reparo de planos. \\ 
+
+A diferença entre esses dois domínios é que no Mundo dos Blocos Coloridos, além de cada bloco possuir uma identificação única, ele possui uma cor pré-determinada. Ao empilhar um bloco sobre o outro, o bloco superior assume a cor do bloco inferior e, mesmo que os blocos sejam separados, a modificação de cor permanecerá até que o bloco seja disposto em cima de um outro bloco de cor diferente e uma nova alteração ocorra. Um exemplo deste domínio pode ser visto na Figura 6.6,
+%TODO: ~\ref{fig:mundo_blocos_coloridos}, 
+e sua descrição encontra-se na Tabela \ref{tab:dominio_blocos_coloridos}. \\
+
+\begin{figure}[ht!] % Figura 6.6
+    \centering
+	\label{fig:mundo_blocos_coloridos}
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/mundo_blocos_coloridos.ps}
+    \caption[Mundo dos Blocos Coloridos]{Este exemplo mostra o comportamento
+da ação empilhar no Mundo dos Blocos Coloridos. Ao empilhar o bloco branco A sobre o bloco azul B, o bloco A muda da cor branca para a cor azul.}
+\end{figure}
+
+\begin{Tab}{Descrição das ações no domínio do Mundo dos Blocos Coloridos}
+\label{tab:dominio_blocos_coloridos}
+\begin{center}
+% use packages: array
+\begin{tabular}{|c|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Ação}} & \textbf{Descrição} \\ \hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize pick-up(?x)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (and (clear ?x) (ontable ?x) (handempty)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (not (ontable ?x)) (not (clear ?x))  \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (handempty)) (holding ?x)) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize put-down(?x)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (holding ?x) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (not (holding ?x)) (clear ?x) (handempty) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (ontable ?x)) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize stack-amarelo(?x ?y)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (and (holding ?x) (clear ?y) (amarelo ?y)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (not (holding ?x)) (not (clear ?y)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (clear ?x) (handempty) (on ?x ?y) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (amarelo ?x) (not (azul ?x)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (vermelho ?x))) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize stack-azul(?x ?y)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (and (holding ?x) (clear ?y) (azul ?y)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (not (holding ?x)) (not (clear ?y)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (clear ?x) (handempty) (on ?x ?y) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (amarelo ?x)) (azul ?x) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (vermelho ?x))) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize stack-vermelho(?x ?y)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (and (holding ?x) (clear ?y) (vermelho ?y)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (not (holding ?x)) (not (clear ?y)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (clear ?x) (handempty) (on ?x ?y) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (amarelo ?x)) (not (azul ?x)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (vermelho ?x)) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize unstack(?x ?y)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize (and (on ?x ?y) (clear ?x) (handempty)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize (and (holding ?x) (clear ?y) (not (clear ?x)) \\
+\multicolumn{2}{|r|}{\tt \ }           & \tt \scriptsize (not (handempty)) (not (on ?x ?y))) \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{Tab}
+
+
+Este domínio\index{domínio} oferece a possibilidade de testar, de modo claro e eficiente, o comportamento do sistema durante a ocorrência de falhas em que somente o refinamento (adição de ações) não é suficiente para reparar o plano, exigindo assim, a execução de refinamento reverso. \\
+
+\begin{Ex}
+Deseja-se criar uma pilha de três blocos onde todos sejam de cor amarela ou azul. O estado inicial consiste em três blocos, dispostos livremente sobre a mesa e suas cores são: amarelo, azul e vermelho. O plano original é colocar o bloco vermelho sobre o azul e o amarelo sobre os dois. Entretanto, um evento exógeno poderia fazer com que o bloco azul fosse disposto sobre o vermelho, inviabilizando a execução do plano original. Para solucionar este problema seria necessário executar um sistema de reparo de plano que utiliza refinamento reverso, pois é preciso remover ações do plano original para repará-lo  
+\end{Ex}
+
+\subsection{Controle de Satélites}
+
+A busca por soluções de automatização aplicada às operações espaciais é uma necessidade mundial para diminuir os custos das missões. Encontrar caminhos de automatização para as atividades que envolvem operação de satélites é de extrema importância para se conseguir manter um bom desempenho, mesmo com a escassez de recursos disponíveis \cite{Cardoso2006}\cite{Cardoso2006a}. Essa é uma das aplicações práticas para as quais se tem usado planejadores automáticos. \\
+
+O domínio de Controle de Satélites \cite{McDermott2000}\cite{Bacchus2001} envolve um conjunto de satélites, e seus respectivos instrumentos de coleta de dados e configurações específicas. Os instrumentos fazem parte de satélites específicos, e cada instrumento pode ter diferentes funcionalidades como, por exemplo, um infravermelho ou uma câmera fotográfica. O satélite pode ser posicionado em direções específicas, e os instrumentos calibrados para atuarem na mesma direção em que aponta o satélite. Sendo assim, um satélite posicionado na direção de um corpo celeste pode ter seu infravermelho calibrado para tirar uma fotografia deste astro. A descrição das ações do domínio pode ser obeservada na Tabela \ref{tab:descricao_problema_controle_de_satelites}. \\
+
+Entretanto, para utilizar um instrumento de coleta de dados é necessário que este esteja ligado no sistema de energia do satélite e esteja calibrado. Toda vez que um instrumento é desligado e ligado novamente, ele é descalibrado. \\ %Além disso, do mesmo modo que na prática, no domínio, o recurso energético do satélite é limitado. Sendo assim, ao direcionar energia a um dos instrumentos não é possível direcioná-la a mais nenhum outro. \\
+
+\begin{Tab}{Descrição das ações no domínio de Controle de Satélites}
+\label{tab:dominio_controle_satelites}
+\begin{center}
+% use packages: array
+\begin{tabular}{|c|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Ação}} & \textbf{Descrição} \\ \hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize turn\_to(?s ?d\_new ?d\_prev)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize  (pointing ?s ?d\_prev) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize  (and (pointing ?s ?d\_new) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (not (pointing ?s ?d\_prev))) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize switch\_on(?i ?s)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize  (and (on\_board ?i ?s) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (power\_avail ?s) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize  (and (power\_on ?i) (not (calibrated ?i)) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (not (power\_avail ?s))) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize switch\_off(?i ?s)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize  (and (on\_board ?i ?s) (power\_on ?i) )\\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize  (and (not (power\_on ?i)) (power\_avail ?s)) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize calibrate(?s ?d ?i ?m)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize  (and (on\_board ?i ?s) (calibration\_target ?i ?d) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (pointing ?s ?d) (power\_on ?i) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize  (calibrated ?i) \\
+\hline \hline
+
+\multicolumn{3}{|l|}{\tt \scriptsize take\_image(?s ?d ?i ?m)} \\ \hline
+\multicolumn{2}{|r|}{\tt \scriptsize precondição:} & \tt \scriptsize  (and (calibrated ?i) (on\_board ?i ?s) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (supports ?i ?m) (power\_on ?i) \\
+\multicolumn{2}{|r|}{\tt \ }                       & \tt \scriptsize  (pointing ?s ?d) (power\_on ?i)) \\
+\multicolumn{2}{|r|}{\tt \scriptsize efeito:}      & \tt \scriptsize  (have\_image ?d ?m)) \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{Tab}
+
+O objetivo é encontrar um plano que faça a coleta de dados, otimizando a utilização dos recursos do satélite como, por exemplo, tirar fotos com diferentes câmeras e infravermelhos de diversos corpos celestes, da forma mais eficiente possível.  \\
+
+O domínio\index{domínio} de Controle de Satélites\index{Controle de Satélites} permite testar o comportamento do sistema durante a ocorrência de falhas que precisa da remoção de ações para reparar o plano, pois um instrumento pode se tornar inapto para utilização. \\
+
+
+\section{Análise experimental}
+
+Os experimentos foram executados em um computador Dell, com processador Intel 6400 Core 2 Duo com clock de 2.13 GHz, 2 GB de memória e sistema operacional Linux\index{Linux} Ubuntu\index{Ubuntu} 7.10 ({\it Gutsy Gibbon}). O código-fonte foi compilado com GCC 4.1 com o {\it flag} {\tt -O2} habilitado. \\
+
+Foram comparados os sistemas VHPOP-RE, VHPOP-RE-H (versão com heurística) e VHPOP (usado para replanejamento a partir do estado em que ocorre uma falha). Realizou-se dois tipos de análise experimental: 
+\begin{itemize}
+ \item[1] Análise do tempo médio de execução; e
+\item [2] Análise de aproveitamento do plano original mantido após o reparo. 
+\end{itemize}
+
+Os resultados das análises referentes ao domínio do Mundo dos Blocos Coloridos e Controle de Satélites podem ser observados nas Figuras 6.7 e 6.8. Os problemas foram divididos em diferentes categorias, conforme a descrição das Tabelas \ref{tab:descricao_problemas_mundo_de_blocos_coloridos} e \ref{tab:descricao_problema_controle_de_satelites}.\\
+
+\begin{Tab}{Descrição da natureza dos problemas utilizados para teste do domínio de Mundo dos Blocos Coloridos}
+\label{tab:descricao_problemas_mundo_de_blocos_coloridos}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+{\bf Falha} & {\bf Descrição} & {\bf Objetivo} \\ \hline \hline
+ 1 $-$ 8  & 3 blocos coloridos & construir 1 pilha de blocos \\ \hline
+ 9 $-$ 16 & 6 blocos coloridos & construir 1 pilha de blocos \\ \hline
+17 $-$ 24 & 6 blocos coloridos & construir 3 pilhas de blocos \\ \hline
+\end{tabular}
+\end{center}
+\end{Tab}
+
+\begin{Tab}{Descrição da natureza dos problemas utilizados para testes do domínio de Controle de Satélites}
+\label{tab:descricao_problema_controle_de_satelites}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+{\bf Falha} & {\bf Descrição} \\ \hline \hline
+ 1 $-$ 6  & 1 satélite - 2 instrumentos - 2 aparelhos \\ \hline
+ 7 $-$ 12 & 2 satélites - 1 instrumento - 2 aparelhos \\ \hline
+13 $-$ 18 & 2 satélites - 2 instrumentos - 1 aparelho \\ \hline
+\end{tabular}
+\end{center}
+\end{Tab}
+
+
+
+%Os resultados experimentais dos testes deste trabalho foram divididos em dois grupos. O primeiro, cujo objetivo foi analisar o tempo médio\index{tempo médio} de execução entre as diferentes implementações (Figuras 6.7 e 6.8); e o segundo, com o objetivo de analisar o percentual do plano original mantido após o reparo (Figura 6.9).
+
+\subsection{Análise de tempo}
+
+Observa-se nas Figuras 6.7 e 6.8
+%TODO: ~\ref{blocks3-2-color-usertime}
+que, em quase todos os pontos do gráfico, o sistema de reparo de plano utilizando heurística é mais eficiente do que o reparo de plano sem nenhuma heurística, VHPOP-RE, ou mesmo o replanejamento completo. Isto se deve principalmente ao fato de que, mesmo após ocorrer uma falha\index{falha}, grande parte do plano original geralmente ainda é válida. Sendo que, com a utilização de uma heurística\index{heurística}, é possível utilizar a parte ainda válida do plano sem desperdiçar muito processamento na busca, ou mesmo descartando e refazendo todo o plano com um replanejamento completo. \\
+
+Entretanto, ainda nas Figuras 6.7 e 6.8, observa-se que em alguns casos, o sistema VHPOP-RE-H consome mais tempo para encontrar a solução do que o VHPOP. Isto se dá porque no pior caso, o VHPOP-RE-H testa um conjunto de possibilidades antes de descartar completamente o plano e construir um novo (como na falha 22 da Figura 6.7, ou nas falhas 3 e 6 da Figura 6.8).
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \label{graf_blocks-usertime}
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/block-usertime.ps}
+    \caption[Tempo de execução no domínio do Mundo dos Blocos Coloridos]{Tempo médio de execução para o domínio do Mundo dos Blocos Coloridos\index{Mundo dos Blocos!Coloridos}.}
+    \label{blocks3-2-color-usertime}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \label{graf_satellite-usertime}
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/controle-satelite-sat-usertime.ps}
+    \caption[Tempo de execução no domínio de Controle de Satélites]{Tempo médio de execução para o domínio de Controle de Satélites\index{Controle de Satélites}.}
+    \label{satellite-2-usertime}
+  \end{figure}
+\end{center}
+
+\subsection{Análise de aproveitamento do plano}
+
+A Figura 6.9
+%TODO: ~\ref{blocks3-2-percentual_original}
+apresenta um gráfico onde nota-se que o número de ações do plano original mantido pelo reparo de plano com heurística é bem superior ao replanejamento completo, pois ao detectar que ocorreu uma falha, o sistema de replanejamento descarta todo o plano e gera um novo, enquanto o sistema de reparo de plano desenvolvido neste trabalho tenta encontrar, por meio da heurística, um reparo que o leve de volta ao plano original. No pior dos casos o VHPOP-RE-H testa todas as possibilidades e encontra a mesma solução que o sistema VHPOP, ou seja, remove todas as ações do plano original, como pode ser observado nas Figuras 6.9 e 6.11, falhas 3 e 6. Comparando o sistema de reparo com heurística ao sem, observa-se que o algoritmo sem heurística mantém um maior número de ações do plano original. Isto ocorre porque a heurística utilizada não é perfeita, enquanto o algoritmo implementado no sistema de reparo sem heurística testa todas possibilidades de retorno ao plano original. \\ 
+
+Em alguns casos, entretanto, é possível que o VHPOP-RE-H adicione um maior número de ações do que um replanejamento completo, pois sua prioridade é manter um compromisso com o plano original.\\
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/sat-num_acoes_adicionadas.ps}
+    \caption[Aproveitamento do plano durante a adição de ações - domínio de Controle de Satelites]{úmero de ações adicionadas após a execução do reparo no domínio de Controle de Satelites.}
+    \label{sat-num_acoes_adicionadas}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/block-num_acoes_adicionadas.ps}
+    \caption[Aproveitamento do plano durante a adição de ações - domínio do Mundo dos Blocos Coloridos]{Número de ações adicionadas após a execução do reparo no domínio do Mundo dos Blocos Coloridos.}
+    \label{block-num_acoes_adicionadas}
+  \end{figure}
+\end{center}
+
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/sat-num_acoes_removidas.ps}
+    \caption[Aproveitamento do plano durante a remoção de ações - domínio de Controle de Satelites]{Número de ações removidas após a execução do reparo no domínio de Controle de Satelites.}
+    \label{sat-num_acoes_removidas}
+  \end{figure}
+\end{center}
+
+\begin{center}
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/block-num_acoes_removidas.ps}
+    \caption[Aproveitamento do plano durante a remoção de ações - domínio do Mundo dos Blocos Coloridos]{Número de ações removidas após a execução do reparo no domínio do Mundo dos Blocos Coloridos.}
+    \label{block-num_acoes_removidas}
+  \end{figure}
+\end{center}

@@ -1,0 +1,374 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{22cm}
+\setlength{\parskip}{0.2cm}
+
+% Para aumentar o espaçamento entre as linhas
+\linespread{1.2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Planejamento clássico}
+\label{cap:planejamento_classico}
+
+Neste capítulo define-se o problema de planejamento clássico\index{planejamento!clássico} como um modelo simplificado para a tarefa de planejamento, que serve como base para futuras extensões de algoritmos para problemas mais gerais de planejamento. Apresenta-se, também, um algoritmo bastante conhecido para planejamento clássico que emprega o método de busca por refinamento de planos. \\
+
+\section{Modelo restrito}
+
+O modelo conceitual\index{modelo!conceitual} descrito no Capítulo \ref{cap:modelo_conceitual_planejamento} não foi proposto como um modelo operacional\index{modelo!operacional}. Pelo contrário, ele é usado como referência para a construção de sistemas de planejamento\index{sistema!de planejamento}. Por meio dele é possível fazer diferentes suposições restritivas\index{suposições restritivas} sobre o ambiente em que se deseja planejar \cite{Malik2004}:
+
+\begin{itemize}
+
+\item {\bf Suposição A0 ($\Sigma$ finito)}. O ambiente $\Sigma$ tem um conjunto finito de estados.
+
+\item {\bf Suposição A1 ($\Sigma$ completamente observável)}. O sistema $\Sigma$ é completamente observável\index{completamente observável}. Neste caso, a função observação\index{função!observação} $\eta$ é a função identidade\index{função!identidade}.
+
+\item {\bf Suposição A2 ($\Sigma$ determinístico)}. O sistema $\Sigma$ é determinístico\index{determinístico}, isto é, para cada estado $s$ e para cada evento ou ação $u,\ |\gamma(s,u)|\ \le\ 1$. Se uma ação é aplicável a um estado, sua execução leva um sistema determinístico\index{sistema!determinístico} a um outro estado único, possivelmente com a ocorrência de um evento exógeno.
+
+\item {\bf Suposição A3 ($\Sigma$ estático)}. O sistema $\Sigma$ é estático, ou seja, o conjunto de eventos $E$ é vazio. $\Sigma$ permanece no mesmo estado até que o controlador aplique alguma ação selecionada pelo planejador.
+ 
+\item {\bf Suposição A4 (objetivos restritos)}. O planejador manipula apenas objetivos restritos\index{objetivo!restrito} que são especificados como um estado objetivo explícito $s_g$ ou um conjunto de estados objetivos $S_g$; sendo que o objetivo é obter qualquer seqüência de transições de estado que termine em um dos estados objetivos.
+
+\item {\bf Suposição A5 (planejamento seqüencial)}. Um plano solução para um problema de planejamento é uma seqüência finita de ações de ordem total\index{ordem!total} ou parcial\index{ordem!parcial}. 
+
+\item {\bf Suposição A6 (tempo implícito)}. Ações e eventos não têm duração; são transições de estado instantâneas. Esta suposição está intrínseca a um sistema de transição de estado, que não representa tempo explicitamente.
+
+\item {\bf Suposição A7 (planejamento offline)}. O planejador não considera qualquer mudança que possa ocorrer em $\Sigma$ {\it enquanto} estiver planejando; planeja-se para o estado inicial e o objetivo, independentemente das possíveis falhas na execução do plano.
+
+\end{itemize}
+
+Uma vez que o sistema é determinístico\index{determinístico}, se $\gamma$ for aplicável em $s$, então $\gamma(s,a)$ corresponde a um único estado $s'$. Para simplificar a notação, descreve-se $\gamma(s,a)\ =\ s'$ em vez de $\gamma(s,a)\ =\ \{s'\}$. Para este tipo de sistema, um planejamento é uma seqüência $\{a_1,\ a_2,\ \ldots,\ a_k\}$, tal que $\gamma(\gamma(\ldots$ $\gamma(\gamma(s_0,$ $a_1),$ $a_2),$ $\ldots,$ $a_{k-1}),$ $a_k)$ é um estado objetivo. Um exemplo de um grafo de transições de estados em um {\it modelo restrito}, pode ser observado na Figura ~\ref{fig:sistemaTransicaoEstadoMundoBlocos} \cite{Lago2002}.
+
+%\begin{figure}[ht!]
+%	\centering
+%	\includegraphics[scale=0.25]{./img/transicao_mundo_blocos.ps}
+%	\caption[Exemplo de sistema de transição de estado no domínio do Mundo dos Blocos]{Exemplo de parte do sistema de %transição de estados no domínio do Mundo dos Blocos.}
+%	\label{fig:sistemaTransicaoEstadoMundoBlocos}
+%\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.24]{./img/mundo_blocos_3_completo.ps}
+	\caption[Sistema de transições de estados no domínio do Mundo dos Blocos]{Exemplo de sistema de transição de estados no domínio do Mundo dos Blocos\index{Mundo dos Blocos}. Nesta figura, os nós representam todos os estados do mundo para um sistema com três blocos e cada aresta representa uma transição de estado. Um exemplo de problema de planejamento seria encontrar um plano que a partir do estado $s_0$ conseguisse alcançar algum dos estados objetivos $\lbrace g_1,\ g_2,\ g_3,\ g_4 \rbrace$ \cite{Lago2002}.}
+	\label{fig:sistemaTransicaoEstadoMundoBlocos}
+\end{figure}
+
+A propriedade sobre conhecimento completo é necessária somente no estado inicial $s_0$ porque o modelo determinístico permite que todos os outros estados sejam completamente previsíveis, dado que as ações são determinísticas. Uma vez que a execução do plano é incondicional (sempre funciona), o controlador que executa o plano não obtém nenhuma realimentação sobre o estado do sistema, como pode ser observado no modelo conceitual para planejamento visto no Capítulo \ref{cap:modelo_conceitual_planejamento}. \\
+
+Este caso restrito pode parecer simples: planejamento se resume a buscar um caminho em um grafo\index{grafo}, sendo que este é um problema conhecido e bem resolvido. Na verdade, se for dado explicitamente o grafo $\Sigma$, então não há muito mais a dizer sobre planejamento para este caso. Entretanto, mesmo em um domínio simples, o grafo $\Sigma$ pode ser tão extenso que especificá-lo explicitamente não é viável. Além disso, este modelo foi proposto como uma base para futuras extensões, como será visto no próximo capítulo.\\
+
+O {\it planejamento clássico\index{planejamento!clássico}} se refere genericamente a um planejamento para sistemas restritos de transições de estados. \\
+
+\begin{Def}[Planejamento clássico]
+Um sistema restrito de transição de estados é aquele que satisfaz todas as suposições de A0 a A7. É um sistema de transição de estados determinístico, estático, finito e completamente observável com objetivos restritos e tempo implícito. Tal sistema é simbolizado por $\Sigma = (\mathcal{S}, \mathcal{A}, \gamma)$, e não por $(\mathcal{S},\ \mathcal{A},\ \mathcal{E},\ \gamma)$, porque não há eventos exógenos\index{evento!exógeno}. Aqui, $\mathcal{S},\ \mathcal{A}$ e $\gamma$ são finitos, e $\gamma(s, a)$ é um estado único quando $a$ é aplicável em $s$ \cite{Malik2004}. \\
+\end{Def}
+
+\begin{Def}[Problema de planejamento clássico]
+Um problema de planejamento clássico\index{planejamento!clássico} para um sistema de transição de estado restrito\index{sistema!de transição de estado restrito} $\Sigma\ =\ (\mathcal{S},\ \mathcal{A},\ \gamma)$ é definido como uma tripla $\mathcal{P} = (\Sigma\ ,\ s_0,\ g)$, em que $s_0$ é um estado inicial e $g$ corresponde a um conjunto de estados objetivos. Uma solução para $\mathcal{P}$ é uma seqüência de ações $(a_1,\ a_2,\ \ldots,\ a_k)$ correspondente a uma seqüência de transições de estados $(s_0,\ s_1,\ \ldots,\ s_k)$, tal que $s_1\ =\ \gamma(s_0,\ a_1),\ \ldots,\ s_k\ =\ \gamma(s_{k-1},\ a_k)$, onde $s_k$ é um estado objetivo. Tal seqüência de ações deve ser sintetizada pelo sistema de planejamento.
+\end{Def}
+
+\section{Linguagens para planejamento}
+\label{cap:3:sec:linguagens_para_planejamento}
+
+No planejamento independente de domínio\index{planejamento!independente de domínio}, a representação de problemas de planejamento $-$ estados, ações e objetivos $-$ deve ser feita por meio de uma linguagem que seja suficientemente expressiva para descrever uma ampla variedade de problemas, mas restritiva o bastante para permitir que algoritmos eficientes operem sobre ela. A maioria das abordagens de planejamento adotam uma representação baseada em lógica\index{lógica} para descrever estados, ações e para definir e computar facilmente o próximo estado $\gamma(s,a)$. A linguagem mais popular usada por planejadores clássicos é conhecida como {STRIPS}\index{STRIPS} ({\it Stanford Research Institute Planning System}) \cite{Richard1971}, tem sido estendida nos últimos 15 anos para abranger problemas de planejamento não-clássicos, isto é, planejamento para domínios mais complexos. Neste trabalho 
+
+\subsection{Representação de estado}
+
+A linguagem {STRIPS} decompõe o mundo em condições lógicas e representa um estado como uma conjunção de literais positivos\index{literal!positivo}\footnote{Em lógica de predicados de primeira ordem\index{lógica!de predicados de primeira ordem}\index{lógica!proposicional}, um {\it literal}\index{literal} é uma sentença atômica (um {\it literal positivo}\index{literal!positivo}) ou uma sentença atômica negada (um {\it literal negativo}\index{literal!negativo}).}. Um exemplo de literal proposicional que pode representar o estado de um agente desaparecido é  $Perdido\ \wedge\ Incomunicavel$. Já literais de primeira ordem podem ser representados por $Cor(Bloco_1,\ Azul)\ \wedge\ Cor(Bloco_2,\ Vermelho)\ \wedge\ Sobre(Bloco_1,\ Bloco_2)$. Literais utilizados em descrições de estado de primeira ordem devem ser básicos e livres de funções. Além disso, numa representação de estado, quaisquer condições não mencionadas em um estado são consideradas falsas, esta premissa é conhecida como \ac{CWA}\index{mundo!fechado}. \\
+
+\subsection{Representação de objetivo}
+
+Um objetivo na linguagem {STRIPS}\index{STRIPS} é dado por uma conjunção de literais básicos positivos. Por exemplo, pode-se representar o objetivo de ter um bolo e estar com a cozinha limpa por meio de $Bolo\ \wedge\ CozinhaLimpa$ ou que o $Bloco_2$ deve estar sobre o $Bloco_1$ por $Sobre(Bloco_2,\ Bloco_1)$. Um estado $s$ {\it satisfaz\index{satisfaz}} um objetivo $g$ se $s$ contém todos os literais (ou proposições) em $g$. Por exemplo, o estado $Bolo\ \wedge\ CozinhaLimpa\ \wedge\ Suco$ satisfaz o objetivo $Bolo\ \wedge\ CozinhaLimpa$.
+
+\subsection{Representação de ações}
+
+Uma ação {STRIPS} é descrita pelas pré-condições (literais positivos) que devem ser válidas antes de a mesma ser aplicada e pelos efeitos após sua execução. Por exemplo, a composição da representação de uma ação equivalente a dirigir um carro de um local para outro pode ser observada na Tabela 3.2. \\
+
+\begin{Tab}[Exemplo de representação de uma ação STRIPS]
+\ \\
+\begin{tabular}{|l|l|}
+\hline
+Ação          &  \scriptsize Dirigir($carro$, $origem$, $destino$)\\
+Pré-condições &  \scriptsize Em($carro$, $origem$) $\wedge$ Veículo($carro$) $\wedge$ Cidade($origem$) $\wedge$ Cidade($destino$)\\
+Efeitos       &  \scriptsize $\lnot$ Em($carro$, $origem$) $\wedge$ Em($carro$, $destino$)\\
+\hline
+\end{tabular}
+\end{Tab}
+
+A estrutura de uma ação {STRIPS} no planejamento clássico consiste de três partes:
+
+\begin{itemize}
+
+\item O \textbf{nome da ação} e a lista de parâmetros. Por exemplo, {\it Dirigir}({\it carro,\ origem,\ destino}) serve para identificar a ação.
+
+\item A \textbf{pré-condição} é uma conjunção de literais positivos que devem ser verdadeiros em um estado antes da ação ser executada. Qualquer variável da pré-condição também deve aparecer na lista de parâmetros da ação.
+
+\item Os \textbf{efeitos} da ação são representados por uma conjunção de literais livres de funções que descrevem como o estado se altera quando a ação é executada. Um literal positivo ($p$) no efeito é considerado verdadeiro no estado resultante da ação, enquanto que sua negação ($\lnot p$) significa que ele é falso naquele estado. As variáveis do efeito também devem aparecer na lista de parâmetros da ação.
+
+\end{itemize}
+
+Deste modo, uma ação é {\it aplicável\index{ação!aplicável}} a qualquer estado que satisfaça a pré\-con\-di\-ção; caso contrário, a ação não tem nenhum efeito. O resultado da execução de uma ação aplicável $a$ em um estado $s$ é $s'$, o qual é calculado eliminando-se os literais negativos e adicionando-se os literais positivos dos efeitos de $a$. Assim, se um efeito positivo já estiver em $s$, ele não será adicionado uma segunda vez, e se um efeito negativo não estiver em $s$, o mesmo será ignorado. Qualquer literal não mencionado no efeito permanece inalterado. \\
+
+\subsection{Domínio do Mundo dos Blocos}
+\label{cap:3:sec:linguagens_para_planejamento:subsub:mundo_de_blocos}
+
+O Mundo dos Blocos\index{Mundo dos Blocos} é um dos domínios de planejamento mais famosos \cite{Winston1992}. Este domínio consiste em um conjunto de blocos em forma de cubo, dispostos sobre uma mesa. Os blocos podem ser empilhados, mas apenas um bloco pode ficar diretamente em cima de outro. Um braço robô\index{robô} pode levantar um bloco de cada vez, porém não consegue levantar um bloco que tenha outro em cima dele. O objetivo é construir uma ou mais pilhas de blocos, com especificações exatas de quais blocos devem ficar em cima de que outros blocos. Por exemplo, um objetivo poderia ser colocar o bloco {\it A} sobre {\it B} e o bloco {\it B} sobre {\it C}. Um exemplo deste domínio pode ser visto na Figura 3.2, e sua descrição encontra-se no Apêndice \ref{apendice_dominio_blocos}. \\
+
+\begin{figure}[ht!]
+    \centering
+	\label{fig:mundo_blocos}
+    \includegraphics[angle=0,width=1.0\textwidth]{./img/mundo_blocos.ps}
+    \caption[Mundo dos Blocos]{Este exemplo demonstra o comportamento de ações comuns no Mundo dos Blocos\index{Mundo dos Blocos}, ao empilhar o bloco A sobre o bloco B.}
+\end{figure}
+
+A Tabela 3.1 mostra a descrição de todos os estados, em {STRIPS}, apresentados na Figura 3.1.
+
+\begin{Tab}[Todos os estados do domínio do Mundo dos Blocos para um problema com 3 blocos]
+\ \\
+\begin{tabular}{|c|l|}
+\hline
+Estado & Descrição \\
+\hline
+$\#1$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, Mesa) $\wedge$ 
+\\ & \scriptsize Livre(A) $\wedge$ Livre(B) $\wedge$ Livre(C) \\
+
+$\#2$ & \scriptsize Garra(A) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(B) $\wedge$ Livre(C) \\
+
+$\#3$ &  \scriptsize GarraVazia $\wedge$ Sobre(A, B) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) $\wedge$ Livre(C) \\
+$\#4$ &  \scriptsize Garra(C) $\wedge$ Sobre(A, B) $\wedge$ Sobre(B, Mesa) $\wedge$ Livre(A) \\
+$\#5$ &  \scriptsize GarraVazia $\wedge$ Sobre(A, B) $\wedge$ Sobre(B, Mesa) $\wedge$ $\wedge$ Sobre(C, A) $\wedge$ Livre(C) \\
+
+$\#6$ &  \scriptsize GarraVazia $\wedge$ Sobre(A, C) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) $\wedge$ Livre(B) \\
+$\#7$ &  \scriptsize Garra(B) $\wedge$ Sobre(A, C) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) \\
+$\#8$ &  \scriptsize GarraVazia $\wedge$ Sobre(A, C) $\wedge$ Sobre(B, A) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(C) \\
+
+$\#9$ & \scriptsize Garra(B) $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) $\wedge$ Livre(C) \\
+
+$\#10$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, A) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(B) $\wedge$ Livre(C) \\
+$\#11$ & \scriptsize Garra(C) $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, A) $\wedge$ Livre(B) \\
+$\#12$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, A) $\wedge$ Sobre(C, B) $\wedge$ Livre(C) \\
+
+$\#13$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, C) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) $\wedge$ Livre(B) \\
+$\#14$ & \scriptsize Garra(A) $\wedge$ Sobre(B, C) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(B) \\
+$\#15$ & \scriptsize GarraVazia $\wedge$ Sobre(A, B) $\wedge$ Sobre(B, C) $\wedge$ Sobre(C, Mesa) $\wedge$ Livre(A) \\
+
+$\#16$ & \scriptsize Garra(C) $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, Mesa) $\wedge$ Livre(A) $\wedge$ Livre(B) \\
+
+$\#17$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, A) $\wedge$ Livre(B) $\wedge$ Livre(C) \\
+$\#18$ & \scriptsize Garra(B) $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(C, A) $\wedge$ Livre(C) \\
+$\#19$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, C) $\wedge$ Sobre(C, A) $\wedge$ Livre(B) \\
+
+$\#20$ & \scriptsize GarraVazia $\wedge$ Sobre(A, Mesa) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, B) $\wedge$ Livre(A) $\wedge$ Livre(C) \\
+$\#21$ & \scriptsize Garra(A) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, B) $\wedge$ Livre(C) \\
+$\#22$ & \scriptsize GarraVazia $\wedge$ Sobre(A, C) $\wedge$ Sobre(B, Mesa) $\wedge$ Sobre(C, B) $\wedge$ Livre(A) \\
+\hline
+\end{tabular}
+\\
+\end{Tab}
+
+Na Tabela 3.3 é possível observar as ações {STRIPS} para o domínio do Mundo dos Blocos.
+
+\begin{Tab}[Ações STRIPS para o domínio do Mundo dos Blocos]
+\ \\
+\begin{tabular}{|l|l|}
+\hline
+Ação          &  \scriptsize PegarMesa($bloco$)\\
+Pré-condições &  \scriptsize GarraVazia $\wedge$ Sobre($bloco$, Mesa) $\wedge$ Livre($bloco$) \\
+Efeitos       &  \scriptsize $\lnot$ GarraVazia\ $\wedge$\ Garra($bloco$) $\wedge$ $\lnot$ Sobre($bloco$, Mesa) $\wedge$ $\lnot$ Livre(bloco) \\
+\hline
+Ação          &  \scriptsize ColocarMesa($bloco$) \\
+Pré-condições &  \scriptsize Garra($bloco$) \\
+Efeitos       &  \scriptsize GarraVazia\ $\wedge$\ $\lnot$ Garra($bloco$) $\wedge$ Sobre($bloco$, Mesa) $\wedge$ Livre($bloco$) \\
+\hline
+Ação          &  \scriptsize Desempilhar($bloco_1$, $bloco_2$) \\
+Pré-condições &  \scriptsize GarraVazia $\wedge$ Sobre($bloco_1$, $bloco_2$) $\wedge$ Livre($bloco_1$) \\
+Efeitos       &  \scriptsize $\lnot$ GarraVazia\ $\wedge$\ Garra($bloco_1$) $\wedge$ $\lnot$ Sobre($bloco_1$, $bloco_2$) $\wedge$
+\\ & \scriptsize $\lnot$ Livre($bloco_1$) $\wedge$ Livre($bloco_2$) \\
+\hline
+Ação          &  \scriptsize Empilhar($bloco_1$, $bloco_2$) \\
+Pré-condições &  \scriptsize Garra($bloco_1$) $\wedge$ Livre($bloco_2$) \\
+Efeitos       &  \scriptsize GarraVazia\ $\wedge$\ $\lnot$ Garra($bloco_1$) $\wedge$ Sobre($bloco_1$, $bloco_2$) $\wedge$
+\\ & \scriptsize Livre($bloco_1$) $\wedge$ $\lnot$ Livre($bloco_2$) \\
+\hline
+\end{tabular}
+\end{Tab}
+
+\subsection{Linguagens para domínios reais}
+
+Com as definições dadas da linguagem {STRIPS}\index{STRIPS} é possível definir uma {\it solução\index{solução}} para planejamento como uma seqüência de ações que, quando executadas, resultam em um estado que satisfaz o objetivo. \\
+
+Para domínios reais\index{domínio!real}\index{mundo!real}, a linguagem {STRIPS} não é considerada uma linguagem expressiva o suficiente. Devido a isso, foram desenvolvidas muitas variantes de linguagem, sendo uma delas a \ac{ADL}\index{ADL} \cite{Pednault1989}. Em {STRIPS} só é permitido o uso de literais positivos\index{literal!positivo} em estados, enquanto em \ac{ADL} são permitidos literais positivos e negativos\index{literal!negativo}. {STRIPS} trabalha com a {\it suposição de mundo fechado}\index{suposição!de mundo fechado}, em que literais não mencionados são falsos. Em contrapartida, a \ac{ADL} trabalha com a {\it suposição de mundo aberto}\index{hipótese!de mundo aberto}, em que literais não mencionados são desconhecidos. Uma outra diferença importante é que em {STRIPS} não há funções como para igualdade, e não é possível definir tipos de dados; já \ac{ADL} apresenta tais características, bem como quantificadores sobre objetos do domínio. \\
+
+As diversas formas de planejamento em {IA}\index{IA} podem ser especificadas por meio de uma sintaxe padrão denominada {PDDL}\index{PDDL} ({\it Problem Domain Definition Language}) \cite{McDermott1998}\cite{McDermott1998a}, que inclui, entre outras, a linguagem {STRIPS} e \ac{ADL}. Mais informações sobre {PDDL} podem ser encontradas no Apêndice \ref{apendice_pddl}. \\
+
+\section{Algoritmos tradicionais para planejamento clássico}
+
+\subsection{Busca no espaço de estados}
+
+A busca no espaço de estados\index{busca!espaço de estados} é empregada por vários algoritmos de planejamento. O espaço de estados pode ser representado por um grafo\index{grafo}, em que cada nó corresponde a um estado do mundo e cada aresta a uma transição de estado. O planejamento no espaço de estados divide-se basicamente em algoritmos {\it progressivos\index{algoritmo!progressivo}} e {\it regressivos\index{algoritmo!regressivo}}. \\
+
+O algoritmo progressivo de busca parte do estado inicial do plano e aplica de forma não-determinística, a função de transição de estado, isto é, todas as seqüências de ações possíveis, produzindo outros estados e, conseqüentemente, subproblemas. Estes subproblemas buscam soluções parciais que levam ao estado desejado, pois são parte do problema original. A busca é finalizada quando um destes subproblemas consegue alcançar um estado objetivo ou quando não há nenhum plano possível, caracterizando assim uma falha. \\
+
+Uma das características do planejamento progressivo é o de ter conhecimento completo sobre o estado do mundo a
+qualquer instante. Isto se deve ao fato de que este opera a partir de um estado inicial completamente especificado e aplica ações aos estados, resultando em mais especificações completas. O Algoritmo \ref{algoritmo_planejamento_progressivo} exemplifica o processo de planejamento progressivo. \\
+
+\begin{algorithm}
+	\label{algoritmo_planejamento_progressivo}
+	\caption[Planejamento progressivo]{Planejamento progressivo.}
+	\Entrada{Estado inicial $s_0$, Objetivo $S_g$, Domínio $\mathcal{D}$}
+	\Saida{Plano $\pi$}
+	\Inicio{
+		$\pi \leftarrow 0$\;
+		$s \leftarrow s_0$\;
+		\Repita{}{
+			\Se{$s\ \in\ S_g$}{
+				{\bf devolve} $\pi$\;
+			}
+			$A \leftarrow \lbrace a \mid a$ é uma ação aplicável a $s \rbrace$\;
+			\Se{$A = 0$}{
+				{\bf devolve} $falha$\;
+			}
+			não-deterministicamente escolha $a \in A$\;
+			$\pi \leftarrow \pi + a$\;
+			$s \leftarrow \gamma(s,\ a)$\;	
+		}
+	}
+\end{algorithm}
+
+Também é possível efetuar planejamento no espaço de estados\index{planejamento!espaço de estados} por meio de uma busca regressiva. Neste processo o procedimento é o inverso da busca progressiva, começando pela aplicação da função de transição inversa ao estado objetivo. Com isso são produzidos estados predecessores, nos quais a função de transição é aplicada novamente e assim sucessivamente até que chegue ao estado incial. As representações que seguem o modelo {STRIPS} tornam esta descrição bastante fácil, porque os conjuntos de estados podem ser descritos pelos literais que devem ser verdadeiros em tais estados (isto é, as pré-condições das ações). \\
+
+Desde o início das pesquisas, na década de 60, com o \ac{GPS}\index{GPS} \cite{Newell1961}, os algoritmos de busca progressiva são utilizados, sendo especializados com heurísticas $A^*$\index{$A^*$} \cite{Hart1968} e, hoje, correspondem aos melhores planejadores para o modelo restrito (planejamento clássico).\\
+
+\subsection{Busca no espaço de planos}
+
+{\it Planejamento no espaço de planos\index{planejamento!espaço de planos}} é um outro meio de encontrar soluções para problemas de planejamento clássico \cite{Malik2004}. A busca progressiva e regressiva no espaço de estados são formas específicas de busca de planos {\it totalmente ordenados}. Elas exploram apenas seqüências estritamente lineares de ações conectadas de forma direta ao estado inicial ou ao objetivo, ou seja não podem se beneficiar da decomposição do problema. Ao invés de atuarem sobre cada subproblema separadamente, elas sempre têm de tomar decisões a respeito de como definir seqüências de ações a partir de todos os subproblemas \cite{Russell2002}. \\
+
+Por outro lado, uma abordagem que apresenta vários sub-objetivos independentes demonstra uma vantagem de flexibilidade na ordem de elaboração do plano. O planejador pode trabalhar primeiro em decisões óbvias ou importantes, onde somente algumas ações são ordenadas com relação às demais (compromissos fracos), em vez de ser forçado a atuar em etapas dispostas em ordem cronológica em relação às ações (compromissos fortes). \\
+
+Deste modo, qualquer algoritmo de planejamento que possa inserir duas ações em um plano sem especificar qual delas deve ser executada primeiro é definido como {\it planejamento de ordem parcial\index{planejamento!ordem parcial}}. O planejador de ordem parcial pode ser implementado sob a forma de uma busca no espaço de planos de ordem parcial (em alguns momentos chamados apenas de planos parciais). \\
+
+O processo se inicia com um plano vazio, em seguida, são considerados meios de aprimorar o plano até que se obtenha um plano completo que resolva o problema. As ações nesta busca não são ações no mundo, mas ações sobre planos: adicionar um passo ao plano, impor uma ordenação que coloque uma ação antes de outra e, assim sucessivamente. Os nós do espaço de busca são planos e, em sua maioria, não concluídos, isto é, planos parciais. Cada plano possui quatro componentes, sendo que os dois primeiros definem os passos do plano e os dois últimos determinam como os planos podem ser estendidos. Os componentes do plano são descritos a seguir:
+
+\begin{itemize}
+\item \textbf{Um conjunto de ações que compõem os passos do plano}. Estas ações são obtidas do conjunto de todas as ações possíveis para o problema de planejamento,sendo que um plano {\it vazio} contém apenas as ações {\it Iniciar} e {\it Terminar}. {\it Iniciar} não tem pré-condições e apresenta como efeito todos os literais no estado inicial do problema de planejamento. {\it Terminar} não tem efeitos e tem como pré-condições os literais de objetivo do problema de planejamento. \\
+
+\item \textbf{Um conjunto de restrições de ordenação}. Cada restrição de ordenação tem a forma $A \prec B$, isto significa que a ação $A$ deve ser executado antes de $B$, mas não imediatamente antes. \\
+
+\item \textbf{Um conjunto de vínculos causais}. Um vínculo causal\index{vínculo causal} entre as ações $A$ e $B$ no plano é escrito como $A \stackrel{p}{\rightarrow} B$. Isto afirma que $p$ é um efeito da ação $A$ e uma pré-condição de $B$, e também significa que $p$ deverá permanecer verdadeiro entre as ações $A$ e $B$. A ação $A$ é chamada de ação que contribui com $p$, e $B$ a ação que necessita de $p$. Deste modo, o plano não pode ser estendido adicionando-se uma nova ação $C$ que esteja em conflito com o vínculo causal. A ação $C$ está em conflito com $A \stackrel{p}{\rightarrow} B$, se $C$ tem efeito $\lnot p$ e se $C$ pode ocorrer depois de $A$ e antes de $B$. Vínculos causais também podem ser chamados de {\it intervalos de proteção\index{intervalos de proteção}}. \\
+
+\item \textbf{Um conjunto de pré-condições abertas}. Uma pré-condição é aberta\index{pré-condição!aberta} se não é alcançada por alguma ação do plano. Os planejadores trabalham para reduzir o conjunto de pré-condições abertas a um conjunto vazio, sem introduzir conflitos.
+\end{itemize}
+
+Um {\it plano consistente\index{plano!consistente}} é aquele que não possui ciclo nas restrições de ordenação e nenhum conflito com os vínculos causais. Deste modo, um plano consistente sem pré-condições abertas é uma solução. Um exemplo de plano de ordem parcial e suas linearizações correspondentes em planos de ordem total pode ser visto na Figura 3.3.
+%TODO: 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[angle=270,scale=0.75,width=1.0\textwidth]{./img/plano_ordem_parcial.ps} 
+	\label{fig:plano_ordem_parcial}
+	\caption[Plano de ordem parcial e suas linearizações]{Exemplo de um plano de ordem parcial para calçar sapatos e meias, e as seis linearizações correspondentes em planos de ordem total \cite{Russell2002}. A solução é apresentada em um grafo\index{grafo!de ações} de ações no qual é possível observar as ações Iniciar e Terminar, que marcam o início e o final do plano. A solução de ordem parcial\index{ordem!parcial} corresponde a seis planos possíveis de ordem total\index{plano!de ordem total}\index{ordem!total}; cada um desses planos é uma linearização\index{linearização} do plano de ordem parcial\index{plano!de ordem parcial}.}
+\end{figure}
+
+Um algoritmo clássico de planejamento como busca no espaço de planos, completamente provado e correto, é o \ac{POP} \cite{Russell2002}.\\
+
+\section{Planejamento por refinamento}
+
+A construção de um plano pode ser vista como um refinamento\index{refinamento} iterativo do conjunto de todos os planos possíveis. Esta estratégia é chamada de {\it planejamento por refinamento\index{planejamento!por refinamento}} (\cite{Kambhampati1997}). É possível demonstrar que a maioria dos algoritmos clássicos de planejamento pode ser compreendida desta maneira (incluindo o \ac{POP}). A idéia principal do planejamento por refinamento é que, iniciando com um conjunto de todas as seqüências possíveis de ações do domínio (ações {STRIPS}), num processo iterativo, adicionam-se restrições\index{restrições} de modo a reduzir este espaço de planos\index{espaço de plano}. As restrições podem impor ordem entre as ações ou que uma proposição particular deva ser verdade em um ponto específico do plano. Cada etapa (ou passo) do plano é identificada por um elemento único e corresponde a uma ação. A seguir, são descritos os tipos básicos de restrições no planejamento por refinamento: \\
+
+{\bf Restrições de ordem}\index{restrição!de ordem} \\
+
+\begin{itemize}
+\item \textit{Restrição de precedência}\index{restrição!de precedência}. Um passo precede outro passo do plano, sendo que outros passos podem ocorrer entre eles.
+\item \textit{Restrição de contigüidade}\index{restrição!de contigüidade}. Um passo deve preceder imediatamente um outro passo, isto é, nenhum outro passo deve ocorrer entre eles.
+\end{itemize}
+ 
+{\bf Restrições auxiliares}\index{restrição!auxiliar} \\
+
+\begin{itemize}
+
+\item \textit{Restrição de proteção de intervalo}\index{restrição!proteção de intervalo} \textit{ou de vínculo causal}\index{vínculo causal}. Essa restrição impõe que uma condição deve permanecer verdadeira sobre um intervalo (nenhuma ação que tem efeito $p$ será permitida em um intervalo em que a condição $\lnot p$ deva ser preservada).
+
+\item \textit{Restrição de verdade pontual}\index{restrição!verdade pontual}. A verdade de uma condição em um ponto particular do tempo deve ser preservada.
+
+\end{itemize}
+
+Neste tipo de planejamento, o processo de adição de restrições continua até que todos os planos que satisfaçam as restrições sejam soluções para o problema. Durante este refinamento não é armazenado o conjunto de todos os planos {\it candidatos}\index{plano!candidato}, mas apenas as restrições. Estas restrições são armazenadas em um {\it plano parcial\index{plano!parcial}}, sendo que, neste caso, um plano parcial $\mathcal{P}$ representa um conjunto de planos candidatos, que será chamado de {\it candidatos($\mathcal{P}$)}. \\
+
+Uma estratégia de {\it refinamento} define como um plano parcial deve ser estendido por meio da adição de novas restrições, sendo que tal adição será responsável pelo refinamento do conjunto de planos candidatos. Uma estratégia de refinamento $\mathcal{R}$ é uma função que mapeia um plano parcial $\mathcal{P}$ em um conjunto de planos parciais, isto é, $\mathcal{P}\ =\ {\mathcal{P}_1,\ \ldots\ ,\mathcal{P}_i,\ \ldots\ ,\mathcal{P}_n}$, de forma que, para cada um dos planos parciais $\mathcal{P}_i$, o conjunto de candidatos ($\mathcal{P}_i$) seja um subconjunto de $candidatos(\mathcal{P})$. A Figura 3.4
+%TODO: ~\ref{fig:conceito_refinamento} 
+ilustra a definição geral de um planejador por refinamento. \\
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[angle=0,width=1.0\textwidth]{./img/visao_planejamento_refinamento.ps} 
+	\label{fig:conceito_refinamento}
+	\caption[Visão geral de planejamento por refinamento]{Visão geral de
+	planejamento por refinamento \cite{Kambhampati1997}.}
+\end{figure}
+
+A partir de um conjunto vazio de restrições, representado por um plano parcial vazio $\mathcal{P}$; é possível verificar se um dos candidatos de $\mathcal{P}$ é uma solução do problema. Se for, finaliza-se o processo; caso contrário, aplica-se novamente uma estratégia de refinamento\index{estratégia de refinamento} $\mathcal{R}$ para obter uma coleção de planos parciais $\mathcal{P'}\ =\ \mathcal{R}(\mathcal{P})$, em que cada plano parcial $\mathcal{P}_i$ possui uma restrição adicional em relação a $\mathcal{P}$. Isto é feito selecionando-se um plano candidato de $\mathcal{P'}$ e verificando novamente se ele é uma solução; caso não seja, aplica-se novamente $\mathcal{R}$. Este processo deve continuar até que se obtenha uma solução ou até que o conjunto de planos parciais esteja vazio e, neste caso, é necessário retroceder. O Algoritmo ~\ref{algoritmo_planejamento_refinamento} realiza o processo de planejamento por refinamento.\\
+
+\begin{algorithm}
+	\label{algoritmo_planejamento_refinamento}
+	\caption[Planejamento por refinamento]{Planejamento por refinamento}
+	% \Entrada{Plano parcial $\mathcal{P}$, Problema $\Pi$, Histórico $\mathcal(H)$}
+	\Entrada{Plano parcial $\mathcal{P}$, Problema $\Pi$}
+	\Saida{Solução para $\Pi$ ou {\it falha}}
+	\Inicio{
+	    \Se{$candidatos(\mathcal{P}) = \emptyset$}{{\bf devolve} {\it falha}\;}
+	    \Se{existe $solucao(\mathcal{P}, \Pi)$}
+	    	    {{\bf devolve} $solucao(\mathcal{P}, \Pi)$\;}
+            Selecionar estratégia de refinamento $\mathcal{R}$\;
+	    Gerar novo conjunto de planos
+	    %$\left<\mathcal{P, H'}\right> = \mathcal{R}(\mathcal{P, H})$\;
+	    $\left<\mathcal{P, H'}\right> = \mathcal{R}(\mathcal{P})$\;
+	    \Para{todo $\mathcal{P}_i \in \mathcal{P}$ escolhido não-deterministicamente} {
+		    \textsc{Planejamento Por Refinamento} ($\mathcal{P}_i, \Pi, \mathcal{H'}$)\;
+		}
+	}
+\end{algorithm}
+
+\subsection{VHPOP}
+
+Um dos planejadores que implementa de forma explícita o planejamento por refinamento é o \ac{VHPOP}. \\
+
+O \ac{VHPOP}\index{VHPOP} é um planejador de ordem parcial ({\it Partial Order Causal Link} - POCL) baseado no {UCPOP}\index{UCPOP} ({\it Partial Order Planner with Conditional effects and Universal quantification}) \cite{DBLP:conf/kr/PenberthyW92}. O \ac{VHPOP} é resultado de experiências obtidas em meados dos anos 90 no estudo de estratégias para planejamento {POCL}\index{POCL}, combinado com avanços no campo do planejamento independente de domínio, como análise de alcançabilidade \cite{Younes2003}. \\
+
+Ao incorparar técnicas para restrições temporais, o \ac{VHPOP}\index{VHPOP} assume a capacidade de fazer planejamento utilizando ações com duração de tempo. Além disso, ele demonstra que as mesmas técnicas heurísticas usadas para auxiliar a execução do planejamento clássico {POCL}\index{POCL} podem ser efetivas em domínios com restrições temporais. \\
+
+O \ac{VHPOP} implementa um conjunto de diferentes heurísticas para a escolha de ações durante o planejamento, como Dunf\index{Dunf} e DSep\index{DSep} \cite{DBLP:conf/aaai/PeotS93}, LCFR\index{LCFR} \cite{DBLP:conf/aaai/JoslinP94} e ZLIFO\index{ZLIFO} \cite{schubert95accelerating}. Além disso, durante o processo de escolha, ele pode trabalhar tanto em ações {\it ground} (totalmente instanciadas) ou {\it lifted} (parcialmente instanciadas). Deste modo, ele é classificado como um planejador {POCL}\index{POCL} com versatilidade heurística com base em  \ac{CSP}\index{CSP}. \\
+
+
+
+
+
+%Na primeira metade da última década, muitas das pesquisas na área de planejamento independente de domínio foram focado nos planejadores \ac{POCL}. Os dois planejadores \ac{POCL} dominantes eram o \ac{SNLP} (McAllester  \&  Rosenblit, 1991) e o \ac{UCPOP}, e uma boa parte das pesquisas sobre planejamento tinha como objetivo medir estes dois planejadores \cite{Younes2003}. \\
+
+%Houve incríveis avanços no planejamento independete de domínio, mas o foco mudou do planejamento \ac{POCL} para os    algoritmos de planejamento baseados em \ac{CSP} \cite{Blum1997} e planejamento no espaço de estado com heurísticas de busca \cite{DBLP:journals/ai/BonetG01} \cite{DBLP:journals/jair/HoffmannN01}. \\
+
+%Adaptamos anteriormente (Younes \& Simmons, 2002) a heurística  aditiva
+%   ? proposta por Bonet, Loerincs e  Geffner  (1997)  e  utilizamos  em  HSP
+%   (Bonet \& Geffner, 2001) ? para busca no espaço de  plano.  Neste  ensaio,
+%   apresentamos uma variação da heurística aditiva para o planejamento  POCL
+%   que é responsável por uma possível reutilização  das  ações  que  já  são
+%   parte  do  plano.  Demonstramos  que  para  uma  interação  positiva,  os
+%   resultados são sempre mais efeitos  num  ranking  de  uma  heurística  do
+%   plano.  Apresentamos  também  estudos  desgastados   que   demonstram   a
+%   eficiência de uma heurística competitiva baseada no esforço  estimado  de
+%   um planejamento (definido como  o  número  total  de  condições  abertas,
+%   correntes e futuras, que precisam ser resolvidas a fim  de  completar  um
+%   plano parcial).
+
+
+
+%
+%
+%
+%Enquanto a heurística implementada no VHPOP pode trabalhar tanto em ações {\it ground} (totalmente instanciadas) ou {\it lifted} (parcialmente instanciadas), escolhemos trabalhar apenas com ações ground no \ac{IPC3}. Foi demonstrado (Yunes \& Simmons, 2002) que o planejamento com ações lifted pode ajudar a reduzir o fator de ramificação do espaço de busca se comparado ao uso de ações ground, e esta redução às vezes é grande o suficiente para compensar a adição de complexidade da necessidade de se manter as variáveis. \\
+%
+%O VHPOP implementa de forma eficiente todas as estratégias comuns de seleção, como Dunf e DSep (Peot \& Smith, 1993), LCFR (Joslin \& Pollack, 1994) e ZLIFO (Schubert \& Gerevini, 1995). Além disso, apresentamos inúmeras estratégias de seleção de falhas novas neste ensaio, das quais quatro foram usadas no IPC3. Uma vez que não pretendemos resolver a questão da seleção de falhas global versus seleção de falhas local ? manifestada pelas asserções conflitantes feitas por Gerevini e Schubert (1996), e as de Pollack e outros (1997) sobre a maneira mais eficaz de reduzir uma quantidade de planos buscados no planejamento POCL ? mostramos que pela combinação das idéias de ambos ZLIFO e LCFR, podemos obter estratégias de falhas muito eficazes. Outras novas estratégias de seleção de falhas introduzidas neste ensaio são baseadas no custo da heurística, uma idéia anteriormente abordada por Ghallab e Laruelle (1994). Também introduzimos estratégias de seleção de falhas ?conflito-direcionadas? com o objetivo de expor mais cedo possíveis inconsistências na busca, e demonstramos que as estratégias baseadas nesta idéia podem ser eficazes em domínios previamente entendidos como difíceis pelos planejadores POCL.
+
+%Gostaríamos de ter apenas uma estratégia de seleção de falhas que fosse dominante em relação a todas as outras em termos de número de problemas resolvidos. Ainda precisamos descobrir tal estratégia universal, então ainda utilizamos uma técnica previamente explorada por Howe, Dahlman, Hansen, Scheetz e Von Mayrhauser (1999) a fim de combinar forças de diferentes algoritmos de planejamento. A idéia é fazer com que diversos planejadores trabalhem simultaneamente, e Howe w outros mostraram que, ao fazer isto, mais problemas podem ser solucionados do que utilizando um único planejador. No VHPOP é utilizado o mesmo algoritmo de planejamento básico POCL em todos os momentos, mas utilizamos diferentes estratégias de seleção de falhas ao mesmo tempo.
+
+%O VHPOP aumenta a capacidade dos planejadores POCL clássicos dando apoio ao planejamento também em ações duradouras. Isto é realizado adicionando-se um a rede temporal simples (STN) (Dechter, Meiri, \& Pearl, 1991) para a representação comum de um plano de um planejador POCL. O STN registra constantes temporais entre as ações em um plano e substitui as constantes de ordem simples, geralmente registradas pelos planejadores POCL. O uso de STNs permite ações com intervalos constantes na duração (uma característica que não era utilizada por qualquer um dos domínios em IPC3 que o VHPOP pudesse sustentar). A abordagem que damos ao planejamento temporal POCL é essencialmente a mesma da abordagem do intervalo baseado em constantes descrito por Smith, Frank e Jónsson (2000), e técnicas similares para manter uma ação contínua em um molde POCL podem ser traçadas novamente, pelo menos para Vere (Vere, 1983) Nossa contribuição para o planejamento temporal POCL demonstra que as mesmas técnicas heurísticas demonstradas para impulsionar a execução do planejamento clássico POCL podem ser efetivas em domínios com ações contínuas, validando a exeqüibilidade do paradigma POCL para um planejamento temporal em um conjunto maior de problemas do que o que foi feito antes.
+
+

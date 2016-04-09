@@ -1,0 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{22cm}
+\setlength{\parskip}{0.2cm}
+
+% Para aumentar o espaçamento entre as linhas
+\linespread{1.2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Planejamento não-clássico}
+\label{cap:planejamento_nao-classico}
+
+Nos capítulos anteriores foram considerados apenas domínios de planejamento clássico\index{planejamento!clássico} que são
+completamente observáveis, estáticos e de\-ter\-mi\-nís\-ti\-cos. Além disso, supôs-se que as descrições de ações são sempre corretas e completas. Nestas circunstâncias, um agente\index{agente} pode primeiro planejar e depois executar o plano, sem a necessidade de qualquer percepção. Entretanto, em um ambiente incerto\index{ambiente!incerto}, um agente deve usar suas percepções para descobrir o que está acontecendo enquanto o plano é executado e, possivelmente, modificar ou substituir o plano se algo inesperado acontecer. \\
+
+Os modelos utilizados pelos planejadores no mundo real\index{mundo!real} são muito mais complexos do que aqueles empregados no planejamento clássico. Eles ampliam os fundamentos em termos de linguagem de representação e também o modo como o planejador interage com o ambiente\index{ambiente}. Este capítulo mostra como o relaxamento de algumas suposições  restritivas\index{suposições restritivas} pode estender o planejamento clássico de modo que permita uma melhor representação e interação com o domínio, além de conter uma apresentação sobre replanejamento e reparo de plano. \\
+
+\section{Modelos estendidos}
+
+Muitos modelos interessantes podem ser obtidos quando algumas das suposições restritivas\index{suposições restritivas} são relaxadas. \\
+
+\begin{itemize}
+
+\item {\bf Suposição A0 relaxada ($\Sigma$ finito).} Um conjunto, possivelmente infinito, de estados enumeráveis pode ser necessário, por exemplo, para descrever ações que constroem ou inserem novos objetos no universo ou para manipular variáveis de estado numéricas.
+
+\item { {\bf Suposição A1 relaxada ($\Sigma$ completamente observável).} O sistema $\Sigma$ é parcialmente observável\index{parcialmente observável}. Para cada observação $o$, pode haver mais de um estado $s$ tal que $\eta(s) = O$. Desconhecendo o estado atual em $\eta^{-1}(o)$, não é possível prever com certeza qual será o estado $\Sigma$ após cada ação.
+}
+
+\item { {\bf Suposição A2 relaxada ($\Sigma$ determinístico).} Num sistema estático\index{sistema!estático}, mas não-determinístico\footnote{Também conhecido como indeterminismo.}, cada ação pode levar a diferentes estados, levando o planejador a considerar alternativas. Um plano deve codificar formas de lidar com alternativas. 
+%Geralmente, a não-determinação exige também a propriedade A5 relaxada. 
+
+ %, por exemplo, construção condicional da forma fazer a e, dependendo de seus
+ %resultados, fazer b ou c e construções interativas como fazer a até  que  um
+ %dado resultado seja obtido. Observe que o controlador  precisa observar o
+ %estado s: aqui estamos planejando para controle fechado.
+
+%            Se a suposição de conhecimento completo (suposição A1) também for
+%            relaxada, isto leva a uma outra dificuldade: o controlador não
+%            saberá exatamente o estado atual do sistema no tempo corrente. Um
+%            caso limitante é a observação nula, em que nenhuma observação pode
+%            ser feita no momento. Isto leva a um caso particular de
+%            planejamento para controle aberto chamado planejamento conformante.
+
+Existem diferentes abordagens para lidar com não-determinismo. Algumas delas ampliam as técnicas usadas no planejamento clássico\index{planejamento!clássico} (como planejamento baseado em grafo\index{planejamento!baseado em grafo} ou em satisfatibilidade\index{satisfatibilidade}), enquanto outras são projetadas especificamente para lidar com não-determinismo, como o planejamento baseado no \ac{MDP} e o planejamento com verificação de modelos.
+}
+
+\item { {\bf Suposição A3 relaxada ($\Sigma$ estático).} Pode-se facilmente lidar com um sistema dinâmico\index{sistema!dinâmico} $\Sigma$ se este for determinístico e completamente observável, e considerando-se que para cada estado $s$ haja, no máximo, um evento exógeno para o qual existe $\gamma(s, e)$ e que, necessariamente, ocorrerá em $s$. Tal sistema pode ser mapeado em um modelo restrito: é possível redefinir a transição para uma ação $a$ como $\gamma(\gamma(s,a),\ e)$, em que $e$ é o evento que ocorre no estado $\gamma(s,a)$.
+
+Quando a propriedade A3 é relaxada, além dos eventos que podem ou não ocorrer, existem ações que também podem ser executadas ou não. Sob o ponto de vista de planejamento, tais ações e eventos concorrem em um sistema dinâmico\index{sistema!dinâmico}, mesmo quando $|\gamma(s,u)|\ <\ 1$.
+%No modelo geral de eventos possíveis que podem ou não ocorrer no
+%estado $e$, concorre com ações, um sistema dinâmico é não-determinístico do ponto
+%de vista do planejador, mesmo que $|\gamma(s,u)|\ <\ 1$. 
+A decisão de aplicar a ação $a$ em $s$ não foca as previsões do planejador para uma única transição de estado. %Neste caso, um plano condicional pode
+%facilitar a concepção do plano.
+}
+
+\item { {\bf Suposição A4 relaxada (objetivos restritos).} Controlar um sistema pode exigir objetivos mais complexos do que simplesmente alcançar um dado estado. É possível que haja a necessidade de especificar um objetivo ampliado para o planejador, com exigências não apenas no estado final, mas também nos estados $s$ percorridos. Por exemplo, estados críticos a serem evitados, estados pelos quais o sistema deverá passar, estados em que deverá permanecer e outras limitações em sua trajetória. Poderá ser necessário também otimizar funções utilitárias\index{função!de utilidade}, como modelar um sistema que funcione continuamente por um período de tempo indefinido.
+}
+
+\item { {\bf Suposição A5 relaxada (plano seqüencial).} Um plano\index{plano} pode ser uma estrutura matemática mais rica do que uma simples seqüência de ações. Pode-se considerar que um plano é um conjunto parcialmente ordenado, uma seqüência de conjuntos, um plano condicional\index{plano!condicional} que força rotas alternativas dependendo dos resultados e do contexto atual da execução, um plano universal\index{plano!universal} ou um programa que mapeie estados para adequar ações, ou ainda uma automação que determine qual ação executar, dependendo do histórico de execuções anteriores.
+}
+
+\item { {\bf Suposição A6 relaxada (tempo implícito).} Em muitos do\-mí\-ni\-os de planejamento a duração e a concorrência das ações precisam ser consideradas, uma vez que ações sempre levam um tempo para serem concluídas e podem demandar recursos. O tempo pode ser necessário também para expressar limitações de objetivos temporários e a ocorrência de eventos em relação a uma referência de tempo absoluto. Entretanto, tempo é uma distância abstrata no modelo de transição de estado\index{modelo!transição de estado}. Este modelo conceitual considera ações ou eventos como transições instantâneas: em cada iteração, o controlador lê sincronicamente a observação para o estado atual, se necessário, e aplica a ação planejada.
+}
+
+%\item { {\bf Suposição A7 relaxada (planejamento offline).} O problema do
+%controle ao se dirigir um sistema em direção a algum objetivo precisa ser
+%manipulado on-line com a dinâmica daquele sistema. Enquanto um planejador pode
+%não precisar se preocupar sobre todos os detalhes da dinâmica atual, não pode
+%ignorar completamente como o sistema se desenvolverá. Pelo menos, necessitará
+%checar on-line se um plano solução permanece válido e, se necessário, {\bf
+%revisá-lo} ou {\bf replanejá-lo}. Outras abordagens consideram o planejamento
+%como um processo que modifica o controlador on-line.
+ 
+\item { {\bf Suposição A7 relaxada (planejamento offline)\index{planejamento!offline}.} O planejador pode não precisar se preocupar com todos os detalhes da dinâmica atual, mas não pode ignorar completamente como o sistema se desenvolve \cite{Nareyek2003}. Sendo assim, precisará checar online se um plano-solução permanece válido e, se necessário, {\it revisá-lo} ou {\it replanejá-lo}.
+}
+ 
+\end{itemize}
+
+\section{Planejamento não-determinístico}
+
+Em um ambiente com incerteza no efeito das ações, um agente\index{agente} deve usar suas percepções para descobrir o que está acontecendo enquanto o plano é executado e, possivelmente, modificar ou substituir o plano, caso aconteça algo inesperado ou indesejado. \\
+
+O agente deve lidar com informações {\it incompletas}\index{informação!incompleta} ou {\it incorretas}\index{informação!incorreta}. A incompletude\index{incompleteza} surge porque o mundo é parcialmente observável\index{parcialmente observável}, não-determinístico ou ambos. Por exemplo, uma gaveta pode estar trancada ou não; uma das chaves do agente pode abrir a gaveta, se ela estiver trancada, e o agente pode ou não estar ciente destes tipos de incompletude em seu conhecimento. Deste modo, o modelo do mundo é fraco, mas correto. Por outro lado, a incorreção surge porque o mundo não corresponde ao modelo de mundo do agente, por exemplo: ele pode {\it acreditar} que sua chave abre a gaveta, mas pode estar errado caso a fechadura tenha sido trocada. \\
+
+A possibilidade de ter conhecimento completo ou correto depende de quanto de não-determinismo existe no mundo. Com o {\bf não-determinismo limitado\index{não-determinismo!limitado}}, as ações podem ter efeitos imprevisíveis, mas tais efeitos podem ser listados nos axiomas\index{axioma} de descrição de ações. Um agente pode lidar com o não-determinismo limitado fazendo planos que funcionam em todas as circunstâncias possíveis ou incluindo ações de percepção do plano (plano condicional). Por outro lado, com o {\bf não-determinismo ilimitado\index{não-determinismo!ilimitado}}, o conjunto de pré-condições ou efeitos possíveis é desconhecido ou grande demais para ser enumerado completamente. Este seria o caso em domínios muito complexos ou dinâmicos. Um agente pode lidar com o não-determinismo ilimitado apenas se estiver preparado para rever seus planos ou sua base de conhecimento. Existem cinco tipos de não-determinismo em planejamento \cite{Russell2002}. \\
+
+\begin{itemize}
+
+\item {\bf Não-determinismo limitado}
+
+\begin{itemize}
+
+\item {\bf Planejamento sem sensores}\index{planejamento!sem sensores}. Também chamado {\it planejamento conformante\index{planejamento!conformante}}, é um método que constrói planos seqüenciais que devem ser executados sem percepção\index{percepção}. O algoritmo de planejamento sem sensores deve assegurar que o plano atinja o objetivo {\it em todas as circunstâncias possíveis}, independente do verdadeiro estado inicial e dos resultados das ações. O planejamento sem sensores se baseia na {\it coerção\index{coerção}} $-$ a idéia de que o mundo pode ser forçado a entrar em um determinado estado, mesmo quando o agente só tem informações parciais a respeito do estado atual. A coerção nem sempre é possível e, portanto, o planejamento sem sensores, em geral, é inaplicável. O primeiro planejador com conformação moderadamente eficiente foi o \ac{CGP} de \cite{Smith1998}.
+
+\item {\bf Planejamento condicional}\index{planejamento!condicional}. Pode ser utilizado nos casos em que todos os prováveis efeitos não-determinísticos das ações são previsíveis e existe a possibilidade de se construir planos que incluam ações de percepção. Também conhecida como {\it planejamento de contingência\index{planejamento!de contingência}}, esta abordagem lida com o não-de\-ter\-mi\-nis\-mo limitado, construindo um plano condicional com ramificações distintas para as diferentes contingências que podem surgir. Assim como no planejamento clássico, o agente planeja primeiro e, depois, executa o plano. O agente descobre qual parte do plano deve executar, incluindo ações de percepção no plano para testar a presença das condições apropriadas. O WARPLAN-C \cite{Warren1976}, uma variante do WARPLAN, foi um dos primeiros planejadores a usar ações condicionais. Uma outra abordagem, na qual são construídos planos condicionais com laços, baseada no \ac{BDD}, é descrita em \cite{Hansen2001}.
+
+\item {\bf Planejamento probabilístico}\index{planejamento!probabilístico} Nos casos em que é possível identificar distribuições de probabilidades nos efeitos das ações, a técnica predominantemente utilizada é a representação de problemas por meio de um \ac{MDP}. O objetivo do planejador é obter uma {\it política\index{política}} que, conseqüentemente, mapeará ações para cada estado sofre um conjunto de estados iniciais, buscando maximizar a utilidade esperada de planos. \cite{Bonet2000} descrevem um planejador baseado na heurística no espaço de estados para o \ac{POMDP}. O planejador C-BURIDAN, definido por \cite{Draper1994}, manipula ações com resultados pro\-ba\-bi\-lís\-ti\-cos, abordando também o \ac{POMDP}.
+
+\end{itemize}
+
+\item {\bf Não-determinismo ilimitado}
+
+\begin{itemize}
+
+\item {\bf Replanejamento ou reparo de plano}. Nesta abordagem o agente pode usar qualquer uma das técnicas de planejamento (clássica, conformante, condicional ou probabilística) para construir um plano. Por meio do {\it monitoramento de execução\index{monitoramento de execução}} é possível julgar se o plano precisa ou não ser revisto. A revisão do plano ocorre quando algo sai errado; então é necessário fazer modificações nele ({\it reparo de plano}\index{reparo!de plano}) ou realizar um novo planejamento a partir do estado atual ({\it replanejamento}\index{replanejamento}). O \ac{SIPE} \cite{Wilkins1988} \cite{Wilkins1990} foi o primeiro planejador a lidar sistematicamente com o problema de replanejamento.
+
+\item {\bf Planejamento contínuo}\index{planejamento!contínuo}. Um planejador contínuo é projetado para persistir ao longo do tempo. Ele pode manipular cir\-cuns\-tân\-ci\-as inesperadas no ambiente, ainda que essas circunstâncias ocorram enquanto o agente está em meio a uma execução ou construção de um plano. Este tipo de planejamento também deve lidar com mudanças de metas do agente. O \ac{IPEM} foi o primeiro sistema a integrar o planejamento de ordem parcial\index{planejamento!de ordem parcial} e a execução para produzir \cite{Ambros1988} um agente de planejamento contínuo\index{planejamento!contínuo}.
+
+\end{itemize}
+
+\end{itemize}
+
+\section{Replanejamento e reparo de plano}
+
+Este trabalho está interessado em problemas de planejamento na presença de não-determinismo ilimitado porém com ações determinísticas para os quais a técnica de reparo de plano possa levar o agente a satisfazer suas metas com sucesso. Ou seja, a proposta é não representar ações não\--de\-ter\-mi\-nís\-ti\-cas\index{ação!não-determinística} explicitamente, mas tratar o não\--de\-ter\-mi\-nis\-mo por meio de reparos de plano gerados a partir de um planejador determinístico\index{planejador!determinístico}. Define-se {\it replanejamento\index{replanejamento}} como um novo processo de planejamento a partir do estado atual de uma execução de um plano que apresentou uma falha. De acordo com \cite{Bernhard1993}, no pior caso, reparar um plano existente não é mais eficaz do que um replanejamento. Entretanto, como uma grande parte do plano geralmente ainda é válida, na prática, o reparo de plano pode ser mais eficaz, \cite{Kambhampati1997} pois, além disso, em muitos domínios pode ser mais caro modificar todo o plano, devido a compromissos\index{compromisso} com outros agentes baseados no plano original \cite{Kabhampati2005}. \\
+
+\begin{algorithm}
+	\label{agente_reparador_plano}
+	\caption[Agente reparador de plano]{Agente Reparador de Plano.}
+	\Entrada{Percepção do ambiente $\mathcal{O}$, Objetivo $S_g$, Domínio $\mathcal{D}$}
+	\Saida{{\it Sucesso} ou {\it falha} na execução do plano}
+	\Inicio{
+	   $s \leftarrow \eta(\mathcal{O})$\;
+	   $\pi \leftarrow$ planejador($s$, $S_g$, $\mathcal{D}$)\;
+	   \Para{todas as ações $a$ do $\pi$} {
+	        \Se{pré-condições($a$, $s$) não-verdadeiras} {
+		    $s_{esperado} \leftarrow$ calcula($s$, $a$)\;
+		    $s \leftarrow \eta(\mathcal{O})$\;
+		    $\pi_{reparo} \leftarrow$ planejador($s$, $s_{esperado}$, $\mathcal{D}$)\; 
+		    \Se{$\pi_{reparo} \ne$ {\it falha}} {
+			$\pi \leftarrow \pi_{reparo} + \pi$\;
+		    } \Senao {
+			{\bf devolve} {\it falha}\;
+		    }
+		} \Senao {
+		    executa($a$)\;
+		    $\pi \leftarrow \pi - a$\;
+		    $s \leftarrow \eta(\mathcal{O})$\;
+		}
+	    }
+
+	    \Se{$s \ne S_g$} {
+	        {\bf devolve} {\it falha}\;
+	    }
+	    {\bf devolve} {\it sucesso}\;
+	}
+\end{algorithm}
+
+O Algoritmo \ref{agente_reparador_plano} descreve um exemplo simples de um agente que realiza reparo de plano\index{reparo!de plano}. Ele utiliza um algoritmo de planejamento (que pode ser qualquer um dos apresentados no Capítulo \ref{cap:planejamento_classico}, denominado {\it planejador}, como uma chamada a um método (linhas {\tt 3} e {\tt 8}). Se as pré-condições da próxima ação não forem satisfeitas, o agente tentará encontrar um caminho que o leve de volta ao plano original. Esse caminho é chamado {\it reparo}. Se o planjedor for bem-sucedido na descoberta de um reparo, o agente acrescentará o reparo ao plano original, a fim de criar um novo plano. Em seguida, o agente prossegue na execução das ações do novo plano. A Figura 4.1
+%TODO: ~/ref{}
+ilustra a execução de um plano em que é necessário um reparo para que o objetivo seja alcançado. \\
+
+\begin{center}
+    \begin{figure}[ht!]
+		\center
+		\includegraphics[scale=0.75,width=1.0\textwidth]{./img/exemplo_reparo_plano.ps} 
+		\caption[Exemplo de reparo de plano]{Antes da execução o planejador apresenta um plano, aqui chamado de $plano\ original$, para ir de $S$ até $G$. O agente executa o plano até o ponto marcado com $E$. Antes de executar o $plano$ restante, ele verifica as pré-condições e descobre que está, de fato, no estado $O$. Em seguida, ele chama seu algoritmo de planejamento para apresentar um reparo, um plano para ir de $O$ até algum ponto no $plano\ original$.}
+    \end{figure}
+\end{center}
+
+A proposta desta dissertação é abordar o método de reparo de plano\index{reparo!de plano} de forma mais robusta, considerando o processo de reparação a partir de duas operações distintas: ({\it 1}) remover ações do plano que, no momento, tornam mais difícil atingir o(s) objetivo(s) e ({\it 2}) adicionar ações que aproximem o agente do objetivo, sendo que a última operação é muito similar ao planejamento clássico. \\
+
+\subsection{Trabalhos correlatos}
+
+A utilização de métodos para reparo de plano, ao invés de se fazer o replanejamento, não é recente. Segue uma breve revisão das principais propostas de reparo de plano encontradas na literatura:
+
+\begin{itemize}
+
+\item O \ac{GPG} \cite{Gerevini2000} é baseado em grafos de planos. Ele utiliza uma abordagem apoiada no planejador \cite{Blum1997} Graphplan. Quando o plano se torna in\-vá\-li\-do, o \ac{GPG} verifica onde ocorrem as inconsistências do plano. O plano é então dividido em três partes: o topo do plano, que consiste em ações que podem ser executadas a partir do estado inicial; uma parte intermediária, que é composta por um conjunto de ações inconsistentes e as ações entre elas; e uma final, que pode ser utilizada para atingir os objetivos assim  que as inconsistências tenham sido resolvidas. Estas três partes podem ser identificadas utilizando-se o grafo de planejamento que foi construído durante a fase de planejamento. A parte intermediária é então descartada e um plano é procurado para preencher a lacuna existente entre o topo e o final do plano. Se este plano não puder ser encontrado a lacuna é ampliada e o processo é repetido. Eventualmente pode ocorrer de todo o plano ser descartado.  Neste caso, descarta-se a possibilidade de reparo e um plano completamente novo é construído, se for possível. \\
+
+% Este sistema não utiliza explicitamente um histórico. 
+%Mas ao executar refinamentos reversos somente no plano inicial e nunca um dos
+%planos produzidos por um passo do refinamento, isto pode ser visto como uma
+%memória implícita.
+ 
+\item O modelo de planos do REPLAN \cite{Boella2002} é similar aos planos utilizados nos formalismos de \ac{HTN} \cite{Erol1994}. Uma rede de tarefas\index{rede de tarefas} descreve uma possível forma de realizar uma tarefa por meio de sua decomposição em subtarefas ou, eventualmente, em ações primitivas\index{ação!primitiva} (ou seja, ações que o agente pode executar de forma automática). Para cada tarefa existe pelo menos uma destas redes de tarefas. Um plano é criado pela escolha da rede de tarefas correta para cada tarefa (abstrata), até que cada rede contenha apenas ações primitivas. Por meio deste processo de planejamento, o REPLAN constrói uma árvore de derivação\index{árvore de derivação} que inclui todas as tarefas escolhidas e demonstra como um plano foi derivado. \\
+
+O reparo de plano dentro do REPLAN é chamado de partição\index{partição}. Para cada nó inválido da árvore de derivação, a (menor) sub-árvore que contém este nó é removida. %(refinamento reverso).
+Inicialmente, cada nó considerado inválido é uma ação primitiva, e a raiz da árvore correspondente é a tarefa que continha tal ação. Subseqüentemente, um novo reparo é gerado para esta tarefa. Se o reparo falhar, uma nova etapa é iniciada, na qual sub-árvores para tarefas hierarquicamente mais elevadas são removidas e regeradas. No pior caso esse processo continua até que toda a árvore de derivação seja descartada.  \\
+
+%Como o GPG, REPLAN não faz refinamento reverso nunca um plano produzido pela
+%etapa de refinamento, exceto para o plano  inicial. Novamente, isto pode ser
+%visto como uma utilização implícita da memória.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \item O SPA \cite{SPA} utiliza um tipo de busca local, iniciando com o
+% plano % original. Ele também demonstra a separação em duas fases do reparo de
+% plano. % Utiliza uma fila de planos parciais (implementando uma busca no
+% espaço de % planos) que podem ser utilizados em refinamento ou refinamento
+% reverso. 
+% adição ou remoção de trechos.
+% %Rotulando os planos na fila garante que o mesmo não seja visitado duas
+% vezes, sendo assim considerado uma forma de memória.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item O O-Plan \cite{Drabble1997} utiliza a estratégia de regras para reparo de plano.
+% Entretanto, não há elementos como uma explicação da falha.
+Durante a execução o sistema confirma os efeitos de cada ação. Para cada efeito que falha em que uma ação é necessária para que outra seja executada, ações adicionais, na forma de um reparo, são incluídas no plano. Estes reparos de plano são planos pré-construídos que podem reparar determinadas condições de falhas. Por exemplo, os planos de reparo podem incluir um plano para a troca de um pneu furado ou para a substituição de um motor quebrado. Quando uma condição incorreta é encontrada, a execução do plano é interrompida e um reparo de plano é inserido e executado. Após a finalização do reparo, a execução do plano regular recomeça. O O-Plan apenas adiciona ações para reparar falhas e não emprega qualquer tipo de remoção de ações.
+Deste modo, ele também é incompleto, pois nem todas as falhas podem  ser recuperadas. Xuemei Wang e Steve A. Chien \cite{Wang1997} descrevem como a busca pode ser incorporada ao O-Plan para tentar recuperá-lo de falhas\index{falha} para as quais nenhuma estratégia de reparo pré-construída esteja disponível. Entretanto, não considera a remoção de ações de um plano para a recuperação das falhas, mas apenas para a descoberta de quais ações precisam ser executadas novamente. \\
+
+\end{itemize}

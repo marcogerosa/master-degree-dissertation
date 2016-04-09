@@ -1,0 +1,115 @@
+\documentclass[12pt,letterpaper,oneside]{book} 
+%\documentclass[12pt,twoside,letterpaper]{book}
+% oneside indica que nao é frente e verso
+
+% ---------------------------------------------------------------------------- %
+% Pacotes 
+\usepackage[brazil]{babel} 
+\usepackage[latin1]{inputenc}
+%\usepackage[pdftex]{graphicx}            % usamos arquivos pdf/png como figuras
+%\usepackage{color}
+%\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amssymb} 
+%\usepackage{setspace}                   % espaçamento flexível
+%\usepackage[small,compact]{titlesec}    % cabeçalhos dos títulos: menores e compactos
+\usepackage{indentfirst}                 % indentação do primeiro parágrafo
+\usepackage{cite}                        % modo de citação legal
+%\usepackage{subfigure}                  % uso de várias figuras numa só
+
+\usepackage{makeidx}                     % índice remissivo
+\usepackage[nottoc]{tocbibind}           % acrescentamos a bibliografia/indice/conteudo no Table of Contents
+\usepackage{setspace}
+%\usepackage[pagebackref,colorlinks=true,urlcolor=red,citecolor=green,linkcolor=blue]{hyperref}
+
+% By David
+\usepackage[dvips]{graphicx} 
+\usepackage{amsthm}
+\usepackage{acronym} 
+\usepackage[portugues,ruled,vlined,linesnumbered]{algorithm2e/algorithm2e}
+\usepackage{supertabular}
+
+\makeindex  % <== Talvez seja desnecessario
+
+\pagestyle{headings}
+\markboth{}{}
+
+% ---------------------------------------------------------------------------- %
+% Dimensões da página (letterpaper)
+%\setlength{\paperwidth}{216mm}
+%\setlength{\topmargin}{1.3cm}         % deslocamento do topo do texto 
+\setlength\oddsidemargin{0cm}
+\setlength\evensidemargin{0cm}
+\setlength{\parskip}{1.2mm}
+%\setlength{\parindent}{4mm}
+\setlength{\textwidth}{135mm}          % largura do texto
+%\setlength{\parindent}{0pt}
+%\setlength{\textheight}{22cm}
+%\setlength{\parskip}{0.2cm}
+
+
+\newcommand{\eb}{\varepsilon}
+\newcommand{\mdp}{\langle\mathcal{S,A},p,r,c\rangle}
+\newcommand{\ctlstar}{{\sc ctl}$^\star$}
+\newcommand{\ctl}{\sc ctl}
+\newcommand{\ltl}{\sc ltl}
+\newtheorem{Def}{Definição}[chapter]
+\newtheorem{Teo}{Teorema}[chapter]
+\newtheorem{Ex}{Exemplo}[section]
+\newtheorem{Tab}{Tabela}[chapter]
+
+\begin{document}
+%\hypersetup{
+%pdfauthor = {Suelen Goularte Carvalho},
+%pdftitle = {Algo Relacionado a Mobile},
+%pdfsubject = {Dissertação de Mestrado},
+%pdfkeywords={Mobile, Computação Movel, Celular} % <== Precisa rever o que vai colocar aqui !!!
+%pdfcreator = {LaTeX with hyperref package},
+%}
+
+\frontmatter
+
+\onehalfspacing
+\include{diss-capa}
+
+\pagenumbering{roman}
+
+\onehalfspacing
+\include{diss-agradecimentos}
+\include{diss-abstract}
+
+\onehalfspacing
+\tableofcontents
+
+\include{diss-acro}
+\include{diss-nomenclatura}
+
+\listoffigures
+\listofalgorithms
+
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\onehalfspacing
+
+\include{diss-1} % 
+\include{diss-2} % 
+\include{diss-3} % 
+\include{diss-4} %
+\include{diss-5}
+\include{diss-6}
+\include{diss-7}
+
+\appendix
+
+\include{diss-apendice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\onehalfspacing
+\bibliographystyle{apalike}
+\bibliography{diss-bib}
+
+\printindex
+
+\end{document}

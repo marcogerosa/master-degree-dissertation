@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{22cm}
+\setlength{\parskip}{0.2cm}
+
+% Para aumentar o espaçamento entre as linhas
+\linespread{1.2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusão}
+\label{cap:conclusao}
+
+Nos últimos anos, planejamento automatizado\index{planejamento!automatizado} vem sendo cada vez mais aplicado em problemas práticos de diversas áreas que requerem soluções confiáveis. Além disso, um plano pode falhar durante sua execução devido à interferências de outros agentes (eventos exógenos). \\
+
+Neste trabalho foram estudadas diferentes abordagens \cite{Kabhampati2005} \cite{Roman2004} \cite{Roman2005} para tratar planejamento não\--de\-ter\-mi\-nís\-ti\-co\index{planejamento!não-determinístico}, por meio de monitoração de execução e reparo de planos. \\
+
+No reparo de planos faz-se a suposição de que o custo envolvido no replanejamento completo, a partir do estado que ocorreu a falha é maior do que o reparo do plano tentando-se aproveitar ao máximo do plano original. \\
+
+%Em vista disso, foi proposta uma forma de tentar resolver problemas específicos de planejamento em ambientes dinâmicos\index{ambiente!dinâmico}. Tais como, problemas de planejamento na presença de não-determinismo  ilimitado\index{não-determinismo!ilimitado} porém com ações determínisticas, onde a manutenção do plano, somente com adições de ações não é suficiente para reparar uma falha. Para tratar essa classe de problemas, foi apresentada a técnica de reparo de plano\index{reparo!de plano} por refinamento reverso, a qual busca levar o agente a satisfazer suas metas com sucesso. O desenvolvimento desta técnica exigiu um estudo aprofundado e a criação de uma heurística capaz de selecionar e remover o conjunto de ações que esteja impedindo o plano de atingir o seu objetivo, conforme descrito no Capítulo \ref{cap:reparo_de_plano_por_refinamento_reverso}. \\
+
+De acordo com \cite{Bernhard1993}, no pior caso, reparar um plano existente não é mais eficaz do que um novo replanejamento completo\index{replanejamento}. Entretanto, na prática, o reparo de plano provou ser mais eficaz, uma vez que grande parte do plano ainda é válida na maioria dos casos. Como visto no Capítulo \ref{cap:implementacao_e_analise_experimental}, utilizar um plano que já existe, ainda que seja necessário ajustá-lo, certamente demanda menos recursos do que construir um plano completamente novo. Além disso, em muitos domínios pode ser mais dispendioso modificar todo o plano devido a compromissos\index{compromisso} com outros agentes baseados no plano original \cite{Kabhampati2005}. \\
+
+Assim, o objetivo desse trabalho foi investigar as vantagens entre replanejamento e reparo por meio da implementação de um sistema de reparo  (VHPOP-RE-H) e compará-lo com o replanejamento utilizando o planejador clássico VHPOP. \\
+
+\section{Principais contribuições}
+
+Embora o \ac{VHPOP} \cite{Younes2003} tenha uma implementação de domínio público, não foram
+disponibilizados planejadores não\--de\-ter\-mí\-nis\-ti\-cos que executem reparo de plano por meio de refinamento reverso ex\-plí\-ci\-to \cite{Roman2005}. Um dos objetivos do estudo foi prover uma implementação das técnicas exibidas nas seções anteriores e possibilitar a comparação empírica com outras abordagens. \\
+
+Outra contribuição desse trabalho foi o desenvolvimento de uma heurística\index{heurística} que viabilizasse a implementação do modelo de reparo de plano por refinamento reverso. \\
+
+Finalmente, a análise experimental mostrou que o sistema VHPOP-RE-H é capaz de reparar, a maioria dos planos, de forma mais eficiente do que os sistemas VHPOP-RE e VHPOP, pois ele gasta menos tempo para encontrar uma solução e remove, no máximo, o mesmo número de ações que o replanejamento completo.
+\section{Trabalhos futuros}
+
+Algumas extensões possíveis desse trabalho são:
+\begin{itemize}
+\item Usar uma heurística clássica de busca no espaço de estados, como por exemplo FF ou HSP, para estimar o custo do replanejamento total.
+\item Monitorar se uma ou mais ações sempre falham em determinadas condições, para que o agente deixe de incluí-las em seus planos.
+\item Uma biblioteca de fragmentos de planos\index{fragmentos de planos} \cite{Roman2001}, ou planejamento baseado em casos \cite{Tonidandel2003}.
+\item Um conjunto de macro-ações\index{macro-ações} \cite{Adi2004} pode melhorar o desempenho em ambientes onde existam informações prévias, possibilitando, inclusive, a utilização de alguma técnica reativa \cite{Castro2005} \cite{Boella2002} para reparo de planos.
+\end{itemize}
+
+%
+%Neste trabalho, lidou-se com ambientes de um único agente, porém em ambientes de multiagentes\index{multi-agente} cooperativos \cite{Weiss1999}, por meio de coordenação e comunicação entre eles, é possível que um agente repare o plano de outro. \\
+%
