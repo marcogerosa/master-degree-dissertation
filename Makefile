@@ -7,31 +7,31 @@ view:
 	open $(FILENAME).pdf 
 
 quickbuild:
-	$(DIR)/pdflatex $(FILENAME).tex 
+	$(DIR)pdflatex $(FILENAME).tex 
 	open $(FILENAME).pdf 
 
 latex:
-	$(DIR)/latex $(FILENAME)
-	$(DIR)/dvips -o $(FILENAME).ps $(FILENAME).dvi
+	$(DIR)latex $(FILENAME)
+	$(DIR)dvips -o $(FILENAME).ps $(FILENAME).dvi
 	ps2pdf $(FILENAME).ps $(FILENAME).pdf
 	open $(FILENAME).pdf
 
 pdflatex:
 	# PdfLaTeX + BibTex + (2x) PdfLaTeX
-	$(DIR)/pdflatex $(FILENAME).tex 
-	$(DIR)/bibtex $(FILENAME).aux
-	$(DIR)/pdflatex $(FILENAME).tex 
-	$(DIR)/pdflatex $(FILENAME).tex 
+	$(DIR)pdflatex $(FILENAME).tex 
+	$(DIR)bibtex $(FILENAME).aux
+	$(DIR)pdflatex $(FILENAME).tex 
+	$(DIR)pdflatex $(FILENAME).tex 
 
 build:
 	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
-	$(DIR)/latex $(FILENAME).tex
-	$(DIR)/bibtex $(FILENAME).aux
-	$(DIR)/latex $(FILENAME).tex
-	$(DIR)/latex $(FILENAME).tex
-	$(DIR)/makeindex $(FILENAME).tex
-	$(DIR)/latex $(FILENAME).tex
-	$(DIR)/dvips -o $(FILENAME).ps $(FILENAME).dvi
+	$(DIR)latex $(FILENAME).tex
+	$(DIR)bibtex $(FILENAME).aux
+	$(DIR)latex $(FILENAME).tex
+	$(DIR)latex $(FILENAME).tex
+	$(DIR)makeindex $(FILENAME).tex
+	$(DIR)latex $(FILENAME).tex
+	$(DIR)dvips -o $(FILENAME).ps $(FILENAME).dvi
 	ps2pdf $(FILENAME).ps $(FILENAME).pdf
 
 clean:
