@@ -4,23 +4,28 @@
 
 % ---------------------------------------------------------------------------- %
 % Pacotes 
-\usepackage[brazil]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
 \usepackage[latin1]{inputenc}
-%\usepackage[pdftex]{graphicx}            % usamos arquivos pdf/png como figuras
-%\usepackage{color}
-%\usepackage{pifont}
-\usepackage{amsfonts}
-\usepackage{amssymb} 
-%\usepackage{setspace}                   % espaçamento flexível
-%\usepackage[small,compact]{titlesec}    % cabeçalhos dos títulos: menores e compactos
-\usepackage{indentfirst}                 % indentação do primeiro parágrafo
-\usepackage{cite}                        % modo de citação legal
-%\usepackage{subfigure}                  % uso de várias figuras numa só
-
-\usepackage{makeidx}                     % índice remissivo
-\usepackage[nottoc]{tocbibind}           % acrescentamos a bibliografia/indice/conteudo no Table of Contents
-\usepackage{setspace}
-%\usepackage[pagebackref,colorlinks=true,urlcolor=red,citecolor=green,linkcolor=blue]{hyperref}
+\usepackage[pdftex]{graphicx}           % usamos arquivos pdf/png como figuras
+\usepackage{setspace}                   % espaçamento flexível
+\usepackage{indentfirst}                % indentação do primeiro parágrafo
+\usepackage{makeidx}                    % índice remissivo
+\usepackage[nottoc]{tocbibind}          % acrescentamos a bibliografia/indice/conteudo no Table of Contents
+\usepackage{courier}                    % usa o Adobe Courier no lugar de Computer Modern Typewriter
+\usepackage{type1cm}                    % fontes realmente escaláveis
+\usepackage{listings}                   % para formatar código-fonte (ex. em Java)
+\usepackage{titletoc}
+%\usepackage[bf,small,compact]{titlesec} % cabeçalhos dos títulos: menores e compactos
+\usepackage[fixlanguage]{babelbib}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry} % margens
+%\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=black,linkcolor=black,urlcolor=black,filecolor=black,bookmarksopen=true]{hyperref} % links em preto
+\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref} % links coloridos
+\usepackage[all]{hypcap}                    % soluciona o problema com o hyperref e capitulos
+\usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
 
 % By David
 \usepackage[dvips]{graphicx} 
@@ -38,11 +43,11 @@
 % Dimensões da página (letterpaper)
 %\setlength{\paperwidth}{216mm}
 %\setlength{\topmargin}{1.3cm}         % deslocamento do topo do texto 
-\setlength\oddsidemargin{0cm}
-\setlength\evensidemargin{0cm}
-\setlength{\parskip}{1.2mm}
+%\setlength\oddsidemargin{0cm}
+%\setlength\evensidemargin{0cm}
+%\setlength{\parskip}{1.2mm}
 %\setlength{\parindent}{4mm}
-\setlength{\textwidth}{135mm}          % largura do texto
+%\setlength{\textwidth}{135mm}          % largura do texto
 %\setlength{\parindent}{0pt}
 %\setlength{\textheight}{22cm}
 %\setlength{\parskip}{0.2cm}
@@ -92,17 +97,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \onehalfspacing
 
-\include{diss-1} % 
-\include{diss-2} % 
-\include{diss-3} % 
-\include{diss-4} %
-\include{diss-5}
-\include{diss-6}
-\include{diss-7}
+\include{cap-introducao} 
+\include{cap-fundamentacao-teorica} 
+\include{cap-pesquisa} 
+\include{cap-catalogo-smells} 
+\include{cap-conclusao}
 
-\appendix
+%\appendix
 
-\include{diss-apendice}
+%\include{diss-apendice}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

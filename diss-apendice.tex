@@ -16,52 +16,6 @@ Em 1998 foi criada a \ac{PDDL}\index{PDDL} \cite{McDermott1998}\cite{McDermott19
 
 Algumas características principais da \ac{PDDL} são:
 
-\begin{itemize}
-\item A \ac{PDDL} é uma representação direcionada às ações do domínio;
-\item As ações representadas em \ac{PDDL} são baseadas em ações do modelo \ac{STRIPS}\index{STRIPS} \cite{Richard1971} em que as pré-condições e os efeitos de uma ação representam a dinâmica da execução desta no domínio;
-\item Possui traços da linguagem \ac{ADL}\index{ADL} \cite{Pednault1989} que incluem a representação de efeitos condicionais nas ações, assim como qualificadores e quantificadores universais;
-\item Definição de restrições;
-\item Especificação de ações hierárquicas compostas \cite{McDermott1998} por subações;
-\item Devido ao fato da linguagem ser padronizada, é possível que um mesmo problema representado em \ac{PDDL} seja tratado por vários planejadores diferentes (portabilidade de problemas entre agentes planejadores). 
-\end{itemize}
-
-A \ac{PDDL} está em constante evolução desde a sua criação. Uma das principais evoluções da \ac{PDDL} foi a chamada \ac{PDDL} 2.1 \cite{Maria2003} que foi desenvolvida com a intenção de representar domínios de planejamento determinísticos que envolvem tempo e que necessitam de recursos de manipulação algébrica, incorporando também características da linguagem \ac{ADL} \cite{Pednault1989}. A \ac{PDDL} 2.1 pode ser classificada em cinco níveis: o nível 1 é definido pela primeira versão da \ac{PDDL} desenvolvida para a competição de \ac{AIPS} em 1998. O nível 2 é um complemento ao nível 1, permitindo a utilização de recursos numéricos como a comparação entre variáveis numéricas e a atualização dos valores das mesmas. Os níveis 3 e 4 definem a representação de ações com dependência temporal tanto com efeitos não contínuos (nível 3) como com efeitos contínuos (nível 4). O nível 5 é uma extensão do nível 4 capaz de representar domínios contínuos e discretos em tempo real. \\
-
-A representação de um modelo de domínio de planejamento em \ac{PDDL} é dividida em duas partes. A primeira possui a definição do domínio em que são encontradas, principalmente, as ações possíveis no domínio assim como a declaração dos tipos de objetos existentes. Já a segunda parte possui a definição do problema de planejamento a ser resolvido onde são fornecidos os estados iniciais do problema e o objetivo a ser atingido. Cada uma dessas partes é fornecida ao planejador na forma de arquivo ({\tt .pddl}). A separação da definição do domínio e dos problemas é um fator positivo já que, para uma mesma definição de domínio, é possível raciocinar sobre diversos problemas \cite{Vaquero2007}. \\
-
-A \ac{PDDL} possui um formalismo para as definições do domínio e do problema. Toda a definição formal da linguagem pode ser encontrada na especificação da \ac{PDDL} 2.1 \cite{Maria2003} ou em versões posteriores como a \ac{PDDL} 2.2 \cite{S.2004} e \ac{PDDL} 3.0 \cite{A.2005}. \\
-
-\section{Domínio do Mundo dos Blocos}\index{Mundo dos Blocos}
-\label{apendice_dominio_blocos}
-
-{\tt \small
-01 ; The 4-operator blocks world domain from the 2nd International \\
-02 ; Planning Competition. \\
-03 \\ 
-04 (define (domain blocks) \\
-05 \ (:predicates (on ?x ?y) (ontable ?x) (clear ?x) (handempty) \\
-06 \ \ \ \ \ \ \ \ \ \ \ \ \ \ (holding ?x)) \\
-07 \ (:action pick-up \\
-08 \ \ \ \ \ \ \ \ \ \ :parameters (?x) \\
-09 \ \ \ \ \ \ \ \ \ \ :precondition (and (clear ?x) (ontable ?x) (handempty)) \\
-10 \ \ \ \ \ \ \ \ \ \ :effect (and (not (ontable ?x)) (not (clear ?x)) \\
-11 \ \ \ \ \ \ \ \ \ \ 		(not (handempty)) (holding ?x))) \\
-12 \ (:action put-down \\
-13 \ \ \ \ \ \ \ \ \ \ :parameters (?x) \\
-14 \ \ \ \ \ \ \ \ \ \ :precondition (holding ?x) \\
-15 \ \ \ \ \ \ \ \ \ \ :effect (and (not (holding ?x)) (clear ?x) (handempty) \\
-16 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (ontable ?x))) \\
-17 \ (:action stack \\
-18 \ \ \ \ \ \ \ \ \ \ :parameters (?x ?y) \\
-19 \ \ \ \ \ \ \ \ \ \ :precondition (and (holding ?x) (clear ?y)) \\
-20 \ \ \ \ \ \ \ \ \ \ :effect (and (not (holding ?x)) (not (clear ?y)) \\ 
-21 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (clear ?x) (handempty) (on ?x ?y))) \\
-22 \ (:action unstack \\
-23 \ \ \ \ \ \ \ \ \ \ :parameters (?x ?y) \\
-24 \ \ \ \ \ \ \ \ \ \ :precondition (and (on ?x ?y) (clear ?x) (handempty)) \\
-25 \ \ \ \ \ \ \ \ \ \ :effect (and (holding ?x) (clear ?y) (not (clear ?x)) \\
-26 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (not (handempty)) (not (on ?x ?y))))) \\
-}
 
 \chapter{Arquitetura do Sistema}
 \label{apendice_arquitetura_sistema}

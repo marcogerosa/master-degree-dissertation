@@ -1,7 +1,7 @@
 FILENAME = dissertacao
-DIR_LATEX = /usr/local/texlive/2015/bin/x86_64-darwin/
+DIR_LATEX = /usr/texbin/
 
-all: clean build clean view
+all: clean pdflatex clean view
 
 view:
 	open $(FILENAME).pdf 
@@ -17,11 +17,12 @@ latex:
 	open $(FILENAME).pdf
 
 pdflatex:
-	# PdfLaTeX + BibTex + (2x) PdfLaTeX
+	# PdfLaTeX + BibTex + (2x) PdfLaTeX 
 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
 	$(DIR_LATEX)bibtex $(FILENAME).aux
 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
+	
 
 build:
 	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
