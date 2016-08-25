@@ -27,7 +27,7 @@ $(FILENAME).ps: $(FILENAME).tex
 clean:
 	rm -f $(FILENAME)*.ps $(FILENAME)*.dvi *.log \
 	      *.aux *.blg *.toc *.brf *.ilg *.ind \
-	      missfont.log $(FILENAME)*.bbl $(FILENAME)*.pdf $(FILENAME)*.out \
+	      missfont.log $(FILENAME)*.bbl $(FILENAME)*.out \
 		  $(FILENAME)*.lof $(FILENAME)*.lot 
 
 

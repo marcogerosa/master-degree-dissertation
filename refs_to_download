@@ -1,3 +1,55 @@
-Artigos que quero:
+Relevância
+==========
 
-http://dl.acm.org/citation.cfm?id=2818805
+
+Tracking the Software Quality of Android Applications along their Evolution
+A Tool-Supported Quality Smell Catalogue For Android Developers (tool Refactory)
+	- Existem aplicativos para identificar qualidade/antipatterns em aplicações android, são Paprika e inFusion e Rafactory.
+	- Existe relação entre a quantidade de downloads e a quantidade de classes dos apps.
+	- Fala com relação a introdução de mais antipatterns em aplicações android conforme sua evolução
+	- Como trabalho futuro eles propoem analisar a relação da avaliação do aplicativo na store com o score de qualidade dado pelo Paprika.
+
+
+Detecting Antipatterns in Android Apps
+	- Também usa o Paprika e comenta dos maus cheiros de código que foram extraídos da documentação oficial e de experiência de desenvolvedores. Porém que esses maus cheiros são focados em eficiência, experiência do usuário, consumo de memória, tamanho do aplicativo, leaks de memória, etc, NÃO SOBRE qualidade de código e manutenção/evolução do mesmo.
+	- Relação entre categoria do app vs antipattern encontrado.
+	- Reimann et al. [30] propose a catalog of 30 quality smells dedicated to Android. These code smells are mainly originated from the good and bad practices documented online in Android documentations or by developers reporting their experience on blogs.
+
+
+Understanding Code Smells in Android Applications
+	- We hope that this research encourages the community to further investigate the important domain of mobile applications and how they are different from traditional desktop software.
+	- Notou-se que maus cheiros tradicionais são encontrados em aplicações android porém em menos quantidade quando comparado com maus cheiros específicos da plataforma.
+	- Tabela interessante sobre a qtde de publicações de artigos em eventos conceituados sobre qualidade de código e maus cheiros android revela que de 2008 a 2015 apenas 5 paper com relação a maus cheiros Android foram publicados contra 47 sobre o mesmo assuntos porém no ambiente de aplicações Java.
+
+	
+Removing Energy Code Smells with Reengineering Services
+	- Muitos artigos chegaram a alguns maus cheiros porém relacionados a consumo de energia, eficiência, etc
+
+
+A Tool-Supported Quality Smell Catalogue For Android Developers
+	- Artigo que gerou o site http://www.modelrefactoring.org/smell_catalog com os 30 maus cheiros baseados na documentação oficial e em experiências de desenvolvedores e a ferramenta Refactoring (http://www.modelrefactoring.org/index.php/Refactoring).
+
+An Empirical Study of the Performance Impacts of Android Code Smells
+	- Novamente avaliação do maus cheiro com relação ao desempenho de memória e UI, não com relação a qualidade de código.
+	- Avaliou o impacto de 3 code smells na perfomance com relação a UI e desempenho da memória em 5 versões diferentes de 2 aplicativos open source. 
+	- A conclusão é que vale a pena a correção desses maus cheiros porém não se sabe dizer se o esforço para a correção vale o benefício.
+
+Domain Matters: Bringing Further Evidence of the Relationships among Anti-patterns, Application Domains, and Quality-Related Metrics in Java Mobile Apps
+	- Conclui também que alguns maus cheiros/antipatterns ocorrem mais em aplicações móveis do que em aplicações java. 
+
+
+
+
+Submeter Artigo com resultados preliminares para:
+	- ICSE Conference (May 20-28, 2017)
+	- Mobile Summit (http://www.msummit.com.br/) 18 e 19 de Novembro
+	- https://www.mobileworldcongress.com/conference/call-for-papers/
+	- http://mobilewebdevconference.com/
+
+
+
+
+
+Outras coisas
+=============
+Apps mobile android tem a pasta resource, as pastas lá dentro podem ter multiplas versões, chamados de qualificadores, onde possuem recursos para um cenário específico como idioma, resolução, etc.
