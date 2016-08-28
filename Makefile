@@ -56,16 +56,16 @@ view:
 # 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
 	
 
-# build:
-# 	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
-# 	$(DIR_LATEX)latex $(FILENAME).tex
-# 	$(DIR_LATEX)bibtex $(FILENAME).aux
-# 	$(DIR_LATEX)latex $(FILENAME).tex
-# 	$(DIR_LATEX)latex $(FILENAME).tex
-# 	$(DIR_LATEX)makeindex $(FILENAME).tex
-# 	$(DIR_LATEX)latex $(FILENAME).tex
-# 	$(DIR_LATEX)dvips -o $(FILENAME).ps $(FILENAME).dvi
-# 	ps2pdf $(FILENAME).ps $(FILENAME).pdf
+build:
+	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
+	latex $(FILENAME).tex
+	bibtex $(FILENAME).aux
+	latex $(FILENAME).tex
+	latex $(FILENAME).tex
+	makeindex $(FILENAME).tex
+	latex $(FILENAME).tex
+	dvips -o $(FILENAME).ps $(FILENAME).dvi
+	ps2pdf $(FILENAME).ps $(FILENAME).pdf
 
 # clean:
 # 	mkdir -p .trash;
