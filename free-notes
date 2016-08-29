@@ -1,0 +1,124 @@
+- Relevância e Problema
+
+	A quantidade de aplicativos Android nativos sendo desenvolvidos e mantidos aumenta a cada dia. Nos últimos 10 anos este número passou de poucos a 2 milhões. Isso significa cada vez mais código Android sendo criado, alterado e mantido diariamente. No área de desenvolvimento de software sabemos a importância de manter um código limpo e de qualidade e apesar de Android utilizar a tecnologia Java para ser desenvolvido, não é completamente igual a um projeto Java ou um projeto Java Web, tendo portanto suas especificidades. 
+
+	Diversas boas e más práticas já foram mapeadas para Java e Java Web, porém não encontramos em mesma quantidade estas mesmas análisas para projetos Android. Logo, o objetivo deste trabalho é identificar boas e más práticas em projetos Android, focando principalmente na camada de apresentação, que é onde mais se difere de projetos Java, e mapeá-las em maus cheiros. Desta forma, nossa contribuição será um conjunto validado de maus cheiros na camada de apresentacão de aplicativos Android, ajudando desenvolvedores a implementarem códigos melhores também em projetos Android e facilitando a evolução de ferramentas que identifiquem automaticamente estes maus cheiros.
+
+	A camada de apresentação do Android lida com diversos tipos de objetos diferentes, para o fim desta pesquisa, entende-se por camada de apresentação no Android todo código que consta na pasta res (resources), Activity's, Fragment's, Adapter's, Listener's, View's or ViewGroup's. 
+
+	Um problema conhecido é o alto acoplamento e baixa coesão das Activities onde as mesmas costumam recuperar e colocar informações na tela, eventualmente buscar os dados no banco de dados ou em serviços externos e lógicas de apresentação. Outro problema muito comum é a quantidade de arquivos na pasta resource principalmente nas subpastas drawable e layout onde respectivamente armazenamos imagens e layouts o xmls que representam as telas no Android, no começo de qualquer projeto não são um problema, mas ao longo da evolução, conforme vão aumentando a quantidade de layouts e imagens diferentes, estas subpastas ficam cada vez com mais e mais arquivos e começa a ficar extremamente trabalhoso de achar um arquivo sem olhar no código que o usa.
+
+	Este trabalho visa responder as seguintes questões:
+
+		Q1: Quais são as classes que representam a camada de apresentação no Android?
+
+		Q2: Existe maus cheiros específicos para a camada de apresentação do Android?
+
+		Q3: Qual a relação entre os maus cheiros propostos e o tendência a mudanças de classes?
+
+		Q4: Qual a relação entre os maus cheiros propostos e o tendência a defeitos nas classes?
+
+		Q5: Desenvolvedores percebem as classes afetadas pelos maus cheiros prpopostos como problemáticas?
+	
+- Fundamentação 
+	Code Smell
+	Android
+	Smell 
+
+- Método
+
+	1. Definir o que é a CAMADA DE APRESENTAÇÃO.
+		. Buscar em documentação, referências bibliográficas como artigos etc, se não encontrar, criar esta definição eventualmente através de um survey, entrevista com desenvolvedores referência, etc.
+	
+	2. Survey para identificar boas e más práticas na CAMADA DE APRESENTAÇÃO por parte de desenvolvedores. 
+		. Divulgar o survey na comunidade, quando mais desenvolvedores melhor, inclusive de outros países.
+		
+		. Questão para identificar desenvolvedores que já trabalharam em projetos Java/Java Web, pois isso pode demonstrar algum impacto futuro. [NA DÚVIDA AINDA]
+			. Mencionar sobre cada tipo de arquivo, ou seja, cada subfolder da pasta res, lembrando que a pasta vaues contém vários tipos de arquivos como strings, inteiros, cores, etc. Pode ser que um ponto seja a organização, níveis de aninhamneto, usar includes em layouts, styles separados, etc. Tem muita coisa que pode aparecer aqui inclusive a ideia de configurar mais um diretório com res folder no build.gradle.
+			. Boas e más práticas em Activities, Fragments, Adapter e Listeners, em quais pacotes ficam estas classes.
+
+	3. Identificar maus cheiros
+		. Ver como o Aniche fez isso.
+
+	4. Validar maus cheiros com desenvolvedores experientes
+
+	5. Analisar a percepção dos desenvolvedores com relação aos maus cheiros encontrados
+		. Experimento em cima de um projeto pronto tendo uma versão do projeto com os maus cheiros não corrigidos e outra com os maus cheiros corrigidos. Solicitar aos desenvolvedores que implementem uma nova funcionalidade (de preferência que lide com a tela para que eles passem pelos códigos com maus cheiros ou da camada de apresentação). Limitar o tempo. Analisar o resultado da experiência deles em relação se conseguiram concluir ou não a funcionalidade no tempo dado, se acharam difícil ou fácil e por quê. Posso fazer esta análise com survey ou com uma entrevista coletiva gravada áudio e vídeo (seria show) ou mesmo os dois (seria melhor ainda).
+		. Faz sentido obrigar o uso de TDD?
+		. Houve a necessidade de refatoração no código já existente?
+		. Pedir para usar uma sala na Caelum.
+
+
+
+Buscar bibliografias em
+	Citeseer - http://citeseer.ist.psu.edu
+	ACM - portal.acm.ogr/portal.cfm
+	IEEE Xplore - ieeexplore.ieee.org/guesthome.jsp
+	Google
+	http://www.periodicos.capes.gov.br
+	Acessar da VPN USPNet - http://www.escritacientifica.sc.usp.br/bases-de-dados/#tabs-660-0-1
+
+
+
+Por que a camada de apresentação e não todo o projeto?
+	Porque é na camada de apresentação onde projetos android mais se diferenciam de projetos java tradicionais.
+
+Por que no formato de Code Smells?
+	Por que é uma forma fácil de criar ferramentas para realizarem análises estáticas de código apontando os problemas que serão listados.
+
+
+Relevância
+==========
+
+
+Tracking the Software Quality of Android Applications along their Evolution
+A Tool-Supported Quality Smell Catalogue For Android Developers (tool Refactory)
+	- Existem aplicativos para identificar qualidade/antipatterns em aplicações android, são Paprika e inFusion e Rafactory.
+	- Existe relação entre a quantidade de downloads e a quantidade de classes dos apps.
+	- Fala com relação a introdução de mais antipatterns em aplicações android conforme sua evolução
+	- Como trabalho futuro eles propoem analisar a relação da avaliação do aplicativo na store com o score de qualidade dado pelo Paprika.
+
+
+Detecting Antipatterns in Android Apps
+	- Também usa o Paprika e comenta dos maus cheiros de código que foram extraídos da documentação oficial e de experiência de desenvolvedores. Porém que esses maus cheiros são focados em eficiência, experiência do usuário, consumo de memória, tamanho do aplicativo, leaks de memória, etc, NÃO SOBRE qualidade de código e manutenção/evolução do mesmo.
+	- Relação entre categoria do app vs antipattern encontrado.
+	- Reimann et al. [30] propose a catalog of 30 quality smells dedicated to Android. These code smells are mainly originated from the good and bad practices documented online in Android documentations or by developers reporting their experience on blogs.
+
+
+Understanding Code Smells in Android Applications
+	- We hope that this research encourages the community to further investigate the important domain of mobile applications and how they are different from traditional desktop software.
+	- Notou-se que maus cheiros tradicionais são encontrados em aplicações android porém em menos quantidade quando comparado com maus cheiros específicos da plataforma.
+	- Tabela interessante sobre a qtde de publicações de artigos em eventos conceituados sobre qualidade de código e maus cheiros android revela que de 2008 a 2015 apenas 5 paper com relação a maus cheiros Android foram publicados contra 47 sobre o mesmo assuntos porém no ambiente de aplicações Java.
+
+	
+Removing Energy Code Smells with Reengineering Services
+	- Muitos artigos chegaram a alguns maus cheiros porém relacionados a consumo de energia, eficiência, etc
+
+
+A Tool-Supported Quality Smell Catalogue For Android Developers
+	- Artigo que gerou o site http://www.modelrefactoring.org/smell_catalog com os 30 maus cheiros baseados na documentação oficial e em experiências de desenvolvedores e a ferramenta Refactoring (http://www.modelrefactoring.org/index.php/Refactoring).
+
+An Empirical Study of the Performance Impacts of Android Code Smells
+	- Novamente avaliação do maus cheiro com relação ao desempenho de memória e UI, não com relação a qualidade de código.
+	- Avaliou o impacto de 3 code smells na perfomance com relação a UI e desempenho da memória em 5 versões diferentes de 2 aplicativos open source. 
+	- A conclusão é que vale a pena a correção desses maus cheiros porém não se sabe dizer se o esforço para a correção vale o benefício.
+
+Domain Matters: Bringing Further Evidence of the Relationships among Anti-patterns, Application Domains, and Quality-Related Metrics in Java Mobile Apps
+	- Conclui também que alguns maus cheiros/antipatterns ocorrem mais em aplicações móveis do que em aplicações java. 
+
+
+
+
+Submeter Artigo com resultados preliminares para:
+	- ICSE Conference (May 20-28, 2017)
+	- Mobile Summit (http://www.msummit.com.br/) 18 e 19 de Novembro
+	- https://www.mobileworldcongress.com/conference/call-for-papers/
+	- http://mobilewebdevconference.com/
+
+
+
+
+
+Outras coisas
+=============
+Apps mobile android tem a pasta resource, as pastas lá dentro podem ter multiplas versões, chamados de qualificadores, onde possuem recursos para um cenário específico como idioma, resolução, etc.
