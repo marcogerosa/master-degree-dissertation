@@ -38,7 +38,7 @@ rm:
 all: clean pdflatex clean view
 
 view:
-	open $(FILENAME).pdf 
+	open -a Skim $(FILENAME).pdf 
 
 quickbuild:
 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
