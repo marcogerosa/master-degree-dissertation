@@ -1,4 +1,6 @@
 FILENAME = dissertacao
+#DIR_LATEX = /usr/local/texlive/2015/bin/x86_64-darwin/
+
 LATEX     = latex
 PDFLATEX  = pdflatex
 BIBTEX    = bibtex
@@ -24,7 +26,7 @@ $(FILENAME).ps: $(FILENAME).tex
 	$(LATEX) $<
 	$(LATEX) $<
 	
-clean:
+rm:
 	rm -f $(FILENAME)*.ps $(FILENAME)*.dvi *.log \
 	      *.aux *.blg *.toc *.brf *.ilg *.ind \
 	      missfont.log $(FILENAME)*.bbl $(FILENAME)*.out \
@@ -33,65 +35,65 @@ clean:
 
 # outros
 
-# all: clean pdflatex clean view
+all: clean pdflatex clean view
 
 view:
 	open $(FILENAME).pdf 
 
-# quickbuild:
-# 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
-# 	open $(FILENAME).pdf 
+quickbuild:
+	$(DIR_LATEX)pdflatex $(FILENAME).tex 
+	open $(FILENAME).pdf 
 
-# latex:
-# 	$(DIR_LATEX)latex $(FILENAME)
-# 	$(DIR_LATEX)dvips -o $(FILENAME).ps $(FILENAME).dvi
-# 	ps2pdf $(FILENAME).ps $(FILENAME).pdf
-# 	open $(FILENAME).pdf
+latex:
+	$(DIR_LATEX)latex $(FILENAME)
+	$(DIR_LATEX)dvips -o $(FILENAME).ps $(FILENAME).dvi
+	ps2pdf $(FILENAME).ps $(FILENAME).pdf
+	open $(FILENAME).pdf
 
-# pdflatex:
-# 	# PdfLaTeX + BibTex + (2x) PdfLaTeX 
-# 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
-# 	$(DIR_LATEX)bibtex $(FILENAME).aux
-# 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
-# 	$(DIR_LATEX)pdflatex $(FILENAME).tex 
+pdflatex:
+	# PdfLaTeX + BibTex + (2x) PdfLaTeX 
+	$(DIR_LATEX)pdflatex $(FILENAME).tex 
+	$(DIR_LATEX)bibtex $(FILENAME).aux
+	$(DIR_LATEX)pdflatex $(FILENAME).tex 
+	$(DIR_LATEX)pdflatex $(FILENAME).tex 
 	
 
 build:
 	# LaTex + BibiTex + (2x) LaTeX + Makeindex + LaTeX + dvips + ps2pdf
-	latex $(FILENAME).tex
-	bibtex $(FILENAME).aux
-	latex $(FILENAME).tex
-	latex $(FILENAME).tex
-	makeindex $(FILENAME).tex
-	latex $(FILENAME).tex
-	dvips -o $(FILENAME).ps $(FILENAME).dvi
-	ps2pdf $(FILENAME).ps $(FILENAME).pdf
+	$(DIR_LATEX)latex $(FILENAME).tex
+	$(DIR_LATEX)bibtex $(FILENAME).aux
+	$(DIR_LATEX)latex $(FILENAME).tex
+	$(DIR_LATEX)latex $(FILENAME).tex
+	$(DIR_LATEX)makeindex $(FILENAME).tex
+	$(DIR_LATEX)latex $(FILENAME).tex
+	$(DIR_LATEX)dvips -o $(FILENAME).ps $(FILENAME).dvi
+	$(DIR_LATEX)ps2pdf $(FILENAME).ps $(FILENAME).pdf
 
-# clean:
-# 	mkdir -p .trash;
-	
-# 	mv *.aux .trash/ 2> /dev/null; true
-# 	mv *.dvi .trash/ 2> /dev/null; true
-# 	mv *.ps .trash/ 2> /dev/null; true
-# 	mv *.idx .trash/ 2> /dev/null; true
-# 	mv *.loa .trash/ 2> /dev/null; true
-# 	mv *.lof .trash/ 2> /dev/null; true
-# 	mv *.log .trash/ 2> /dev/null; true
-# 	mv *.toc .trash/ 2> /dev/null; true
-# 	mv *.out .trash/ 2> /dev/null; true
-# 	mv *.snm .trash/ 2> /dev/null; true
-# 	mv *.tex~ .trash/ 2> /dev/null; true
-# 	mv *.ind .trash/ 2> /dev/null; true
-# 	mv *.bak .trash/ 2> /dev/null; true
-# 	mv *.bbl .trash/ 2> /dev/null; true
-# 	mv *.bbl~ .trash/ 2> /dev/null; true
-# 	mv *.blg .trash/ 2> /dev/null; true
-# 	mv *.bib~ .trash/ 2> /dev/null; true
-# 	mv *.brf .trash/ 2> /dev/null; true
-# 	mv *.ilg .trash/ 2> /dev/null; true
-# 	mv *.nav .trash/ 2> /dev/null; true
-# 	mv *.vrb .trash/ 2> /dev/null; true
-# 	mv *.backup .trash/ 2> /dev/null; true
-	
-# 	chmod -x *.tex 
-# 	chmod +x *.pdf 
+clean:
+	mkdir -p /tmp/trash;
+      
+	mv *.aux /tmp/trash/ 2> /dev/null; true
+	mv *.dvi /tmp/trash/ 2> /dev/null; true
+	mv *.ps /tmp/trash/ 2> /dev/null; true
+	mv *.idx /tmp/trash/ 2> /dev/null; true
+	mv *.loa /tmp/trash/ 2> /dev/null; true
+	mv *.lof /tmp/trash/ 2> /dev/null; true
+	mv *.log /tmp/trash/ 2> /dev/null; true
+	mv *.toc /tmp/trash/ 2> /dev/null; true
+	mv *.out /tmp/trash/ 2> /dev/null; true
+	mv *.snm /tmp/trash/ 2> /dev/null; true
+	mv *.tex~ /tmp/trash/ 2> /dev/null; true
+	mv *.ind /tmp/trash/ 2> /dev/null; true
+	mv *.bak /tmp/trash/ 2> /dev/null; true
+	mv *.bbl /tmp/trash/ 2> /dev/null; true
+	mv *.bbl~ /tmp/trash/ 2> /dev/null; true
+	mv *.blg /tmp/trash/ 2> /dev/null; true
+	mv *.bib~ /tmp/trash/ 2> /dev/null; true
+	mv *.brf /tmp/trash/ 2> /dev/null; true
+	mv *.ilg /tmp/trash/ 2> /dev/null; true
+	mv *.nav /tmp/trash/ 2> /dev/null; true
+	mv *.vrb /tmp/trash/ 2> /dev/null; true
+	mv *.backup /tmp/trash/ 2> /dev/null; true
+      
+	chmod -x *.tex 
+	chmod +x *.pdf 
