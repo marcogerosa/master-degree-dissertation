@@ -3,9 +3,7 @@
 \setlength{\parindent}{20pt}
 \setlength{\textheight}{22cm}
 \setlength{\parskip}{0.2cm}
-
-% Para aumentar o espaçamento entre as linhas
-\linespread{1.2}
+\linespread{1.2} % Para aumentar o espaçamento entre as linhas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Introdução}
@@ -27,22 +25,40 @@ Smartphones existem desde 1993 porém nesta época o foco era voltado para empresa
 No entanto, pesquisas em torno desta plataforma não crescem na mesma proporção \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed} e a ausência de um catálogo de maus cheiros de código espefícido para a plataforma Android pode resultar em (i) uma carência de conhecimento sobre boas e más práticas a ser compatilhado entre praticantes desta plataforma, (ii) indisponibilidade de ter uma ferramenta de detecção de maus cheiros de forma a alertar automaticamente os desenvolvedores da existência de maus cheiros de código, e (iii) ausência de estudo empírico sobre o ímpacto destas más práticas na manutenabilidade do código de projetos Android, por este motivos, boas e más práticas que são específicos a uma platadforma, no caso Android, tem emergido como tópicos de pesquisa sobre manutenção de código \cite{MvcSmells:16}.
 
 
-\section{Objetivos}
+\section{Questões da Pesquisa}
 
-A fazer. \\
+A questão primária desta pesquisa é \textbf{Quais são as boas e más práticas específicas à camada de apresentação em aplicações Android nativas?}. Para responder a esta questão, temos as seguintes questões secundárias:
 
+\begin{itemize}
+	\item \textbf{Q1: Quais são as classes que representam a camada de apresentação no Android?}
+	
+	Visto que não há registros de estudos que delimitam quais arquivos e tipos de classes representam a camada de apresentação no Android, o objetivo desta prmeira questão é, através de um questionário, definir, em termos desta pesquisa, quais elementos de um projeto Android representam a camada de apresentação.
 
-\section{Abordagem de Solução}\index{abordagem}
+	\item \textbf{Q2: Existe maus cheiros específicos para a camada de apresentação do Android?}
+	
+	Após delimitar exatamente quais elementos representam a camada de apresentação, pretende-se coletar, novamente através de um questionário, boas e más práticas utilziadas e/ou percebidas por desenvolvedores em cada elemento da camada de apresentação. Por exemplo, certamente aquivos do tipo \textsc{Layout} e \textsc{Activities} são fortes candidatos a serem parte da camada de apresentação do Android. Desta forma, para cada elemento identificado, serão feitas as seguintes perguntas:
 
-A fazer. \\
+	\begin{itemize}
+		\item Você conhece ou utiliza alguma boa prática para lidar com X?
+		\item Você considera algo uma má prática para lidar com X?
+	\end{itemize}
+	
+	Onde ``X'' indica o elemento parte da camada de apresentação do Android. Estes dados serão analisados, categorizados e extraídos maus cheiros. Estes maus cheiros serão validados com especialistas em desenvolvimento Android.
 
+	\item \textbf{Q3: Desenvolvedores percebem as classes afetadas pelos maus cheiros prpopostos como problemáticas?}
+	
+	Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento. [Completar aqui]
+
+	Esta questão contempla duas subquestões sobre a relação dos maus cheiros e a tendência a mudanças e introdução de \textit{bugs} no projeto.
+
+	\begin{itemize}
+		\item \textbf{Q3.1: Qual a relação entre os maus cheiros propostos e o tendência a mudanças de classes?}
+		\item \textbf{Q3.2: Qual a relação entre os maus cheiros propostos e o tendência a introdução de \textit{bugs} nas classes?}
+	\end{itemize}
+	
+\end{itemize}
 
 \section{Originalidade e Relevância}\index{originalidade}
 
 Diversas pesquisas em torno de maus cheiros de código veem sendo realizadas ao longo dos últimos anos. Já existem inclusive diversos maus cheiros mapeados, porém poucos deles são específicos da plataforma Android \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. Segundo \cite{Hecht2015} estudos sobre maus cheiros de código sobre aplicações Android ainda estão em sua infância, porém ainda assim são muito relevantes inclusive notando-se que é mais comum identificar em aplicativos Android maus cheiros mapeados exclusivamente para esta plataforma do que os maus cheiros tradicionais \cite{DomainMatters}. \\
-
-
-\section{Organização do Trabalho}\index{organização}
-
-A fazer. \\
 
