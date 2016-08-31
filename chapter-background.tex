@@ -10,11 +10,34 @@
 
 Para a compreensão deste trabalho é importante ter claro a definição de 2 itens, são eles: \textit{Aplicações Android} e \textit{Maus Cheiros de Código}.
 
-\section{Aplicações Android}
+\section{Android}
+
+Android é um sistema operacional móvel de código aberto, baseado no kernel do Linux, desenvolvido pelo Google para dispositivos móveis como \textit{smartphones} e \textit{tablets}. Atualmente é possível encontrá-lo sendo executado em outros dispositivos como painéis de carros, \textit{smart TVs} e \textit{smartwatchs}. 
+
+O primeiro \textit{smartphone} com Android foi lançado em 2008 chamado G1, ou \emph{Google One}. Desde seu lançamento o Android vem registrando um crescimento extremamente acentuado. Atualmente é a plataforma móvel mais utilizada no mundo, com 84\% do \textit{marketshare} \cite{MobileMarketShares:16}.  
+
+Aplicativos Android são arquivos do tipo \texttt{apk} que podem ser obtidos a partir de lojas de aplicativos virtuais. A \emph{Google Play Store}, loja virtual oficial do Android, registra em 2016 mais de 2 milhões de aplicativos disponíveis e mais de 200 bilhões de downloads \cite{AppInPlayStore:09-16} \cite{AppAnnie:16}. 
 
 
+\subsection*{Aplicativos Android}
 
-\section{Maus Cheiros de Código}
+Aplicativos Android (apps) são desenvolvidos utilizando a linguagem Java e o Android SDK \cite{WikiAndroid} e possuem recursos como imagens e arquivos \texttt{XML}. São executados sob uma máquina virtual, Dalvik ou ART, a depender da versão do Android em execução, sendo a última padrão nas versões mais recentes \cite{WikiAndroidRuntime} \cite{AndroidRuntimeDalvikArtExplained}. A IDE oficial para desenvolvimento é o Android Studio \cite{AndroidStudio}. 
+
+Um app consiste de um único arquivo com extensão \texttt{apk} contendo o código fonte compilado, recursos da aplicação, arquivos de dados e um arquivo de manifesto. Um projeto Android tem a seguinte estrutura:
+
+\begin{itemize}
+	\item \textbf{Diretório} \texttt{java} contendo o código-fonte Java.
+	\item \textbf{Diretório} \texttt{res}, derivado da palavra \textit{resources}, contém todos os recursos como imagens, layout de telas e outros. 
+	\item \textbf{Arquivo} \texttt{AndroidManifest.xml} que contém configurações do projeto como: tela inicial, permissões de acesso a recursos do dispositivo e outros.
+\end{itemize}
+
+\subsubsection*{Componentes da Aplicação}
+
+\subsubsection*{Recursos}
+
+\section{Qualidade de Código}
+
+\section{Maus Cheiros}
 
 Mau cheiro de código é uma indicação superficial que usualmente corresponde a um problema mais profundo em um software. Por si só um \textit{code smell}, seu termo em inglês, não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessáriamente é o problema em si \cite{CodeSmell:06}. O termo em inglês \textit{code smell} foi cunhado pela primeira vez por Kent Beck enquanto ajudava Martin Fowler com o seu livro Refactoring \cite{Refactoring:99} \cite{CodeSmell:06}.
 
