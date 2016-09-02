@@ -8,7 +8,19 @@
 
 \chapter{Fundamentação Teórica}
 
-Para a compreensão deste trabalho é importante ter claro a definição de 2 itens, são eles: \textit{Aplicações Android} e \textit{Maus Cheiros de Código}.
+Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, \textit{Code Smells} e \textit{Android}.
+
+\section{Qualidade de Código}
+
+
+\section{Code Smells}
+
+Mau cheiro de código é uma indicação superficial que usualmente corresponde a um problema mais profundo em um software. Por si só um \textit{code smell}, seu termo em inglês, não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessáriamente é o problema em si \cite{CodeSmell:06}. O termo em inglês \textit{code smell} foi cunhado pela primeira vez por Kent Beck enquanto ajudava Martin Fowler com o seu livro Refactoring \cite{Refactoring:99} \cite{CodeSmell:06}.
+
+\textit{Code Smells} são padrões de código que estão associados com um design ruim e más práticas de programação. Diferentemente de erros de código eles não resultam em comportamentos erroneos. \textit{Code Smells} apontam para áreas na aplicação que podem se beneficiar de refatorações. \cite{MobileSmells:13}. Refatoração é definido por ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}.
+
+Escolher não resolver \textit{code smells} pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. Logo, a refatoração ajuda a melhorar a manutenabilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software \cite{RefactoringAndImprovements:10}, aumentar a manutenabilidade através de refatoração irá reduzir os custos de um software no longo prazo. 
+
 
 \section{Android}
 
@@ -19,7 +31,7 @@ O primeiro \textit{smartphone} com Android foi lançado em 2008 chamado G1, ou \e
 Aplicativos Android são arquivos do tipo \texttt{apk} que podem ser obtidos a partir de lojas de aplicativos virtuais. A \emph{Google Play Store}, loja virtual oficial do Android, registra em 2016 mais de 2 milhões de aplicativos disponíveis e mais de 200 bilhões de downloads \cite{AppInPlayStore:09-16} \cite{AppAnnie:16}. 
 
 
-\subsection*{Aplicativos Android}
+\subsection*{Android}
 
 Aplicativos Android (apps) são desenvolvidos utilizando a linguagem Java e o Android SDK \cite{WikiAndroid} e possuem recursos como imagens e arquivos \texttt{XML}. São executados sob uma máquina virtual, Dalvik ou ART, a depender da versão do Android em execução, sendo a última padrão nas versões mais recentes \cite{WikiAndroidRuntime} \cite{AndroidRuntimeDalvikArtExplained}. A IDE oficial para desenvolvimento é o Android Studio \cite{AndroidStudio}. 
 
@@ -34,14 +46,3 @@ Um app consiste de um único arquivo com extensão \texttt{apk} contendo o código 
 \subsubsection*{Componentes da Aplicação}
 
 \subsubsection*{Recursos}
-
-\section{Qualidade de Código}
-
-\section{Maus Cheiros}
-
-Mau cheiro de código é uma indicação superficial que usualmente corresponde a um problema mais profundo em um software. Por si só um \textit{code smell}, seu termo em inglês, não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessáriamente é o problema em si \cite{CodeSmell:06}. O termo em inglês \textit{code smell} foi cunhado pela primeira vez por Kent Beck enquanto ajudava Martin Fowler com o seu livro Refactoring \cite{Refactoring:99} \cite{CodeSmell:06}.
-
-\textit{Code Smells} são padrões de código que estão associados com um design ruim e más práticas de programação. Diferentemente de erros de código eles não resultam em comportamentos erroneos. \textit{Code Smells} apontam para áreas na aplicação que podem se beneficiar de refatorações. \cite{MobileSmells:13}. Refatoração é definido por ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}.
-
-Escolher não resolver \textit{code smells} pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. Logo, a refatoração ajuda a melhorar a manutenabilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software \cite{RefactoringAndImprovements:10}, aumentar a manutenabilidade através de refatoração irá reduzir os custos de um software no longo prazo. 
-
