@@ -10,7 +10,7 @@
 
 Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, \textit{Code Smells} e \textit{Android}.
 
-\section{Qualidade de Código}
+\section{Métricas de Código}
 
 
 \section{Code Smells}
@@ -24,25 +24,37 @@ Escolher não resolver \textit{code smells} pela refatoração não resultará na apl
 
 \section{Android}
 
-Android é um sistema operacional móvel de código aberto, baseado no kernel do Linux, desenvolvido pelo Google para dispositivos móveis como \textit{smartphones} e \textit{tablets}. Atualmente é possível encontrá-lo sendo executado em outros dispositivos como painéis de carros, \textit{smart TVs} e \textit{smartwatchs}. 
+\subsection{Arquitetura da Plataforma}
 
-O primeiro \textit{smartphone} com Android foi lançado em 2008 chamado G1, ou \emph{Google One}. Desde seu lançamento o Android vem registrando um crescimento extremamente acentuado. Atualmente é a plataforma móvel mais utilizada no mundo, com 84\% do \textit{marketshare} \cite{MobileMarketShares:16}.  
+Android é um sistema operacional de código aberto, baseado no kernel do Linux criado para um amplo conjunto de dispositivos. Para prover acesso aos recursos específicos dos dispositivos como câmera ou \textit{bluetooth}, o Android possui uma camada de abstração de \textit{hardware} (HAL do inglês \textit{Hardware Abstraction Layer}) exposto aos desenvolvedores através de um arcabouço de interfaces de programação de aplicativos (APIs do inglês \textit{Applications Programming Interface}) Java. Estes e outros elementos explicados a seguir podem ser visualizados na figura \ref{fig:AndroidPlatform} \cite{AndroidPlatformArchitecture}.
 
-Aplicativos Android são arquivos do tipo \texttt{apk} que podem ser obtidos a partir de lojas de aplicativos virtuais. A \emph{Google Play Store}, loja virtual oficial do Android, registra em 2016 mais de 2 milhões de aplicativos disponíveis e mais de 200 bilhões de downloads \cite{AppInPlayStore:09-16} \cite{AppAnnie:16}. 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{android-architecture.png}
+	\caption{O sistema operacional Android.}
+	\label{fig:AndroidPlatform}
+\end{figure}
 
+Cada aplicativo é executado em um novo processo de sistema que contém sua própria instância do ambiente de execução Android. A partir da versão 5 (API nível 21), o ambiente de execução padrão é o Android Runtime (ART), antes desta versão era a Dalvik. ART foi escrita para executar multiplas instâncias de máquina virtual em dispositivos com pouca memória. Suas funcionalidades incluem duas forma de compilação, a frente do tempo (AOT do inglês \textit{Ahead-of-time}) e apenas no momento (JIT do inglês \textit{Just-in-time}), coletor de lixo, ferramentas de depuração, relatório de diagnósticos de erros e exceções.
 
-\subsection*{Android}
+Muitos do componentes e serviços básicos do Android, como ART e HAL, foram criados a partir de código nativo que depende de bibliotecas nativas escritas em C e C++. A plataforma Android provê arcabouços de APIs Java para expôr as funcionalidade de algumas destas bibliotecas nativas para os aplicativos. Por exemplo, OpenGL ES pode ser acessado através do arcabouço Android Java OpenGL API, de forma a adicionar suporte ao desenho e manipulação de gráficos 2D e 3D no aplicativo.
 
-Aplicativos Android (apps) são desenvolvidos utilizando a linguagem Java e o Android SDK \cite{WikiAndroid} e possuem recursos como imagens e arquivos \texttt{XML}. São executados sob uma máquina virtual, Dalvik ou ART, a depender da versão do Android em execução, sendo a última padrão nas versões mais recentes \cite{WikiAndroidRuntime} \cite{AndroidRuntimeDalvikArtExplained}. A IDE oficial para desenvolvimento é o Android Studio \cite{AndroidStudio}. 
-
-Um app consiste de um único arquivo com extensão \texttt{apk} contendo o código fonte compilado, recursos da aplicação, arquivos de dados e um arquivo de manifesto. Um projeto Android tem a seguinte estrutura:
+Todo o conjunto de funcionalidades da plataforma Android está disponível para os aplicativos através de APIs Java. Estas APIs compõem os elementos básicos para a construção de aplicativos Android. Dentre eles, os mais relevantes para esta dissertação são:
 
 \begin{itemize}
-	\item \textbf{Diretório} \texttt{java} contendo o código-fonte Java.
-	\item \textbf{Diretório} \texttt{res}, derivado da palavra \textit{resources}, contém todos os recursos como imagens, layout de telas e outros. 
-	\item \textbf{Arquivo} \texttt{AndroidManifest.xml} que contém configurações do projeto como: tela inicial, permissões de acesso a recursos do dispositivo e outros.
+	\item Um rico e extensível \textbf{Sistema de Visualização} para a contrução das interfaces com o usuário, também chamadas de \textit{layouts}, do aplicativo. Incluindo listas, grades, caixas de textos, botões, dentre outros.
+
+	\item Um \textbf{Gerenciador de Recursos}, provendo acesso aos recursos ``não-java'' como textos, elementos gráficos, arquivos de \textit{layout}.
+
+	\item Um \textbf{Gerenciador de Activity} que gerencia o ciclo de vida dos aplicativos e provê uma navegação comum.
 \end{itemize}
 
-\subsubsection*{Componentes da Aplicação}
+O Android já vem com um conjunto de aplicativos básicos como por exemplo, para envio e recebimento de SMS, calendário, navegador, contatos e outros. Estes aplicativos vindos com a plataforma não possuem nenhum diferencial com relação aos aplicativos de terceiros. Todo aplicativo tem acesso ao mesmo arcabouço de APIs do Android, seja ele aplicativo da plataforma ou de terceiro. Desta forma, um aplicativo de terceiro pode se tornar o aplicativo padrão para navegar na internet, receber e enviar SMS e assim por diante.
 
-\subsubsection*{Recursos}
+Aplicativos da plataforma provem capacidades básicas que aplicativos de terceiros podem reutilizar. Por exemplo, se um aplicativo de terceiro quer possibilitar o envio de SMS, o mesmo pode redirecionar esta funcionalidade de forma a abrir o aplicativo de SMS já existente, ao invés de implementar por si só.
+
+\subsection{Aplicativos Android}
+
+Aplicativos Android são escritos na linguagem de programação Java. O Kit para Desenvolvimento de Software SDK (SDK do inglês \textit{Software Development Kit}) Android compila o código, junto com qualquer arquivo de recursos ou dados, em um arquivo Android Package (APK). Um APK, que é um arquivo com extensão \texttt{.apk} 
+
+Android apps are written in the Java programming language. The Android SDK tools compile your code—along with any data and resource files—into an APK: an Android package, which is an archive file with an .apk suffix. One APK file contains all the contents of an Android app and is the file that Android-powered devices use to install the app.
