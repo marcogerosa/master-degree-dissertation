@@ -31,7 +31,7 @@ Android é um sistema operacional de código aberto, baseado no kernel do Linux cr
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{android-architecture.png}
-	\caption{O sistema operacional Android.}
+	\caption{Arquitetura do sistema operacional Android.}
 	\label{fig:AndroidPlatform}
 \end{figure}
 
@@ -55,6 +55,73 @@ Aplicativos da plataforma provem capacidades básicas que aplicativos de terceiro
 
 \subsection{Aplicativos Android}
 
-Aplicativos Android são escritos na linguagem de programação Java. O Kit para Desenvolvimento de Software SDK (SDK do inglês \textit{Software Development Kit}) Android compila o código, junto com qualquer arquivo de recursos ou dados, em um arquivo Android Package (APK). Um APK, que é um arquivo com extensão \texttt{.apk} 
+Aplicativos Android são escritos na linguagem de programação Java. O Kit para Desenvolvimento de Software (SDK do inglês \textit{Software Development Kit}) Android compila o código, junto com qualquer arquivo de recursos ou dados, em um arquivo Android Package (APK). Um APK, arquivo com extensão \texttt{.apk}, é usado por dispositivos para a instalação de um aplicativo \cite{AndroidFundamentals}.
 
-Android apps are written in the Java programming language. The Android SDK tools compile your code—along with any data and resource files—into an APK: an Android package, which is an archive file with an .apk suffix. One APK file contains all the contents of an Android app and is the file that Android-powered devices use to install the app.
+Componentes Android são os elementos base para a construção de aplicativos Android. Cada componente é um diferente ponto através do qual o sistema pode acionar o aplicativo. Nem todos os componente são pontos de entrada para o usuário e alguns são dependentes entre si, mas cada qual existe de forma autônoma e desempenha um papel específico. 
+
+Existem quato tipos diferentes de componentes Android. Cada tipo serve um propósito distinto e tem diferentes ciclos de vida que definem como o componente é criado e destruído. O quatro componentes são:
+
+\begin{itemize}
+
+	\item \textbf{Activities}
+
+	Uma \textit{activity} representa uma tela com uma interface de usuário. Por exemplo, um aplicativo de email pode ter uma \textit{activity} para mostrar a lista de emails, outra para redigir um email, outra para ler emails e assim por diante. Embora \textit{activities} trabalhem juntas de forma a criar uma experiência de usuário (UX do inglês \textit{User Experience}) coesa no aplicativo de emails, cada uma é independente da outra. Desta forma, um aplicativo diferente poderia iniciar qualquer uma destas \textit{activities} (se o aplicativo de emails permitir). Por exemplo, a \textit{activity} de redigir email no aplicativo de emails, poderia solicitar o aplicativo câmera, de forma a permitir o compartilhamento de alguma foto. Uma \textit{activity} é implementada como uma subclasse de \texttt{Activity}.  
+
+	\item \textbf{Services}
+
+	Um serviço é um componente que é executado em plano de fundo para processar operações de longa duração ou processar operações remotas. Um serviço não provê uma interface com o usuário. Por exemplo, um servicó pode tocar uma música em plano de fundo enquanto o usuário está usando um aplicativo diferente, ou ele pode buscar dados em um servidor remoto através da internet sem bloquear as interações do usuário com a activity. Outros componente, como uma activity, pode iniciar um serviço e deixá-lo executar em plano de fundo, durante sua execução é possível interagir com ele. Um serviço é implementado como uma subclasse de \texttt{Service}.
+
+	\item \textbf{Content Providers}
+
+	Um provedor de conteúdo gerencia um conjunto compartilhado de dados do aplicativo. É possível armazenar dados em arquivos de sistema, um banco de dados SQLite, num servidor remoto ou qualquer outro local de armazenamento que o aplicativo possa acessar. Através de provedores de conteúdo, outros aplicativos podem consultar ou modificar os dados (se o provedor de conteúdo permitir). Por exemplo, a plataforma Android disponibiliza um provedor de conteúdo que gerencia as informações dos contatos dos usuários. Desta forma, qualquer aplicativo, com as devidas permissões, pode consultar parte do provedor de conteúdo (como \texttt{ContactsContract.Data}) para ler e escrever informações sobre um contato específico. Um provedor de conteúdo é implementado como uma subclasse de \texttt{ContentProvider}.
+
+	\item \textbf{Broadcast Receivers}
+
+	Um recebedor de mensagens é um componente que responde a mensagens enviadas pelo sistema. Muitas destas mensagens são originadas da plataforma Android, por exemplo o desligamento da tela, baixo nível de bateria e assim por diante. Aplicativos de terceiros também podem enviar mensagens, por exemplo, informando que alguma operação foi concluída, com um email que concluiu seu envio. No entanto, recebedor de mensagens não possuem interface de usuário, eles podem criar notificações para alertarem o usuário que algo ocorreu. Um recebedor de mensagens é implementado como uma subclasse de \texttt{BroadcastReceiver}.
+
+\end{itemize}
+
+Antes de a plataforma Android poder iniciar qualquer componente do aplicativo, ela precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). O aplicativo deve declarar todos seus componentes neste arquivo, que deve estar no diretório raiz do projeto.
+
+O arquivo de manifesto pode conter muitas outras informações além das declarações dos componentes do projeto, por exemeplo:
+
+\begin{itemize}
+	\item Identificar qualquer permissão de usuário requerida pelo aplicativo, como acesso a internet, acesso a informações de contatos do usuário e assim por diante.
+
+	\item Declarar o nível mínimo do Android requerido para o aplicativo, baseado em quais APIs são usadas pelo aplicativo.
+
+	\item Declarar quais funcionalidades de sistema ou \textit{hardware} são usadas ou requeridas pelo aplicativo, por exemplo câmera, \textit{bluetooth} e assim por diante.
+
+	\item Declarar outras APIs que são necessárias para uso do aplicativo (além do arcabouço de APIs do Android), como a biblioteca do Google Maps.
+\end{itemize}
+
+O arquivo de manifesto é um arquivo XML. Os elementos usados nele são defidos pelo Android, por exemplo, um arquivo de manifesto pode declarar uma atividade conforme a seguir. \\
+
+\begin{lstlisting}[language=XML, caption=Arquivo \texttt{AndroidManifest.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... >
+    <application android:icon="@drawable/app_icon.png" ... >
+        <activity android:name="com.example.project.ExampleActivity"
+                  android:label="@string/example_label" ... >
+        </activity>
+        ...
+    </application>
+</manifest>	
+\end{lstlisting}
+
+No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para o ícone, que é um recurso, que identifica o aplicativo.
+
+No elemento \texttt{<activity>}, o atributo \texttt{android:name} especifica o nome da classe completamente qualificado de uma subclasse de \texttt{Activity} e o atributo \texttt{android:label} especifica um texto para ser usado como título da atividade.
+
+Deve-se declarar todos os componentes do aplicativo usando os seguintes elementos:
+\begin{itemize}
+	\item \texttt{<activity>} elemento para atividades.
+	\item \texttt{<service>} elemento para serviços.
+	\item \texttt{<receiver>} elemento para recebedor de mensagens.
+	\item \texttt{<provider>} elemento para provedores de conteúdo.
+\end{itemize}
+
+Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \emph{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir menus, estilos, cores e \textit{layout} das atividades.
+
+For example, you should define animations, menus, styles, colors, and the layout of activity user interfaces with XML files. Using app resources makes it easy to update various characteristics of your app without modifying code and—by providing sets of alternative resources—enables you to optimize your app for a variety of device configurations (such as different languages and screen sizes).
+
