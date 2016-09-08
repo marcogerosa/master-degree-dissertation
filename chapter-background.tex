@@ -7,10 +7,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Fundamentação Teórica}
+\label{cap:background}
 
 Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, \textit{Code Smells} e \textit{Android}.
 
-\section{Métricas de Código}
+\section{Qualidade de Código}
 
 
 \section{Code Smells}
@@ -35,14 +36,14 @@ Android é um sistema operacional de código aberto, baseado no kernel do Linux cr
 	\label{fig:AndroidPlatform}
 \end{figure}
 
-Cada aplicativo é executado em um novo processo de sistema que contém sua própria instância do ambiente de execução Android. A partir da versão 5 (API nível 21), o ambiente de execução padrão é o Android Runtime (ART), antes desta versão era a Dalvik. ART foi escrita para executar multiplas instâncias de máquina virtual em dispositivos com pouca memória. Suas funcionalidades incluem duas forma de compilação, a frente do tempo (AOT do inglês \textit{Ahead-of-time}) e apenas no momento (JIT do inglês \textit{Just-in-time}), coletor de lixo, ferramentas de depuração, relatório de diagnósticos de erros e exceções.
+Cada aplicativo é executado em um novo processo de sistema que contém sua própria instância do ambiente de execução Android. A partir da versão 5 (API nível 21), o ambiente de execução padrão é o Android Runtime (ART), antes desta versão era a Dalvik. ART foi escrita para executar multiplas instâncias de máquina virtual em dispositivos com pouca memória. Suas funcionalidades incluem duas forma de compilação: a frente do tempo (AOT do inglês \textit{Ahead-of-time}) e apenas no momento (JIT do inglês \textit{Just-in-time}), o coletor de lixo, ferramentas de depuração e um relatório de diagnósticos de erros e exceções.
 
-Muitos do componentes e serviços básicos do Android, como ART e HAL, foram criados a partir de código nativo que depende de bibliotecas nativas escritas em C e C++. A plataforma Android provê arcabouços de APIs Java para expôr as funcionalidade de algumas destas bibliotecas nativas para os aplicativos. Por exemplo, OpenGL ES pode ser acessado através do arcabouço Android Java OpenGL API, de forma a adicionar suporte ao desenho e manipulação de gráficos 2D e 3D no aplicativo.
+Muitos dos componentes e serviços básicos do Android, como ART e HAL, foram criados a partir de código nativo que depende de bibliotecas nativas escritas em C e C++. A plataforma Android provê arcabouços de APIs Java para expôr as funcionalidade de algumas destas bibliotecas nativas para os aplicativos. Por exemplo, OpenGL ES pode ser acessado através do arcabouço Android Java OpenGL API, de forma a adicionar suporte ao desenho e manipulação de gráficos 2D e 3D no aplicativo.
 
-Todo o conjunto de funcionalidades da plataforma Android está disponível para os aplicativos através de APIs Java. Estas APIs compõem os elementos básicos para a construção de aplicativos Android. Dentre eles, os mais relevantes para esta dissertação são:
+Todo as funcionalidades da plataforma Android estão disponíveis para os aplicativos através de APIs Java. Estas APIs compõem os elementos básicos para a construção de aplicativos Android. Dentre eles, os mais relevantes para esta dissertação são:
 
 \begin{itemize}
-	\item Um rico e extensível \textbf{Sistema de Visualização} para a contrução das interfaces com o usuário, também chamadas de \textit{layouts}, do aplicativo. Incluindo listas, grades, caixas de textos, botões, dentre outros.
+	\item Um rico e extensível \textbf{Sistema de Visualização} para a contrução de interfaces com o usuário, também chamadas de arquivos de \textit{layout}, do aplicativo. Incluindo listas, grades, caixas de textos, botões, dentre outros.
 
 	\item Um \textbf{Gerenciador de Recursos}, provendo acesso aos recursos ``não-java'' como textos, elementos gráficos, arquivos de \textit{layout}.
 
@@ -55,11 +56,11 @@ Aplicativos da plataforma provem capacidades básicas que aplicativos de terceiro
 
 \subsection{Aplicativos Android}
 
-Aplicativos Android são escritos na linguagem de programação Java. O Kit para Desenvolvimento de Software (SDK do inglês \textit{Software Development Kit}) Android compila o código, junto com qualquer arquivo de recursos ou dados, em um arquivo Android Package (APK). Um APK, arquivo com extensão \texttt{.apk}, é usado por dispositivos para a instalação de um aplicativo \cite{AndroidFundamentals}.
+Aplicativos Android são escritos na linguagem de programação Java. O Kit para Desenvolvimento de Software (SDK do inglês \textit{Software Development Kit}) Android compila o código, junto com qualquer arquivo de recurso ou dados, em um arquivo Android Package (APK). Um APK, arquivo com extensão \texttt{.apk}, é usado por dispositivos para a instalação de um aplicativo \cite{AndroidFundamentals}.
 
 Componentes Android são os elementos base para a construção de aplicativos Android. Cada componente é um diferente ponto através do qual o sistema pode acionar o aplicativo. Nem todos os componente são pontos de entrada para o usuário e alguns são dependentes entre si, mas cada qual existe de forma autônoma e desempenha um papel específico. 
 
-Existem quato tipos diferentes de componentes Android. Cada tipo serve um propósito distinto e tem diferentes ciclos de vida que definem como o componente é criado e destruído. O quatro componentes são:
+Existem quatro tipos diferentes de componentes Android. Cada tipo serve um propósito distinto e tem diferentes ciclos de vida, que definem como o componente é criado e destruído. Os quatro componentes são:
 
 \begin{itemize}
 
@@ -69,21 +70,21 @@ Existem quato tipos diferentes de componentes Android. Cada tipo serve um propós
 
 	\item \textbf{Services}
 
-	Um serviço é um componente que é executado em plano de fundo para processar operações de longa duração ou processar operações remotas. Um serviço não provê uma interface com o usuário. Por exemplo, um servicó pode tocar uma música em plano de fundo enquanto o usuário está usando um aplicativo diferente, ou ele pode buscar dados em um servidor remoto através da internet sem bloquear as interações do usuário com a activity. Outros componente, como uma activity, pode iniciar um serviço e deixá-lo executar em plano de fundo, durante sua execução é possível interagir com ele. Um serviço é implementado como uma subclasse de \texttt{Service}.
+	Um \textit{service} é um componente que é executado em plano de fundo para processar operações de longa duração ou processar operações remotas. Um \textit{service} não provê uma interface com o usuário. Por exemplo, um \textit{service} pode tocar uma música em plano de fundo enquanto o usuário está usando um aplicativo diferente, ou ele pode buscar dados em um servidor remoto através da internet sem bloquear as interações do usuário com a \textit{activity}. Outros componente, como uma \textit{activity}, podem iniciar um \textit{service} e deixá-lo executar em plano de fundo. É possível interagir com um \textit{service} durante sua execução. Um \textit{service} é implementado como uma subclasse de \texttt{Service}.
 
 	\item \textbf{Content Providers}
 
-	Um provedor de conteúdo gerencia um conjunto compartilhado de dados do aplicativo. É possível armazenar dados em arquivos de sistema, um banco de dados SQLite, num servidor remoto ou qualquer outro local de armazenamento que o aplicativo possa acessar. Através de provedores de conteúdo, outros aplicativos podem consultar ou modificar os dados (se o provedor de conteúdo permitir). Por exemplo, a plataforma Android disponibiliza um provedor de conteúdo que gerencia as informações dos contatos dos usuários. Desta forma, qualquer aplicativo, com as devidas permissões, pode consultar parte do provedor de conteúdo (como \texttt{ContactsContract.Data}) para ler e escrever informações sobre um contato específico. Um provedor de conteúdo é implementado como uma subclasse de \texttt{ContentProvider}.
+	Um \textit{content provider} gerencia um conjunto compartilhado de dados do aplicativo. Estes dados podem estar armazenados em arquivos de sistema, banco de dados SQLite, servidor remoto ou qualquer outro local de armazenamento que o aplicativo possa acessar. Através de \textit{content providers}, outros aplicativos podem consultar ou modificar (se o \textit{content provider} permitir) os dados. Por exemplo, a plataforma Android disponibiliza um \textit{content provider} que gerencia as informações dos contatos dos usuários. Desta forma, qualquer aplicativo, com as devidas permissões, pode consultar parte do \textit{content provider} (como \texttt{ContactsContract.Data}) para ler e escrever informações sobre um contato específico. Um \textit{content provider} é implementado como uma subclasse de \texttt{ContentProvider}.
 
 	\item \textbf{Broadcast Receivers}
 
-	Um recebedor de mensagens é um componente que responde a mensagens enviadas pelo sistema. Muitas destas mensagens são originadas da plataforma Android, por exemplo o desligamento da tela, baixo nível de bateria e assim por diante. Aplicativos de terceiros também podem enviar mensagens, por exemplo, informando que alguma operação foi concluída, com um email que concluiu seu envio. No entanto, recebedor de mensagens não possuem interface de usuário, eles podem criar notificações para alertarem o usuário que algo ocorreu. Um recebedor de mensagens é implementado como uma subclasse de \texttt{BroadcastReceiver}.
+	Um \textit{broadcast receiver} é um componente que responde a mensagens enviadas pelo sistema. Muitas destas mensagens são originadas da plataforma Android, por exemplo, o desligamento da tela, baixo nível de bateria e assim por diante. Aplicativos de terceiros também podem enviar mensagens, por exemplo, informando que alguma operação foi concluída. No entanto, \textit{broadcast receivers} não possuem interface de usuário. Para informar o usuário que algo ocorreu, \textit{broadcast receivers} podem criar notificações. Um \textit{broadcast receiver} é implementado como uma subclasse de \texttt{BroadcastReceiver}.
 
 \end{itemize}
 
-Antes de a plataforma Android poder iniciar qualquer componente do aplicativo, ela precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). O aplicativo deve declarar todos seus componentes neste arquivo, que deve estar no diretório raiz do projeto.
+Antes de a plataforma Android poder iniciar qualquer um dos componente supremencionados, a plataforma precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). Este arquivo deve estar no diretório rais do projeto do aplicativo e deve conter a declaração de todos os seus componentes.
 
-O arquivo de manifesto pode conter muitas outras informações além das declarações dos componentes do projeto, por exemeplo:
+O arquivo de manifesto é um arquivo XML e pode conter muitas outras informações além das declarações dos componentes do aplicativo, por exemplo:
 
 \begin{itemize}
 	\item Identificar qualquer permissão de usuário requerida pelo aplicativo, como acesso a internet, acesso a informações de contatos do usuário e assim por diante.
@@ -95,9 +96,13 @@ O arquivo de manifesto pode conter muitas outras informações além das declaraçõe
 	\item Declarar outras APIs que são necessárias para uso do aplicativo (além do arcabouço de APIs do Android), como a biblioteca do Google Maps.
 \end{itemize}
 
-O arquivo de manifesto é um arquivo XML. Os elementos usados nele são defidos pelo Android, por exemplo, um arquivo de manifesto pode declarar uma atividade conforme a seguir. \\
+Os elementos usados no arquivo de manifesto são definidos pelo vocabulário XML do Android. Por exemplo, uma \textit{activity} pode ser declarada conforme o \textit{listing} \ref{lst:AndroidManifest}. \\
 
-\begin{lstlisting}[language=XML, caption=Arquivo \texttt{AndroidManifest.xml}]
+\begin{lstlisting}[
+	language=XML, 
+	caption={Arquivo \texttt{AndroidManifest.xml}}, 
+	label={lst:AndroidManifest}
+]
 <?xml version="1.0" encoding="utf-8"?>
 <manifest ... >
     <application android:icon="@drawable/app_icon.png" ... >
@@ -109,11 +114,9 @@ O arquivo de manifesto é um arquivo XML. Os elementos usados nele são defidos pe
 </manifest>	
 \end{lstlisting}
 
-No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para o ícone, que é um recurso, que identifica o aplicativo.
+No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para o ícone, que é um recurso, que identifica o aplicativo. No elemento \texttt{<activity>}, o atributo \texttt{android:name} especifica o nome da classe completamente qualificado de uma subclasse de \texttt{Activity} e o atributo \texttt{android:label} especifica um texto para ser usado como título da atividade.
 
-No elemento \texttt{<activity>}, o atributo \texttt{android:name} especifica o nome da classe completamente qualificado de uma subclasse de \texttt{Activity} e o atributo \texttt{android:label} especifica um texto para ser usado como título da atividade.
-
-Deve-se declarar todos os componentes do aplicativo usando os seguintes elementos:
+Para declarar cada um dos quatro tipos de componentes, deve-se usar os elementos a seguir:
 \begin{itemize}
 	\item \texttt{<activity>} elemento para atividades.
 	\item \texttt{<service>} elemento para serviços.
@@ -121,7 +124,23 @@ Deve-se declarar todos os componentes do aplicativo usando os seguintes elemento
 	\item \texttt{<provider>} elemento para provedores de conteúdo.
 \end{itemize}
 
-Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \emph{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir menus, estilos, cores e \textit{layout} das atividades.
+\subsection{Recursos do Aplicativo}
 
-For example, you should define animations, menus, styles, colors, and the layout of activity user interfaces with XML files. Using app resources makes it easy to update various characteristics of your app without modifying code and—by providing sets of alternative resources—enables you to optimize your app for a variety of device configurations (such as different languages and screen sizes).
+Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \emph{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
+
+Um dos aspectos mais importantes de prover recursos separados do código-fonte é a habilidade de prover recursos alternativos para diferentes configurações de dispositivos como por exemplo idioma ou tamanho de tela. Este aspecto se torna mais importante conforme mais dispositivos são lançados com configurações diferentes. De forma a prover compatibilidade com diferentes configurações, deve-se organizar os recursos dentro do diretório \texttt{res} do projeto, usando sub-diretórios que agrupam os recursos por tipo e configuração.
+
+Para qualquer tipo de recurso, pode-se especificar uma opção padrão e outras alternativas. 
+
+\begin{itemize}
+	\item Recursos padrões são aqueles que devem ser usados independente de qualquer configuração ou quando não há um recurso alternativo que atenda a configuração atual. Po exemplo, arquivos de \textit{layout} padrão ficam em \texttt{res/layout}.
+	\item Recursos alternativos são todos aqueles que foram desenhados para atender a uma configuração específica. Para especificar que um grupo de recursos é para ser usado em determinada configuração, basta adicionar um qualificador ao nome do diretório. Por exemplo, arquivos de \textit{layout} para quando o dispositivo está em posição de paisagem ficam em res/layout-land
+\end{itemize}
+
+Default resources are those that should be used regardless of the device configuration or when there are no alternative resources that match the current configuration.
+Alternative resources are those that you've designed for use with a specific configuration. To specify that a group of resources are for a specific configuration, append an appropriate configuration qualifier to the directory name.
+
+For example, while your default UI layout is saved in the res/layout/ directory, you might specify a different layout to be used when the screen is in landscape orientation, by saving it in the res/layout-land/ directory. Android automatically applies the appropriate resources by matching the device's current configuration to your resource directory names.
+
+Por exemplo, o recurso do tipo \textit{strings} pode conter textos usados nas interfaces do aplicativo. É possível traduzir estes textos em diferentes idiomas e salvá-los em arquivos separados. Desta forma, baseado no qualificador de idioma usado no nome do diretório deste tipo de recurso (por exemplo \texttt{res/values-fr} para o idioma frânces) e a configuração de idioma do usuário, o Android aplica o conjunto de \textit{strings} mais apropriado.
 
