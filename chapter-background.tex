@@ -18,12 +18,12 @@ Para a compreensão deste trabalho é importante ter claro a definição de 3 itens,
 
 Mau cheiro de código é uma indicação superficial que usualmente corresponde a um problema mais profundo em um software. Por si só um \textit{code smell}, seu termo em inglês, não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessáriamente é o problema em si \cite{CodeSmell:06}. O termo em inglês \textit{code smell} foi cunhado pela primeira vez por Kent Beck enquanto ajudava Martin Fowler com o seu livro Refactoring \cite{Refactoring:99} \cite{CodeSmell:06}.
 
-\textit{Code Smells} são padrões de código que estão associados com um design ruim e más práticas de programação. Diferentemente de erros de código eles não resultam em comportamentos erroneos. \textit{Code Smells} apontam para áreas na aplicação que podem se beneficiar de refatorações. \cite{MobileSmells:13}. Refatoração é definido por ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}.
+Maus cheiros são padrões de código que estão associados com um design ruim e más práticas de programação. Diferentemente de erros de código eles não resultam em comportamentos erroneos. Maus cheiros apontam para áreas na aplicação que podem se beneficiar de refatorações. \cite{MobileSmells:13}. Refatoração é definido por ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}.
 
-Escolher não resolver \textit{code smells} pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. Logo, a refatoração ajuda a melhorar a manutenabilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software \cite{RefactoringAndImprovements:10}, aumentar a manutenabilidade através de refatoração irá reduzir os custos de um software no longo prazo. 
-
+Escolher não resolver um mau cheiro pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. Logo, a refatoração ajuda a melhorar a manutenabilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software \cite{RefactoringAndImprovements:10}, aumentar a manutenabilidade através de refatoração irá reduzir os custos de um software no longo prazo. 
 
 \section{Android}
+\label{sec:Android}
 
 \subsection{Arquitetura da Plataforma}
 
@@ -82,7 +82,7 @@ Existem quatro tipos diferentes de componentes Android. Cada tipo serve um propó
 
 \end{itemize}
 
-Antes de a plataforma Android poder iniciar qualquer um dos componente supremencionados, a plataforma precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). Este arquivo deve estar no diretório rais do projeto do aplicativo e deve conter a declaração de todos os seus componentes.
+Antes de a plataforma Android poder iniciar qualquer um dos componente supremencionados, a plataforma precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). Este arquivo deve estar no diretório raiz do projeto do aplicativo e deve conter a declaração de todos os seus componentes.
 
 O arquivo de manifesto é um arquivo XML e pode conter muitas outras informações além das declarações dos componentes do aplicativo, por exemplo:
 
@@ -118,29 +118,45 @@ No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para 
 
 Para declarar cada um dos quatro tipos de componentes, deve-se usar os elementos a seguir:
 \begin{itemize}
-	\item \texttt{<activity>} elemento para atividades.
-	\item \texttt{<service>} elemento para serviços.
-	\item \texttt{<receiver>} elemento para recebedor de mensagens.
-	\item \texttt{<provider>} elemento para provedores de conteúdo.
+	\item \texttt{<activity>} elemento para \textit{activities}.
+	\item \texttt{<service>} elemento para \textit{services}.
+	\item \texttt{<receiver>} elemento para \textit{broadcast receivers}.
+	\item \texttt{<provider>} elemento para \textit{content providers}.
 \end{itemize}
 
 \subsection{Recursos do Aplicativo}
 
-Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \emph{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
+Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \textbf{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
 
-Um dos aspectos mais importantes de prover recursos separados do código-fonte é a habilidade de prover recursos alternativos para diferentes configurações de dispositivos como por exemplo idioma ou tamanho de tela. Este aspecto se torna mais importante conforme mais dispositivos são lançados com configurações diferentes. De forma a prover compatibilidade com diferentes configurações, deve-se organizar os recursos dentro do diretório \texttt{res} do projeto, usando sub-diretórios que agrupam os recursos por tipo e configuração.
+Um dos aspectos mais importantes de prover recursos separados do código-fonte é a habilidade de prover recursos alternativos para diferentes configurações de dispositivos como por exemplo idioma ou tamanho de tela. Este aspecto se torna mais importante conforme mais dispositivos são lançados com configurações diferentes. Segundo levantamento, em 2015 foram encontrados mais de 24 mil dispositivos diferentes com Android \cite{AndroidFragmentation}.
 
-Para qualquer tipo de recurso, pode-se especificar uma opção padrão e outras alternativas. 
+De forma a prover compatibilidade com diferentes configurações, deve-se organizar os recursos dentro do diretório \texttt{res} do projeto, usando sub-diretórios que agrupam os recursos por tipo e configuração. Para qualquer tipo de recurso, pode-se especificar uma opção padrão e outras alternativas. 
 
 \begin{itemize}
-	\item Recursos padrões são aqueles que devem ser usados independente de qualquer configuração ou quando não há um recurso alternativo que atenda a configuração atual. Po exemplo, arquivos de \textit{layout} padrão ficam em \texttt{res/layout}.
-	\item Recursos alternativos são todos aqueles que foram desenhados para atender a uma configuração específica. Para especificar que um grupo de recursos é para ser usado em determinada configuração, basta adicionar um qualificador ao nome do diretório. Por exemplo, arquivos de \textit{layout} para quando o dispositivo está em posição de paisagem ficam em res/layout-land
+	\item \textbf{Recursos padrões} são aqueles que devem ser usados independente de qualquer configuração ou quando não há um recurso alternativo que atenda a configuração atual. Por exemplo, arquivos de \textit{layout} padrão ficam em \texttt{res/layout}.
+
+	\item \textbf{Recursos alternativos} são todos aqueles que foram desenhados para atender a uma configuração específica. Para especificar que um grupo de recursos é para ser usado em determinada configuração, basta adicionar um qualificador ao nome do diretório. Por exemplo, arquivos de \textit{layout} para quando o dispositivo está em posição de paisagem ficam em res/layout-land
 \end{itemize}
 
-Default resources are those that should be used regardless of the device configuration or when there are no alternative resources that match the current configuration.
-Alternative resources are those that you've designed for use with a specific configuration. To specify that a group of resources are for a specific configuration, append an appropriate configuration qualifier to the directory name.
+O Android irá aplicar automaticamente o recurso apropriado através da identificação da configuração corrente do dispositivo com os recursos disponíveis no aplicativo. Por exemplo, o recurso do tipo \textit{strings} pode conter textos usados nas interfaces do aplicativo. É possível traduzir estes textos em diferentes idiomas e salvá-los em arquivos separados. Desta forma, baseado no qualificador de idioma usado no nome do diretório deste tipo de recurso (por exemplo \texttt{res/values-fr} para o idioma frânces) e a configuração de idioma do dispositivo, o Android aplica o conjunto de \textit{strings} mais apropriado.
 
-For example, while your default UI layout is saved in the res/layout/ directory, you might specify a different layout to be used when the screen is in landscape orientation, by saving it in the res/layout-land/ directory. Android automatically applies the appropriate resources by matching the device's current configuration to your resource directory names.
+A seguir são listados os tipos de recursos que podem ser utilizados no Android \cite{AndroidResourceType}. Para cada tipo de recurso existe um conjunto de qualificadores que podem ser usados para prover recursos alternativos:
 
-Por exemplo, o recurso do tipo \textit{strings} pode conter textos usados nas interfaces do aplicativo. É possível traduzir estes textos em diferentes idiomas e salvá-los em arquivos separados. Desta forma, baseado no qualificador de idioma usado no nome do diretório deste tipo de recurso (por exemplo \texttt{res/values-fr} para o idioma frânces) e a configuração de idioma do usuário, o Android aplica o conjunto de \textit{strings} mais apropriado.
+\begin{itemize}
+	\item \textbf{Recursos de animações} Definem animações pré-determinadas. Ficam nos diretórios \texttt{res/anim} ou \texttt{res/animator}.
+
+	\item \textbf{Recursos de lista de cores de estado} Definem recursos de cores que alteram baseado no estado da \textit{View}. Ficam no diretório \texttt{res/color}.	
+
+	\item \textbf{Recursos de desenhos} Definem recursos gráficos com \textit{bitmap} ou XML. Ficam no diretório \texttt{res/drawable}.
+
+	\item \textbf{Recursos de \textit{layouts}} Definem a parte visual da interface com o usuário. Ficam no diretório \texttt{res/layout}.
+
+	\item \textbf{Recursos de menus} Definem os conteúdos dos menus da aplicação. Ficam no diretório \texttt{res/menu}.
+
+	\item \textbf{Recursos de textos} Definem textos, conjunto de textos e plurals. Ficam no diretório \texttt{res/values}.
+
+	\item \textbf{Recursos de estilos} Definem os estilos e e formatos para os elementos da interface com usuário. Ficam no diretório \texttt{res/values}.
+
+	\item \textbf{Outros recursos} Ainda existem outros recursos como inteiros, \textit{booleanos}, dimensões, dentre outros. Ficam no diretório \texttt{res/values}.
+\end{itemize}
 
