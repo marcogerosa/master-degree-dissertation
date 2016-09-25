@@ -9,18 +9,18 @@
 \chapter{Método de Pesquisa}
 \label{ch:research}
 
-\section{Camada de Apresentação Android}
-\label{sc:PresentationLayer}
+% \section{Camada de Apresentação Android}
+% \label{sc:PresentationLayer}
 
-Nesta seção apresentamos quais são os elementos que compõem a camada de apresentação do Android. Também são apresentados os argumentos pelo qual chegamos nestes elementos.
+% Nesta seção apresentamos quais são os elementos que compõem a camada de apresentação do Android. Também são apresentados os argumentos pelo qual chegamos nestes elementos.
 
-\subsection{Elementos da Camada de Apresentação}
+% \subsection{Elementos da Camada de Apresentação}
 
-Segundo a documentação do Android ``uma \textit{activity} é um componente de aplicação que representa uma tela com interface para o usuário onde o mesmo pode interagir para executar ações'' \cite{AndroidFundamentals}. Estas interações podem ser capturadas através da implementação de \textit{listeners}. Por se relacionar diretamente com o que é visto pelo usuário e pela forma de responder a ações do mesmo, tanto a \texttt{Activity} quanto os \textit{listeners}, foram considerados como parte da camada de apresentação.
+% Segundo a documentação do Android ``uma \textit{activity} é um componente de aplicação que representa uma tela com interface para o usuário onde o mesmo pode interagir para executar ações'' \cite{AndroidFundamentals}. Estas interações podem ser capturadas através da implementação de \textit{listeners}. Por se relacionar diretamente com o que é visto pelo usuário e pela forma de responder a ações do mesmo, tanto a \texttt{Activity} quanto os \textit{listeners}, foram considerados como parte da camada de apresentação.
 
-Ainda segundo a documentação, ``recursos são imagens, arquivos de áudio, e \textbf{qualquer coisa relacionada a apresentação visual do aplicativo}'' (tradução livre). Apesar de ser possível criar estes mesmos elementos a partir de código Java, recomenda-se o uso de recursos, conforme explicado na seção \ref{sec:Android}. Por se relacionar diretamente com informações vistas pelo usuário, todo tipo de recurso, estando localizado no diretório \texttt{res} ou no seu formato Java, foi considerado como parte da camada de apresentação.
+% Ainda segundo a documentação, ``recursos são imagens, arquivos de áudio, e \textbf{qualquer coisa relacionada a apresentação visual do aplicativo}'' (tradução livre). Apesar de ser possível criar estes mesmos elementos a partir de código Java, recomenda-se o uso de recursos, conforme explicado na seção \ref{sec:Android}. Por se relacionar diretamente com informações vistas pelo usuário, todo tipo de recurso, estando localizado no diretório \texttt{res} ou no seu formato Java, foi considerado como parte da camada de apresentação.
 
-Um arquivo de \textit{layouts} é o tipo de recurso usado para a criação de interfaces com o usuário conforme detalhada na seção \ref{sec:Android}. E conforme visto, para apresentar coleção de dados não pré-determinados ou dinâmicas, utiliza-se uma \textit{view} que herde de \texttt{AdapterView} de forma a poder usar classes filhas de \texttt{Adapter} para realizar o carregamento de cada item da coleção, na \textit{view}. Desta forma, por \textit{adapters} fazerem o trabalho de colocar informações na tela, foi considerado também como elemento parte da camada de apresentação.
+% Um arquivo de \textit{layouts} é o tipo de recurso usado para a criação de interfaces com o usuário conforme detalhada na seção \ref{sec:Android}. E conforme visto, para apresentar coleção de dados não pré-determinados ou dinâmicas, utiliza-se uma \textit{view} que herde de \texttt{AdapterView} de forma a poder usar classes filhas de \texttt{Adapter} para realizar o carregamento de cada item da coleção, na \textit{view}. Desta forma, por \textit{adapters} fazerem o trabalho de colocar informações na tela, foi considerado também como elemento parte da camada de apresentação.
 
 
 
@@ -39,7 +39,7 @@ Pretende-se coletar, através de um questionário, boas e más práticas utilizadas 
 	\item Você considera algo uma má prática para lidar com X?
 \end{itemize}
 
-Ainda, ao final são inseridas as seguintes perguntas abertas de forma a captar algum último pensamento sobre boas e más práticas com relação a camada de apresentação.
+Ainda, ao final são inseridas as seguintes perguntas abertas de forma a capturar algum último pensamento sobre boas e más práticas com relação a camada de apresentação.
 
 \begin{itemize}
 	\item Existe alguma outra *BOA* prática na camada de apresentação que nós não perguntamos a você ou que você ainda não mencionou?
@@ -52,12 +52,13 @@ Este questionário será aberto para a comunidade de desenvolvimento Android do Br
 Os dados serão analisados manualmente e categorizados. O objetivo é identificar maus cheiros e possíveis soluções. 
 
 \subsection{Validação com Especialistas}
-Os maus cheiros definidos no passo anterios serão validades com desenvolvedores Android especialistas através de uma entrevista conduzida. A fim de ter um controle maior com relação a credibilidade de conhecimento, estes especialistas serão pessoas que são referência na comunidade Android, já escreveram livros sobre o tema ou que trabalhem com Android no Google.
+Os maus cheiros definidos no passo anterior serão validades com desenvolvedores Android especialistas através de uma entrevista conduzida. A fim de ter um controle maior com relação a credibilidade de conhecimento, estes especialistas serão pessoas que são referência na comunidade Android, já escreveram livros sobre o tema ou que trabalhem com Android no Google.
 
 % \subsection{Conclusão}
 
 
 \section{Percepção dos Desenvolvedores}
+\label{sc:DevPerceptions}
 
 \subsection{Coleta de Dados}
 Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores códigos com e sem os maus cheios propostos, para cada código, será solicitado que ele indique o código como bom ou ruim. 
@@ -70,4 +71,6 @@ Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvol
 % \subsection{Conclusão}
 
 
-\label{sc:DevPerceptions}
+\section{Impacto na Tendência a Mudanças}
+\label{sc:ChangeProneness}
+

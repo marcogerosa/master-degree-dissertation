@@ -6,7 +6,7 @@
 \linespread{1.2} % Para aumentar o espaçamento entre as linhas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Fundamentação Teórica}
+\chapter{Fundamentação Conceitual}
 \label{cap:background}
 
 Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, \textit{Code Smells} e \textit{Android}.
@@ -160,3 +160,10 @@ A seguir são listados os tipos de recursos que podem ser utilizados no Android \
 	\item \textbf{Outros recursos} Ainda existem outros recursos como inteiros, \textit{booleanos}, dimensões, dentre outros. Ficam no diretório \texttt{res/values}.
 \end{itemize}
 
+\subsection{Elementos da Camada de Apresentação}
+
+Segundo a documentação do Android ``uma \textit{activity} é um componente de aplicação que representa uma tela com interface para o usuário onde o mesmo pode interagir para executar ações'' \cite{AndroidFundamentals}. Estas interações podem ser capturadas através da implementação de \textit{listeners}. Por se relacionar diretamente com o que é visto pelo usuário e pela forma de responder a ações do mesmo, tanto a \texttt{Activity} quanto os \textit{listeners}, foram considerados como parte da camada de apresentação.
+
+Ainda segundo a documentação, ``recursos são imagens, arquivos de áudio, e \textbf{qualquer coisa relacionada a apresentação visual do aplicativo}'' (tradução livre). Apesar de ser possível criar estes mesmos elementos a partir de código Java, recomenda-se o uso de recursos, conforme explicado na seção \ref{sec:Android}. Por se relacionar diretamente com informações vistas pelo usuário, todo tipo de recurso, estando localizado no diretório \texttt{res} ou no seu formato Java, foi considerado como parte da camada de apresentação.
+
+Um arquivo de \textit{layouts} é o tipo de recurso usado para a criação de interfaces com o usuário conforme detalhada na seção \ref{sec:Android}. E conforme visto, para apresentar coleção de dados não pré-determinados ou dinâmicas, utiliza-se uma \textit{view} que herde de \texttt{AdapterView} de forma a poder usar classes filhas de \texttt{Adapter} para realizar o carregamento de cada item da coleção, na \textit{view}. Desta forma, por \textit{adapters} fazerem o trabalho de colocar informações na tela, foi considerado também como elemento parte da camada de apresentação.

@@ -21,15 +21,6 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 	11 fowler descreve 22 code smells e abordar em uma grande parte, refactoring para evitar estes code smells.
 
 
-	Camada de Apresentação, classes que extendem de: 
-		- android.view.View
-		- android.widget.Adapter
-		- android.app.Fragment ou do support library
-		- android.app.Activity ou do support library
-		- todo listener
-		- todo conteúdo da pasta res (confirmar item a item se faz sentido)
-
-
 	Desempenham papéis de
 		- Activities - uma tela. Obrigatório.
 		- Fragments - fatiar a tela. 
@@ -52,7 +43,6 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 	Activities representam uma tela no Android cujo pode-se colocar a interface que desejar. Interfaces de usuários são representadas por uma hierarquia de views - classes que heredam da classe android.view.View. Each view controls a particular rectangular space within the activity's window and can respond to user interaction. For example, a view might be a button that initiates an action when the user touches it. Para responder a interações de usuários, usamos listeners.
 
 	Uma View representa um objeto que desenha algo na tela cujo o usuário pode interagir (caixa de texto, botão, etc). Um ViewGroup é um objeto que contém outras Views (e ViewGoups) de forma a definir como este conjunto deve ser apresentado (linearmente, tabular, relativo um ao outro, etc). Para desenhar uma interface, Apesar de ser possível desenhar interfaces programaticamente, não é comum e nem recomendado [https://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews]. A forma mais usual e recomendada é através de XMLs de Layout. Estas Views podem ser criadas programaticamente no entanto o mais comum é utilizar o vocabulario XML provido pelo Android SDK. 
-
 
 	No próximo ano o Android completará uma década desde seu primeiro lançamento e não há dúvidas sobre o seu sucesso [asd, sdd, sadsad]. Isso significa que há uma década muitos aplicativos já foram criado e, ou foram descontinuados ou, ainda são mantidos e evoluídos. Apesar de há uma década estarmos desenvolvendo aplicativos Android, poucos se tem estudado a respeito. Segundo FULANA onde apresenta as principais conferências de manutenção de software vs trabalhos android vs trabalhos java. Por natureza da plataforma, Activities são classes que possuem muitas responsabilidades [Verloop], levando a um alto acoplamento, Martin Fowler provavelmente diria que elas são God Classes. Este é um dos problemas que temos instríseco ao Android. Naturalmente, desenvolvedores veem elaborando práticas para lidar com estes problemas específicos da plataforma. Alguns trabalhos já analisaram a frequência com que alguns code smells, já catalogados, por exemplo por Fowler e Mantyla, incidem em projetos Android. 
 
