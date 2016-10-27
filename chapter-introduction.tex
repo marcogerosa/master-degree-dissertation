@@ -30,31 +30,20 @@ Nas principais conferências de manutenção de software, dentre 2008 a 2015, apena
 
 
 \section{Questões de Pesquisa}
-Nesta dissertação objetivamos mapear \textbf{alguns maus cheiros específicos à camada de apresentação de projetos Android}. Para isso, exploramos as seguintes questões:
+Nesta dissertação objetivamos mapear \textbf{maus cheiros específicos à camada de apresentação de projetos Android}. Para isso, exploramos as seguintes questões:
 	
 % \textbf{RP1: O que representa a \emph{Camada de Apresentação} em um projeto Android?}
 
 % Esta é uma pegunta importante a ser respondida, visto que esta dissertação gira em torno deste tema. No entanto, não foi encontrada na documentação oficial do Android (site developer.android.com) uma resposta direta. Desta forma, partimos por um estudo bibliográfico da documentação oficial para extrair a definição a ser usada nesta dissertação. O estudo bibliográfico e definição são detalhados na seção \ref*{sc:PresentationLayer} do capítulo \ref*{ch:research}.
 
 
-\textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à \emph{Camada de Apresentação} de um projeto Android?}
+\textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação de um projeto Android?}
 
-O objetivo desta questão é obter insumos para a definição dos maus cheiros e propostas de como refatorá-los. Para responder esta questão, teremos as seguintes etapas:
-\begin{itemize}
-	\item \textbf{Etapa de coleta de dados} 
+O objetivo desta questão é obter insumos para a definição dos maus cheiros e propostas de como refatorá-los. Para responder esta questão elaboramos um questionário para coletar boas e más práticas utilizadas ou percebidas por desenvolvedores Android com relação à camada de apresentação a ser aplicado na comunidade de desenvolvedores Android do Brasil e exterior.
 
-	Elaboramos um questionário para coletar boas e más práticas utilizadas ou percebidas por desenvolvedores Android com relação à camada de apresentação. Pretende-se aplicar o questionário na comunidade de desenvolvedores Android do Brasil e exterior.
+Pretende-se também coletar postagens em fóruns e blogs técnicos que abordem boas e más práticas com relação a camada de apresentação em aplicativos Android. Com isso acredita-se obter uma base sólida para a análise e extração dos maus cheiros. A lista de maus cheiros resultante será validada com desenvolvedores Android especialistas. Os itens mencionados são detalhadas na seção \ref{sc:CodeSmellsDefinition} do capítulo \ref{ch:research}.
 
-	\item \textbf{Etapa de identificação de maus cheiros} 
-
-	Os dados coletados com o questionário serão analisados de forma a resultar numa lista de possíveis maus cheiros.
-
-	\item \textbf{Etapa de validação} 
-
-	A lista de maus cheiros resultante será validada com desenvolvedores Android especialistas, dos quais, alguns compõem times que lidam com Android no Google.  
-\end{itemize}
-
-Estas etapas são detalhadas na seção \ref{sc:CodeSmellsDefinition} do capítulo \ref{ch:research}.
+TODO: Entrevistas com devs android.
 
 % Para cada papel da camada de apresentação, fizemos as seguintes questões (``X'' representa o papel em questão):
 
@@ -104,23 +93,27 @@ Esta dissertação está organizada da seguinte forma:
 	
 	Neste capítulo é introduzido o contexto atual do desenvolvimento de aplicativos Android. Apresenta-se quais são as motivações e o problema a ser resolvido. É dado também uma breve introdução sobre como pretende-se resolvê-lo.
 
-	\item \textbf{Capítulo 2} Trabalhos Relacionados
+	\item \textbf{Capítulo 2} Fundamentação Conceitual
+	
+	Neste capítulo é passado ao leitor informações básicas relevantes para o entedimento do trabalho. Os assuntos aprofundados aqui são: Qualidade de Código, Maus Cheiros e Android.
+
+	\item \textbf{Capítulo 3} Camada de Apresentação Android
+
+	Esta pesquisa limita-se em mapear boas e más práticas apenas na camada de apresentação de aplicativos Android, neste capítulo pretende-se explanar para o leitor o que é considerado por camada de apresentação Android.
+
+	\item \textbf{Capítulo 4} Trabalhos Relacionados
 
 	Neste capítulo pretende-se apresentar estudos relevantes já feitos em torno do tema de maus cheiros Android e o que esta dissertação se diferencia deles.
 
-	\item \textbf{Capítulo 3} Fundamentação Teórica
-	
-	Neste capítulo é passado ao leitor informações básicas relevantes para o entedimento do trabalho. Os assuntos aprofundados aqui são: Qualidade de Código, \textit{Code Smells} e Android.
+	\item \textbf{Capítulo 5} Método de Pesquisa
 
-	\item \textbf{Capítulo 4} Pesquisa
+	Neste capítulo são apresentados detalhes dos passos executados para a pesquisa. Quais tipos de coleta de dados foram e serão usados. Quais os critérios de escolha dos respondentes e porquê. Como foram realizadas as análises dos dados e quais resultados foram obtidos.
 
-	Neste capítulo são apresentados detalhes de toda as etapas da pesquisa. Quais tipos de coleta de dados serão usados. Quais os critérios de escolha dos respondentes e porquê. Como foram realizadas as análises dos dados e quais resultados foram obtidos.
-
-	\item \textbf{Capítulo 5} Catálogo de maus cheiros
+	\item \textbf{Capítulo 6} Catálogo de Maus Cheiros
 
 	Neste capítulo, serão catalogados os maus cheiros validados.
 
-	\item \textbf{Capítulo 6} Conclusão
+	\item \textbf{Capítulo 7} Conclusão
 
 	Neste capítulo são apresentadas as conclusões do trabalho bem como as suas limitações e sugestões de trabalhos futuros.
 \end{itemize}
