@@ -11,9 +11,14 @@
 
 A seguir abordamos em detalhes quais foram os experimentos realizados ou planejados e os motivos considerados para a escolha deles, bem como é indicado qual questão de pesquisa determinado método ajuda a responder.
 
-\section{Definição dos Maus Cheiros}
+\section{Boas e Más Práticas na Camada de Apresentação}
 \label{sc:CodeSmellsDefinition}
 
+\subsection{Introdução}
+Apesar de já existirem diversos maus cheiros conhecidos catalogados, pesquisas vem demonstrado que existem maus cheiros de código específicos a tecnologias, frameworks e plataformas, desta forma sugerimos que há maus cheiros específicos à camada de apresentação de aplicativos Android. Desta forma, perguntamos:
+
+
+\subsection{Coleta de Dados}
 Para prosseguimento do trabalho é de extrema importância responder a Q1. Para isso elaboramos um questionário com perguntas dissertativas de forma a coletar informações sobre boas e más práticas na camada de apresentação de aplicativos Android. O questionário foi elaborado em inglês com o objetivo de abrangir Brasil e exterior, no entanto, na apresentação do questionário, que é a primeira parte apresentada quando o respondente o abre, para eliminar possíveis barreiras de idioma, deixamos claro que as respostas poderiam ser em português ou inglês.
 
 Este questionário foi disponibilizado em grupos de discuções sobre Android, em redes sociais como Facebook, Twiiter, LinkedIn e Google Plus, permitindo que qualquer pessoa o compartilhasse em suas próprias redes de contatos. Com o objetivo de avaliar a qualidade das resposta, as primeiras questões do questionário foram para mapeamento do grau de experiência com desenvolvimento de software em geral e com desenvolvimento Android. Haviam também perguntas de geolocalização para possibilitar avaliar a abrangência e diversidade dos resultados. Pretende-se deixar o questionário aberto ao público até que seja necessário consolidar as informações para o passo de validação dos maus cheiros definidos com o objetivo de coletar o máximo de respostas possíveis.
@@ -35,7 +40,31 @@ Por último, com o objetivo de capturar alguma outra boa ou má prática em qualque
 
 De forma a coletar o máximo possível de informações sobre boas e más práticas na camada de apresentação Android, pretende-se coletar informações também em postagens técnicas sobre Android em sites. Conforme bem pontuado por FULANO, existem informações de boas e más práticas atualmente, porém estas estão espalhadas na internet.
 
+% Para cada papel da camada de apresentação, fizemos as seguintes questões (``X'' representa o papel em questão):
+
+% \begin{itemize}
+% 	\item Você conhece ou utiliza alguma boa prática para lidar com X?
+% 	\item Você considera algo uma má prática ao lidar com X?
+% \end{itemize}
+
+% Por exemplo, \textsc{Activities} representam um papel na camanda de apresentação, as perguntas acima ficariam da seguinte forma:
+
+% \begin{itemize}
+% 	\item Você conhece ou utiliza alguma boa prática para lidar com \textsc{Activities}?
+% 	\item Você considera algo uma má prática ao lidar com \textsc{Activities}?
+% \end{itemize}
+
+% Por fim, para coletar qualquer outra informação relevante que o respondente queira compartilhar, temos a seguinte pergunta:
+% \begin{itemize}
+% 	\item Gostaria de compartilhar mais alguma informação, comentário ou sugestão?
+% \end{itemize}
+
+
+\subsection{Análise dos Dados}
+
 De posse dos dados resultantes do questionário e a coletânea de postagens realizaremos uma análise manual em busca de indicativos de maus cheiros e como os desenvolvedores os resolveram. O objetivo da análise será um catálogo de maus cheiros para a camada de apresentação de aplicativos Android.
+
+\section{Validação dos Maus Cheiros}
 
 De forma a validar a coerência dos maus cheiros encontrados, pretende-se realizar uma entrevista com desenvolvedores Android especialistas. A entrevista será realizada com todos os especialistas de uma única vez de forma a motivar discuções entre eles. COLOCAR MAIS DETALHES DE COMO IRÁ CONDUZIR ISSO.
 
