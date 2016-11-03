@@ -9,7 +9,7 @@
 \chapter{Fundamentação Conceitual}
 \label{cap:background}
 
-Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, \textit{Code Smells} e \textit{Android}.
+Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Qualidade de Código, Maus Cheiros de Código e Android.
 
 \section{Qualidade de Código}
 
@@ -25,7 +25,7 @@ Escolher não resolver um mau cheiro pela refatoração não resultará na aplicação 
 \section{Android}
 \label{sec:Android}
 
-\subsection{Arquitetura da Plataforma}
+\subsection*{Arquitetura da Plataforma}
 
 Android é um sistema operacional de código aberto, baseado no kernel do Linux criado para um amplo conjunto de dispositivos. Para prover acesso aos recursos específicos dos dispositivos como câmera ou \textit{bluetooth}, o Android possui uma camada de abstração de \textit{hardware} (HAL do inglês \textit{Hardware Abstraction Layer}) exposto aos desenvolvedores através de um arcabouço de interfaces de programação de aplicativos (APIs do inglês \textit{Applications Programming Interface}) Java. Estes e outros elementos explicados a seguir podem ser visualizados na figura \ref{fig:AndroidPlatform} \cite{AndroidPlatformArchitecture}.
 
@@ -54,7 +54,7 @@ O Android já vem com um conjunto de aplicativos básicos como por exemplo, para e
 
 Aplicativos da plataforma provem capacidades básicas que aplicativos de terceiros podem reutilizar. Por exemplo, se um aplicativo de terceiro quer possibilitar o envio de SMS, o mesmo pode redirecionar esta funcionalidade de forma a abrir o aplicativo de SMS já existente, ao invés de implementar por si só.
 
-\subsection{Fundamentos do Desenvolvimento Android}
+\subsection*{Fundamentos do Desenvolvimento Android}
 
 Aplicativos Android são escritos na linguagem de programação Java. O \ac{SDK} Android compila o código, junto com qualquer arquivo de recurso ou dados, em um arquivo Android Package (APK). Um APK, arquivo com extensão \texttt{.apk}, é usado por dispositivos para a instalação de um aplicativo \cite{AndroidFundamentals}.
 
@@ -124,7 +124,7 @@ Para declarar cada um dos quatro tipos de componentes, deve-se usar os elementos
 	\item \texttt{<provider>} elemento para \textit{content providers}.
 \end{itemize}
 
-\subsection{Recursos do Aplicativo}
+\subsection*{Recursos do Aplicativo}
 \label{sec:AndroidResources}
 
 Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \textbf{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
@@ -162,7 +162,7 @@ A seguir são listados os tipos de recursos que podem ser utilizados no Android \
 \end{itemize}
 
 
-\subsection{Interfaces de Usuários}
+\subsection*{Interfaces de Usuários}
 
 Arquivos de layout são recursos localizados na pasta \texttt{res/layout} que possuem a extensão \texttt{.xml}. 
 
@@ -217,36 +217,10 @@ Quando o conteúdo é dinâmico ou não pré-determinado, como por exemplo uma lista 
 
 Os elementos comumente usados para situações de conteúdo dinâmico ou não pré-determinado são: \texttt{ListView} e \texttt{GridView}. Para fazer o carregamento dos dados nestes elementos, o Android provê alguns \texttt{Adapter}s como por exemplo o \texttt{ArrayAdapter} que a partir de um \texttt{array} de dados popula os dados na \texttt{ListView} ou \texttt{GridView}.
 
-\subsection{Eventos de Interface}
+\subsection*{Eventos de Interface}
 
 On Android, there's more than one way to intercept the events from a user's interaction with your application. When considering events within your user interface, the approach is to capture the events from the specific View object that the user interacts with. The View class provides the means to do so.
 
 Within the various View classes that you'll use to compose your layout, you may notice several public callback methods that look useful for UI events. These methods are called by the Android framework when the respective action occurs on that object. For instance, when a View (such as a Button) is touched, the onTouchEvent() method is called on that object. However, in order to intercept this, you must extend the class and override the method. However, extending every View object in order to handle such an event would not be practical. This is why the View class also contains a collection of nested interfaces with callbacks that you can much more easily define. These interfaces, called event listeners, are your ticket to capturing the user interaction with your UI.
 
 While you will more commonly use the event listeners to listen for user interaction, there may come a time when you do want to extend a View class, in order to build a custom component. Perhaps you want to extend the Button class to make something more fancy. In this case, you'll be able to define the default event behaviors for your class using the class event handlers.
-
-
-\chapter{Camada de Apresentação Android}
-\label{ch:PresentationLayer}
-
-Um assunto essencial para o entendimento deste trabalho é explanar o que queremos dizer com ``Camada de Apresentação Android''. Nesta seção abordamos justamente este assunto de forma a explanar como chegamos na definição aqui usada.
-
-Em nossas pesquisas bibliográficas não foi econtrada uma definição formal sobre camada de apresentação Android. Encontramos porém, pontos na documentação oficial do Android \cite{AndroidDeveloperSite2016} que afirmam que determinado elemento de alguma forma é parte desta camada. Por exemplo o trecho sobre \textit{Activities} diz que ``representa uma tela com interface do usuário''. O trecho sobre recursos do aplicativo afirma que ``um aplicativo Android é composto por outros arquivos além de código Java, ele requer recursos como imagens, arquivos de áudio e qualquer recurso relativo a apresentação visual do aplicativo'' \cite{AndroidFundamentals}. Encontramos também postagens em sites técnicos sobre Android que de alguma forma indicam que determinado elemento compõe a camada de apresentação Android, por exemplo Preussler relaciona \textit{adapters} como parte da camada de apresentação \cite{AdaptersPreussler2016}. Desta forma viu-se necessário definir quais são os elementos, para efeitos desta dissertação, que compõem a camada de apresentação em aplicativos Android. 
-
-Os primórdios de GUI (\textit{Graphical User Interfaces} ou Interfaces de Usuário Gráficas) foram em 1973 com o projeto Alto, desenvolvido pelos pesquisadores da Xerox Palo Alto Research Center (PARC), seguido do projeto Lisa da Apple em 1979. Estes dois projetos serviram de base e inspiração para o Machintosh, lançado pela Apple em 1985. As primeiras definições sobre GUI que surgiram nessa época abordavam sobre componentes de uso comum como ícones, janelas, barras de rolagem, menus supensos, botões, caixas de entrada de texto; gerenciadores de janelas; arquivos de áudio, internacionalização e eventos. Antes deste período existiam apenas interfaces de linha de comando \cite{GUIRaymond2004, UITecMundo2016}.
-
-Outra fonte define camada de apresentação como ``informações gráficas, textuais e auditivas apresentadas ao utilizador, e as sequências de controle (como comandos de teclado, \textit{mouse} ou toque) para interagir com o programa'' \cite{UIWikipedia2016}. 
-
-Unindo as definições supracitadas, definimos que todos os elementos do Android que são apresentados ou interagem com o usuário de alguma forma auditiva, visual ou por comando de voz ou toque são elementos da \textbf{Camada de Apresentação}, são eles:
-
-\begin{itemize}
-	\item \textbf{Activities e Fragments} Representam uma tela ou um fragmento de tela. A exemplo temos classes Java que herdam de \texttt{Activity}, \texttt{Fragment} ou classes similares.
-
-	\item \textbf{Listeners} Meio pelo qual os comandos do usuário são capturados pelo aplicativo. A exemplo temos classes Java que implementam interfaces como \texttt{View.OnClickListener}.
-
-	\item \textbf{Recursos do Aplicativo} Arquivos que apresentam textos, imagens, áudios, menus, interfaces gráficas (\textit{layout}), dentre outros. Estão incluídos neste item todos os arquivos dentro do diretório \texttt{res} ainda que em seu formato Java. A exemplo podemos citar classes que herdam da classe \texttt{View} ou \texttt{ViewGroup}.
-
-	\item \textbf{Adapters} Meio pelo qual são carregados conteúdos dinâmicos ou não pré-determinados na tela. A exemplo podemos citar classes que herdam da classe \texttt{BaseAdapter}.
-
-\end{itemize}
-

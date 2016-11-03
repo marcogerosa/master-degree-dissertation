@@ -37,7 +37,7 @@ Esta dissertação tem por objetivo investigar maus cheiros específicos a camada d
 
 Para isso, exploramos as seguintes questões: \\
 
-\textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação de um projeto Android?}
+\textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação em projetos Android?}
 
 Nesta questão nós investigamos a existência de maus cheiros em elementos da camada de apresentação Android como \textsc{Activities} e \textsc{Adapters}. Para responder a esta pergunta passamos por aplicação de questionário e entrevistas com desenvolvedores especialistas em Android. Também coletamos postagens em fóruns e blogs técnicos sobre Android. \\
 
@@ -51,13 +51,21 @@ Estudos prévios mostram que maus cheiros tradicionais (e.g., \textit{Blob Classe
 
 Com esta questão complementamos com dados qualitativos as análises quantitativas realizadas no contexto de Q2. Desta forma, investigamos se códigos afetados pelos maus cheiros definidos para a camada de apresentação Android são percebidos como problemáticos por desenvolvedores. \\ \
 
-Fizemos uso de diferentes métodos de pesquisa durante esta dissertação. Desta forma, cada método usado é abordado no capítulo referente a questão. Todos os capítulos exigem do leitor conhecimento prévio sobre Android, maus cheiros de código e métricas de qualidade de código. Apresentamos uma breve introdução a estes assuntos no capítulo \ref{cap:background}.
+Fizemos uso de diferentes métodos de pesquisa durante esta dissertação. Desta forma, cada método usado é abordado no capítulo respectivo a questão. Todos os capítulos exigem do leitor conhecimento prévio sobre Android, Maus Cheiros de Código e Métricas de Código. Apresentamos uma breve introdução à estes três assuntos no capítulo \ref{cap:background}.
 
 \section{Contribuições}
-% Ao final desta pesquisa, pretende-se contribuir com um catálogo validado de maus cheiros na camada de apresentação de aplicativos Android. Pretende-se também incrementar a ferramenta de detecção automática de maus cheiros Páprika com os \textit{code smells} validados, de forma a desenvolvedores conseguirem de forma rápida identificar pontos específicos de projetos Android, a refatorar. Garantindo um código de qualidade, fácil de ser mantido e evoluído.
 
-Ao final desta pesquisa, pretende-se contribuir com um catálogo validado de maus cheiros na camada de apresentação de aplicativos Android. Desta forma desenvolvedores conseguiram identificar pontos específicos a serem refatorados em projetos Android ajudando a obter um código com mais qualidade, fácil de ser mantido e evoluído.
+As principais contribuições dessa dissertação, na ordem em que aparecem, são:
 
+\begin{enumerate}
+	\item A definição do termo \textbf{Camada de Apresentação Android}. Com embasamento teórico sobre a origem de interfaces gráficas e na documentação oficial do Android provemos uma definição sobre quais elementos compoõem a camada de apresentação Android. 
+
+	\item Um catálogo validado de maus cheiros da camada de apresentação Android. Os maus cheiros foram definidos com a participação de mais de 50 desenvolvedores em questionários e entrevistas.
+
+	\item Um estudo quantitativo sobre a tendência a mudanças e defeitos dos maus cheiros propostos. Realizaremos um experimento com 13 desenvolvedores Android de forma a coletar quantitativamente se classes afetadas pelos maus cheiros possuem uma maior tendência a mudanças - e introdução de defeitos.
+
+	\item Um estudo sobre a percepção de desenvolvedores sobre os maus cheiros propostos. Realizaremos um experimento com desenvolvedores Android de forma a identificar se classes afetadas pelos maus cheiros são percebidas como problemáticas por desenvolvedores Android.
+\end{enumerate}
 
 \section{Organização da Tese}
 

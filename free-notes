@@ -1,9 +1,3 @@
-Método de Pesquisa
-==================
-
-
-
-
 *Desenvolvimento de Groupware Componentizado com Base no Modelo 3C de Colaboração* 
 _Teste de doutorado do Marco Aurélio Gerosa_
 http://groupware.les.inf.puc-rio.br/public/papers/teseGerosa/TeseGerosa.pdf
@@ -20,6 +14,7 @@ http://portais4.ufes.br/posgrad/teses/tese_8121_dissert%20maison%20melotti%20cre
 _Artigo de Maison Melotti, Roberta Lima Gomes, Victor Raft Oliveira Nunes e Marco Aurélio Gerosa_
 https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 
+==============================================================================================================================
 - Relevância e Problema
 
 	15 e Verloop concluem que aplicativos android de fato possuem diferenças relevantes e não experimentadas até o momento, o que torna relevante pesquisas específicas.
@@ -56,7 +51,6 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 
 	[30 QUALITY SMELLS] Outro trabalho muito relevante realizado neste tema é A [Too-Supported Qual...]  que, baseado na documentação do Android, documenta 30 quality smells, no texto quality smells são definidos como "A quality smell is a certain struc- ture in a model, indicating that it negatively influences specific quality requirements, which can be resolved by particular model refactorings". Estes requisitos de qualidade são centrados no usuários (estabilidade, tempo de início, conformidade com usuário, experiência do usuário e acessibilidade) , eficiância no uso de recursos de hardware (eficiência geral, no uso de energia e meméria) e segurança. [DIFERENÇA] Esta tese se difere dele pois pretendemos encontra code smells em termos de qualidade de código, ou seja, que influênciem na legibilidade e manutenabilidade do código do projeto em desenvolvimento.
 
-	
 
 
 	A quantidade de aplicativos Android nativos sendo desenvolvidos e mantidos aumenta a cada dia. Nos últimos 10 anos este número passou de poucos a 2 milhões. Isso significa cada vez mais código Android sendo criado, alterado e mantido diariamente. No área de desenvolvimento de software sabemos a importância de manter um código limpo e de qualidade e apesar de Android utilizar a tecnologia Java para ser desenvolvido, não é completamente igual a um projeto Java ou um projeto Java Web, tendo portanto suas especificidades. 
@@ -79,13 +73,15 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 
 		Q5: Desenvolvedores percebem as classes afetadas pelos maus cheiros prpopostos como problemáticas?
 	
+==============================================================================================================================
 - Fundamentação 
 	Code Smell
 	Android
 	Qualidade de Código
 
-- Método
 
+==============================================================================================================================
+- Método
 	1. Definir o que é a CAMADA DE APRESENTAÇÃO.
 		. Buscar em documentação, referências bibliográficas como artigos etc, se não encontrar, criar esta definição eventualmente através de um survey, entrevista com desenvolvedores referência, etc.
 	
@@ -97,18 +93,85 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 			. Boas e más práticas em Activities, Fragments, Adapter e Listeners, em quais pacotes ficam estas classes.
 
 	3. Identificar maus cheiros
-		. Ver como o Aniche fez isso.
+		. Ver como o Aniche fez isso. -> Na mão e validou com um cara, mas não disse como, acho que foi na lábia.
 
-	4. Validar maus cheiros com desenvolvedores experientes
+	4. Validar maus cheiros com desenvolvedores especialistas
+		. Entrevista estruturada para validação (GRAVAR). Questionário de geoposicionamento/background.
+			Para cada smell os entrevistados devem responder se "acredita que este é um smell válido da camada de apresentação do Android? Justifique. (sim/não e por quê)". Incentivar discussões entre eles.
+			Android especialistas 
+				. Neto Marin (vale! é do google e trabalha há anos com android lá)
+				. Ubiratan Soares (vale, há anos com android)
+				. Rodrigo Sicarelli (vale, há anos com android)
+				. Thiago Pilon (vale, há anos com android)
+				. Paula Caroline (pode ser legal, menos experiência)
+				. Rodrigo Amaro (+/- só com android no atual emprego, PagSeguro)
+			
+			OPÇÃO 1: 
+			Em uma sala com projetor, apresentar o smell, um código com o smell e outro com o smell tratado e perguntar:
+				. Ler o smell em voz alta
+				. Perguntar em voz alta.
+
+			OPÇÃO 2:
+			Entrevistas individuais. Mesma pergunta só que sem as discussões.
 
 	5. Analisar a percepção dos desenvolvedores com relação aos maus cheiros encontrados
 		. Experimento em cima de um projeto pronto tendo uma versão do projeto com os maus cheiros não corrigidos e outra com os maus cheiros corrigidos. Solicitar aos desenvolvedores que implementem uma nova funcionalidade (de preferência que lide com a tela para que eles passem pelos códigos com maus cheiros ou da camada de apresentação). Limitar o tempo. Analisar o resultado da experiência deles em relação se conseguiram concluir ou não a funcionalidade no tempo dado, se acharam difícil ou fácil e por quê. Posso fazer esta análise com survey ou com uma entrevista coletiva gravada áudio e vídeo (seria show) ou mesmo os dois (seria melhor ainda).
-		. Faz sentido obrigar o uso de TDD?
+		. Faz sentido obrigar o uso de TDD? Acho que não, não é o foco.
 		. Houve a necessidade de refatoração no código já existente?
 		. Pedir para usar uma sala na Caelum.
 
+	6. Analisar o impacto dos maus cheiros com relação a propensão de mudança e propensão a introdução de bugs.
+		(ACHO QUE TENHO QUE PENSAR EM ALGO MAIS COMPLEXO PARA CONSEGUIR TER DADOS PARA ANALISAR)
+		Implemento um projeto de calculadora, uma versão com maus cheiros e outra sem.
+			Colocar no github cada versão num repo separado
+			Uma branch para cada dev. Pedir para fazerem pequenos commits do que estão fazendo, pushar ao final.
+			Faço funcionar todas as operações menos uma (alguma específica?)
+
+		Peço a desenvolvedores que implementem a operação faltante 
+			Metade recebe o projeto sem smells e outra parte com smells
+			Avaliar se:
+				. A: Tempo até a conclusão da tarefa.
+				. B: Quantos arquivos precisaram ser alterados?
+					. Tirar métricas de quantos métodos e classes adicionados, apagados e alterados?
+					. Qntos resources novos, alterados, apagados. 
+					. Houve alteração com o objetivo de refatoração? Indica que o código estava ruim antes.
+					. Qual a percepção do desenvolvedor com relação a qualidade do código?
+				. C: Algum bug foi introduzido?
+
+		O que espero:
+			. Projetos com os smells tenham mais A, B e talvez C.
+			. Percepção inicial do código seja ruim.
+			(o contrário para projetos sem os smells)
+
+		Um survey ao final da implementação?
+
+==============================================================================================================================
+- Estrutura do texto (parte da pesquisa): 
+	Maus Cheiros 
+		Introdução
+			Pq é importante? O que indica isso, etc
+
+		Método 
+			Survey + Validação com especialistas.					
+
+		Q1 Catálogo de Maus Cheiros na Camada de Apresentação Android
+			Listas catálogo. Nome e descrição da situação onde o maus cheiro é percebido e o que se recomenda para evitá-lo.
 
 
+	Percepção dos Desenvolvedores e Propensão a Mudanças e Defeitos
+		Introdução
+			Falar sobre que se quer ter certeza de que devs o percebem pois pesquisas dizem que sim. Trecho do Aniche "Evidence in the literature suggests that code smells can hinder code maintainability [106, 122, 123], and increase change- and defect-proneness [61, 62], and are perceived by developers [86]."
+
+		Método
+			Explicar o experimento aqui
+		
+		Q2: Relação entre os maus cheiros propostos com a tendência a mudanças e defeitos
+
+		Q3: Percepção dos desenvolvedores sobre os maus cheiros propostos
+
+
+
+==============================================================================================================================
 Buscar bibliografias em
 	Citeseer - http://citeseer.ist.psu.edu
 	ACM - portal.acm.ogr/portal.cfm
@@ -126,9 +189,9 @@ Por que no formato de Code Smells?
 	Por que é uma forma fácil de criar ferramentas para realizarem análises estáticas de código apontando os problemas que serão listados.
 
 
-Relevância
-==========
 
+==============================================================================================================================
+- Relevância
 
 Tracking the Software Quality of Android Applications along their Evolution
 A Tool-Supported Quality Smell Catalogue For Android Developers (tool Refactory)
@@ -153,7 +216,6 @@ Understanding Code Smells in Android Applications
 Removing Energy Code Smells with Reengineering Services
 	- Muitos artigos chegaram a alguns maus cheiros porém relacionados a consumo de energia, eficiência, etc
 
-
 A Tool-Supported Quality Smell Catalogue For Android Developers
 	- Artigo que gerou o site http://www.modelrefactoring.org/smell_catalog com os 30 maus cheiros baseados na documentação oficial e em experiências de desenvolvedores e a ferramenta Refactoring (http://www.modelrefactoring.org/index.php/Refactoring).
 
@@ -173,6 +235,7 @@ Submeter Artigo com resultados preliminares para:
 	- http://mobilewebdevconference.com/
 
 
+==============================================================================================================================
 Outras coisas
-=============
+
 Apps mobile android tem a pasta resource, as pastas lá dentro podem ter multiplas versões, chamados de qualificadores, onde possuem recursos para um cenário específico como idioma, resolução, etc.
