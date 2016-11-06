@@ -17,7 +17,7 @@ A seguir abordamos em detalhes quais foram os experimentos realizados ou planeja
 Apesar de já existirem diversos maus cheiros conhecidos catalogados, pesquisas vem demonstrado que existem maus cheiros de código específicos a tecnologias, frameworks e plataformas, desta forma sugerimos que há maus cheiros específicos à camada de apresentação de aplicativos Android. Desta forma, perguntamos:
 
 
-\section{Q1: Abordagem de Definição dos Maus Cheiros}
+\section{Método}
 Para prosseguimento do trabalho é de extrema importância responder a Q1. Para isso elaboramos um questionário com perguntas dissertativas de forma a coletar informações sobre boas e más práticas na camada de apresentação de aplicativos Android. O questionário foi elaborado em inglês com o objetivo de abrangir Brasil e exterior, no entanto, na apresentação do questionário, que é a primeira parte apresentada quando o respondente o abre, para eliminar possíveis barreiras de idioma, deixamos claro que as respostas poderiam ser em português ou inglês.
 
 Este questionário foi disponibilizado em grupos de discuções sobre Android, em redes sociais como Facebook, Twiiter, LinkedIn e Google Plus, permitindo que qualquer pessoa o compartilhasse em suas próprias redes de contatos. Com o objetivo de avaliar a qualidade das resposta, as primeiras questões do questionário foram para mapeamento do grau de experiência com desenvolvimento de software em geral e com desenvolvimento Android. Haviam também perguntas de geolocalização para possibilitar avaliar a abrangência e diversidade dos resultados. Pretende-se deixar o questionário aberto ao público até que seja necessário consolidar as informações para o passo de validação dos maus cheiros definidos com o objetivo de coletar o máximo de respostas possíveis.
@@ -64,19 +64,26 @@ De forma a validar a coerência dos maus cheiros encontrados, pretende-se realiza
 
 A fim de ter controle com relação a credibilidade de conhecimento dos especialistas, serão convidados desenvolvedores Android referência na comunidade, que possuam algum livro sobre Android publicado ou que trabalhem com Android no Google.
 
-\section{Catálogo de Maus Cheiros da Camada de Apresentação Android} 
+\section{Q1: Catálogo de Maus Cheiros da Camada de Apresentação Android} 
 
-\section{Percepção dos Desenvolvedores}
-\label{sc:DevPerceptions}
 
-Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores códigos com e sem os maus cheios propostos, para cada código, será solicitado que ele indique o código como bom ou ruim. 
 
-\section{Impacto na Tendência a Mudanças}
+\chapter{Impacto na Tendência a Mudanças e Defeitos}
 \label{sc:ChangeProneness}
 
+\section{Introdução}
 Outro experimento a ser conduzido é com relação a propensão de mudanças e defeitos que códigos com maus cheiros tendem a causar. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores um projeto Android onde alguns deles receberão este projeto com os maus cheiros e outros o receberam com o código já refatorado. Será solicitado a todos que implementem uma mesma funcionalidade, esta do qual, necessitará alterar arquivos da camada de apresentação. Com este experimento pretendemos validar a percepção de desenvolvedores com relação a propensão a alteração de código e propensão a defeitos que os códigos com maus cheiros causam.
 
+\section{Método}
 
-\section{Impacto na Tendência a Defeitos}
-\label{sc:BugProneness}
+\section{Q2: Qual o impacto dos maus cheiros propostos na tendência a mudanças e defeitos?}
 
+\chapter{Percepção dos Desenvolvedores}
+\label{sc:DevPerceptions}
+
+\section{Introdução}
+Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores códigos com e sem os maus cheios propostos, para cada código, será solicitado que ele indique o código como bom ou ruim. 
+
+\section{Método}
+
+\section{Q3: Os Desenvolvedores percebem os códigos afetados pelos maus cheiros propostos como problemáticos?}
