@@ -10,9 +10,29 @@
 
 \chapter{Introdução}
 
-Em 2017 o Android completará uma década desde seu primeiro lançamento em 2007. Atualmente há disponível mais de 2 milhões de aplicativos na Google Play Store, loja oficial de aplicativos Android \cite{AppInPlayStore:09-16}. Mais de 83,5\% dos dispositivos móveis no mundo usam o sistema operacional Android, e esse percentual vem crescendo ano após ano \cite{MobileMarketShares:16, GrowthForecastIDC:16}. Atualmente é possível encontrá-lo também em outros dispositivos como, \textit{smart TVs}, \textit{smartwatchs}, carros, dentre outros \cite{AndroidSmart:14, AndroidAuto:16}. 
+Android é a plataforma móvel de maior crescimento e em 2017 completará uma década desde seu primeiro lançamento. A Figura \ref{fig:AndroidMarketShare} apresenta a quantidade de dispositivos vendidos para cada plataforma móvel, no período de 2009 à 2016 \cite{SmartphoneSales:09-16}. É possível observar que no Q1 de 2016, foram vendidos aproximadamente 300 milhões de dispositivos com Android contra aproximadamente 50 milhões com iOS, seu concorrente mais próximo.
 
-Aplicativos Android têm se tornado complexos projetos de software que precisam ser rapidamente desenvolvidos e regularmente evoluídos para atender aos requisitos dos usuários. Esse contexto pode levar a decisões ruins de \textit{design} de código conhecidas como anomalias ou maus cheiros, e podem degradar a qualidade do projeto tornando-o de difícil manutenção e evolução \cite{Hecht2015}. Apesar de ser possível analisar projetos Android através de maus cheiros ``tradicionais'' (por exemplo, \textit{God Classes} e \textit{Long Methods}), pesquisas têm demonstrado que diferentes plataformas, linguagens e frameworks podem apresentar métricas de qualidade de código específicas \cite{FinavaroAniche2016, Zhang2013}. Projetos Android possuem características específicas principalmente com relação à camada de apresentação. 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{mobile-market-share-bars.png}
+	\caption{Unidades de disposivitos vendidos por plataforma móvel \cite{SmartphoneSales:09-16}.}
+	\label{fig:AndroidMarketShare}
+\end{figure}
+
+Com o crescimento da plataforma, a demanda por aplicativos também aumenta. Na Figura \ref{fig:GooglePlayStore} é possível acompanhar o crescimento da quantidade de aplicativos disponíveis na Google Play Store, loja oficial de aplicativos Android, ao longo de 2009 até 2016, sendo que nesse último ano, superou 200 milhões de aplicativos disponíveis \cite{AppInPlayStore:09-16}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{play-store-apps-09to16.png}
+	\caption{Quantidade de aplicativos disponíveis na Google Play Store \cite{AppInPlayStore:09-16}.}
+	\label{fig:GooglePlayStore}
+\end{figure}
+
+Ainda, segundo Gartner Group \cite{MobileMarketShares:16} e IDC \cite{GrowthForecastIDC:16}, mais de 83,5\% dos dispositivos móveis no mundo usam o sistema operacional Android, e esse percentual vem crescendo ano após ano. Atualmente é possível encontrar Android em diversos tipos de dispositivos como: \textit{smartphones}, \textit{smart TVs}, \textit{smartwatchs}, carros, dentre outros \cite{AndroidSmart:14, AndroidAuto:16}. 
+
+Todo esse crescimento da plataforma impacta no processo de desenvolvimento de software desses aplicativos. Segundo Geoffrey \cite{Hecht2015} \emph{``aplicativos móveis têm se tornado complexos projetos de software que precisam ser rapidamente desenvolvidos e regularmente evoluídos para atender aos requisitos dos usuários. No entanto, atender a esses requisitos pode resultar em más escolhas de \textit{design}, conhecidas como \textit{antipatterns}, que podem degradar a qualidade e desempenho do software''} (tradução livre). Verloop \cite{MobileSmells:13} também aborda esse cenário ao dizer que aplicativos móveis tem o ciclo de vida curto e precisam ser constantemente atualizados para se menterem relevantes e atender as expectativas de seus usuários. Verloop \cite{MobileSmells:13} complementa dizendo que a combinação do rápido crescimento e atualizações implicam no desenvolvimento de software, de modo que, os desenvolvedores devem aumentar a importância em manter seus projetos com fácil manutenção.
+
+Apesar de ser possível analisar projetos Android através de maus cheiros ``tradicionais'' (por exemplo, \textit{God Classes} e \textit{Long Methods}), pesquisas têm demonstrado que diferentes plataformas, linguagens e frameworks podem apresentar métricas de qualidade de código específicas \cite{FinavaroAniche2016, Zhang2013}. Projetos Android possuem características específicas principalmente com relação à camada de apresentação \cite{MobileSmells:13}. 
 
 % Uma tarefa comum a desenvolvedores de software é detectar trechos de código problemáticos. Para isso é comum se utilizar de estratégias de detecção de maus cheiros \cite{FinavaroAniche2016}. Maus cheiros são síntomas de escolhas ruins de design e implementação de código \cite{FinavaroAniche2016}. Apesar de já existir um catálogo extenso de maus cheiros, eles não levam em consideração a natureza do projeto e suas particularidades. 
 
