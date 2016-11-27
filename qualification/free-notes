@@ -1,3 +1,12 @@
+RODAR ASPELL SPELL CHECKER
+===========================
+for f in *.tex; do aspell --mode=tex --encoding=iso-8859-1 check $f; done
+
+
+
+
+
+
 *Desenvolvimento de Groupware Componentizado com Base no Modelo 3C de Colaboração* 
 _Teste de doutorado do Marco Aurélio Gerosa_
 http://groupware.les.inf.puc-rio.br/public/papers/teseGerosa/TeseGerosa.pdf

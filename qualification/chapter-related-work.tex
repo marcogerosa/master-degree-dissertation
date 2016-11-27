@@ -10,8 +10,37 @@
 
 \chapter{Trabalhos Relacionados}
 \label{cap:related}
+
+Agrupamos os trabalhos relacionados em 3 áreas: (i) estudos recentes realizados sobre Android, (ii) estudos que analisam maus cheiros específicos à alguma tecnologia, plataforma ou framework e (iii) estudos sobre maus cheiros específicos ao Android.
+
+\section{Pesquisas sobre Android}
+
+Em 2017 o Android completará uma década desde seu primeiro lançamento em 2007. Muitas pesquisas, em diversas áreas como segurança, consumo inteligente, comunicação entre aplicativos, dentre outros, têm surgido nos últimos anos. 
+
+Adrienne et al. \cite{AdriennePermission} realizou um estudo de usabilidade com usuários Android para entender a efetividade do sistema de permissões de usuários. Quando um usuário instala uma aplicação tem a oportunidade de rever as permissões solicitadas pelo aplicativo. O estudo concluiu que 17\% dos usuários prestam atenção as permissões apresentadas durante a instalação. O estudo conclui com recomendações para melhorar o entendimento e atenção dos usuários com relação as permissões solicitadas. 
+
+Outro estudo de Erika et al. \cite{ErikaComDroid}, tem relação com segurança porém com relação a comunicação entre aplicativos Android. Os autores afirmam que, apesar de o sistema de comunicação entre aplicativos do Android ser rico, foram identificados riscos relacionados a segurança. Esses riscos foram mapeados na ferramenta ComDroid \cite{ComDroidErika}, que pode ser usada para detecção automática de vulnerabilidades de comunicação. Com esta ferramenta, foram analisados 20 aplicativos dos quais, 12 continham pelo menos 1 vulnerabilidade. 
+
+Lance et al. \cite{LanceComunicationStrategies} teve seu artigo também sobre comunicação entre aplicativos Android, publicado na MOBILESoft 2016. Foi analisado as diferentes estratégias para se implementar intercomunicação de aplicativos Android desenvolvidos com a IDE Android Studio e a plataforma web App Inventor. A pesquisa apresenta o método de envio e recebimento de mensagens em ambas as plataformas e suas limitações. 
+
+\section{Maus Cheiros Específicos}
+
+Atualmente já existem diversos catálogos de cheiros de código relacionados a projetos orientado a objetos. Por exemplo as práticas catalogadas por Webster \cite{Webster} ou os cheiros de código catalogados por Fowler \cite{Refactoring:99}. Qualquer que seja o projeto, desde que siga o paradigma orientado a objeto, poderá se beneficiar desses catálogos. No entanto, pesquisas têm demonstrado que domínios diferentes podem apresentar cheiros de código específicos \cite{DomainMatters, FinavaroAniche2016}. 
+
+Aniche et al. \cite{FinavaroAniche2016} em seu trabalho de doutorado, encontrou cheiros de código específicos ao framework Java Spring MVC, foram eles \textit{Promiscuous Controller}, \textit{Smart Controller}, \textit{Meddling Service}, \textit{Smart Repositories}, \textit{Laborious Repository Method} e \textit{Fat Repository}. 
+
+Mario et al. \cite{DomainMatters} salienta a importância do domínio ao se tratar de cheiros de código ao concluir em sua pesquisa que \textit{antipatterns} em aplicações com determinados domínios tem sua qualidade negativamente impactada mais do que outros. 
+
+Gharachorlu \cite{CSSCodeSmell} avaliou a existência de más práticas em arquivos CSS de projetos de código aberto. Essas más práticas foram extraídas de sites e blogs técnicos. De acordo com o autor, as más práticas mais frequentes eram valores fixos, estilos que desfaziam o que estilos anteriores faziam e o uso de seletores id. 
+
+Silva et al. \cite{Silva_Does_2015} executou uma análise em sistemas de código aberto e mostrou que códigos Javascript tendem a usar conceitos de orientação a objetos em 36\% dos sistemas analisados.
+
+
+
+\section{Maus Cheiros Android}
+
 % Em outros trabalhos sobre maus cheiros Android, foram identificados maus cheiros relacionados a segurança, consumo inteligente de recursos ou que de alguma maneira influênciavam a experiência ou expectativa do usuário.
-Diversas pesquisas em torno de maus cheiros de código vem sendo realizadas ao longo dos últimos anos. Já existem inclusive diversos maus cheiros mapeados, porém poucos deles são específicos da plataforma Android \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. Segundo Hecht \cite{Hecht2015} estudos sobre maus cheiros de código sobre aplicações Android ainda estão em sua infância. Outro ponto que reafirma esta questão são os trabalhos de Linares-Vásquez \cite{DomainMatters} e Hecht \cite{Hecht2015} onde concluem que, em projetos Android, é mais comum maus cheiros específicos do que maus cheiros orientados a objetos. 
+Diversas pesquisas em torno de maus cheiros de código vem sendo realizadas ao longo dos últimos anos. Já existem inclusive diversos maus cheiros mapeados, porém poucos deles são específicos da plataforma Android \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. Segundo Hecht \cite{Hecht2015} estudos sobre maus cheiros de código sobre aplicações Android ainda estão em sua infância. Outro ponto que reafirma esta questão são os trabalhos de Linares-Vásquez \cite{DomainMatters} e Hecht \cite{Hecht2015} onde concluem que, em projetos Android, é mais comum maus cheiros específicos do que maus cheiros Orientado a Objetos. 
 
 O trabalho de Verloop \cite{MobileSmells:13} avalia a presença de maus cheiros definidos por Fowler \cite{Refactoring:99} e Minelli e Lanza \cite{Mantyla2013} em projetos Android. Apesar das relevantes contribuições feitas, a conclusão sobre a incidência de tais maus cheiros não é plenamente conclusiva, visto que dos 6 maus cheiros analisados (\textit{Large Class}, \textit{Long Method}, \textit{Long Parameter List}, \textit{Type Checking}, \textit{Feature Envy} e \textit{Dead Code}) apenas dois deles, \textit{Long Method} e \textit{Type Checking}, se apresentam com maior destaque (duas vezes mais provável) em projetos Android. Os demais apresentam uma diferença mínima em classes Android quando se comparados a classes não específicas do Android. Por fim, acaba por não ser conclusivo quanto a maior relevância deles em Android ou não. 
 
@@ -19,8 +48,8 @@ Desta forma, Verloop \cite{MobileSmells:13} conclui com algumas recomendações de
 
 % Sobre esta última recomendação, acredito que será entendida como um anti-pattern, visto que acopla o comportamento a um layout específico além do que hoje já é possível o uso de lambdas também no desenvolvimento android, encurtando muito portanto o tamanha das antigas classes anônimas e o uso de resource ids ao invés dos resources values, onde o código fica mais verboso, logo, mais complicado de ler, ele recomenda sempre que possível, usar o resource id ao invés do resource value. Apesar disso, sabemos que código legível resulta em tempo de desenvolvimento menor, pois códigos complexos dificultam o desenvolvimento de software. Das ferramentas de análise de código analisadas por Verloop, a única que suporta XML é a Lint, desenvolvida pela Google para Android. [DIFERENÇA] 
 
-Diferentemente de validar a presença de maus cheiros previamente catalogados conforme feito por Verloop \cite{MobileSmells:13}, esta dissertação objetiva identificar, validar e catalogar, com base na experiência de desenvolvedores, boas e más práticas específicas à camada de apresentação de projetos Android. 
+Diferentemente de validar a presença de maus cheiros previamente catalogados conforme feito por Verloop \cite{MobileSmells:13}, esta dissertação objetiva identificar, validar e catalogar, com base na experiência de desenvolvedores, boas e más práticas específicas à \textbf{camada de apresentação de projetos Android}. 
 
 Outro trabalho muito relevante realizado neste tema é o de Reimann et al. \cite{ReimannBrylski2013} que, baseado na documentação do Android, documenta 30 \textit{quality smells} específicos para Android. No texto \textit{quality smells} são definidos como \textit{``uma determinada estrutura em um modelo, indicando que influencia negativamente a requisitos específicos de qualidade, que podem ser resolvidos por refatorações particulares ao modelo''} (tradução livre). Estes requisitos de qualidade são centrados no usuários (estabilidade, tempo de início, conformidade com usuário, experiência do usuário e acessibilidade), consumo inteligente de recursos (eficiência geral e no uso de energia e memória) e segurança.
 
-Esta dissertação se difere do trabalho Reimann et al. \cite{ReimannBrylski2013} pois pretende-se encontrar maus cheiros em termos de qualidade de código, ou seja, que influenciam na legibilidade e manutenabilidade do código do projeto.
+Esta dissertação se difere do trabalho Reimann et al. \cite{ReimannBrylski2013} pois pretende-se encontrar maus cheiros em termos de qualidade de código, ou seja, que influenciam na legibilidade e manutenibilidade do código do projeto.

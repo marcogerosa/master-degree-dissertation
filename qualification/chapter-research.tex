@@ -10,20 +10,20 @@
 \label{ch:research}
 \label{sc:CodeSmellsDefinition}
 
-Neste capítulo é abordado detalhes dos métodos de pesquisa utilizados para a descoberta dos maus cheiros na camada de apresentação Android.
+Neste capítulo são abordados detalhes dos métodos de pesquisa utilizados para a descoberta dos maus cheiros na camada de apresentação Android.
 
 
 \section{Introdução}
 
-\textit{God Class}, \textit{Large Class}, \textit{Long Method} são exemplos de maus cheiros de código amplamente reconhecidos por desenvolvedores. De fato, é possível obter métricas de qualidade de código de projetos Android utilizando estes maus cheiros já catalogados. No entanto, pesquisas tem demonstrado que existem maus cheiros de código específicos a tecnologias, frameworks e plataformas \cite{FinavaroAniche2016}, desta forma sugerimos que há maus cheiros específicos à camada de apresentação de aplicativos Android. Para iniciar nossas investigações sobre este tema, fizemos a seguinte pergunta:
+\textit{God Class}, \textit{Large Class} e \textit{Long Method} são exemplos de maus cheiros de código amplamente reconhecidos por desenvolvedores [REF]. De fato, é possível obter métricas de qualidade de código de projetos Android utilizando estes maus cheiros já catalogados [REF]. No entanto, pesquisas têm demonstrado que existem maus cheiros de código específicos a tecnologias, frameworks e plataformas \cite{FinavaroAniche2016}, desta forma sugerimos que há maus cheiros específicos à camada de apresentação de aplicativos Android. Para iniciar nossas investigações sobre esse tema, fizemos a seguinte pergunta:
 
 \begin{center}
 \textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação em projetos Android?}
 \end{center}
 
-Maus cheiros de código são padrões de código que estão associados com um design ruim e más práticas de programação \cite{MobileSmells:13}. Por si só, um mau cheiro não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessáriamente é o problema em si \cite{CodeSmell:06}. Sendo assim, esta questão visa identificar quais práticas desenvolvedores Android reconhecem como sendo más práticas, e possívelmente maus cheiros, e quais práticas os desenvolvedores reconhecem como boas práticas, e possívelmente formas de refatorar o que foi considerado um mau cheiro.
+Maus cheiros de código são padrões de código que estão associados com um design ruim e más práticas de programação \cite{MobileSmells:13}. Por si só, um mau cheiro não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessariamente é o problema em si \cite{CodeSmell:06}. Sendo assim, esta questão visa identificar quais práticas desenvolvedores Android reconhecem como sendo más práticas, e possivelmente maus cheiros, e quais práticas os desenvolvedores reconhecem como boas práticas, e possivelmente formas de refatorar o que foi considerado um mau cheiro.
 
-Neste capítulo nós apresentamos um catálogo de maus cheiros na camada de apresentação de projetos Android. Para derivar este catálogo aplicamos um questionário respondido por 45 desenvolvedores Android e pretendemos entrevistar outros desenvolvedores sobre boas e más práticas seguidas durante o desenvolvimento de aplicativos Android. Também iremos coletar postagens relacionadas a boas e más práticas em sites sobre Android. Após, iremos realizar um procedimento de código aberto a partir das respostas e postagens obtidas. 
+Neste Capítulo apresentamos um catálogo de maus cheiros na camada de apresentação de projetos Android. Para derivar esse catálogo aplicamos um questionário respondido por 45 desenvolvedores Android e pretendemos entrevistar outros desenvolvedores sobre boas e más práticas seguidas durante o desenvolvimento de aplicativos Android. Também iremos coletar postagens relacionadas a boas e más práticas em sites sobre Android. Após, iremos realizar um procedimento de código aberto a partir das respostas e postagens obtidas. 
 
 Por fim, pretendemos validar os maus cheiros derivados com 2 desenvolvedores especialistas em Android. 
 
@@ -31,7 +31,7 @@ Por fim, pretendemos validar os maus cheiros derivados com 2 desenvolvedores esp
 
 Nós coletamos boas e más práticas na camada de apresentação seguidas por desenvolvedores durante o desenvolvimento de aplicativos Android. A coleta de dados inclui três diferentes passos, são eles:
 
-\textbf{Passo 1: Questionário Online.} Elaboramos um questionário em inglês com perguntas dissertativas. O questionário foi divulgado em comunidades de desenvolvedores Android do Brasil e exterior e em redes sociais como LinkedIn, Google Plus, Facebook e Twitter. De forma a obtermos alguma análise demográfica, as primeiras questões questionavam sobre idade e país de residência.
+\textbf{Passo 1: Questionário Online.} Elaboramos um questionário em inglês com perguntas dissertativas. O questionário foi divulgado em comunidades de desenvolvedores Android do Brasil e exterior e em redes sociais como LinkedIn, Google Plus, Facebook e Twitter. De modo a obtermos alguma análise demográfica, as primeiras questões são sobre idade e país de residência.
 
 Em seguida, perguntamos sobre boas e más práticas. Para cada elemento da camada de apresentação fizemos o seguinte par de perguntas, onde ``X'' indica o elemento da camada de apresentação em questão: 
 
@@ -40,7 +40,7 @@ Em seguida, perguntamos sobre boas e más práticas. Para cada elemento da camada 
 	\item Do you have anything you consider a bad practice when dealing whit X? (Você considera algo uma má prática para lidar com X?)
 \end{itemize}
 
-Os elementos questionados foram definidos no capítulo \ref{ch:PresentationLayer}, são eles: \textsc{Activities}, \textsc{Fragments}, \textsc{Adapter}, \textsc{Listeners}, \textsc{layouts}, \textsc{styles}, \textsc{string} e \textsc{drawables}. Os 4 últimos representam os 4 principais recursos de aplicativos Android. Optamos por não questionar todos os tipos de recursos individualmente para não tornar o questionário muito extenso. 
+Os elementos questionados foram definidos no Capítulo \ref{ch:PresentationLayer}, são eles: \textsc{Activities}, \textsc{Fragments}, \textsc{Adapter}, \textsc{Listeners}, \textsc{layouts}, \textsc{styles}, \textsc{string} e \textsc{drawables}. Os 4 últimos representam os 4 principais recursos de aplicativos Android. Optamos por não questionar todos os tipos de recursos individualmente para não tornar o questionário muito extenso. 
 
 Por último, com o objetivo de capturar alguma outra boa ou má prática em qualquer outro elemento da camada de apresentação, adicionamos as seguintes perguntas:
 
@@ -51,11 +51,11 @@ Por último, com o objetivo de capturar alguma outra boa ou má prática em qualque
 
 O questionário completo pode ser encontrado no apêndice 1. \\ 
 
-\textbf{Passo 2: Entrevistas Semi-Extruturadas.} Realizaremos entrevistas semi-estruturadas com desenvolvedores Android. O objetivo da entrevista é fazer com que os desenvolvedores discutam sobre boas e más práticas na camada de apresentação Android usadas no dia-a-dia de desenvolvimento. Estas discussões serão focadas nos 8 elementos da camada de apresentação questionados no passo anterior. \\ 
+\textbf{Passo 2: Entrevistas Semi-Extruturadas.} Realizaremos entrevistas semi-estruturadas com desenvolvedores Android. O objetivo da entrevista é fazer com que os desenvolvedores discutam sobre boas e más práticas na camada de apresentação Android usadas no dia-a-dia de desenvolvimento. Essas discussões serão focadas nos 8 elementos da camada de apresentação questionados no passo anterior. \\ 
 
 \textbf{Passo 3: Pesquisa Bibliográfica em Sites Técnicos.} Realizaremos uma busca na internet por postagens técnicas sobre Android que apontem alguma boa ou má prática em algum dos elementos da camada de apresentacão pesquisados nos passos anteriores. \\ 
 
-De forma a complementar os dados para análise demográfica, tanto no questionário quanto na entrevista fizemos perguntas sobre a experiência com desenvolvimento de software, experiência com desenvolvimento de aplicativos Android nativos e quais linguagens de programação se consideravam proeficientes.
+De modo a complementar os dados para análise demográfica, tanto no questionário quanto na entrevista fizemos perguntas sobre a experiência com desenvolvimento de software, experiência com desenvolvimento de aplicativos Android nativos e quais linguagens de programação se consideravam proficientes.
 
 
 \section{Q1: Catálogo Resultante de Maus Cheiros da Camada de Apresentação Android} 
@@ -66,7 +66,7 @@ De forma a complementar os dados para análise demográfica, tanto no questionário
 \label{sc:ChangeProneness}
 
 \section{Introdução}
-Evidencias na literatura sugerem que maus cheiros de código podem esconder manutenabilidade de código e aumentar a tendência a mudanças e introdução de defeitos. Neste capítulo pretendemos avaliar o impacto dos maus cheiros propostos na tendência a mudanças e introdução de defeitos no código. Para isso conduziremos um experimento presencial com desenvolvedores Android.
+Evidencias na literatura sugerem que maus cheiros de código podem esconder manutenibilidade de código e aumentar a tendência a mudanças e introdução de defeitos. Neste capítulo pretendemos avaliar o impacto dos maus cheiros propostos na tendência a mudanças e introdução de defeitos no código. Para isso conduziremos um experimento presencial com desenvolvedores Android.
 
 \section{Método}
 Pretende-se conduzir um experimento apresentando aos desenvolvedores um projeto Android onde alguns deles receberão este projeto com os maus cheiros e outros o receberam com o código já refatorado. 
