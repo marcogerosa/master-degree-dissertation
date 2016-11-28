@@ -10,22 +10,22 @@
 \label{ch:research}
 \label{sc:CodeSmellsDefinition}
 
-Neste capítulo são abordados detalhes dos métodos de pesquisa utilizados para a descoberta dos maus cheiros na camada de apresentação Android.
+Neste capítulo são abordados detalhes dos métodos de pesquisa utilizados para a descoberta dos cheiros de código na camada de apresentação Android.
 
 
 \section{Introdução}
 
-\textit{God Class}, \textit{Large Class} e \textit{Long Method} são exemplos de maus cheiros de código amplamente reconhecidos por desenvolvedores [REF]. De fato, é possível obter métricas de qualidade de código de projetos Android utilizando estes maus cheiros já catalogados [REF]. No entanto, pesquisas têm demonstrado que existem maus cheiros de código específicos a tecnologias, frameworks e plataformas \cite{FinavaroAniche2016}, desta forma sugerimos que há maus cheiros específicos à camada de apresentação de aplicativos Android. Para iniciar nossas investigações sobre esse tema, fizemos a seguinte pergunta:
+\textit{God Class}, \textit{Large Class} e \textit{Long Method} são exemplos de cheiros de código de código amplamente reconhecidos por desenvolvedores [REF]. De fato, é possível obter métricas de qualidade de código de projetos Android utilizando estes cheiros de código já catalogados [REF]. No entanto, pesquisas têm demonstrado que existem cheiros de código de código específicos a tecnologias, frameworks e plataformas \cite{FinavaroAniche2016}, desta forma sugerimos que há cheiros de código específicos à camada de apresentação de aplicativos Android. Para iniciar nossas investigações sobre esse tema, fizemos a seguinte pergunta:
 
 \begin{center}
 \textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação em projetos Android?}
 \end{center}
 
-Maus cheiros de código são padrões de código que estão associados com um design ruim e más práticas de programação \cite{MobileSmells:13}. Por si só, um mau cheiro não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessariamente é o problema em si \cite{CodeSmell:06}. Sendo assim, esta questão visa identificar quais práticas desenvolvedores Android reconhecem como sendo más práticas, e possivelmente maus cheiros, e quais práticas os desenvolvedores reconhecem como boas práticas, e possivelmente formas de refatorar o que foi considerado um mau cheiro.
+cheiros de código de código são padrões de código que estão associados com um design ruim e más práticas de programação \cite{MobileSmells:13}. Por si só, um mau cheiro não é algo ruim, ocorre que frequentemente ele indica um problema mas não necessariamente é o problema em si \cite{CodeSmell:06}. Sendo assim, esta questão visa identificar quais práticas desenvolvedores Android reconhecem como sendo más práticas, e possivelmente cheiros de código, e quais práticas os desenvolvedores reconhecem como boas práticas, e possivelmente formas de refatorar o que foi considerado um mau cheiro.
 
-Neste Capítulo apresentamos um catálogo de maus cheiros na camada de apresentação de projetos Android. Para derivar esse catálogo aplicamos um questionário respondido por 45 desenvolvedores Android e pretendemos entrevistar outros desenvolvedores sobre boas e más práticas seguidas durante o desenvolvimento de aplicativos Android. Também iremos coletar postagens relacionadas a boas e más práticas em sites sobre Android. Após, iremos realizar um procedimento de código aberto a partir das respostas e postagens obtidas. 
+Neste Capítulo apresentamos um catálogo de cheiros de código na camada de apresentação de projetos Android. Para derivar esse catálogo aplicamos um questionário respondido por 45 desenvolvedores Android e pretendemos entrevistar outros desenvolvedores sobre boas e más práticas seguidas durante o desenvolvimento de aplicativos Android. Também iremos coletar postagens relacionadas a boas e más práticas em sites sobre Android. Após, iremos realizar um procedimento de código aberto a partir das respostas e postagens obtidas. 
 
-Por fim, pretendemos validar os maus cheiros derivados com 2 desenvolvedores especialistas em Android. 
+Por fim, pretendemos validar os cheiros de código derivados com 2 desenvolvedores especialistas em Android. 
 
 \section{Método}
 
@@ -58,7 +58,7 @@ O questionário completo pode ser encontrado no apêndice 1. \\
 De modo a complementar os dados para análise demográfica, tanto no questionário quanto na entrevista fizemos perguntas sobre a experiência com desenvolvimento de software, experiência com desenvolvimento de aplicativos Android nativos e quais linguagens de programação se consideravam proficientes.
 
 
-\section{Q1: Catálogo Resultante de Maus Cheiros da Camada de Apresentação Android} 
+\section[Catálogo Resultante dos Cheiros de Código]{Q1: Catálogo Resultante dos Cheiros de Código da Camada de Apresentação Android} 
 
 
 
@@ -66,22 +66,22 @@ De modo a complementar os dados para análise demográfica, tanto no questionário 
 \label{sc:ChangeProneness}
 
 \section{Introdução}
-Evidencias na literatura sugerem que maus cheiros de código podem esconder manutenibilidade de código e aumentar a tendência a mudanças e introdução de defeitos. Neste capítulo pretendemos avaliar o impacto dos maus cheiros propostos na tendência a mudanças e introdução de defeitos no código. Para isso conduziremos um experimento presencial com desenvolvedores Android.
+Evidencias na literatura sugerem que cheiros de código de código podem esconder manutenibilidade de código e aumentar a tendência a mudanças e introdução de defeitos. Neste capítulo pretendemos avaliar o impacto dos cheiros de código propostos na tendência a mudanças e introdução de defeitos no código. Para isso conduziremos um experimento presencial com desenvolvedores Android.
 
 \section{Método}
-Pretende-se conduzir um experimento apresentando aos desenvolvedores um projeto Android onde alguns deles receberão este projeto com os maus cheiros e outros o receberam com o código já refatorado. 
+Pretende-se conduzir um experimento apresentando aos desenvolvedores um projeto Android onde alguns deles receberão este projeto com os cheiros de código e outros o receberam com o código já refatorado. 
 
-Será solicitado a todos que implementem uma mesma funcionalidade, esta do qual, necessitará alterar arquivos da camada de apresentação. Com este experimento pretendemos validar o impacto que os maus cheiros propostos tem na tendência a alteração de código e a introdução de defeitos.
+Será solicitado a todos que implementem uma mesma funcionalidade, esta do qual, necessitará alterar arquivos da camada de apresentação. Com este experimento pretendemos validar o impacto que os cheiros de código propostos tem na tendência a alteração de código e a introdução de defeitos.
 
 
-\section{Q2: Qual o impacto dos maus cheiros propostos na tendência a mudanças e defeitos?}
+\section{Q2: Qual o impacto dos cheiros de código propostos na tendência a mudanças e defeitos?}
 
 \chapter{Percepção dos Desenvolvedores}
 \label{sc:DevPerceptions}
 
 \section{Introdução}
-Após a definição de um catálogo de maus cheiros, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores códigos com e sem os maus cheios propostos, para cada código, será solicitado que ele indique o código como ``com cheiro'' ou ``sem cheiro''. 
+Após a definição de um catálogo de cheiros de código, pretende-se validar se desenvolvedores os percebem de fato como indicativos de trechos de códigos ruins. Para isso pretende-se conduzir um experimento apresentando aos desenvolvedores códigos com e sem os cheiros de código propostos, para cada código, será solicitado que ele indique o código como ``com cheiro'' ou ``sem cheiro''. 
 
 \section{Método}
 
-\section{Q3: Os Desenvolvedores percebem os códigos afetados pelos maus cheiros propostos como problemáticos?}
+\section{Q3: Os Desenvolvedores percebem os códigos afetados pelos cheiros de código propostos como problemáticos?}
