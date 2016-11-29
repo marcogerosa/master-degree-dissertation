@@ -30,7 +30,7 @@ Com o crescimento da plataforma, a demanda por aplicativos também aumentou. Na F
 
 Ainda, segundo Gartner Group \cite{MobileMarketShares:16} e IDC \cite{GrowthForecastIDC:16}, mais de 83,5\% dos dispositivos móveis usam o sistema operacional Android, e esse percentual vem crescendo ano após ano. Atualmente é possível encontrar a plataforma Android em diferentes tipos de dispositivos como: \textit{smartphones}, \textit{smart TVs}, \textit{smartwatchs}, carros, dentre outros \cite{AndroidSmart:14, AndroidAuto:16}. 
 
-O crescimento acentuado da plataforma Android impacta no processo de desenvolvimento de software dos aplicativos. Segundo Geoffrey \cite{Hecht2015} aplicativos móveis têm se tornado complexos projetos de software que precisam ser rapidamente desenvolvidos e regularmente evoluídos para atender aos requisitos dos usuários, entretanto, esse contexto pode resultar em más escolhas de \textit{design}, conhecidas como \textit{antipatterns}, que podem degradar a qualidade e desempenho do software. Verloop \cite{MobileSmells:13} também aborda esse contexto ao dizer que aplicativos móveis tem o ciclo de vida curto e precisam ser constantemente atualizados para se meterem relevantes e atender as expectativas de seus usuários. Verloop \cite{MobileSmells:13} complementa dizendo que, a combinação do rápido crescimento e atualizações, implicam no desenvolvimento de software de modo que, desenvolvedores devem aumentar a importância em manter a manutenibilidade de seus projetos.
+O crescimento acentuado da plataforma Android impacta no processo de desenvolvimento de software dos aplicativos. Segundo Geoffrey \cite{Hecht2015} aplicativos móveis têm se tornado complexos projetos de software que precisam ser rapidamente desenvolvidos e regularmente evoluídos para atender aos requisitos dos usuários, entretanto, esse contexto pode resultar em más escolhas de \textit{design}, conhecidas como \textit{antipatterns}, que podem degradar a qualidade e desempenho do software. Verloop \cite{MobileSmells:13} também aborda esse contexto ao dizer que aplicativos móveis possuem o ciclo de vida curto e precisam ser constantemente atualizados para se manterem relevantes e atender as expectativas de seus usuários. Verloop \cite{MobileSmells:13} complementa dizendo que a combinação do rápido crescimento e atualizações implicam no desenvolvimento de software de modo que desenvolvedores devem aumentar a importância em manter a manutenibilidade de seus projetos.
 
 Atualmente existe um extenso conjunto de ferramentas que apoiam desenvolvedores na tarefa de manter o código ``limpo''. Podemos citar estilos arquiteturais, padrões de \textit{design} e boas práticas consolidadas \cite{Alur:2003:CJP:863711, FinavaroAniche2016, Gamma:1995:DPE:186897, Martin:2008:CCH:1388398} que desenvolvedores utilizam como ponto de partida. Por exemplo, o padrão de projeto Model-View-Controller (MVC) \cite{Krasner:1988:CUM:50757.50759} sugere separar o código em três camadas distintas: \textsc{Models}, \textsc{Views} e \textsc{Controllers}. Cada camada possui uma responsabilidade. Classes do tipo \textsc{Controllers} são responsáveis por coordenar o processo entre a \textsc{View} e o \textsc{Model}, enquanto classes do tipo \textsc{Model} representam conceitos de negócio e assim por diante. Essa separação guia o desenvolvedor de modo a implementar classes mais específicas e coesas, facilitando a manutenção.
 
@@ -38,16 +38,17 @@ Para detectar trechos de código problemáticos que possam se beneficiar de \emph{
 
 Nas últimas décadas, muitos cheiros de código para projetos orientado a objetos foram catalogados \cite{Refactoring:99, Riel}. Qualquer que seja o projeto, independente da linguagem, desde que siga o paradigma de orientação a objetos, poderá se beneficiar desses catálogos. Silva et al. \cite{Silva_Does_2015} mostrou que 36\% de códigos Javascript tendem a usar conceitos de orientação a objetos, então é possível concluir que códigos Javascript podem se beneficiar dos catálogos de cheiros de código. 
 
-Ocorre que pesquisas têm demonstrado que domínios diferentes podem apresentar também, cheiros de código específicos \cite{FinavaroAniche2016,CSSCodeSmell, Hecht2015, DomainMatters}. Aniche et al. \cite{FinavaroAniche2016} mapeou 6 cheiros de código relacionados ao framework Java Spring MVC e diz que ``\emph{enquanto [\textit{God Class}] se encaixa bem em qualquer sistema orientado a objetos, ele não leva em consideração as particularidades arquiteturais da aplicação ou o papel desempenhado por uma determinada classe}.'' (tradução livre). Gharachorlu \cite{CSSCodeSmell} avaliou a existência de más práticas específicas de arquivos CSS. Mario et al. \cite{DomainMatters} conclui que cheiros de código impactam métricas de qualidade de formas distintas a depender do domínio. Ele indica como trabalho futuro entender os motivos dessa conclusão. Geoffrey \cite{Hecht2015} afirma que \textit{antipatterns} específicos à plataforma Android são mais comuns e ocorrem mais constantemente do que \textit{antipaterns} orientados a objetos, no entanto, salienta que pesquisas sobre \textit{antipatterns} móveis ainda estão em sua infância. 
+Ocorre que pesquisas têm demonstrado que domínios diferentes podem apresentar também cheiros de código específicos \cite{FinavaroAniche2016,CSSCodeSmell, Hecht2015, DomainMatters}. Aniche et al. \cite{FinavaroAniche2016} mapeou 6 cheiros de código relacionados ao framework Java Spring MVC e diz que ``\emph{enquanto [\textit{God Class}] se encaixa bem em qualquer sistema orientado a objetos, ele não leva em consideração as particularidades arquiteturais da aplicação ou o papel desempenhado por uma determinada classe}.'' (tradução livre). Gharachorlu \cite{CSSCodeSmell} avaliou a existência de más práticas específicas de arquivos CSS. Linares et al. \cite{DomainMatters} conclui que cheiros de código impactam métricas de qualidade de formas distintas a depender do domínio. O artigo indica como trabalho futuro entender os motivos dessa conclusão. Geoffrey \cite{Hecht2015} afirma que \textit{antipatterns} específicos à plataforma Android são mais comuns e ocorrem mais constantemente do que \textit{antipaterns} orientados a objetos, no entanto, salienta que pesquisas sobre \textit{antipatterns} móveis ainda estão em sua infância. 
 
-Em parte, projetos Android seguem o paradigma de orientação a objetos, no entanto, possuem características diferentes de projetos tradicionais \cite{Hecht2015, Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed, ReimannBrylski2013}. Além de código Java, grande parte de um projeto Android é constituído por arquivos \texttt{XML}s, chamados de recursos do aplicativo \cite{AndroidResourcesOverview}. São interfaces visuais, imagens, textos, dentre outros elementos visualizados pelo usuário. É comum encontrar em fóruns na internet desenvolvedores buscando por boas práticas para lidar melhor com esses arquivos. Na Figura \ref{fig:AndroidResourseOrganization} é apresentado o resultado para uma possível busca nesse sentido onde são retornados 1.030.000 resultados.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.9\textwidth]{android-resource-organization.png}
-	\caption{Busca no Google pelas palavras android resource organization.}
-	\label{fig:AndroidResourseOrganization}
-\end{figure}
+Em parte, projetos Android seguem o paradigma de orientação a objetos, no entanto, possuem características diferentes de projetos tradicionais \cite{Hecht2015, Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed, ReimannBrylski2013}. Além de código Java, grande parte de um projeto Android é constituído por arquivos \texttt{XML}s, chamados de recursos do aplicativo \cite{AndroidResourcesOverview}. São interfaces visuais, imagens, textos, dentre outros elementos visualizados pelo usuário. 
+%É comum encontrar em fóruns na internet desenvolvedores buscando por boas práticas para lidar melhor com esses arquivos. Na Figura \ref{fig:AndroidResourseOrganization} é apresentado o resultado para uma possível busca nesse sentido onde são retornados 1.030.000 resultados.
+%
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{android-resource-organization.png}
+%	\caption{Busca no Google pelas palavras android resource organization.}
+%	\label{fig:AndroidResourseOrganization}
+%\end{figure}
 
 Outra característica do Android é com relação à \textsc{Activities}, que são classes específicas da plataforma Android responsáveis pela apresentação e interações do usuário com a tela \cite{AndroidActivities2016}. \textsc{Activities} possuem muitas responsabilidades \cite{MobileSmells:13}, estão vinculadas a um \textsc{Layout} e normalmente precisam de acesso a classes do modelo da aplicação. Analogamente ao padrão MVC, \textsc{Activities} fazem os papéis de \textsc{View} e \textsc{Controller} simultaneamente. Geoffrey \cite{Hecht2015} e Jan et al. \cite{ReimannBrylski2013} apontam ainda especificidades relacionadas a limitação de recursos do dispositivo, como bateria e memória e Umme et al. \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed} aponta especificidades relacionadas a estrutura e fluxo de trabalho.
 
@@ -73,7 +74,7 @@ Para isso, exploramos as seguintes questões secundárias: \\
 
 \textbf{Q1: O que desenvolvedores consideram boas e más práticas com relação à Camada de Apresentação em projetos Android?}
 
-Nesta questão investigamos a existência de cheiros de código em elementos da camada de apresentação Android como \textsc{Activities} e \textsc{Adapters}. Para isso realizamos um estudo empírico com a aplicação de questionário online e entrevistas com desenvolvedores Android. Conforme visto no Capítulo 1, muito conteúdo sobre boas e más práticas Android estão distribuídos na internet, desta forma pretende-se também coletar dados em postagens de fóruns e blogs técnicos sobre Android. 
+Nesta questão investigamos a existência de cheiros de código em elementos da camada de apresentação Android como \textsc{Activities} e \textsc{Adapters}. Para isso realizamos um estudo empírico com a aplicação de questionário online e entrevistas com desenvolvedores Android. Muito conteúdo sobre boas e más práticas Android estão distribuídos na internet, desta forma pretende-se também coletar dados em postagens de fóruns e blogs técnicos sobre Android. 
 
 O questionário foi aplicado na comunidade de desenvolvimento Android do Brasil e exterior e foram coletadas 44 respostas. A análise desses dados, bem como outras atividades planejadas, estão previstas no cronograma de atividades apresentado no Capítulo 4. 
 
@@ -82,16 +83,16 @@ Como resposta à esta questão espera-se derivar um conjunto de cheiros de código 
 
 \textbf{Q2: Qual a relação entre os cheiros de código propostos e a tendência a mudanças e defeitos?}
 
-Como entrada para esta questão é necessário o catálogo de cheiros de código derivados na Q1. 
+%Como entrada para esta questão é necessário o catálogo de cheiros de código derivados na Q1. 
 
-Estudos prévios mostram que cheiros de código tradicionais (e.g., \textit{Blob Classes}) podem impactar na tendência a mudanças em classes do projeto \cite{FinavaroAniche2016}. Desta forma, esta questão pretende, por meio de um experimento com desenvolvedores Android, analisar o impacto dos cheiros de código propostos na tendência a mudanças e defeitos em projetos Android. \\
+Estudos prévios mostram que cheiros de código tradicionais (e.g., \textit{Blob Classes}) podem impactar na tendência a mudanças em classes do projeto \cite{FinavaroAniche2016}. Desta forma, esta questão pretende, por meio de uma análise de código de projetos Android, analisar o impacto dos cheiros de código propostos na tendência a mudanças e defeitos em projetos Android. \\
 
 
 \textbf{Q3: Desenvolvedores Android percebem os códigos afetados pelos cheiros de código propostos como problemáticos?}
 
 Com esta questão complementamos com dados qualitativos as análises quantitativas realizadas no contexto de Q2. Desta forma, investigamos se códigos afetados pelos cheiros de código propostos para a camada de apresentação Android são percebidos como problemáticos por desenvolvedores. Os dados a serem usados para basear a resposta a esta questão serão extraídos do mesmo experimento realizado na Q2. \\ \
 
-Fizemos uso de diferentes métodos de pesquisa durante esta dissertação. Desta forma, cada método usado é abordado no capítulo respectivo à questão. Todos os capítulos exigem do leitor conhecimento prévio sobre Android, Maus Cheiros de Código e Métricas de Código. Apresentamos uma breve introdução a esses três assuntos no capítulo \ref{cap:background}.
+Fizemos uso de diferentes métodos de pesquisa durante esta dissertação. Desta forma, cada método usado é abordado no capítulo respectivo à questão. Todos os capítulos exigem do leitor conhecimento prévio sobre Android, Maus Cheiros de Código e Métricas de Código. Apresentamos uma breve introdução a esses três assuntos no Capítulo \ref{cap:background}.
 
 \section{Contribuições}
 
@@ -112,32 +113,18 @@ As principais contribuições desta dissertação, na ordem em que aparecem, são:
 O restante desta dissertação está organizada da seguinte forma:
 
 \begin{itemize}
-	\item \textbf{Capítulo 2} Fundamentação Conceitual
-	
-	Neste capítulo é passado ao leitor informações básicas relevantes para o entedimento do trabalho. Os assuntos aprofundados aqui são: Refatoração, Maus Cheiros de Código e Android. Esta pesquisa limita-se em mapear boas e más práticas apenas relacionadas à camada de apresentação de aplicativos Android. Desta forma, neste capítulo também é apresentado ao leitor o que é considerado, para efeitos deste trabalho, como camada de apresentação Android.
+	\item \textbf{Capítulo 2} Fundamentação Conceitual: Neste capítulo é passado ao leitor informações básicas relevantes para o entedimento do trabalho. Os assuntos aprofundados aqui são: Refatoração, Maus Cheiros de Código e Android. Esta pesquisa limita-se em mapear boas e más práticas apenas relacionadas à camada de apresentação de aplicativos Android. Desta forma, neste capítulo também é apresentado ao leitor o que é considerado, para efeitos deste trabalho, como camada de apresentação Android.
 
-	\item \textbf{Capítulo 3} Trabalhos Relacionados
+	\item \textbf{Capítulo 3} Trabalhos Relacionados: Neste capítulo pretende-se apresentar estudos relevantes já feitos em torno do tema de maus cheiros Android e em que esta dissertação se diferencia deles.
 
-	Neste capítulo pretende-se apresentar estudos relevantes já feitos em torno do tema de maus cheiros Android e em que esta dissertação se diferencia deles.
+	\item \textbf{Capítulo 4} Proposta de Dissertação: Neste capítulo apresentamos a proposta da dissertação e o cronograma de atividades.
 
-	\item \textbf{Capítulo 4} Proposta de Dissertação
+	\item \textbf{Capítulo 5} Boas e Más Práticas na Camada de Apresentação: Neste capítulo respondemos a Q1. É apresentada a motivação da questão, os métodos de pesquisa utilizados e o catálogo resultante de maus cheiros.
 
-	Neste capítulo apresentamos a proposta da dissertação e o cronograma de atividades.
+	\item \textbf{Capítulo 6} Impacto na Tendência a Mudanças e Defeitos: Neste capítulo respondemos a Q2. É apresentada a motivação da questão, explicamos o experimento conduzido e os resultados obtidos.
 
-	\item \textbf{Capítulo 5} Boas e Más Práticas na Camada de Apresentação
+	\item \textbf{Capítulo 7} Percepção dos Desenvolvedores: Neste capítulo respondemos a Q3. É apresentado a motivação da questão, explicamos o experimento conduzido e os resultados obtidos.
 
-	Neste capítulo respondemos a Q1. É apresentada a motivação da questão, os métodos de pesquisa utilizados e o catálogo resultante de maus cheiros.
-
-	\item \textbf{Capítulo 6} Impacto na Tendência a Mudanças e Defeitos
-
-	Neste capítulo respondemos a Q2. É apresentada a motivação da questão, explicamos o experimento conduzido e os resultados obtidos.
-
-	\item \textbf{Capítulo 7} Percepção dos Desenvolvedores
-
-	Neste capítulo respondemos a Q3. É apresentado a motivação da questão, explicamos o experimento conduzido e os resultados obtidos.
-
-	\item \textbf{Capítulo 8} Conclusão
-
-	Neste capítulo são apresentadas as conclusões do trabalho, bem como as suas limitações e sugestões de trabalhos futuros.
+	\item \textbf{Capítulo 8} Conclusão: Neste capítulo são apresentadas as conclusões do trabalho, bem como as suas limitações e sugestões de trabalhos futuros.
 \end{itemize}
 
