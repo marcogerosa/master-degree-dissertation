@@ -183,13 +183,16 @@ https://drive.google.com/file/d/0B7FkJ0UxP5NUcEtCYVU0WDJ0OGs/view
 ==============================================================================================================================
 Buscar bibliografias em
 	Citeseer - http://citeseer.ist.psu.edu
-	ACM - portal.acm.ogr/portal.cfm
+	ACM - portal.acm.org/portal.cfm
 	IEEE Xplore - ieeexplore.ieee.org/guesthome.jsp
 	Google
 	http://www.periodicos.capes.gov.br
 	Acessar da VPN USPNet - http://www.escritacientifica.sc.usp.br/bases-de-dados/#tabs-660-0-1
 
+	Buscar periódicos pelo proxy/vpn http://www.sti.usp.br/atendimento/faq/vpn/vpn-tutoriais/
+	 https://www.periodicos.capes.gov.br/;
 
+ =========================================================================================================================
 
 Por que a camada de apresentação e não todo o projeto?
 	Porque é na camada de apresentação onde projetos android mais se diferenciam de projetos java tradicionais.

@@ -13,27 +13,58 @@
 
 Agrupamos os trabalhos relacionados em 3 áreas: (i) estudos recentes realizados sobre Android, (ii) estudos que analisam cheiros de código específicos à alguma tecnologia, plataforma ou framework e (iii) estudos sobre cheiros de código específicos a plataforma Android.
 
-\section{Pesquisas Gerais sobre Android}
+\section{Pesquisas Focadas na Plataforma Android}
 
-O crescimento acentuado da plataforma Android tem motivado pesquisas sobre variados temas a cerca de Android como: segurança, consumo inteligente de recursos de hardware, qualidade de código, comunicação entre aplicativos, dentre outros. Neste sessão pretendemos passar por alguns desses temas de modo a apresentar uma visão geral das pesquisas realizadas recentemente sobre Android. Para isso, buscamos quais artigos relacionados a plataforma Android foram apresentados nos últimos 2 anos em grandes conferências de software.
+Diversas pesquisas têm sido realizadas em torno da plataforma Android. É possível encontrar artigos sobre temas variados, como por exemplo segurança \cite{Y, X, D, E, F, G, H}, análise estática de código \cite{A, B, C, X, Z} e autenticação de usuário \cite{P,Q,R,S}. Neste seção passamos por alguns desses e outros de modo a apresentar uma visão geral das pesquisas realizadas sobre Android. 
 
-% redigir análise
-
-\subsection{Usabilidade}
+% usabilidade
 
 Adrienne et al. \cite{AdriennePermission} realizou um estudo de usabilidade com usuários Android para entender a efetividade do sistema de permissões de usuários. Quando um usuário instala uma aplicação tem a oportunidade de rever as permissões solicitadas pelo aplicativo. O estudo concluiu que 17\% dos usuários prestam atenção as permissões apresentadas durante a instalação. O estudo conclui com recomendações para melhorar o entendimento e atenção dos usuários com relação as permissões solicitadas. 
+% ----------------------------------------------------------------- 
 
-\subsection{Segurança}
+% Segurança & Análise Estática
+O sistema operacional Android além de possuir uma API aberta, tem um rico sistema de mensagens entre aplicações. Isso reduz o trabalho de desenvolvimento, facilitando a reutilização de componentes \cite{Y}. Entretanto o Android confere uma responsabilidade significativa aos desenvolvedores de aplicativos com relação ao risco de problemas de segurança como afirma Kavitha K et al. \cite{X}. 
 
-Outro estudo de Erika et al. \cite{ErikaComDroid}, tem relação com segurança porém com relação a comunicação entre aplicativos Android. Os autores afirmam que, apesar de o sistema de comunicação entre aplicativos do Android ser rico, foram identificados riscos relacionados a segurança. Esses riscos foram mapeados na ferramenta ComDroid \cite{ComDroidErika}, que pode ser usada para detecção automática de vulnerabilidades de comunicação. Com esta ferramenta, foram analisados 20 aplicativos dos quais, 12 continham pelo menos 1 vulnerabilidade. 
+Infelizmente a comunicação entre aplicações pode ser detectada, capturada ou até mesmo substituída, comprometendo a privacidade e segurança do usuário como a Erika Chin et al. \cite{Y} afirma. 
 
-Lance et al. \cite{LanceComunicationStrategies} teve seu artigo também sobre comunicação entre aplicativos Android, publicado na MOBILESoft 2016. Foi analisado as diferentes estratégias para se implementar intercomunicação de aplicativos Android desenvolvidos com a IDE Android Studio e a plataforma web App Inventor. A pesquisa apresenta o método de envio e recebimento de mensagens em ambas as plataformas e suas limitações. 
+Alguns autores tem explorando os riscos de problemas de segurança envolvendo Android \cite{Y, X, D, E, F, G, H}. No artigo Analyzing Inter-Application Communication in Android os autores examinam iterações entre aplicações Android e identificam os riscos de segurança nos componentes. Enquanto no artigo Exploring the Malicious Android Applications and Reducing Risk using Static Analysis os autores investigam os problemas de segurança envolvendo o controle de permissão. 
 
-\subsection{Qualidade de Software e Testes}
+Uma das contribuições do trabalho de Erika Chin et al. \cite{Y} é uma ferramenta para detecção de vulnerabilidades na comunicação entre aplicações chamada ComDroid. A ferramenta ComDroid baseia-se no DEX do aplicativo. Isto permite que terceiros ou revisores poderem utilizar a ferramenta para avaliar aplicativos mesmo quando não tem disponível o código fonte. O funcionamento da ferramenta ComDroid é baseado na análise estática da saída do Dedexer \cite{P}. A análise estática tem sido comumente utilizada para a detecção de bugs \cite{A, B, C}. 
 
-% Buscar quais temas tem sido apresentados em grandes conferencias nos ultimos anos, fazer uma tabela.
+Kavitha K \cite{X} também utiliza análise estatística em conjunto com análise dinâmica em um sistema de detecção de malware com base no controle de permissão do Android e os passos necessários para mitigar o acesso a permissões indesejadas. 
 
-\section{Cheiros de Código Relacionados à Alguma Tecnologia, Paradigma, Framework ou Linguagem}
+No artigo Automated Static Code Analysis for Classifying Android Applications Using Machine Learning \cite{Z} os autores utilizam análise estática para  classificar aplicações Android  em dois tipos: ferramentas e jogos. Do mesmo modo que o trabalho de Erika Chin et al. \cite{Y} os autores Asaf Shabtai et al. \cite{Z} também se baseiam no DEX, entretanto, mesmo utilizando aprendizado de máquina em conjunto com análise estática alguns aplicativos não conseguiram ser classificados corretamente.
+
+Thomas Bläsing et al \cite{K} no artigo An Android Application Sandbox System for Suspicious Software Detection propoem um sandbox para análises de aplicações Android denominado AASandbox. O AASandbox pode ser implantado na nuvem e é capaz de executar análises estáticas e dinâmicas em programas Android com objetivo de detectar automaticamente aplicativos suspeitos. A análise estática do software tem foco em padrões maliciosos utilizando serviços na nuvem utilizando um emulador Android em ambiente isolado, fornecendo uma detecção rápida e distribuída de software suspeito. Além disso, o AASandbox pode ser utilizado para melhorar a eficiência dos antivírus disponíveis para o sistema operacional Android.
+
+
+% Teste de Aplicativos Android
+
+
+Os usuários confiam cada vez mais em aplicações móveis para necessidades computacionais. Android é uma plataforma móvel muito popular, desta maneira a confiabilidade de aplicativos Android está se tornando cada vez mais importante \cite{J, L}. De acordo com Wasserman \cite{N}, o desafio de engenharia de software com desenvolvimento de aplicações móveis é o de encontrar soluções eficazes para alcançar qualidades e definir técnicas e ferramentas adequadas para suportar seus testes. Testar aplicativos do Android é uma atividade desafiadora, com vários problemas abertos, problemas específicos e perguntas em aberto principalmente em relação a GUI \cite{J, L, M}.
+
+
+No artigo Automating GUI Testing for Android Applications os autores apresentam uma abordagem para automatizar o processo de teste para aplicativos Android com foco em bugs de interface, como erros de ACTIVITY e EVENT. Primeiramente os autores realizam um estudo de bugs para entender a natureza e a frequência de bugs que afetam aplicativos Android. Em seguida Cuixiong Hu et al \cite{J} apresentam técnicas de detecção de erros GUI utilizando geração automática de casos de teste, utilizando eventos aleatórios da aplicação e instrumentação da máquina virtual, produzindo arquivos de log que serão utilizados na análise pós-execução. As técnicas apresentadas mostraram-se eficazes para erros de ACTIVITY, EVENT e TYPE ERRORS.
+
+
+Atif M. Memon no artigo Using GUI Ripping for Automated Testing of Android Applications \cite{M}  apresenta o AndroidRipper uma técnica automatizada que testa aplicativos Android através da GUI. AndroidRipper é baseado em um explorador automático da GUI do aplicativo com o objetivo de exercitar o aplicativo de forma estruturada. Uma das contribuições do artigo \cite{M} é a disponibilização do aplicativo  AndroidRipper com código aberto. Os resultados apresentados demonstra a capacidade de detectar falhas graves, previamente desconhecidas no código, e que a exploração estruturada supera a abordagem aleatória.
+
+% -----------------
+
+Dispositivos móveis tornaram-se uma parte importante na vida das pessoas \cite{P, S}. A identificação de dispositivos é de grande importância para a autenticação segura de usuários em redes móveis e tem atraído a atenção de muitos pesquisadores \cite{P, S, T}. 
+
+Yildirim et a. \cite{S} propõe o uso do leitor biométrico somado a identidade de equipamento móvel internacional (IMEI) para a geração de uma senha única e expirável para a autenticação em sistemas web. Alguns fabricantes de dispositivos móveis permitem que os desenvolvedores usem os recursos de segurança do dispositivo em seus aplicativos por meio do kit de desenvolvimento do dispositivo (SDK) do dispositivo.
+
+Wu et al. \cite{P} propõe que os dados obtidos a partir de um smartphone podem ser usados para identificar o usuário do smartphone, sem a necessidade de alguma ação pelo usuário. O autor afirma que Métodos tradicionais utilizam identificadores explícitos como o IMEI, a identidade de assinante móvel internacional (IMSI) ou o Android ID. No entanto, alguns identificadores explícitos não são confiáveis e podem ser facilmente adulterados ou forjados, além de que, para obtê-los, é necessário solicitar permissão do usuário o que pode causar em abuso de permissões sensíveis e vazamento da privacidade \cite{Q, R}.
+
+Para resolver esses problemas, Wu et al. \cite{P} propõe três algoritmos de identificação de dispositivos baseado em identificadores implícitos que podem ser obtidos sem solicitar qualquer permissão \cite{P}. Os identificadores implícitos são compostos por dados obtidos (i) da camada física (hardware) como espaço em disco, (ii) da camada de aplicação (sistema operacional) como versão do Android e (iii)  da camada do usuário (configurações) como time-zone. 
+
+
+% ----------------------------------------------------------------- 
+
+
+
+\section{Cheiros de Código Específicos}
 
 Nas últimas décadas, muitos cheiros de código para projetos orientado a objetos foram catalogados \cite{Refactoring:99, Riel}. Riel \cite{Riel} definiu mais de 60 características de um bom código orientado a objetos. Martin Fowler \cite{Refactoring:99} definiu mais de 20 maus cheiros como por exemplo \textit{Feature Envy}, que são métodos que estão mais interessados em outras classes do que na própria classe. Existem diversas ferramentas atualmente que conseguem realizar a detecção automática de diversos desses cheiros de código como PMD \cite{PMD2016} e Sonarqube \cite{Sonarqube2016}.
 
