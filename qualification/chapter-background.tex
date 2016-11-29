@@ -9,22 +9,18 @@
 \chapter{Fundamentação Conceitual}
 \label{cap:background}
 
-Para a compreensão deste trabalho é importante ter claro a definição de 3 itens, são eles: Refatoração, Maus Cheiros de Código e Android.
+Para a compreensão deste trabalho é importante ter claro a definição de 2 itens, são eles: Maus Cheiros de Código e Android.
 
-\section{Refatoração}
+% \section{Refatoração}
 
-Refatoração é definido por Fowler como ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}. Escolher não resolver um mau cheiro pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. 
-
-A refatoração ajuda a melhorar a manutenibilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software, aumentar a manutenibilidade através de refatoração irá reduzir os custos de um software no longo prazo \cite{RefactoringAndImprovements:10}. 
-
-Para auxiliar no processo de refatoração, é comum desenvolvedores se utilizarem de ferramentas de detecção de cheiros de código \cite{FinavaroAniche2016}, sintomas de design ruim e más práticas de programação \cite{WikiCodeSmell, FinavaroAniche2016, Refactoring:99, MobileSmells:13}. De modo a ser possível automatizar a detecção de cheiros de código, é importante tê-los mapeados e catalogados. Muitos cheiros de código já foram catalogados \cite{Refactoring:99,Suryanarayana2014Refactoring, Webster} como veremos em mais detalhes na Seção \ref{sec:MausCheiros}. 
-
-No entanto, nas principais conferências de manutenção de software, dentre 2008 a 2015, 5 de um total de 52 artigos, foram sobre maus cheiros Android \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. A ausência de um catálogo de maus cheiros Android resulta em (i) uma carência de conhecimento sobre boas e más práticas a ser compartilhado entre praticantes da plataforma, (ii) indisponibilidade de uma ferramenta de detecção de maus cheiros de forma a alertar automaticamente os desenvolvedores da existência dos mesmos e (iii) ausência de estudo empírico sobre o impacto dessas más práticas na manutenibilidade do código de projetos Android. 
 
 \section{Maus Cheiros de Código}
 \label{sec:MausCheiros}
 
 Maus cheiros de código são sintomas de design ruim e más práticas de programação \cite{WikiCodeSmell, FinavaroAniche2016, Refactoring:99, MobileSmells:13}. Diferentemente de erros sistêmicos, eles não resultam em comportamentos errôneos \cite{WikiCodeSmell, MobileSmells:13}. Maus cheiros apontam fraquezas no \textit{design} que podem desacelerar o desenvolvimento e aumentar o risco à defeitos, falhas e mudanças \cite{WikiCodeSmell, FinavaroAniche2016, Khomh_Penta_Gueheneuc_Antoniol_2012, DomainMatters}. Do ponto de vista do desenvolvedor, maus cheiros são heurísticas para refatorações que indicam quando refatorar e qual técnica de refatoração usar \cite{WikiCodeSmell}.
+
+Refatoração é definido por Fowler como ``uma técnica para reestruturação de um código existente, alterando sua estrutura interna sem alterar seu comportamento externo'' \cite{Refactoring:99}. Escolher não resolver um mau cheiro pela refatoração não resultará na aplicação falhar mas irá aumentar a dificuldade de mantê-la. A refatoração ajuda a melhorar a manutenibilidade de uma aplicação \cite{MobileSmells:13}. Uma vez que os custos com manutenção são a maior parte dos custos envolvidos no ciclo de desenvolvimento de software, aumentar a manutenibilidade através de refatoração irá reduzir os custos de um software no longo prazo \cite{RefactoringAndImprovements:10}. 
+
 
 O livro de Webster (1995) \cite{Webster} deve ter sido o primeiro local onde o termo cheiro de código foi usado referindo-se a más práticas. Mais adiante, \textbf{mau cheiro de código} foi usado por Martin Fowler e Kent Beck no livro Refactoring (1999) \cite{Refactoring:99} referindo-se a um trecho de código que pode se beneficiar de refatoração. Em uma postagem em 2006 em seu site \cite{CodeSmell:06}, Martin Fowler define um \textbf{cheiro de código} como sendo ``uma indicação superficial no código que usualmente corresponde a um problema mais profundo no sistema'' e complementa dizendo que ``primeiramente um mau cheiro é por definição algo rápido de ser detectado - farejável - e segundo, que um mau cheiro nem sempre indica um problema' (tradução livre). 
 
@@ -34,12 +30,36 @@ No livro Refactoring for Software Design Smells (2014) \cite{Suryanarayana2014Re
 
 Outro termo comum de se ver juntamente com (mau) cheiro de código é o termo \textit{antipattern}. Esse, por sua vez, descreve uma solução comum para um problema que gera consequências negativas \cite{WilleyAntiPatterns}, também conhecido como má prática. Pode ser resultado de um desenvolvedor não ter conhecimento suficiente ou experiência em resolver um determinado tipo de problema, ou ter aplicado um \textit{design pattern}, solução reutilizável para um problema de \textit{design} recorrente \cite{WilleyAntiPatterns, gof}, perfeitamente bom no contexto errado \cite{WilleyAntiPatterns}. Geralmente, (maus) cheiros de código são sintomas da presença de \textit{antipattern}. Mario et al. \cite{DomainMatters} concluem que \textit{antipatterns} impactam de forma negativa aplicações móveis, em particular métricas de qualidade relacionadas ao aumento do risco de falhas.
 
+Para auxiliar no processo de refatoração, é comum desenvolvedores se utilizarem de ferramentas de detecção de cheiros de código \cite{FinavaroAniche2016}, sintomas de design ruim e más práticas de programação \cite{WikiCodeSmell, FinavaroAniche2016, Refactoring:99, MobileSmells:13}. De modo a ser possível automatizar a detecção de cheiros de código, é importante tê-los mapeados e catalogados. Muitos cheiros de código já foram catalogados \cite{Refactoring:99,Suryanarayana2014Refactoring, Webster} como veremos em mais detalhes na Seção \ref{sec:MausCheiros}. 
+
 Muitos autores já trabalharam na definição de diferentes catálogos de cheiros de código. Riel \cite{Riel} definiu mais de 60 características de um bom código orientado a objetos. Martin Fowler \cite{Refactoring:99} definiu mais de 20 maus cheiros como \textit{God Classes} \cite{Refactoring:99}, que são classes que fazem ou sabem muitas coisas e \textit{Feature Envy} \cite{Refactoring:99}, que são métodos que estão mais interessados em outras classes do que na própria classe. Existem diversas ferramentas atualmente que conseguem realizar a detecção automática de diversos desses maus cheiros como PMD \cite{PMD2016} e Sonar \cite{Sonarqube2016}.
+
+No entanto, nas principais conferências de manutenção de software, dentre 2008 a 2015, 5 de um total de 52 artigos, foram sobre maus cheiros Android \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. A ausência de um catálogo de maus cheiros Android resulta em (i) uma carência de conhecimento sobre boas e más práticas a ser compartilhado entre praticantes da plataforma, (ii) indisponibilidade de uma ferramenta de detecção de maus cheiros de forma a alertar automaticamente os desenvolvedores da existência dos mesmos e (iii) ausência de estudo empírico sobre o impacto dessas más práticas na manutenibilidade do código de projetos Android. 
+
 
 Nesta dissertação utilizamos o termo \textbf{cheiro de código} para nos referir a ambos os termos (mau) cheiro de código e \textit{antipattern} como em trabalhos prévios \cite{DomainMatters, Moha_Gueheneuc_Meur_Duchien_2008} e nosso foco está em definir e detectar maus cheiros relacionados especificamente à camada de apresentação de projetos Android.
 
 \section{Android}
 \label{sec:Android}
+
+Atualmente o Android é a plataforma móvel com maior crescimento. Em 2017 completará uma década do seu lançamento \cite{AndroidHistory}. A Figura \ref{fig:AndroidMarketShare} apresenta a quantidade de dispositivos vendidos para cada plataforma móvel, no período de 2009 à 2016 \cite{SmartphoneSales:09-16}. É possível observar que no Q1 de 2016, foram vendidos aproximadamente 300 milhões de dispositivos com Android contra aproximadamente 50 milhões com iOS, seu concorrente mais próximo.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{mobile-market-share-bars.png}
+	\caption{Unidades de dispositivos vendidos por plataforma móvel \cite{SmartphoneSales:09-16}.}
+	\label{fig:AndroidMarketShare}
+\end{figure}
+
+Com o crescimento da plataforma, a demanda por aplicativos também aumentou. Na Figura \ref{fig:GooglePlayStore} é possível acompanhar o crescimento da quantidade de aplicativos disponíveis na Google Play Store \footnote{Google Play Store (originalmente Android Market) é a loja oficial de aplicativos Android. Pode ser acessada pelo URL https://play.google.com/store \cite{WikiGooglePlay}.} ao longo de 2009 até 2016, sendo que nesse último ano, superou 200 milhões de aplicativos disponíveis \cite{AppInPlayStore:09-16}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{play-store-apps-09to16.png}
+	\caption{Quantidade de aplicativos disponíveis na Google Play Store \cite{AppInPlayStore:09-16}.}
+	\label{fig:GooglePlayStore}
+\end{figure}
+
 
 % \subsection{Arquitetura da Plataforma} 
 Android é um sistema operacional de código aberto, baseado no kernel do Linux criado para um amplo conjunto de dispositivos. Na Figura \ref{fig:AndroidPlatform} é apresentada a arquitetura geral da plataforma Android. Todas as funcionalidades da plataforma Android estão disponíveis para os aplicativos por meio de APIs Java (\textit{Application Programming Interface}). Essas APIs compõem os elementos básicos para a construção de aplicativos Android.
