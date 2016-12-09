@@ -1,3 +1,18 @@
+Depois pensar em trocar a motivação do trabalho para manutenabilidade é importante. Diversos estudos sobre manutenabilidade foram feitos a cerca de OO. Pesquisas recentes mostram que tecnologias podem apresentar smells específicos e métricas podem variar de acordo com o papel desempenhado. Fulano definiu X smells sobre javascript. Outro fulano achou sobre CSS. ... Android tem apresentado um crescimento muito grande e possui diferenças de projetos tradicionais. Logo, supoe-se que podemos encontrar smells específicos.
+
+anomalies code 
+detection strategy smell anomalies
+
+ver aqui
+-> Detection Strategies (Marinescu et al.)
+
+
+
+
+
+
+
+
 RODAR ASPELL SPELL CHECKER
 ===========================
 for f in *.tex; do aspell --mode=tex --encoding=iso-8859-1 check $f; done
