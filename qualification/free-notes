@@ -1,3 +1,6 @@
+ADICIONAR NAS REFS O LINK PARA O APP PAPRIKA https://github.com/GeoffreyHecht/paprika (ACHEI FINALMENTE)
+ADICIONAR ALGO SOBRE O LINT TAMBÉM http://tools.android.com/tips/lint-checks
+
 Depois pensar em trocar a motivação do trabalho para manutenabilidade é importante. Diversos estudos sobre manutenabilidade foram feitos a cerca de OO. Pesquisas recentes mostram que tecnologias podem apresentar smells específicos e métricas podem variar de acordo com o papel desempenhado. Fulano definiu X smells sobre javascript. Outro fulano achou sobre CSS. ... Android tem apresentado um crescimento muito grande e possui diferenças de projetos tradicionais. Logo, supoe-se que podemos encontrar smells específicos.
 
 anomalies code 
