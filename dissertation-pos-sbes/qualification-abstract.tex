@@ -1,0 +1,101 @@
+% -*- root: dissertacao.tex -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{20pt}
+\setlength{\textheight}{22cm}
+\setlength{\parskip}{0.2cm}
+\linespread{1.2} % Para aumentar o espaçamento entre as linhas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Resumo Para Inscrição na Qualificação}
+
+\begin{center}
+	\large{\textbf{Detecção de Anomalias na Camada de Apresentação\\
+    	de Aplicativos Android Nativos}}\\
+\end{center}
+
+Em 2017 o Android completará uma década desde seu primeiro lançamento em 2007. Atualmente há disponível mais de 2 milhões de aplicativos na Google Play Store, loja oficial de aplicativos Android \cite{AppInPlayStore:09-16}. Mais de 83,5\% dos \textit{devices} no mundo usam o sistema operacional Android (plataforma Android), e esse percentual vem crescendo ano após ano \cite{MobileMarketShares:16, GrowthForecastIDC:16}. Atualmente é possível encontrá-lo também em outros dispositivos como \textit{smart TVs}, \textit{smartphones}, carros, dentre outros \cite{AndroidSmart:14, AndroidAuto:16}. 
+
+Desenvolvedores de software constantemente escrevem código fácil de ser mantido e evoluído e detectam trechos de código problemáticos. Para a primeira parte, desenvolvedores comumente buscam se apoiar em boas práticas e \textit{design patterns} já estabelecidos \cite{alur2003core, gamma1994design, rozanski2012software}. Para a segunda parte, é comum utilizar estratégias de detecção de maus cheiros de código \cite{FinavaroAniche2016}, que apontam trechos de códigos que podem se beneficiar de refatoração, ou seja, melhorar o código sem alterar o comportamento \cite{RefactoringFowler1999}. Apesar de já existir um catálogo extenso de maus cheiros, eles não levam em consideração a natureza do projeto e suas particularidades. 
+
+Projetos Android possuem particularidades que ainda não foram experimentadas em projetos orientados a objetos, principalmente com relação à camada de apresentação, onde apresenta suas maiores diferenças. Conforme relatado por Hecht \cite{Hecht2015} com relação a projetos Android, ``\textit{antipatterns} específicos ao Android são mais comuns e ocorrem mais frequentemente do que \textit{antippaterns} OO'' (tradução livre). Por exemplo, além de código Java, grande parte de um projeto Android é constituído por arquivos \texttt{XML}. Estes são os recursos da aplicação e ficam localizados no diretório \texttt{res} do projeto. São responsáveis por apresentar algo ao usuário como uma tela, uma imagem, uma tradução e assim por diante. No início do projeto os recursos costumam ser poucos e pequenos. Conforme o projeto evolui, a quantidade e complexidade dos recursos tende a aumentar, trazendo problemas em encontrá-las, reaproveitá-las e entendê-las. Enquanto estes problemas já estão bem resolvidos em projetos orientados a objetos, ainda não é trivial encontrar uma forma sistemática de identificá-los em recursos de projetos Android para que possam ser refatorados. 
+
+Outra particularidade é sobre componentes como \textsc{Activities} que são classes que possuem muitas responsabilidades \cite{MobileSmells:13}, sempre estão vinculadas a um \textsc{Layout} e normalmente precisam de acesso a classes do modelo da aplicação. Analogamente ao padrão MVC, \textsc{Activities} fazem os papéis de \textsc{View} e \textsc{Controller} simultaneamente. Isto posto, é razoável considerar que o mau cheiro \textit{God Class} \cite{Riel} é aplicável neste caso, no entanto, conforme bem pontuado por Aniche et al. \cite{FinavaroAniche2016} ``\emph{enquanto [\textit{God Class}] se encaixa bem em qualquer sistema orientado a objetos, ele não leva em consideração as particularidades arquiteturais da aplicação ou o papel desempenhado por uma determinada classe}.'' (tradução livre). \textsc{Activities} são componentes específicos da plataforma Android, responsáveis pela apresentação e interações do usuário com a tela \cite{AndroidActivities2016}. 
+
+Na prática, desenvolvedores Android percebem estes problemas frequentemente. Muitos deles já se utilizam de práticas para solucioná-los, conforme relatado pelo Reimann et al. \cite{ReimannBrylski2013} ``o problema no desenvolvimento móvel é que desenvolvedores estão cientes sobre maus cheiros apenas indiretamente porque estas definições [dos maus cheiros] são informais (boas práticas, relatórios de problemas, fóruns de discussões, etc) e recursos onde encontrá-los estão distribuídos pela internet'' (tradução livre). Ou seja, não é encontrado atualmente um catálogo destas boas e más práticas, tornando difícil a detecção e sugestão de refatorações apropriadas às particularidades da plataforma. 
+
+Nas principais conferências de manutenção de software, dentre 2008 a 2015, apenas 5 artigos foram sobre maus cheiros Android, dentro de um total de 52 artigos sobre o assunto \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. A ausência de um catálogo de maus cheiros Android resulta em (i) uma carência de conhecimento sobre boas e más práticas a ser compartilhado entre praticantes da plataforma, (ii) indisponibilidade de ter uma ferramenta de detecção de maus cheiros de forma a alertar automaticamente os desenvolvedores da existência dos mesmos e (iii) ausência de estudo empírico sobre o impacto destas más práticas na manutenibilidade do código de projetos Android. Por este motivos, boas e más práticas que são específicas a uma plataforma, no caso Android, veem emergido como tópicos de pesquisa sobre manutenção de código \cite{MvcSmells:16}.
+
+% A camada de apresentação do Android possui uma estrutura bem específica, combinando código Java com arquivos \texttt{xml} que representam dos mais variados recursos como \textsc{Layout}'s, elementos gráficos, arquivos de internacionalização, dentre outros. Esta combinação torna o Android diferente de projetos tradicionais. E intensifica a necessidade de pesquisas focadas específicas para guiar o desenvolvimento de forma a mitigar a deteorização.
+
+% Para entendermos estas particularidades, precisamos ter em mente a estrutura de um projeto Android. De forma simplificada, projetos Android possuem um diretório chamado \texttt{java} onde ficam as classes java. Um arquivo de configuração chamado \texttt{AndroidManifest.xml} que contém configurações tais como tela incial, permissões que serão solicitadas ao usuário, dentre outros. Por último, um diretório chamado \texttt{res}, abreviação para o termo \textit{resources}, que contém subpastas com nomes pré-determinados pelo Android onde cada subpasta contém arquivos que desempenham papéis específicos na aplicação, por exemplo, a subpasta \textsc{Layout} contém arquivos que representam a parte visual de telas do Android, a subpasta \textsc{Drawable} contém os elementos gráficos e assim por diante. 
+
+
+\section{Questões de Pesquisa}
+Nesta dissertação objetivamos mapear \textbf{alguns maus cheiros específicos à camada de apresentação de projetos Android}. Para isso, exploramos as seguintes questões:
+	
+% \textbf{RP1: O que representa a \emph{Camada de Apresentação} em um projeto Android?}
+
+% Esta é uma pegunta importante a ser respondida, visto que esta dissertação gira em torno deste tema. No entanto, não foi encontrada na documentação oficial do Android (site developer.android.com) uma resposta direta. Desta forma, partimos por um estudo bibliográfico da documentação oficial para extrair a definição a ser usada nesta dissertação. O estudo bibliográfico e definição são detalhados na seção \ref*{sc:PresentationLayer} do capítulo \ref*{ch:research}.
+
+
+\textbf{QP1: O que desenvolvedores consideram boas e más práticas com relação à \emph{Camada de Apresentação} de um projeto Android?}
+
+O objetivo desta questão é obter insumos para a definição dos maus cheiros e propostas de como refatorá-los. Para responder esta questão, teremos as seguintes etapas:
+\begin{itemize}
+	\item \textbf{Etapa de coleta de dados} 
+
+	Elaboramos um questionário para coletar boas e más práticas utilizadas ou percebidas por desenvolvedores Android com relação à camada de apresentação. Pretende-se aplicar o questionário na comunidade de desenvolvedores Android do Brasil e exterior.
+
+	\item \textbf{Etapa de identificação de maus cheiros} 
+
+	Os dados coletados com o questionário serão analisados de forma a resultar numa lista de possíveis maus cheiros.
+
+	\item \textbf{Etapa de validação} 
+
+	A lista de maus cheiros resultante será validada com desenvolvedores Android especialistas, dos quais, alguns compõem times que lidam com Android no Google.  
+\end{itemize}
+
+% Estas etapas são detalhadas na seção \ref{sc:CodeSmellsDefinition} do capítulo \ref{ch:research}.
+
+% Para cada papel da camada de apresentação, fizemos as seguintes questões (``X'' representa o papel em questão):
+
+% \begin{itemize}
+% 	\item Você conhece ou utiliza alguma boa prática para lidar com X?
+% 	\item Você considera algo uma má prática ao lidar com X?
+% \end{itemize}
+
+% Por exemplo, \textsc{Activities} representam um papel na camanda de apresentação, as perguntas acima ficariam da seguinte forma:
+
+% \begin{itemize}
+% 	\item Você conhece ou utiliza alguma boa prática para lidar com \textsc{Activities}?
+% 	\item Você considera algo uma má prática ao lidar com \textsc{Activities}?
+% \end{itemize}
+
+% Por fim, para coletar qualquer outra informação relevante que o respondente queira compartilhar, temos a seguinte pergunta:
+% \begin{itemize}
+% 	\item Gostaria de compartilhar mais alguma informação, comentário ou sugestão?
+% \end{itemize}
+
+
+\textbf{QP2: Desenvolvedores Android percebem as classes afetadas pelos maus cheiros propostos como problemáticas?}
+
+Com esta questão pretende-se validar a relevância e assertividade dos maus cheiros catalogados. Para isso será conduzido um experimento com desenvolvedores Android de forma a avaliar se eles percebem os códigos afetados pelos maus cheiros como indicativos de trechos problemáticos. 
+
+% \begin{itemize}
+% 	\item \textbf{Q2.1: Qual a relação entre os maus cheiros propostos e a tendência a mudanças do código?}
+% 	\item \textbf{Q2.2: Qual a relação entre os maus cheiros propostos e a tendência a \textit{bugs} no código?}
+% \end{itemize}
+
+\textbf{QP3: Qual a relação entre os maus cheiros propostos e a tendência a mudanças do código?}
+
+Estudos prévios mostram que ``maus cheiros tradicionais'' (por exemplo \textit{Blob Classes}) podem impactar na tendência a mudanças e inserção de \textit{bugs} em classes do projeto \cite{FinavaroAniche2016}. Desta forma, será analisado o impacto dos maus cheiros propostos na tendência a mudanças de código de projetos Android. 
+
+Para responder a esta questão, será conduzido um experimento com desenvolvedores Android de forma a avaliar quantitativamente se projetos Android afetados por maus cheiros precisam de mais alterações para serem evoluídos do que projetos sem os maus cheiros.
+
+\section{Contribuições}
+% Ao final desta pesquisa, pretende-se contribuir com um catálogo validado de maus cheiros na camada de apresentação de aplicativos Android. Pretende-se também incrementar a ferramenta de detecção automática de maus cheiros Páprika com os \textit{code smells} validados, de forma a desenvolvedores conseguirem de forma rápida identificar pontos específicos de projetos Android, a refatorar. Garantindo um código de qualidade, fácil de ser mantido e evoluído.
+
+Ao final desta pesquisa, pretende-se contribuir com um catálogo validado de maus cheiros na camada de apresentação de aplicativos Android. Desta forma desenvolvedores conseguiram identificar pontos específicos a serem refatorados em projetos Android ajudando a obter um código com mais qualidade, fácil de ser mantido e evoluído.
+
+
+
