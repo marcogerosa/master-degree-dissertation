@@ -116,15 +116,15 @@
 \thispagestyle{empty}
 \begin{center}
     \vspace*{2.3cm}
-    \textbf{\Large{Título do trabalho a ser apresentado à \\
-    CPG para a dissertação/tese}}\\
+    \textbf{\Large{Maus cheiros de código em aplicativos Android: \\
+    Um estudo sobre a percepção dos desenvolvedores}}\\
     
     \vspace*{1.2cm}
-    \Large{Nome completo do Autor}
+    \Large{Suelen Goularte Carvalho}
     
     \vskip 2cm
     \textsc{
-    Dissertação/Tese apresentada\\[-0.25cm] 
+    Dissertação apresentada\\[-0.25cm] 
     ao\\[-0.25cm]
     Instituto de Matemática e Estatística\\[-0.25cm]
     da\\[-0.25cm]
@@ -132,19 +132,19 @@
     para\\[-0.25cm]
     obtenção do título\\[-0.25cm]
     de\\[-0.25cm]
-    Mestre/Doutor em Ciências}
+    Mestre em Ciências}
     
     \vskip 1.5cm
-    Programa: Nome do Programa\\
-    Orientador: Prof. Dr. Nome do Orientador\\
-    Coorientador: Prof. Dr. Nome do Coorientador
+    Programa: Ciência da Computação\\
+    Orientador: Prof. Dr. Marco Aurélio Gerosa\\
+    Coorientador: Prof. Dr. Maurício Aniche
 
-   	\vskip 1cm
-    \normalsize{Durante o desenvolvimento deste trabalho o autor recebeu auxílio
-    financeiro da CAPES/CNPq/FAPESP}
+   	\vskip 3cm
+    % \normalsize{Durante o desenvolvimento deste trabalho o autor recebeu auxílio
+    % financeiro da CAPES/CNPq/FAPESP}
     
     \vskip 0.5cm
-    \normalsize{São Paulo, fevereiro de 2011}
+    \normalsize{São Paulo, 13 Dezembro de 2017}
 \end{center}
 
 % ---------------------------------------------------------------------------- %
@@ -161,16 +161,16 @@
 \thispagestyle{empty}
     \begin{center}
         \vspace*{2.3 cm}
-        \textbf{\Large{Título do trabalho a ser apresentado à \\
-        CPG para a dissertação/tese}}\\
+        \textbf{\Large{Maus cheiros de código em aplicativos Android: \\
+            Um estudo sobre a percepção dos desenvolvedores}}\\
         \vspace*{2 cm}
     \end{center}
 
     \vskip 2cm
 
     \begin{flushright}
-	Esta é a versão original da dissertação/tese elaborada pelo\\
-	candidato (Nome Completo do Aluno), tal como \\
+	Esta é a versão original da dissertação elaborada pelo\\
+	candidato (Suelen Goularte Carvalho), tal como \\
 	submetida à Comissão Julgadora.
     \end{flushright}
 
@@ -190,39 +190,41 @@
 %   à Comissão Julgadora antes da defesa
 %
 %
-\newpage
-\thispagestyle{empty}
-    \begin{center}
-        \vspace*{2.3 cm}
-        \textbf{\Large{Título do trabalho a ser apresentado à \\
-        CPG para a dissertação/tese}}\\
-        \vspace*{2 cm}
-    \end{center}
 
-    \vskip 2cm
+% APÓS A DEFESA DESCOMENTAR
+% \newpage
+% \thispagestyle{empty}
+%     \begin{center}
+%         \vspace*{2.3 cm}
+%         \textbf{\Large{Título do trabalho a ser apresentado à \\
+%         CPG para a dissertação/tese}}\\
+%         \vspace*{2 cm}
+%     \end{center}
 
-    \begin{flushright}
-	Esta versão da dissertação/tese contém as correções e alterações sugeridas\\
-	pela Comissão Julgadora durante a defesa da versão original do trabalho,\\
-	realizada em 14/12/2010. Uma cópia da versão original está disponível no\\
-	Instituto de Matemática e Estatística da Universidade de São Paulo.
+%     \vskip 2cm
 
-    \vskip 2cm
+%     \begin{flushright}
+% 	Esta versão da dissertação/tese contém as correções e alterações sugeridas\\
+% 	pela Comissão Julgadora durante a defesa da versão original do trabalho,\\
+% 	realizada em 14/12/2010. Uma cópia da versão original está disponível no\\
+% 	Instituto de Matemática e Estatística da Universidade de São Paulo.
 
-    \end{flushright}
-    \vskip 4.2cm
+%     \vskip 2cm
 
-    \begin{quote}
-    \noindent Comissão Julgadora:
+%     \end{flushright}
+%     \vskip 4.2cm
+
+%     \begin{quote}
+%     \noindent Comissão Julgadora:
     
-    \begin{itemize}
-		\item Profª. Drª. Nome Completo (orientadora) - IME-USP [sem ponto final]
-		\item Prof. Dr. Nome Completo - IME-USP [sem ponto final]
-		\item Prof. Dr. Nome Completo - IMPA [sem ponto final]
-    \end{itemize}
+%     \begin{itemize}
+% 		\item Profª. Drª. Nome Completo (orientadora) - IME-USP [sem ponto final]
+% 		\item Prof. Dr. Nome Completo - IME-USP [sem ponto final]
+% 		\item Prof. Dr. Nome Completo - IMPA [sem ponto final]
+%     \end{itemize}
       
-    \end{quote}
-\pagebreak
+%     \end{quote}
+% \pagebreak
 
 
 \pagenumbering{roman}     % começamos a numerar 
@@ -231,65 +233,43 @@
 % Agradecimentos:
 % Se o candidato não quer fazer agradecimentos, deve simplesmente eliminar esta página 
 \chapter*{Agradecimentos}
-Texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto. Texto opcional.
-
+\input{acknowledgement}
 
 % ---------------------------------------------------------------------------- %
 % Resumo
 \chapter*{Resumo}
+% \include{abstract} % quebra página
+\input{chapters/abstract} % não quebra página
 
-\noindent SOBRENOME, A. B. C. \textbf{Título do trabalho em português}. 
-2010. 120 f.
-Tese (Doutorado) - Instituto de Matemática e Estatística,
-Universidade de São Paulo, São Paulo, 2010.
-\\
+% \noindent SOBRENOME, A. B. C. \textbf{Título do trabalho em português}. 
+% 2010. 120 f.
+% Tese (Doutorado) - Instituto de Matemática e Estatística,
+% Universidade de São Paulo, São Paulo, 2010.
+% \\
 
-Elemento obrigatório, constituído de uma sequência de frases concisas e
-objetivas, em forma de texto.  Deve apresentar os objetivos, métodos empregados,
-resultados e conclusões.  O resumo deve ser redigido em parágrafo único, conter
-no máximo 500 palavras e ser seguido dos termos representativos do conteúdo do
-trabalho (palavras-chave). 
-Texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto.
-Texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto.
-\\
-
-\noindent \textbf{Palavras-chave:} palavra-chave1, palavra-chave2, palavra-chave3.
+% Elemento obrigatório, constituído de uma sequência de frases concisas e
+% objetivas, em forma de texto.  Deve apresentar os objetivos, métodos empregados,
+% resultados e conclusões.  O resumo deve ser redigido em parágrafo único, conter
+% no máximo 500 palavras e ser seguido dos termos representativos do conteúdo do
+% trabalho (palavras-chave). 
+% Texto texto texto texto texto texto texto texto texto texto texto texto texto
 
 % ---------------------------------------------------------------------------- %
 % Abstract
 \chapter*{Abstract}
-\noindent SOBRENOME, A. B. C. \textbf{Título do trabalho em inglês}. 
-2010. 120 f.
-Tese (Doutorado) - Instituto de Matemática e Estatística,
-Universidade de São Paulo, São Paulo, 2010.
-\\
+\input{chapters/abstract}
 
+% \noindent SOBRENOME, A. B. C. \textbf{Título do trabalho em inglês}. 
+% 2010. 120 f.
+% Tese (Doutorado) - Instituto de Matemática e Estatística,
+% Universidade de São Paulo, São Paulo, 2010.
+% \\
 
-Elemento obrigatório, elaborado com as mesmas características do resumo em
-língua portuguesa. De acordo com o Regimento da Pós- Graduação da USP (Artigo
-99), deve ser redigido em inglês para fins de divulgação. 
-Text text text text text text text text text text text text text text text text
-text text text text text text text text text text text text text text text text
-text text text text text text text text text text text text text text text text
-text text text text text text text text text text text text.
-Text text text text text text text text text text text text text text text text
-text text text text text text text text text text text text text text text text
-text text text.
-\\
+% Elemento obrigatório, elaborado com as mesmas características do resumo em
+% língua portuguesa. De acordo com o Regimento da Pós- Graduação da USP (Artigo
+% 99), deve ser redigido em inglês para fins de divulgação. 
+% Text text text text text text text text text text text text text text text text
 
-\noindent \textbf{Keywords:} keyword1, keyword2, keyword3.
 
 \tableofcontents    % imprime o sumário
 
@@ -299,24 +279,25 @@ text text text.
 % \chapter{Lista de Símbolos}
 % \include{symbols}
 
-% \listoffigures % Listas de figuras
-% \listoftables % Listas de tabelas
+\listoffigures % Listas de figuras
+\listoftables % Listas de tabelas
 
 
 \mainmatter
 
 \fancyhead[RE,LO]{\thesection} % cabeçalho para as páginas de todos os capítulos
 
-\singlespacing              % espaçamento simples
-%\onehalfspacing            % espaçamento um e meio
+% \singlespacing              % espaçamento simples
+\onehalfspacing            % espaçamento um e meio
 
 \include{chapters/index}
 
 % Apêndice
-% \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\appendixname\ \thechapter}} {\MakeUppercase{#1}}} % cabeçalho para os apêndices
-% \fancyhead[RE,LO]{}
-% \appendix
-% \include{ape-conjuntos}      % associado ao arquivo: 'ape-conjuntos.tex'
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\appendixname\ \thechapter}} {\MakeUppercase{#1}}} % cabeçalho para os apêndices
+\fancyhead[RE,LO]{}
+
+\appendix
+\include{appendix/survey-good-bad-practices}
 
 
 % Bibliografia
