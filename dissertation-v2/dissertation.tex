@@ -1,4 +1,5 @@
-\documentclass[11pt,twoside,a4paper]{book}
+\documentclass[12pt,a4paper,oneside]{book} 
+% \documentclass[11pt,twoside,a4paper]{book}
 
 % ---------------------------------------------------------------------------- %
 % Pacotes 
@@ -72,6 +73,27 @@
     framexleftmargin=10pt,
     framexrightmargin=10pt
 }
+
+
+\usepackage{etex}
+\usepackage{flushend}
+
+\usepackage{booktabs} % For formal tables
+\usepackage{multirow}
+
+\usepackage{tikz} \usetikzlibrary{calc,plotmarks}  
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\renewcommand{\lstlistingname}{Código-Fonte}
+\renewcommand{\tablename}{Tabela}
+\renewcommand{\figurename}{Figura}
+
+\newcommand{\remark}[2]{{\small\textsl{\textbf{#1: #2}}}}
+\newcommand{\mau}[1]{\remark{Maurício:}{\textcolor{red}{#1}}} 
+
+\renewcommand{\arraystretch}{1.2}
 
 % ---------------------------------------------------------------------------- %
 % Corpo do texto
@@ -277,8 +299,8 @@ text text text.
 % \chapter{Lista de Símbolos}
 % \include{symbols}
 
-\listoffigures % Listas de figuras
-\listoftables % Listas de tabelas
+% \listoffigures % Listas de figuras
+% \listoftables % Listas de tabelas
 
 
 \mainmatter
