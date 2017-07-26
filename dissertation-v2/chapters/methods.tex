@@ -15,7 +15,7 @@ Para alcançar nosso objetivo, conduzimos um estudo qualitativo e exploratório no
 Esta Seção está organizada da seguinte forma: na Seção \ref{sub:smells} abordamos o processo de descoberta das boas e más práticas Android e na Seção \ref{sub:perception} abordamos o processo de validação da percepção dos desenvolvedores sobre as más práticas definidas. 
 % Ambas as sub-seções apresentam de forma detalhada a estrutura do questionário, os participantes e a análise realizada. 
 
-\subsection{QP1: Boas e Más Práticas Android}
+\section{QP1: Boas e Más Práticas Android}
 \label{sub:smells}
 
 Para responder a \textbf{QP1}, buscamos entender o que desenvolvedores consideram boas e más práticas no desenvolvimento do \textit{front-end} Android. Para tal, optamos por um estudo qualitativo.
@@ -30,73 +30,64 @@ O questionário (\textit{S1}) é composto por 25 questões divididas em três seções
 
 % A primeira seção é composta por 6 questões demográficas obrigatórias de multipla escolha. Abordavam sobre idade (18 ou menos, 19 a 24, 25 a 34 e assim por diante até 55 ou mais), estado de residência (é dada uma lista com estados do Brasil, Estados Unidos e Europa), anos de experiência com desenvolvimento de software, (1 anos ou menos, 2 anos, 3 anos, e assim por diante até 10 ou mais), anos de experiência com desenvolvimento Android (mesma escala de anos da questão anterior), uma questão sobre linguagens que o participante se considerava proeficiente (Java, Python, Ruby, Android, dentre outras) e sobre o último grau de escolaridade (estudante de bacharelado, bacharel, mestrado e doutorado). As questões sobre idade, região, linguagens e grau de escolaridade é composto porm a opção ``outros'' para o caso de nenhuma das opções atenderem, ao selecionar ``outros'' era possível escrever uma resposta.
 
-A primeira seção é composta por questões cujo objetivo foi traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software e em desenvolvimento Android). A segunda seção é composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ela naquele elemento. A terceira seção é composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
+A primeira seção é composta por questões cujo objetivo foi traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software e em desenvolvimento Android). A segunda seção é composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: \\
 
-% Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: \\
+\noindent
+\textbf{Q1} Você tem alguma boa prática para lidar com Activities? (Resposta aberta) \\
 
-% \noindent
-% \textbf{Q1} Você tem alguma boa prática para lidar com Activities? (Resposta aberta) \\
+\noindent
+\textbf{Q2} Você considera alguma coisa uma má prática ao lidar com Activities? (Resposta aberta) \\
 
-% \noindent
-% \textbf{Q2} Você considera alguma coisa uma má prática ao lidar com Activities? (Resposta aberta) \\
+A terceira seção é composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
-
-
-% Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android e com o feedback deles fizemos alguns ajustes relacionados a obrigatoriedade das perguntas da segunda seção do questionário, onde todas tornaram-se opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
+Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android e o feedback nos mostrou que nem sempre o desenvolvedor teria algo a comentar sobre todos os componentes Android que estávamos questionando, com este feedback removemos a obrigatoriedade das perguntas da segunda seção do questionário, onde todas tornaram-se opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
 
 O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin, em grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento da escrita deste artigo. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017. Ao final, o questionário foi respondido por 45 desenvolvedores. 
 
 Para análise dos dados seguimos a abordagem de \textit{Ground Theory} (GT), um método de pesquisa exploratória originada nas ciências sociais \cite{Strauss2007, GlaserStrauss1999}, mas cada vez mais popular em pesquisas de engenharia de software \cite{Adolph2011}. A GT é uma abordagem indutiva, pelo qual dados provindos, por exemplo de, entrevistas ou questionários, são analisadas para derivar uma teoria. O objetivo é descobrir novas perspectivas mais do que confirmar alguma já existente. Realizamos um processo de codificação aberta sobre os dados, resultando num conjunto com 23 más práticas Android. Essas más práticas foram agrupadas de acordo com sua recorrência nas respostas, ou seja, a quantidade de respostas em que cada má prática é percebida. Explicamos o processo de análise com mais detalhes na Seção~\ref{sub:smells-definition}.
 
-% Todas as 18 questões sobre boas e más práticas (16 na segunda seção e 2 da terceira) são apresentadas na Tabela \ref{tab:RespostasXParticipantes}.
+Todas as 18 questões sobre boas e más práticas (16 na segunda seção e 2 da terceira) são apresentadas na Tabela \ref{tab:RespostasXParticipantes}.
 
-% \begin{table*}[t]
-% \centering
-% \footnotesize
-% \begin{tabular}{@{}lp{8.5cm}ccp{6cm}@{}}
-% \toprule
-% \multirow{2}{*}{\textbf{Id}}& \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Questões}}} 	& \multicolumn{2}{c}{\textbf{Respostas}}	& \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Participantes}}} \\ \cmidrule{3-4}
-% 					 		& 															& \textbf{Total} & \textbf{\%} & \\
-% \hline
-% Q1	& Você tem alguma boa prática para lidar com Activities?															&36 &80\%	&P1, P2, P4--P12, P14--P17, P19, P22, P23, P25--P32, P34--P37, P39--P43, P45 \\
-% Q2	& Você considera alguma coisa uma má prática ao lidar com Activities?									&35 &78\%	&P2, P4--P11, P14--P17, P19, P22, P23, P25--P32, P34--P37, P39--P45 \\
-% Q3	& Você tem alguma boa prática para lidar com Fragments?															&33	&73\%	&P4--P11, P14--P17, P19, P22, P23, P25--P28, P30--P32, P34--P37, P39--P45 \\
-% Q4	& Você considera alguma coisa uma má prática ao lidar com Fragments?										&31	&69\%	&P2, P4--P11, P14, P15, P17, P19, P22, P23, P25--P28, P31,P32, P34--P37, P39--P43, P45 \\
-% Q5	& Você tem alguma boa prática para lidar com Adapters?																&30	&67\%	&P2, P4--P11, P14, P15, P17--P19, P22, P23, P26, P28, P29, P31,P32, P34--P37, P39--P43, P45 \\
-% Q6	& Você considera alguma coisa uma má prática ao lidar com Adapters?										&27	&60\%	&P2, P4--P8, P10, P11, P14, P18, P19, P22, P23, P26, P28, P31, P34--P37, P39--P45 \\
-% Q7	& Você tem alguma boa prática para lidar com Listeners?															&24	&53\%	&P2, P4--P6, P8, P9, P11, P14, P22, P23, P26, P28, P29, P31, P32, P34, P36, P37, P39--P43, P45 \\
-% Q8	& Você considera alguma coisa uma má prática ao lidar com Listeners?										&23	&51\%	&P2, P4, P5, P8, P9, P11, P14, P19, P22, P23, P26, P28, P31, P32, P34, P36, P37, P39--P44 \\
-% Q9	& Você tem alguma boa prática para lidar com Layout Resources?														&28	&62\%	&P4--P9, P11, P14, P19, P22, P23, P26--P29, P31, P32, P34--P37, P39--P45 \\
-% Q10	& Você considera alguma coisa uma má prática ao lidar com Layout Resources?								&23	&51\%	&P4, P5, P7--P9, P11, P22, P23, P26, P28, P31, P32, P34--P37, P39--P45 \\
-% Q11	& Você tem alguma boa prática para lidar com Styles Resources?														&23	&51\%	&P4--P9, P11, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
-% Q12	& Você considera alguma coisa uma má prática ao lidar com Styles Resources?								&22	&49\%	&P4--P8, P11, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
-% Q13	& Você tem alguma boa prática para lidar com String Resources?														&28	&62\%	&P4--P6, P8--P11, P14, P18, P22, P23, P26--P29, P31, P32, P34--P37, P39--P45 \\
-% Q14	& Você considera alguma coisa uma má prática ao lidar com String Resources?								&23	&51\%	&P4--P6, P8, P9, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34--P37, P40--P43, P45 \\
-% Q15	& Você tem alguma boa prática para lidar com Drawable Resources?													&24	&53\%	&P4--P6, P8--P11, P14, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
-% Q16	& Você considera alguma coisa uma má prática ao lidar com Drawable Resources?							&21	&47\%	&P4--P6, P8, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34, P36, P37, P40--P44 \\
-% Q17	& Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?	&22	&49\%	&P2, P4, P8, P10, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34, P36, P37, P39--P43, P45 \\
-% Q18	& Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?	&20	&44\%	&P2, P4, P8, P10, P11, P18, P22, P23, P28, P31, P32, P34, P36, P37, P40--P45 \\
-% \hline
-% \multicolumn{5}{@{}l}{\textit{* Os participantes P3, P13, P20, P21, P24, P33 e P38 não responderam nenhuma das questões da segunda e terceira seção.}} \\
-% \toprule
-% \end{tabular}
-% \caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
-% \label{tab:RespostasXParticipantes}
-% \end{table*}
+\begin{table*}[t]
+\centering
+\tiny\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lp{8.5cm}ccp{6cm}@{}}
+\toprule
+\multirow{2}{*}{\textbf{Id}}& \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Questões}}} 	& \multicolumn{2}{c}{\textbf{Respostas}}	& \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Participantes}}} \\ \cmidrule{3-4}
+					 		& 															& \textbf{Total} & \textbf{\%} & \\
+\hline
+Q1	& Você tem alguma boa prática para lidar com Activities?															&36 &80\%	&P1, P2, P4--P12, P14--P17, P19, P22, P23, P25--P32, P34--P37, P39--P43, P45 \\
+Q2	& Você considera alguma coisa uma má prática ao lidar com Activities?									&35 &78\%	&P2, P4--P11, P14--P17, P19, P22, P23, P25--P32, P34--P37, P39--P45 \\
+Q3	& Você tem alguma boa prática para lidar com Fragments?															&33	&73\%	&P4--P11, P14--P17, P19, P22, P23, P25--P28, P30--P32, P34--P37, P39--P45 \\
+Q4	& Você considera alguma coisa uma má prática ao lidar com Fragments?										&31	&69\%	&P2, P4--P11, P14, P15, P17, P19, P22, P23, P25--P28, P31,P32, P34--P37, P39--P43, P45 \\
+Q5	& Você tem alguma boa prática para lidar com Adapters?																&30	&67\%	&P2, P4--P11, P14, P15, P17--P19, P22, P23, P26, P28, P29, P31,P32, P34--P37, P39--P43, P45 \\
+Q6	& Você considera alguma coisa uma má prática ao lidar com Adapters?										&27	&60\%	&P2, P4--P8, P10, P11, P14, P18, P19, P22, P23, P26, P28, P31, P34--P37, P39--P45 \\
+Q7	& Você tem alguma boa prática para lidar com Listeners?															&24	&53\%	&P2, P4--P6, P8, P9, P11, P14, P22, P23, P26, P28, P29, P31, P32, P34, P36, P37, P39--P43, P45 \\
+Q8	& Você considera alguma coisa uma má prática ao lidar com Listeners?										&23	&51\%	&P2, P4, P5, P8, P9, P11, P14, P19, P22, P23, P26, P28, P31, P32, P34, P36, P37, P39--P44 \\
+Q9	& Você tem alguma boa prática para lidar com Layout Resources?														&28	&62\%	&P4--P9, P11, P14, P19, P22, P23, P26--P29, P31, P32, P34--P37, P39--P45 \\
+Q10	& Você considera alguma coisa uma má prática ao lidar com Layout Resources?								&23	&51\%	&P4, P5, P7--P9, P11, P22, P23, P26, P28, P31, P32, P34--P37, P39--P45 \\
+Q11	& Você tem alguma boa prática para lidar com Styles Resources?														&23	&51\%	&P4--P9, P11, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
+Q12	& Você considera alguma coisa uma má prática ao lidar com Styles Resources?								&22	&49\%	&P4--P8, P11, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
+Q13	& Você tem alguma boa prática para lidar com String Resources?														&28	&62\%	&P4--P6, P8--P11, P14, P18, P22, P23, P26--P29, P31, P32, P34--P37, P39--P45 \\
+Q14	& Você considera alguma coisa uma má prática ao lidar com String Resources?								&23	&51\%	&P4--P6, P8, P9, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34--P37, P40--P43, P45 \\
+Q15	& Você tem alguma boa prática para lidar com Drawable Resources?													&24	&53\%	&P4--P6, P8--P11, P14, P18, P22, P23, P26, P28, P31, P32, P34--P37, P39--P43 \\
+Q16	& Você considera alguma coisa uma má prática ao lidar com Drawable Resources?							&21	&47\%	&P4--P6, P8, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34, P36, P37, P40--P44 \\
+Q17	& Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?	&22	&49\%	&P2, P4, P8, P10, P11, P14, P18, P22, P23, P26, P28, P31, P32, P34, P36, P37, P39--P43, P45 \\
+Q18	& Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?	&20	&44\%	&P2, P4, P8, P10, P11, P18, P22, P23, P28, P31, P32, P34, P36, P37, P40--P45 \\
+\hline
+\multicolumn{5}{@{}l}{\textit{* Os participantes P3, P13, P20, P21, P24, P33 e P38 não responderam nenhuma das questões da segunda e terceira seção.}} \\
+\toprule
+\end{tabular}
+\caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
+\label{tab:RespostasXParticipantes}
+\end{table*}
 
 \subsubsection{Participantes}
 \label{sub:smells-participants}
 
+Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas sobre boas e más práticas no \textit{front-end} Android, sendo que 7 responderam de 3 a 6, 6 responderam de 8 a 10 e 23 responderam 13 ou mais, sendo que desses, 14 responderam todas. Apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) questão. A pergunta solicitando o email foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. A pergunta mais respondida foi a Q1 e a menos respondida foi a Q18, é possível ver detalhes desta análise na Tabela \ref{tab:RespostasXParticipantes}.
 
-% \mau{a tabela 1 nao eh tao importante. vc pode coloca-la no apendice online. mencione que ela existe no apendice online.}
-
-% Recebemos um total de 45 respostas. 
-
-80\% dos participantes responderam pelo menos 3 perguntas sobre boas e más práticas no \textit{front-end} Android (7 responderam de 3 a 6, 6 responderam de 8 a 10 e 23 responderam 13 ou mais, sendo que desses, 14 responderam todas) e apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes). A pergunta solicitando o email foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. A pergunta mais respondida foi a Q1 e a menos respondida foi a Q18, é possível ver detalhes desta análise na Tabela 1 em nosso apêndice online.
-
-% A Tabela \ref{tab:RespostasXParticipantes} apresenta a quantidade de respostas obtidas por cada uma das 18 perguntas sobre boas e más práticas, podemos notar que a pergunta mais respondida foi a Q1 e a menos respondida foi a Q18.
-
-Com a análise das questões demográficas, notamos que atingimos com sucesso \textit{desenvolvedores Android com variados níveis de experiência e de diversas regiões} pois: 1) 100\% dos participantes indicaram possuir alguma experiência com desenvolvimento Android, 2) menos de 14\% indicaram possuir 1 ano ou menos de experiência com Android e mais de 86\% indicaram 2 anos ou mais (15,5\% 2 anos, 13,3\% 4 anos, 6,5\% 5 anos, 15,5\% 6 anos, 4,4\% 7 anos e 4,4\% 8 anos), 4) 36 respostas foram do Brasil, 7 de países europeus e 1 dos Estados Unidos (Califórnia). Vale lembrar que a plataforma Android completa 10 anos em 2017, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de vida dela desde seu anúncio em 2007. Os dados sobre a experiência dos participantes são apresentados na Figura \ref{fig:ExpDevsS1}.
+Com a análise das questões demográficas, notamos que atingimos com sucesso \textit{desenvolvedores Android com variados níveis de experiência e de diversas regiões} pois: 1) 100\% dos participantes indicaram possuir alguma experiência com desenvolvimento Android, 2) 14\% indicaram possuir 1 ano ou menos de experiência com Android e 86\% indicaram 2 anos ou mais (15,5\% 2 anos, 13,3\% 4 anos, 6,5\% 5 anos, 15,5\% 6 anos, 4,4\% 7 anos e 4,4\% 8 anos), 4) 36 respostas foram do Brasil, 7 de países europeus e 1 dos Estados Unidos (Califórnia). Vale lembrar que a plataforma Android completa 10 anos em 2017, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de vida dela desde seu anúncio em 2007. Os dados sobre a experiência dos participantes são apresentados na Figura \ref{fig:ExpDevsS1}.
 
 % \begin{figure*}
 % \centering
@@ -175,7 +166,7 @@ Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em divid
 Ao final da análise constavam 389 respostas individualmente categorizadas sobre boas e más práticas. A partir dessas respostas derivamos 23 más práticas no \textit{front-end} Android agrupadas por recorrência: alta (acima de 20 respostas), média (de 8 a 20 respostas) e baixa (de 3 a 7 respostas).
 
 
-\subsection{QP2: Percepção dos Desenvolvedores}
+\section{QP2: Percepção dos Desenvolvedores}
 \label{sub:perception}
 
 Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores sobre as más práticas derivadas. Como primeiro passo, focamos nas más práticas que apresentaram alta recorrência. As opiniões foram coletadas através de um estudo online (\textit{S2}) respondido por 20 desenvolvedores Android. Nossas análises demonstram que de fato, códigos afetados pelas más práticas são percebidos pelos desenvolvedores como códigos problemáticos.
@@ -184,21 +175,21 @@ Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores
 % \label{sub:perception-survey}
 
 
-O experimento foi composto por duas seções principais. A primeira objetivou coletar informações básicas sobre os antecedentes dos participantes e, em particular, sobre sua experiência. Na segunda seção, os participantes foram solicitados a examinar seis códigos-fonte Android e, para cada uma deles, responder 5 perguntas onde perguntamos se considerava o código como problemático, e se sim, pediamos para avaliar a severidade do problema a partir de uma escala Likert de 1 a 5.
+O experimento foi composto por duas seções principais. A primeira objetivou coletar informações básicas sobre os antecedentes dos participantes e, em particular, sobre sua experiência. Na segunda seção, os participantes foram solicitados a examinar seis códigos-fonte Android e, para cada uma deles, responder 5 perguntas onde perguntamos se considerava o código como problemático, e se sim, pediamos para avaliar a severidade do problema a partir de uma escala Likert de 1 a 5. Abaixo listamos essas 5 perguntas.
 
-% \begin{itemize}
-% 	\item[Q1.] Na sua opinião, este código apresenta algum problema de design e/ou implementação? (Sim/Não) 
+\begin{itemize}
+	\item[\textbf{Q1.}] Na sua opinião, este código apresenta algum problema de design e/ou implementação? (Sim/Não) 
+	\item[\textbf{Q2.}] Se SIM, por favor explique quais são, na sua opinião, os problemas que afetam este código. (Resposta aberta)
+	\item[\textbf{Q3.}] Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir um ponto. (Escala \textit{Likert} de 5 pontos indo de 1 -- muito baixo -- a 5 -- muito alto)
+	\item[\textbf{Q4.}] Na sua opinião, este código precisa ser refatorado? (Sim/Não)
+	\item[\textbf{Q5.}] Se SIM, como você faria esta refatoração? (Resposta aberta)
+\end{itemize}
 
-% 	\item[Q2.] Se SIM, por favor explique quais são, na sua opinião, os problemas que afetam este código. (Resposta aberta)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESCREVER AQUI SOBRE COMO OS CÓDIGOS FORAM SELECIONADOS, COMO FORAM LIMPADOS, ETC
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% 	\item[Q3.] Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir um ponto. (Escala \textit{Likert} de 5 pontos indo de 1 -- muito baixo -- a 5 -- muito alto)
-
-% 	\item[Q4.] Na sua opinião, este código precisa ser refatorado? (Sim/Não)
-
-% 	\item[Q5.] Se SIM, como você faria esta refatoração? (Resposta aberta)
-% \end{itemize}
-
-Os seis códigos apresentadas foram selecionadas aleatoriamente para cada participante de um conjunto de 58 códigos, contendo 24 códigos afetadas por uma das quatro más práticas Android de alta recorrência (seis para cada má prática), 10 códigos afetadas por cheiros de códigos tradicionais e 24 códigos limpos. Para possibilitar que os códigos fossem apresentados dessa forma, desenvolvemos um software específico. Para reduzir viés, selecionamos apenas códigos relacionados ao \textit{front-end} Android definido no contexto deste artigo, ou seja: \textsc{Activities}, \textsc{Fragments}, \textsc{Adapters}, \textsc{Listeners}, \textsc{Styles}, \textsc{Strings}, \textsc{Drawables} e \textsc{Layouts}. Cada participante avaliou dois códigos selecionados aleatoriamente de cada um desses três grupos, totalizando 6 códigos avaliados por participante. Os 58 códigos foram aleatoriamente coletados de projetos Android de código aberto no GitHub.
+Os seis códigos apresentadas foram selecionadas randomicamente para cada participante de um conjunto de 58 códigos, contendo 24 códigos afetadas por uma das quatro más práticas Android de alta recorrência (seis para cada má prática), 10 códigos afetadas por cheiros de códigos tradicionais e 24 códigos limpos. Para possibilitar que os códigos fossem apresentados dessa forma, desenvolvemos um software específico. Para reduzir viés, selecionamos apenas códigos relacionados ao \textit{front-end} Android definido no contexto deste artigo, ou seja: \textsc{Activities}, \textsc{Fragments}, \textsc{Adapters}, \textsc{Listeners}, \textsc{Styles}, \textsc{Strings}, \textsc{Drawables} e \textsc{Layouts}. Cada participante avaliou dois códigos selecionados randomicamente de cada um desses três grupos, totalizando 6 códigos avaliados por participante. Os 58 códigos foram aleatoriamente coletados de projetos Android de código aberto no GitHub.
 
 Para também reduzir viés de aprendizado, cada participante recebeu os seis códigos selecionados aleatoriamente em uma ordem aleatória. Além disso, os participantes não estavam cientes de quais classes pertenciam a qual grupo (más práticas Android, cheiros de código tradicionais e limpo). Apenas foi dito que estávamos estudando qualidade de código em aplicações Android. Nenhum limite de tempo foi imposto para que eles concluíssem a tarefa.
 
