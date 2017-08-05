@@ -26,6 +26,8 @@
 
 % \usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
 
+\usepackage{acronym} 
+
 \fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
 
 % ---------------------------------------------------------------------------- %
@@ -235,7 +237,7 @@
 % Agradecimentos:
 % Se o candidato não quer fazer agradecimentos, deve simplesmente eliminar esta página 
 \chapter*{Agradecimentos}
-\input{acknowledgement}
+\input{chapters/acknowledgement}
 
 % ---------------------------------------------------------------------------- %
 % Resumo
@@ -275,11 +277,18 @@
 
 \tableofcontents    % imprime o sumário
 
-% \chapter{Lista de Abreviaturas}
-% \include{abbreviations}
+\chapter*{Acrônimos}
+\include{chapters/acronyms}
+
+\chapter{Lista de Abreviaturas}
+\include{chapters/abbreviations}
 
 % \chapter{Lista de Símbolos}
 % \include{symbols}
+
+% \chapter{Lista de Símbolos}
+% \include{symbols}
+
 
 \listoffigures % Listas de figuras
 \listoftables % Listas de tabelas
@@ -292,7 +301,7 @@
 % \singlespacing              % espaçamento simples
 \onehalfspacing            % espaçamento um e meio
 
-\include{chapters/index}
+\include{chapters/chapter-main}
 
 % Apêndice
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\appendixname\ \thechapter}} {\MakeUppercase{#1}}} % cabeçalho para os apêndices
@@ -307,8 +316,7 @@
 
 % \bibliographystyle{plainnat-ime} % citação bibliográfica textual
 \bibliographystyle{plain} % citação bibliográfica numérica
-
-\bibliography{bibliografia}  % associado ao arquivo: 'bibliografia.bib'
+\bibliography{bib/bibliografia}  % associado ao arquivo: 'bibliografia.bib'
 
 % ---------------------------------------------------------------------------- %
 % Índice remissivo

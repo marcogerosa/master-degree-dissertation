@@ -5,7 +5,7 @@ PDFLATEX  = pdflatex
 BIBTEX    = bibtex
 MAKEINDEX = makeindex
 
-all: clean pdflatex clean view
+all: pdflatex clean view
 
 pdflatex:
 	# PdfLaTeX + BibTex + (2x) PdfLaTeX 
@@ -16,7 +16,7 @@ pdflatex:
 
 clean:
 	rm -f $(BASE_NAME)*.ps $(BASE_NAME)*.dvi *.log \
-	      *.aux *.blg *.toc *.brf *.ilg *.ind \
+	      */*.aux *.aux .log *.idx *.blg *.toc *.brf *.ilg *.ind \
 	      missfont.log $(BASE_NAME)*.bbl $(BASE_NAME)*.out \
 		  $(BASE_NAME)*.lof $(BASE_NAME)*.lot 
 
