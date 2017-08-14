@@ -96,16 +96,66 @@ Esta seção está organizada em três subseções onde, nas duas primeiras, definimos
 % Obtivemos 4 categorias consideradas de alta recorrência: Lógica Em Classes de UI, Nome de Recurso Despadronizado, Recurso Mágico e Layout Profundamente Aninhado.
 
 \subsection{\textsc{Lógica Em Classes de UI (LCUI)$^{20\star}$}}
-\textsc{Activities}$^{10\star}$, \textsc{Fragments}$^{6\star}$, \textsc{Adapters}$^{5\star}$ e \textsc{Listeners}$^{1\star}$ devem conter apenas códigos responsáveis por apresentar, interagir (agir entre) e atualizar a UI. São indicativos de mau cheiro a existência de códigos relacionados a lógica de negócio, operações de IO como acesso a banco de dados, rede ou internet, conversão de dados ou campos estáticos nesses elementos.
+\label{subsec:logica-classes-ui}
+\textsc{Activities}$^{10\star}$, \textsc{Fragments}$^{6\star}$, \textsc{Adapters}$^{5\star}$ e \textsc{Listeners}$^{1\star}$ devem conter apenas códigos responsáveis por apresentar, interagir (agir entre) e atualizar a UI. São indícios do mau cheiro a existência de códigos relacionados a lógica de negócio, operações de IO\footnote{ver mau cheiro \textsc{Classes de UI Fazendo IO} \ref{subsce:classes-ui-fazendo-io}.}, conversão de dados ou campos estáticos nesses elementos.
 
-Alguns exemplos de frases que embasaram o mau cheiro: P16 sobre \textsc{Activities} diz \textit{``Fazer lógica de negócio''} (tradução livre)\footnote{Todo texto em inglês foi traduzido livremente ao longo do artigo.}, P19 diz \textit{``Colocar regra de negócio no adapter''} e P11 diz \textit{``Manter lógica de negócio em Fragments''}, P16 diz \textit{``Elas [\textsc{Activities}] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe''}, P23 diz \textit{``Apenas código relacionado à Interface de Usuário nas Activities''}, P40 diz \textit{``Adapters devem apenas se preocupar sobre como mostrar os dados, sem trabalhá-los''}.
-	
 
 \subsection{\textsc{Classes de UI Acopladas (CUIA)$^{6\star}$}}
-\textsc{Fragments}$^{4\star}$, \textsc{Adapters}$^{1\star}$ e \textsc{Listeners}$^{1\star}$ não devem ter referência direta para quem os utiliza. São indicativos de mau cheiro a existência de referência direta para \textsc{Activities} ou \textsc{Fragments} nesses elementos. \todo{Rever nome do smells para algo que indique que o problema é o hospedado conhecer seus hospedeiro}
+\textsc{Fragments}$^{4\star}$, \textsc{Adapters}$^{1\star}$ e \textsc{Listeners}$^{1\star}$ não devem ter referência direta para quem os utiliza. São indícios do mau cheiro a existência de referência direta para \textsc{Activities} ou \textsc{Fragments} nesses elementos. 
 
-Alguns exemplos de frases que embasaram o mau cheiro: P19 diz \textit{``Acoplar o fragment a activity ao invés de utilizar interfaces é uma prática ruim''}. P10, P31 e P45 indicam como má prática \textit{``acoplar o \textsc{Fragment} com a \textsc{Activity}''}. P37 diz que \textit{``Fragments nunca devem tentar falar uns com os outros diretamente''} e P45 diz \textit{``[é uma má prática] integragir com outro Fragment diretamente''}. P6 diz \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''}. P40 diz que é uma má prática \textit{``[o \textsc{Listener}] conter uma referência direta à Activities''}, P4 exprime a mesma ideia com uma frase um pouco diferente. P10 sobre \textit{Adapters} \textit{``alto acoplamento com a Activity''} e P45 exprime a mesma ideia ao dizer \textit{``Acessar Activities ou Fragments diretamente''}. 
 
+\subsection{\textsc{Comportamento Suspeito (CS)$^{6\star}$}}
+\textsc{Activities}$^{3\star}$, \textsc{Fragments}$^{2\star}$ e \textsc{Adapters}$^{1\star}$ não devem ser responsáveis pela implementação do comportamento dos eventos. São indícios do mau cheiro o uso de classes anônimas, classes internas ou polimorfismo (através de \texttt{implements}) para implementar \textsc{Listeners} de modo a responder a eventos do usuário.
+
+
+\subsection{\textsc{Mau Uso do Ciclo de Vida (MUCV)$^{5\star}$}}
+O Ciclo de Vida de \textsc{Activities}$^{3\star}$ e \textsc{Fragments}$^{3\star}$ é bem delicado e elaborado, logo o uso dele exige um conhecimento mais profundo, caso contrário pode resultar em \textit{memory leaks} e outros problemas. São indícios do mau cheiro ter estes elementos como \textit{callbacks} de processos assíncronos, efetivar a transação de \textsc{Fragments} (através do \texttt{FragmentTransaction.commit}) após o \texttt{onPause} da \textsc{Activity} ou o não tratamento da restauração do estado de \textsc{Activities} e \textsc{Fragments} após por exemplo, rotação da tela.
+
+
+\subsection{\textsc{Não Uso de Padrão View Holder (NUVH)$^{5\star}$}}
+São indícios do mau cheiro quando \textsc{Adapters}$^{5\star}$ não reutilizam instâncias das \texttt{views} que representam os campos a serem populados para cada item da coleção ou quando os mesmos possuem classes internas não estáticas.
+
+
+\subsection{\textsc{Uso Excessivo de Fragment (UEF)$^{3\star}$}}
+\textsc{Fragments}$^{3\star}$ devem ser evitados. São indícios do mau cheiro quando o aplicativo não é utilizado em Tablets ou não possue \textsc{ViewPagers} e ainda assim faz o uso de \textsc{Fragments} ou quando existem \textsc{Fragments} no projeto que não são utilizados em mais de uma tela do aplicativo.
+
+
+\subsection{\textsc{Não Uso de Fragment (NUF)$^{3\star}$}}
+\textsc{Fragments}$^{2\star}$ devem ser usados sempre que possível em conjunto com \textsc{Activities}$^{2\star}$. É indício do mau cheiro a não existência de \textsc{Fragments} na aplicação ou o uso de \textsc{EditTexts}, \textsc{Spinners} ou outras \textit{views} por \textsc{Activities}.
+
+
+\subsection{\textsc{Classes de UI Fazendo IO (CUIFIO)$^{3\star}$}}
+\label{subsce:classes-ui-fazendo-io}
+\textsc{Activities}$^{2\star}$, \textsc{Fragments}$^{1\star}$ e \textsc{Adapters}$^{1\star}$ não devem ser responsáveis por operações de IO. São indícios do mau cheiro implementações de acesso a banco de dados ou internet a partir desses elementos.
+
+
+\subsection{\textsc{Activity Inexistente (AI)$^{2\star}$}}
+\textsc{Activities}$^{2\star}$ podem deixar de existir a qualquer momento, tenha cuidado ao referenciá-las. São indícios do mau cheiro a existência de referências estáticas a \textsc{Activities} ou classes internas a ela ou referências não estáticas por objetos que tenham o ciclo de vida independente dela.
+
+
+\subsection{\textsc{Não Uso de Arquiteturas Conhecidas (NUAC)$^{2\star}$}}
+São indícios do mau cheiro quando \textsc{Activities}$^{2\star}$ ou \textsc{Fragments}$^{1\star}$ apresentam códigos confusos onde não é possível identificar uma organização padronizada por classes desses tipos. A presença do mau cheiro \textsc{Lógica Em Classes de UI} \ref{subsec:logica-classes-ui} também pode ser um indicativo da presença desse mau cheiro.
+
+\subsection{\textsc{Listener Escondido (LE)$^{2\star}$}}
+\textsc{Recursos de Layout} devem ser responsáveis apenas por apresentar informações. É indício do mau cheiro o uso de atributos diretamente em \textsc{Recursos de Layout}, como por exemplo o atributo \texttt{onClick}, para configurar o \textsc{Listener}$^{2\star}$ que responderá ao evento.
+
+\subsection{\textsc{Fragment Aninhado (FA)$^{1\star}$}} 
+O \textsc{Fragment}$^{1\star}$ deve representar a menor unidade de tela. São indícios do mau cheiro quando um \textsc{Recurso de Layout} associado a algum \textsc{Fragment} contém a tag \texttt{<Fragment>} ou quando o código do \texttt{Fragment} faz uso da classe \texttt{FragmentTransaction} para colocar outro \texttt{Fragment} em seu \textsc{Recurso de Layout}.
+
+\subsection{\textsc{Controle da Pilha de Telas (CPT)$^{1\star}$}} 
+São indícios do mau cheiro a implementação do método \texttt{onBackPressed} de \textsc{Activities}$^{1\star}$ ou códigos que tenham o intuíto de controlar a pilha de \textsc{Activities} do Android.
+
+\subsection{\textsc{Estrutura de Pacotes (EP)$^{1\star}$}} 
+É indício do mau cheiro quando \textsc{Activities}$^{1\star}$ estão em pacotes que não \texttt{activity} ou \texttt{view}.
+
+% \subsection{\textsc{Layout Profundamente Aninhado (LPA)}} 
+% Indica como má prática o uso de profundos aninhamentos na construção de layouts. De modo similar, respostas indicam como boas práticas evitar ao máximo o aninhamento de \textit{views}. Exemplos de frases que indicaram más práticas são: P26 diz \textit{``Hierarquia de views longas''}, P4 aborda a mesma ideia ao dizer \textit{``Estruturas profundamente aninhadas''}, P39 diz \textit{``Hierarquias desnecessárias''} e P45 diz \textit{``Criar muitos ViewGroups dentro de ViewGroups''}. Exemplos de frases que indicaram boas prática são: P4 diz \textit{``tento usar o mínimo de layout aninhado''}, P19 diz \textit{``Utilizar o mínimo de camadas possível''}, P8 diz \textit{``[...] não fazer uma hierarquia profunda de ViewGroups [...]''}. Apenas o elemento \textsc{Layout Resources} recebeu esta categoria. O site oficial do Android conta com informações e ferramentas automatizadas para lidar com esse sintoma \cite{OptmizingViewHierarchies}. 
+
+
+
+
+\section{Más Práticas de Interface Android Que Afetam Recursos}
+% Obtivemos 15 práticas consideradas de média recorrência. Dentre elas, duas representam uma prática de orientação a objetos (herança) e um cheiro de código já conhecido (Classe Deus/Longa), essas duas, não são definidas a seguir.
 
 \subsection{\textsc{Nome de Recurso Despadronizado (NRD)}}
 Indica como má prática o não uso de um padrão de nomenclatura a ser usado nos recursos da aplicação. De modo similar, respostas indicam como boas práticas o uso de um padrão de nomenclatura a ser usados nos recursos. Exemplos de frases que indicaram más práticas são: P8 sobre \textsc{Style Resources} diz \textit{``[...] o nome das strings sem um contexto''}, P37 também sobre \textsc{Style Resources} diz \textit{``Nada além de ter uma boa convenção de nomes''}, ainda P37, porém sobre \textsc{Layout Resources} diz \textit{``Mantenha uma convenção de nomes da sua escolha [...]''}. Exemplos de frases que indicaram boas prática são: P27 diz sobre \textsc{String Resources} \textit{``Iniciar o nome de uma string com o nome da tela onde vai ser usada''}, P43 sobre \textsc{Layout Resources} diz \textit{``Ter uma boa convenção de nomeação''}, P11 diz sobre \textsc{Style Resources} \textit{``[...] colocar um bom nome [...]''}. Os elementos que entraram nessa categoria foram: \textsc{Activities}, \textsc{Layout Resources}, \textsc{String Resources}, \textsc{Style Resources} e \textsc{Drawable Resources}. 
@@ -120,52 +170,19 @@ Indica como má prática o uso direto de valores como, por exemplo, strings, númer
 Indica como má prática o uso de profundos aninhamentos na construção de layouts. De modo similar, respostas indicam como boas práticas evitar ao máximo o aninhamento de \textit{views}. Exemplos de frases que indicaram más práticas são: P26 diz \textit{``Hierarquia de views longas''}, P4 aborda a mesma ideia ao dizer \textit{``Estruturas profundamente aninhadas''}, P39 diz \textit{``Hierarquias desnecessárias''} e P45 diz \textit{``Criar muitos ViewGroups dentro de ViewGroups''}. Exemplos de frases que indicaram boas prática são: P4 diz \textit{``tento usar o mínimo de layout aninhado''}, P19 diz \textit{``Utilizar o mínimo de camadas possível''}, P8 diz \textit{``[...] não fazer uma hierarquia profunda de ViewGroups [...]''}. Apenas o elemento \textsc{Layout Resources} recebeu esta categoria. O site oficial do Android conta com informações e ferramentas automatizadas para lidar com esse sintoma \cite{OptmizingViewHierarchies}. 
 
 
-% ----------------------- MÉDIA RECORRÊNCIA -----------------------
-\section{Más Práticas de Interface Android Que Afetam Recursos}
-% Obtivemos 15 práticas consideradas de média recorrência. Dentre elas, duas representam uma prática de orientação a objetos (herança) e um cheiro de código já conhecido (Classe Deus/Longa), essas duas, não são definidas a seguir.
-
-
-\subsection{\textsc{Comportamento Suspeito (CS)}}
-Indicam boas e más práticas ao implementar comportamento para responder a eventos do usuário, como por exemplo, um toque na tela. Um evento do usuário é representado através de \textsc{listeners}, que são interfaces Java onde cada uma representa um tipo de evento, por exemplo, a interface \texttt{OnClickListener} representa o evento de clique. Através das respostas dos participantes identificamos como boas práticas o uso de classes concretas e ferramentas de injeção de eventos e como más práticas o uso de classes anônimas e classes internas.
-
-Classes anônimas são consideradas como má prática por todos os participantes que comentaram sobre ela, sendo que a maioria sugeriu o uso de classes concretas. Por exemplo, P9 diz \textit{``Usar muitos anônimos pode ser complicado. Às vezes nomear coisas torna mais fácil para depuração''}, P4 diz \textit{``Mantenha-os [listeners] em classes separadas (esqueça sobre classes anônimas)''}, P32 diz \textit{``Prefiro declarar os listeners com "implements" e sobrescrever os métodos (onClick, por exemplo) do que fazer um set listener no próprio objeto''} e P8 diz \textit{``Muitas implementações de listener com classes anônimas''}.
-
-O uso de classes internas também foi considerado como má prática. Exemplos de frases que indicam más práticas são: P42 diz \textit{``Declarar como classe interna da Activity ou Fragment ou outro componente que contém um ciclo de vida. Isso pode fazer com que os aplicativos causem vazamentos de memória.''}.
-
-A implementação do \textsc{Listener} através do polimorfismo, por exemplo uma \textsc{Activity} se torna o \textsc{Listener} através do uso de \texttt{implements} do Java, foi considerado uma má prática por alguns participantes, que sugeriram o uso de classes concretas ou de ferramentas de injeção de eventos e dependência como \textit{Butter Knife} \cite{ButterKnife} e \textit{Dagger2}. Por exemplo: P44 diz \textit{``Eu não gosto quando os desenvolvedores fazem a activity implementar o listener porque eles [os métodos] serão expostos e qualquer um pode chamá-lo de fora da classe. Eu prefiro instanciar ou então usar ButterKnife para injetar cliques.''}. P6 diz \textit{``Tome cuidade se a activity/fragment é um listener uma vez que eles são destruídos quando as configurações mudam. Isso causa vazamentos de memória.''}, P10 diz \textit{``Use carregamento automático de view como ButterKnife e injeção de dependência como Dagger2''}. Para outros, esta forma de implementação é uma boa prática, por exemplo P32 diz \textit{``Prefiro declarar os listeners com "implements" e sobrescrever os métodos (onClick, por exemplo) do que fazer um set listener no próprio objeto.''}. Os elementos que entraram nesta categoria foram: \textsc{Activity}, \textsc{Fragment} ou \textsc{Adapter}.
-
-\subsection{\textsc{Mau Uso do Ciclo de Vida (MUCV)}}
-Indica como má prática o uso incorreto do ciclo de vida \textsc{Activities} e \textsc{Fragments}. De modo similar, respostas indicam como boas práticas respeitar o ciclo de vida desses elementos e não confundir o ciclo de vida de ambos. Exemplos de frases que indicaram más práticas são: P23 diz \textit{``código que depende de estado e não se adapta ao ciclo de vida das Activities.''}, P28 diz \textit{``Erros ao interpretar o ciclo de vida''}, P8 diz \textit{``considerar o ciclo de vida de fragments como os de activities''}. Exemplos de frases que indicaram boas prática são: P43 diz \textit{``Conhecer seu [da activity] ciclo de vida''}, P28, P31 e P15 falam \textit{``tomar cuidado e respeitar o ciclo de vida de \textsc{fragments} e \textsc{activities}''}. Os elementos que entraram nessa categoria foram: \textsc{Activities} e \textsc{Fragments}. 
-
 \subsection{\textsc{Layout Longo ou Repetido (LLR)}}
 Indica como má prática código de \textit{layout} repetido ou muito grandes. De modo similar, respostas indicam como boas práticas extrair layout repetidos para reutilizá-los através da tag \textsc{include} ou extrair apenas com o objetivo de manter arquivos pequenos. Exemplos de frases que indicaram más práticas são: P41 diz \textit{``copiar e colar layouts parecidos sem usar includes''}, P23 diz \textit{``[...] colocar muitos recursos no mesmo arquivo de layout.''}, P8 diz \textit{``considerar o ciclo de vida de fragments como os de activities''}. Exemplos de frases que indicaram boas prática são: P32 diz \textit{``Sempre quando posso, estou utilizando includes para algum pedaço de layout semelhante''}, P36diz \textit{``Criar layouts que possam ser reutilizados em diversas partes''} e P42 diz \textit{``Separe um grande layout usando include ou merge''}. 
-
 
 \subsection{\textsc{Longos Recursos de Layout (LRL)}}
 Indica como má prática arquivos \textsc{Layout Resources} grandes e complexos. Respostas indicam como boas práticas a quebra desses arquivos em vários outros e o uso da \textit{tag} de layout \texttt{include} para uni-los. Exemplos de frases que indicaram más práticas são: P41 diz \textit{``Copiar e colar trechos similares de tela, sem usar includes''}, P23 diz \textit{``[...] utilizar muitos recursos no mesmo arquivo de layout''}. Exemplos de frases que indicaram boas prática são: P34 diz \textit{``eu apenas tento reusá-los através do uso de includes''}, P40 diz \textit{``modularize-os''}, P9 diz \textit{use includes para simplificar multiplas configurações [de tela]}. 
 
-\subsection{\textsc{Não Uso de Padrão View Holder (NUVH)}}
-Indica como má prática o não uso do padrão \textit{View Holder} \cite{AluraViewHolder} para melhorar o desempenho de listagens. De modo similar, respostas indicam como boas práticas evitar o uso do padrão \textit{View Holder}. Exemplo de frase que indicou má prática é P8 ao dizer \textit{``[...] evitar o padrão ViewHolder''}. Exemplos de frases que indicaram boas prática são: P36 diz \textit{``Reutilizar a view utilizando ViewHolder.''}, de modo similar P39 diz \textit{``Usar o padrão ViewHolder''}. P45 sugere o uso do \textsc{RecyclerView}, um elemento Android para a construção de listas que já implementa o padrão \textit{ViewHolder} \cite{AluraViewHolder}. Apenas o elemento \textsc{Adapter} entrou nessa categoria. 
-
-\subsection{\textsc{Não Uso de Arquiteturas Conhecidas (NUAC)}}
-Indica como má prática o não uso de algum padrão para desacoplar código de apresentação com código de lógica. De modo similar, respostas indicam como boas práticas o uso de algum padrão conhecido e sugerem MVP, MVC, MVVM e Clen Architecture. Exemplos de frases que indicaram más práticas são: P45 diz \textit{``Sobre não usar um design pattern''}. Exemplos de frases que indicaram boas prática são: P28 diz \textit{``Usar algum modelo de arquitetura para garantir apresentação desacoplada do framework (MVP, MVVM, Clean Architecture, etc)''}, P45 diz \textit{``Sobre MVP. Eu acho que é o melhor padrão de projeto para usar com Android''}. Os elementos que entraram nessa categoria foram: \textsc{Activities} e textsc{Fragments}. 
-
 \subsection{\textsc{Tamanho Único de Imagem (TUI)}}
 Indica como má prática ter apenas uma imagem para atender a todas as resoluções. De modo similar, respostas indicam como boas práticas ter a mesma imagem em diversos tamanhos para atender a resoluções diferentes. Exemplos de frases que indicaram más práticas são: P31 diz \textit{``ter apenas uma imagem para multiplas densidades''}, P4 diz \textit{``Baixar uma imagem muito grande quando não é necessário. Há melhores formas de usar memória''}, P44 diz \textit{``Não criar [versões da] imagem para todos as resoluções''}. Exemplos de frases que indicaram boas prática são: P34 diz \textit{``Nada especial, apenas mantê-las em seus respectivos diretórios e ter variados tamanhos delas''}, P36 diz \textit{``Criar as pastas para diversas resoluções e colocar as imagens corretas''}. O único elemento que entrou nessa categoria é o que representa imagens, \textsc{Drawable Resource}.
-
-\subsection{\textsc{Uso Excessivo de Fragment (UEF)}}
-Indica como má prática o uso de \textsc{Fragments} quando se pode usar \textsc{Activities} e o uso excessivo de \textsc{Fragments}. De modo similar, respostas indicam como boas práticas evitar o uso de \textsc{Fragments} sempre que possível. Exemplos de frases que indicaram más práticas são: P2 diz \textit{``Usar muitos Fragments é uma má prática''}. Exemplos de frases que indicaram boas prática são: P16 diz \textit{``Eu tento evitá-los''}. Os elementos que entraram nessa categoria foram: \textsc{Fragments}. 
 
 \subsection{\textsc{Não Uso de Imagens Vetoriais (NUIV)}}
 I10 participantes) que indicam como boa prática o uso de \textsc{Drawable Resources} vetoriais. é recomendado sempre que possível usar imagens vetorias sobre outros tipos. Exemplos de frases que indicaram boas prática são: P28 diz \textit{``Utilizar o máximo de Vector Drawables que for possível''}, P40 diz \textit{``evite muitas imagens, use imagens vetoriais sempre que possível''}. O único elemento que entrou nessa categoria é o que representa imagens, \textsc{Drawable Resource}.
 
-\subsection{\textsc{Não Uso de Fragment (NUF)}}
-Indica como má prática o não uso de \textsc{Fragments}. De modo similar, respostas indicam como boas práticas o uso de \textsc{Fragments} sempre que possível. Exemplos de frases que indicaram más práticas são: P22 diz \textit{``Não usar Fragments''}. Exemplos de frases que indicaram boas prática são: P19 diz \textit{``[...] Utilizar fragments sempre que possível.''}, P45 diz \textit{``Use Fragments para cada tela. Uma Activity para cada app/apk.''}. Os elementos que entraram nessa categoria foram: \textsc{Fragments} e \textsc{Activities}. 
-
 % \mau{como esse se relaciona com o 2 acima dele?}
-
-\subsection{\textsc{Classes de UI Fazendo IO (CUIFIO)}}
-Indica como má prática realizar operações de IO, como consulta a banco de dados ou acesso a internet, a partir das classes \textsc{Activities}, \textsc{Fragments} e \textsc{Adapters}. Respostas indicam como boas práticas que esses elementos lidem apenas com a interface com o usuário e sugerem para isso, o padrão MVP \cite{WikipediaMVP, MartinFowlerGUIArchitectures}. Exemplos de frases que indicaram más práticas são: P26 sobre \textsc{Activities} e \textsc{Fragments} diz \textit{``fazer requests e consultas a banco de dados''} e sobre \textsc{Adapter} diz \textit{``Fazer operações longas e requests de internet''}. P37 sobre \textsc{Activities} diz \textit{``Elas nunca devem fazer acesso a dados [...]''}. Exemplos de frases que indicaram boas prática são: P26 diz \textit{``Fazer activities e fragments apenas lidar com ações da view, faça isso usando o [padrão] MVP''}. Os elementos que entraram nessa categoria foram: \textsc{Activities}, \textsc{Fragments} e \textsc{Adapters}. 
 
 \subsection{\textsc{Longo Recurso de Estilo (LRE)}}
 Indica como má prática o uso de apenas um arquivo para todos os \textsc{Styles Resources}. De modo similar, respostas indicam como boas práticas separar os estilos em mais de um arquio. Exemplos de frases que indicaram más práticas são: P28 diz \textit{``Deixar tudo no mesmo arquivo styles.xml''}, P8 diz \textit{``Arquivos de estilos grandes''}. Exemplos de frases que indicaram boas prática são: P28 diz \textit{``Se possível, separar mais além do arquivo styles.xml padrão, já que é possível declarar múltiplos arquivos XML de estilo para a mesma configuração''}. P40 diz \textit{``Divida-os. Temas e estilos é uma escolha racional''}. O único elemento que entrou nessa categoria foi o \textsc{Style Resource}. 
@@ -182,10 +199,6 @@ Indica como má prática a repetição de atributos de estilo nos \textsc{Layout Res
 \section{Más Práticas de Interface Android Que Afetam Ambos (Recurso e Java)}
 % Obtivemos 8 categorias consideradas de baixa recorrência: Imagem Dispensável, Activity Inexistente, Ferramentas de DI, Excessivo Reúso de String, Adapter Flexível, Operações de IO, Herança e Listener Escondido.
 
-
-\subsection{\textsc{Activity Inexistente (AI)}}
-Indica como má prática classes manterem referência a uma \textsc{Activity}, pois como ela possui ciclo de vida, quando a classe tentar acessá-la, a \textsc{Activity} pode não existir mais, resultando em possíveis erros na aplicação. De modo similar, respostas indicam como boas práticas, elementos com ciclo de vida independente, não manter referência à \textsc{Activities}. Exemplos de frases que indicaram más práticas são: P28 diz \textit{``Fazer Activities serem callbacks de processos assíncronos gerando memory leaks. Erros ao interpretar o ciclo de vida''}, P31 diz \textit{``[...] ter referência estática para Activities, resultando em vazamento de memória''}. Exemplos de frases que indicaram boas prática são: P31 diz \textit{``Não manter referências estáticas para Activities (ou classes anônimas criadas dentro delas)''}, P4 diz \textit{``Deus mata um cachorro toda vez que alguém passa o contexto da Activity para um componente que tem um ciclo de vida independente dela. Vaza memória e deixa todos tristes.''}. Os elementos que entraram nessa categoria foram: \textsc{Activities} e \textsc{Listeners}. 
-
 \subsection{\textsc{Imagem Dispensável (ID)}}
 Indica como má prática o uso de imagens quando poderia ser usado um \textsc{Drawable Resource} em XML. De modo similar, respostas indicam como boas práticas o uso de \textsc{Drawable Resources}, criado com XML, sempre que possível. Exemplos de frases que indicaram más práticas são: P23 diz \textit{``Uso de modotos não otimizados, uso de drawables onde recursos padrão do Android seriam preferíveis''}, P37 diz \textit{usar jpg ou png para formas simples é ruim, apenas as desenhe [através de \textsc{Drawable Resources}]}. Exemplo de frase que indicou boa prática é P36 que diz \textit{``[...] Quando possível, criar resources através de xml.''}. Apenas o elemento \textsc{Drawable Resoirce} entrou nessa categoria. 
 
@@ -194,10 +207,6 @@ Indica como má prática reutilizar o mesmo \textsc{String Resource} em muitos lug
 
 \subsection{\textsc{Adapter Complexo (AC)}}
 Indica como má prática \textsc{Adapters} que contém muitos condicionais. Respostas indicam como boas práticas que um \textsc{Adapter} deve adaptar apenas um tipo de classe e trabalhar com um ou mais views, de modo a evitar lógicas para esconder ou mostrar view expecíficas. Exemplos de frases que indicaram más práticas são: P23 diz \textit{``Reutilizar um mesmo adapter para várias situações diferentes, com "ifs" ou "switches". Código de lógica importante ou cálculos em Adapters.''}. Exemplos de frases que indicaram boas prática são: P2 diz \textit{``Um Adapter deve adaptar um único tipo de item ou delegar a Adapters especializados''}. O único elemento que entrou nessa categoria foi o \textsc{Adapter}. 
-
-\subsection{\textsc{Listener Escondido (LE)}}
-Indica como má prática o uso de métodos de eventos do usuário no XML de layout, como por exemplo o método \textsc{onClick}. Respostas indicam como boas práticas o uso da biblioteca \textit{ButterKnife} \cite{ButterKnife}. Exemplos de frases que indicaram más práticas são: P34 diz \textit{``Nunca crie um listener dentro do XML. Isso esconde o listener de outros desenvolvedores e pode causar problemas até que ele seja encontrado''}, P39 e P41 expressam a mesma opinião, P41 ainda complementa dizendo que \textit{``XML de layout deve lidar apenas com a view e não com ações''}. Exemplos de frases que indicaram boas prática são: P39 diz apenas \textit{``Uso ButterKnife''}, P34 também expressa sua preferência por essa biblioteca. Apenas \textsc{Listeners} entraram nessa categoria.
-
 
 
 \subsection{Categorias de Baixíssima Recorrência}
