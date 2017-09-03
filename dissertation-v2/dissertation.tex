@@ -26,6 +26,21 @@
 
 % \usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
 
+% Barra lateral a citação direta
+\usepackage{mdframed}
+\newmdenv[
+  leftmargin        = 2em,
+  innerleftmargin   = 1em,
+  innertopmargin    = 0pt,
+  innerbottommargin = 0pt,
+  innerrightmargin  = 0pt,
+  rightmargin       = 0pt,
+  linewidth         = 2pt,
+  topline           = false,
+  rightline         = false,
+  bottomline        = false
+]{leftbar}
+
 \setlength{\parskip}{.5em}
 \usepackage{acronym} 
 
@@ -79,7 +94,6 @@
     framexleftmargin=10pt,
     framexrightmargin=10pt
 }
-
 
 \usepackage{etex}
 \usepackage{flushend}
