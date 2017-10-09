@@ -154,7 +154,7 @@ Esta seção está organizada em três subseções onde, nas duas primeiras, definimos
         Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``De preferência, eles não devem ser aninhados''} (P37). \textit{``Fragments aninhados!''} (P4). 
 
     \subsection{\textsc{Controle Manual da Pilha de Activities (SML-J13)$^{1\star}$}} 
-        São indícios do mau cheiro a implementação do método \texttt{onBackPressed} de \textsc{Activities}$^{1\star}$ ou códigos que tenham o intuíto de controlar a pilha de \textsc{Activities} do Android.
+        São indícios do mau cheiro a implementação do método \texttt{onBackPressed} de \textsc{Activities}$^{1\star}$ ou códigos que tenham o intuito de controlar a pilha de \textsc{Activities} do Android.
 
         Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Sobreescrever o comportamento do botão voltar''} (P43). \textit{``Lidar com a pilha do app manualmante''} (P41). 
 
@@ -197,7 +197,7 @@ Esta seção está organizada em três subseções onde, nas duas primeiras, definimos
         Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Ter apenas uma imagem para multiplas densidades''} (P31). \textit{``Baixar uma imagem muito grande quando não é necessário. Há melhores formas de usar memória''} (P4). \textit{``Não criar imagens para todas as resoluções''} (P44).E sobre \textbf{boas prática}: \textit{``Nada especial, apenas mantê-las em seus respectivos diretórios e ter variados tamanhos delas''} (P34). \textit{``Criar as pastas para diversas resoluções e colocar as imagens corretas''} (P36). 
 
     \subsection{\textsc{Longo Recurso de Estilo (SML-R7)$^{3\star}$}}
-        É indício do mau cheiro haver apenas um \textsc{Recurso de Estilo}$^{4\star}$ e este ser muito grande.
+        É indício do mau cheiro haver apenas um \textsc{Recurso de Estilo}$^{4\star}$ ou conter Recursos de Estilo muito longos.
 
         Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Deixar tudo no mesmo arquivo styles.xml''} (P28). \textit{``Arquivos de estilos grandes''} (P8). E sobre \textbf{boas práticas}: \textit{``Se possível, separar mais além do arquivo styles.xml padrão, já que é possível declarar múltiplos arquivos XML de estilo para a mesma configuração''} (P28). \textit{``Divida-os. Temas e estilos é uma escolha racional''} (P40).
 
@@ -212,7 +212,7 @@ Esta seção está organizada em três subseções onde, nas duas primeiras, definimos
 
         Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Utilizar muitas propriedades em um único componente. Se tiver que usar muitas, prefiro colocar no arquivo de styles.''} (P32). E sobre \textbf{boa prática}: \textit{``Sempre que eu noto que tenho mais de um recurso usando o mesmo estilo, eu tento movê-lo para o meu style resource.''} (P34).
 
-    \subsection{\textsc{Reúso Excessivo de String (SML-R10)$^{2\star}$}}
+    \subsection{\textsc{Reúso Inadequado de String (SML-R10)$^{2\star}$}}
         Cada tela deve ter seu conjunto de \textsc{Recursos de Texto}$^{2\star}$. É indício do mau cheiro reutilizar o mesmo \textsc{Recurso de Texto} em diferentes telas do aplicativo apenas porque o texto coincide.
 
         Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Utilizar uma String pra mais de uma activity, pois se em algum momento, surja a necessidade de trocar em uma, vai afetar outra.''} (P32). \textit{``Reutilizar a string em várias telas''} (P6) \textit{``Reutilizar a string apenas porque o texto coincide, tenha cuidado com a semântica''} (P40). E sobre \textbf{boas práticas}: \textit{``Sempre busco separar em blocos, cada bloco representa uma activity e nunca aproveito uma String pra outra tela.''} (P32). \textit{``Não tenha medo de repetir strings''} (P9). 

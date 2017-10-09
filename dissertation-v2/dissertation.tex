@@ -122,6 +122,10 @@
 
 \renewcommand{\arraystretch}{1.2}
 
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\singlespace\vspace{-\topsep}\small}
+\AtEndEnvironment{quote}{\vspace{-\topsep}\endsinglespace}
+
 % ---------------------------------------------------------------------------- %
 % Corpo do texto
 \begin{document}
