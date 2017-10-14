@@ -1,5 +1,5 @@
 % -*- root: index.tex -*-
-\section{Qualidade de Código}
+\section{Maus Cheiros de Código}
 
 É comum no dia a dia de desenvolvimento de software ouvirmos o termo \textit{boas práticas} como uma generalização para se referir a termos como padrões de projetos, anti-padrões, \emph{maus cheiros de código} e outros, que encapsulam ideias sobre como criar códigos com \emph{mais qualidade}. 
 
@@ -47,7 +47,9 @@ Apesar dessa comum generalização, cada um desses termos possui um significado di
 
   \epigraph{``Se cheirar mau, troque-o."}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
 
-  Um dos primeiros, se não o primeiro, livro a usar o \emph{conceito} de mau cheiro de código foi o livro de Webster (1995) \cite{Webster:95}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. 
+  Podemos entender um mau cheiro de código como uma percepção empírica de que algo não está certo no software, percepção semelhante o dito popular ``Algo não cheira bem!'' quando uma pessoa está desconfiada de que há um problema em dada situação.
+
+  Um dos primeiros livro a usar o \emph{conceito} de mau cheiro de código foi o livro de Webster (1995) \cite{Webster:95} através do termo \emph{``armadilha''}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. 
 
   Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. Refatoração, segundo Fowler, é o ato de \emph{alterarmos o código sem alterar seu comportamento} com o objetivo de torná-lo mais fácil de ser entendido e menos custoso de ser modificado. No livro são apresentadas diversas técnicas de  refatoração. O termo mau cheiro de código é usado para explicar ao leitor o \emph{``quando''} uma refatoração deve ser aplicada. Segundo o livro, \textbf{\emph{``mau cheiro de código são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}}. Essas indicações provém do conhecimento empírico de desenvolvedores experientes, que ao longo dos anos, após trabalharem em diversos códigos bons e ruins, são capazes de listar características que podem indicar se um trecho de código é problemático. 
 
@@ -68,29 +70,32 @@ Apesar dessa comum generalização, cada um desses termos possui um significado di
 
   Os primeiros maus cheiros definidos vieram em formato textual e diferentemente de padrões, não parece existir guias de como documentar um mau cheiro. 
 
-  Fowler \cite{Refactoring:99} por exemplo, se utiliza de \textit{título} e um \textit{texto explicativo}. No \textit{texto explicativo}, é possível encontrarmos informações sobre contexto, exemplos de problemas comuns e possíveis refatorações, dentre as listadas no livro, que resolveriam o mau cheiro. A seguir, temos o mau cheiro \textit{Código Duplicado} \cite[p.~71]{Refactoring:99}. O \textit{título} do mau cheiro parece indicar o problema por ele indicado. No parágrafo (1) podemos observar uma breve resumo do que faz cheirar mal e uma possível refatoração. Nos parágrafos seguintes (2-4) são apresentadas em mais detalhes situações comuns que podem indicar a presença do mau cheiro. \\
+  Fowler \cite{Refactoring:99} por exemplo, se utiliza de \textit{título} e um \textit{texto explicativo}. No \textit{texto explicativo}, é possível encontrarmos informações sobre contexto, exemplos de problemas comuns e possíveis refatorações, dentre as listadas no livro, que resolveriam o mau cheiro. A seguir, temos o mau cheiro \textit{Código Duplicado} \cite[p.~71]{Refactoring:99}. O \textit{título} do mau cheiro indica o contexto por ele tratado. No parágrafo (1) podemos observar uma breve resumo do que faz cheirar mal e uma possível refatoração. Nos parágrafos seguintes (2-4) são apresentadas em mais detalhes situações comuns que podem indicar a presença do mau cheiro. \\
 
-  \begin{leftbar}
+  \begin{square}
+    \small
     \textbf{Código Duplicado}
 
-    (1) O número um no \textit{ranking} dos cheiros é o código duplicado. Se você vir o mesmo código em mais de um lugar, pode ter certeza de que seu programa será melhor se você encontrar uma maneira de unificá-los. 
+    O número um no \textit{ranking} dos cheiros é o código duplicado. Se você vir o mesmo código em mais de um lugar, pode ter certeza de que seu programa será melhor se você encontrar uma maneira de unificá-los (1). 
 
-    (2) O problema mais simples de código duplicado é quando você tem a mesma expressão em dois métodos da mesma classe. Tudo o que você tem que fazer então é utilizar o \textit{Extrair Método} e chamar o código de ambos os lugares. 
+    O problema mais simples de código duplicado é quando você tem a mesma expressão em dois métodos da mesma classe. Tudo o que você tem que fazer então é utilizar o \textit{Extrair Método} e chamar o código de ambos os lugares (2). 
 
-    (3) Outro problema de duplicação comum é quando você tem a mesma expressão em duas subclasses irmãs. Você pode eliminar essa duplicação usando \textit{Extrair Método} em ambas as classes e então \textit{Subir Método na Hierarquia}. Se o código for similar mas não o mesmo, você precisa usar \textit{Extrair Método} para separar as partes semelhantes daquelas diferentes. Você pode então descobrir que pode usar \textit{Criar um Método Padrão}. Se os métodos fazem a mesma coisa com um algoritmo diferente, você pode escolher o mais claro deles e usar \textit{Substituir o Algoritmo}.
+    Outro problema de duplicação comum é quando você tem a mesma expressão em duas subclasses irmãs. Você pode eliminar essa duplicação usando \textit{Extrair Método} em ambas as classes e então \textit{Subir Método na Hierarquia}. Se o código for similar mas não o mesmo, você precisa usar \textit{Extrair Método} para separar as partes semelhantes daquelas diferentes. Você pode então descobrir que pode usar \textit{Criar um Método Padrão}. Se os métodos fazem a mesma coisa com um algoritmo diferente, você pode escolher o mais claro deles e usar \textit{Substituir o Algoritmo} (3).
 
-    (4) Se você tem código duplicado em duas classes não relacionadas, considere usar \textit{Extrair Classe} em uma classe e então usar o novo componente na outra. Uma outra possibilidade é de que o método realmente pertença a apenas uma das classes e deva ser chamado pela outra ou que o método pertença a uma terceira classe que deva ser referida por ambas as classes originais. Você tem que decidir onde o método faz mais sentido e garantir que ele esteja lá e em mais nenhum lugar.
-  \end{leftbar}
+    Se você tem código duplicado em duas classes não relacionadas, considere usar \textit{Extrair Classe} em uma classe e então usar o novo componente na outra. Uma outra possibilidade é de que o método realmente pertença a apenas uma das classes e deva ser chamado pela outra ou que o método pertença a uma terceira classe que deva ser referida por ambas as classes originais. Você tem que decidir onde o método faz mais sentido e garantir que ele esteja lá e em mais nenhum lugar (4).
+  \end{square}
+
 
   Martin \cite{CleanCode:08} usa a mesma estrutura usada por Fowler e adiciona a ela uma \textit{sigla}. O \textit{texto explicativo} é apresentado em parágrafo único e é possível encontrar contexto, alguns exemplos de problemas comuns e exemplos de código, sendo que alguns maus cheiros apresentam todas essas informações ou apenas uma combinação delas. O \textit{título} usado por Martin aponta de certa forma o problema (o uso de convenção durante o desenvolvimento) e a solução (sempre que possível, preferir o uso de estruturas acima da convenção). 
 
   A seguir temos o mau cheiro \textit{G27: Estrutura acima de convenção} \cite[p.~301]{CleanCode:08}. No \textit{texto explicativo} em parágrafo único, podemos observar em orações a mesma estrutura que vimos no mau cheiro anterior, porém em parágrafos. Na oração (1) temos algo relacionado ao que faz cheirar mal, na oração (2) uma possível refatoração, na (3) é dado um exemplo e na (4) é indicado o problema resultante de se basear em convenção. \\
 
-  \begin{leftbar}
+  \begin{square}
+    \small
     \textbf{G27: Estrutura acima de convenção}
 
-    (1) Insista para que as decisões do projeto baseiem-se em estrutura acima de convenção. (2) Convenções de nomenclaturas são boas, mas são inferiores a estruturas, que forçam um certo cumprimento. (3) Por exemplo, \texttt{switch/case} com enumerações bem nomeadas são inferiores a classes base com métodos abstratos. (4) Ninguém é obrigado a implementar a estrutura \texttt{switch/case} da mesma forma o tempo todo; mas as classes bases obrigam a implementação de todos os métodos abstratos das classes concretas.
-  \end{leftbar}
+    Insista para que as decisões do projeto baseiem-se em estrutura acima de convenção (1). Convenções de nomenclaturas são boas, mas são inferiores a estruturas, que forçam um certo cumprimento (2). Por exemplo, \texttt{switch/case} com enumerações bem nomeadas são inferiores a classes base com métodos abstratos (3). Ninguém é obrigado a implementar a estrutura \texttt{switch/case} da mesma forma o tempo todo; mas as classes bases obrigam a implementação de todos os métodos abstratos das classes concretas (4).
+  \end{square}
 
   Em pesquisas que definem novos maus cheiros, observamos um formato similar aos mencionados porém, adicionado uma estratégia de detecção, com foco em automatizar a identificação do mau cheiro \cite{MvcSmells:16, CSSCodeSmell}. Estas estratégias comumente se baseiam em métricas de software já existentes, como as mencionadas na sessão Métricas X.X.
 
