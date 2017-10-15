@@ -1,0 +1,47 @@
+Este trabalho trata de maus cheiros de código que encontra sua motivação quando pensamos em boas práticas para aumentar a qualidade do software.
+
+Desta forma, esta seção define alguns termos considerados relevantes para o entendimento deste trabalho: qualidade de software, boas práticas e maus cheiros de código.
+
+
+Qualidade de código 
+
+	O que é?
+
+	Qualidade de software é um tema tão importante que foi evoluindo ao longo dos anos e hoje temos diversos organizações focadas apenas neste assunto, a tabela X apresenta uma lista delas. 
+
+	ISO/IEC 9126 | substituido pela ISO/IEC 25010:2011 ou SQuaRE divide qualidade de software em 6 áreas () e sub-áreas.	
+
+	ISO/IEC 25010:2011 (SQuaRE) | 3 perspectivas de qualidade  (interna, externa e em uso) 
+	
+	CISQ 		| Divide qualidade de software em 5 conceitos () e foi fundado em 2011 e se apoia nas definições do ISO 9126.
+
+	SWEBOK 	| Divite qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software.
+
+	ifSQ  	| 
+
+	Na tabela podemos observar que de certa forma, a principal definição que embasa as demais é a do ISO 9126. A divisão de qualidade de software foi inicialmente proposta por McCall, Richards e Walters em seu papes de 1977 [colocar ref aqui].
+
+	A seguir, a Figura X apresenta a divisão proposta pelo ISO 9126. 
+
+
+
+	Aspectos envolvidos?
+	E ao longo dos anos, foram criadas diversas práticas para ajudar a melhorar a qualidade do software. Este conjunto de práticas são comumente conhecidades como boas práticas.
+
+	Manutenibilidade
+
+Boas Práticas de Software
+	
+	Boas práticas de software ....
+
+	É muito importante. É originada da experiência de desenvolvedores mais experiêntes.
+
+	Podemos dizer que padrões de projetos, anti-padrões e maus cheiros de código são boas práticas de software visto que de alguma forma, ajudam a aumentar a qualidade do software.
+
+	No dia a dia, estes termos podem facilmente se confundir, e apesar de serem todos boas práticas de software, devemos interpretá-los de forma correta por exemplo, enquanto que padrões de projeto são feitos para serem seguidos, maus cheiros de código e anti-padrões foram feitos para serem evitados.
+
+	Padrões de Projeto
+
+	Anti-padrões
+
+Maus cheiros de código
