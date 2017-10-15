@@ -1,26 +1,35 @@
 % -*- root: index.tex -*-
-\section{Qualidade de Software}
+\section{\textsc{Qualidade de Software}}
 
-Qualidade de software é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais (o quanto o software atende as necessidades de negócio) ou estruturais (o quão bem o software funciona). Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos. \\
-
-As primeiras definições em torno de \emph{qualidade de software} são derivadas das normas ISO/EIC 9126, atualmente ISO 25010, também conhecido como SQuaRE [2]. Este modelo subdivide qualidade de software em 6 áreas: funcionalidade, confiabilidade, usabilidade, eficiência, manutenabilidade e portabilidade e cada uma delas possui um conjunto de sub-áreas.
-
-Dentre estas áreas, manutenabilidade engloba conceitos como \emph{legibilidade}, quão fácil é para nós localizar os elementos que queremos melhorar ou corrigir; \emph{alterabilidade}, quanto trabalho precisamos fazer para implementar uma modificação; \emph{estabilidade}, quão poucas coisas quebram após nossas mudanças; e \emph{testabilidade}, nossa capacidade de validar nossas modificações \cite{CodeQuality:06}. 
-
+Qualidade de software é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais (o quanto o software atende as necessidades de negócio) ou estruturais (o quão bem o software funciona). Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
 
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
-  \caption{Arquitetura do sistema operacional Android.}
-  \label{fig:AndroidPlatform}
+  \caption{Qualidade de Software (ISO/EIC 9126-1 e ISO/IEC 25010 e \cite{CodeQuality:06}). \todo{corrigir caption}}
+  \label{fig:QualityCharacteristics}
 \end{figure}
 
+\todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
+
+As primeiras definições sobre \emph{qualidade de software} são derivadas das normas ISO/EIC 9126-1 e ISO/IEC 25010 que diz que qualidade \emph{é a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas}. Estas normas subdivide qualidade de software em 6 áreas, cada qual contendo um conjunto de sub-áreas, conforme a Figura \ref{fig:QualityCharacteristics}. Esta pesquisa está inserida no contexto da sub-área \emph{manutenabilidade}, que discutiremos a seguir, onde engloba diversos conceitos, dentre os quais \emph{analisabilidade}, quão fácil é para nós localizar os elementos que queremos melhorar ou corrigir e \emph{alterabilidade}, quanto trabalho precisamos fazer para implementar uma modificação \cite{CodeQuality:06}. 
+
+Existem diversas definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), qualidade é ``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. Ao longo do tempo a teoria de qualidade de software foi evoluindo, resultando inclusive na criação dos padrões ISO/EIC 9126 e ISO/IEC 25000. Uma importante contribuição foi a divisão do conceito de qualidade em subconceitos, no caso de software, inicialmente proposto por McCall, Richards e Walters[3]. \todo{ajustas refs https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#cite\_ref-6}
+
+Muito embora tenha-se provado que investir em qualidade pode reduzir os custos de um projeto \todo{refs?}, aumentar a satisfação dos usuários e desenvolvedores \todo{refs??}, qualidade de software costuma ser esquecido ou deixado em segundo plano \todo{refs?}. Quem nunca ouviu a frase ``depois eu testo'', ou ``depois eu refatoro'' no dia a dia? Manutenibilidade está relacionada as necessidades implícitas do software como legibilidade e alterabilidade, focado nesses aspectos, ao longo dos últimos anos foram criados diversos conceitos visando aumentar a qualidade relativa a eles. Por exemplo os padrões de projeto do GoF veem com o objetivo de documentar \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Anti-padrões são padrões antes recomendados que passaram a ser evitados pois percebeu-se que os problemas em usá-los superavam os benefícios \todo{referencia aqui do livro anti-patterns}, um dos maiores exemplos de anti-padrão é o \textit{Singleton} \todo{breve desc aqui}. \emph{Maus cheiros de código} que trataremos melhor adiante \todo{colocar seção aqui}, apontam sintomas que podem indicar um problema mais profundo no software. É interessante notar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de conceitos e ferramentas são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software}. 
+
+% citações diretas sobre vários autores com relação a importância de qualidade
+Os erros de construção detectados no teste do sistema custam 10 vezes mais para consertar do que na fase de construção. Os erros de construção detectados postrelease custaram 10-25 vezes mais para consertar do que na fase de construção (Fagan 1976; Dunn 1984; Boehm \& Turner 2004, Shull et al., 2002). O Laboratório de Engenharia de Software da NASA descobriu que a leitura de código detectou 3,3 defeitos por hora de esforço: o teste detectou cerca de 1,8 erros por hora. A leitura do código encontrou 20 a 60\% mais erros durante a vida do projeto do que os vários tipos de testes (Card 1987). 50\% a 80\% das declarações ``if'' simples deveriam ter tido um ``else'' cláusula (Elshoff, 1976). Poucas pessoas podem entender mais de 3 ou 4 níveis de ifs aninhados (Yourdon 1986; Ledgard \& Tauer, 1987). A complexidade do fluxo de controle tem sido correlacionada com baixa confiabilidade e erros freqüentes (McCabe 1976, Shen et al., 1985, Ward, 1989).
+
+
+
+\subsection{Manutenibilidade}
 
 % É comum no dia a dia de desenvolvimento de software ouvirmos o termo \textit{boas práticas} como uma generalização para se referir a termos como por exemplo: padrões de projetos, anti-padrões e \emph{maus cheiros de código} que encapsulam ideias sobre como criar códigos com \emph{mais qualidade}. Apesar dessa comum generalização, cada um desses termos possui um significado distinto. 
 
 % Para melhor entendimento sobre o contexto desta pesquisa, nesta seção apresentamos a definição dos principais termos que se confundem: boas práticas, padrões de projeto, anti-padrões e maus cheiros de código. Ao final, concluímos com uma reflexão das semelhanças e diferenças entre eles.
 
-\section{Boas Práticas de Software}
+\section{\textsc{Boas Práticas de Software}}
 
 % Segundo o dicionário Aurélio \cite{AurelioPratica}, \textit{prática} significa ``maneira habitual de proceder''. O termo não é restrito a uma área do conhecimento, e a depender da área em que é usado, englobará um conjunto diferente de maneiras habituais. 
 
@@ -56,7 +65,7 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
   O termo se popularizou 3 anos após, em 1998 com o livro Antipatterns. Uma importante informação que este livro agrega é como diferenciar um anti-padrão de um mal hábito, má prática ou ideia ruim. Para isso o livro cita que um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
 
 
-\section{Maus Cheiros de Código}
+\section{\textsc{Maus Cheiros de Código}}
 
   \epigraph{``Se cheirar mau, troque-o."}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
 
