@@ -3,6 +3,8 @@
 
 Qualidade de software é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais (o quanto o software atende as necessidades de negócio) ou estruturais (o quão bem o software funciona). Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
 
+Existem diversas definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), qualidade é ``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. Ao longo do tempo a teoria de qualidade de software foi evoluindo, resultando inclusive na criação dos padrões ISO/EIC 9126 e ISO/IEC 25000. Uma importante contribuição foi a divisão do conceito de qualidade em subconceitos, no caso de software, inicialmente proposto por McCall, Richards e Walters[3]. \todo{ajustas refs https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#cite\_ref-6}
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
@@ -14,15 +16,74 @@ Qualidade de software é uma área do conhecimento da engenharia de software que t
 
 A principal definição sobre \emph{qualidade de software} é derivada das normas ISO/EIC 9126-1 e ISO/IEC 25010 que diz que qualidade \emph{é a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas}. Estas normas subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, a Figura \ref{fig:QualityCharacteristics} apresenta os seis conceitos e seus sub-conceitos. Esta pesquisa está inserida no contexto de \emph{manutenabilidade}, que discutiremos na seção \todo{qndo tiver colocar aqui}, que engloba ideias como \emph{analisabilidade}, quão fácil é para nós localizar os elementos que queremos melhorar ou corrigir e \emph{alterabilidade}, quanto trabalho precisamos fazer para implementar uma modificação \cite{CodeQuality:06}. 
 
-Existem diversas definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), qualidade é ``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. Ao longo do tempo a teoria de qualidade de software foi evoluindo, resultando inclusive na criação dos padrões ISO/EIC 9126 e ISO/IEC 25000. Uma importante contribuição foi a divisão do conceito de qualidade em subconceitos, no caso de software, inicialmente proposto por McCall, Richards e Walters[3]. \todo{ajustas refs https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#cite\_ref-6}
+
+\subsection{Funcionalidade} 
+
+A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
+\begin{itemize}
+  \item \emph{Adequação}, que mede o quanto o conjunto de funcionalidades é adequado às necessidades do usuário;
+  \item \emph{Acurácia} (ou precisão) representa a capacidade do software de fornecer resultados precisos ou com a precisão dentro do que foi acordado/solicitado;
+  \item \emph{Interoperabilidade} que trata da maneira como o software interage com outro(s) sistema(s) especificados;
+  \item \emph{Segurança} mede a capacidade do sistema de proteger as informações do usuário e fornecê-las apenas (e sempre) às pessoas autorizadas. Segurança também pode estar dirigida em, processar gerar e armazenar as informações;
+  \item \emph{Conformidade} trata da padronização, políticas e normas de um projeto.
+\end{itemize}
+
+\subsection{Confiabilidade}   
+
+O produto se mantém no nível de desempenho nas condições estabelecidas. Seus sub-conceitos são: 
+\begin{itemize}
+  \item \emph{Maturidade}, entendida como sendo a capacidade do software em evitar falhas decorrentes de defeitos no software;
+  \item \emph{Tolerância a Falhas} representando a capacidade do software em manter o funcionamento adequado mesmo quando ocorrem defeitos nele ou nas suas interfaces externas;
+  \item \emph{Recuperabilidade} que foca na capacidade de um software se recuperar após uma falha, restabelecendo seus níveis de desempenho e recuperando os seus dados;
+  \item \emph{Conformidade} tempo ou utilização de recursos.
+\end{itemize}
+
+\subsection{Usabilidade}   
+
+A capacidade do produto de software ser compreendido, seu funcionamento aprendido, ser operado e ser atraente ao usuário. Seus sub-conceitos são:
+\begin{itemize}
+  \item \emph{Inteligibilidade} que representa a facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas;
+  \item \emph{Apreensibilidade} identifica a facilidade de aprendizado do sistema para os seus potenciais usuários;
+  \item \emph{Operacionalidade} é como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação;
+  \item \emph{Proteção frente a erros de usuários} como produto consegue prevenir erros dos usuários;
+  \item \emph{Atratividade} envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica;
+  \item \emph{Acessibilidade} refere-se a prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades;  
+\end{itemize}
+
+\subsection{Eficiência}   
+
+O tempo de execução e os recursos envolvidos são compatíveis com o nível de desempenho do software. Seus sub-conceitos são:
+\begin{itemize}
+  \item \emph{Comportamento em Relação ao Tempo} que avalia se os tempos de resposta (ou de processamento) estão dentro das especificações;
+  \item \emph{Utilização de Recursos} que mede tanto os recursos consumidos quanto a capacidade do sistema em utilizar os recursos disponíveis;
+\end{itemize}
+
+\subsection{Manutenibilidade}   
+
+A capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
+\begin{itemize}
+  \item \emph{Analisabilidade} identifica a facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas;
+  \item \emph{Modificabilidade} caracteriza a facilidade com que o comportamento do software pode ser modificado;
+  \item \emph{Estabilidade} avalia a capacidade do software de evitar efeitos colaterais decorrentes de modificações introduzidas;
+  \item \emph{Testabilidade} representa a capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação;
+\end{itemize}
+
+\subsection{Portabilidade}   
+
+A capacidade do sistema ser transferido de um ambiente para outro. Seus sub-conceitos são: 
+\begin{itemize}
+  \item \emph{Adaptabilidade}, representando a capacidade do software se adaptar a diferentes ambientes sem a necessidade de ações adicionais (configurações); 
+  \item \emph{Instalabilidade} identifica a facilidade com que pode se instalar o sistema em um novo ambiente; 
+  \item \emph{Coexistência} mede o quão facilmente um software convive com outros instalados no mesmo ambiente; 
+  \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade; \\
+\end{itemize}
+
+
 
 Muito embora tenha-se provado que investir em qualidade pode reduzir os custos de um projeto \todo{refs?}, aumentar a satisfação dos usuários e desenvolvedores \todo{refs??}, qualidade de software costuma ser esquecido ou deixado em segundo plano \todo{refs?}. Quem nunca ouviu a frase ``depois eu testo'', ou ``depois eu refatoro'' no dia a dia? Manutenibilidade está relacionada as \emph{necessidades implícitas} do software mencionada na definição de qualidade das normas ISO/EIC 9126 e ISO/IEC 25010 e que aparecem nas outras definições de outras maneiras. Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de software vem sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo os padrões de projeto do GoF veem com o objetivo de documentar \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Anti-padrões são padrões antes recomendados que passaram a ser evitados pois percebeu-se que os problemas em usá-los superavam os benefícios \todo{referencia aqui do livro anti-patterns}, um dos maiores exemplos de anti-padrão é o \textit{Singleton} \todo{breve desc aqui}. \emph{Maus cheiros de código} que trataremos melhor na seção \todo{colocar seção aqui}, apontam sintomas que podem indicar um problema mais profundo no software. É interessante notar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software}. 
 
 % citações diretas sobre vários autores com relação a importância de qualidade
-Os erros de construção detectados no teste do sistema custam 10 vezes mais para consertar do que na fase de construção. Os erros de construção detectados postrelease custaram 10-25 vezes mais para consertar do que na fase de construção (Fagan 1976; Dunn 1984; Boehm \& Turner 2004, Shull et al., 2002). O Laboratório de Engenharia de Software da NASA descobriu que a leitura de código detectou 3,3 defeitos por hora de esforço: o teste detectou cerca de 1,8 erros por hora. A leitura do código encontrou 20 a 60\% mais erros durante a vida do projeto do que os vários tipos de testes (Card 1987). 50\% a 80\% das declarações ``if'' simples deveriam ter tido um ``else'' cláusula (Elshoff, 1976). Poucas pessoas podem entender mais de 3 ou 4 níveis de ifs aninhados (Yourdon 1986; Ledgard \& Tauer, 1987). A complexidade do fluxo de controle tem sido correlacionada com baixa confiabilidade e erros freqüentes (McCabe 1976, Shen et al., 1985, Ward, 1989). A remoção de defeitos de software é o mais caro e demorado forma de trabalho para software (Jones 2000). \todo{http://www.ifsq.org/resources/level-2/booklet.pdf}
-
-
-\subsection{Manutenibilidade}
+A importância de qualidade de software tem se reforçado ano após anos e podemos ver isso em resultados de pesquisas e no dia a dia quando enfrentamos problemas relativos a ela. Os erros de construção detectados no teste do sistema custam 10 vezes mais para consertar do que na fase de construção. Os erros de construção detectados postrelease custaram 10-25 vezes mais para consertar do que na fase de construção (Fagan 1976; Dunn 1984; Boehm \& Turner 2004, Shull et al., 2002). O Laboratório de Engenharia de Software da NASA descobriu que a leitura de código detectou 3,3 defeitos por hora de esforço: o teste detectou cerca de 1,8 erros por hora. A leitura do código encontrou 20 a 60\% mais erros durante a vida do projeto do que os vários tipos de testes (Card 1987). 50\% a 80\% das declarações ``if'' simples deveriam ter tido um ``else'' cláusula (Elshoff, 1976). Poucas pessoas podem entender mais de 3 ou 4 níveis de ifs aninhados (Yourdon 1986; Ledgard \& Tauer, 1987). A complexidade do fluxo de controle tem sido correlacionada com baixa confiabilidade e erros freqüentes (McCabe 1976, Shen et al., 1985, Ward, 1989). A remoção de defeitos de software é o mais caro e demorado forma de trabalho para software (Jones 2000). \todo{http://www.ifsq.org/resources/level-2/booklet.pdf}
 
 % É comum no dia a dia de desenvolvimento de software ouvirmos o termo \textit{boas práticas} como uma generalização para se referir a termos como por exemplo: padrões de projetos, anti-padrões e \emph{maus cheiros de código} que encapsulam ideias sobre como criar códigos com \emph{mais qualidade}. Apesar dessa comum generalização, cada um desses termos possui um significado distinto. 
 
