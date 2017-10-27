@@ -2,14 +2,6 @@
 
 Este trabalho trata-se de uma pesquisa descritiva e exploratória. Descritiva porque, este tipo de pesquisa visa observar, analisar, registrar e correlacionar os fatos ou fenômenos sem manipulá-los [?] e exploratória porque são abstraídas práticas recorrentes objetivando descrever sua natureza na forma maus de cheiros de código [?].
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=.8\textwidth]{mobile-os-growth.png}
-  \caption{Participação de mercado do sistema operacional móvel global nas vendas para usuários finais do 1º trimestre de 2009 para o 1º trimestre de 2017.}
-  \label{fig:MobileMarketShare09-17}
-\end{figure}
-
-
 % Segundo Strauss e Corbin \cite{Strauss2007}, há muitos motivos válidos para se fazer pesquisa qualitativa, dentre eles a natureza do problema de pesquisa e para obter mais informações sobre áreas cujo ainda se sabe pouco, como é o caso de cheiros de código Android. Muitas vezes, a pesquisa qualitativa, constitui-se na primeira etapa de uma investigação mais ampla na qual se busca o entendimento de um assunto específico por meio de descrições, comparações e interpretações dos dados \cite{Prikladnicki, Prates2015}. Algumas características básicas da pesquisa qualitativa, como \textit{a)} o foco na interpretação que os participantes possuem quanto à situação investigada e \textit{b)} o fato de enfatizar a subjetividade e a flexibilidade, orientando-se para o processo e não para o resultado, justificam seu uso nesta pesquisa \cite{Prates2015, King1994}.
 
 % Além disso, na análise dos dados coletados, não há preocupação em comprovar hipóteses previamente estabelecidas. Algumas características básicas da pesquisa qualitativa, como \textit{a)} o fato de não apresentar foco na quantificação, apresentando-se centrada na interpretação que os participantes possuem quanto à situação investigada e \textit{b)} o fato de enfatizar a subjetividade e a flexibilidade no processo de condução da pesquisa, orientando-se para o processo e não para o resultado, justificam seu uso neste artigo \cite{Prates2015, King1994}.
@@ -31,6 +23,16 @@ Partimos da premissa de que existem maus cheiros de código específicos ao \texti
 \section{Método de Pesquisa}
 
 Esta pesquisa foi divida em três etapas conforme apresentado na Figura X.X. Para obtermos os dados iniciais, na primeira etapa buscamos entender o que desenvolvedores Android consideram boas e más práticas ao desenvolver aplicativos Android. Estes dados foram obtidos através de um questionário online respondido por 45 desenvolvedores. A partir desses dados pudemos derivar 25 possíveis maus cheiros de código Android. Apresentamos na Seção X.X.X os detalhes desta etapa. 
+
+%  Colocar isso na seção específica ou aqui mesmo
+%  pois como mencionado na Seção X.X [ref teórico], maus cheiros de código bem como outras boas práticas de software são derivações de conhecimento empírico
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.9\textwidth]{etapas-da-pesquisa-maus-cheiros.png}
+  \caption{Etapas da pesquisa.}
+  \label{fig:ResearchPhases}
+\end{figure}
 
 Na segunda etapa, buscamos responder a \emph{QP1 - Quais maus cheiros são vistos com mais frequência?} e \emph{QP2 - Quais maus cheiros são considerados mais importantes?}. Fizemos isso a partir de outro questionário online respondido por 195 desenvolvedores Android. Nessa etapa 4 dos maus cheiros inicialmente derivados foram removidos, visto que não eram considerados importantes para os desenvolvedores, restando 21. Apresentamos os detalhes desta etapa na Seção X.X.X. 
 
@@ -180,7 +182,7 @@ Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em divid
 
 Ao final da análise constavam 389 respostas individualmente categorizadas sobre boas e más práticas. A partir dessas respostas derivamos 23 más práticas no \textit{front-end} Android agrupadas por recorrência: alta (acima de 20 respostas), média (de 8 a 20 respostas) e baixa (de 3 a 7 respostas).
 
-\subsection{Etapa 2 - Percepção e importância dos maus cheiros}
+\subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 
 Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores sobre as más práticas derivadas. Como primeiro passo, focamos nas más práticas que apresentaram alta recorrência. As opiniões foram coletadas através de um estudo online (\textit{S2}) respondido por 20 desenvolvedores Android. Nossas análises demonstram que de fato, códigos afetados pelas más práticas são percebidos pelos desenvolvedores como códigos problemáticos.
 
@@ -240,4 +242,15 @@ Para o grupo de más práticas que afetam código Java, analisamos a percepção dos 
 % não tenho certeza se deveria estar <= a 0,05 ou como estava, = 0,05
 Para comparar as distribuições da severidade indicada pelos participantes, utilizamos o teste de Mann-Whitney não pareado \cite{Conover1999} para analisar a significância estatística das diferenças entre a severidade atribuída pelos participantes aos problemas que observam em códigos Android cheirosos e códigos limpos. Os resultados são considerados estatisticamente significativos em $\alpha$ $\leq{=}$ 0,05. Também estimamos a magnitude das diferenças medidas usando o Delta de Cliff (ou d), uma medida de tamanho do efeito não paramétrico \cite{GrissomKim2005} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito: insignificante para | d | $<$ 0,14, baixo para 0,14 $\leq$ | d | $<$ 0,33, médio para 0,33 $\leq$ | d | $<$ 0,474, e alto para | d | $\geq$ 0,474 [49]. Finalmente, relatamos achados qualitativos derivados das respostas abertas dos participantes.
 
+\subsection{Etapa 3 - Percepção dos maus cheiros}
+
+\subsubsection{Experimento}
+
+\subsubsection{Participantes}
+
+\subsubsection{Análise dos Dados}
+
+\section{Processo de Escrita dos Maus Cheiros}
+
+\subsection{Classificação dos Maus Cheiros}
 
