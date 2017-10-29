@@ -26,9 +26,7 @@ Muitas pesquisas têm sido realizadas sobre a plataforma Android, muitas delas fo
 
   \subsection{Removing Energy Code Smells with Reengineering Services}
 
-    Gottschalk e Jelschen \cite{EnergyAndroidSmells} explicam como tentam melhorar o uso de energia de aplicações móveis, procurando por desperdício de energia, padrões esses que eles denominam de cheiro de código sobre energia (textit{quality code smell}). Os autores produzem um catálogo com um total de 6 cheiros de códigos de energia e salientam que os mesmos são \textit{cross-platform}, ou seja, independente de plataforma móvel. Entretanto, um código Android é dado no exemplo. Cada cheiro de código de energia catalogado tem uma descrição, instruções de como detectar e reestruturar. Reimann et al. \cite{ReimannBrylski2013} também trata sobre cheiros de qualidade e relacionados 20 que impactam no consumo inteligente de recursos de hardware do dispositivo como eficiencia no uso de energia, processamento e memória.
-
-    Gottschalk et al \cite{RemovingEnergySmells:12} conduziram um estudo sobre formas de detectar e refatorar cheiros de código relacionados ao uso eficiente de energia. Os autores compilaram um catálogo com 8 cheiros de código e trabalharam sob um trecho de código Android para exemplificar um deles, o binding resource too early, quando algum recurso é alocado muito antes de precisar ser utilizado. Essaq pesquisa é relacionada à nossa por ambas considerarem a tecnologia Android e se diferenciam pois focamos na busca por cheiros de código relacionados a qualidade de código, no sentido de legibilidade e manutenablidade.
+    Gottschalk et al \cite{RemovingEnergySmells:12} conduziram um estudo sobre formas de detectar e refatorar cheiros de código relacionados ao uso eficiente de energia. Os autores compilaram um catálogo com 6 cheiros de código extraído de outros trabalhos, e trabalharam sob um trecho de código Android para exemplificar um deles, o \textit{Carregar Recurso Muito Cedo}, quando algum recurso é alocado muito antes de precisar ser utilizado. Essa pesquisa é relacionada à nossa por ambas considerarem a tecnologia Android e se diferenciam pois focamos na busca por maus cheiros de código relacionados manutenibilidade enquanto eles tratam de eficiência, conforme conceitos de qualidade de software apresentados da Seção 2.2.
 
   \subsection{A Tool-Supported Quality Smell Catalogue For Android Developers - Reimann et al.}
 
@@ -40,8 +38,7 @@ Muitas pesquisas têm sido realizadas sobre a plataforma Android, muitas delas fo
 
     Reimann et al. \cite{ReimannBrylski2013} cita que o problema no desenvolvimento móvel é que os desenvolvedores estão cientes de cheiros de qualidade apenas indiretamente porque suas definições são informais (melhores práticas, problemas de rastreamento de bugs, discussões de fórum etc.) e os recursos onde encontrá-los são distribuídos pela web e que é difícil coletar e analisar todas essas fontes sob um ponto de vista comum e fornecer suporte de ferramentas para desenvolvedores. 
 
-
-
+    Derivou os 30 maus cheiros de boas e más práticas documentadas online na documentação do Android e de postagens em blogs de desenvolvedores que reportaram suas experiências. (segundo o paper de Geoffrey Hetch - abaixo)
 
 
 
@@ -71,17 +68,23 @@ Muitas pesquisas têm sido realizadas sobre a plataforma Android, muitas delas fo
 
     Outra conclusão interessante é que o artigo diz que maus cheiros específicos Android são muito mais frequentes do que os maus cheiros tradicionais, o que reafirma a necessidade de pesquisar se há outros maus cheiros específicos, que tendem também a ser mais frequentes.
 
-  \subsection{Detecting antipatterns in Android apps - Geoffrey Hetch}
-    ???
+  % \subsection{Detecting antipatterns in Android apps - Geoffrey Hetch}
+  %   ???
 
+  % \subsection{Domain Matters: Bringing Further Evidence of the Relationships among Anti-patterns, Application Domains, and Quality-Related Metrics in Java Mobile Apps - Linares-Vásquez et al.}
+
+    % Linares-Vásquez et al. \cite{DomainMatters} usou a ferramenta DECOR para realizar a detecção de 18 diferentes \textit{anti-patterns} orientado a objetos em aplicativos móveis desenvolvidos com Java Mobile Edition (J2ME). Este estudo em larga escala mostra que a presença de antipatterns afeta negativamente as métricas de qualidade do software, em particular as métricas relacionadas à falha.
+
+
+\section{Apps Android vs. Software Tradicional}
 
   \subsection{Software analytics for mobile applications, insights \& lessons learned - Minelli e Lanza}
 
-    Minelli e Lanza \cite{Mantyla2013} realizam sua análise com uma ferramenta desenvolvida por ele chamada Samoa. Samoa é descrita como uma plataforma de análise de software baseada na web para analisar aplicações móveis de uma perspectiva estrutural e histórica. Ele mostra uma série de métricas de software para as aplicações que analisa e apresenta as métricas usando diferentes tipos de gráficos. As métricas utilizadas incluem o número de pacotes, o número de classes, o número de métodos, o número de chamadas internas, o número de chamadas externas, o número de elementos principais, dentre outras. Minelli e Lanza \cite{Mantyla2013} acreditam que no futuro, aplicações móveis poderão enfrentar os mesmos problemas que aplicações tradicionais.
+    Os autores apresentam diferenças no desenvolvimento de apps e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução. Para isso se utilizam da ferramenta SAMOA de análise estática de código desenvolvida por eles.
 
-  \subsection{Domain Matters: Bringing Further Evidence of the Relationships among Anti-patterns, Application Domains, and Quality-Related Metrics in Java Mobile Apps - Linares-Vásquez et al.}
+    É interessante que para análise do código Android eles também modelam o projeto em código core e não core, onde o código core está relacionado a classes que herdam do Android SDK, apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando Activities e Services, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
 
-    Linares-Vásquez et al. \cite{DomainMatters} usou a ferramenta DECOR para realizar a detecção de 18 diferentes \textit{anti-patterns} orientado a objetos em aplicativos móveis desenvolvidos com Java Mobile Edition (J2ME). Este estudo em larga escala mostra que a presença de antipatterns afeta negativamente as métricas de qualidade do software, em particular as métricas relacionadas à falha.
+    Concluem com um conjunto de características de apps e com um conjunto de hábitos dos desenvolvedores destes apps que diferem de aplicações de software tradicionais. Dentre as características, afirmam que algumas vezes core code do app é composto por uma, ou algumas, God Classes. E que herança é algo quase inexistente em apps Android. O que reforça nossa identificação de falta de arquitetura padrão, visto que esta exige um conhecimento mais aprimorado de orientação a objetos que inclui herança.
 
 
 
