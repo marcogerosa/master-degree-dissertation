@@ -137,7 +137,7 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é \emph{algo que serve como modelo, um exemplo para os outros seguirem} [2]. Padrões não são invenção de algo novo, é uma forma de organizar o conhecimento de experiências [1].
 
-  Em engenharia de software, a principal definição sobre \emph{padrões} foi cunhada no livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) [50] onde ele define um \emph{padrão} como sendo uma regra de \emph{três partes} que expressa a \emph{relação} entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Martin Fowler apresenta uma definição mais simples que diz que \emph{um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros} [9]. 
+  Para engenharia de software, a principal definição sobre \emph{padrões} provém do livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) [50] onde ele define um \emph{padrão} como sendo uma regra de \emph{três partes} que expressa a \emph{relação} entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Martin Fowler apresenta uma definição mais simples que diz que \emph{um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros} [9]. 
 
   % A seguir, apresentamos a citação original completa:
 
@@ -145,18 +145,20 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
   %   Cada padrão descreve um \emph{problema} no nosso \emph{ambiente} e o cerne de sua \emph{solução}, de tal forma que você possa usar essa solução mais de um milhão de vezes, sem nunca fazê-lo da mesma maneira. --- Christopher Alexander, Uma Linguagem de Padrões [50]
   % \end{quote}
 
-  Inspirados por Alexander [50], Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. E, apoiando-se na definição de padrões de Alexander, Design Pattern - GoF (1994) foi o primeiro livro sobre padrões de software a ser lançado. Documentando X padrões. 
+  Inspirados por Alexander [50], Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. E, apoiando-se na definição de padrões de Alexander, Design Pattern - GoF (1994) foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando X padrões. 
 
-  Logo, temos que padrões são modelos a serem seguidos visto que já...
+  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada aspecto como problema, contexto ou solução será encontrado. Alguns formatos incluem uma série de outros elementos além destes três bases de todos padrão. Ao longo dos anos, alguns formatos foram se destacando, a Figura X.X mostra alguns principais formatos de padrões. 
 
   % Em seguida, Padrões de Software: Contos da Comunidade de Software (1996) 
 
 
 \subsection{Anti-Padrões}
 
-  Um anti-padrão é uma resposta comum a um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995, inspirado pelo livro GoF. 
+  Um anti-padrão é uma resposta comum a um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995, inspirado pelo livro GoF [??]. 
 
-  O termo se popularizou 3 anos após, em 1998 com o livro Antipatterns. Uma importante informação que este livro agrega é como diferenciar um anti-padrão de um mal hábito, má prática ou ideia ruim. Para isso o livro cita que um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+  O termo se popularizou 3 anos após, em 1998 com o livro Antipatterns [?]. Segundo o livro, para diferenciar um anti-padrão de um mal hábito, má prática ou ideia ruim um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+
+  É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código pois ambos tratam de práticas que influenciam negativamente a manutenibilidade do software. O equívoco ocorre pois, primeiro para se tornar um anti-padrão em algum momento o mesmo deve ter sido considerado um padrão, e segundo, deve-se apresentar os dois elementos mencionados no livro Antippaterns. Muitos dos trabalhos relacionados a esta pesquisa cometeram este equívoco.
 
 
 \section{Maus Cheiros de Código}

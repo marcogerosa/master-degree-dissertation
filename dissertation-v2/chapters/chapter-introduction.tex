@@ -17,7 +17,7 @@ Dentre os estudos já realizados sobre qualidade de código Android, podemos encon
 
 Estudos que buscaram relacionar de alguma forma maus cheiros tradicionais em projetos Android são, por exemplo, o estudo de Linares et al. \cite{DomainMatters} onde se utilizam do método DECOR para detectar 18 \textit{anti-patterns} tradicionais em aplicativos móveis. Verloop \cite{MobileSmells:13} analisou se classes derivadas do SDK Android, conjunto de clases base para o desenvolvimento Android, são mais ou menos propensas a apresentar os maus cheiros tradicionais do que classes puramente Java, ou seja, que não precisam herdar de nenhuma classe do SDK Android. Estudos que buscaram por maus cheiros específicos ao contexto Android são, por exemplo, de Fulano \todo{arrumar} \cite{RemovingEnergySmells:12, ReimannBrylski2013} que identificaram cheiros de código específicos Android relacionados ao consumo inteligente de recursos do dispositivo, como bateria e memória, usabilidade, dentre outros. 
 
-Aniche et al. \cite{MvcSmells:16,aniche2016satt} apontam a relevância de se estudar qualidade de código em tecnologias específicas ao concluir que a arquitetura do software é um fator importante e que deve ser levado em conta ao analisar a qualidade de um sistema. Notamos também que o desenvolvimento do \textit{front-end} de aplicações constuma apresentar diferenças com relação ao \textit{back-end}. Por exemplo, encontamos maus cheiros específicos a tecnologias de \textit{front-end} web como CSS \cite{CSSCodeSmell}, Javascript \cite{BB} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
+Aniche et al. \cite{MvcSmells:16,aniche2016satt} apontam a relevância de se estudar qualidade de código em tecnologias específicas ao concluir que a arquitetura do software é um fator importante e que deve ser levado em conta ao analisar a qualidade de um sistema. Notamos também que o desenvolvimento do \textit{front-end} de aplicações constuma apresentar diferenças com relação ao \textit{back-end}. Por exemplo, encontamos maus cheiros específicos a tecnologias de \textit{front-end} web como CSS \cite{CSSCodeSmell}, Javascript \cite{JavascriptSmells} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
 
 \section{Motivação}
 
@@ -73,12 +73,12 @@ Nossa pesquisa complementa as anteriores no sentido de que também buscamos por c
 As seções seguintes deste artigo estão organizadas da seguinte forma: a Seção \ref{metodologia} aborda a metodologia de pesquisa. A Seção \ref{resultados} apresenta o catálogo de más práticas a percepção de desenvovledores sobre as quatro mais recorrêntes. A Seção \ref{ameacas} aborda as ameaças à validade do estudo. A Seção \ref{relacionados} discute os trabalhos relacionados e o estado da arte sobre Android e cheiros de código. E por fim, a Seção \ref{conclusao} conclui.
 
 
-% Para limitar nosso objeto de estudo, optamos por focar em cheiros de código relacionados ao \textit{front-end} Android pois encontramos pesquisas com abordagem similar, porém relacionadas ao \textit{front-end} de tecnologias web, como CSS \cite{CSSCodeSmell}, Javascript \cite{BB} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
+% Para limitar nosso objeto de estudo, optamos por focar em cheiros de código relacionados ao \textit{front-end} Android pois encontramos pesquisas com abordagem similar, porém relacionadas ao \textit{front-end} de tecnologias web, como CSS \cite{CSSCodeSmell}, Javascript \cite{JavascriptSmells} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
 
 % \section{Objetivos}
 
 
-% Para limitar nosso objeto de estudo, optamos por focar em cheiros de código relacionados ao \textit{front-end} Android pois encontramos pesquisas com abordagem similar, porém relacionadas ao \textit{front-end} de tecnologias web, como CSS \cite{CSSCodeSmell}, Javascript \cite{BB} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
+% Para limitar nosso objeto de estudo, optamos por focar em cheiros de código relacionados ao \textit{front-end} Android pois encontramos pesquisas com abordagem similar, porém relacionadas ao \textit{front-end} de tecnologias web, como CSS \cite{CSSCodeSmell}, Javascript \cite{JavascriptSmells} e o arcabouço Spring MVC \cite{FinavaroAniche2016}. 
 
 % E enquanto que cheiros de código em projetos Java já foram extensivamente estudados \cite{Riel:96, Refactoring:99, CleanCode:08}, o \textit{front-end} Android ainda carece de estudo e possui peculiaridades não encontradas em código Java tradicional \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed}. Alguns exemplos dessas peculiaridas são o ciclo de vida de \textsc{Activities} e \textsc{Fragments} e a criação da interface visual que é feita através de arquivos XML chamados de \textsc{layout resources}.
 
