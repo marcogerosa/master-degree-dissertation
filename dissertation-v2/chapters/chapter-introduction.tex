@@ -28,7 +28,21 @@ Android é uma tecnologia que pode se considerar nova, irá completar 10 anos em 2
 Somado a isso, pesquisas recentes tem descoberto que tecnologias e plataformas diferentes podem apresentar maus cheiros específicos. Ou seja, apesar de já existirem diversos maus cheiros tradicionais, costumeiramente baseados em linguagens orientadas a objetos, que também podem servir a aplicações Android, pode ser que aplicações Android tenham também maus cheiros relacionados a manutenibilidade específicos a ela. 
 
 
-\section{Objetivo}
+\section{Questões de Pesquisa}
+% Abordagem de Solução pq abordou dessa forma? Está tentando responder quais perguntas?
+
+Para extrair as ideias iniciais da pesquisa aplicamos um questionário online onde perguntávamos para desenvolvedores Android sobre boas e más práticas utilizadas no dia a dia. Obtivemos 45 respostas e pudemos extrair 50 boas e más práticas que resultaram em 25 maus cheiros de código Android.
+
+Validamos através de um segundo questionário online a percepção de 192 desenvolvedores sobre os 25 maus cheiros identificados questionando-os se percebiam as situações dos maus cheiros no seu dia a dia e se consideram importante mitigar estas situações em seus códigos. Após este questionário, eliminamos X maus cheiros pois os mesmos não se demonstraram importantes aos desenvolvedores e restaram XX.
+
+Para entendermos a percepção dos XX maus cheiros de código, fizemos 3 rodadas de um experimento com 75 desenvolvedores onde os mesmos eram expostos a códigos limpos, códigos afetados pelos maus cheiros identificados e códigos afetados por maus cheiros tradicionais. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
+
+Por fim, catalogamos XX maus cheiros Android relacionados a manutenibilidade extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento totalizando a participação de mais de 300 desenvolvedores Android.
+
+
+\section{Contribuições}
+% Objetivo
+
 % Nossa hipótese de pesquisa é que existem maus cheiros de código específicos ao Android. Nossa pesquisa complementa as anteriores no sentido de que também buscamos por maus cheiros Android. E se difere delas pois buscamos maus cheiros relacionados à qualidade de código. Por exemplo \textsc{Activities}, \textsc{Fragments} e \textsc{Adapters} são classes usadas na construção de telas e \textsc{listeners} são responsáveis pelas interações com os usuários. Buscamos entender então quais são as \emph{boas e más} práticas no desenvolvimento da interface visual de aplicativos Android. 
 
 Esta pesquisa tem por objetivo identificar e documentar maus cheiros de código específicos a plataforma móvel Android a fim de servir como mais uma ferramenta para desenvolvedores Android que buscam aumentar a qualidade de seus códigos nessa plataforma pois aqui estará documentado o conhecimento empírico de diversos desenvolvedores Android experientes.
@@ -42,17 +56,6 @@ Desta forma, as contribuições deste trabalho são:
 
   \item Apêndice online~\cite{apendice} com informações detalhadas dos roteiros dos questionários e outras da pesquisa para que outros pesquisadores possam replicar nosso estudo.
 \end{enumerate}
-
-
-\section{Abordagem de Solução}
-Para extrair as ideias iniciais da pesquisa aplicamos um questionário online onde perguntávamos para desenvolvedores Android sobre boas e más práticas utilizadas no dia a dia. Obtivemos 45 respostas e pudemos extrair 50 boas e más práticas que resultaram em 25 maus cheiros de código Android.
-
-Validamos através de um segundo questionário online a percepção de 192 desenvolvedores sobre os 25 maus cheiros identificados questionando-os se percebiam as situações dos maus cheiros no seu dia a dia e se consideram importante mitigar estas situações em seus códigos. Após este questionário, eliminamos X maus cheiros pois os mesmos não se demonstraram importantes aos desenvolvedores e restaram XX.
-
-Para entendermos a percepção dos XX maus cheiros de código, fizemos 3 rodadas de um experimento com 75 desenvolvedores onde os mesmos eram expostos a códigos limpos, códigos afetados pelos maus cheiros identificados e códigos afetados por maus cheiros tradicionais. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
-
-Por fim, catalogamos XX maus cheiros Android relacionados a manutenibilidade extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento totalizando a participação de mais de 300 desenvolvedores Android.
-
 
 \section{Originalidade e Relevância}
 
