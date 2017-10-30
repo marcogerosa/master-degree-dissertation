@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="433px" height="329px" viewBox="0 0 433 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>etapas-pesquisa</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="213 220 383.298996 220 362.370347 325 233.928649 325"></polygon>
+        <filter x="-2.3%" y="-1.9%" width="104.7%" height="107.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="169 0 427 0 406.071351 105 189.928649 105"></polygon>
+        <filter x="-1.6%" y="-1.9%" width="103.1%" height="107.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-5" points="190.925251 110 405.074749 110 384.1461 215 211.8539 215"></polygon>
+        <filter x="-1.9%" y="-1.9%" width="103.7%" height="107.6%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-7" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF7700">
+            <tspan x="26.356" y="24">Etapa 1</tspan>
+        </text>
+        <filter x="-7.8%" y="-10.5%" width="115.7%" height="142.1%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.263332201 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-9" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF7700">
+            <tspan x="26.356" y="129">Etapa 2</tspan>
+        </text>
+        <filter x="-7.8%" y="-10.5%" width="115.7%" height="142.1%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.263332201 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-11" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF7700">
+            <tspan x="26.356" y="242">Etapa 3</tspan>
+        </text>
+        <filter x="-7.8%" y="-10.5%" width="115.7%" height="142.1%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.263332201 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M1.5,16.5 L1.5,309.003846" id="path-13"></path>
+        <filter x="-166.7%" y="-1.0%" width="433.3%" height="103.4%" filterUnits="objectBoundingBox" id="filter-14">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M191.5,104.5 L25.5,104.5" id="path-15"></path>
+        <filter x="-2.7%" y="-83.3%" width="105.4%" height="400.0%" filterUnits="objectBoundingBox" id="filter-16">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M215,214.5 L25,214.5" id="path-17"></path>
+        <filter x="-2.4%" y="-125.0%" width="104.7%" height="550.0%" filterUnits="objectBoundingBox" id="filter-18">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M235.5,324.5 L24,324.5" id="path-19"></path>
+        <filter x="-2.1%" y="-125.0%" width="104.2%" height="550.0%" filterUnits="objectBoundingBox" id="filter-20">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A4" transform="translate(-55.000000, -171.000000)">
+            <g id="etapas-pesquisa" transform="translate(59.000000, 171.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#000000" stroke-width="1" d="M213.609496,220.5 L234.338824,324.5 L361.960172,324.5 L382.6895,220.5 L213.609496,220.5 Z"></path>
+                </g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill-opacity="0.206804801" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <path stroke="#000000" stroke-width="1" d="M169.609496,0.5 L190.338824,104.5 L405.661176,104.5 L426.390504,0.5 L169.609496,0.5 Z"></path>
+                </g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use fill-opacity="0.473477129" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    <path stroke="#000000" stroke-width="1" d="M191.534747,110.5 L212.264075,214.5 L383.735925,214.5 L404.465253,110.5 L191.534747,110.5 Z"></path>
+                </g>
+                <text id="Questionário-online" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#000000">
+                    <tspan x="189.143" y="21">Questionário online sobre boas e </tspan>
+                    <tspan x="257.295" y="40">más práticas</tspan>
+                </text>
+                <text id="O-que-desenvolvedore" font-family="Avenir-Book, Avenir" font-size="12" font-weight="normal" fill="#6E6E6E">
+                    <tspan x="26" y="47">O que desenvolvedores </tspan>
+                    <tspan x="26" y="63">consideram como boas e </tspan>
+                    <tspan x="26" y="79">más práticas?</tspan>
+                </text>
+                <text id="Os-maus-cheiros-são" font-family="Avenir-Book, Avenir" font-size="12" font-weight="normal" fill="#6E6E6E">
+                    <tspan x="26" y="151">Os maus cheiros são </tspan>
+                    <tspan x="26" y="167">percebidos em projetos? O </tspan>
+                    <tspan x="26" y="183">quão importante é mitigar </tspan>
+                    <tspan x="26" y="199">estes maus cheiros?</tspan>
+                </text>
+                <text id="Desenvolvedores-cons" font-family="Avenir-Book, Avenir" font-size="12" font-weight="normal" fill="#6E6E6E">
+                    <tspan x="26" y="265">Desenvolvedores </tspan>
+                    <tspan x="26" y="281">consideram códigos </tspan>
+                    <tspan x="26" y="297">afetados pelos maus cheiros </tspan>
+                    <tspan x="26" y="313">como sendo problemáticos?</tspan>
+                </text>
+                <text id="45-respondentes" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF0000">
+                    <tspan x="242" y="67">45 respondentes</tspan>
+                </text>
+                <text id="25-maus-cheiros-Andr" font-family="Impact" font-size="14" font-style="condensed" font-weight="700" fill="#004FFF">
+                    <tspan x="227.156738" y="93">25 maus cheiros Android</tspan>
+                </text>
+                <text id="22-maus-cheiros-Andr" font-family="Impact" font-size="14" font-style="condensed" font-weight="700" fill="#004FFF">
+                    <tspan x="227.399414" y="205">22 maus cheiros Android</tspan>
+                </text>
+                <text id="19-maus-cheiros-Andr" font-family="Impact" font-size="14" font-style="condensed" font-weight="700" fill="#004FFF">
+                    <tspan x="251.694336" y="301">19 maus cheiros </tspan>
+                    <tspan x="276.009766" y="318">Android</tspan>
+                </text>
+                <text id="75-participantes" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF0000">
+                    <tspan x="245" y="279">75 participantes</tspan>
+                </text>
+                <text id="196-respondentes" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#FF0000">
+                    <tspan x="238" y="177">196 respondentes</tspan>
+                </text>
+                <text id="Questionário-online" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#000000">
+                    <tspan x="207.133" y="130">Questionário online sobre a</tspan>
+                    <tspan x="216.576" y="149">importância e frequência</tspan>
+                </text>
+                <text id="Experimento-sobre-a" font-family="Avenir-Heavy, Avenir" font-size="14" font-weight="600" fill="#000000">
+                    <tspan x="229.568" y="237">Experimento sobre a </tspan>
+                    <tspan x="232.669" y="256">percepção dos devs</tspan>
+                </text>
+                <g id="Etapa-1" fill-opacity="1" fill="#FF7700">
+                    <use filter="url(#filter-8)" xlink:href="#text-7"></use>
+                    <use xlink:href="#text-7"></use>
+                </g>
+                <g id="Etapa-2" fill-opacity="1" fill="#FF7700">
+                    <use filter="url(#filter-10)" xlink:href="#text-9"></use>
+                    <use xlink:href="#text-9"></use>
+                </g>
+                <g id="Etapa-3" fill-opacity="1" fill="#FF7700">
+                    <use filter="url(#filter-12)" xlink:href="#text-11"></use>
+                    <use xlink:href="#text-11"></use>
+                </g>
+                <g id="Line" stroke-linecap="square">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
+                    <use stroke="#030303" stroke-width="2" fill="#000000" fill-rule="evenodd" xlink:href="#path-13"></use>
+                </g>
+                <path id="Line-decoration-1" d="M1.5,309.003846 L4.5,298.203846 L-1.5,298.203846 L1.5,309.003846 Z" stroke-linecap="square"></path>
+                <g id="Line-2" stroke-linecap="square">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>
+                    <use stroke="#000000" stroke-width="1" xlink:href="#path-15"></use>
+                </g>
+                <g id="Line-2" stroke-linecap="square">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-17"></use>
+                    <use stroke="#000000" stroke-width="1" xlink:href="#path-17"></use>
+                </g>
+                <g id="Line-2" stroke-linecap="square">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-20)" xlink:href="#path-19"></use>
+                    <use stroke="#000000" stroke-width="1" xlink:href="#path-19"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
