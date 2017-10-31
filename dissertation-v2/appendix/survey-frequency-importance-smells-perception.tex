@@ -1,0 +1,117 @@
+% -*- root: dissertation.tex -*-
+\chapter{Questionário sobre a percepção de frequência e importância dos maus cheiros por desenvolvedores Android}
+
+\begin{center}
+	\large
+	\textbf{Pesquisa sobre qualidade de código em projetos Android} \\
+\end{center}
+
+\noindent
+English version? Go to https://goo.gl/forms/MFJjCGidSbWXFIn83
+
+\noindent
+Olá! Meu nome é Suelen e sou estudante de mestrado em Ciência da Computação pelo Instituto de Matemática e Estatísticas da USP. 
+
+\noindent
+Estou pesquisando sobre qualidade de código Android e a seguir tenho algumas afirmações e gostaria que você, com base no seu conhecimento e experiência, me indicasse sua opinião.
+
+\noindent
+Desde já, muito obrigada pela sua contribuição! Certamente você está ajudando a termos códigos Android com mais qualidade no futuro!
+
+\noindent
+Um forte abraço!
+\noindent
+--
+\noindent
+Suelen Carvalho \\
+
+
+\textbf{Seção 1 - Primeiro precisamos saber um pouco sobre você e sua experiência com desenvolvimento de software.}
+
+\begin{enumerate}
+	\item Qual sua idade? (resposta aberta, apenas número)
+	
+	\item Em que região você mora atualmente? (Uma escolha entre a lista de estados do Brasil, Estados Unidos e Europa)
+	
+	\item Anos de experiência com desenvolvimento de software? (Uma escolha entre até 1 ano, 2 anos, 3 anos e assim sucessivamente até 10 anos ou mais)
+	
+	\item Anos de experiência com desenvolvimento Android nativo? (Uma escolha entre, não tenho experiência, até 1 ano, 2 anos, 3 anos e assim sucessivamente até 10 anos ou mais)
+
+	\item Informe seu nível de conhecimento nas tecnologias e plataformas a seguir. (Uma escolha para cada tecnologia apresentada detre as opções Não conheço, Iniciante, Intermediário, Avançado e Especialista). As tecnologias apresentadas foram: Java, Ruby, C/C++, Kotlin, Objective-C, Swift, Android, C\#, Ptyhon, PHP e Javascript.
+
+	\item Qual sua grau escolar? (Uma escolha entre Tecnólogo, Bacharelado, Mestrado, Doutorado e outro)
+\end{enumerate}
+
+\textbf{Seção 2 - Nos conte um pouco o que você costuma ver nos códigos que você desenvolve ou já desenvolveu (independente se no trabalho, acadêmico ou pessoal).}
+
+\noindent
+Indique com qual frequência você percebe as situações abaixo no seu dia a dia (Escala Likert Muito Frequente, Frequente, As Vezes, Raramente e Nunca).
+
+\begin{enumerate}
+	\item Activities, Fragments, Adapters ou Listeners com códigos de lógica de negócio, condicionais complexos ou conversão de dados.
+	
+	\item Fragments, Adapters ou Listeners com referência direta para quem os utiliza, como Activities ou outros Fragments.
+	\item Activities, Fragments ou Adapters com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.  
+	\item Activities, Fragments ou Adapters com classes internas implementando algum listener para responder a eventos do usuário como clique, duplo clique e outros.  
+	\item Activities, Fragments ou Adapters implementando algum listener, através de polimorfismo (implements), para responder a eventos do usuário como clique, duplo clique e outros.
+	\item Activities ou Fragments sendo usados como callbacks ao final de processos assíncronos, como por exemplo no onPostExecute de uma AsyncTask.
+	\item Transações de Fragments sendo efetivadas (FragmentTransaction\#commit) após o onPause de Activities.
+	\item Adapters que não se utilizam do padrão ViewHolder.
+	\item Fragments em apps que não são usados em tablets ou que não usam ViewPagers. Apps com Fragments que não são reutilizados em mais de uma tela do app.
+	\item Apps que não utilizam nenhum Fragment.
+	\item Activities, Fragments ou Adapters com códigos que fazem acesso a banco de dados, arquivos locais ou internet.
+	\item Objetos com ciclos de vida diferentes ao de Activities ou Fragments, referenciando-os diretamente, por exemplo, uma AsyncTask referenciar diretamente uma Activity ou Fragment.
+	\item Projetos que não usam nenhum padrão arquitetural como MVC, MVP, MVVM, Clean Architecture ou outros.
+	\item Adapters com muitas responsabilidades além de popular views, com condicionais complexos ou cálculos no método getView. 
+	\item Fragments aninhados uns aos outros. 
+	\item Códigos que sobrescrevem o comportamento do botão voltar do Android.
+	\item Projetos que contém Activities em pacotes com nomes que não são nem activity nem view.
+	\item Recursos de cor, tamanho ou texto sendo usados ``hard coded'', sem a criação de um novo recurso no arquivo de xml respectivo (colors.xml, dimens.xml ou strings.xml).
+	\item Projetos sem um padrão de nomenclatura para recursos de layout, texto, estilo ou gráficos (imagens e xmls gráficos).
+	\item Layouts com mais de 3 níveis de views aninhadas, por exemplo: um TextView dentro de um LinearLayout que está dentro de outro LinerarLayout.
+	\item Imagens (jpg, jpeg, png e gif) sendo usadas quando podiam ser substituídas por recursos gráficos do Android (xmls), como por exemplo, background de cores sólidas ou degradês.
+	\item Recursos de layout muito grandes.
+	\item Recursos de layout com trechos que se repetem, igual ou muito semelhantes, várias vezes ao longo do arquivo.
+	\item Projetos que possuem as imagens usadas em apenas uma resolução/densidade.
+	\item Projetos que possuem apenas um arquivo de estilo (styles.xml).
+	\item Projetos que possuem apenas um recurso de estilo (styles.xml) e este é muito grande.
+	\item Projetos que possuem apenas um arquivo de strings (strings.xml) e este é muito grande.
+	\item Arquivos de layout com alguns atributos de estilos repetidos em mais de uma view.
+	\item Arquivo de estilo com alguns atributos de estilos repetidos em mais de um estilo.
+	\item Usar uma mesma string em diferentes telas do aplicativo. 
+	\item Usar o atributo onClick ou outro similar, diretamente no xml de layout, para responder a eventos do usuário.
+\end{enumerate}
+
+
+\textbf{Seção 3 - Nos conte um pouco o que você considera importante no desenvolvimento Android.}
+
+\noindent
+Indique quão importante você considera as situações abaixo (Escala Likert Muito Importante, Importante, Razoavelmente Importante, Pouco Importante e Não é importante).
+
+\begin{enumerate}
+	\item Activities, Fragments, Adapters e Listeners não ter códigos de lógica de negócio, condicionais complexos ou conversão de dados.
+	\item Fragments, Adapters e Listeners não tenham referência direta à quem os utiliza.
+	\item Listeners devem ser implementados em suas próprias classes ao invés de implementá-los através de classes anônimas, classes internas ou polimorfismo (uso de implements) em Activities, Fragments ou Adapters.
+	\item Cuidado ao usar referências diretas a objetos com ciclo de vida como Activities ou Fragments, em objetos sem ciclo de vida ou com ciclo de vida diferente.
+	\item Usar o padrão ViewHolder em Adapters.
+	\item Evitar o uso de Fragments. Usar Fragments apenas se não houver outra alternativa.
+	\item Usar Fragments sempre que possível. Por exemplo, pelo menos um Fragment por Activity, etc.
+	\item Activities, Fragments e Adapters não terem códigos de acesso a banco de dados, acesso a arquivos locais ou internet.
+	\item Usar padrões arquiteturais como MVC, MVP, MVVM, Clean Architecture ou outros.
+	\item Adapters responsáveis apenas por popular a view, sem códigos de lógicas de negócio, cálculos ou conversões de dados/objetos.
+	\item Não aninhar Fragments, nem pela view, nem via código.
+	\item Não sobrescrever o comportamento do botão voltar do Android.
+	\item Activities em pacotes com nomes activity ou view.
+	\item Criar um recurso de tamanho, cor ou texto, em seu respectivo arquivo (dimens.xml, colors.xml, strings.xml) antes de utilizá-lo.
+	\item Utilizar um padrão de nomenclatura para arquivos de layout, recursos de texto, estilos e gráficos (imagens ou xmls gráficos).
+	\item Não utilizar mais de 3 níveis de views aninhadas em xmls de layout.
+	\item Sempre que possível, substituir o uso de imagens (jpg, jpeg, png ou gif) por recursos gráficos do Android (xmls), no caso, por exemplo de, background de cores sólidas ou degradês.
+	\item Ter recursos de layouts pequenos.
+	\item Extrair trechos de layout que se repetem em arquivos de layout novos, e reutilizá-los com include ou merge.
+	\item Disponibilizar as imagens usadas no aplicativo em mais de uma resolução/densidade diferentes.
+	\item Separar os recursos de estilo (styles.xml) em mais de um arquivo, por exemplo: estilos e temas.
+	\item Separar os recursos de strings (strings.xml) em mais de um arquivo.
+	\item Extrair estilos e reutilizá-los, ao invés de repetir os mesmos atributos diretamente em várias views diferentes.
+	\item Separar as strings por tela, e não reutilizar uma string em mais de uma tela mesmo o texto sendo igual.
+	\item Não usar atributos de eventos, como o onClick, em xmls de layout para responder a eventos do usuário.	
+\end{enumerate}
