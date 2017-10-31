@@ -74,7 +74,7 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), so
 
 % Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android. Como \textit{feedback} do teste piloto, percebemos que nem sempre os desenvolvedores tinham alguma boa ou má prática referente a determinado elemento, desta forma, após o teste piloto configuramos as perguntas da segunda seção como opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. O questionário completo pode ser encontrado no apêndice XX.
 
-O questionário (\textit{S1}) foi composto por 25 questões divididas em três seções. A primeira seção tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade). A segunda seção foi composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
+O questionário (\textit{S1}) foi composto por 25 questões divididas em três seções. A primeira seção tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção foi composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
 
 \begin{itemize}
   \item[\textbf{Q1.}] Você tem alguma boa prática para lidar com Activities? (Resposta aberta)
@@ -213,9 +213,10 @@ Concluímos com 22 maus cheiros de código no \textit{front-end} Android sendo 12 
 
 
 
+
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 
-Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e a importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção através de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Foram criadoas duas versões do questionário, inglês e português, e coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 22 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
+Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e a importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção através de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Foram criadas duas versões do questionário, inglês e português, e coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 22 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), sobre os participantes (Seção X.X) e sobre o processo de análise dos dados (Seção X.X).
 
@@ -223,44 +224,41 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), so
 \subsubsection{Questionário}
 % \label{sub:perception-survey}
 
+Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textit{S2}) continha 3 seções, sendo a primeira seção, como em \textit{S1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 8 questões. 
 
-O experimento foi composto por duas seções principais. A primeira objetivou coletar informações básicas sobre os antecedentes dos participantes e, em particular, sobre sua experiência. Na segunda seção, os participantes foram solicitados a examinar seis códigos-fonte Android e, para cada uma deles, responder 5 perguntas onde perguntamos se considerava o código como problemático, e se sim, pediamos para avaliar a severidade do problema a partir de uma escala Likert de 1 a 5. Abaixo listamos essas 5 perguntas.
+A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles viam os sintomas dos maus cheiros em seu dia a dia. Para isso pedimos ao desenvolvedor que indicasse com qual frequência ele percebia as situações apresentadas no dia a dia dele. Para contemplar os 22 maus cheiros foram apresentadas 28 situações, de forma que para poucos maus cheiros optamos por apresentar mais de uma situação separada. Cada situação foi avaliada através de uma escala \textit{likert} de frequência de cinco níveis (muito frequente, frequente, as vezes, raramente e nunca). Seguem alguns exemplos das situações apresentadas:
 
 \begin{itemize}
-	\item[\textbf{Q1.}] Na sua opinião, este código apresenta algum problema de design e/ou implementação? (Sim/Não) 
-	\item[\textbf{Q2.}] Se SIM, por favor explique quais são, na sua opinião, os problemas que afetam este código. (Resposta aberta)
-	\item[\textbf{Q3.}] Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir um ponto. (Escala \textit{Likert} de 5 pontos indo de 1 -- muito baixo -- a 5 -- muito alto)
-	\item[\textbf{Q4.}] Na sua opinião, este código precisa ser refatorado? (Sim/Não)
-	\item[\textbf{Q5.}] Se SIM, como você faria esta refatoração? (Resposta aberta)
+  \footnotesize
+  \item Recursos de cor, tamanho ou texto sendo usados ``\textit{hard coded}'', sem a criação de um novo recurso no arquivo de xml respectivo (\texttt{colors.xml}, \texttt{dimens.xml} ou \texttt{strings.xml}).
+
+  \item Imagens (\texttt{jpg}, \texttt{jpeg}, \texttt{png} e \texttt{gif}) sendo usadas quando podiam ser substituídas por recursos gráficos do Android (xmls), como por exemplo, \textit{background} de cores sólidas ou degradês.
+
+  \item \texttt{Activities} ou \texttt{Fragments} sendo usados como \textit{callbacks} ao final de processos assíncronos, como por exemplo no \texttt{onPostExecute} de uma \texttt{AsyncTask}.
 \end{itemize}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ESCREVER AQUI SOBRE COMO OS CÓDIGOS FORAM SELECIONADOS, COMO FORAM LIMPADOS, ETC
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em que eles viam os sintomas dos maus cheiros em seu dia a dia. Para isso pedimos ao desenvolvedor que indicasse o quão importante ele considerava as situações apresentadas. Para contemplar os 22 maus cheiros foram apresentadas 25 situações, de forma que para poucos maus cheiros optamos por apresentar mais de uma situação separada. Cada situação foi avaliada através de uma escala \textit{likert} de importância de cinco níveis (muito importante, importante, razoavelmente importante, pouco importante, não é importante). Seguem alguns exemplos das situações apresentadas:
 
-Os seis códigos apresentadas foram selecionadas randomicamente para cada participante de um conjunto de 58 códigos, contendo 24 códigos afetadas por uma das quatro más práticas Android de alta recorrência (seis para cada má prática), 10 códigos afetadas por cheiros de códigos tradicionais e 24 códigos limpos. Para possibilitar que os códigos fossem apresentados dessa forma, desenvolvemos um software específico. Para reduzir viés, selecionamos apenas códigos relacionados ao \textit{front-end} Android definido no contexto deste artigo, ou seja: \textsc{Activities}, \textsc{Fragments}, \textsc{Adapters}, \textsc{Listeners}, \textsc{Styles}, \textsc{Strings}, \textsc{Drawables} e \textsc{Layouts}. Cada participante avaliou dois códigos selecionados randomicamente de cada um desses três grupos, totalizando 6 códigos avaliados por participante. Os 58 códigos foram aleatoriamente coletados de projetos Android de código aberto no GitHub.
+\begin{itemize}
+  \footnotesize
+  \item \texttt{Listeners} devem ser implementados em suas próprias classes ao invés de implementá-los através de classes anônimas, classes internas ou polimorfismo (uso de \texttt{implements}) em \texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters}.
 
-Para também reduzir viés de aprendizado, cada participante recebeu os seis códigos selecionados aleatoriamente em uma ordem aleatória. Além disso, os participantes não estavam cientes de quais classes pertenciam a qual grupo (más práticas Android, cheiros de código tradicionais e limpo). Apenas foi dito que estávamos estudando qualidade de código em aplicações Android. Nenhum limite de tempo foi imposto para que eles concluíssem a tarefa.
+  \item Criar um recurso de tamanho, cor ou texto, em seu respectivo arquivo (\texttt{dimens.xml}, \texttt{colors.xml}, \texttt{strings.xml}) antes de utilizá-lo.
 
-No teste piloto realizado com 2 desenvolvedores não foram identificados ponto a otimizar, essas respostas foram desconsideradas para reduzir viés. O questionário do experimento esteve disponível por 8 dias, de 27 de Abril a 4 de Maio de 2017. Sua divulgação foi feita em duas etapas, na primeira, foi enviada ao grupo do Slack Android Dev Br, uma chamada a desenvolvedores com mais de 3 anos e experiência em Android, desta forma, desenvolvedores que tinham interesse de responder o questionário e, atendiam ao requisito de experiência, entravam em contato e enviávamos um email convite. Na segunda etapa, abrimos o questionário para participação de qualquer desenvolvedor Android. A divulgação nesta etapa, foi a mesma utilizada na divulgação em \textit{S1}. 
+  \item Não utilizar mais de 3 níveis de \texttt{views} aninhadas em xmls de \texttt{layout}.
+\end{itemize}
 
-% \begin{figure*}[!t]
-% \centering
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{exp.jpg}
-%  \caption{Desenvolvimento de Software}
-%  \label{fig:sub1}
-% \end{subfigure}%
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{exp-android.jpg}
-%  \caption{Desenvolvimento Android}
-%  \label{fig:sub2}
-% \end{subfigure}
-% \caption{Experiência dos desenvolvedores em \textit{S2}.}
-% \label{fig:survey2-exp}
-% \end{figure*}
+Antes da divulgação do questionário realizamos a validação de cada uma das frases, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{Dev-A} e \emph{Dev-B}. \emph{Dev-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui grau escolar de bacharel. \emph{Dev-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui grau escolar de bacharel \todo{confirmar com o Cauê}. Ambos os desenvolvedores trabalham atualmente em \textit{startups} brasileiras com desenvolvimento mobile. 
+
+A entrevista procedeu de forma que o desenvolvedor validador procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o \textit{feedback} do validador. Após a discussão ele respondia e seguia para a próxima. Esta dinâmica segue até passar pro todas as frases e ao final o validador era incentivado a dar qualquer outro \textit{feedback} que considerasse relevante. Alguns importantes ajustes foram realizados após o primeiro validador. O principal deles está relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, tanto para validar importância quanto para validar frequência usamos a mesma escala \textit{likert} de nível de concordância, deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. 
+
+Durante a validação percebemos que as frases ficavam muito maiores de ler e difíceis de ser interpretadas então trocamos para escalar de frequência e importância e ajustamos as frases. Também foram sugeridas melhorias em algumas poucas frases. Com o segundo validador tivemos apenas dois ajustes em frases. Para efeitos de viés, as respostas dos validadores não foram consideradas.
+
+Após a validação das frases, executamos um piloto com mais dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que não houve mudança após as respostas e o \textit{feedback} relacionado ao questionário foi positivo.
+
+O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os respondentes ofertamos o sorteio de um Google Chromecast Áudio. O questionário esteve aberto por aproximadamente 3 semanas em meados de Setembro de 2017 e as questões eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice X.X. 
+
+
 
 \subsubsection{Participantes}
 \label{sub:perception-participants}
@@ -269,7 +267,7 @@ Todos os participantes exceto 1, são atualmente desenvolvedores Android profissi
 \subsubsection{Análise dos Dados}
 \label{sub:perception-participants-analysis}
 
-Nossa análise constistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
+Nossa análise consistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
 
 Para o grupo de más práticas que afetam código Java, analisamos a percepção dos desenvolvedores a partir de três comparações: classes afetadas pela má prática vs. classes limpas, classes afetadas pela má prática vs. classes afetadas por maus cheiros tradicionais e por fim, classes afetadas por maus cheiros tradicionais vs. classes limpas. Para o grupo de más práticas que afetam apenas recursos da aplicação, analisamos a percepção dos desenvolvedores a partir da comparação entre códigos afetados pela má prática vs. códigos limpos.
 
