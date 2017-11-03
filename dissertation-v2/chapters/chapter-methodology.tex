@@ -116,7 +116,7 @@ Q16 & Você considera alguma coisa uma má prática ao lidar com Drawable Resources
 Q17 & Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?  &22 &49\% \\
 Q18 & Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda? &20 &44\% \\
 % \hline
-% \multicolumn{4}{@{}l}{\textit{* Os participantes P3, P13, P20, P21, P24, P33 e P38 não responderam nenhuma das questões da segunda e terceira seção.}} \\
+% \multicolumn{6}{@{}l}{\textit{* Categorias desconsideradas por se tratarem de boas práticas pré-existentes.}} \\
 \toprule
 \end{tabular}
 \caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
@@ -201,22 +201,51 @@ O processo que denominamos de \textit{verticalização} consistiu em considerar ca
 
 O passo seguinte foi realizar a \textit{limpeza dos dados}. Esse passo consistiu em remover respostas obviamente não úteis como respostas em branco, respostas contendo frases como \textit{"Não"}, \textit{"Não que eu saiba"}, \textit{"Eu não me lembro"} e similares, as consideradas vagas como \textit{"Eu não tenho certeza se são boas praticas mas uso o que vejo por ai"}, as consideradas genéricas como \textit{"Como todo código java..."} e as que não eram relacionadas a boas ou más práticas de código. Das 810 boas e más práticas, 352 foram consideradas e 458 desconsideradas. Das 352, 45\% foram apontadas como más práticas e 55\% como boas práticas. 
 
-Em seguida, realizamos a \textit{codificação} sobre as boas e más práticas \cite{Strauss2007,Saldana2013}. Codificação é o processo pelo qual são extraídos categorias de um conjunto de afirmações através da abstração de ideias centrais e relações entre as afirmações \cite{Strauss2007}. Durante esse processo, cada resposta recebeu uma ou mais categorias. Neste passo desconsideramos mais algumas respostas, isso ocorreu pois não eram respostas ``obviamente'' descartáveis como as do passo anterior e foi necessária a análise para chegarmos a esta conclusão de desconsiderá-la. Para cada resposta desconsiderada nesse passo registramos o motivo, este pode ser conferido nos arquivos em nosso apêndice online.
+Em seguida, realizamos a \textit{codificação} sobre as boas e más práticas \cite{Strauss2007,Saldana2013}. Codificação é o processo pelo qual são extraídos categorias de um conjunto de afirmações através da abstração de ideias centrais e relações entre as afirmações \cite{Strauss2007}. Durante esse processo, cada resposta recebeu uma ou mais categorias. Neste passo desconsideramos mais algumas respostas, isso ocorreu pois não eram respostas ``obviamente'' descartáveis como as do passo anterior e foi necessária a análise para chegarmos a esta conclusão de desconsiderá-las. Para cada resposta desconsiderada nesse passo registramos o motivo, este pode ser conferido nos arquivos em nosso apêndice online.
 
 % Também durante esse processo, houveram 30 respostas que não eram triviais de identificar uma categoria ou mesmo de dizer se essas respostas deveriam ser consideradas. Essas respostas foram marcadas como \textit{"talvez"} e reavaliadas ao final. 
 
-Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em dividir as respostas que receberam mais de uma categoria em duas ou mais respostas, de acordo com o número de categorias identificadas, de modo a resultar em uma categoria por resposta. Por exemplo, a resposta \textit{"Não fazer Activities serem callbacks de execuções assíncronas. Herdar sempre das classes fornecidas pelas bibliotecas de suporte, nunca diretamente da plataforma"} indica na primeira oração uma categoria e na segunda oração, outra categoria. Ao dividí-la, mantivemos apenas o trecho da resposta relativo à categoria, como se fossem duas respostas distintas e válidas. Em algumas divisões realizadas, a resposta completa era necessária para entender ambas as categorizações, nesses casos, mantivemos a resposta original, mesmo que duplicada, e categorizamos cada uma de modo diferente. 
+Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em dividir as respostas que receberam mais de uma categoria em duas ou mais respostas, de acordo com o número de categorias identificadas, de modo a resultar em uma categoria por resposta. Por exemplo, a resposta \textit{"Não fazer Activities serem callbacks de execuções assíncronas. Herdar sempre das classes fornecidas pelas bibliotecas de suporte, nunca diretamente da plataforma"} indica na primeira oração uma categoria e na segunda oração, outra categoria. Ao dividi-la, mantivemos apenas o trecho da resposta relativo à categoria, como se fossem duas respostas distintas e válidas. Em algumas divisões realizadas, a resposta completa era necessária para entender ambas as categorizações, nesses casos, mantivemos a resposta original, mesmo que duplicada, e categorizamos cada uma de modo diferente. 
 
-Ao final da análise constavam 389 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias das quais, apenas as categorias com três ou mais recorrências serão consideradas para a derivação de maus cheiros, similar a regra usada para a definição de padrões \cite{AntiPatterns:98}. Das categorias com recorrência maior ou igual a três, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). O interessante é que por acaso nos deparamos as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados.
+Ao final da análise constavam 389 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias, onde 22, que apresentaram regularidade de ocorrência maior ou igual a três, foram consideradas para a derivação dos maus cheiros. A escolha do número 3 como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. Das categorias com recorrência maior ou igual a três, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 22 categorias consideradas para derivação dos maus cheiros.
 
-Concluímos com 22 maus cheiros de código no \textit{front-end} Android sendo 12 relacionadas a elementos Java e 10 relacionadas a recursos da aplicação.
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{5.5cm}cc|p{5.5cm}cc@{}}
+\toprule
+\textbf{Categoria} & \textbf{\#} & \textbf{Tipo} & \textbf{Categoria} & \textbf{\#} & \textbf{Tipo} \\
+\hline
+
+Lógicas em view                               & 60  &   Java      & Uso excessivo de Fragments                    & 9   &   Java      \\
+Padrão de nome de recurso                     & 23  &   Recurso   & Classes de UI fazendo IO                      & 9   &   Java      \\
+Recurso mágico                                & 23  &   Recurso   & Não uso de Fragment                           & 8   &   Java      \\
+Views aninhados                               & 18  &   Recurso   & Longo recurso de estilo                       & 8   &   Recurso   \\
+Classes de UI acopladas                       & 18  &   Java      & Recurso de string bagunçado                   & 8   &   Recurso   \\
+Imagem tradicional dispensável                & 18  &   Recurso   & Atributos de estilo repetidos                 & 7   &   Recurso   \\
+Comportamento Suspeito                        & 17  &   Java      & Activity Inexistente                          & 6   &   Java      \\
+Mau uso do ciclo de vida                      & 14  &   Java      & Não uso de arquiteturas conhecidas            & 6   &   Java      \\
+Layout longo ou repetido                      & 14  &   Recurso   & Reuso excessivo de strings                    & 6   &   Recurso   \\
+Não uso do padrão View Holder                 & 13  &   Java      & Adapter complexo                              & 5   &   Java      \\
+Ausência de diferentes resoluções de imagens  & 12  &   Recurso   & Listener escondido                            & 5   &   Java      \\
+\toprule
+\end{tabular}
+\caption{Categorias derivadas com ocorrências maior ou igual a três, total de ocorrências e tipo de elemento Android afetado.}
+\label{tab:CategoriesVSFrequency}
+\end{table}
+
+
+% A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 22 categorias consideradas para derivação dos maus cheiros. A partir dessas categorias e respostas, foi extraída a primeira definição dos maus cheiros, sendo que os sintomas foram embasados nas respostas dadas. 
+
+Cada categoria considerada deu origem a um mau cheiro de código no \textit{front-end} Android sendo 12 relacionadas a elementos Java e 10 relacionadas a recursos da aplicação.
 
 
 
 
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 
-Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção através de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Foram criadas duas versões do questionário, inglês e português, e coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 22 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
+Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção através de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Foram criadas duas versões do questionário, inglês e português, e coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 16 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), sobre os participantes (Seção X.X) e sobre o processo de análise dos dados (Seção X.X).
 
@@ -224,37 +253,42 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), so
 \subsubsection{Questionário}
 % \label{sub:perception-survey}
 
-Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textit{S2}) continha 3 seções, sendo a primeira seção, como em \textit{S1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 8 questões. 
+Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textit{Q2}) continha 3 seções, a primeira seção, como em \textit{Q1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
 
-A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles viam os sintomas dos maus cheiros em seu dia a dia. Para isso pedimos ao desenvolvedor que indicasse com qual frequência ele percebia as situações apresentadas no dia a dia dele. Para contemplar os 22 maus cheiros foram apresentadas 28 situações, de forma que para poucos maus cheiros optamos por apresentar mais de uma situação separada. Cada situação foi avaliada através de uma escala \textit{likert} de frequência de cinco níveis (muito frequente, frequente, as vezes, raramente e nunca). Seguem alguns exemplos das situações apresentadas:
+A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de frases, onde cada frase descrevia o sintoma de um dos maus cheiros, e pedimos para o respondente \textbf{indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia}. Para cada frase o respondente podia escolher uma dentre os cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
 
-\begin{itemize}
-  \footnotesize
-  \item Recursos de cor, tamanho ou texto sendo usados ``\textit{hard coded}'', sem a criação de um novo recurso no arquivo de xml respectivo (\texttt{colors.xml}, \texttt{dimens.xml} ou \texttt{strings.xml}).
-
-  \item Imagens (\texttt{jpg}, \texttt{jpeg}, \texttt{png} e \texttt{gif}) sendo usadas quando podiam ser substituídas por recursos gráficos do Android (xmls), como por exemplo, \textit{background} de cores sólidas ou degradês.
-
-  \item \texttt{Activities} ou \texttt{Fragments} sendo usados como \textit{callbacks} ao final de processos assíncronos, como por exemplo no \texttt{onPostExecute} de uma \texttt{AsyncTask}.
-\end{itemize}
-
-A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em que eles viam os sintomas dos maus cheiros em seu dia a dia. Para isso pedimos ao desenvolvedor que indicasse o quão importante ele considerava as situações apresentadas. Para contemplar os 22 maus cheiros foram apresentadas 25 situações, de forma que para poucos maus cheiros optamos por apresentar mais de uma situação separada. Cada situação foi avaliada através de uma escala \textit{likert} de importância de cinco níveis (muito importante, importante, razoavelmente importante, pouco importante, não é importante). Seguem alguns exemplos das situações apresentadas:
+As frases foram baseadas nas respostas em \emph{Q1}, por exemplo, para o mau cheiro \textbf{\textsc{Classes de UI Acopladas}} algumas das respostas sobre más práticas foram \textit{``Acoplar o \texttt{Fragment} a \texttt{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \texttt{Fragment} com a \texttt{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nas respostas, extraímos a seguinte para representar o sintoma do mau cheiro:
 
 \begin{itemize}
-  \footnotesize
-  \item \texttt{Listeners} devem ser implementados em suas próprias classes ao invés de implementá-los através de classes anônimas, classes internas ou polimorfismo (uso de \texttt{implements}) em \texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters}.
-
-  \item Criar um recurso de tamanho, cor ou texto, em seu respectivo arquivo (\texttt{dimens.xml}, \texttt{colors.xml}, \texttt{strings.xml}) antes de utilizá-lo.
-
-  \item Não utilizar mais de 3 níveis de \texttt{views} aninhadas em xmls de \texttt{layout}.
+  \item \emph{\small\textbf{\texttt{Fragments}, \texttt{Adapters} ou \texttt{Listeners} com referência direta para quem os usa, como \texttt{Activities} ou outros \texttt{Fragments.}}} 
 \end{itemize}
+
+Para contemplar os 22 maus cheiros foram apresentadas 28 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{Comportamento Suspeito}, \textsc{Entenda o Ciclo de Vida}, \textsc{Layout Longo ou Repetido}, \textsc{Longo Recurso de Estilo} e \textsc{Atributos de Estilo Repetidos} identificamos nas respostas em \emph{Q1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textbf{\textsc{Comportamento Suspeito}} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \emph{Q1}, sobre como implementar a resposta a eventos do usuário:
+
+\begin{itemize}
+  \small
+  \item \emph{\textbf{\texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters} com \underline{classes anônimas} para responder a eventos do usuário, como clique, duplo clique e outros.}}
+
+  \item \emph{\textbf{\texttt{Activitie}s, \texttt{Fragments} ou \texttt{Adapters} implementando algum \texttt{listener}, \underline{através de} \underline{polimorfismo} (\texttt{implements}), para responder a eventos do usuário como clique, duplo clique e outros.}}
+
+  \item \emph{\textbf{\texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters} com \underline{classes internas} implementando algum \texttt{listener} para responder a eventos do usuário como clique, duplo clique e outros.}} 
+\end{itemize}
+
+A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 22 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{Classes de UI Acopladas}, apresentamos a seguinte frase:
+
+\begin{itemize}
+  \item \textbf{\small\emph{\texttt{Fragments}, \texttt{Adapters} e \texttt{Listeners} não ter referência direta à quem os utiliza.}}
+\end{itemize}
+
+Para cada frase o respondente podia escolher uma dentre os cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. 
 
 Antes da divulgação do questionário realizamos a validação de cada uma das frases, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{Dev-A} e \emph{Dev-B}. \emph{Dev-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui grau escolar de bacharel. \emph{Dev-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui grau escolar de bacharel \todo{confirmar com o Cauê}. Ambos os desenvolvedores trabalham atualmente em \textit{startups} brasileiras com desenvolvimento mobile. 
 
-A entrevista procedeu de forma que o desenvolvedor validador procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o \textit{feedback} do validador. Após a discussão ele respondia e seguia para a próxima. Esta dinâmica segue até passar pro todas as frases e ao final o validador era incentivado a dar qualquer outro \textit{feedback} que considerasse relevante. Alguns importantes ajustes foram realizados após o primeiro validador. O principal deles está relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, tanto para validar importância quanto para validar frequência usamos a mesma escala \textit{likert} de nível de concordância, deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. 
+A entrevista seguiu de forma que o desenvolvedor validador procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o \textit{feedback} do validador. Após a discussão ele respondia, considerando a conclusão das discussões, e seguia para a próxima. Esta dinâmica segue até passar pro todas as frases e ao final o validador era incentivado a dar qualquer outro \textit{feedback} que considerasse relevante. Alguns importantes ajustes foram realizados após o primeiro validador. 
 
-Durante a validação percebemos que as frases ficavam muito maiores de ler e difíceis de ser interpretadas então trocamos para escalar de frequência e importância e ajustamos as frases. Também foram sugeridas melhorias em algumas poucas frases. Com o segundo validador tivemos apenas dois ajustes em frases. Para efeitos de viés, as respostas dos validadores não foram consideradas.
+O principal ajuste foi relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, respondido por \emph{Dev-A}, foi usada tanto para validar importância quanto para validar frequência a mesma escala \textit{likert} de nível de concordância (concordo totalmente, concordo, não concordo nem discordo, discordo, discordo totalmente), deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. Durante a validação percebemos que as frases ficavam muito maiores de ler e difíceis de serem interpretadas então trocamos para escalas de frequência e importância e ajustamos as frases. Também foram sugeridas melhorias em algumas poucas frases. Com o segundo validador tivemos apenas dois ajustes em frases. Para efeitos de viés, as respostas dos validadores não foram consideradas.
 
-Após a validação das frases, executamos um piloto com mais dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que não houve mudança após as respostas e o \textit{feedback} relacionado ao questionário foi positivo.
+Após a validação das frases, executamos um piloto com mais dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que o \textit{feedback} foi positivo e não houve necessidade de mudanças no questionário.
 
 O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os respondentes ofertamos o sorteio de um Google Chromecast Áudio. O questionário esteve aberto por aproximadamente 3 semanas em meados de Setembro de 2017 e as questões eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice X.X. 
 

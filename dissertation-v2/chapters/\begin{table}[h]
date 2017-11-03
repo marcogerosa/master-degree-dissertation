@@ -1,0 +1,14 @@
+Lógicas em view                    						& 60  &   Java      & Uso excessivo de Fragments         						& 9   &   Java      \\
+Padrão de nome de recurso                   	& 23  &   Recurso   & Classes de UI fazendo IO                    	& 9   &   Java      \\
+Recurso mágico                             		& 23  &   Recurso   & Não uso de Fragment                						& 8   &   Java      \\
+Views aninhados                    						& 18  &   Recurso   & Longo recurso de estilo                     	& 8   &   Recurso   \\
+Classes de UI acopladas                     	& 18  &   Java      & Recurso de string bagunçado        						& 8   &   Recurso   \\
+Imagem tradicional dispensável              	& 18  &   Recurso   & Atributos de estilo repetidos              		& 7   &   Recurso   \\
+Comportamento Suspeito 												& 17  &   Java      & Activity Inexistente               						& 6   &   Java      \\
+Mau uso do ciclo de vida                    	& 14  &   Java      & Não uso de arquiteturas conhecidas          	& 6   &   Java      \\
+Layout longo ou repetido                    	& 14  &   Recurso   & Reuso excessivo de strings           					& 6   &   Recurso   \\
+Não uso do padrão View Holder      						& 13  &   Java      & Adapter complexo                   						& 5   &   Java      \\
+Classe Deus/Longa                           	& 12  &   Java      & Herança                               				& 5   &   Java      \\
+Ausência de diferentes resoluções de imagens	& 12  &   Recurso   & Listener escondido                 						& 5   &   Java 			\\
+
+
