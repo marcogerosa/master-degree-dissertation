@@ -26,7 +26,7 @@ Um mau cheiro de código, como vimos em detalhes na Seção X.X, são sintomas que p
 \textbf{QP2. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
 \end{center}
 
-A fim de validar a existência e relevância dos maus cheiros derivados, submetemos um novo questionário online questionando os desenvolvedores Android o quanto eles percebiam os sintomas dos maus cheiros no seu dia a dia e o quanto eles consideravam importante mitigar aqueles sintomas. Obtivemos 196 respostas dos quais entendemos que 3 dos maus cheiros derivados não eram relevantes aos desenvolvedores, finalizando então com 22 maus cheiros de código Android.
+A fim de validar a existência e relevância dos maus cheiros derivados, submetemos um novo questionário online questionando os desenvolvedores Android o quanto eles percebiam os sintomas dos maus cheiros no seu dia a dia e o quanto eles consideravam importante mitigar aqueles sintomas. Obtivemos 196 respostas dos quais entendemos que 3 dos maus cheiros derivados não eram relevantes aos desenvolvedores, finalizando então com 21 maus cheiros de código Android.
 
 \begin{center}
 \textbf{QP3. Códigos afetados pelos maus cheiros são percebidos como códigos problemáticos?}
@@ -53,12 +53,14 @@ Na \emph{segunda etapa}, buscamos responder a \emph{QP1 - Quais maus cheiros são
 
 Na \emph{terceira e última etapa}, objetivamos responder a \emph{QP3 - Códigos afetados pelos maus cheiros são percebidos como problemáticos?}. Para isso fizemos um experimento com 75 desenvolvedores Android do qual pudemos colher dados estatísticos sobre a percepção deles aos maus cheiros. Nesta etapa mais 2 maus cheiros foram descartados e concluímos com 19 maus cheiros do \textit{front-end} Android percebidos e considerados relevantes a desenvolvedores Android. Os detalhes desta etapa são apresentados na Seção X.X.X.
 
+\subsection{Participantes}
+\todo{Colocar um resumo aqui sobre todos os participantes.}
 
 \subsection{Etapa 1 - Boas e más práticas no \textit{front-end} Android}
 
 Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. 
 
-Para validarmos essa e outras hipóteses e responder a \textbf{QP1. Quais são possíveis maus cheiros do \textit{front-end} Android?}, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Com o resultado extraímos 47 categorias que resultaram em 22 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
+Para validarmos essa e outras hipóteses e responder a \textbf{QP1. Quais são possíveis maus cheiros do \textit{front-end} Android?}, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Com o resultado extraímos 47 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), sobre os participantes (Seção X.X) e sobre o processo de análise dos dados (Seção X.X).
 
@@ -74,50 +76,54 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), so
 
 % Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android. Como \textit{feedback} do teste piloto, percebemos que nem sempre os desenvolvedores tinham alguma boa ou má prática referente a determinado elemento, desta forma, após o teste piloto configuramos as perguntas da segunda seção como opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. O questionário completo pode ser encontrado no apêndice XX.
 
-O questionário (\textit{S1}) foi composto por 25 questões divididas em três seções. A primeira seção tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção foi composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
+O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções. A primeira seção tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção foi composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
 
 \begin{itemize}
-  \item[\textbf{Q1.}] Você tem alguma boa prática para lidar com Activities? (Resposta aberta)
-  \item[\textbf{Q2.}] Você considera alguma coisa uma má prática ao lidar com Activities? (Resposta aberta)
+  \small
+  \item \textbf{Você tem alguma boa prática para lidar com \texttt{Activities}?} (Resposta aberta)
+  \item \textbf{Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?} (Resposta aberta)
 \end{itemize}
+
+\todo{por que boas E más práticas?}
 
 A terceira seção foi composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
 Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Porém, ao realizarmos o teste piloto com 3 desenvolvedores Android, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
+
+\todo{O que responderam nas questões sobre OUTRAS boas e más práticas?}
 
 O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin, em grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017. Ao final, o questionário foi respondido por 45 desenvolvedores. 
 
 Todas as 18 questões sobre boas e más práticas (16 na segunda seção e 2 da terceira) são apresentadas na Tabela \ref{tab:RespostasXParticipantes} com o total e respectivo \% recebido de respostas. Podemos observar que classes Java no geral receberam mais respostas do que recursos da aplicação. Os elementos que menos receberam respostas foram todos, exceto um, recursos da aplicação: \textsc{Drawable} 21\%, seguido de \textsc{Styles} com 22\% e \textsc{Strings}, \textsc{Styles}, \textsc{Layouts} com 23\% e \textsc{Listeners} 23\%.
 
 \begin{table*}[t]
-\centering
-\footnotesize\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{@{}lp{13.5cm}cc@{}}
+\footnotesize
+\begin{tabular}{@{}p{14cm}cc@{}}
 \toprule
-\multirow{2}{*}{\textbf{Id}}& \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Questões}}}  & \multicolumn{2}{c}{\textbf{Respostas}}  \\ \cmidrule{3-4}
-              &                               & \textbf{Total} & \textbf{\%} \\
-\hline
-Q1  & Você tem alguma boa prática para lidar com Activities?                              &36 &80\%         \\
-Q2  & Você considera alguma coisa uma má prática ao lidar com Activities?                 &35 &78\%         \\
-Q3  & Você tem alguma boa prática para lidar com Fragments?                             &33 &73\%         \\
-Q4  & Você considera alguma coisa uma má prática ao lidar com Fragments?                    &31 &69\%         \\
-Q5  & Você tem alguma boa prática para lidar com Adapters?                                &30 &67\%         \\
-Q6  & Você considera alguma coisa uma má prática ao lidar com Adapters?                   &27 &60\%         \\
-Q7  & Você tem alguma boa prática para lidar com Listeners?                             &24 &53\%         \\
-Q8  & Você considera alguma coisa uma má prática ao lidar com Listeners?                    &23 &51\%         \\
-Q9  & Você tem alguma boa prática para lidar com Layout Resources?                            &28 &62\%         \\
-Q10 & Você considera alguma coisa uma má prática ao lidar com Layout Resources?               &23 &51\%         \\
-Q11 & Você tem alguma boa prática para lidar com Styles Resources?                            &23 &51\%         \\
-Q12 & Você considera alguma coisa uma má prática ao lidar com Styles Resources?               &22 &49\%         \\
-Q13 & Você tem alguma boa prática para lidar com String Resources?                            &28 &62\%         \\
-Q14 & Você considera alguma coisa uma má prática ao lidar com String Resources?               &23 &51\%         \\
-Q15 & Você tem alguma boa prática para lidar com Drawable Resources?                          &24 &53\%         \\
-Q16 & Você considera alguma coisa uma má prática ao lidar com Drawable Resources?             &21 &47\%         \\
-Q17 & Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?  &22 &49\% \\
-Q18 & Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda? &20 &44\% \\
+\multirow{2}{*}{\textbf{Questões}}  & \multicolumn{2}{c}{\textbf{Respostas}}  \\ \cmidrule{2-3}
+                                    & \textbf{Total} & \textbf{\%} \\
+\toprule
+Você tem alguma boa prática para lidar com \texttt{Activities}?                              &36 &80\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?                 &35 &78\%         \\
+Você tem alguma boa prática para lidar com \texttt{Fragments}?                             &33 &73\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Fragments}?                    &31 &69\%         \\
+Você tem alguma boa prática para lidar com \texttt{Adapters}?                                &30 &67\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Adapters}?                   &27 &60\%         \\
+Você tem alguma boa prática para lidar com \texttt{Listeners}?                             &24 &53\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Listeners}?                    &23 &51\%         \\
+Você tem alguma boa prática para lidar com \texttt{\texttt{Layout Resources}}?                            &28 &62\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Layout Resources}?               &23 &51\%         \\
+Você tem alguma boa prática para lidar com \texttt{Styles Resources}?                            &23 &51\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Styles Resources}?               &22 &49\%         \\
+Você tem alguma boa prática para lidar com \texttt{String Resources}?                            &28 &62\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{String Resources}?               &23 &51\%         \\
+Você tem alguma boa prática para lidar com \texttt{Drawable Resources}?                          &24 &53\%         \\
+Você considera alguma coisa uma má prática ao lidar com \texttt{Drawable Resources}?             &21 &47\%         \\
+Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?  &22 &49\% \\
+Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda? &20 &44\% \\
 % \hline
 % \multicolumn{6}{@{}l}{\textit{* Categorias desconsideradas por se tratarem de boas práticas pré-existentes.}} \\
-\toprule
+\bottomrule
 \end{tabular}
 \caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
 \label{tab:RespostasXParticipantes}
@@ -170,10 +176,10 @@ Com a análise das questões demográficas, notamos que atingimos com sucesso \text
 \centering
 \renewcommand*{\arraystretch}{1}
 \footnotesize 
-\begin{tabular}{@{}l|c|r@{}}
+\begin{tabular}{@{}lcr@{}}
 \toprule
 \textbf{Anos de Experiência} & \textbf{Participantes} & \multicolumn{1}{c}{\textbf{\%}} \\
-\hline
+\toprule
 1 ano ou menos 	&	 6 		& 	13 \%	 \\
 2 anos 			& 	 7 		& 	  16 \%	 \\
 3 anos 			& 	 12		& 	  27 \%	 \\
@@ -182,7 +188,7 @@ Com a análise das questões demográficas, notamos que atingimos com sucesso \text
 6 anos 			& 	 7 		& 	  16 \%	 \\
 7 anos 			& 	 2 		& 	   4 \%	 \\
 8 anos 			& 	 2 		& 	   4 \%	 \\
-\toprule
+\bottomrule
 \end{tabular}
 \caption{Experiência dos participantes com desenvolvimento Android.}
 \label{tab:DadosDemograficos}
@@ -207,40 +213,50 @@ Em seguida, realizamos a \textit{codificação} sobre as boas e más práticas \cite
 
 Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em dividir as respostas que receberam mais de uma categoria em duas ou mais respostas, de acordo com o número de categorias identificadas, de modo a resultar em uma categoria por resposta. Por exemplo, a resposta \textit{"Não fazer Activities serem callbacks de execuções assíncronas. Herdar sempre das classes fornecidas pelas bibliotecas de suporte, nunca diretamente da plataforma"} indica na primeira oração uma categoria e na segunda oração, outra categoria. Ao dividi-la, mantivemos apenas o trecho da resposta relativo à categoria, como se fossem duas respostas distintas e válidas. Em algumas divisões realizadas, a resposta completa era necessária para entender ambas as categorizações, nesses casos, mantivemos a resposta original, mesmo que duplicada, e categorizamos cada uma de modo diferente. 
 
-Ao final da análise constavam 389 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias, onde 22, que apresentaram regularidade de ocorrência maior ou igual a três, foram consideradas para a derivação dos maus cheiros. A escolha do número 3 como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. Das categorias com recorrência maior ou igual a três, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 22 categorias consideradas para derivação dos maus cheiros.
+Ao final da análise constavam 359 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias, onde 21 apresentaram regularidade de ocorrência maior ou igual a três e portanto, foram consideradas para a derivação dos maus cheiros. A escolha do número 3 como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. Das categorias com recorrência maior ou igual a três, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). 
+
+O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 21 categorias consideradas para derivação dos maus cheiros.
 
 \begin{table}[h]
 \centering
 \renewcommand*{\arraystretch}{1}
 \footnotesize 
-\begin{tabular}{@{}p{5.5cm}cc|p{5.5cm}cc@{}}
+\begin{tabular}{@{}p{8.5cm}cc@{}}
 \toprule
-\textbf{Categoria} & \textbf{\#} & \textbf{Tipo} & \textbf{Categoria} & \textbf{\#} & \textbf{Tipo} \\
-\hline
-
-Lógicas em view                               & 60  &   Java      & Uso excessivo de Fragments                    & 9   &   Java      \\
-Padrão de nome de recurso                     & 23  &   Recurso   & Classes de UI fazendo IO                      & 9   &   Java      \\
-Recurso mágico                                & 23  &   Recurso   & Não uso de Fragment                           & 8   &   Java      \\
-Views aninhados                               & 18  &   Recurso   & Longo recurso de estilo                       & 8   &   Recurso   \\
-Classes de UI acopladas                       & 18  &   Java      & Recurso de string bagunçado                   & 8   &   Recurso   \\
-Imagem tradicional dispensável                & 18  &   Recurso   & Atributos de estilo repetidos                 & 7   &   Recurso   \\
-Comportamento Suspeito                        & 17  &   Java      & Activity Inexistente                          & 6   &   Java      \\
-Mau uso do ciclo de vida                      & 14  &   Java      & Não uso de arquiteturas conhecidas            & 6   &   Java      \\
-Layout longo ou repetido                      & 14  &   Recurso   & Reuso excessivo de strings                    & 6   &   Recurso   \\
-Não uso do padrão View Holder                 & 13  &   Java      & Adapter complexo                              & 5   &   Java      \\
-Ausência de diferentes resoluções de imagens  & 12  &   Recurso   & Listener escondido                            & 5   &   Java      \\
+\textbf{Categoria} & \textbf{Ocorrências} & \textbf{Tipo} \\ 
 \toprule
+\textsc{Lógicas em view}                               & 60  &   Java     \\
+\textsc{Padrão de nome de recurso}                     & 23  &   Recurso  \\ 
+\textsc{Recurso mágico}                                & 23  &   Recurso  \\
+\textsc{Views aninhados}                               & 18  &   Recurso  \\
+\textsc{Imagem tradicional dispensável}                & 18  &   Recurso  \\
+\textsc{Classes de UI acopladas}                       & 18  &   Java     \\
+\textsc{Comportamento Suspeito}                        & 17  &   Java     \\
+\textsc{Mau uso do ciclo de vida}                      & 14  &   Java     \\
+\textsc{Layout longo ou repetido}                      & 14  &   Recurso  \\
+\textsc{Não uso do padrão View Holder}                 & 13  &   Java     \\
+\textsc{Ausência de diferentes resoluções de imagens}  & 12  &   Recurso  \\
+\textsc{Referência Morta}                             & 10   &   Java      \\
+\textsc{Uso excessivo de Fragments}                    & 9   &   Java      \\
+\textsc{Classes de UI fazendo IO}                      & 9   &   Java      \\
+\textsc{Não uso de Fragment}                           & 8   &   Java      \\
+\textsc{Longo recurso de estilo}                       & 8   &   Recurso   \\
+\textsc{Recurso de string bagunçado}                   & 8   &   Recurso   \\
+\textsc{Atributos de estilo repetidos}                 & 7   &   Recurso   \\
+\textsc{Reuso excessivo de strings}                     & 6   &   Recurso   \\
+\textsc{Não uso de arquiteturas conhecidas}             & 6   &   Java      \\
+\textsc{Adapter complexo}                               & 5   &   Java      \\
+\textsc{Listener escondido}                             & 5   &   Java      \\ 
+\bottomrule
 \end{tabular}
-\caption{Categorias derivadas com ocorrências maior ou igual a três, total de ocorrências e tipo de elemento Android afetado.}
+\caption{Total de ocorrências e tipo de elemento Android afetado por categoria.}
 \label{tab:CategoriesVSFrequency}
 \end{table}
 
 
-% A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 22 categorias consideradas para derivação dos maus cheiros. A partir dessas categorias e respostas, foi extraída a primeira definição dos maus cheiros, sendo que os sintomas foram embasados nas respostas dadas. 
+% A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 21 categorias consideradas para derivação dos maus cheiros. A partir dessas categorias e respostas, foi extraída a primeira definição dos maus cheiros, sendo que os sintomas foram embasados nas respostas dadas. 
 
-Cada categoria considerada deu origem a um mau cheiro de código no \textit{front-end} Android sendo 12 relacionadas a elementos Java e 10 relacionadas a recursos da aplicação.
-
-
+Cada categoria considerada deu origem a um mau cheiro de código no \textit{front-end} Android sendo 11 relacionadas a elementos Java e 10 relacionadas a recursos da aplicação.
 
 
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
@@ -263,7 +279,7 @@ As frases foram baseadas nas respostas em \emph{Q1}, por exemplo, para o mau che
   \item \emph{\small\textbf{\texttt{Fragments}, \texttt{Adapters} ou \texttt{Listeners} com referência direta para quem os usa, como \texttt{Activities} ou outros \texttt{Fragments.}}} 
 \end{itemize}
 
-Para contemplar os 22 maus cheiros foram apresentadas 28 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{Comportamento Suspeito}, \textsc{Entenda o Ciclo de Vida}, \textsc{Layout Longo ou Repetido}, \textsc{Longo Recurso de Estilo} e \textsc{Atributos de Estilo Repetidos} identificamos nas respostas em \emph{Q1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textbf{\textsc{Comportamento Suspeito}} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \emph{Q1}, sobre como implementar a resposta a eventos do usuário:
+Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{Comportamento Suspeito}, \textsc{Entenda o Ciclo de Vida}, \textsc{Layout Longo ou Repetido}, \textsc{Longo Recurso de Estilo} e \textsc{Atributos de Estilo Repetidos} identificamos nas respostas em \emph{Q1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textbf{\textsc{Comportamento Suspeito}} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \emph{Q1}, sobre como implementar a resposta a eventos do usuário:
 
 \begin{itemize}
   \small
@@ -274,7 +290,7 @@ Para contemplar os 22 maus cheiros foram apresentadas 28 frases, essa diferença 
   \item \emph{\textbf{\texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters} com \underline{classes internas} implementando algum \texttt{listener} para responder a eventos do usuário como clique, duplo clique e outros.}} 
 \end{itemize}
 
-A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 22 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{Classes de UI Acopladas}, apresentamos a seguinte frase:
+A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 21 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{Classes de UI Acopladas}, apresentamos a seguinte frase:
 
 \begin{itemize}
   \item \textbf{\small\emph{\texttt{Fragments}, \texttt{Adapters} e \texttt{Listeners} não ter referência direta à quem os utiliza.}}
@@ -288,15 +304,111 @@ A entrevista seguiu de forma que o desenvolvedor validador procedia respondendo 
 
 O principal ajuste foi relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, respondido por \emph{Dev-A}, foi usada tanto para validar importância quanto para validar frequência a mesma escala \textit{likert} de nível de concordância (concordo totalmente, concordo, não concordo nem discordo, discordo, discordo totalmente), deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. Durante a validação percebemos que as frases ficavam muito maiores de ler e difíceis de serem interpretadas então trocamos para escalas de frequência e importância e ajustamos as frases. Também foram sugeridas melhorias em algumas poucas frases. Com o segundo validador tivemos apenas dois ajustes em frases. Para efeitos de viés, as respostas dos validadores não foram consideradas.
 
-Após a validação das frases, executamos um piloto com mais dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que o \textit{feedback} foi positivo e não houve necessidade de mudanças no questionário.
+Após a validação das frases, executamos um teste piloto com dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que o \textit{feedback} foi positivo e não houve necessidade de ajustes.
 
-O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os respondentes ofertamos o sorteio de um Google Chromecast Áudio. O questionário esteve aberto por aproximadamente 3 semanas em meados de Setembro de 2017 e as questões eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice X.X. 
+O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os respondentes ofertamos o sorteio de um Google Chromecast Áudio. O questionário esteve aberto por aproximadamente 3 semanas em meados de Setembro de 2017. As questões eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice \ref{survey2}. 
 
 
 
 \subsubsection{Participantes}
+ 
+
+\subsubsection{Análise dos Dados}
+
+Para análise dos dados extraímos a moda e distribuição relativa de cada frase das seções dois e três. Consideramos como maus cheiros \emph{percebidos} todos aqueles com \emph{moda de importância} ($I_{Moda}$) maior igual a 4 e \emph{moda de frequência} ($F_{Moda}$) maior igual a 3. Ou seja:
+
+\begin{center}
+  $F_{Moda} > 3 \cup I_{Moda} \geq 4 \implies Mau Cheiro$ 
+\end{center} 
+
+As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respectivamente a moda e distribuição relativa de frequência e importância para cada um dos 21 maus cheiros derivados. Em vermelho são os que não atendem a condição mencionada acima e portanto, são desconsiderados para a etapa seguinte.
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}cccccc@{}}
+\toprule
+\textbf{Mau Cheiro}    & \textbf{Moda} & \textbf{1}    & \textbf{2}    & \textbf{3}    & \textbf{4}    & \textbf{5}    \\
+\toprule
+\textsc{Classe de UI Inteligente}          & 4     & 7\% & 19\%  & 27\% & 28\% & 19\%    \\
+\textsc{Classe de UI Acoplada}             & 3     & 7\% & 20\%  & 33\% & 24\% & 15\%    \\
+\textsc{Comportamento Suspeito}            & 3     & 11\%  & 14\%  & 33\% & 22\% & 19\%  \\
+\textsc{Referência Morta}                  & 3     & 14\%  & 17\%  & 29\% & 26\% & 13\%  \\
+\textsc{Classes de UI Fazendo IO}          & 3     & 17\%  & 20\%  & 26\% & 23\% & 14\%  \\
+\textsc{Arquitetura Não Identificada}      & 3     & 13\%  & 20\%  & 27\% & 20\% & 18\%  \\
+\textsc{Adapter Complexo}                  & 3     & 7\% & 21\%  & 32\% & 25\% & 14\%    \\
+\textsc{Recursos Mágicos}                  & 4     & 10\%  & 22\%  & 23\% & 28\% & 16\%  \\
+\textsc{Nome de Recurso Despadronizado}    & 3     & 11\%  & 22\%  & 26\% & 25\% & 16\%  \\
+\textsc{Layout Profundamente Aninhado}     & 4     & 2\% & 11\%  & 22\% & 36\% & 28\%    \\
+\textsc{Imagem Dispensável}                & 4     & 11\%  & 19\%  & 24\% & 30\% & 14\%  \\
+\textsc{Layout Longo ou Repetido}          & 4     & 4\% & 13\%  & 29\% & 37\% & 17\%    \\
+\textsc{Imagem Faltante}                   & 4     & 15\%  & 24\%  & 21\% & 29\% & 11\%  \\
+\textsc{Longo Recurso de Estilo}           & 5     & 5\% & 11\%  & 23\% & 28\% & 32\%    \\
+\textsc{Recurso de String Bagunçado}       & 5     & 6\% & 8\% & 20\% & 32\% & 33\%      \\
+\textsc{Atributos de Estilo Repetidos}     & 4     & 5\% & 13\%  & 31\% & 35\% & 15\%    \\
+
+\textsc{Reuso Inadequadro de String}               & 4 & 5\%  &  9\%   &   22\%   &  34\% &  29\%  \\   
+\textcolor{red}{\textsc{Listener Escondido}}                        & \textcolor{red}{2} & \textcolor{red}{24\%}   & \textcolor{red}{30\%}   & \textcolor{red}{ 19\%}  & \textcolor{red}{ 16\%} & \textcolor{red}{ 10\%}  \\   
+\textcolor{red}{\textsc{Adapter Consumista}}                        & \textcolor{red}{2} & \textcolor{red}{25\%}   & \textcolor{red}{29\%}   & \textcolor{red}{ 23\%}  & \textcolor{red}{ 17\%} & \textcolor{red}{ 5\%}  \\   
+\textsc{Uso Excessivo de Fragment}                 & 3 & 8\%  &  20\%  &  30\%  &  27\% &  15\%  \\   
+\textcolor{red}{\textsc{Não Uso de Fragment}}                       & \textcolor{red}{2} & \textcolor{red}{15\%}   & \textcolor{red}{32\%}   & \textcolor{red}{ 26\%}  & \textcolor{red}{ 16\%} & \textcolor{red}{ 10\%}  \\   
+
+\toprule
+\multicolumn{7}{@{}l}{1 = Nunca, 2 = Raramente, 3 = As vezes, 4 = Frequente e 5 = Muito frequente.} \\
+\bottomrule
+\end{tabular}
+\caption{Moda e distribuição relativa sobre percepção da frequência dos maus cheiros por desenvolvedores Android.}
+\label{tab:SmellFrequency}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}cccccc@{}}
+\toprule
+\textbf{Mau Cheiro}    & \textbf{Moda} & \textbf{1}    & \textbf{2}    & \textbf{3}    & \textbf{4}    & \textbf{5} \\
+\toprule
+\textsc{Classe de UI Inteligente}          &  5     & 3\% & 3\%   & 15\%  & 25\% &  53\% \\
+\textsc{Classe de UI Acoplada}             &  5     & 2\% & 6\%   & 21\%  & 33\% &  37\% \\
+\textsc{Comportamento Suspeito}            &  4     & 7\% & 17\%  & 27\%  & 28\% &  20\% \\
+\textsc{Referência Morta}                  &  5     & 1\% & 2\%   & 11\%  & 26\% &  59\% \\
+\textsc{Classes de UI Fazendo IO}          &  5     & 2\% & 6\%   & 13\%  & 19\% &  60\% \\
+\textsc{Arquitetura Não Identificada}      &  5     & 1\% & 2\%   & 9\%   & 18\% &  69\% \\
+\textsc{Adapter Complexo}                  &  5     & 1\% & 3\%   & 14\%  & 35\% &  46\% \\
+\textsc{Recursos Mágicos}                  &  5     & 1\% & 6\%   & 15\%  & 30\% &  47\% \\
+\textsc{Nome de Recurso Despadronizado}    &  5     & 1\% & 3\%   & 11\%  & 25\% &  59\% \\
+\textsc{Layout Profundamente Aninhado}     &  4     & 5\% & 10\%  & 25\%  & 35\% &  23\% \\
+\textsc{Imagem Dispensável}                &  5     & 1\% & 5\%   & 13\%  & 33\% &  47\% \\
+\textsc{Layout Longo ou Repetido}          &  5     & 2\% & 3\%   & 16\%  & 33\% &  45\% \\
+\textsc{Imagem Faltante}                   &  5     & 2\% & 4\%   & 10\%  & 27\% &  57\% \\
+\textsc{Longo Recurso de Estilo}           &  4     & 2\% & 15\%  & 26\%  & 35\% &  20\% \\
+\textsc{Recurso de String Bagunçado}       &  4     & 9\% & 21\%  & 23\%  & 31\% &  16\% \\
+\textsc{Atributos de Estilo Repetidos}     &  4     & 1\% & 2\%   & 17\%  & 41\% &  38\% \\
+
+\textcolor{red}{\textsc{Reuso Inadequadro de String}} & \textcolor{red}{3} & \textcolor{red}{16\%} & \textcolor{red}{20\%} & \textcolor{red}{26\%} & \textcolor{red}{23\%} & \textcolor{red}{14\%} \\
+\textsc{Listener Escondido}                        & 5 & 7\% &  9\%  & 26\% & 24\% & 33\% \\
+\textsc{Adapter Consumista}                        & 5 & 1\% &  4\%  & 9\%  & 26\% & 58\% \\
+\textcolor{red}{\textsc{Uso Excessivo de Fragment}} & \textcolor{red}{3} & \textcolor{red}{21\%} & \textcolor{red}{14\%} & \textcolor{red}{28\%} & \textcolor{red}{20\%} & \textcolor{red}{16\%} \\
+\textsc{Não Uso de Fragment}                       & 4 & 19\% & 15\% & 24\% & 26\% & 15\% \\
+\toprule
+\multicolumn{7}{@{}p{12cm}}{1 = Não é importante, 2 = Pouco importante, 3 = Razoavelmente importante, 4 = Importante e 5 = Muito.} \\
+\bottomrule
+\end{tabular}
+\caption{Moda e distribuição relativa sobre percepção de importância dos maus cheiros por desenvolvedores Android.}
+\label{tab:SmellImportance}
+\end{table}
+
+
+
+\subsection{Etapa 3 - Percepção dos maus cheiros}
+
+\subsubsection{Experimento}
+
+\subsubsection{Participantes}
 \label{sub:perception-participants}
-Todos os participantes exceto 1, são atualmente desenvolvedores Android profissionais, ou seja, atuam profissionalmente com a plataforma Android. 70\% responderam com seu email para receber resultados da pesquisa, tal como em \textit{S1}, pode ser um indicativo de interesse legítimo da comunidade sobre esta temática. Questionamos da experiência com desenvolvimento de software, bem como com desenvolvimento Android, notamos que 55\% relataram ter mais de 5 aplicativos publicados e 47\% tinham mais de 4 anos de experiência com Android. A experiência dos desenvolvedores pode ser visualizada na Figura \ref{fig:ExpDevsS2}. 
+Todos os participantes exceto 1, são atualmente desenvolvedores Android profissionais, ou seja, atuam profissionalmente com a plataforma Android. 70\% responderam com seu email para receber resultados da pesquisa, tal como em \textit{S1}, pode ser um indicativo de interesse legítimo da comunidade sobre esta temática. Questionamos da experiência com desenvolvimento de software, bem como com desenvolvimento Android, notamos que 55\% relataram ter mais de 5 aplicativos publicados e 47\% tinham mais de 4 anos de experiência com Android. A experiência dos desenvolvedores pode ser visualizada na Figura \ref{fig:ExpDevsS2}.
 
 \subsubsection{Análise dos Dados}
 \label{sub:perception-participants-analysis}
@@ -308,13 +420,6 @@ Para o grupo de más práticas que afetam código Java, analisamos a percepção dos 
 % não tenho certeza se deveria estar <= a 0,05 ou como estava, = 0,05
 Para comparar as distribuições da severidade indicada pelos participantes, utilizamos o teste de Mann-Whitney não pareado \cite{Conover1999} para analisar a significância estatística das diferenças entre a severidade atribuída pelos participantes aos problemas que observam em códigos Android cheirosos e códigos limpos. Os resultados são considerados estatisticamente significativos em $\alpha$ $\leq{=}$ 0,05. Também estimamos a magnitude das diferenças medidas usando o Delta de Cliff (ou d), uma medida de tamanho do efeito não paramétrico \cite{GrissomKim2005} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito: insignificante para | d | $<$ 0,14, baixo para 0,14 $\leq$ | d | $<$ 0,33, médio para 0,33 $\leq$ | d | $<$ 0,474, e alto para | d | $\geq$ 0,474 [49]. Finalmente, relatamos achados qualitativos derivados das respostas abertas dos participantes.
 
-\subsection{Etapa 3 - Percepção dos maus cheiros}
-
-\subsubsection{Experimento}
-
-\subsubsection{Participantes}
-
-\subsubsection{Análise dos Dados}
 
 \section{Processo de Escrita dos Maus Cheiros}
 
