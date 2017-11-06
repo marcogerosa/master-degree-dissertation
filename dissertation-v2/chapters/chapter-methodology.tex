@@ -13,10 +13,10 @@ A percepção desempenha um importante papel na definição de maus cheiros de códig
 
 \section{Questões de Pesquisa}
 
-Partimos da premissa de que existem maus cheiros de código específicos ao \textit{front-end} Android e tentamos entender se: 
+Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Entretanto, há evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. 
 
 \begin{center}
-\textbf{QP1. Quais são os possíveis maus cheiros do \textit{front-end} Android?}
+\textbf{QP1. Existem maus cheiros que são específicos ao \textit{front-end} Android?}
 \end{center}
 
 Um mau cheiro de código, como vimos em detalhes na Seção X.X, são sintomas que podem indicar um problema mais profundo no código. Estes sintomas são extraído do conhecimento empírico de desenvolvedores experientes, de forma que, se vários desenvolvedores consideram determinado código como uma má prática, podemos entender esta má prática como um sintoma, logo, um mau cheiro. Iniciamos a pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro, no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. Para validarmos essas hipóteses iniciais, perguntamos a desenvolvedores Android o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Obtivemos 45 respostas dos quais pudemos extrair 25 possíveis maus cheiros dos quais confirmaram nossas hipóteses iniciais.
@@ -82,123 +82,124 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção X.X), so
 
 % Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android. Como \textit{feedback} do teste piloto, percebemos que nem sempre os desenvolvedores tinham alguma boa ou má prática referente a determinado elemento, desta forma, após o teste piloto configuramos as perguntas da segunda seção como opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. O questionário completo pode ser encontrado no apêndice XX.
 
-O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções. A primeira seção tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção foi composta por 16 questões opcionais e dissertativas sobre boas e más práticas relacionadas ao \textit{front-end} Android. Para cada elemento do \textit{front-end} Android foram feitas duas perguntas abertas, onde a participante deveria discutir sobre boas e más práticas percebidas por ele naquele elemento. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
+O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções. A primeira seção teve o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção teve como objetivo entender o que os desenvolvedores consideravam boas e más práticas no desenvolvimento do \textit{front-end} Android. Foi composta por 16 questões opcionais e abertas, 8 sobre boas práticas em cada um dos 8 elementos do \textit{front-end} Android e 8 sobre más práticas. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
 
 \begin{itemize}
   \small
-  \item \textbf{Você tem alguma boa prática para lidar com \texttt{Activities}?} (Resposta aberta)
-  \item \textbf{Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?} (Resposta aberta)
+  \item[] \textbf{Você tem alguma boa prática para lidar com \texttt{Activities}?} (Resposta aberta)
+  \item[] \textbf{Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?} (Resposta aberta)
 \end{itemize}
 
 \todo{por que boas E más práticas?}
 
 A terceira seção foi composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
-Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Porém, ao realizarmos o teste piloto com 3 desenvolvedores Android, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
+Antes da divulgação realizarmos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
 
 \todo{O que responderam nas questões sobre OUTRAS boas e más práticas?}
 
 O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin, em grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017. Ao final, o questionário foi respondido por 45 desenvolvedores. 
 
-Todas as 18 questões sobre boas e más práticas (16 na segunda seção e 2 da terceira) são apresentadas na Tabela \ref{tab:RespostasXParticipantes} com o total e respectivo \% recebido de respostas. Podemos observar que classes Java no geral receberam mais respostas do que recursos da aplicação. Os elementos que menos receberam respostas foram todos, exceto um, recursos da aplicação: \textsc{Drawable} 21\%, seguido de \textsc{Styles} com 22\% e \textsc{Strings}, \textsc{Styles}, \textsc{Layouts} com 23\% e \textsc{Listeners} 23\%.
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=.6\linewidth]{phase1-survey-answers.png}
+\caption{Percentual de respostas sobre boas e más práticas nos elementos do \textit{front-end} Android.}
+\label{fig:ElementsVSAnswers}
+\end{figure*}
 
-\begin{table*}[t]
-\footnotesize
-\begin{tabular}{@{}p{14cm}cc@{}}
-\toprule
-\multirow{2}{*}{\textbf{Questões}}  & \multicolumn{2}{c}{\textbf{Respostas}}  \\ \cmidrule{2-3}
-                                    & \textbf{Total} & \textbf{\%} \\
-\toprule
-Você tem alguma boa prática para lidar com \texttt{Activities}?                              &36 &80\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?                 &35 &78\%         \\
-Você tem alguma boa prática para lidar com \texttt{Fragments}?                             &33 &73\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Fragments}?                    &31 &69\%         \\
-Você tem alguma boa prática para lidar com \texttt{Adapters}?                                &30 &67\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Adapters}?                   &27 &60\%         \\
-Você tem alguma boa prática para lidar com \texttt{Listeners}?                             &24 &53\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Listeners}?                    &23 &51\%         \\
-Você tem alguma boa prática para lidar com \texttt{\texttt{Layout Resources}}?                            &28 &62\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Layout Resources}?               &23 &51\%         \\
-Você tem alguma boa prática para lidar com \texttt{Styles Resources}?                            &23 &51\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Styles Resources}?               &22 &49\%         \\
-Você tem alguma boa prática para lidar com \texttt{String Resources}?                            &28 &62\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{String Resources}?               &23 &51\%         \\
-Você tem alguma boa prática para lidar com \texttt{Drawable Resources}?                          &24 &53\%         \\
-Você considera alguma coisa uma má prática ao lidar com \texttt{Drawable Resources}?             &21 &47\%         \\
-Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?  &22 &49\% \\
-Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda? &20 &44\% \\
-% \hline
-% \multicolumn{6}{@{}l}{\textit{* Categorias desconsideradas por se tratarem de boas práticas pré-existentes.}} \\
-\bottomrule
-\end{tabular}
-\caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
-\label{tab:RespostasXParticipantes}
-\end{table*}
+Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
+
+Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas foi o recurso \textsc{Style}, com 51\% sobre boas práticas, e o que menos recebeu respostas foi o recurso \textsc{Drawable}, com 47\% sobre más práticas. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. Resta-nos entender quais dessas práticas são compartilhadas e quais são apenas preferências pessoais. Fazemos isso na etapa 2. 
+
+Podemos observar que classes Java, no geral, receberam mais respostas do que recursos da aplicação. Dentre os elementos Java, os mais respondidos foram \textsc{Activity} e \textsc{Fragment}. Dentre os recursos da aplicação, os mais respondidos foram \textsc{Layout} e \textsc{String}. Notamos também que mais boas práticas foram indicadas do que más práticas em todos os elementos.
+
+% Todas as 18 questões sobre boas e más práticas (16 na segunda seção e 2 da terceira) são apresentadas na Tabela \ref{tab:RespostasXParticipantes} com o total e respectivo \% recebido de respostas. Podemos observar que classes Java no geral receberam mais respostas do que recursos da aplicação. Os elementos que menos receberam respostas foram todos relacionados a recursos da aplicação: \textsc{Drawable} 21\%, seguido de \textsc{Styles} com 22\% e \textsc{Strings}, \textsc{Styles}, \textsc{Layouts} com 23\% e \textsc{Listeners} 23\%.
+
+% \begin{table*}[t]
+% \footnotesize
+% \begin{tabular}{@{}p{14cm}cc@{}}
+% \toprule
+% \multirow{2}{*}{\textbf{Questões}}  & \multicolumn{2}{c}{\textbf{Respostas}}  \\ \cmidrule{2-3}
+%                                     & \textbf{Total} & \textbf{\%} \\
+% \toprule
+% Você tem alguma boa prática para lidar com \texttt{Activities}?                              &36 &80\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Activities}?                 &35 &78\%         \\
+% Você tem alguma boa prática para lidar com \texttt{Fragments}?                             &33 &73\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Fragments}?                    &31 &69\%         \\
+% Você tem alguma boa prática para lidar com \texttt{Adapters}?                                &30 &67\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Adapters}?                   &27 &60\%         \\
+% Você tem alguma boa prática para lidar com \texttt{Listeners}?                             &24 &53\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Listeners}?                    &23 &51\%         \\
+% Você tem alguma boa prática para lidar com \texttt{\texttt{Layout Resources}}?                            &28 &62\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Layout Resources}?               &23 &51\%         \\
+% Você tem alguma boa prática para lidar com \texttt{Styles Resources}?                            &23 &51\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Styles Resources}?               &22 &49\%         \\
+% Você tem alguma boa prática para lidar com \texttt{String Resources}?                            &28 &62\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{String Resources}?               &23 &51\%         \\
+% Você tem alguma boa prática para lidar com \texttt{Drawable Resources}?                          &24 &53\%         \\
+% Você considera alguma coisa uma má prática ao lidar com \texttt{Drawable Resources}?             &21 &47\%         \\
+% Existem outras *BOAS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda?  &22 &49\% \\
+% Existem outras *MáS* práticas sobre a Camada de Apresentação Android que nós não perguntamos ou que você não disse ainda? &20 &44\% \\
+% % \hline
+% % \multicolumn{6}{@{}l}{\textit{* Categorias desconsideradas por se tratarem de boas práticas pré-existentes.}} \\
+% \bottomrule
+% \end{tabular}
+% \caption{Total de respostas obtidas por cada questão sobre boas e más práticas no \textit{front-end} Android.}
+% \label{tab:RespostasXParticipantes}
+% \end{table*}
+
+
 \subsubsection{Participantes}
 \label{sub:smells-participants}
 
-Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas sobre boas e más práticas no \textit{front-end} Android, sendo que 7 responderam de 3 a 6, 6 responderam de 8 a 10 e 23 responderam 13 ou mais, sendo que desses, 14 responderam todas. Apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) questão. A pergunta solicitando o email foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. A pergunta mais respondida foi a Q1 e a menos respondida foi a Q18, é possível ver detalhes desta análise na Tabela \ref{tab:RespostasXParticipantes}.
+% Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas sobre boas e más práticas no \textit{front-end} Android, sendo que 7 responderam de 3 a 6, 6 responderam de 8 a 10 e 23 responderam 13 ou mais, sendo que desses, 14 responderam todas. Apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) questão. A pergunta solicitando o email foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. A pergunta mais respondida foi a Q1 e a menos respondida foi a Q18, é possível ver detalhes desta análise na Tabela \ref{tab:RespostasXParticipantes}.
 
-Com a análise das questões demográficas, notamos que atingimos com sucesso \textit{desenvolvedores Android com variados níveis de experiência e de diversas regiões} pois: 1) 100\% dos participantes indicaram possuir alguma experiência com desenvolvimento Android sendo 2) apenas 13\% indicaram possuir 1 ano ou menos de experiência com Android e 87\% indicaram 2 anos ou mais, 4) 36 respostas foram do Brasil, 7 de países europeus e 1 dos Estados Unidos (Califórnia). Vale lembrar que a plataforma Android completa 10 anos em 2018, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de vida dela desde seu anúncio em 2008. Os dados sobre a experiência dos participantes são apresentados na Tabela \ref{tab:DadosDemograficos}.
+Conforme apresentado na Figura \ref{fig:phase1-participants-experience}, 87\% dos participantes indicaram ter 2 anos ou mais de experiência com desenvolvimento Android. Vale lembrar que a plataforma Android completa 10 anos em 2018, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de existência dela desde seu anúncio em 2008. 
 
-% \begin{figure*}
-% \centering
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{survey1-exp.jpg}
-%  \caption{Desenvolvimento de Software}
-%  \label{fig:sub1}
-% \end{subfigure}%
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{survey1-android-exp.jpg}
-%  \caption{Desenvolvimento Android}
-%  \label{fig:sub2}
-% \end{subfigure}
-% \caption{Experiência dos desenvolvedores em \textit{S1}.}
-% \label{fig:DadosDemograficos-Exp}
-% \end{figure*}
+Conseguimos atingir 3 continentes porém, a maior representatividade dos dados é originada do Brasil com 80\% dos participantes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 44\%, Rio de Janeiro e Goiás cada um com 7\% e Rio Grande do Sul e Santa Catarina, cada um com 4\%. 16\% dos participantes são originados de países Europeus, sendo Irlanda com 8\% e Alemanha, Polônia, Suíça e Reino Unido com 2\% (1 participante) cada. Nos Estados Unidos tivemos apenas 2\%.
 
-% \begin{figure*}[!t]
-% \centering
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{s1-3.jpeg}
-%  \caption{\textit{S1}}
-%  \label{fig:ExpDevsS1}
-% \end{subfigure}%
-% \begin{subfigure}{.5\textwidth}
-%  \centering
-%  \includegraphics[width=.8\linewidth]{s2-3.jpeg}
-%  \caption{\textit{S2}}
-%  \label{fig:ExpDevsS2}
-% \end{subfigure}
-% \caption{Experiência com desenvolvimento de software e android dos desenvolvedores.}
-% \label{fig:ExpDevs}
-% \end{figure*}
-
-
-\begin{table}[h]
+\begin{figure*}[!t]
 \centering
-\renewcommand*{\arraystretch}{1}
-\footnotesize 
-\begin{tabular}{@{}lcr@{}}
-\toprule
-\textbf{Anos de Experiência} & \textbf{Participantes} & \multicolumn{1}{c}{\textbf{\%}} \\
-\toprule
-1 ano ou menos 	&	 6 		& 	13 \%	 \\
-2 anos 			& 	 7 		& 	  16 \%	 \\
-3 anos 			& 	 12		& 	  27 \%	 \\
-4 anos 			& 	 6 		& 	  13 \%	 \\
-5 anos 			& 	 3 		& 	   7 \%	 \\
-6 anos 			& 	 7 		& 	  16 \%	 \\
-7 anos 			& 	 2 		& 	   4 \%	 \\
-8 anos 			& 	 2 		& 	   4 \%	 \\
-\bottomrule
-\end{tabular}
-\caption{Experiência dos participantes com desenvolvimento Android.}
-\label{tab:DadosDemograficos}
-\end{table}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.85\textwidth]{phase1-participants-experience.png}
+  \caption{Experiência}
+  \label{fig:phase1-participants-experience}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.94\textwidth]{phase1-participants-regions.png}
+  \caption{Distribuição geográfica}
+  \label{fig:phase1-participants-regions}
+\end{subfigure}% 
+\caption{Experiência com desenvolvimento de software, desenvolvimento Android e distribuição geográfica dos participantes de \emph{Q1}.}
+\label{fig:all-resources}
+\vspace{-.5cm} 
+\end{figure*}
+
+Dessa forma, podemos concluir que tivemos certa abrangência geográfica, no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros.
+
+% \begin{table}[h]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \footnotesize 
+% \begin{tabular}{@{}lcr@{}}
+% \toprule
+% \textbf{Anos de Experiência} & \textbf{Participantes} & \multicolumn{1}{c}{\textbf{\%}} \\
+% \toprule
+% 1 ano ou menos 	&	 6 		& 	13 \%	 \\
+% 2 anos 			& 	 7 		& 	  16 \%	 \\
+% 3 anos 			& 	 12		& 	  27 \%	 \\
+% 4 anos 			& 	 6 		& 	  13 \%	 \\
+% 5 anos 			& 	 3 		& 	   7 \%	 \\
+% 6 anos 			& 	 7 		& 	  16 \%	 \\
+% 7 anos 			& 	 2 		& 	   4 \%	 \\
+% 8 anos 			& 	 2 		& 	   4 \%	 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Experiência dos participantes com desenvolvimento Android.}
+% \label{tab:DadosDemograficos}
+% \end{table}
 
 \subsubsection{Análise dos Dados}
 \label{sub:smells-definition}
@@ -219,7 +220,9 @@ Em seguida, realizamos a \textit{codificação} sobre as boas e más práticas \cite
 
 Por último realizamos o passo de \textit{divisão}. Esse passo consistiu em dividir as respostas que receberam mais de uma categoria em duas ou mais respostas, de acordo com o número de categorias identificadas, de modo a resultar em uma categoria por resposta. Por exemplo, a resposta \textit{"Não fazer Activities serem callbacks de execuções assíncronas. Herdar sempre das classes fornecidas pelas bibliotecas de suporte, nunca diretamente da plataforma"} indica na primeira oração uma categoria e na segunda oração, outra categoria. Ao dividi-la, mantivemos apenas o trecho da resposta relativo à categoria, como se fossem duas respostas distintas e válidas. Em algumas divisões realizadas, a resposta completa era necessária para entender ambas as categorizações, nesses casos, mantivemos a resposta original, mesmo que duplicada, e categorizamos cada uma de modo diferente. 
 
-Ao final da análise constavam 359 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias, onde 21 apresentaram regularidade de ocorrência maior ou igual a três e portanto, foram consideradas para a derivação dos maus cheiros. A escolha do número 3 como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. Das categorias com recorrência maior ou igual a três, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). 
+Ao final da análise constavam 359 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias. Para derivação dos maus cheiros foram consideradas 23 categorias que apresentaram frequência de recorrência maior ou igual a cinco. Segundo Nielsen, cinco repetições é o suficiente para se obter dados necessários para definir um problema, as repetições seguintes tendem a não agregar novas informações relevantes, se não as já observadas \cite{NielsenMagicNumber:00}. Dessas categorias, duas foram desconsideradas por se tratarem de: um mau cheiro tradicional (\textit{Large Class}) e um aspecto da orientação a objetos (Herança). 
+
+% A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. 
 
 O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 21 categorias consideradas para derivação dos maus cheiros.
 
@@ -231,28 +234,28 @@ O interessante é que por acaso nos deparamos com as mesmas conclusões que alguma
 \toprule
 \textbf{Categoria} & \textbf{Ocorrências} & \textbf{Tipo} \\ 
 \toprule
-\textsc{Lógicas em view}                               & 60  &   Java     \\
-\textsc{Padrão de nome de recurso}                     & 23  &   Recurso  \\ 
-\textsc{Recurso mágico}                                & 23  &   Recurso  \\
-\textsc{Views aninhados}                               & 18  &   Recurso  \\
-\textsc{Imagem tradicional dispensável}                & 18  &   Recurso  \\
-\textsc{Classes de UI acopladas}                       & 18  &   Java     \\
-\textsc{Comportamento Suspeito}                        & 17  &   Java     \\
-\textsc{Mau uso do ciclo de vida}                      & 14  &   Java     \\
-\textsc{Layout longo ou repetido}                      & 14  &   Recurso  \\
-\textsc{Não uso do padrão View Holder}                 & 13  &   Java     \\
-\textsc{Ausência de diferentes resoluções de imagens}  & 12  &   Recurso  \\
-\textsc{Referência Morta}                             & 10   &   Java      \\
-\textsc{Uso excessivo de Fragments}                    & 9   &   Java      \\
-\textsc{Classes de UI fazendo IO}                      & 9   &   Java      \\
-\textsc{Não uso de Fragment}                           & 8   &   Java      \\
-\textsc{Longo recurso de estilo}                       & 8   &   Recurso   \\
-\textsc{Recurso de string bagunçado}                   & 8   &   Recurso   \\
-\textsc{Atributos de estilo repetidos}                 & 7   &   Recurso   \\
-\textsc{Reuso excessivo de strings}                     & 6   &   Recurso   \\
-\textsc{Não uso de arquiteturas conhecidas}             & 6   &   Java      \\
-\textsc{Adapter complexo}                               & 5   &   Java      \\
-\textsc{Listener escondido}                             & 5   &   Java      \\ 
+\textsc{Lógicas em view}                               & 60  &   Java    \\
+\textsc{Padrão de nome de recurso}                     & 23  &   Recurso \\ 
+\textsc{Recurso mágico}                                & 23  &   Recurso \\
+\textsc{Views aninhados}                               & 18  &   Recurso \\
+\textsc{Imagem tradicional dispensável}                & 18  &   Recurso \\
+\textsc{Classes de UI acopladas}                       & 18  &   Java    \\
+\textsc{Comportamento Suspeito}                        & 17  &   Java    \\
+\textsc{Mau uso do ciclo de vida}                      & 14  &   Java    \\
+\textsc{Layout longo ou repetido}                      & 14  &   Recurso \\
+\textsc{Não uso do padrão View Holder}                 & 13  &   Java    \\
+\textsc{Ausência de diferentes resoluções de imagens}  & 12  &   Recurso \\
+\textsc{Referência Morta}                              & 10  &   Java    \\
+\textsc{Uso excessivo de Fragments}                    & 9   &   Java    \\
+\textsc{Classes de UI fazendo IO}                      & 9   &   Java    \\
+\textsc{Não uso de Fragment}                           & 8   &   Java    \\
+\textsc{Longo recurso de estilo}                       & 8   &   Recurso \\
+\textsc{Recurso de string bagunçado}                   & 8   &   Recurso \\
+\textsc{Atributos de estilo repetidos}                 & 7   &   Recurso \\
+\textsc{Reuso excessivo de strings}                    & 6   &   Recurso \\
+\textsc{Não uso de arquiteturas conhecidas}            & 6   &   Java    \\
+\textsc{Adapter complexo}                              & 5   &   Java    \\
+\textsc{Listener escondido}                            & 5   &   Java    \\ 
 \bottomrule
 \end{tabular}
 \caption{Total de ocorrências e tipo de elemento Android afetado por categoria.}
@@ -318,6 +321,25 @@ O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e L
 
 \subsubsection{Participantes}
  
+\begin{figure*}[!t]
+\centering
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.85\textwidth]{phase2-participants-experience.png}
+  \caption{Experiência}
+  \label{fig:phase1-participants-experience}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.94\textwidth]{phase2-participants-regions.png}
+  \caption{Distribuição geográfica}
+  \label{fig:phase1-participants-regions}
+\end{subfigure}% 
+\caption{Experiência com desenvolvimento de software, desenvolvimento Android e distribuição geográfica dos participantes de \emph{Q2}.}
+\label{fig:all-resources}
+\vspace{-.5cm} 
+\end{figure*}
+
 
 \subsubsection{Análise dos Dados}
 

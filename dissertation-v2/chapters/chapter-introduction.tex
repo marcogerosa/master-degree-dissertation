@@ -31,58 +31,55 @@ Dentre as pesquisas sobre Android, muitas chegam a conclusão que as classes mais
 Dentre os estudos já realizados sobre qualidade de código Android, podemos encontrar alguns buscando por maus cheiros tradicionais, como os definidos por Martin Fowler \cite{Refactoring:99}, em projetos Android e outros buscando por maus cheiros específicos a plataforma Android. Estudos que buscaram relacionar de alguma forma maus cheiros tradicionais em projetos Android são, por exemplo, o estudo de Linares et al. \cite{DomainMatters} que tentam detectar 18 \textit{anti-patterns} tradicionais em aplicativos móveis. Verloop \cite{MobileSmells:13} analisou se classes derivadas do SDK Android, conjunto de clases base para o desenvolvimento Android, são mais ou menos propensas a apresentar os maus cheiros tradicionais do que classes núcleo, que não precisam herdar de classes do Android SDK. Estudos que buscaram por maus cheiros específicos ao contexto Android são, por exemplo, de Fulano \todo{arrumar} \cite{RemovingEnergySmells:12, ReimannBrylski2013} que identificaram cheiros de código específicos Android relacionados ao consumo inteligente de recursos do dispositivo, como bateria e memória, usabilidade, dentre outros. 
 
 
+Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de código do \textit{front-end} Android, extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento contanto com a participação de mais de 3XX respondentes de todos o mundo.
+
 \section{Motivação}
-
-
 
 
 \section{Questões de Pesquisa}
 % Abordagem de Solução pq abordou dessa forma? Está tentando responder quais perguntas?
 
-Esta dissertação tem como objetivo entender se existem maus cheiros de código específicos no \textit{front-end} Android e caso existam, documentá-los. Para isso, temos três questões de pesquisas principais, onde a primeira é:
+Esta dissertação tem como objetivo investigar a existência de maus cheiros específicos ao \textit{front-end} Android. 
 
-\begin{center}
-\textbf{QP1. Quais são os possíveis candidatos a se tornarem maus cheiros do \textit{front-end} Android?}
-\end{center}
+Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Há evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. Desta forma, formulamos três questões de pesquisa: \\
 
-Um mau cheiro de código são sintomas que podem indicar um problema mais profundo no código. Estes sintomas são extraído do conhecimento empírico de desenvolvedores experientes, de forma que, se vários desenvolvedores consideram determinado código uma má prática, podemos entender o contexto desta má prática como um sintoma, logo, um mau cheiro. Para respondermos a esta pergunta, dividimo-a em três outras:
 
-\begin{itemize}
-  \item[ ] \textbf{QP1.1.} O que desenvolvedores consideram boas e más práticas no desenvolvimento do \textit{front-end} Android?
-\end{itemize}
+\textbf{QP1: Existem maus cheiros que são específicos ao \textit{front-end} Android?}
 
-Essa é uma pergunta muito importante visto que maus cheiros são derivados de conhecimento empírico de desenvolvedores experientes. Logo, entender o que são consideradas boas e más práticas por eles nos darão as primeiras ideias fundamentais para buscar pelos maus cheiros do \textit{front-end} Android. Portanto, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. 
 
-\begin{itemize}
-  \item[ ] \textbf{QP1.2.} Existem boas e más práticas relacionadas a um mesmo assunto ou situação, que são percebidas por mais de um desenvolvedor Android e portanto, elegíveis para a derivação de maus cheiros?
-\end{itemize}
+Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento do \textit{front-end} Android e caso existam, documentá-los. Para isso precisamos explorar o conhecimento empírico de desenvolvedores Android \cite{JavascriptSmells, JavaQADetectingSmells:02}, tarefa que exige alguns passos, portanto dividimo esta questão em outras duas a seguir:
 
-Não basta apenas sabermos o que são boas e más práticas do ponto de vista individual do desenvolvedor se este ponto de vista não for observado de forma recorrente por outros desenvolvedores pois, um mau cheiro deve ser percebido como uma situação problemática por mais pessoas. Fizemos uma codificação dos dados coletados em QP1.1 e encontramos 47 boas e más práticas recorrentes.
+% e contempla a execução de alguns passos para que possa ser respondida. Precisamos coletar informações empíricas de desenvolvedores sobre o desenvolvimento do \textit{front-end} Android,a partir destas informações, investigar a existência de más práticas recorrentes e se existirem, derivar possíveis maus cheiros. Para isso, derivamos três sub-ques
 
-\begin{itemize}
-  \item[ ] \textbf{QP1.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?
-\end{itemize}
 
-Das 47 boas e más práticas recorrentes, 21 tiveram frequência de recorrência maior ou igual a três. A partir delas, extraímos 21 possíveis maus cheiros no \textit{front-end} Android. Entretanto, precisamos validar com desenvolvedores se os sintomas documentados são percebidos no dia a dia de desenvolvimento e se são considerados pontos importantes a se evitar no código. Para isso, elaboramos a seguinte pergunta:
+\textbf{QP1.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento do \textit{front-end} Android? \\
+Esta é uma importante questão a ser respondida pois nos fornece as primeiras ideias sobre maus cheiros no \textit{front-end} Android a partir da perspectiva de desenvolvedores praticantes. Fizemos isso através de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que eles consideram boas e más práticas em oito dos elementos usados para desenvolvimento do \textit{front-end} Android e recebemos um total de 45 respostas.
+
+\textbf{QP1.2.} Existem boas e más práticas recorrentes, e portanto elegíveis para a derivação de maus cheiros?\\
+Com o resultado, realizamos um processo de codificação pelo qual buscamos por más práticas recorrentes de forma a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente \cite{NielsenMagicNumber:00} para serem consideradas para derivação dos maus cheiros. A partir dessas 21 categorias, extraímos 21 maus cheiros no \textit{front-end} Android. 
+
+% \textbf{QP1.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?\\
+% A partir das 21 categorias recorrentes, extraímos 21 maus cheiros no \textit{front-end} Android. 
 
 \begin{center}
 \textbf{QP2. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
 \end{center}
 
-Com o objetivo de validar os maus cheiros derivados da questão anterior, através de um segundo questionário online, questionamos desenvolvedores Android sobre sua percepção sobre os 21 maus cheiros identificados no sentido de se percebiam as situações dos maus cheiros no seu dia a dia e se consideram importante mitigar estas situações em seus códigos. Obtivemos 201 respostas dos quais validamos positivamente que 16 maus cheiros eram frequentes e importantes, removendo 5 maus cheiros \todo{colocar os 5 aqui}.
+% Entretanto, precisamos validar com desenvolvedores se os sintomas documentados são percebidos no dia a dia de desenvolvimento e se são considerados pontos importantes a se evitar no código. Para isso, elaboramos a seguinte pergunta:
+
+Com o objetivo de validar os maus cheiros derivados da questão anterior, perguntamos a desenvolvedores Android se eles percebiam os maus cheiros no seu dia a dia e o quão importante eles consideravam mitigar a situação apresentada pelo mau cheiro. Obtivemos 201 respostas dos quais validamos positivamente que 16 maus cheiros são considerados importantes e percebidos frequentemente no dia a dia. Dos 21, foram desconsiderados 5 maus cheiros por não serem considerados tão importantes ou tão frequentes.
 
 \begin{center}
 \textbf{QP3. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
-
 \end{center}
 
-A fim de validar a percepção dos maus cheiros pelos desenvolvedores em códigos Android, realizamos um experimento com 75 desenvolvedores onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
+Evidências na literatura sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. A fim de validar a percepção dos maus cheiros pelos desenvolvedores Android, realizamos um experimento de código com 75 desenvolvedores. Com os resultados pudemos validar estatisticamente a percepção dos desenvolvedores sobre 13 dos 16 maus cheiros, são eles:
 
-\begin{center}
-  . . .
-\end{center}
 
-Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de código do \textit{front-end} Android, extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento contanto com a participação de mais de 3XX respondentes de todos o mundo.
+% onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
+
+
+% Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de código do \textit{front-end} Android, extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento contanto com a participação de mais de 3XX respondentes de todos o mundo.
 
 
 % Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. 
@@ -94,27 +91,32 @@ Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de 
 
 % Nossa hipótese de pesquisa é que existem maus cheiros de código específicos ao Android. Nossa pesquisa complementa as anteriores no sentido de que também buscamos por maus cheiros Android. E se difere delas pois buscamos maus cheiros relacionados à qualidade de código. Por exemplo \textsc{Activities}, \textsc{Fragments} e \textsc{Adapters} são classes usadas na construção de telas e \textsc{listeners} são responsáveis pelas interações com os usuários. Buscamos entender então quais são as \emph{boas e más} práticas no desenvolvimento da interface visual de aplicativos Android. 
 
-Esta pesquisa tem por objetivo identificar e documentar maus cheiros de código específicos a plataforma móvel Android a fim de servir como mais uma ferramenta para desenvolvedores Android que buscam aumentar a qualidade de seus códigos nessa plataforma pois aqui estará documentado o conhecimento empírico de mais de 300 desenvolvedores Android experientes.
+% Esta pesquisa tem por objetivo identificar e documentar maus cheiros de código específicos a plataforma móvel Android a fim de servir como mais uma ferramenta para desenvolvedores Android que buscam aumentar a qualidade de seus códigos nessa plataforma pois aqui estará documentado o conhecimento empírico de mais de 300 desenvolvedores Android experientes.
 
-Desta forma, as contribuições deste trabalho são:
+As principais contribuições desta pesquisa são:
 
 \begin{enumerate}
-  \item Catálogo com 18 \todo{acertar número} maus cheiros de código Android derivados a partir dos resultados obtidos da aplicação de questionários online e experimento, totalizando a participação de mais de 300 desenvolvedores Android.
+  \item Catálogo com 13 \todo{acertar número após experimento} maus cheiros específicos ao \textit{front-end} Android derivados a partir da opinião de mais de 300 desenvolvedores Android praticantes, por meio de dois questionários online e um experimento em 3 fases. 
+
+  Estes catálogo pode servir a outros pesquisadores e praticantes. Aos pesquisadores serve como ponto de partida para a definição de heurísticas e implementação de ferramentas que identifiquem estes maus cheiros automaticamente. Aos praticantes serve como indicadores de situações a serem evitadas ou refatoradas, mesmo que ainda de forma manual.
 
   \item A percepção de desenvolvedores Android com relação aos maus cheiros catalogados.
 
-  \item Apêndice online~\cite{apendice} com informações detalhadas dos roteiros dos questionários e outras informações da pesquisa para que outros pesquisadores possam replicar nosso estudo.
+  \item Apêndice online~\cite{apendice} com informações detalhadas dos questionários e outras informações da pesquisa para que outros pesquisadores possam replicar nosso estudo.
 \end{enumerate}
 
 \section{Originalidade e Relevância}
 
+
 Estudos identificaram cheiros de código específicos Android relacionados ao consumo inteligente de recursos do dispositivo, como bateria e memória, usabilidade, dentre outros \cite{RemovingEnergySmells:12, ReimannBrylski2013}. Verloop \cite{MobileSmells:13} analisou se classes derivadas do SDK Android são mais ou menos propensas a cheiros de código tradicionais do que classes puramente Java. Linares et al. \cite{DomainMatters} usaram o método DECOR para realizar a detecção de 18 \textit{anti-patterns} orientado a objetos em aplicativos móveis.
 
-Escrever código com qualidade tem se tornado cada vez mais importante com o aumento da complexidade de tecnologias e anseio dos usuários por novas funcionalidade e atualizações \cite{Hecht:15, MobileSmells:13}. Existem diferentes práticas, padrões e ferramentas que auxiliam os desenvolvedores a escrever código com qualidade, incluindo \textit{design patterns} \cite{GoF:95} e cheiros de código \cite{Refactoring:99}. A falta de qualidade resulta em defeitos de software que custam a empresas quantias significativas, especialmente quando conduzem a falhas de software \cite{Nagappan:2005, briand1993modeling}. Evolução e manutenção de software também já se provaram como os maiores gastos com aplicações \cite{RefactoringAndImprovements:10}.
+\todo{A maior parte dos maus cheiros são introduzidos no começo do projeto, logo identifica-los após o primeiro lançamento é de grande valia para ajudar a evoluir a qualidade}
 
-Uma das formas de aumentar a qualidade de software é identificar trechos de códigos ruins e refatorá-los, ou seja, alterar o código sem alterar o comportamento \cite{Refactoring:99}. Desta forma, temos que cheiros de código são aliados importantes na busca por qualidade de código pois, representam sintomas que podem indicar problemas mais profundos no software, não necessariamente, sendo o problema em si \cite{CodeSmell:06}. Seu mapeamento possibilita a definição de heurísticas que, por sua vez, possibilitam a implementação de ferramentas que os identificam de modo automático no código. PMD \cite{PMD2016}, Checkstyle e FindBugs são exemplos de ferramentas que identificam automaticamente alguns tipos de cheiros de código em projetos Java. 
+Escrever código com qualidade tem se tornado cada vez mais importante com o aumento da complexidade de tecnologias e anseio dos usuários por novas funcionalidade e atualizações \cite{Hecht:15, MobileSmells:13}. Existem diferentes práticas, padrões e ferramentas que auxiliam os desenvolvedores a escrever código com qualidade, incluindo \textit{design patterns} \cite{GoF:95} e maus cheiros \cite{Refactoring:99}. Evidências na literatura sugerem que maus cheiros podem dificultar a manutenibilidade do código \cite{Yamashita:2013:EII:2486788.2486878, Yamashita6405287, Sjoberg_Quantifying_2013} e a falta de qualidade pode resultar em defeitos de software que custam a empresas quantias significativas, especialmente quando conduzem a falhas de software \cite{Nagappan:2005, briand1993modeling}. Evolução e manutenção de software também já se provaram como os maiores gastos com aplicações \cite{RefactoringAndImprovements:10}.
 
-Enquanto que cheiros de código em projetos Java já foram extensivamente estudados \cite{Riel:96, Refactoring:99, CleanCode:08}, ainda há muito a se pesquisar sobre cheiros de código em projetos Android. No entanto, determinar o que é ou não um cheiro de código é subjetivo e pode variar de acordo com a tecnologia, desenvolvedor, metodologia de desenvolvimento dentre outros aspectos \cite{WikiCodeSmell}. Em particular, Aniche et al. \cite{MvcSmells:16,aniche2016satt} mostraram que a arquitetura do software é um fator importante e que deve ser levada em conta ao analisar a qualidade de um sistema. Outros estudos identificaram cheiros de código específicos Android relacionados ao consumo inteligente de recursos do dispositivo, como bateria e memória, usabilidade, dentre outros \cite{RemovingEnergySmells:12, ReimannBrylski2013}. Verloop \cite{MobileSmells:13} analisou se classes derivadas do SDK Android são mais ou menos propensas a cheiros de código tradicionais do que classes puramente Java. Linares et al. \cite{DomainMatters} usaram o método DECOR para realizar a detecção de 18 \textit{anti-patterns} orientado a objetos em aplicativos móveis.
+Uma das formas de aumentar a qualidade de software é identificar trechos de códigos ruins e refatorá-los, ou seja, alterar o código sem alterar o comportamento \cite{Refactoring:99}. Desta forma, temos que cheiros de código são aliados importantes na busca por qualidade de código pois, representam sintomas que podem indicar problemas mais profundos no software, não necessariamente, sendo o problema em si \cite{CodeSmell:06}. Seu mapeamento possibilita a definição de heurísticas que, por sua vez, possibilitam a implementação de ferramentas que os identificam de modo automático no código. PMD \cite{PMD2016}, Checkstyle e FindBugs são exemplos de ferramentas que identificam automaticamente alguns maus cheiros em projetos Java. 
+
+Enquanto que maus cheiros em projetos Java já foram extensivamente estudados \cite{Riel:96, Refactoring:99, CleanCode:08}, ainda há muito a se pesquisar sobre cheiros de código em projetos Android. No entanto, determinar o que é ou não um cheiro de código é subjetivo e pode variar de acordo com a tecnologia, desenvolvedor, metodologia de desenvolvimento dentre outros aspectos \cite{WikiCodeSmell}. Em particular, Aniche et al. \cite{MvcSmells:16,aniche2016satt} mostraram que a arquitetura do software é um fator importante e que deve ser levada em conta ao analisar a qualidade de um sistema. Outros estudos identificaram cheiros de código específicos Android relacionados ao consumo inteligente de recursos do dispositivo, como bateria e memória, usabilidade, dentre outros \cite{RemovingEnergySmells:12, ReimannBrylski2013}. Verloop \cite{MobileSmells:13} analisou se classes derivadas do SDK Android são mais ou menos propensas a cheiros de código tradicionais do que classes puramente Java. Linares et al. \cite{DomainMatters} usaram o método DECOR para realizar a detecção de 18 \textit{anti-patterns} orientado a objetos em aplicativos móveis.
 
 Umme et al. \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed} recentemente levantaram que, das principais conferências de manutenção de software (ICSE, FSE, OOPSLA/SPLASH, ASE, ICSM/ICSME, MRS e ESEM), dentre 2008 a 2015, apenas 10\% dos artigos consideraram em suas pesquisas, projetos Android. Nenhuma outra plataforma móvel foi considerada.  
 

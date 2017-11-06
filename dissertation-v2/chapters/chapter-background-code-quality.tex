@@ -36,6 +36,7 @@ O padrão ISO/IEC 9126, substituído pelo ISO/IEC 25010 (SQuaRE) é considerado atu
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
 
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
@@ -137,7 +138,7 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é \emph{algo que serve como modelo, um exemplo para os outros seguirem} [2]. Padrões não são invenção de algo novo, é uma forma de organizar o conhecimento de experiências [1].
 
-  Para engenharia de software, a principal definição sobre \emph{padrões} provém do livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) [50] onde ele define um \emph{padrão} como sendo uma regra de \emph{três partes} que expressa a \emph{relação} entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Martin Fowler apresenta uma definição mais simples que diz que \emph{um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros} [9]. 
+  Para engenharia de software, a principal definição sobre \emph{padrões} provém do livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um \emph{padrão} como sendo uma regra de \emph{três partes} que expressa a \emph{relação} entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Martin Fowler apresenta uma definição mais simples que diz que \emph{um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros} [9]. 
 
   % A seguir, apresentamos a citação original completa:
 
@@ -145,35 +146,53 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
   %   Cada padrão descreve um \emph{problema} no nosso \emph{ambiente} e o cerne de sua \emph{solução}, de tal forma que você possa usar essa solução mais de um milhão de vezes, sem nunca fazê-lo da mesma maneira. --- Christopher Alexander, Uma Linguagem de Padrões [50]
   % \end{quote}
 
-  Inspirados por Alexander [50], Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. E, apoiando-se na definição de padrões de Alexander, Design Pattern - GoF (1994) foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando X padrões. 
+  Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, Design Pattern - GoF (1994) foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando X padrões. 
 
   Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada aspecto como problema, contexto ou solução será encontrado. Alguns formatos incluem uma série de outros elementos além destes três bases de todos padrão. Ao longo dos anos, alguns formatos foram se destacando, a Figura X.X mostra alguns principais formatos de padrões. 
+
+  Um mau cheiro se difere de padrões pois o primeiro, como vimos.... já o mau cheiro...
 
   % Em seguida, Padrões de Software: Contos da Comunidade de Software (1996) 
 
 
 \subsection{Anti-Padrões}
 
-  Um anti-padrão é uma resposta comum a um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995, inspirado pelo livro GoF [??]. 
+  Um anti-padrão é uma resposta comum a um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995 [???], inspirado pelo livro GoF \cite{GoF:95}. 
 
-  O termo se popularizou 3 anos após, em 1998 com o livro Antipatterns [?]. Segundo o livro, para diferenciar um anti-padrão de um mal hábito, má prática ou ideia ruim um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+  O termo se popularizou 3 anos após, no livro de Brown (1998) \cite{AntiPatterns:98}. Segundo Brown \cite{AntiPatterns:98}, para diferenciar um anti-padrão de um mal hábito, má prática ou ideia ruim um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
 
-  É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código pois ambos tratam de práticas que influenciam negativamente a manutenibilidade do software. O equívoco ocorre pois, primeiro para se tornar um anti-padrão em algum momento o mesmo deve ter sido considerado um padrão, e segundo, deve-se apresentar os dois elementos mencionados no livro Antippaterns. Muitos dos trabalhos relacionados a esta pesquisa cometeram este equívoco.
+  É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código. O equívoco ocorre geralmente por ambos tratam de práticas que influenciam negativamente a manutenibilidade do software. Entretanto, anti-padrões se diferem de maus cheiros pois um mau cheiro não é, nem poderá se tornar um padrão, condição necessária para se tornar um anti-padrão. E ainda, segundo Brown \cite{AntiPatterns:98}, um anti-padrão deve apresentar os dois elementos acima citados.
 
+\subsection{Débito Técnico}
+
+???
 
 \section{Maus Cheiros de Código}
 
+  % \todo{``smells are certain structures in the code that indicate violation of fundamental design principles and negatively impact design quality.'' \cite[p.~258]{Refactoring:14}}
+
+  % \todo{``Bad code smells can be an indicator of factors that contribute to technical debt'' \cite{StartsBadSmells:15}}
+
+  % \todo{Code smells are usually not bugs-they are not technically incorrect and do not currently prevent the program from functioning. Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future.}
+
   \epigraph{``Se cheirar mau, troque-o."}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
 
-  Podemos entender um mau cheiro de código como uma percepção empírica de que algo não está certo no software, percepção semelhante o dito popular ``Algo não cheira bem!'' quando uma pessoa está desconfiada de que há um problema em dada situação.
 
-  Um dos primeiros livro a usar o \emph{conceito} de mau cheiro de código foi o livro de Webster (1995) \cite{Webster:95} através do termo \emph{``armadilha''}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. 
+  Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante o dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de código, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 
 
-  Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. Refatoração, segundo Fowler, é o ato de ``\emph{alterarmos o código sem alterar seu comportamento com o objetivo de torná-lo mais fácil de ser entendido e menos custoso de ser modificado}''. No livro são apresentadas diversas técnicas de  refatoração. O termo mau cheiro de código é usado para explicar ao leitor o \emph{``quando''} uma refatoração deve ser aplicada. Segundo o livro, \textbf{\emph{``mau cheiro de código são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}}. Essas indicações provém do conhecimento empírico de desenvolvedores experientes, que ao longo dos anos, após trabalharem em diversos códigos bons e ruins, são capazes de listar características que podem indicar se um trecho de código é problemático. 
+  Entretanto, maus cheiros não são erros - eles não estão tecnicamente incorretos e não impedem o funcionamento do software. Em vez disso, eles indicam deficiências no código que podem dificultar a manutenibilidade do software e aumentar o risco de erros ou falhas no futuro \cite{Yamashita:2013:EII:2486788.2486878, Sjoberg_Quantifying_2013, Yamashita6405287, Khomh:2009:ESI:1685994.1686210}.
 
-  Em uma postagem em seu site oficial em 2006 \cite{CodeSmell:06}, Fowler afrouxou um pouco mais a definição do termo dizendo que \emph{``mau cheiro de código são indicações superficiais que geralmente corresponde a um problema mais profundo no sistema''}.
+  Há indícios informais de que o termo foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o \emph{conceito} de maus cheiros através do termo \emph{``armadilha''}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. 
 
   No livro são apresentados 22 maus cheiros e mais de 70 técnicas de refatoração. \textit{Código Duplicado} \cite[p.~63]{Refactoring:99} é um exemplo de mau cheiro que trata de problemas comuns que podem resultar na duplicação de código, por exemplo, ter a mesma expressão em dois métodos da mesma classe ou em duas subclasses irmãs. Para resolver este mau cheiro é indicada a refatoração \textit{Extrair Método} \cite[p.~89]{Refactoring:99}, ou seja, extrair a expressão duplicada para um novo método e substituí-lo nos lugares onde a expressão era usada. 
+
+  % Refatoração, segundo Fowler, é o ato de ``\emph{alterarmos o código sem alterar seu comportamento com o objetivo de torná-lo mais fácil de ser entendido e menos custoso de ser modificado}''. No livro são apresentadas diversas técnicas de  refatoração. 
+
+  % O termo mau cheiro de código é usado para explicar ao leitor o \emph{``quando''} uma refatoração deve ser aplicada. Segundo o livro, \textbf{\emph{``mau cheiro de código são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}}. 
+
+  Maus cheiros provém do profundo conhecimento e experiências de desenvolvedores experientes que ao longo dos anos desenvolveram um ``intuição'' para o bom \textit{design} possibilitando-os olhar para um \textit{design} ou código e obter imediatamente uma ``intuição'' sobre sua qualidade, sem ter que dar ``argumentos logicamente detalhados'' sobre o porquê de sua conclusão \cite{WardsWikiCodeSmell}. Ou seja, é por natureza subjetivo, baseado em opiniões e experiências \cite{JavaQADetectingSmells:02, JavascriptSmells}.
+
+  % Em uma postagem em seu site oficial em 2006 \cite{CodeSmell:06}, Fowler afrouxou um pouco mais a definição do termo dizendo que \emph{``mau cheiro de código são indicações superficiais que geralmente corresponde a um problema mais profundo no sistema''}.
 
   Nos anos seguintes o termo mau cheiro se tornou frequente em livros \cite{CleanCode:08, Refactoring:14} e pesquisas acadêmicas. No livro \textit{Clean Code} (Martin, R 2008) \cite{CleanCode:08}, que se tornou muito popular entre desenvolvedores de software, são definidos novos maus cheiros além de citar alguns já apresentados por Fowler \cite{Refactoring:99}. Ele se apoia na definição de Fowler para explicar o conceito de mau cheiro.
 
@@ -215,16 +234,32 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
     Insista para que as decisões do projeto baseiem-se em estrutura acima de convenção (1). Convenções de nomenclaturas são boas, mas são inferiores a estruturas, que forçam um certo cumprimento (2). Por exemplo, \texttt{switch/case} com enumerações bem nomeadas são inferiores a classes base com métodos abstratos (3). Ninguém é obrigado a implementar a estrutura \texttt{switch/case} da mesma forma o tempo todo; mas as classes bases obrigam a implementação de todos os métodos abstratos das classes concretas (4).
   \end{square}
 
-  Em pesquisas que definem novos maus cheiros, observamos um formato similar aos mencionados porém, adicionado uma estratégia de detecção, com foco em automatizar a identificação do mau cheiro \cite{MvcSmells:16, CSSCodeSmell}. Estas estratégias comumente se baseiam em métricas de software já existentes, como as métricas CK \todo{ref}.
+  Em pesquisas que definem novos maus cheiros, observamos um formato similar aos mencionados porém, adicionado uma estratégia de detecção, com foco em automatizar a identificação do mau cheiro \cite{MvcSmells:16, CSSCodeSmell}. 
+
+  % Estas estratégias comumente se baseiam em métricas de software já existentes, como as métricas CK \todo{ref}.
+
+
 
 \subsection{Formato Adotado}
 
+Como apresentado na seção anterior, são muitos os formatos usados na literatura e em pesquisas para se catalogar maus cheiros. Com a evolução de pesquisas sobre o assunto, cada vez mais é possível refiná-los criando heurísticas, ferramentas automatizadas de detecção e inclusive propondo soluções padrões. 
+
+Entretanto, este trabalho é uma pesquisa exploratória sobre maus cheiros relacionados a manutenibilidade do \textit{front-end} Android dando os primeiros passos nesse sentido, portanto optamos pelo formato mais simples de mau cheiro, contendo:
+
+\begin{itemize}
+  \item \emph{título}, 
+
+  \item \emph{descrição dos sintomas},  
+
+  \item e algumas \emph{frases de participantes} que nos levaram a conclusão dos sintomas definidos.
+\end{itemize}
+ 
+
+% Esta escolha de focar pelo formato textual, sem a definição de heurísticas, automatização de ferramentas e propôr soluções se dá pois consideramos cada um desses outros passos também muito complexos, sendo este primeiro passo muito 
+
+Acreditamos que essas definições iniciais são de extrema importância e poderão servir de base para pesquisas futuras buscarem por heurísticas, automatizações de ferramentas de detecção e inclusive propôr soluções para estes e outros maus cheiros Android.
+
 % Se não for ter esta seção não faz nem sentido comentar sobre formato
-
-
-
-
-
 
 
 
@@ -233,6 +268,8 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 % \subsection{Boas Práticas vs Padrões/Anti-Padrões vs Maus Cheiros de Código}
 
 % Para entender melhor o que seria um mau cheiro e sua relação com padrões, antipadrões e práticas, pense no seguinte cenário: você na rua observa um homem correndo com uma bolsa feminina e uma mulher correndo atrás dele. Este cenário facilmente pode se encaixar num contexto de um homem que rouba a bolsa de uma mulher, e por padrão, ao vermos uma situação como esta, provavelmente devemos chamar a polícia. Mas este mesmo cenário pode representar um casal com pressa de pegar um ônibus ou táxi por exemplo, e neste contexto, não precisamos fazer nada.
+
+
 
 % Podemos pensar que o cenário que descrevemos representa um mau cheiro de forma que, ele não é um problema, mas pode apontar para problemas mais profundos ou não, mas que certamente vale uma análise para chegar a essas conclusões. Veja que, se for identificado que é um roubo, podemos então aplicar um padrão: ``chamar a polícia''. Logo, um mau cheiro pode representar um \textbf{contexto} de um padrão (ou anti-padrão), sendo assim, pode ser que a aplicação do padrão o resolva. Entretanto, pode ser que não exista ainda nenhum padrão para resolver o mau cheiro, então uma solução terá de ser criada.
 
@@ -253,8 +290,10 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 % [9] FOWLER, M. Analysis Patterns: Reusable Object Models. Addison-Wesley Professional, 1996. 
 
 % ANTI-PADROES
-% [1]  Koenig, Andrew (March–April 1995). "Patterns and Antipatterns". Journal of Object-Oriented Programming. 8 (1): 46–48.; was later re-printed in the: Rising, Linda (1998). The patterns handbook: techniques, strategies, and applications. Cambridge, U.K.: Cambridge University Press. p. 387. ISBN 0-521-64818-1. "An antipattern is just like a pattern, except that instead of a solution it gives something that looks superficially like a solution, but isn't one."
-% Buscar mais aqui https://en.wikipedia.org/wiki/Anti-pattern#Software_engineering
+
+%[1]Koenig, Andrew Patterns and Antipatterns. The patterns handbook: techniques, strategies, and applications. Cambridge, U.K.: Cambridge University Press. p. 387. ISBN 0-521-64818-1. "An antipattern is just like a pattern, except that instead of a solution it gives something that looks superficially like a solution, but isnt one."
+
+% Buscar mais aqui https://en.wikipedia.org/wiki/Anti-pattern\#Software_engineering
 
 
 
