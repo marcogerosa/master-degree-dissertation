@@ -8,7 +8,7 @@ Dentre as tecnologias que surgiram na última década, uma que se destacou foi o A
 
 O Android também chamou a atenção de pesquisadores da área de qualidade de software que investigaram a existência de maus cheiros tradicionais em aplicativos Android \cite{Hecht:15, DomainMatters, MobileSmells:13} e a existência de maus cheiros específicos ao Android relacionados a eficiência e usabilidade \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Dentre as descobertas realizadas pelos pesquisadores, notou-se que maus cheiros específicos são muito mais frequentes em aplicativos Android do que maus cheiros tradicionais \cite{Hecht:15}, as classes mais afetadas por maus cheiros tradicionais estão relacionadas a interface visual, também chamada de \textit{front-end}, como \textsc{Activities} e \textsc{Adapters} \cite{Hecht:15, Mantyla2013, MobileSmells:13} e que em alguns aplicativos, códigos relacionados ao \textit{front-end} são maioria, em termos de LOC (Linhas de Código) \cite{Mantyla2013}. O código do \textit{front-end} do Android é composto também por arquivos \texttt{XML}, chamados de recursos da aplicação, que são usados para ``desenhar'' a interface \cite{AndroidFundamentals}. Nenhuma das pesquisas mencionadas considerou estes arquivos em suas análises. 
 
-Nesta dissertação investigamos a \emph{existência de maus cheiros de código específicos ao \textit{front-end} de aplicativos Android relacionados a manutenibilidade}. Complementamos as pesquisas anteriores pois focamos no \emph{\textit{front-end} do Android}, considerando também os recursos da aplicação em nossas análises, e também focando em qualidade de software em termos de \emph{manutenibilidade} ao invés de eficiência e usabilidade. Fizemos isso através da aplicação de 2 questionários online submetidos a desenvolvedores praticantes de forma global e 1 experimento presencial e dirigido. No total, participaram da pesquisa 3XX desenvolvedores.
+Nesta dissertação investigamos a \emph{existência de maus cheiros de código específicos ao \textit{front-end} de aplicativos Android relacionados a manutenibilidade}. Complementamos as pesquisas anteriores pois focamos no \emph{\textit{front-end} do Android}, considerando também os recursos da aplicação em nossas análises, e também focando em qualidade de software em termos de \emph{manutenibilidade} ao invés de eficiência e usabilidade. Fizemos isso através da aplicação de 2 questionários online submetidos a desenvolvedores Android praticantes e 1 experimento presencial e dirigido. No total, participaram da pesquisa 3XX desenvolvedores.
 
 Concluímos com 1) um catálogo com 13 novos maus cheiros específicos ao \textit{front-end} Android, 2) uma análise estatística da percepção de desenvolvedores praticantes sobre os maus cheiros catalogados e 3) um apêndice \textit{online} \cite{apendice} com informações para que outros pesquisadores possam replicar a pesquisa. Acreditamos que nossas contribuições poderão servir a pesquisadores e desenvolvedores praticantes. Aos pesquisadores poderá servir como ponto de partida para a definição de heurísticas de identificação dos maus cheiros e implementação de ferramentas que os identifiquem de forma automática. Aos praticantes poderá servir como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
 
@@ -144,7 +144,7 @@ Evidências na literatura sugerem que maus cheiros são percebidos por desenvolved
 
 
 \section{Organização do Trabalho}
-As seções seguintes desta dissertação estão organizadas da seguinte forma: 
+As próximas seções desta dissertação estão organizadas da seguinte forma: 
 
 \begin{itemize}
   
@@ -152,7 +152,7 @@ As seções seguintes desta dissertação estão organizadas da seguinte forma:
 
   \item A Seção \ref{relacionados} discute trabalhos relacionados a maus cheiros específicos a uma tecnologia, maus cheiros tradicionais em apps Android e maus cheiros específicos ao Android.
 
-  \item a Seção \ref{metodologia} aborda a metodologia utilizada nesta pesquisa.
+  \item A Seção \ref{metodologia} aborda a metodologia utilizada nesta pesquisa.
 
   \item A Seção \ref{maus-cheiros} apresenta o catálogo com 16 maus cheiros derivados relacionados ao \textit{front-end} Android.
 
