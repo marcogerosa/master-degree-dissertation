@@ -1,8 +1,9 @@
 % -*- root: article.tex -*-
 
+\todo{pensar sobre este paragrafo}
 Este trabalho trata-se de uma pesquisa descritiva e exploratória. Descritiva porque, este tipo de pesquisa visa observar, analisar, registrar e correlacionar os fatos ou fenômenos sem manipulá-los [?] e exploratória porque são abstraídas práticas recorrentes objetivando descrever sua natureza na forma maus de cheiros de código [?].
 
-São muitos os motivos válidos para se fazer pesquisa qualitativa, dentre eles, os que melhor nos serve de motivação são natureza do problema, no caso maus cheiros de código e obter mais informações sobre uma área cujo ainda se sabe muito pouco, no caso, maus cheiros específicos ao Android \cite{Strauss2007}. Uma pesquisa qualitativa constitui-se na primeira etapa de uma investigação mais ampla na qual se busca o entendimento de um assunto específico por meio de descrições, comparações e interpretações dos dados \cite{Prates2015}.
+São muitos os motivos válidos para se fazer pesquisa qualitativa, dentre eles, os que melhor nos serve de motivação é a natureza do problema, no caso maus cheiros de código e obter mais informações sobre uma área cujo ainda se sabe muito pouco, no caso, maus cheiros específicos ao Android \cite{Strauss2007}. Uma pesquisa qualitativa constitui-se na primeira etapa de uma investigação mais ampla na qual se busca o entendimento de um assunto específico por meio de descrições, comparações e interpretações dos dados \cite{Prates2015}.
 
 % Algumas características básicas da pesquisa qualitativa, como \textit{a)} o foco na interpretação que os participantes possuem quanto à situação investigada e \textit{b)} o fato de enfatizar a subjetividade e a flexibilidade, orientando-se para o processo e não para o resultado, justificam seu uso nesta pesquisa \cite{Prates2015, King1994}.
 
@@ -37,7 +38,7 @@ A fim de validar a percepção dos maus cheiros pelos desenvolvedores em códigos A
 
 \section{Método de Pesquisa}
 
-Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:ResearchPhases}. Para obtermos os dados iniciais, na \emph{primeira etapa} buscamos entender o que desenvolvedores Android consideram boas e más práticas ao desenvolver aplicativos Android. Estes dados foram obtidos através de um questionário online respondido por 45 desenvolvedores. A partir desses dados pudemos derivar 25 possíveis maus cheiros de código Android. Apresentamos na Seção \ref{etapa-1} os detalhes desta etapa. 
+Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:ResearchPhases}. Para obtermos os dados iniciais, na primeira etapa buscamos entender o que desenvolvedores Android consideram boas e más práticas ao desenvolver aplicativos Android. Estes dados foram obtidos através de um questionário online respondido por 45 desenvolvedores. A partir desses dados pudemos derivar 25 possíveis maus cheiros de código Android. Apresentamos na Seção \ref{etapa-1} os detalhes desta etapa. 
 
 %  Colocar isso na seção específica ou aqui mesmo
 %  pois como mencionado na Seção X.X [ref teórico], maus cheiros de código bem como outras boas práticas de software são derivações de conhecimento empírico
@@ -49,9 +50,9 @@ Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:Res
   \label{fig:ResearchPhases}
 \end{figure}
 
-Na \emph{segunda etapa}, buscamos responder a \emph{QP1 - Quais maus cheiros são vistos com mais frequência?} e \emph{QP2 - Quais maus cheiros são considerados mais importantes?}. Fizemos isso a partir de outro questionário online respondido por 195 desenvolvedores Android. Nessa etapa 4 dos maus cheiros inicialmente derivados foram removidos, visto que não eram considerados importantes para os desenvolvedores, restando 21. Apresentamos os detalhes desta etapa na Seção \ref{etapa-2}. 
+Na segunda etapa, buscamos responder a \emph{QP1 - Quais maus cheiros são vistos com mais frequência?} e \emph{QP2 - Quais maus cheiros são considerados mais importantes?}. Fizemos isso a partir de outro questionário online respondido por 195 desenvolvedores Android. Nessa etapa 4 dos maus cheiros inicialmente derivados foram removidos, visto que não eram considerados importantes para os desenvolvedores, restando 21. Apresentamos os detalhes desta etapa na Seção \ref{etapa-2}. 
 
-Na \emph{terceira e última etapa}, objetivamos responder a \emph{QP3 - Códigos afetados pelos maus cheiros são percebidos como problemáticos?}. Para isso fizemos um experimento com 75 desenvolvedores Android do qual pudemos colher dados estatísticos sobre a percepção deles aos maus cheiros. Nesta etapa mais 2 maus cheiros foram descartados e concluímos com 19 maus cheiros do \textit{front-end} Android percebidos e considerados relevantes a desenvolvedores Android. Os detalhes desta etapa são apresentados na Seção \ref{etapa-3}.
+Na terceira e última etapa, objetivamos responder a \emph{QP3 - Códigos afetados pelos maus cheiros são percebidos como problemáticos?}. Para isso fizemos um experimento com 75 desenvolvedores Android do qual pudemos colher dados estatísticos sobre a percepção deles aos maus cheiros. Nesta etapa mais 2 maus cheiros foram descartados e concluímos com 19 maus cheiros do \textit{front-end} Android percebidos e considerados relevantes a desenvolvedores Android. Os detalhes desta etapa são apresentados na Seção \ref{etapa-3}.
 
 % \subsection{Participantes}
 % \todo{Colocar um resumo aqui sobre todos os participantes.}
@@ -109,7 +110,7 @@ O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin,
 \label{fig:ElementsVSAnswers}
 \end{figure*}
 
-Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
+Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
 
 Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas foi o recurso \textsc{Style}, com 51\% sobre boas práticas, e o que menos recebeu respostas foi o recurso \textsc{Drawable}, com 47\% sobre más práticas. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. Resta-nos entender quais dessas práticas são compartilhadas e quais são apenas preferências pessoais. Fazemos isso na etapa 2. 
 
@@ -226,7 +227,7 @@ Ao final da análise constavam 359 respostas sobre boas e más práticas individual
 
 % A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. 
 
-O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que apps Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em apps Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 21 categorias consideradas para derivação dos maus cheiros.
+O interessante é que por acaso nos deparamos com as mesmas conclusões que algumas pesquisas anteriores, de que aplicativos Android são fortemente afetados pelo mau cheiro \textit{Large Class} \cite{MobileSmells:13} e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em aplicativos Android, desconsideramos esses resultados. A Tabela \ref{tab:CategoriesVSFrequency} apresenta as 21 categorias consideradas para derivação dos maus cheiros.
 
 \begin{table}[h]
 \centering
@@ -273,7 +274,7 @@ Cada categoria considerada deu origem a um mau cheiro de código no \textit{front
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 \label{etapa-2}
 
-Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção através de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Foram criadas duas versões do questionário, inglês e português, e coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 16 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
+Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 16 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{etapa-2-questionario}), sobre os participantes (Seção \ref{etapa-2-participantes}) e sobre o processo de análise dos dados (Seção \ref{etapa-2-analise}).
 
@@ -308,7 +309,7 @@ A terceira seção objetivou capturar a percepção dos desenvolvedores com relação 
   \item \textbf{\small\emph{\texttt{Fragments}, \texttt{Adapters} e \texttt{Listeners} não ter referência direta à quem os utiliza.}}
 \end{itemize}
 
-Para cada frase o respondente podia escolher uma dentre os cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. 
+Para cada frase o respondente podia escolher uma dentre as cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. 
 
 Antes da divulgação do questionário realizamos a validação de cada uma das frases, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{Dev-A} e \emph{Dev-B}. \emph{Dev-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui grau escolar de bacharel. \emph{Dev-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui grau escolar de bacharel \todo{confirmar com o Cauê}. Ambos os desenvolvedores trabalham atualmente em \textit{startups} brasileiras com desenvolvimento mobile. 
 

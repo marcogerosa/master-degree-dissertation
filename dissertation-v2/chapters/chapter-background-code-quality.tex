@@ -9,7 +9,7 @@ Stefan \cite{StefanSoftwareQuality:13} também examinou diversas definições e ide
 
 % Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
 
-As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizam de uma decomposição hierárquica e dentre os conceitos encontramos por exemplo manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir como é possível observar na Tabela \ref{tab:QualityModels}. Entretanto, o grande valor que esse modelo de decomposição hierárquica trouxe foi a ideia de decompor o conceito de qualidade até um nível que se possa mensurar e então estimar a qualidade \cite{StefanSoftwareQuality:13}.
+As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizam de uma decomposição hierárquica e dentre os conceitos encontramos, por exemplo, manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir como é possível observar na Tabela \ref{tab:QualityModels}. Entretanto, o grande valor do modelo de decomposição hierárquica é decompor o conceito de qualidade em um nível que se pode mensurar e então estimar \cite{StefanSoftwareQuality:13}.
 
 \begin{table}[h]
 \centering
@@ -32,10 +32,9 @@ FURPS \cite{ModelFURPS:87} & Decompõe qualidade de software em funcionalidade, u
 
 O padrão ISO/IEC 9126 foi inspirado nestes trabalhos \todo{ref?}.
 
-O padrão ISO/IEC 9126, substituído pelo ISO/IEC 25010 (SQuaRE) é considerado atualmente como principal referência  para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''. O SQuaRE subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, a Figura \ref{fig:QualityCharacteristics} apresenta os seis conceitos e seus sub-conceitos e a seguir apresentamos uma descrição de cada conceito e sub-conceito. 
+O padrão ISO/IEC 9126, substituído pelo ISO/IEC 25010 (SQuaRE) é considerado atualmente como principal referência  para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''. O SQuaRE subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos. A Figura \ref{fig:QualityCharacteristics} apresenta os seis conceitos e seus sub-conceitos.
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
-
 
 \begin{figure}[!htb]
   \centering
@@ -43,6 +42,8 @@ O padrão ISO/IEC 9126, substituído pelo ISO/IEC 25010 (SQuaRE) é considerado atu
   \caption{Características de Qualidade de Software segundo norma ISO/IEC 25010}
   \label{fig:QualityCharacteristics}
 \end{figure}
+
+A seguir introduzimos brevemente cada um dos conceitos e subconceitos.
 
 % \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
 
@@ -107,15 +108,13 @@ A capacidade do sistema ser transferido de um ambiente para outro. Seus sub-conc
   \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade; 
 \end{itemize}
 
-\begin{center}
-  . . .
-\end{center}
+Esta pesquisa está inserida no contexto de \emph{manutenabilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade}, pois, conforme veremos na Seção \ref{maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, incrementando a manutenibilidade do software. 
 
-Esta pesquisa está inserida no contexto de \emph{manutenabilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade} visto que, conforme veremos na Seção \ref{maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, incrementando a manutenibilidade do software. 
+Muito embora tenha se provado que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano \footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Manutenibilidade está relacionada as \emph{necessidades implícitas} do software mencionada na definição de qualidade das normas ISO/EIC 9126 \cite{ISO9126:91} e ISO/IEC 25010 \cite{ISO25010:11}. 
 
-Muito embora tenha-se provado que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano \footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Quem nunca ouviu a frase ``depois eu testo'', ou ``depois eu refatoro'' no dia a dia? Manutenibilidade está relacionada as \emph{necessidades implícitas} do software mencionada na definição de qualidade das normas ISO/EIC 9126 e ISO/IEC 25010 e que aparecem nas outras definições de outras maneiras. 
+Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de software vem sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro (\textit{Gang of Four} - GoF) documentam as \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos maiores exemplos de anti-padrão é o \textit{Singleton}, \todo{breve descrição de singleton}. 
 
-Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de software vem sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo os padrões de projeto do GoF veem com o objetivo de documentar \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Anti-padrões são padrões antes recomendados que passaram a ser evitados pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}, um dos maiores exemplos de anti-padrão é o \textit{Singleton}. \emph{Maus cheiros} que trataremos melhor na Seção \ref{maus-cheiros}, apontam sintomas que podem indicar um problema mais profundo no software. É interessante notar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software} \cite{CodeComplete:04}. 
+Na Seção \ref{maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintomas que podem indicar um problema mais profundo no software. É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software} \cite{CodeComplete:04}. 
 
 % \todo{breve desc de singleton}
 
@@ -130,7 +129,7 @@ Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de softw
 
 % Segundo o dicionário Aurélio \cite{AurelioPratica}, \textit{prática} significa ``maneira habitual de proceder''. O termo não é restrito a uma área do conhecimento, e a depender da área em que é usado, englobará um conjunto diferente de maneiras habituais. 
 
-Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto de regras que a comunidade de desenvolvimento de software aprendeu ao longo do tempo, e que pode ajudar a melhorar a qualidade do software \cite{CodeComplete:04}. Dentre este conjunto de regras temos padrões de projetos, anti-padrões e \emph{maus cheiros de código} que detalhamos a seguir.
+No desenvolvimento de software, \emph{boas práticas de código} são um conjunto de regras que a comunidade de desenvolvimento de software aprendeu ao longo do tempo, e que pode ajudar a melhorar a qualidade do software \cite{CodeComplete:04}. A seguir introduzimos os conceitos das boas práticas: padrões de projetos, anti-padrões e \emph{maus cheiros de código}.
 
 
 \subsection{Padrões de Projeto}
@@ -178,14 +177,14 @@ Em desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   % \todo{Code smells are usually not bugs-they are not technically incorrect and do not currently prevent the program from functioning. Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future.}
 
-  \epigraph{``Se cheirar mau, troque-o."}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
+  \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
 
 
-  Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante o dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de código, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 
+  Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante o dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de software, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 
 
   Entretanto, maus cheiros não são erros - eles não estão tecnicamente incorretos e não impedem o funcionamento do software. Em vez disso, eles indicam deficiências no código que podem dificultar a manutenibilidade do software e aumentar o risco de erros ou falhas no futuro \cite{Yamashita:2013:EII:2486788.2486878, Sjoberg_Quantifying_2013, Yamashita6405287, Khomh:2009:ESI:1685994.1686210}.
 
-  Há indícios informais de que o termo foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o \emph{conceito} de maus cheiros através do termo \emph{``armadilha''}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. 
+  Há indícios informais de que o termo foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o conceito de maus cheiros através do termo \emph{``armadilha''}. No livro são apresentadas 82 \emph{armadilhas} no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na \emph{armadilha} \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. 
 
   No livro são apresentados 22 maus cheiros e mais de 70 técnicas de refatoração. \textit{Código Duplicado} \cite[p.~63]{Refactoring:99} é um exemplo de mau cheiro que trata de problemas comuns que podem resultar na duplicação de código, por exemplo, ter a mesma expressão em dois métodos da mesma classe ou em duas subclasses irmãs. Para resolver este mau cheiro é indicada a refatoração \textit{Extrair Método} \cite[p.~89]{Refactoring:99}, ou seja, extrair a expressão duplicada para um novo método e substituí-lo nos lugares onde a expressão era usada. 
 
@@ -260,7 +259,8 @@ Entretanto, este trabalho é uma pesquisa exploratória sobre maus cheiros relacio
 
 % Esta escolha de focar pelo formato textual, sem a definição de heurísticas, automatização de ferramentas e propôr soluções se dá pois consideramos cada um desses outros passos também muito complexos, sendo este primeiro passo muito 
 
-Acreditamos que essas definições iniciais são de extrema importância e poderão servir de base para pesquisas futuras buscarem por heurísticas, automatizações de ferramentas de detecção e inclusive propôr soluções para estes e outros maus cheiros Android.
+\todo{ler melhor este parágrafo}
+Acreditamos que essas definições iniciais são passos importantes e poderão servir de base para pesquisas futuras buscarem por heurísticas, automatizações de ferramentas de detecção e, inclusive propôr soluções para estes e outros maus cheiros Android.
 
 % Se não for ter esta seção não faz nem sentido comentar sobre formato
 
