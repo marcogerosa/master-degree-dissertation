@@ -14,9 +14,11 @@ O Android é uma plataforma para desenvolvimento móvel, baseada no Kernel do Linu
 	\label{fig:MobileMarketShare09-17}
 \end{figure}
 
-Enquanto que o iOS só é usado por iPhones e iPads, dispositivos fabricados pela Apple, o Android pode ser usado por mais de 24 mil dispositivos diferentes segundo levantamento realizado em 2015 \cite{AndroidFragmentation}. Em termos de desenvolvimento de software, essa fragmentação trás grandes desafios relacionados a desempenho, pois os dispositivos tem capacidades diferentes por exemplo, de processamento e memória e, em termos de \textit{front-end}, pois os dispositivo podem ter tamanhos de telas e resoluções diferentes, dentre outros.
+Enquanto que o iOS só é usado por iPhones e iPads, dispositivos fabricados pela Apple, o Android pode ser usado por mais de 24 mil dispositivos diferentes segundo levantamento realizado em 2015 \cite{AndroidFragmentation}. Em termos de desenvolvimento de software, essa fragmentação trás grandes desafios relacionados a desempenho, pois os dispositivos tem capacidades diferentes por exemplo, de processamento e memória e, em termos de \textit{front-end}, pois os dispositivo podem ter tamanhos de telas e resoluções diferentes.
 
-Aplicativos Android, desde seu lançamento em 2008, são desenvolvidos utilizando a linguagem de programação Java. Recentemente, em Maio de 2017, o Google anunciou o Kotlin como linguagem oficial do Android\footnote{https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official}. Para efeitos dessa dissertação, consideramos os códigos na linguagem Java. Acreditamos que esse anúncio não interfere na relevância da pesquisa pois 1) foram quase uma década de aplicativos Android sendo desenvolvidos em Java, 2) como Kotlin é interoperável com Java, os código antes escritos em Java não precisam necessariamente ser migrados para Kotlin, e podem continuar existindo, precisando de manutenções e evoluções, e 3) como este anúncio ainda é muito recente, acreditamos que ainda levará algum tempo para que o mercado comece a adotar esta nova linguagem. As subseções seguintes apresentam os fundamentos e bases do desenvolvimento de aplicativos Android. Quando for necessário o uso de código para exemplificar, os mesmos serão apresentados em Java.
+% comentar sobre andrid wears, auto, etc
+
+Aplicativos Android, desde seu lançamento em 2008, são desenvolvidos utilizando a linguagem de programação Java. Recentemente, em Maio de 2017, o Google anunciou o Kotlin como linguagem oficial do Android\footnote{https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official}. Para efeitos dessa dissertação, consideramos apenas códigos na linguagem Java, pois a pesquisa iniciou antes do anúncio do Google. Acreditamos que esse anúncio não interfere na relevância da pesquisa pois 1) foram quase uma década de aplicativos Android sendo desenvolvidos em Java, 2) como Kotlin é interoperável com Java, os código antes escritos em Java não precisam necessariamente ser migrados para Kotlin, e podem continuar existindo, precisando de manutenções e evoluções, e 3) como este anúncio ainda é muito recente, acreditamos que ainda levará algum tempo para que o mercado comece a adotar esta nova linguagem. As subseções seguintes apresentam os fundamentos e bases do desenvolvimento de aplicativos Android. Quando for necessário o uso de código para exemplificar, os mesmos serão apresentados em Java.
 
 % \subsection{Arquitetura da Plataforma}
 
@@ -49,180 +51,304 @@ Aplicativos Android, desde seu lançamento em 2008, são desenvolvidos utilizando 
 
 \subsection{Fundamentos do Desenvolvimento Android}
 
-% Aplicativos Android, desde seu lançamento em 2008, são desenvolvidos utilizando a linguagem de programação Java. Recentemente, em Maio de 2017, o Google anunciou o Kotlin como linguagem oficial do Android\footnote{https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official}. Para efeitos dessa dissertação, consideramos os códigos na linguagem Java. Acreditamos que esse anúncio não interfere na relevância da pesquisa pois 1) foram quase uma década de aplicativos Android sendo desenvolvidos em Java, 2) como Kotlin é interoperável com Java, os código antes escritos em Java não precisam necessariamente ser migrados para Kotlin, e podem continuar existindo, precisando de manutenções e evoluções, e 3) como este anúncio ainda é muito recente, acreditamos que ainda levará algum tempo para que o mercado comece a usar esta nova linguagem.
+O Android Studio \cite{AndroidStudio} é o ambiente integrado de desenvolvimento (\textit{Integrated Development Environment} - IDE) oficial e gratuito, mantida pelo Google, comumente usado para o desenvolvimento Android. Juntamente com o Android Studio vem instalado o Kit de Desenvolvimento Android (\textit{Software Development Kit} - SDK). O Android SDK é um conjunto de ferramentas para o desenvolvimento Android, dentre as ferramentas podemos encontrar o compilador, depurador de código, emulador, bibliotecas de componentes base para a criação de aplicativos Android, dentre outras. O arquivo instalável de um aplicativo Android possui a extensão \texttt{.apk}, acrônimo para \emph{Android PacKage} \cite{AndroidFundamentals}. 
+
+Um projeto Android é composto por dois diretórios e um arquivo principal. O diretório \texttt{src} (de \textit{source}) contém todo o código Java, o diretório \texttt{res} (de \textit{resource}) contém todos os recursos da aplicação, que são códigos \emph{``não java''} como imagens, XMLs de layout, dentre outros e por fim, o arquivo \texttt{AndroidManifest.xml} contém configurações gerais do aplicativo como permissões, declarações de componentes dentre outras \cite{AndroidDevProjectStructure}.
+
+O Android SDK provê diversos componentes base para o desenvolvimento Android que não estão disponíveis no desenvolvimento Java tradicional \cite{AndroidUI1:17}. Alguns componentes são utilizados no \textit{front-end}, outros para processamentos em segundo plano, outros para persistência em banco de dados local, dentre outros. Por exemplo, \textit{Activities} são usadas para a criação de telas com interface (\textit{User Interface} - UI) com o qual usuários podem interagir \cite{AndroidActivities2016}. \textit{Services} são usados para longos processamentos em segundo plano e não possuem UI \cite{AndroidDevServices}. \textit{BroadcastReceivers} são usados como ouvintes, registrando interesse por mensagens enviadas pelo sistema operacional Android, como bateria baixa, ou por outros componentes \cite{AndroidDevBroadcast}. \textit{AsyncTasks} são usadas para curtos processamentos em segundo plano de forma assíncrona, com o objetivo de não bloquear a UI \textit{Thread} \cite{AndroidDevAsyncTask}. 
+
+Cada componente do Android SDK possui um conjunto de métodos de retorno, conhecidos por \textit{callbacks}, que podem ou devem ser sobrescritos pelo desenvolvedor e que são invocados pelo sistema operacional Android. O ciclo de vida de um componente é composto por um conjunto de \textit{callbacks} que são sempre invocados e em uma ordem específica \cite{AndroidActivities2016}. Componentes de UI como \textit{Activities} costumam ter ciclos de vida mais extensos, e portanto mais complexos, que componentes que não possuem UI. A Figura \ref{fig:android-lifecycles} apresenta como exemplo os ciclos de vida de \textit{Activities}, que possuem UI, e \textit{Services}, que não possuem UI.
+
+\begin{figure*}[!htb]
+\centering
+	\begin{subfigure}{.55\textwidth}
+	  \centering
+	  \includegraphics[width=.9\textwidth]{activity-lifecycle.png}
+	  \caption{Principais métodos \textit{callbacks} do ciclo de vida de \textit{Activities}.}
+	  \label{fig:activity-lifecycle}
+	\end{subfigure}
+	\begin{subfigure}{.44\textwidth}
+	  \centering
+	  \includegraphics[width=.9\textwidth]{service-lifecycle.png}
+	  \newline \newline \newline \newline
+	  \caption{Métodos \textit{callbacks} do ciclo de vida de \textit{Services}.}
+	  \label{fig:service-lifecycle}
+	\end{subfigure}% 
+\caption{Comparação do ciclo de vida de \textit{Activities} e \textit{Services}.}
+\label{fig:android-lifecycles}
+\vspace{-.5cm} 
+\end{figure*}
+
+O ciclo de vida de \textit{Activities} é extenso, com mais de 10 \textit{callbacks} \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais \textit{callbacks} representados pelos retângulos em cinza. Além desses principais, as \textit{Activities} possuem outros, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. 
+
+O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities}, contendo até quatro \textit{callbacks}. A Figura \ref{fig:service-lifecycle} apresenta os dois possíveis ciclos de vida de \textit{Services}, que variam de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. Em ambos os casos, os \textit{callbacks} \textit{onCreate} e \textit{onDestroy} são chamados, a depender de como ele foi criado, no primeiro caso será chamado o \textit{onStartCommand} e no segundo o \textit{onBind} e \textit{onUnbind}.
+
+Recursos são arquivos ``não Java'', relacionados a UI e necessários para a criação de aplicativos Android \cite{AndroidFundamentals}. Recursos podem ser imagens, arquivos de áudio ou arquivos XML, sendo os elementos e atributos usados no XML derivados do Android SDK. Recursos de \textit{Layout} são XMLs responsáveis pela construção da UI como botões e caixas de textos. Recursos de \textit{String} são XMLs responsáveis pelo armazenamento dos textos usados na aplicação e possibilitam a internacionalização. Recursos de \textit{Style} são XMLs responsáveis pelo armazenamento dos estilos usados nos recursos de \textit{layout}. Recursos \textit{Drawable} são gráficos que podem ser imagens ou arquivos XML que criam animações ou efeitos de estado de botões como pressionado ou desabilitado. Apesar de ser possível implementar os recursos via código Java, é fortemente recomendado pela plataforma que isso não seja feito \cite{AndroidProvidingResources}.
 
 
-através da IDE (Ambiente de Desenvolvimento Integrado) Android Studio \cite{AndroidStudio}. O arquivo instalável de um aplicativo Android possui a extensão \texttt{.apk}, acrônimo para \emph{Android PacKage} \cite{AndroidFundamentals}.
+\subsection{Elementos de Interface Android}
 
-% Componentes Android são os elementos base para a construção de aplicativos Android. Cada componente é um diferente ponto através do qual o sistema pode acionar o aplicativo. Nem todos os componente são pontos de entrada para o usuário e alguns são dependentes entre si, mas cada qual existe de forma autônoma e desempenha um papel específico. 
+São muitos os componentes e recursos disponibilizados pelo Android SDK. Nosso estudo objetiva analisar elementos relativos ao \textit{front-end} Android. Em termos de componentes, fizemos uma extensa revisão na documentação oficial do Android \cite{AndroidDeveloperSite2016} e chegamos em quatro, são eles: \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}. 
 
-% Existem quatro tipos diferentes de componentes Android. Cada tipo serve um propósito distinto e tem diferentes ciclos de vida, que definem como o componente é criado e destruído. Os quatro componentes são:
+Em termos de recursos, todos são por natureza relacionados ao \textit{front-end}. Com o objetivo de focar a pesquisa, optamos por selecionar os principais com base no modelo padrão de projeto do Android Studio \cite{FirstApp2017}, são eles: recursos de \textit{Layout}, recursos de \textit{Strings}, recursos de \textit{Style} e recursos \textit{Drawables}. A seguir introduzimos brevemente cada um dos elementos considerados na pesquisa. 
+
+\noindent \textbf{\textit{Activity}} é um dos principais componentes de aplicações Android e representa uma tela pelo qual o usuário pode interagir com a UI. Possui um ciclo de vida, como mencionado na seção anterior. Toda \textit{Activity} deve indicar no \textit{callback onCreate} o recurso de \textit{layout} que deve ser usado para a construção de sua UI \cite{AndroidActivities2016, AndroidDevActivityReference}. 
+
+% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+% \noindent \textbf{\textit{Activity}} é um dos principais componentes de aplicações Android e representa uma tela pelo qual o usuário pode interagir com a UI. Possui um ciclo de vida, como mencionado na seção anterior. Tipicamente cada \textit{Activitiy} representa uma funcionalidade única, por exemplo a tela para redigir um \textit{e-mail}, a câmera para tirar uma foto, etc. Toda \textit{Activity} deve indicar no \textit{callback onCreate} o recurso de \textit{layout} que deve ser exibido. O Código-Fonte \ref{lst:Activity} apresenta o código para a criação de uma \textit{Activity}, na linha 5 é indicado o recurso de \textit{layout} que deve ser usado para a construção da UI \cite{AndroidActivities2016}.\\ 
+
+% \begin{lstlisting}[
+% 	language=Java, 
+% 	caption={Exemplo de código para a criação de uma \textit{Activity}}, 
+% 	label={lst:Activity}
+% ]
+% public class MainActivity extends Activity {
+%     @Override
+%     public void onCreate(Bundle savedInstanceState) {
+%         super.onCreate(savedInstanceState);
+%         setContentView(R.layout.main_activity);
+%     }
+% }
+% \end{lstlisting}
+% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+
+\noindent \textbf{\textit{Fragments}} são como \textit{Sub-Activities}, representam parte da UI de uma \textit{Activity} e também devem indicar seu recurso de \textit{layout} correspondente. \textit{Fragments} possuem um ciclo de vida extenso, com mais de dez \textit{callbacks}. Seu ciclo de vida está diretamente ligado ao ciclo de vida da \textit{Activity} ao qual ele está contido. A principal uso de \textit{Fragments} é para o reaproveitamento de trechos de UI e comportamento em \textit{Activities} diferentes \cite{AndroidFragments}.
+
+% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+% \noindent \textbf{\textit{Fragments}} são como \textit{Sub-Activities}, representam parte da UI de uma \textit{Activity} e também devem indicar seu recurso de \textit{layout} correspondente. \textit{Fragments} possuem um ciclo de vida extenso, com mais de dez \textit{callbacks}, demonstrado pelas caixas cinza na Figura \ref{fig:frament-lifecycle}. Seu ciclo de vida está diretamente ligado ao ciclo de vida da \textit{Activity} ao qual ele está contido, esta relação é apresentada na Figura \ref{fig:activity-fragment-lifecycle}. A principal uso de \textit{Fragments} é para o reaproveitamento de trechos de UI e comportamento em \textit{Activities} diferentes \cite{AndroidFragments}. A imagem apresenta seu ciclo de vida com mais de dez \textit{callbacks}. O Código-Fonte \ref{lst:Fragment} apresenta o código para a criação de uma \textit{Fragment}. \\
+
+% \begin{lstlisting}[
+% 	language=Java, 
+% 	caption={Exemplo de código para a criação de uma \textit{Activity}}, 
+% 	label={lst:Fragment}
+% ]
+% public static class MainFragment extends Fragment {
+%     @Override
+%     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+%                              Bundle savedInstanceState) {
+%         return inflater.inflate(R.layout.main_fragment, container, false);
+%     }
+% }
+% \end{lstlisting}
+
+
+% \begin{figure*}[!htb]
+% \centering
+% 	\begin{subfigure}{.45\textwidth}
+% 	  \centering
+% 	  \includegraphics[width=.8\textwidth]{fragment-lifecycle.png}
+% 	  \caption{Ciclo de vida de \textit{Fragments}.}
+% 	  \label{fig:frament-lifecycle}
+% 	\end{subfigure}
+% 	\begin{subfigure}{.50\textwidth}
+% 	  \centering
+% 	  \includegraphics[width=.8\textwidth]{activity-fragment-lifecycle.png}
+% 	  \newline \newline \newline \newline \newline \newline
+% 	  \caption{Ciclo de vida do \textit{Fragment} com relação aos estados da \textit{Activity} que ele está contido.}
+% 	  \label{fig:activity-fragment-lifecycle}
+% 	\end{subfigure}% 
+% \caption{Ciclo de vida de \textit{Fragments} e sua relação com o ciclo de vida de \textit{Activities}.}
+% \label{fig:android-lifecycles}
+% \vspace{-.5cm} 
+% \end{figure*}
+
+% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+
+
+\noindent \textbf{\textit{Adapters}} são utilizados para popular coleções de dados como por exemplo, uma lista de \textit{e-mails}, onde o \textit{layout} é o mesmo para cada item mas o conteúdo é diferente \cite{AndroidLayouts}. 
+
+\noindent \textbf{\textit{Listeners}} são interfaces que representam eventos do usuário, por exemplo o \textit{OnClickListener}, que captura o clique pelo usuário. Essas interfaces costumam ter apenas um método, onde é implementado o comportamento desejado em retorno a interação do usuário \cite{AndroidUIEvents}.
+
+\noindent \textbf{\textit{Recursos de Layout}} são XMLs utilizados para o desenvolvimento da UI dos componentes Android. O desenvolvimento é feito utilizando uma hierarquia de \textit{Views} e \textit{ViewGroups}. \textit{Views} são caixas de texto, botões, dentre outros elementos de interface. \textit{ViewGroups} são \textit{Views} especiais pois podem conter outras \textit{Views}. Cada \textit{ViewGroup} organiza suas \textit{Views} filhas de uma forma específica, horizontalmente, em tabela, posicionamento relativo, dentre outros. Esta hierarquia pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples melhor o desempenho \cite{AndroidLayoutResources, AndroidLayouts}. 
+
+% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+% \noindent \textbf{\textit{Recursos de Layout}} são XMLs utilizados para o desenvolvimento da UI dos componentes Android. O desenvolvimento é feito utilizando uma hierarquia de \textit{Views} e \textit{ViewGroups}. \textit{Views} são caixas de texto, botões, dentre outros elementos de interface. \textit{ViewGroups} são \textit{Views} especiais pois podem conter outras \textit{Views}. Cada \textit{ViewGroup} organiza suas \textit{Views} filhas de uma forma específica, por exemplo o \textit{LinearLayout} é um \textit{ViewGroup} que organizar suas \textit{Views} filhas verticalmente, uma abaixo da outra ou horizontalmente, uma ao lado direito da outra. Esta árvore hierárquica pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples melhor o desempenho. O Código-Fonte \ref{lst:LayoutSample} apresenta um recurso de \textit{layout} simples com uma caixa de texto e um botão \cite{AndroidUIOverview}. \\
+
+
+% \begin{lstlisting}[
+% 	language=XML, 
+% 	caption={Arquivo exemplo de layout.}, 
+% 	label={lst:LayoutSample}
+% ]
+% <?xml version="1.0" encoding="utf-8"?>
+% <LinearLayout ...
+%     android:layout_width="fill_parent"
+%     android:layout_height="fill_parent"
+%     android:orientation="vertical">
+
+%     <TextView android:id="@+id/text"
+% 	      android:layout_width="wrap_content"
+% 	      android:layout_height="wrap_content"
+% 	      android:text="I am a TextView" />
+
+%     <Button android:id="@+id/button"
+%         android:layout_width="wrap_content"
+%         android:layout_height="wrap_content"
+%         android:text="I am a Button" />
+% </LinearLayout>
+% \end{lstlisting}
+% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
+
+
+\noindent \textbf{\textit{Recursos de String}} são XMLs utilizados para definir textos, conjunto de textos e plurais usados no aplicativo. A principais vantagens de se usar recursos de \textit{String} é o reaproveitamento dos textos em diferentes UI e a facilidade para traduzir o aplicativo em outros idiomas \cite{AndroidStringResources}.
+
+\noindent \textbf{\textit{Recursos de Style}} são XMLs utilizados para a definição de estilos e serem utilizados nos XMLs de \textit{layout}. A principais vantagens de utilizar recursos \textit{Styles} é separar o código de estrutura da UI do código que define sua aparência e possibilitar a reutilização de estilos em diferentes UIs \cite{AndroidStyleResources}.
+
+\noindent \textbf{\textit{Recursos de Drawable}} são arquivos gráficos utilizados na UI. Estes arquivos podem ser imagens tradicionais, \texttt{.png}, \texttt{.jpg} ou \texttt{.gif}, ou XMLs gráficos \cite{AndroidDrawableResources}.
+
+
+
+
+
+
+
+
+
+
+
+% Antes de a plataforma Android poder iniciar qualquer um dos componente supramencionados, a plataforma precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). Este arquivo deve estar no diretório raiz do projeto do aplicativo e deve conter a declaração de todos os seus componentes.
+
+% O arquivo de manifesto é um arquivo XML e pode conter muitas outras informações além das declarações dos componentes do aplicativo, por exemplo:
 
 % \begin{itemize}
+% 	\item Identificar qualquer permissão de usuário requerida pelo aplicativo, como acesso a internet, acesso a informações de contatos do usuário e assim por diante.
 
-	% \item \textbf{Activities}
+% 	\item Declarar o nível mínimo do Android requerido para o aplicativo, baseado em quais APIs são usadas pelo aplicativo.
 
-	Uma \textsc{Activity} representa uma tela e é composta por pelo menos um arquivo Java e um arquivo \texttt{XML}. Apesar de tecnicamente ser possível o uso apenas de código Java, recomendações da plataforma sugerem o uso do arquivo \texttt{XML}. 
+% 	\item Declarar quais funcionalidades de sistema ou \textit{hardware} são usadas ou requeridas pelo aplicativo, por exemplo câmera, \textit{bluetooth} e assim por diante.
 
-	% Por exemplo, um aplicativo de email pode ter uma \textit{activity} para mostrar a lista de emails, outra para redigir um email, outra para ler emails e assim por diante. Embora \textit{activities} trabalhem juntas de forma a criar uma experiência de usuário (UX do inglês \textit{User Experience}) coesa no aplicativo de emails, cada uma é independente da outra. Desta forma, um aplicativo diferente poderia iniciar qualquer uma destas \textit{activities} (se o aplicativo de emails permitir). Por exemplo, a \textit{activity} de redigir email no aplicativo de emails, poderia solicitar o aplicativo câmera, de forma a permitir o compartilhamento de alguma foto. Uma \textit{activity} é implementada como uma subclasse de \texttt{Activity}.  
-
-	% \item \textbf{Services}
-
-	% Um \textit{service} é um componente que é executado em plano de fundo para processar operações de longa duração ou processar operações remotas. Um \textit{service} não provê uma interface com o usuário. Por exemplo, um \textit{service} pode tocar uma música em plano de fundo enquanto o usuário está usando um aplicativo diferente, ou ele pode buscar dados em um servidor remoto através da internet sem bloquear as interações do usuário com a \textit{activity}. Outros componente, como uma \textit{activity}, podem iniciar um \textit{service} e deixá-lo executar em plano de fundo. É possível interagir com um \textit{service} durante sua execução. Um \textit{service} é implementado como uma subclasse de \texttt{Service}.
-
-	% \item \textbf{Content Providers}
-
-	% Um \textit{content provider} gerencia um conjunto compartilhado de dados do aplicativo. Estes dados podem estar armazenados em arquivos de sistema, banco de dados SQLite, servidor remoto ou qualquer outro local de armazenamento que o aplicativo possa acessar. Através de \textit{content providers}, outros aplicativos podem consultar ou modificar (se o \textit{content provider} permitir) os dados. Por exemplo, a plataforma Android disponibiliza um \textit{content provider} que gerencia as informações dos contatos dos usuários. Desta forma, qualquer aplicativo, com as devidas permissões, pode consultar parte do \textit{content provider} (como \texttt{ContactsContract.Data}) para ler e escrever informações sobre um contato específico. Um \textit{content provider} é implementado como uma subclasse de \texttt{ContentProvider}.
-
-	% \item \textbf{Broadcast Receivers}
-
-	% Um \textit{broadcast receiver} é um componente que responde a mensagens enviadas pelo sistema. Muitas destas mensagens são originadas da plataforma Android, por exemplo, o desligamento da tela, baixo nível de bateria e assim por diante. Aplicativos de terceiros também podem enviar mensagens, por exemplo, informando que alguma operação foi concluída. No entanto, \textit{broadcast receivers} não possuem interface de usuário. Para informar o usuário que algo ocorreu, \textit{broadcast receivers} podem criar notificações. Um \textit{broadcast receiver} é implementado como uma subclasse de \texttt{BroadcastReceiver}.
-
+% 	\item Declarar outras APIs que são necessárias para uso do aplicativo (além do arcabouço de APIs do Android), como a biblioteca do Google Maps.
 % \end{itemize}
 
-Antes de a plataforma Android poder iniciar qualquer um dos componente supramencionados, a plataforma precisa saber que eles existem. Isso é feito através da leitura do arquivo \texttt{AndroidManifest.xml} do aplicativo (arquivo de manifesto). Este arquivo deve estar no diretório raiz do projeto do aplicativo e deve conter a declaração de todos os seus componentes.
+% Os elementos usados no arquivo de manifesto são definidos pelo vocabulário XML do Android. Por exemplo, uma \textit{activity} pode ser declarada conforme o Código-Fonte \ref{lst:AndroidManifest}. \\
 
-O arquivo de manifesto é um arquivo XML e pode conter muitas outras informações além das declarações dos componentes do aplicativo, por exemplo:
+% % \begin{lstlisting}[
+% % 	language=XML, 
+% % 	caption={Arquivo \texttt{AndroidManifest.xml}}, 
+% % 	label={lst:AndroidManifest}
+% % ]
+% % <?xml version="1.0" encoding="utf-8"?>
+% % <manifest ... >
+% %     <application android:icon="@drawable/app_icon.png" ... >
+% %         <activity android:name="com.example.project.ExampleActivity"
+% %                   android:label="@string/example_label" ... >
+% %         </activity>
+% %         ...
+% %     </application>
+% % </manifest>	
+% % \end{lstlisting}
 
-\begin{itemize}
-	\item Identificar qualquer permissão de usuário requerida pelo aplicativo, como acesso a internet, acesso a informações de contatos do usuário e assim por diante.
+% No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para o ícone, que é um recurso, que identifica o aplicativo. No elemento \texttt{<activity>}, o atributo \texttt{android:name} especifica o nome completamente qualificado da \textit{Activity}, que é uma classe que extende de \texttt{Activity}, e por fim, o atributo \texttt{android:label} especifica um texto para ser usado como título da \textit{Activity}.
 
-	\item Declarar o nível mínimo do Android requerido para o aplicativo, baseado em quais APIs são usadas pelo aplicativo.
+% Para declarar cada um dos quatro tipos de componentes, deve-se usar os elementos a seguir:
+% \begin{itemize}
+% 	\item \texttt{<activity>} elemento para \textit{activities}.
+% 	\item \texttt{<service>} elemento para \textit{services}.
+% 	\item \texttt{<receiver>} elemento para \textit{broadcast receivers}.
+% 	\item \texttt{<provider>} elemento para \textit{content providers}.
+% \end{itemize}
 
-	\item Declarar quais funcionalidades de sistema ou \textit{hardware} são usadas ou requeridas pelo aplicativo, por exemplo câmera, \textit{bluetooth} e assim por diante.
+% \subsection{Recursos do Aplicação}
+% \label{sec:AndroidResources}
 
-	\item Declarar outras APIs que são necessárias para uso do aplicativo (além do arcabouço de APIs do Android), como a biblioteca do Google Maps.
-\end{itemize}
+% Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \textbf{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
 
-Os elementos usados no arquivo de manifesto são definidos pelo vocabulário XML do Android. Por exemplo, uma \textit{activity} pode ser declarada conforme o Código-Fonte \ref{lst:AndroidManifest}. \\
+% Apesar de ser possível a criação desses recursos através de código-fonte Java, um dos aspectos mais importantes de prover recursos separados do código-fonte é a habilidade nativa da plataforma de prover recursos alternativos para diferentes configurações de dispositivos como por exemplo idioma ou tamanho de tela. Este aspecto se torna mais importante conforme mais dispositivos são lançados com configurações diferentes. Segundo levantamento da Open Signal, em 2015 foram encontrados mais de 24 mil dispositivos diferentes com Android \cite{AndroidFragmentation}.
 
-\begin{lstlisting}[
-	language=XML, 
-	caption={Arquivo \texttt{AndroidManifest.xml}}, 
-	label={lst:AndroidManifest}
-]
-<?xml version="1.0" encoding="utf-8"?>
-<manifest ... >
-    <application android:icon="@drawable/app_icon.png" ... >
-        <activity android:name="com.example.project.ExampleActivity"
-                  android:label="@string/example_label" ... >
-        </activity>
-        ...
-    </application>
-</manifest>	
-\end{lstlisting}
+% De forma a prover compatibilidade com diferentes configurações, deve-se organizar os recursos dentro do diretório \texttt{res} do projeto, usando sub-diretórios que agrupam os recursos por tipo e configuração. Para qualquer tipo de recurso, pode-se especificar uma opção padrão e outras alternativas. 
 
-No elemento \texttt{<application>} o atributo \texttt{android:icon} aponta para o ícone, que é um recurso, que identifica o aplicativo. No elemento \texttt{<activity>}, o atributo \texttt{android:name} especifica o nome completamente qualificado da \textit{Activity}, que é uma classe que extende de \texttt{Activity}, e por fim, o atributo \texttt{android:label} especifica um texto para ser usado como título da \textit{Activity}.
+% \begin{itemize}
+% 	\item \textbf{Recursos padrões} são aqueles que devem ser usados independente de qualquer configuração ou quando não há um recurso alternativo que atenda a configuração atual. Por exemplo, arquivos de \textit{layout} padrão ficam em \texttt{res/layout}.
 
-Para declarar cada um dos quatro tipos de componentes, deve-se usar os elementos a seguir:
-\begin{itemize}
-	\item \texttt{<activity>} elemento para \textit{activities}.
-	\item \texttt{<service>} elemento para \textit{services}.
-	\item \texttt{<receiver>} elemento para \textit{broadcast receivers}.
-	\item \texttt{<provider>} elemento para \textit{content providers}.
-\end{itemize}
+% 	\item \textbf{Recursos alternativos} são todos aqueles que foram desenhados para atender a uma configuração específica. Para especificar que um grupo de recursos é para ser usado em determinada configuração, basta adicionar um qualificador ao nome do diretório. Por exemplo, arquivos de \textit{layout} para quando o dispositivo está em posição de paisagem ficam em \texttt{res/layout-land}.
+% \end{itemize}
 
-\subsection{Recursos do Aplicação}
-\label{sec:AndroidResources}
+% O Android irá aplicar automaticamente o recurso apropriado através da identificação da configuração corrente do dispositivo com os recursos disponíveis no aplicativo. Por exemplo, o recurso do tipo \textit{strings} pode conter textos usados nas interfaces do aplicativo. É possível traduzir estes textos em diferentes idiomas e salvá-los em arquivos separados. Desta forma, baseado no qualificador de idioma usado no nome do diretório deste tipo de recurso (por exemplo \texttt{res/values-fr} para o idioma frânces) e a configuração de idioma do dispositivo, o Android aplica o conjunto de \textit{strings} mais apropriado.
 
-Um aplicativo Android é composto por outros arquivos além de código Java, ele requer \textbf{recursos} como imagens, arquivos de áudio, e qualquer recurso relativo a apresentação visual do aplicativo \cite{AndroidFundamentals}. Também é possível definir animações, menus, estilos, cores e arquivos de \textit{layout} das \textit{activities}. Recursos costumam ser arquivos XML que usam o vocabulário definido pelo Android.
+% A seguir são listados os tipos de recursos que podem ser utilizados no Android \cite{AndroidResourceType}. Para cada tipo de recurso existe um conjunto de qualificadores que podem ser usados para prover recursos alternativos:
 
-Apesar de ser possível a criação desses recursos através de código-fonte Java, um dos aspectos mais importantes de prover recursos separados do código-fonte é a habilidade nativa da plataforma de prover recursos alternativos para diferentes configurações de dispositivos como por exemplo idioma ou tamanho de tela. Este aspecto se torna mais importante conforme mais dispositivos são lançados com configurações diferentes. Segundo levantamento da Open Signal, em 2015 foram encontrados mais de 24 mil dispositivos diferentes com Android \cite{AndroidFragmentation}.
+% \begin{itemize}
+% 	\item \textbf{Recursos de animações} Definem animações pré-determinadas. Ficam nos diretórios \texttt{res/anim} ou \texttt{res/animator}.
 
-De forma a prover compatibilidade com diferentes configurações, deve-se organizar os recursos dentro do diretório \texttt{res} do projeto, usando sub-diretórios que agrupam os recursos por tipo e configuração. Para qualquer tipo de recurso, pode-se especificar uma opção padrão e outras alternativas. 
+% 	\item \textbf{Recursos de lista de cores de estado} Definem recursos de cores que alteram baseado no estado da \textit{View}. Ficam no diretório \texttt{res/color}.	
 
-\begin{itemize}
-	\item \textbf{Recursos padrões} são aqueles que devem ser usados independente de qualquer configuração ou quando não há um recurso alternativo que atenda a configuração atual. Por exemplo, arquivos de \textit{layout} padrão ficam em \texttt{res/layout}.
+% 	\item \textbf{Recursos de desenhos} Definem recursos gráficos como \textit{bitmap} ou XML. Ficam no diretório \texttt{res/drawable}.
 
-	\item \textbf{Recursos alternativos} são todos aqueles que foram desenhados para atender a uma configuração específica. Para especificar que um grupo de recursos é para ser usado em determinada configuração, basta adicionar um qualificador ao nome do diretório. Por exemplo, arquivos de \textit{layout} para quando o dispositivo está em posição de paisagem ficam em \texttt{res/layout-land}.
-\end{itemize}
+% 	\item \textbf{Recursos de \textit{layouts}} Definem a parte visual da interface com o usuário. Ficam no diretório \texttt{res/layout}.
 
-O Android irá aplicar automaticamente o recurso apropriado através da identificação da configuração corrente do dispositivo com os recursos disponíveis no aplicativo. Por exemplo, o recurso do tipo \textit{strings} pode conter textos usados nas interfaces do aplicativo. É possível traduzir estes textos em diferentes idiomas e salvá-los em arquivos separados. Desta forma, baseado no qualificador de idioma usado no nome do diretório deste tipo de recurso (por exemplo \texttt{res/values-fr} para o idioma frânces) e a configuração de idioma do dispositivo, o Android aplica o conjunto de \textit{strings} mais apropriado.
+% 	\item \textbf{Recursos de menus} Definem os conteúdos dos menus da aplicação. Ficam no diretório \texttt{res/menu}.
 
-A seguir são listados os tipos de recursos que podem ser utilizados no Android \cite{AndroidResourceType}. Para cada tipo de recurso existe um conjunto de qualificadores que podem ser usados para prover recursos alternativos:
+% 	\item \textbf{Recursos de textos} Definem textos, conjunto de textos e plurais. Ficam no diretório \texttt{res/values}.
 
-\begin{itemize}
-	\item \textbf{Recursos de animações} Definem animações pré-determinadas. Ficam nos diretórios \texttt{res/anim} ou \texttt{res/animator}.
+% 	\item \textbf{Recursos de estilos} Definem os estilos e e formatos para os elementos da interface com usuário. Ficam no diretório \texttt{res/values}.
 
-	\item \textbf{Recursos de lista de cores de estado} Definem recursos de cores que alteram baseado no estado da \textit{View}. Ficam no diretório \texttt{res/color}.	
-
-	\item \textbf{Recursos de desenhos} Definem recursos gráficos como \textit{bitmap} ou XML. Ficam no diretório \texttt{res/drawable}.
-
-	\item \textbf{Recursos de \textit{layouts}} Definem a parte visual da interface com o usuário. Ficam no diretório \texttt{res/layout}.
-
-	\item \textbf{Recursos de menus} Definem os conteúdos dos menus da aplicação. Ficam no diretório \texttt{res/menu}.
-
-	\item \textbf{Recursos de textos} Definem textos, conjunto de textos e plurais. Ficam no diretório \texttt{res/values}.
-
-	\item \textbf{Recursos de estilos} Definem os estilos e e formatos para os elementos da interface com usuário. Ficam no diretório \texttt{res/values}.
-
-	\item \textbf{Outros recursos} Ainda existem outros recursos como inteiros, \textit{booleanos}, dimensões, dentre outros. Ficam no diretório \texttt{res/values}.
-\end{itemize}
+% 	\item \textbf{Outros recursos} Ainda existem outros recursos como inteiros, \textit{booleanos}, dimensões, dentre outros. Ficam no diretório \texttt{res/values}.
+% \end{itemize}
 
 
-\subsection{Interfaces de Usuários}
+% \subsection{Interfaces de Usuários}
 
-Arquivos de layout são recursos localizados na pasta \texttt{res/layout} que possuem a extensão \texttt{.xml}. 
+% Arquivos de layout são recursos localizados na pasta \texttt{res/layout} que possuem a extensão \texttt{.xml}. 
 
-Todos os elementos de UI (Interface de Usuário, do inglês UI, \textit{User Interface}) de um aplicativo Android são construídos usando objetos do tipo \texttt{View} ou \texttt{ViewGroup}. Uma \texttt{View} é um objeto que desenha algo na tela do qual o usuário pode interagir. Um \texttt{ViewGroup} é um objeto que agrupa outras \texttt{View}s e \texttt{ViewGroup}s de forma a desenhar o layout da interface \cite{AndroidUIOverview}.
+% Todos os elementos de UI (Interface de Usuário, do inglês UI, \textit{User Interface}) de um aplicativo Android são construídos usando objetos do tipo \texttt{View} ou \texttt{ViewGroup}. Uma \texttt{View} é um objeto que desenha algo na tela do qual o usuário pode interagir. Um \texttt{ViewGroup} é um objeto que agrupa outras \texttt{View}s e \texttt{ViewGroup}s de forma a desenhar o layout da interface \cite{AndroidUIOverview}.
 
-A UI para cada componente do aplicativo é definida usando uma hierarquia de objetos \texttt{View} e \texttt{ViewGroup}, como mostrado na figura \ref{fig:UIOverview}. Cada \texttt{ViewGroup} é um container invisível que organiza \texttt{View}s filhas, enquanto as \texttt{View}s filhas são caixas de texto, botões e outros componentes visuais que compoem a UI. Esta árvore hierárquica pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples melhor o desempenho.
+% A UI para cada componente do aplicativo é definida usando uma hierarquia de objetos \texttt{View} e \texttt{ViewGroup}, como mostrado na figura \ref{fig:UIOverview}. Cada \texttt{ViewGroup} é um container invisível que organiza \texttt{View}s filhas, enquanto as \texttt{View}s filhas são caixas de texto, botões e outros componentes visuais que compoem a UI. Esta árvore hierárquica pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples melhor o desempenho.
 
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{ui-overview.png}
-	\caption{Árvore hierárquica de \texttt{View}s e \texttt{ViewGroup}s do Android.}
-	\label{fig:UIOverview}
-\end{figure}
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[width=0.7\textwidth]{ui-overview.png}
+% 	\caption{Árvore hierárquica de \texttt{View}s e \texttt{ViewGroup}s do Android.}
+% 	\label{fig:UIOverview}
+% \end{figure}
 
-É possível criar um layout programaticamente, instanciando \texttt{View}s e \texttt{ViewGroup}s no código e construir a árvore hierárquica manualmente, no entanto, a forma mais simples e efetiva de definir um layout é través de um XML de layout. O XML de layout oferece uma estrutura legível aos olhos humanos, similar ao HTML, podendo ser utilizados elementos aninhados.
+% É possível criar um layout programaticamente, instanciando \texttt{View}s e \texttt{ViewGroup}s no código e construir a árvore hierárquica manualmente, no entanto, a forma mais simples e efetiva de definir um layout é través de um XML de layout. O XML de layout oferece uma estrutura legível aos olhos humanos, similar ao HTML, podendo ser utilizados elementos aninhados.
 
-O vocabulário XML para declarar elementos de UI segue a estrutura de nome de classes e métodos, onde os nomes dos elementos correspondem aos nomes das classes e os atributos correspondem aos nomes dos métodos. De fato, a correspondência frequentemente é tão direta que é possível adivinhar qual atributo XML correspodne a qual método de classe, ou adivinhar qual a classe correspondente para determinado elemento. No entanto, algumas classes possuem pequenas diferenças como por exemplo, o elemento \texttt{<EditText>} tem o atributo \texttt{text} que correponde ao método \texttt{EditText.setText()}.
+% O vocabulário XML para declarar elementos de UI segue a estrutura de nome de classes e métodos, onde os nomes dos elementos correspondem aos nomes das classes e os atributos correspondem aos nomes dos métodos. De fato, a correspondência frequentemente é tão direta que é possível adivinhar qual atributo XML correspodne a qual método de classe, ou adivinhar qual a classe correspondente para determinado elemento. No entanto, algumas classes possuem pequenas diferenças como por exemplo, o elemento \texttt{<EditText>} tem o atributo \texttt{text} que correponde ao método \texttt{EditText.setText()}.
 
-Um layout vertical simples com uma caixa de texto e um botão se parece com o código no listing \ref{lst:LayoutSample}.
+% Um layout vertical simples com uma caixa de texto e um botão se parece com o código no listing \ref{lst:LayoutSample}.
 
-\begin{lstlisting}[
-	language=XML, 
-	caption={Arquivo exemplo de layout.}, 
-	label={lst:LayoutSample}
-]
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout ...
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical">
+% \begin{lstlisting}[
+% 	language=XML, 
+% 	caption={Arquivo exemplo de layout.}, 
+% 	label={lst:LayoutSample}
+% ]
+% <?xml version="1.0" encoding="utf-8"?>
+% <LinearLayout ...
+%               android:layout_width="fill_parent"
+%               android:layout_height="fill_parent"
+%               android:orientation="vertical">
 
-    <TextView android:id="@+id/text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="I am a TextView" />
+%     <TextView android:id="@+id/text"
+%               android:layout_width="wrap_content"
+%               android:layout_height="wrap_content"
+%               android:text="I am a TextView" />
 
-    <Button android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="I am a Button" />
+%     <Button android:id="@+id/button"
+%             android:layout_width="wrap_content"
+%             android:layout_height="wrap_content"
+%             android:text="I am a Button" />
 
-</LinearLayout>
-\end{lstlisting}
+% </LinearLayout>
+% \end{lstlisting}
 
-Quando um recurso de layout é carregado pelo aplicativo, o Android inicializa um objeto para cada elemento do layout, desta forma é possível recuperá-lo programaticamente para definir comportamentos, modificar o layout ou mesmo recuperar o estado. 
+% Quando um recurso de layout é carregado pelo aplicativo, o Android inicializa um objeto para cada elemento do layout, desta forma é possível recuperá-lo programaticamente para definir comportamentos, modificar o layout ou mesmo recuperar o estado. 
 
-O Android provê uma série de elementos de UI comuns pré-prontos como: caixa de texto, botão, lista suspensa, dentre muitos outros. Desta forma, o desenvolvedor não precisa implementar do zero estes elementos básicos através de \texttt{View}s e \texttt{ViewGroup}s para escrever uma interface de usuário.
+% O Android provê uma série de elementos de UI comuns pré-prontos como: caixa de texto, botão, lista suspensa, dentre muitos outros. Desta forma, o desenvolvedor não precisa implementar do zero estes elementos básicos através de \texttt{View}s e \texttt{ViewGroup}s para escrever uma interface de usuário.
 
-Cada subclasse de \texttt{ViewGroup} provê uma forma única de exibir o conteúdo dentro dele. Por exemplo, o \texttt{LinearLayout} organiza seu conteúdo de forma linear horizontalmente, um ao lado do outro, ou verticalmente, um abaixo do outro. O \texttt{RelativeLayout} permite especificar a posição de uma \texttt{View} relativa ao posicionamento de alguma outra \cite{AndroidLayouts}.
+% Cada subclasse de \texttt{ViewGroup} provê uma forma única de exibir o conteúdo dentro dele. Por exemplo, o \texttt{LinearLayout} organiza seu conteúdo de forma linear horizontalmente, um ao lado do outro, ou verticalmente, um abaixo do outro. O \texttt{RelativeLayout} permite especificar a posição de uma \texttt{View} relativa ao posicionamento de alguma outra \cite{AndroidLayouts}.
 
-Quando o conteúdo é dinâmico ou não pré-determinado, como por exemplo uma lista de dados, pode-se usar um elemento que estende de \texttt{AdapterView} para popular o layout em momento de execução. Subclasses de \texttt{AdapterView} usam uma implementação de \texttt{Adapter} para carregar dados em seu layout. \texttt{Adapter}s agem como um intermediador entre o conteúdo a ser exibido e o layout, ele recupera o conteúdo e converte cada item, de uma lista por exemplo, dentro de uma ou mais \texttt{View}s.
+% Quando o conteúdo é dinâmico ou não pré-determinado, como por exemplo uma lista de dados, pode-se usar um elemento que estende de \texttt{AdapterView} para popular o layout em momento de execução. Subclasses de \texttt{AdapterView} usam uma implementação de \texttt{Adapter} para carregar dados em seu layout. \texttt{Adapter}s agem como um intermediador entre o conteúdo a ser exibido e o layout, ele recupera o conteúdo e converte cada item, de uma lista por exemplo, dentro de uma ou mais \texttt{View}s.
 
-Os elementos comumente usados para situações de conteúdo dinâmico ou não pré-determinado são: \texttt{ListView} e \texttt{GridView}. Para fazer o carregamento dos dados nestes elementos, o Android provê alguns \texttt{Adapter}s como por exemplo o \texttt{ArrayAdapter} que a partir de um \texttt{array} de dados popula os dados na \texttt{ListView} ou \texttt{GridView}.
+% Os elementos comumente usados para situações de conteúdo dinâmico ou não pré-determinado são: \texttt{ListView} e \texttt{GridView}. Para fazer o carregamento dos dados nestes elementos, o Android provê alguns \texttt{Adapter}s como por exemplo o \texttt{ArrayAdapter} que a partir de um \texttt{array} de dados popula os dados na \texttt{ListView} ou \texttt{GridView}.
 
-\subsection{Eventos de Interface}
+% \subsection{Eventos de Interface}
 
-No Android, há mais de uma maneira de interceptar os eventos da interação de um usuário com sua aplicação. Ao considerar eventos dentro de sua interface de usuário, a abordagem é capturar os eventos do objeto de Vista específico com o qual o usuário interage. A classe \texttt{View} fornece os meios para fazê-lo.
+% No Android, há mais de uma maneira de interceptar os eventos da interação de um usuário com sua aplicação. Ao considerar eventos dentro de sua interface de usuário, a abordagem é capturar os eventos do objeto de Vista específico com o qual o usuário interage. A classe \texttt{View} fornece os meios para fazê-lo.
 
-Dentro das várias classes de visualização que você usará para compor seu layout, você pode notar vários métodos de retorno de chamada pública que se parecem úteis para eventos de UI. Esses métodos são chamados pela estrutura do Android quando a ação respectiva ocorre nesse objeto. Por exemplo, quando uma Tela (como um botão) é tocada, o método onTouchEvent () é chamado nesse objeto. No entanto, para interceptar isso, você deve estender a classe e substituir o método. No entanto, estender cada objeto View para lidar com esse evento não seria prático. É por isso que a classe View também contém uma coleção de interfaces aninhadas com callbacks que você pode definir muito mais facilmente. Essas interfaces, chamadas de ouvintes de eventos, são seu ingresso para capturar a interação do usuário com sua IU.
+% Dentro das várias classes de visualização que você usará para compor seu layout, você pode notar vários métodos de retorno de chamada pública que se parecem úteis para eventos de UI. Esses métodos são chamados pela estrutura do Android quando a ação respectiva ocorre nesse objeto. Por exemplo, quando uma Tela (como um botão) é tocada, o método onTouchEvent () é chamado nesse objeto. No entanto, para interceptar isso, você deve estender a classe e substituir o método. No entanto, estender cada objeto View para lidar com esse evento não seria prático. É por isso que a classe View também contém uma coleção de interfaces aninhadas com callbacks que você pode definir muito mais facilmente. Essas interfaces, chamadas de ouvintes de eventos, são seu ingresso para capturar a interação do usuário com sua IU.
 
-Enquanto você usará mais comumente os ouvintes do evento para ouvir a interação do usuário, pode ocorrer um momento em que você deseja ampliar uma classe View, para criar um componente personalizado. Talvez você queira estender a classe Button para tornar algo mais extravagante. Neste caso, você poderá definir os comportamentos de evento padrão para sua classe usando os manipuladores de eventos da classe.
+% Enquanto você usará mais comumente os ouvintes do evento para ouvir a interação do usuário, pode ocorrer um momento em que você deseja ampliar uma classe View, para criar um componente personalizado. Talvez você queira estender a classe Button para tornar algo mais extravagante. Neste caso, você poderá definir os comportamentos de evento padrão para sua classe usando os manipuladores de eventos da classe.
 
 
-% organizar melhor
-Para definirmos quais elementos representam o \textit{front-end} Android, fizemos umas extensa revisão da documentação oficial e chegamos nos seguintes itens: \textsc{Activities}, \textsc{Fragments}, \textsc{Listeners}, \textsc{Adapters} e os recursos do aplicativo, que são arquivos XML ou imagens utilizados na interface visual, como por exemplo \textsc{Drawables}, \textsc{Layouts}, \textsc{Styles} e \textsc{Colors}. Como existem muitos tipos de recursos do aplicativo \cite{AndroidResourcesOverview}, selecionamos quatro: \textsc{Layout}, \textsc{Styles}, \textsc{String} e \textsc{Drawable}. Optamos por esses recursos pois estão presentes no template padrão do Android Studio \cite{FirstApp2017}, IDE oficial para desenvolvimento de projetos da plataforma Android \cite{AndroidStudio}.
+% % organizar melhor
+% Para definirmos quais elementos representam o \textit{front-end} Android, fizemos umas extensa revisão da documentação oficial e chegamos nos seguintes itens: \textsc{Activities}, \textsc{Fragments}, \textsc{Listeners}, \textsc{Adapters} e os recursos do aplicativo, que são arquivos XML ou imagens utilizados na interface visual, como por exemplo \textsc{Drawables}, \textsc{Layouts}, \textsc{Styles} e \textsc{Colors}. Como existem muitos tipos de recursos do aplicativo \cite{AndroidResourcesOverview}, selecionamos quatro: \textsc{Layout}, \textsc{Styles}, \textsc{String} e \textsc{Drawable}. Optamos por esses recursos pois estão presentes no template padrão do Android Studio \cite{FirstApp2017}, IDE oficial para desenvolvimento de projetos da plataforma Android \cite{AndroidStudio}.
