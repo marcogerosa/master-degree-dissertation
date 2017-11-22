@@ -1,8 +1,27 @@
+Aniche "The developer’s perception is always important when dealing with software maintenance 11, 86 e 121"
+
+[121] Yamashita and Moonen(2013) Aiko Yamashita and Leon Moonen. Do developers care about code smells? an exploratory survey. Em 2013 20th Working Conference on Reverse Engineering (WCRE), páginas 242–251.
+
+JA TENHO EU ACHO
+[86] Palomba et al.(2014) Fabio Palomba, Gabriele Bavota, Massimiliano Di Penta, Rocco Oliveto, and Andrea De Lucia. Do they really smell bad? a study on developers’ percep- tion of bad code smells. Em Software Maintenance and Evolution (ICSME), IEEE Intl. Conf. on. IEEE. Cited
+
+[11] Arcoverde et al.(2011) Roberta Arcoverde, Alessandro Garcia, and Eduardo Figueiredo. Understanding the longevity of code smells: preliminary results of an explanatory survey. Em Proceedings of the 4th Workshop on Refactoring Tools, páginas 33–36. ACM. Cited
+
+
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+
+
 preciso de negrito em captions de imagens, tabelas, etc?
 como fazer com siglas?
 decidir entre front-end, UI e interface.
-=====================================================
 
+
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 
 - O que é qualidade de código?
 
@@ -17,7 +36,8 @@ Um padrão nada mais é do que a documentação formal de uma solução comum a 
 A diferença de uma boa prática e um padrão é que para o padrão existe uma documentação formal.
 
 
-
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 
 
 
