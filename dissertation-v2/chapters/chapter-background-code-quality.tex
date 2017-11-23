@@ -1,5 +1,6 @@
 % -*- root: index.tex -*-
 \section{Qualidade de Software}
+\label{sec:software-quality}
 
 Para entendermos o conceito de qualidade de software precisamos primeiro entender o conceito de qualidade. Há décadas diversos autores e organizações vem trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00}, qualidade é \emph{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, tem duas definições para qualidade: \emph{``as características dos produtos que atendem as necessidades dos clientes, e, assim, proporcionam a satisfação do mesmo''} e \emph{``qualidade é a ausência de deficiências''}. 
 
@@ -124,6 +125,7 @@ Na Seção \ref{maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintoma
 % Para melhor entendimento sobre o contexto desta pesquisa, nesta seção apresentamos a definição dos principais termos que se confundem: boas práticas, padrões de projeto, anti-padrões e maus cheiros de código. Ao final, concluímos com uma reflexão das semelhanças e diferenças entre eles.
 
 \section{Boas Práticas de Software}
+\label{sec:good-practices}
 
 % Segundo o dicionário Aurélio \cite{AurelioPratica}, \textit{prática} significa ``maneira habitual de proceder''. O termo não é restrito a uma área do conhecimento, e a depender da área em que é usado, englobará um conjunto diferente de maneiras habituais. 
 
@@ -133,7 +135,7 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 \subsection{Padrões de Projeto}
 
   
-  \epigraph{\emph{\textbf{Padrão:} Algo que serve como modelo. Um exemplo para os outros seguirem.}}{--- \textup{Dicionário Oxford [2]}}
+  % \epigraph{\emph{\textbf{Padrão:} Algo que serve como modelo. Um exemplo para os outros seguirem.}}{--- \textup{Dicionário Oxford [2]}}
 
   Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é \emph{algo que serve como modelo, um exemplo para os outros seguirem} [2]. Padrões não são invenção de algo novo, é uma forma de organizar o conhecimento de experiências [1].
 
@@ -167,7 +169,7 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 % ???
 
 \section{Maus Cheiros de Código}
-\label{maus-cheiros}
+\label{sec:back-maus-cheiros}
 
   % \todo{``smells are certain structures in the code that indicate violation of fundamental design principles and negatively impact design quality.'' \cite[p.~258]{Refactoring:14}}
 
@@ -175,7 +177,7 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   % \todo{Code smells are usually not bugs-they are not technically incorrect and do not currently prevent the program from functioning. Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future.}
 
-  \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
+  % \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
 
 
   Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante o dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de software, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 

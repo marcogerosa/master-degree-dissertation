@@ -2,17 +2,17 @@
 
 \emph{``Estamos cientes de que um bom código importa, pois já tivemos que lidar com a falta dele por muito tempo''} \cite{CleanCode:08}. De fato, não há mais dúvida de que bons códigos importam. Mas como saber se um código está bom ou não? Uma das formas que temos de responder a essa pergunta é buscando por \emph{maus cheiros} no código. Maus cheiros de código auxiliam desenvolvedores na identificação de trechos de códigos problemáticos, de forma que eles possam ser melhorados e a qualidade do software incrementada \cite{Refactoring:99}. 
 
-Existem diversos maus cheiros catalogados \cite{Refactoring:99, CleanCode:08, Refactoring:14, Webster:95}. Muitos desses maus cheiros foram definidos baseados em conceitos e tecnologias tradicionais, como orientação a objetos e Java \cite{Java}, que surgiram durante as décadas de 70 à 90. Nesta dissertação os denominamos de maus cheiros tradicionais. Porém, na última década surgiram  muitas novas tecnologias, como por exemplo o Android, que levantam questões como: ``os maus cheiros tradicionais se aplicam às novas tecnologias?'' ou ``haveriam maus cheiros específicos às novas tecnologias, ainda não catalogados?''. Questões como essas instigaram a curiosidade de diversos pesquisadores que decidiram investigar maus cheiros em tecnologias específicas como por exemplo o CSS \cite{CSSCodeSmell}, o Javascript \cite{JavascriptSmells}, o arcabouço Spring MVC \cite{MvcSmells:16} e inclusive fórmulas de planilhas do Google \cite{SpreadsheetsSmells:12}.
+Existem diversos maus cheiros catalogados \cite{Refactoring:99, CleanCode:08, Refactoring:14, Webster:95}. Muitos desses maus cheiros foram definidos baseados em conceitos e tecnologias tradicionais, como orientação a objetos e Java \cite{Java}, que surgiram durante as décadas de 70 à 90. Nesta dissertação os denominamos de maus cheiros tradicionais. Porém, na última década surgiram  muitas novas tecnologias, como por exemplo o Android, que levantaram questões como: ``os maus cheiros tradicionais se aplicam às novas tecnologias?'' ou ``haveriam maus cheiros específicos às novas tecnologias, ainda não catalogados?''. Questões como essas instigaram a curiosidade de diversos pesquisadores que decidiram investigar maus cheiros em tecnologias específicas como por exemplo o CSS \cite{CSSCodeSmell}, o Javascript \cite{JavascriptSmells}, o arcabouço Spring MVC \cite{MvcSmells:16} e inclusive fórmulas de planilhas do Google \cite{SpreadsheetsSmells:12}.
 
-Android é uma plataforma móvel que foi lançada em 2008 pelo Google em parceria com diversas empresas \cite{OHAReleasesAndroidSDK:07}. Em 2011 se tornou a principal plataforma móvel global e desde então vem aumentando sua fatia de mercado, tendo em 2017 alcançado 86\% \cite{GlobalSmartphoneSales:09-17}. 
+Android é uma plataforma móvel que foi lançada em 2008 pelo Google em parceria com diversas empresas \cite{OHAReleasesAndroidSDK:07}. Em 2011 se tornou mundialmente a principal plataforma móvel e desde então vem aumentando sua fatia de mercado, tendo em 2017 alcançado 86\% \cite{GlobalSmartphoneSales:09-17}. 
 
-O Android também chamou a atenção de pesquisadores da área de qualidade de software. Alguns investigaram a existência de maus cheiros tradicionais em aplicativos Android \cite{Hecht:15, DomainMatters, MobileSmells:13}. Outros investigaram a existência de maus cheiros específicos ao Android relacionados a eficiência, boa utilização de recursos como memória e processamento, e usabilidade, a capacidade do software em ser compreendido \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Outros pesquisadores focaram em entender as características do desenvolvimento Android que os diferenciam do desenvolvimento de software tradicional \cite{Mantyla2013}.
+O Android também chamou a atenção de pesquisadores da área de qualidade de software. Alguns investigaram a existência de maus cheiros tradicionais em aplicativos Android \cite{Hecht:15, DomainMatters, MobileSmells:13}. Outros investigaram a existência de maus cheiros específicos ao Android relacionados a eficiência (boa utilização de recursos como memória e processamento) e usabilidade (capacidade do software em ser compreendido) \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Outros pesquisadores focaram em entender características do desenvolvimento Android que os diferenciam do desenvolvimento de software tradicional \cite{Mantyla2013}.
 
 Dentre as descobertas realizadas pelos pesquisadores, notou-se que maus cheiros específicos são muito mais frequentes em aplicativos Android do que maus cheiros tradicionais \cite{Hecht:15}. Os componentes mais afetados por maus cheiros tradicionais estão relacionados a camada de apresentação, também conhecida por \textit{front-end}, como \textit{Activities} e \textit{Adapters} \cite{Hecht:15, Mantyla2013, MobileSmells:13} e que em alguns aplicativos Android, códigos relacionados ao \textit{front-end} são maioria, em termos de linhas de código \ac{LoC} \cite{Mantyla2013}. Vale ressaltar que o \textit{front-end} Android também é composto por arquivos \texttt{XML}, chamados de recursos da aplicação, que são usados para a construção da interface com o usuário \ac{UI} \cite{AndroidFundamentals}. Nenhuma das pesquisas mencionadas considerou estes arquivos em suas análises. 
 
 Nesta dissertação, investigamos a existência de maus cheiros de código relacionados ao \textit{front-end} Android. Outras pesquisas investigaram maus cheiros em termos de eficiência e usabilidade, diferente delas, nós buscamos por maus cheiros relacionados a manutenibilidade, a facilidade do software de ser modificado ou aprimorado. Complementamos as pesquisas anteriores pois focamos no \textit{front-end} Android considerando inclusive os recursos da aplicação. Nossos dados foram obtidos por meio de dois questionários online e três experimentos presenciais dirigidos submetidos a desenvolvedores Android praticantes totalizando a participação de 3XX desenvolvedores.
 
-Nossos resultados mostraram que existem boas e más práticas comuns a vários desenvolvedores Android praticantes, que essas más práticas são frequentes e consideradas como problemáticas no desenvolvimento do \textit{front-end} Android e que desenvolvedores as percebem ao se depararem com elas no código. Concluímos com: (i) um catálogo com 13 novos maus cheiros relacionados ao \textit{front-end} Android, (ii) uma análise estatística da percepção de desenvolvedores praticantes sobre os maus cheiros catalogados e (ii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para que outros pesquisadores possam replicar nossa pesquisa. 
+Nossos resultados mostraram que existem uma percepção comum sobre más práticas comuns entre desenvolvedores Android praticantes, que essas más práticas são frequentes e consideradas como problemáticas no desenvolvimento do \textit{front-end} Android e que, desenvolvedores as percebem ao se depararem com elas no código. Concluímos com: (i) um catálogo com 13 novos maus cheiros relacionados ao \textit{front-end} Android, (ii) uma análise estatística da percepção de desenvolvedores praticantes sobre os maus cheiros catalogados e (iii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para que outros pesquisadores possam replicar nossa pesquisa. 
 
 Acreditamos que nossas contribuições dão um pequeno mas importante passo na busca por qualidade de software na plataforma Android e que poderá servir a pesquisadores e desenvolvedores praticantes. Aos pesquisadores serve como ponto de partida para a definição de heurísticas de identificação dos maus cheiros e implementação de ferramentas que os identifiquem de forma automática. Aos desenvolvedores praticantes serve como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
 
@@ -55,7 +55,125 @@ Acreditamos que nossas contribuições dão um pequeno mas importante passo na busc
 
 % Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de código do \textit{front-end} Android, extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento contanto com a participação de mais de 3XX respondentes em 3 continentes.
 
-% \section{Motivação}
+\section{Desafios no desenvolvimento Android}
+
+% No desenvolvimento Android, uma tela é composta basicamente por dois arquivos, uma classe Java responsável pela criação da tela e responder aos eventos do usuário e um recurso de \textit{layout}, arquivo XML responsável pela criação da interface visual (\acl{UI} - \acs{UI}).
+
+\textit{Activity} é um dos principais componentes de aplicativos Android. Ela representa uma tela com interface visual (\acl{UI} - \acs{UI}) pelo qual o usuário pode interagir através de botões, listagens, caixas de entrada de textos, dentre outros. Para implementar uma \textit{Activity} é necessário criar uma classe derivada de \texttt{Activity} e sobrescrever alguns métodos herdados, chamados de métodos de retorno. O principal método de retorno é o \textit{onCreate}, entre suas responsabilidades está a criação da tela e configuração da \ac{UI}. O Código-Fonte \ref{lst:BasicActivity} apresenta o código mínimo para a criação de uma \textit{Activity}, na linha 5 temos o código responsável pela configuração da \ac{UI} que indica o recurso de \textit{layout} ``main\_activity''.
+
+\begin{lstlisting}[
+  language=Java, 
+  caption={Código mínimo para a criação de uma \textit{Activity}}, 
+  label={lst:BasicActivity}
+]
+public class MainActivity extends Activity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main_activity);
+  }
+}
+\end{lstlisting}
+
+A \ac{UI} de uma \textit{Activity} é construída por meio de recursos de \textit{layout}, arquivos XML cujo as \textit{tags} provém do kit de desenvolvimento Android (\acl{SDK} - \acs{SDK}) e representam \textit{Views} ou \textit{ViewGroups}. O Código-Fonte \ref{lst:SimpleLayout} apresenta um recurso de \textit{layout} com duas \textit{Views} e um \textit{ViewGroup}. As \textit{Views} são um \texttt{TextView}, que representa uma caixa de entrada de texto e um \texttt{Button}, que representa um botão. Essas duas \textit{Views} estão contidas dentro do \textit{ViewGroup} \texttt{LinearLayout}, que as organiza verticalmente. 
+
+
+\begin{lstlisting}[
+  language=XML, 
+  caption={Exemplo de recurso de \textit{layout} com um campo de entrada de texto e um botão organizados um abaixo do outro.}, 
+  label={lst:SimpleLayout}
+]
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout ...
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Um TextView" />
+
+    <Button android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Um Button" />
+</LinearLayout>
+\end{lstlisting}
+
+Os códigos apresentados são bem simples, mas comumente, estas telas e \ac{UI}s tendem a ser bem mais robustas e ricas de informações e interatividade. São em contextos como esses que os desafios no desenvolvimento do \textit{front-end} Android surgem. \ac{UI}s ricas e robustas podem significar muitas \textit{Views} e \textit{ViewGroups}, resultando em recursos de \textit{layout} grandes e complexos. E ainda, quanto mais ricas e robustas são as \ac{UI}s, mais provavelmente o código das \textit{Activities} correspondentes também serão grandes e complexos, pois são pelas \textit{Activities} que \textit{Views} e \textit{ViewGroups} conseguem interagir com o usuário, também são pelas \textit{Activities} que os dados chegam até a \ac{UI} e vice-versa, dentre muitas outras responsabilidades que tendem a ficar com as \textit{Activities}.
+
+\subsection{Ciclo de Vida}
+
+Toda \textit{Activity}, bem como outros componentes Android, possui um ciclo de vida. O ciclo de vida de um componente é composto por um conjunto de métodos de retorno, que por sua vez, são métodos invocados pelo Android em uma ordem específica \cite{AndroidActivities2016}. Os componente do \textit{front-end} Android possuem ciclos de vida mais extensos, e portanto, mais complexos. 
+
+Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities} e \textit{Fragments}, ambos relacionados ao \textit{front-end} e \textit{Services}, componente usado para longos processamento em segundo plano. Os métodos de retorno são representados pelos retângulos em cinza. É possível observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno enquanto que \textit{Services} possuem apenas quatro.
+
+\begin{figure*}[!htb]
+\centering
+  \begin{subfigure}[b]{.33\textwidth}
+    \centering
+    \includegraphics[width=.9\textwidth]{activity-lifecycle.png}
+    \caption{\textit{Activitiy} (\textit{front-end}).}
+    \label{fig:activity-lifecycle}
+  \end{subfigure}
+  \begin{subfigure}[b]{.33\textwidth}
+    \centering
+    \includegraphics[width=.6\textwidth]{fragment-lifecycle.png}
+    \caption{\textit{Fragment} (\textit{front-end}).}
+    \label{fig:activity-lifecycle}
+  \end{subfigure}
+  \begin{subfigure}[b]{.30\textwidth}
+    \centering
+    \includegraphics[width=.9\textwidth]{service-lifecycle.png}
+    \caption{\textit{Services} (processamento).}
+    \label{fig:service-lifecycle}
+  \end{subfigure}% 
+\caption{Comparativo do ciclo de vida de componentes Android que pertencem e não pertencem ao \textit{front-end}.}
+\label{fig:android-lifecycles}
+\vspace{-.5cm} 
+\end{figure*}
+
+% \begin{lstlisting}[
+%   language=Java, 
+%   caption={Exemplo de código para a criação de uma \textit{Activity}}, 
+%   label={lst:Activity}
+% ]
+% public class MainActivity extends Activity {
+%   @Override
+%   public void onCreate(Bundle savedInstanceState) {
+%       super.onCreate(savedInstanceState);
+%       setContentView(R.layout.main_activity);
+%       // ...
+%   }
+%   @Override
+%   protected void onStart() {
+%       super.onStart();
+%       // ...
+%   }
+%   @Override
+%   protected void onResume() {
+%       super.onResume();
+%       // ...
+%   }
+%   @Override
+%   protected void onPause() {
+%       super.onPause();
+%       // ...
+%   }
+%   @Override
+%   protected void onStop() {
+%       super.onStop();
+%       // ...
+%   }
+%   @Override
+%   protected void onDestroy() {
+%       super.onDestroy();
+%       // ...
+%   }
+% }
+% \end{lstlisting}
+
 
 
 \section{Questões de Pesquisa}
@@ -75,11 +193,11 @@ Como principal questão de pesquisa, objetiva investigar a existência de maus che
 
 \textbf{QP1.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento do front-end Android?
 
-Esta questão nos fornece as primeiras ideias sobre maus cheiros no \textit{front-end} Android a partir da perspectiva de desenvolvedores praticantes. Fizemos isso por meio de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que eles consideram boas e más práticas em oito dos elementos usados para desenvolvimento do \textit{front-end} Android e recebemos um total de 45 respostas. \\
+A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{Palomba_Do_2014, yamashita2013developers, arcoverde2011understanding}. Esta questão nos fornece as primeiras ideias sobre maus cheiros no \textit{front-end} Android a partir da perspectiva de desenvolvedores praticantes. Buscamos respondê-la por meio de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que eles consideram boas e más práticas em oito dos elementos usados para desenvolvimento do \textit{front-end} Android e recebemos um total de 45 respostas. \\
 
 \textbf{QP1.2.} Desenvolvedores compartilham uma percepção comum sobre o que são más práticas no desenvolvimento do front-end Android?
 
-Com o resultado, realizamos um processo de codificação pelo qual buscamos por más práticas recorrentes de forma a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente \cite{NielsenMagicNumber:00} para serem consideradas para derivação dos maus cheiros. A partir dessas 21 categorias, extraímos 21 maus cheiros no \textit{front-end} Android. 
+Com o resultado de QP1.1, realizamos um processo de codificação pelo qual buscamos por más práticas recorrentes de forma a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para serem consideradas na derivação dos maus cheiros. A partir dessas 21 categorias, extraímos 21 candidatos a maus cheiros no \textit{front-end} Android. 
 
 % \textbf{QP1.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?\\
 % A partir das 21 categorias recorrentes, extraímos 21 maus cheiros no \textit{front-end} Android. 
@@ -92,13 +210,13 @@ Com o resultado, realizamos um processo de codificação pelo qual buscamos por má
 
 % Entretanto, precisamos validar com desenvolvedores se os sintomas documentados são percebidos no dia a dia de desenvolvimento e se são considerados pontos importantes a se evitar no código. Para isso, elaboramos a seguinte pergunta:
 
-Com o objetivo de validar os maus cheiros derivados da questão anterior, por meio de um questionário online perguntamos ao desenvolvedores Android com qual frequência os maus cheiros eram percebidos no seu dia a dia e o quão importante era mitigá-lo. Obtivemos 201 respostas dos quais validamos positivamente que 16 maus cheiros são considerados importantes e percebidos frequentemente no dia a dia. Dos 21, foram desconsiderados 5 maus cheiros por não serem considerados tão importantes ou tão frequentes.
+Com o objetivo de validar os maus cheiros derivados em QP1, por meio de um questionário online perguntamos ao desenvolvedores Android com qual frequência os maus cheiros eram percebidos no seu dia a dia e o quão importante era mitigá-lo. Obtivemos 201 respostas dos quais validamos positivamente que 16 maus cheiros são considerados importantes e percebidos frequentemente no dia a dia. Dos 21, foram desconsiderados 5 maus cheiros por não serem considerados tão importantes ou tão frequentes.
 
 \begin{center}
 \textbf{QP3. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
 \end{center}
 
-Evidências na literatura sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. A fim de validar a percepção dos maus cheiros pelos desenvolvedores Android, realizamos um experimento de código com 75 desenvolvedores. Com os resultados pudemos validar estatisticamente a percepção dos desenvolvedores sobre 13 dos 16 maus cheiros, são eles:
+Evidências na literatura sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. A fim de validar a percepção dos maus cheiros pelos desenvolvedores Android, realizamos um experimento de código com 75 desenvolvedores. Com os resultados pudemos validar estatisticamente a percepção dos desenvolvedores sobre 13 dos 16 maus cheiros derivados, são eles:
 
 
 % onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
@@ -149,21 +267,21 @@ Evidências na literatura sugerem que maus cheiros são percebidos por desenvolved
 
 
 \section{Organização do Trabalho}
-As próximas seções desta dissertação estão organizadas da seguinte forma: 
+Os próximos capítulos desta dissertação estão organizadas da seguinte forma: 
 
 \begin{itemize}
   
-  \item A Seção \ref{fundamentacao} discute conceitos chave para este trabalho, são eles: Android, Qualidade de Software e Maus Cheiros de Código.
+  \item O Capítulo \ref{fundamentacao} discute conceitos chave para este trabalho, são eles: Android, Qualidade de Software e Maus Cheiros de Código.
 
-  \item A Seção \ref{relacionados} discute trabalhos relacionados a maus cheiros específicos a uma tecnologia, maus cheiros tradicionais em aplicativos Android e maus cheiros específicos ao Android.
+  \item O Capítulo \ref{relacionados} discute trabalhos relacionados a maus cheiros específicos a uma tecnologia, maus cheiros tradicionais em aplicativos Android e maus cheiros específicos ao Android.
 
-  \item A Seção \ref{metodologia} aborda a metodologia utilizada nesta pesquisa.
+  \item O Capítulo \ref{metodologia} aborda em detalhes os métodos usados nas diferentes fases da pesquisa.
 
-  \item A Seção \ref{maus-cheiros} apresenta o catálogo com 16 maus cheiros derivados relacionados ao \textit{front-end} Android.
+  \item O Capítulo \ref{maus-cheiros} apresenta o catálogo com 13 maus cheiros derivados relacionados ao \textit{front-end} Android.
 
   % \item A Seção \ref{ameacas} aborda as ameaças à validade do estudo.
 
-  \item E por fim, a Seção \ref{conclusao} onde concluímos, discutimos nossas descobertas e sugerimos trabalhos futuros.
+  \item E por fim, o Capítulo \ref{conclusao} é onde discutimos nossas descobertas, concluímos e sugerimos trabalhos futuros.
 \end{itemize}
 
 
