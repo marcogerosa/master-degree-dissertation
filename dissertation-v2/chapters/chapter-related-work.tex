@@ -18,7 +18,11 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 \section{Projetos Android vs. projetos de software tradicionais}
 \label{android-vs-tradicional}
 
-Em construção.
+  Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
+
+  É interessante que para análise do código Android eles modelam o projeto em código core e não core, similar ao realizado por \cite{MobileSmells:13}, onde o código core está relacionado a classes que herdam do Android SDK. Apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando \textit{Activities} e \textit{Services}, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
+
+  Os autores concluem com um conjunto de características de aplicativos Android e com um conjunto de hábitos dos desenvolvedores destes aplicativos que diferem de aplicações de software tradicionais. Dentre as características, afirmam que algumas vezes o código núcleo do app é composto por uma, ou algumas, \textit{God Classes} e que herança, para o uso de \textit{design} das classes, é algo quase inexistente em aplicativos Android. Estas constatações reforçam um mau cheiro por nós identificado sobre a falta de arquitetura padrão, visto que esta exige um conhecimento mais aprimorado de orientação a objetos.
 
 \section{Maus cheiros específicos a uma tecnologia}
 \label{maus-cheiros-especificos}
@@ -105,11 +109,7 @@ Em construção.
 
     Ainda segundo o autor, maus cheiros específicos Android são muito mais frequentes do que os maus cheiros tradicionais. Esta constatação reforça a importância de se investigar quais seriam outros possíveis maus cheiros específicos de forma que, eles tendem a se manifestar mais do que os maus cheiros tradicionais.
 
-    Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
-
-    É interessante que para análise do código Android eles modelam o projeto em código core e não core, similar ao realizado por \cite{MobileSmells:13}, onde o código core está relacionado a classes que herdam do Android SDK. Apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando \textit{Activities} e \textit{Services}, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
-
-    Os autores concluem com um conjunto de características de aplicativos Android e com um conjunto de hábitos dos desenvolvedores destes aplicativos que diferem de aplicações de software tradicionais. Dentre as características, afirmam que algumas vezes o código núcleo do app é composto por uma, ou algumas, \textit{God Classes} e que herança, para o uso de \textit{design} das classes, é algo quase inexistente em aplicativos Android. Estas constatações reforçam um mau cheiro por nós identificado sobre a falta de arquitetura padrão, visto que esta exige um conhecimento mais aprimorado de orientação a objetos.
+    
 
 % \section{Android}
 % geral android (opcional)

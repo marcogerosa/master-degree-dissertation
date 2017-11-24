@@ -2,58 +2,58 @@
 \section{Qualidade de Software}
 \label{sec:software-quality}
 
-Para entendermos o conceito de qualidade de software precisamos primeiro entender o conceito de qualidade. Há décadas diversos autores e organizações vem trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00}, qualidade é \emph{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, tem duas definições para qualidade: \emph{``as características dos produtos que atendem as necessidades dos clientes, e, assim, proporcionam a satisfação do mesmo''} e \emph{``qualidade é a ausência de deficiências''}. 
+Antes de falarmos sobre qualidade de software, é importante falarmos brevemente sobre qualidade. Há décadas diversos autores e organizações vem trabalhando em suas próprias definições de qualidade. Segundo o \ac{ISO} 9000 \cite{ISO9000:00}, qualidade é \emph{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, qualidade está relacionado ``as características dos produtos que atendem as necessidades dos clientes, e assim, proporcionam a satisfação do mesmo'' e a ``ausência de deficiências''. 
 
-Stefan \cite{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas era possível identificar uma mesma ideia central sobre qualidade, de certa forma, todas elas se resumiam a \emph{``requisitos que precisam ser satisfeitos para ter qualidade''} \cite[p~6]{StefanSoftwareQuality:13}. 
+Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas é possível identificar uma mesma ideia central sobre qualidade, todas elas se apontam para ``requisitos que precisam ser satisfeitos para ter qualidade''. 
 
 % \emph{Qualidade de software} é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais, o quanto o software atende as necessidades de negócio, ou estruturais, o quão bem o software funciona. Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
 
 % Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
 
-As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizam de uma decomposição hierárquica e dentre os conceitos encontramos, por exemplo, manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir como é possível observar na Tabela \ref{tab:QualityModels}. Entretanto, o grande valor do modelo de decomposição hierárquica é decompor o conceito de qualidade em um nível que se pode mensurar e então estimar \cite{StefanSoftwareQuality:13}.
-
 \begin{table}[h]
 \centering
 \renewcommand*{\arraystretch}{1.5}
 \small
-\begin{tabular}{@{}p{3.5cm}p{12.5cm}@{}}
+\begin{tabular}{@{}p{5cm}p{11cm}@{}}
 \toprule
 \textbf{Nome do Modelo} & \textbf{Descrição} \\
 \hline
-ISO/IEC 9126 \cite{ISO9126:91} & Substituído pela ISO/IEC 25010:2011 (SQuaRE) decompõe qualidade de software em 6 áreas () e sub-áreas.   \\
-% ISO/IEC 25010 (SQuaRE) \cite{ISO25010:11} & 3 perspectivas de qualidade (interna, externa e em uso)    \\
-SQuaRE \cite{ISO25010:11} & 3 perspectivas de qualidade (interna, externa e em uso)    \\
-CISQ & Decompõe qualidade de software em 5 conceitos () e foi fundado em 2011 e se apoia nas definições do ISO 9126. \\
-SWEBOK \cite{SWEBOK:14} & Decompõe qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software. \\
-FURPS \cite{ModelFURPS:87} & Decompõe qualidade de software em funcionalidade, usabilidade, confiabilidade, desempenho e suporte. \\
+\acs{ISO}/\acs{IEC} 9126 \cite{ISO9126:91} & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \ac{SQuaRE}. Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade.\\
+\acs{ISO}/\acs{IEC} 25010 (\acs{SQuaRE}) \cite{ISO25010:11} & Teve sua primeira publicação em 2005, revisado em 2011, quando passou a substituir a \acs{ISO}/\acs{IEC} 9126. Decompõe qualidade de software em 8 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade, usabilidade, compatibilidade e segurança.\\
+\acs{CISQ} \cite{CISQ} & Fundado em 2009 \cite{CISQAnnounce:09}, decompõe qualidade de software em 4 características: segurança, confiabilidade, desempenho/eficiência e manutenibilidade. Se baseia nas definições do \ac{SQuaRE}.\\
+% \acs{SWEBOK} \cite{SWEBOK:14} & Decompõe qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software. \\
+\acs{FURPS} \cite{ModelFURPS:87} & FURPS é um acrônimo para: Funcionalidade, Usabilidade, Confiabilidade (do inglês \textit{Reliability}), Desempenho (do inglês \textit{Performance}) e Suportabilidade. \\
 \toprule
 \end{tabular}
-\caption{Modelos de Qualidade de Software}
+\caption{Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77}.}
 \label{tab:QualityModels}
 \end{table}
 
+As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizaram de uma estratégia de decomposição hierárquica do conceito de qualidade em fatores como manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir. A Tabela \ref{tab:QualityModels} apresenta algumas dessas variações e uma breve descrição da forma como qualidade de software foi decomposta. Entretanto, o grande valor do modelo de decomposição hierárquica foi a ideia de decompor qualidade em um nível em que é possível medir e estimar \cite{StefanSoftwareQuality:13}.
 
-O padrão ISO/IEC 9126, substituído pelo ISO/IEC 25010 (SQuaRE) é considerado atualmente como principal referência  para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''. O SQuaRE subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos. A Figura \ref{fig:QualityCharacteristics} apresenta os seis conceitos e seus sub-conceitos. A seguir introduzimos brevemente cada um dos conceitos e subconceitos.
+O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas'' \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}.\\
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
 
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
-  \caption{Características de Qualidade de Software segundo norma ISO/IEC 25010}
+  \caption{Características de Qualidade de Software segundo norma ISO/IEC 9126 \cite{ISO9126:91}.}
   \label{fig:QualityCharacteristics}
 \end{figure}
 
 % \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
 
+A seguir introduzimos brevemente cada um dos conceitos e subconceitos do \ac{SQuaRE}.
+
 \subsection{Funcionalidade} 
 
 A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
 \begin{itemize}
-  \item \emph{Adequação}, que mede o quanto o conjunto de funcionalidades é adequado às necessidades do usuário;
-  \item \emph{Acurácia} (ou precisão) representa a capacidade do software de fornecer resultados precisos ou com a precisão dentro do que foi acordado/solicitado;
-  \item \emph{Interoperabilidade} que trata da maneira como o software interage com outro(s) sistema(s) especificados;
-  \item \emph{Segurança} mede a capacidade do sistema de proteger as informações do usuário e fornecê-las apenas (e sempre) às pessoas autorizadas. Segurança também pode estar dirigida em, processar gerar e armazenar as informações;
+  \item \emph{Adequação}, que mede o quanto o conjunto de funcionalidades é adequado às necessidades do usuário.
+  \item \emph{Acurácia} (ou precisão) representa a capacidade do software de fornecer resultados precisos ou com a precisão dentro do que foi acordado/solicitado.
+  \item \emph{Interoperabilidade} que trata da maneira como o software interage com outro(s) sistema(s) especificados.
+  \item \emph{Segurança} mede a capacidade do sistema de proteger as informações do usuário e fornecê-las apenas (e sempre) às pessoas autorizadas. Segurança também pode estar dirigida em, processar gerar e armazenar as informações.
   \item \emph{Conformidade} trata da padronização, políticas e normas de um projeto.
 \end{itemize}
 
@@ -61,9 +61,9 @@ A capacidade de um software prover funcionalidades que satisfaçam o usuário em s
 
 O produto se mantém no nível de desempenho nas condições estabelecidas. Seus sub-conceitos são: 
 \begin{itemize}
-  \item \emph{Maturidade}, entendida como sendo a capacidade do software em evitar falhas decorrentes de defeitos no software;
-  \item \emph{Tolerância a Falhas} representando a capacidade do software em manter o funcionamento adequado mesmo quando ocorrem defeitos nele ou nas suas interfaces externas;
-  \item \emph{Recuperabilidade} que foca na capacidade de um software se recuperar após uma falha, restabelecendo seus níveis de desempenho e recuperando os seus dados;
+  \item \emph{Maturidade}, entendida como sendo a capacidade do software em evitar falhas decorrentes de defeitos no software.
+  \item \emph{Tolerância a Falhas} representando a capacidade do software em manter o funcionamento adequado mesmo quando ocorrem defeitos nele ou nas suas interfaces externas.
+  \item \emph{Recuperabilidade} que foca na capacidade de um software se recuperar após uma falha, restabelecendo seus níveis de desempenho e recuperando os seus dados.
   \item \emph{Conformidade} tempo ou utilização de recursos.
 \end{itemize}
 
@@ -71,49 +71,50 @@ O produto se mantém no nível de desempenho nas condições estabelecidas. Seus sub
 
 A capacidade do produto de software ser compreendido, seu funcionamento aprendido, ser operado e ser atraente ao usuário. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Inteligibilidade} que representa a facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas;
-  \item \emph{Apreensibilidade} identifica a facilidade de aprendizado do sistema para os seus potenciais usuários;
-  \item \emph{Operacionalidade} é como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação;
-  \item \emph{Proteção frente a erros de usuários} como produto consegue prevenir erros dos usuários;
-  \item \emph{Atratividade} envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica;
-  \item \emph{Acessibilidade} refere-se a prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades;  
+  \item \emph{Inteligibilidade} que representa a facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas.
+  \item \emph{Apreensibilidade} identifica a facilidade de aprendizado do sistema para os seus potenciais usuários.
+  \item \emph{Operacionalidade} é como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação.
+  \item \emph{Proteção frente a erros de usuários} como produto consegue prevenir erros dos usuários.
+  \item \emph{Atratividade} envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica.
+  \item \emph{Acessibilidade} refere-se a prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
 \end{itemize}
 
 \subsection{Eficiência}   
 
 O tempo de execução e os recursos envolvidos são compatíveis com o nível de desempenho do software. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Comportamento em Relação ao Tempo} que avalia se os tempos de resposta (ou de processamento) estão dentro das especificações;
-  \item \emph{Utilização de Recursos} que mede tanto os recursos consumidos quanto a capacidade do sistema em utilizar os recursos disponíveis;
+  \item \emph{Comportamento em Relação ao Tempo} que avalia se os tempos de resposta (ou de processamento) estão dentro das especificações.
+  \item \emph{Utilização de Recursos} que mede tanto os recursos consumidos quanto a capacidade do sistema em utilizar os recursos disponíveis.
 \end{itemize}
 
 \subsection{Manutenibilidade}   
 
 A capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Analisabilidade} identifica a facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas;
-  \item \emph{Modificabilidade} caracteriza a facilidade com que o comportamento do software pode ser modificado;
-  \item \emph{Estabilidade} avalia a capacidade do software de evitar efeitos colaterais decorrentes de modificações introduzidas;
-  \item \emph{Testabilidade} representa a capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação;
+  \item \emph{Analisabilidade} identifica a facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas.
+  \item \emph{Modificabilidade} caracteriza a facilidade com que o comportamento do software pode ser modificado.
+  \item \emph{Estabilidade} avalia a capacidade do software de evitar efeitos colaterais decorrentes de modificações introduzidas.
+  \item \emph{Testabilidade} representa a capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação.
 \end{itemize}
 
 \subsection{Portabilidade}   
 
 A capacidade do sistema ser transferido de um ambiente para outro. Seus sub-conceitos são: 
 \begin{itemize}
-  \item \emph{Adaptabilidade}, representando a capacidade do software se adaptar a diferentes ambientes sem a necessidade de ações adicionais (configurações); 
-  \item \emph{Instalabilidade} identifica a facilidade com que pode se instalar o sistema em um novo ambiente; 
-  \item \emph{Coexistência} mede o quão facilmente um software convive com outros instalados no mesmo ambiente; 
-  \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade; 
+  \item \emph{Adaptabilidade}, representando a capacidade do software se adaptar a diferentes ambientes sem a necessidade de ações adicionais (configurações). 
+  \item \emph{Instalabilidade} identifica a facilidade com que pode se instalar o sistema em um novo ambiente. 
+  \item \emph{Coexistência} mede o quão facilmente um software convive com outros instalados no mesmo ambiente. 
+  \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade. 
 \end{itemize}
 
-Esta pesquisa está inserida no contexto de \emph{manutenabilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade}, pois, conforme veremos na Seção \ref{maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, incrementando a manutenibilidade do software. 
+Esta pesquisa está inserida no contexto de \emph{manutenabilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade}, pois, conforme veremos na Seção \ref{sec:back-maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, incrementando a manutenibilidade do software. 
 
-Muito embora tenha se provado que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano \footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Manutenibilidade está relacionada as \emph{necessidades implícitas} do software mencionada na definição de qualidade das normas ISO/EIC 9126 \cite{ISO9126:91} e ISO/IEC 25010 \cite{ISO25010:11}. 
+Muito embora tenha se provado que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano \footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Manutenibilidade está relacionada as ``necessidades implícitas do software'' \cite{ISO9126:91}. 
 
 Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de software vem sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro (\textit{Gang of Four} - GoF) documentam as \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos maiores exemplos de anti-padrão é o \textit{Singleton}, \todo{breve descrição de singleton}. 
 
-Na Seção \ref{maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintomas que podem indicar um problema mais profundo no software. É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software} \cite{CodeComplete:04}. 
+% Na Seção \ref{sec:back-maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintomas que podem indicar um problema mais profundo no software. 
+É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software} \cite{CodeComplete:04}. 
 
 % \todo{breve desc de singleton}
 
