@@ -4,11 +4,11 @@
 Aplicativos Android são desenvolvidos, em sua maioria, utilizando a linguagem de programação Java \cite{AndroidFundamentals}. Deste modo, um provável questionamento é: ``Por que investigar maus cheiros específicos ao Android quando já existem tantos maus cheiros e boas práticas documentadas para linguagens orientada a objetos como o Java?''. Para responder a esta pergunta temos as seguintes Seções:
 
 \begin{itemize}
-  \item A Seção \ref{android-vs-tradicional} apresenta pesquisas que investigaram e encontraram importantes características que diferenciam projetos Android de projetos de software tradicionais, como projetos web e cliente/servidor. Estas características agregam complexidades ao desenvolvimento Android não encontradas no desenvolvimento de software tradicionais. 
+  \item A Seção \ref{android-vs-tradicional} apresenta pesquisas que investigaram e encontraram importantes características que diferenciam projetos Android de projetos de software tradicionais, como projetos web e cliente/servidor. Estas características agregam complexidades ao desenvolvimento Android não encontradas no desenvolvimento de softwares tradicionais. 
 
   \item A Seção \ref{maus-cheiros-especificos} apresenta pesquisas que têm demonstrado que diferentes tecnologias podem apresentar maus cheiros específicos. Inclusive que o \textit{front-end} de softwares tradicionais apresentam maus cheiros específicos, e reforça nossa hipótese de que o desenvolvimento do \textit{front-end} Android pode seguir por este mesmo comportamento.
 
-  \item A Seção \ref{maus-cheiros-android} apresenta pesquisas que já vem investigando (i) a presença de maus cheiros tradicionais em aplicativos Android, (ii) a existência de maus cheiro específicos ao Android e também (iii) comparando a presença dos maus cheiros tradicionais vs. a presença de maus cheiros específicos em aplicativos Android. Estas pesquisas reforçam a relevância de investigarmos maus cheiros específicos ao Android pois concluem que maus cheiros específicos aparecem muito mais do que os maus cheiros tradicionais.
+  \item A Seção \ref{maus-cheiros-android} apresenta pesquisas que (i) investigaram a presença de maus cheiros tradicionais em aplicativos Android, (ii) a existência de maus cheiro específicos ao Android e também (iii) compararam a presença dos maus cheiros tradicionais vs. a presença de maus cheiros específicos em aplicativos Android. Estas pesquisas reforçam a relevância de investigarmos maus cheiros específicos ao Android pois concluem que maus cheiros específicos aparecem muito mais do que os maus cheiros tradicionais.
 \end{itemize}
 
 Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por investigar maus cheiros de código relacionados ao \textit{front-end} Android e também dar uma visão sólida do estado da arte sobre o assunto.
@@ -18,11 +18,14 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 \section{Projetos Android vs. projetos de software tradicionais}
 \label{android-vs-tradicional}
 
-  Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
+  Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução \todo{citar, Cresman??}. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
 
   É interessante que para análise do código Android eles modelam o projeto em código core e não core, similar ao realizado por \cite{MobileSmells:13}, onde o código core está relacionado a classes que herdam do Android SDK. Apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando \textit{Activities} e \textit{Services}, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
 
   Os autores concluem com um conjunto de características de aplicativos Android e com um conjunto de hábitos dos desenvolvedores destes aplicativos que diferem de aplicações de software tradicionais. Dentre as características, afirmam que algumas vezes o código núcleo do app é composto por uma, ou algumas, \textit{God Classes} e que herança, para o uso de \textit{design} das classes, é algo quase inexistente em aplicativos Android. Estas constatações reforçam um mau cheiro por nós identificado sobre a falta de arquitetura padrão, visto que esta exige um conhecimento mais aprimorado de orientação a objetos.
+
+\section{Maus Cheiros Tradicionais}
+\todo{Em construção.}
 
 \section{Maus cheiros específicos a uma tecnologia}
 \label{maus-cheiros-especificos}
@@ -31,7 +34,7 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 
   Chen et al. \cite{ORMSmells} viu a necessidade de estudar maus cheiros de código em arcabouços Object-Relational Mapping (ORM) pelo grande uso pela indústria e pela desatenção de desenvolvedores com relação ao impacto dos seus códigos no desempenho do banco de dados que podiam causar \textit{timeouts} e paradas dos sistemas. Os autores implementaram um arcabouço automatizado e sistemático para detectar e priorizar anti-padrões de desempenho em aplicações desenvolvidas usando ORM e também mapearam dois anti-padrões específicos a arcabouços ORM.
 
-  Aniche et al. \cite{MvcSmells:16} investigaram maus cheiros de código relacionado ao arcabouço Spring MVC, usado para o desenvolvimento do \textit{front-end} de aplicações web Java. Aniche et al. encontram maus cheiros específicos a cada camada do arcabouço Spring MVC, modelo, visualização e controladora, afirmando que cada papel arquitetural possui responsabilidades diferentes o que resulta em distribuições diferentes de valores de métrica de código e maus cheiros diferentes. Dentre as principais contribuições deste trabalho está um catálogo com seis maus cheiros específicos ao arcabouço Spring MVC mapeados e validados.
+  Aniche et al. \cite{FinavaroAniche2016, MvcSmells:16, AnicheSmellsMVC:17} investigaram maus cheiros de código relacionado ao arcabouço Spring MVC, usado para o desenvolvimento do \textit{front-end} de aplicações web Java. Aniche et al. encontram maus cheiros específicos a cada camada do arcabouço Spring MVC, modelo, visualização e controladora, afirmando que cada papel arquitetural possui responsabilidades diferentes o que resulta em distribuições diferentes de valores de métrica de código e maus cheiros diferentes. Dentre as principais contribuições deste trabalho está um catálogo com seis maus cheiros específicos ao arcabouço Spring MVC mapeados e validados.
 
   Gharachorlu \cite{CSSCodeSmell} investigou maus cheiros em código CSS, linguagem amplamente utilizada no \textit{front-end} de aplicações web para separar a semântica de apresentação do conteúdo HTML. De acordo com o autor, apesar da simplicidade de sintaxe do CSS, as características específicas da linguagem tornam a criação e manutenção de CSS uma tarefa desafiadora. Foi realizando um estudo empírico de larga escala onde os resultados indicaram que o CSS de hoje sofre significativamente de padrões inadequados e está longe de ser um código bem escrito. Gharachorlu propõe o primeiro modelo de qualidade de código CSS derivado de uma grande amostra de aprendizagem de modo a ajudar desenvolvedores a obter uma estimativa do número total de cheiros de código em seu código CSS. Sua principal contribuição foram oito novos maus cheiros CSS detectados com o uso da ferramenta CSSNose, também implementada e disponibilizada pelo autor.
 
@@ -80,9 +83,9 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 
     \end{itemize}
 
-    É interessante notar que dentro da definição de Verloop \cite{MobileSmells:13} de classes núcleo, estão incluídas classes que herdam de \texttt{Services} e todas as demais que herdam de alguma classe do SDK Android, porém as únicas classes que apresentaram maus cheiros foram \texttt{Activities} e \texttt{Adapters}. Como vimos em BACKGROUND ANDROID, essas classes são responsáveis por lidar com o \textit{front-end} Android, o que reforça nossa hipótese de que o \textit{front-end} Android tende a ser mais problemático que o restante dos códigos da aplicação e por isso vale a pena ser estudado mais a fundo. 
+    É interessante notar que dentro da definição de Verloop \cite{MobileSmells:13} de classes núcleo, estão incluídas classes que herdam de \texttt{Services} e todas as demais que herdam de alguma classe do SDK Android, porém as únicas classes que apresentaram maus cheiros foram \texttt{Activities} e \texttt{Adapters}. Como vimos em \ref{sec:Android}, essas classes são responsáveis por lidar com o \textit{front-end} Android, o que reforça nossa hipótese de que o \textit{front-end} Android tende a ser mais problemático que o restante dos códigos da aplicação e por isso vale a pena ser estudado mais a fundo. 
   
-  \subsection{Maus cheiros específicos Android}
+  \subsection{Maus cheiros específicos ao Android}
 
     % \todo{explicar mais, com exemplos, do que se tratam os maus cheiros encontrados nesses trabalhos e por que os meus são diferentes}
 
@@ -97,7 +100,7 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 
     Reimann et al. \cite{30QualitySmells:14} cita que o problema no desenvolvimento móvel é que os desenvolvedores estão cientes de cheiros de qualidade apenas indiretamente porque suas definições são informais (melhores práticas, problemas de rastreamento de bugs, discussões de fórum etc.) e os recursos onde encontrá-los são distribuídos pela web e que é difícil coletar e analisar todas essas fontes sob um ponto de vista comum e fornecer suporte de ferramentas para desenvolvedores. 
 
-    Derivou os 30 maus cheiros de boas e más práticas documentadas online na documentação do Android e de postagens em blogs de desenvolvedores que reportaram suas experiências. (segundo o paper de Geoffrey Hetch - abaixo)
+    Derivou os 30 maus cheiros de boas e más práticas documentadas online na documentação do Android e de postagens em blogs de desenvolvedores que reportaram suas experiências. (segundo o paper de Geoffrey Hetch - abaixo).\todo{rever isso aqui}
 
   \subsection{Presença de maus cheiros tradicionais vs. maus cheiros específicos em aplicativos Android}
 

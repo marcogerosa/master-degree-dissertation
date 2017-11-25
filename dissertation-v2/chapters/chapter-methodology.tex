@@ -1,4 +1,5 @@
 % -*- root: article.tex -*-
+O objetivo desta pesquisa...
 
 Este trabalho trata-se de uma pesquisa exploratória de gênero empírico e de abordagem mista. Nosso objetivo é, por meio do conhecimento empírico de desenvolvedores Android, coletar e identificar más práticas comumente percebidas no desenvolvimento do \textit{front-end} Android e documentá-las na forma de maus cheiros. 
 
@@ -53,7 +54,7 @@ A primeira etapa objetiva responder a \textbf{QP1: Existem maus cheiros que são 
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=.7\textwidth]{etapas-pesquisa.png}
+  \includegraphics[width=.7\textwidth]{etapas-pesquisa2.png}
   \caption{Etapas da pesquisa.}
   \label{fig:ResearchPhases}
 \end{figure}
@@ -74,7 +75,7 @@ Na terceira e última etapa, objetivamos responder a \textbf{QP3. Desenvolvedores
 
 % \todo{Pensar sobre este comentário: ``A recorrência da má prática foi determinada pelo número de respostas em que ela é citada. No entanto, um mesmo participante pode ter citado aquela mesma má prática nas duas perguntas a respeito de um mesmo elemento. Ocorreu essa situação? Se ocorreu, vocês contaram as duas respostas para calcular a recorrência? Se sim, acham justo, uma vez que descrevem a mesma situação, percebida pela mesma pessoa?'' pois não tenho certeza se ocorreu mas acredito que sim, logo, preciso entender se isso pode ser um problema ao estudo.}
 
-Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. 
+Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro no desenvolvimento do \textit{front-end} Android. Uma dessas situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. 
 
 Para validarmos essa e outras hipóteses e responder a \textbf{QP1. Quais são possíveis maus cheiros do \textit{front-end} Android?}, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Com o resultado extraímos 46 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
 
@@ -93,7 +94,7 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{eta
 
 % Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android. Como \textit{feedback} do teste piloto, percebemos que nem sempre os desenvolvedores tinham alguma boa ou má prática referente a determinado elemento, desta forma, após o teste piloto configuramos as perguntas da segunda seção como opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. O questionário completo pode ser encontrado no apêndice XX.
 
-O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções. A primeira seção teve o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção teve como objetivo entender o que os desenvolvedores consideravam boas e más práticas no desenvolvimento do \textit{front-end} Android. Foi composta por 16 questões opcionais e abertas, 8 sobre boas práticas em cada um dos 8 elementos do \textit{front-end} Android e 8 sobre más práticas. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
+O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções, o questionário completo pode ser visto no Apêndice \ref{ap:survey-1}. A primeira seção teve o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção teve como objetivo entender o que os desenvolvedores consideravam boas e más práticas no desenvolvimento do \textit{front-end} Android. Foi composta por 16 questões opcionais e abertas, 8 sobre boas práticas em cada um dos 8 elementos do \textit{front-end} Android e 8 sobre más práticas. Por exemplo, para o elemento \textsc{Activity} foram feitas as seguintes perguntas: 
 
 \begin{itemize}
   \small
@@ -105,11 +106,11 @@ O questionário (\emph{S1}) foi composto por 25 questões divididas em três seções
 
 A terceira seção foi composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
-Antes da divulgação realizarmos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. 
+Antes da divulgação realizarmos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas por efeitos de viés. 
 
 % \todo{O que responderam nas questões sobre OUTRAS boas e más práticas?}
 
-O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin, em grupos de discussão sobre Android como \href{https://groups.google.com/forum/#!forum/androidbrasil-dev}{\textit{Android Dev Brasil}}, \href{https://groups.google.com/forum/\#!forum/android-brasil--projetos}{\textit{Android Brasil Projetos}} e o grupo do \href{http://slack.androiddevbr.org/}{\textit{Slack Android Dev Br}}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017. Ao final, o questionário foi respondido por 45 desenvolvedores. 
+O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin, em grupos de discussão sobre Android como Android Dev Brasil\footnote{https://groups.google.com/forum/\#!forum/androidbrasil-dev}, Android Brasil Projetos\footnote{https://groups.google.com/forum/\#!forum/android-brasil-projetos} e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita\footnote{Dado verificado em 25/11/2017.}. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017. Ao final, o questionário foi respondido por 45 desenvolvedores. 
 
 \begin{figure*}[!t]
 \centering
@@ -120,7 +121,7 @@ O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin,
 
 Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
 
-Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas foi o recurso \textsc{Style}, com 51\% sobre boas práticas, e o que menos recebeu respostas foi o recurso \textsc{Drawable}, com 47\% sobre más práticas. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. Resta-nos entender quais dessas práticas são compartilhadas e quais são apenas preferências pessoais. Fazemos isso na etapa 2. 
+Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas foi o recurso \textsc{Style}, com 51\% sobre boas práticas, e o que menos recebeu respostas foi o recurso \textsc{Drawable}, com 47\% sobre más práticas. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. 
 
 Podemos observar que classes Java, no geral, receberam mais respostas do que recursos da aplicação. Dentre os elementos Java, os mais respondidos foram \textsc{Activity} e \textsc{Fragment}. Dentre os recursos da aplicação, os mais respondidos foram \textsc{Layout} e \textsc{String}. Notamos também que mais boas práticas foram indicadas do que más práticas em todos os elementos.
 
