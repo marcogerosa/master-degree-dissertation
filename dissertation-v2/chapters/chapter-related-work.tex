@@ -18,7 +18,7 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 \section{Projetos Android vs. projetos de software tradicionais}
 \label{android-vs-tradicional}
 
-  Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução \todo{citar, Cresman??}. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
+  Minelli e Lanza \cite{Mantyla2013} apresentam diferenças no desenvolvimento de aplicativos e softwares tradicionais em termos de métricas de código, uso de APIs terceiras e evolução. Para isso se utilizam da ferramenta SAMOA desenvolvida por eles de análise estática de código.
 
   É interessante que para análise do código Android eles modelam o projeto em código core e não core, similar ao realizado por \cite{MobileSmells:13}, onde o código core está relacionado a classes que herdam do Android SDK. Apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando \textit{Activities} e \textit{Services}, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
 
