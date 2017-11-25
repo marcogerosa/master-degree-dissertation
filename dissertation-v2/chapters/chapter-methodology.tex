@@ -1,44 +1,52 @@
 % -*- root: article.tex -*-
 
-\todo{pensar sobre este paragrafo}
-Este trabalho trata-se de uma pesquisa descritiva e exploratória. Descritiva porque, este tipo de pesquisa visa observar, analisar, registrar e correlacionar os fatos ou fenômenos sem manipulá-los [?] e exploratória porque são abstraídas práticas recorrentes objetivando descrever sua natureza na forma maus de cheiros de código [?].
+Este trabalho trata-se de uma pesquisa exploratória de gênero empírico e de abordagem mista. Nosso objetivo é, por meio do conhecimento empírico de desenvolvedores Android, coletar e identificar más práticas comumente percebidas no desenvolvimento do \textit{front-end} Android e documentá-las na forma de maus cheiros. 
 
-São muitos os motivos válidos para se fazer pesquisa qualitativa, dentre eles, os que melhor nos serve de motivação é a natureza do problema, no caso maus cheiros de código e obter mais informações sobre uma área cujo ainda se sabe muito pouco, no caso, maus cheiros específicos ao Android \cite{Strauss2007}. Uma pesquisa qualitativa constitui-se na primeira etapa de uma investigação mais ampla na qual se busca o entendimento de um assunto específico por meio de descrições, comparações e interpretações dos dados \cite{Prates2015}.
+A percepção desempenha um importante papel na definição de maus cheiros de código relacionados a uma tecnologia específica \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Principalmente considerando a natureza subjetiva intrínseca a maus cheiros \cite{JavaQADetectingSmells:02, JavascriptSmells}.
+
+Nossa abordagem mista se apresenta de forma que os maus cheiros são originados a partir de dados qualitativos coletados por meio de dois questionários online respondidos por 246 desenvolvedores Android. O dado quantitativo provém de dados coletados através um experimento pelo qual avaliamos a percepção de desenvolvedores Android sobre os maus cheiros definidos. Com esses dados foi possível extrair estatísticas relacionados a percepção dos maus cheiros.
+
+Esta pesquisa foi realizada em três etapas. Cada qual objetivando responder a uma questão principal de pesquisa. Nesta seção apresentamos detalhes sobre cada etapa bem como a qual questão de pesquisa principal que se pretendia responder.
+
+% São muitos os motivos válidos para se fazer pesquisa qualitativa, dentre eles, os que melhor nos serve de motivação é a natureza do problema, no caso maus cheiros de código e obter mais informações sobre uma área cujo ainda se sabe muito pouco, no caso, maus cheiros específicos ao Android \cite{Strauss2007}. Uma pesquisa qualitativa constitui-se na primeira etapa de uma investigação mais ampla na qual se busca o entendimento de um assunto específico por meio de descrições, comparações e interpretações dos dados \cite{Prates2015}.
 
 % Algumas características básicas da pesquisa qualitativa, como \textit{a)} o foco na interpretação que os participantes possuem quanto à situação investigada e \textit{b)} o fato de enfatizar a subjetividade e a flexibilidade, orientando-se para o processo e não para o resultado, justificam seu uso nesta pesquisa \cite{Prates2015, King1994}.
 
 % Além disso, na análise dos dados coletados, não há preocupação em comprovar hipóteses previamente estabelecidas. Algumas características básicas da pesquisa qualitativa, como \textit{a)} o fato de não apresentar foco na quantificação, apresentando-se centrada na interpretação que os participantes possuem quanto à situação investigada e \textit{b)} o fato de enfatizar a subjetividade e a flexibilidade no processo de condução da pesquisa, orientando-se para o processo e não para o resultado, justificam seu uso neste artigo \cite{Prates2015, King1994}.
 
-A percepção desempenha um importante papel na definição de maus cheiros de código relacionados a uma tecnologia, visto que maus cheiros possuem uma natureza subjetiva. Maus cheiros desempenham um importante papel na busca por qualidade de código, visto que, após mapeados, podemos chegar a heurísticas para identificá-los e com essas heurísticas, implementar ferramentas que automatizem o processo de identificar códigos problemáticos.
+% Maus cheiros desempenham um importante papel na busca por qualidade de código, visto que, após mapeados, podemos chegar a heurísticas para identificá-los e com essas heurísticas, implementar ferramentas que automatizem o processo de identificar códigos problemáticos.
 
 
-\section{Questões de Pesquisa}
+% \section{Questões de Pesquisa}
 
-Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Entretanto, há evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. 
+% Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Entretanto, há evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. 
 
-\begin{center}
-\textbf{QP1. Existem maus cheiros que são específicos ao \textit{front-end} Android?}
-\end{center}
+% \begin{center}
+% \textbf{QP1. Existem maus cheiros que são específicos ao \textit{front-end} Android?}
+% \end{center}
 
-Um mau cheiro de código, como vimos em detalhes na Seção X.X, são sintomas que podem indicar um problema mais profundo no código. Estes sintomas são extraído do conhecimento empírico de desenvolvedores experientes, de forma que, se vários desenvolvedores consideram determinado código como uma má prática, podemos entender esta má prática como um sintoma, logo, um mau cheiro. Iniciamos a pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro, no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. Para validarmos essas hipóteses iniciais, perguntamos a desenvolvedores Android o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Obtivemos 45 respostas dos quais pudemos extrair 25 possíveis maus cheiros dos quais confirmaram nossas hipóteses iniciais.
-
-
-\begin{center}
-\textbf{QP2. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
-\end{center}
-
-A fim de validar a existência e relevância dos maus cheiros derivados, submetemos um novo questionário online questionando os desenvolvedores Android o quanto eles percebiam os sintomas dos maus cheiros no seu dia a dia e o quanto eles consideravam importante mitigar aqueles sintomas. Obtivemos 196 respostas dos quais entendemos que 3 dos maus cheiros derivados não eram relevantes aos desenvolvedores, finalizando então com 21 maus cheiros de código Android.
-
-\begin{center}
-\textbf{QP3. Códigos afetados pelos maus cheiros são percebidos como códigos problemáticos?}
-\end{center}
+% Um mau cheiro de código, como vimos em detalhes na Seção X.X, são sintomas que podem indicar um problema mais profundo no código. Estes sintomas são extraído do conhecimento empírico de desenvolvedores experientes, de forma que, se vários desenvolvedores consideram determinado código como uma má prática, podemos entender esta má prática como um sintoma, logo, um mau cheiro. Iniciamos a pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro, no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. Para validarmos essas hipóteses iniciais, perguntamos a desenvolvedores Android o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Obtivemos 45 respostas dos quais pudemos extrair 25 possíveis maus cheiros dos quais confirmaram nossas hipóteses iniciais.
 
 
-A fim de validar a percepção dos maus cheiros pelos desenvolvedores em códigos Android, realizamos um experimento com 75 desenvolvedores onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. Através do resultado desse experimento conseguimos extrair dados para realizar uma análise estatística da percepção dos desenvolvedores por meio das métricas p-value e cliff d [descrever aqui para que servem e pq são boas neste caso].
+% \begin{center}
+% \textbf{QP2. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
+% \end{center}
+
+% A fim de validar a existência e relevância dos maus cheiros derivados, submetemos um novo questionário online questionando os desenvolvedores Android o quanto eles percebiam os sintomas dos maus cheiros no seu dia a dia e o quanto eles consideravam importante mitigar aqueles sintomas. Obtivemos 196 respostas dos quais entendemos que 3 dos maus cheiros derivados não eram relevantes aos desenvolvedores, finalizando então com 21 maus cheiros de código Android.
+
+% \begin{center}
+% \textbf{QP3. Códigos afetados pelos maus cheiros são percebidos como códigos problemáticos?}
+% \end{center}
+
+
+% A fim de validar a percepção dos maus cheiros pelos desenvolvedores em códigos Android, realizamos um experimento com 75 desenvolvedores onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. Através do resultado desse experimento conseguimos extrair dados para realizar uma análise estatística da percepção dos desenvolvedores por meio das métricas p-value e cliff d [descrever aqui para que servem e pq são boas neste caso].
 
 \section{Método de Pesquisa}
 
-Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:ResearchPhases}. Para obtermos os dados iniciais, na primeira etapa buscamos entender o que desenvolvedores Android consideram boas e más práticas ao desenvolver aplicativos Android. Estes dados foram obtidos através de um questionário online respondido por 45 desenvolvedores. A partir desses dados pudemos derivar 25 possíveis maus cheiros de código Android. Apresentamos na Seção \ref{etapa-1} os detalhes desta etapa. 
+Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:ResearchPhases}. 
+
+
+A primeira etapa objetiva responder a \textbf{QP1: Existem maus cheiros que são específicos ao front-end Android?} Para obtermos os dados iniciais, buscamos entender o que desenvolvedores Android consideram boas e más práticas ao desenvolver aplicativos Android. Estes dados foram obtidos através de um questionário online respondido por 45 desenvolvedores. A partir desses dados foi realizado um processo de codificação pelo qual derivamos 21 possíveis maus cheiros de código Android. Apresentamos na Seção \ref{etapa-1} os detalhes desta etapa. 
 
 %  Colocar isso na seção específica ou aqui mesmo
 %  pois como mencionado na Seção X.X [ref teórico], maus cheiros de código bem como outras boas práticas de software são derivações de conhecimento empírico
@@ -50,9 +58,9 @@ Esta pesquisa foi divida em 3 etapas conforme apresentado na Figura \ref{fig:Res
   \label{fig:ResearchPhases}
 \end{figure}
 
-Na segunda etapa, buscamos responder a \emph{QP1 - Quais maus cheiros são vistos com mais frequência?} e \emph{QP2 - Quais maus cheiros são considerados mais importantes?}. Fizemos isso a partir de outro questionário online respondido por 195 desenvolvedores Android. Nessa etapa 4 dos maus cheiros inicialmente derivados foram removidos, visto que não eram considerados importantes para os desenvolvedores, restando 21. Apresentamos os detalhes desta etapa na Seção \ref{etapa-2}. 
+Na segunda etapa, objetivamos responder a \textbf{QP2. Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}. Fizemos isso a partir de outro questionário online respondido por 201 desenvolvedores Android. Nessa etapa, 5 dos maus cheiros inicialmente derivados foram removidos, visto que não eram considerados importantes para os desenvolvedores, restando 16. Apresentamos os detalhes desta etapa na Seção \ref{etapa-2}. 
 
-Na terceira e última etapa, objetivamos responder a \emph{QP3 - Códigos afetados pelos maus cheiros são percebidos como problemáticos?}. Para isso fizemos um experimento com 75 desenvolvedores Android do qual pudemos colher dados estatísticos sobre a percepção deles aos maus cheiros. Nesta etapa mais 2 maus cheiros foram descartados e concluímos com 19 maus cheiros do \textit{front-end} Android percebidos e considerados relevantes a desenvolvedores Android. Os detalhes desta etapa são apresentados na Seção \ref{etapa-3}.
+Na terceira e última etapa, objetivamos responder a \textbf{QP3. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}. Para isso fizemos um experimento com 75 desenvolvedores Android do qual pudemos colher dados estatísticos sobre a percepção sobre os maus cheiros. Nesta etapa mais 3 maus cheiros foram descartados e concluímos com 13 maus cheiros do \textit{front-end} Android percebidos e considerados relevantes a desenvolvedores Android. Os detalhes desta etapa são apresentados na Seção \ref{etapa-3}.
 
 % \subsection{Participantes}
 % \todo{Colocar um resumo aqui sobre todos os participantes.}
@@ -68,7 +76,7 @@ Na terceira e última etapa, objetivamos responder a \emph{QP3 - Códigos afetados
 
 Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando um mau cheiro no desenvolvimento do \textit{front-end} Android. Uma dessa situações hipotéticas foi, por exemplo, o uso de textos, cores e tamanhos diretamente no XML de layout, sem a criação de um novo recurso, respectivamente nos arquivos \texttt{strings.xml}, \texttt{colors.xml} ou \texttt{dimens.xml}. 
 
-Para validarmos essa e outras hipóteses e responder a \textbf{QP1. Quais são possíveis maus cheiros do \textit{front-end} Android?}, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Com o resultado extraímos 47 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
+Para validarmos essa e outras hipóteses e responder a \textbf{QP1. Quais são possíveis maus cheiros do \textit{front-end} Android?}, perguntamos através de um questionário online respondido por 45 desenvolvedores o que eles consideravam como boas e más práticas no desenvolvimento do \textit{front-end} Android. Com o resultado extraímos 46 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{etapa-1-questionario}), sobre os participantes (Seção \ref{etapa-1-participantes}) e sobre o processo de análise dos dados (Seção \ref{etapa-1-analise}).
 
@@ -237,28 +245,27 @@ O interessante é que por acaso nos deparamos com as mesmas conclusões que alguma
 \toprule
 \textbf{Categoria} & \textbf{Ocorrências} & \textbf{Tipo} \\ 
 \toprule
-\textsc{Lógicas em view}                               & 60  &   Java    \\
-\textsc{Padrão de nome de recurso}                     & 23  &   Recurso \\ 
-\textsc{Recurso mágico}                                & 23  &   Recurso \\
-\textsc{Views aninhados}                               & 18  &   Recurso \\
-\textsc{Imagem tradicional dispensável}                & 18  &   Recurso \\
-\textsc{Classes de UI acopladas}                       & 18  &   Java    \\
-\textsc{Comportamento Suspeito}                        & 17  &   Java    \\
-\textsc{Mau uso do ciclo de vida}                      & 14  &   Java    \\
-\textsc{Layout longo ou repetido}                      & 14  &   Recurso \\
-\textsc{Não uso do padrão View Holder}                 & 13  &   Java    \\
-\textsc{Ausência de diferentes resoluções de imagens}  & 12  &   Recurso \\
-\textsc{Referência Morta}                              & 10  &   Java    \\
-\textsc{Uso excessivo de Fragments}                    & 9   &   Java    \\
-\textsc{Classes de UI fazendo IO}                      & 9   &   Java    \\
-\textsc{Não uso de Fragment}                           & 8   &   Java    \\
-\textsc{Longo recurso de estilo}                       & 8   &   Recurso \\
-\textsc{Recurso de string bagunçado}                   & 8   &   Recurso \\
-\textsc{Atributos de estilo repetidos}                 & 7   &   Recurso \\
-\textsc{Reuso excessivo de strings}                    & 6   &   Recurso \\
-\textsc{Não uso de arquiteturas conhecidas}            & 6   &   Java    \\
-\textsc{Adapter complexo}                              & 5   &   Java    \\
-\textsc{Listener escondido}                            & 5   &   Java    \\ 
+\textsc{Classes de UI Inteligentes}       &  60    & Java \\
+\textsc{Nome de Recurso Despadronizado}   & 23     & Recurso \\
+\textsc{Recursos Mágicos}                 &  23    & Recurso \\
+\textsc{Layout Profundamente Aninhado}    &  18    & Recurso \\
+\textsc{Classes de UI Acopladas}          &  18    & Java \\
+\textsc{Imagens Dispensável}              &  18    & Recurso \\
+\textsc{Comportamento Suspeito}           &  17    & Java \\
+\textsc{Layout Longo ou Repetido}         &  14    & Recurso \\
+\textsc{Adapter Consumista}               &  13    & Java \\
+\textsc{Imagem Faltante}                  &  12    & Recurso \\
+\textsc{Uso Excessivo de Fragments}       &  9     & Java \\
+\textsc{Classes de UI Fazendo IO}         &  9     & Java \\
+\textsc{Não Uso de Fragments}             &  8     & Java \\
+\textsc{Longo Recurso de Estilo}          &  8     & Recurso \\
+\textsc{Recurso de String Bagunçado}      &  8     & Recurso \\
+\textsc{Atributos de Estilo Repetidos}    &  7     & Recurso \\
+\textsc{Referência Morta}                 &  10    & Java \\
+\textsc{Arquitetura Não Identificada}     &  6     & Java \\
+\textsc{Reuso inadequado de String}       &  6     & Recurso \\
+\textsc{Adapter Complexo}                 &  5     & Java \\
+\textsc{Listener Escondido}               &  5     & Java \\
 \bottomrule
 \end{tabular}
 \caption{Total de ocorrências e tipo de elemento Android afetado por categoria.}
@@ -439,17 +446,19 @@ As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respe
 \subsection{Etapa 3 - Percepção dos maus cheiros}
 \label{etapa-3}
 
-Em construção.
 % \todo{[Nota revisor SBES] Por que vocês resolveram incluir maus cheiros tradicionais na avaliação? Que maus cheiros tradicionais foram levados em conta? Como vocês determinaram os códigos que tinham maus cheiros tradicionais?}
 
 \subsubsection{Experimento}
+\todo{Ainda não escrito pois estamos finalizando como será feito.}
 
 \subsubsection{Participantes}
 \label{sub:perception-participants}
+\todo{Ainda não escrito pois estamos finalizando como será feito.}
 % Todos os participantes exceto 1, são atualmente desenvolvedores Android profissionais, ou seja, atuam profissionalmente com a plataforma Android. 70\% responderam com seu email para receber resultados da pesquisa, tal como em \textit{S1}, pode ser um indicativo de interesse legítimo da comunidade sobre esta temática. Questionamos da experiência com desenvolvimento de software, bem como com desenvolvimento Android, notamos que 55\% relataram ter mais de 5 aplicativos publicados e 47\% tinham mais de 4 anos de experiência com Android. A experiência dos desenvolvedores pode ser visualizada na Figura \ref{fig:ExpDevsS2}.
 
 \subsubsection{Análise dos Dados}
 \label{sub:perception-participants-analysis}
+\todo{Aguardando dois anteriores para ser escrito. Mas basicamente extrairemos dados estatísticos cliff e wilcoxon.}
 
 % Nossa análise consistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
 
@@ -459,9 +468,9 @@ Em construção.
 % Para comparar as distribuições da severidade indicada pelos participantes, utilizamos o teste de Mann-Whitney não pareado \cite{Conover1999} para analisar a significância estatística das diferenças entre a severidade atribuída pelos participantes aos problemas que observam em códigos Android cheirosos e códigos limpos. Os resultados são considerados estatisticamente significativos em $\alpha$ $\leq{=}$ 0,05. Também estimamos a magnitude das diferenças medidas usando o Delta de Cliff (ou d), uma medida de tamanho do efeito não paramétrico \cite{GrissomKim2005} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito: insignificante para | d | $<$ 0,14, baixo para 0,14 $\leq$ | d | $<$ 0,33, médio para 0,33 $\leq$ | d | $<$ 0,474, e alto para | d | $\geq$ 0,474 [49]. Finalmente, relatamos achados qualitativos derivados das respostas abertas dos participantes.
 
 
-\section{Processo de Escrita dos Maus Cheiros}
+% \section{Processo de Escrita dos Maus Cheiros}
 
-Em construção.
+% Em construção.
 
 % \subsection{Classificação dos Maus Cheiros}
 
