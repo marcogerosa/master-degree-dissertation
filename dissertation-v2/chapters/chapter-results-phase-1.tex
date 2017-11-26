@@ -1,0 +1,152 @@
+% -*- root: dissertation.tex -*- 
+\section{QP1: Existem maus cheiros que são específicos ao front-end Android?} 
+
+\begin{square}
+  \small
+  Nossos resultados mostraram a existência de uma percepção comum entre desenvolvedores Android sobre más práticas no desenvolvimento do \textit{front-end} Android. Considerando que maus cheiros derivam do conhecimento empírico de desenvolvedores, entendemos que faz sentido afirmar que \textbf{sim, existem maus cheiros no \textit{front-end} Android.}
+\end{square}
+
+
+Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
+
+
+\subsection{Resultados gerais e descobertas}
+
+Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas sobre boas práticas foi o recurso \textit{Style}, com 51\%, e o que menos recebeu respostas sobre más práticas foi o recurso \textit{Drawable}, com 47\%. Mesmo o elemento que recebeu menos respostas, esta chega muito próximo a 50\%. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. 
+
+\begin{figure*}[!htb]
+\centering
+\includegraphics[width=.8\linewidth]{phase1-survey-answers.png}
+\caption{Percentual de respostas sobre boas e más práticas nos elementos do \textit{front-end} Android.}
+\label{fig:ElementsVSAnswers}
+\end{figure*}
+
+Podemos observar que classes Java, no geral, receberam mais respostas do que recursos da aplicação. Dentre os elementos Java, os mais respondidos foram \textit{Activity} e \textit{Fragment}. Dentre os recursos da aplicação, os mais respondidos foram os recursos de \textit{Layout} e \textit{String}. Notamos também que mais boas práticas foram indicadas do que más práticas em todos os elementos.
+
+O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros, todas as que apresentaram ocorrência maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Com base nesse critério, 23 categorias foram consideradas. Dessas, desconsideramos mais duas por se tratarem de 1) um mau cheiro tradicional (\textit{Large Class}) e 2) um aspecto da orientação a objetos (Herança). Resultando em 21 categorias para a derivação dos maus cheiros do \textit{front-end} Android. 
+
+% A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. 
+
+É interessante notar que nosso processo de codificação também resultou em conclusões {\small \textbf{similares}} as de algumas pesquisas anteriores, de que aplicativos Android são fortemente afetados pelo mau cheiro tradicional \textit{Large Class} conforme citado por Verloop \cite{MobileSmells:13}, e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código, conforme citado por Minelli e Lanza \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em aplicativos Android, não trabalhamos em cima desses resultados. 
+
+
+\subsection{Derivação dos maus cheiros}
+
+Cada uma das 21 categorias consideradas resultou em um mau cheiro de código no \textit{front-end} Android, dos quais 11 são relacionados a componentes do \textit{front-end} Android e 10 relacionados a recursos do aplicativo. As Tabelas \ref{tab:CategoriesVSFrequency-Java} (componentes) e \ref{tab:CategoriesVSFrequency-Resource} (recursos) apresentam os maus cheiros derivados, a ocorrência por elemento do \textit{front-end} Android, ou seja, de quais perguntas sobre boas e más práticas aquele mau cheiro originou, e sua ocorrência total, sendo a somatória das ocorrências em todos os elementos.
+
+Na Tabela \ref{tab:CategoriesVSFrequency-Java} temos os 11 maus cheiros de componentes do \textit{front-end} Android. Podemos interpretar esta tabela do ponto de vista do componente. Se ele apresenta ocorrência em algum mau cheiro, significa que ele é suscetível a ser afetado por aquele mau cheiro. Ou seja, \textit{Activities} e \textit{Fragments} são os componentes mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 7. Já \textit{Adapters} estão pouco menos suscetíveis, aparecendo em 6 maus cheiros. Em contrapartida, \textit{Listeners} são os componentes do \textit{front-end} menos suscetíveis a maus cheiros, aparecendo em apenas 5.
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\caption{Maus cheiros em componentes do \textit{front-end} Android, sua ocorrência em cada componente e ocorrência total.}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}ccccc@{}}
+\toprule
+\textbf{Mau Cheiro} & \textbf{Activity} & \textbf{Fragment} & \textbf{Adapter} & \textbf{Listener} & \textbf{\#Total} \\ 
+\toprule
+\textsc{Componente de UI Inteligente}      & 29  & 16  & 14  & 1   & 60  \\        
+\textsc{Componente de UI Acopladas}        & 2   & 10  & 3   & 3   & 18  \\          
+\textsc{Comportamento Suspeito}            & 4   & -   & 3   & 10  & 17  \\      
+\textsc{Adapter Consumista}                & -   & -   & 13  & -   & 13  \\
+\textsc{Componente de UI Zumbi}            & 7   & 3   & -   & -   & 10  \\      
+\textsc{Uso Excessivo de Fragments}        & -   & 9   & -   & -   & 9   \\      
+\textsc{Componente de UI Fazendo IO}       & 5   & 3   & 1   & -   & 9   \\      
+\textsc{Não Uso de Fragment}               & 4   & 4   & -   & -   & 8   \\
+\textsc{Adapter Complexo}                  & -   & -   & 5   & -   & 6   \\
+\textsc{Arquitetura Não Identificada}      & 4   & 2   & -   & -   & 6   \\            
+\textsc{Listener Escondido}                & -   & -   & -   & 5   & 5   \\
+\bottomrule
+\end{tabular}
+\label{tab:CategoriesVSFrequency-Java}
+\end{table}
+
+Na Tabela \ref{tab:CategoriesVSFrequency-Resource} temos os 10 maus cheiros dos recursos do aplicativo. Novamente, interpretando a tabela do ponto de vista do elemento, temos que recursos de \textit{Layout} são os recursos mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 5, seguidos de \textit{Strings} e \textit{Styles} suscetíveis á 4 maus cheiros e \textit{Drawables} suscetíveis a apenas 3.
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\caption{Maus cheiros em recursos de aplicativos Android, sua ocorrência em cada componente e ocorrência total.}
+\footnotesize 
+\begin{tabular}{@{}p{7cm}ccccc@{}}
+\toprule
+\textbf{Mau Cheiro} & \textbf{Layout} & \textbf{String} & \textbf{Style} & \textbf{Drawable} & \textbf{\#Total} \\ 
+\toprule
+\textsc{Nome de Recurso Despadronizado}                & 5     & 10    & 5   & 3   & 24 \\ 
+\textsc{Recurso Mágico}                                & 6     & 15    & 2   & -   & 23 \\ 
+\textsc{Layout Profundamente Aninhado}                 & 18    & -     & -   & -   & 19 \\ 
+\textsc{Imagem Tradicional Dispensável}                & -     & -     & -   & 17  & 17 \\ 
+\textsc{Layout Longo ou Repetido}                      & 14    & -     & -   & -   & 14 \\ 
+\textsc{Imagem Faltante}                               & -     & -     & -   & 10  & 10 \\ 
+\textsc{Longo Recurso de Estilo}                       & -     & -     & 8   & -   & 8 \\  
+\textsc{Recurso de String Bagunçado}                   & -     & 8     & -   & -   & 8 \\
+\textsc{Atributos de Estilo Repetidos}                 & 3     & -     & 4   & -   & 7 \\  
+\textsc{Reuso Excessivo de String}                     & -     & 6     & -   & -   & 6 \\
+\bottomrule
+\end{tabular}
+\label{tab:CategoriesVSFrequency-Resource}
+\end{table}
+
+\subsection{Confiabilidade dos maus cheiros}
+
+Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os padrões iremos indicar com um número e estrela sobrescrito ($^{60\star}$) o grau de confiabilidade. 
+
+Por exemplo, o mau cheiro \textsc{Componente de UI Inteligente} possui total de 60 ocorrências. Isso nos indica que foi originado de 60 respostas, logo, seu nível de confiabilidade é maior do que, por exemplo, o mau cheiro \textsc{Listener Escondido}, que apresenta total de apenas 5 ocorrências. Porém, colocar o número 60 ao lado de uma estrela pode ficar visualmente confuso de interpretar. Desta forma, nos baseamos novamente no número de Nielsen \cite{NielsenMagicNumber:00} e para cada 5 ocorrências, é atribuída uma estrela ao mau cheiro, ou seja, nosso exemplo seria apresentado da seguinte forma: \textsc{Componente de UI Inteligente}$^{5\star}$. 
+
+No catálogo completo, apresentado na Seção \ref{sec:smells-catalog}, esta mesma regra será usada na ocorrência por elementos do \textit{front-end} Android, pois, enquanto que a confiabilidade do mau cheiro \textsc{Componente de UI Inteligente} nos componentes \textit{Activity}, \textit{Fragment} e \textit{Adapter} são maiores, no \textit{Listener} é de apenas 1, logo, um grau de confiabilidade muito menor.
+
+Todo mau cheiro derivado recebe pelo menos uma estrela. Os maus cheiros que tiverem apenas uma estrela, esta será apresentada sem número. Vale ressaltar que, o critério para derivação do mau cheiro foi de pelo menos cinco ocorrências gerais, somatória dos elementos. Mas cada elemento individual pode ter tido menos que 5 ocorrências com relação a um dado mau cheiro. No catálogo \ref{sec:smells-catalog}, os elementos que não tiverem pelo menos 5 ocorrências serão apresentados sem estrela.
+
+\subsection{Maus cheiros derivados}
+
+A Tabelas \ref{tab:Smells-Java} e \ref{tab:Smells-Resource} apresentam a lista dos maus cheiros relacionados ao \textit{front-end} Android, respectivamente: componentes e recursos, suas respectivas estrelas indicando a confiabilidade e uma breve descrição do sintoma relacionado.
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\caption{Maus cheiros em componentes do \textit{front-end} Android e breve descrição dos sintomas.}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}p{10.5cm}@{}}
+\toprule
+\textbf{Mau Cheiro} & \textbf{Breve descrição} \\ 
+\toprule
+\textsc{Classes de UI Inteligentes}$^{12\star}$                      & Componentes de UI com lógicas de negócio.  \\
+\textsc{Classes de UI Acopladas}$^{3\star}$                           & Componentes de UI com referência concretas um para o outro.  \\
+\textsc{Comportamento Suspeito}$^{3\star}$                            & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
+\textsc{Adapter Consumista}$^{2\star}$                                & Adapters que não usam o padrão \textit{ViewHolder}.  \\
+\textsc{Componente de UI Zumbi}$^{2\star}$                            & Componente com referência a componentes de UI com ciclo de vida.  \\
+\textsc{Uso Excessivo de Fragments}$^{\star}$                        & Uso \textit{fragments} sem uma necessidade explícita. \\
+\textsc{Classes de UI Fazendo IO}$^{\star}$                          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
+\textsc{Não Uso de Fragments}$^{\star}$                              & \textit{Não usar nenhum \textit{Fragment}}  \\
+\textsc{Arquitetura Não Identificada}$^{\star}$                      & Aplicativos sem uma arquitetura conhecida.  \\
+\textsc{Adapter Complexo}$^{\star}$                                  & \textit{Adapters} com condicionais e \textit{loops}. \\
+\textsc{Listener Escondido}$^{\star}$                                & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
+\bottomrule
+\end{tabular}
+\label{tab:Smells-Java}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\caption{Maus cheiros em elementos do \textit{front-end} Android e breve descrição dos sintomas.}
+\footnotesize 
+\begin{tabular}{@{}p{6.7cm}p{9.8cm}@{}}
+\toprule
+\textbf{Mau Cheiro} & \textbf{Breve descrição} \\ 
+\toprule
+\textsc{Nome de Recurso Despadronizado}$^{4\star}$                    & Recursos com nomes despadronizados.      \\
+\textsc{Recurso Mágico}$^{4\star}$                                    & Textos, números ou cores ``\textit{hardcoded}''.   \\
+\textsc{Layout Profundamente Aninhado}$^{3\star}$                     & Recurso de layout com mais de três níveis de \textit{Viwes} aninhadas.   \\
+\textsc{Imagem Dispensável}$^{3\star}$                                & Imagens que poderiam ser transformadas em recurso gráfico.   \\
+\textsc{Layout Longo ou Repetido}$^{2\star}$                          & Recurso de \textit{layout} muito longo ou com trechos de código similares ou repetidos.   \\
+\textsc{Imagem Faltante}$^{2\star}$                                   & Imagem sem todas as resoluções padrões.   \\
+\textsc{Longo Recurso de Estilo}$^{\star}$                           & Recurso de estilo único e longo.   \\
+\textsc{Recurso de String Bagunçado}$^{\star}$                       & Recursos de \textit{string} sem um padrão de nomenclatura.   \\
+\textsc{Atributos de Estilo Repetidos}$^{\star}$                     & Atributos de estilo repetidos em recursos de \textit{layout} ou \textit{string}.   \\
+\textsc{Reuso Inadequado de String}$^{\star}$                        & \textit{Strings} sendo reutilizadas indevidamente.    \\
+\bottomrule
+\end{tabular}
+\label{tab:Smells-Resource}
+\end{table}
+
