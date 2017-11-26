@@ -280,7 +280,7 @@ Ao final da análise constavam 359 respostas sobre boas e más práticas individual
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 \label{etapa-2}
 
-Para responder a \textbf{QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 16 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
+Para responder a \textbf{\small QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de diversos países. Com o resultado conseguimos validar que os 16 maus cheiros derivados são percebidos no dia a dia de desenvolvimento e são considerados importantes.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{etapa-2-questionario}), sobre os participantes (Seção \ref{etapa-2-participantes}) e sobre o processo de análise dos dados (Seção \ref{etapa-2-analise}).
 
@@ -288,31 +288,31 @@ A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{eta
 \subsubsection{Questionário}
 \label{etapa-2-questionario}
 
-Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textit{Q2}) continha 3 seções, a primeira seção, como em \textit{Q1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
+Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textbf{\small QP2}) continha 3 seções, a primeira seção, como em \textbf{\small QP1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
 
-A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de frases, onde cada frase descrevia o sintoma de um dos maus cheiros, e pedimos para o respondente \textbf{indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia}. Para cada frase o respondente podia escolher uma dentre os cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
+A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de frases, onde cada frase descrevia o sintoma de um dos maus cheiros, e pedimos para o respondente \textbf{\small indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia}. Para cada frase o respondente podia escolher uma dentre os cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
 
-As frases foram baseadas nas respostas em \emph{Q1}, por exemplo, para o mau cheiro \textbf{\textsc{Classes de UI Acopladas}} algumas das respostas sobre más práticas foram \textit{``Acoplar o \texttt{Fragment} a \texttt{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \texttt{Fragment} com a \texttt{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nas respostas, extraímos a seguinte para representar o sintoma do mau cheiro:
+As frases foram baseadas nas respostas em \textbf{\small QP1}, por exemplo, para o mau cheiro \textbf{\textsc{\small Classes de UI Acopladas}} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nas respostas, extraímos a seguinte para representar o sintoma do mau cheiro:
 
 \begin{itemize}
-  \item \emph{\small\textbf{\texttt{Fragments}, \texttt{Adapters} ou \texttt{Listeners} com referência direta para quem os usa, como \texttt{Activities} ou outros \texttt{Fragments.}}} 
+  \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
 \end{itemize}
 
-Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{Comportamento Suspeito}, \textsc{Entenda o Ciclo de Vida}, \textsc{Layout Longo ou Repetido}, \textsc{Longo Recurso de Estilo} e \textsc{Atributos de Estilo Repetidos} identificamos nas respostas em \emph{Q1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textbf{\textsc{Comportamento Suspeito}} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \emph{Q1}, sobre como implementar a resposta a eventos do usuário:
+Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Entenda o Ciclo de Vida}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em \textbf{\small QP1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \textbf{\small QP1}, sobre como implementar a resposta a eventos do usuário:
 
 \begin{itemize}
   \small
-  \item \emph{\textbf{\texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters} com \underline{classes anônimas} para responder a eventos do usuário, como clique, duplo clique e outros.}}
+  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.
 
-  \item \emph{\textbf{\texttt{Activitie}s, \texttt{Fragments} ou \texttt{Adapters} implementando algum \texttt{listener}, \underline{através de} \underline{polimorfismo} (\texttt{implements}), para responder a eventos do usuário como clique, duplo clique e outros.}}
+  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} implementando algum \textit{Listener}, através de polimorfismo (\textit{implements}), para responder a eventos do usuário como clique, duplo clique e outros.
 
-  \item \emph{\textbf{\texttt{Activities}, \texttt{Fragments} ou \texttt{Adapters} com \underline{classes internas} implementando algum \texttt{listener} para responder a eventos do usuário como clique, duplo clique e outros.}} 
+  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes internas implementando algum \textit{Listener} para responder a eventos do usuário como clique, duplo clique e outros.
 \end{itemize}
 
-A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 21 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{Classes de UI Acopladas}, apresentamos a seguinte frase:
+A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{\small indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 21 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{\small Classes de UI Acopladas}, apresentamos a seguinte frase:
 
 \begin{itemize}
-  \item \textbf{\small\emph{\texttt{Fragments}, \texttt{Adapters} e \texttt{Listeners} não ter referência direta à quem os utiliza.}}
+  \item \textit{Fragments}, \textit{Adapters} e \textit{Listeners} não ter referência direta à quem os utiliza.
 \end{itemize}
 
 Para cada frase o respondente podia escolher uma dentre as cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. 
@@ -410,22 +410,22 @@ As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respe
 \toprule
 \textbf{Mau Cheiro}    & \textbf{Moda} & \textbf{1}    & \textbf{2}    & \textbf{3}    & \textbf{4}    & \textbf{5} \\
 \toprule
-\textsc{Classe de UI Inteligente}          &  5     & 3\% & 3\%   & 15\%  & 25\% &  53\% \\
-\textsc{Classe de UI Acoplada}             &  5     & 2\% & 6\%   & 21\%  & 33\% &  37\% \\
-\textsc{Comportamento Suspeito}            &  4     & 7\% & 17\%  & 27\%  & 28\% &  20\% \\
-\textsc{Componente de UI Zumbi}                  &  5     & 1\% & 2\%   & 11\%  & 26\% &  59\% \\
-\textsc{Classes de UI Fazendo IO}          &  5     & 2\% & 6\%   & 13\%  & 19\% &  60\% \\
-\textsc{Arquitetura Não Identificada}      &  5     & 1\% & 2\%   & 9\%   & 18\% &  69\% \\
-\textsc{Adapter Complexo}                  &  5     & 1\% & 3\%   & 14\%  & 35\% &  46\% \\
-\textsc{Recurso Mágico}                    &  5     & 1\% & 6\%   & 15\%  & 30\% &  47\% \\
-\textsc{Nome de Recurso Despadronizado}    &  5     & 1\% & 3\%   & 11\%  & 25\% &  59\% \\
-\textsc{Layout Profundamente Aninhado}     &  4     & 5\% & 10\%  & 25\%  & 35\% &  23\% \\
-\textsc{Imagem Dispensável}                &  5     & 1\% & 5\%   & 13\%  & 33\% &  47\% \\
-\textsc{Layout Longo ou Repetido}          &  5     & 2\% & 3\%   & 16\%  & 33\% &  45\% \\
-\textsc{Imagem Faltante}                   &  5     & 2\% & 4\%   & 10\%  & 27\% &  57\% \\
-\textsc{Longo Recurso de Estilo}           &  4     & 2\% & 15\%  & 26\%  & 35\% &  20\% \\
-\textsc{Recurso de String Bagunçado}       &  4     & 9\% & 21\%  & 23\%  & 31\% &  16\% \\
-\textsc{Atributos de Estilo Repetidos}     &  4     & 1\% & 2\%   & 17\%  & 41\% &  38\% \\
+\textsc{\small Classe de UI Inteligente}          &  5     & 3\% & 3\%   & 15\%  & 25\% &  53\% \\
+\textsc{\small Classe de UI Acoplada}             &  5     & 2\% & 6\%   & 21\%  & 33\% &  37\% \\
+\textsc{\small Comportamento Suspeito}            &  4     & 7\% & 17\%  & 27\%  & 28\% &  20\% \\
+\textsc{\small Componente de UI Zumbi}            &  5     & 1\% & 2\%   & 11\%  & 26\% &  59\% \\
+\textsc{\small Classes de UI Fazendo IO}          &  5     & 2\% & 6\%   & 13\%  & 19\% &  60\% \\
+\textsc{\small Arquitetura Não Identificada}      &  5     & 1\% & 2\%   & 9\%   & 18\% &  69\% \\
+\textsc{\small Adapter Complexo}                  &  5     & 1\% & 3\%   & 14\%  & 35\% &  46\% \\
+\textsc{\small Recurso Mágico}                    &  5     & 1\% & 6\%   & 15\%  & 30\% &  47\% \\
+\textsc{\small Nome de Recurso Despadronizado}    &  5     & 1\% & 3\%   & 11\%  & 25\% &  59\% \\
+\textsc{\small Layout Profundamente Aninhado}     &  4     & 5\% & 10\%  & 25\%  & 35\% &  23\% \\
+\textsc{\small Imagem Dispensável}                &  5     & 1\% & 5\%   & 13\%  & 33\% &  47\% \\
+\textsc{\small Layout Longo ou Repetido}          &  5     & 2\% & 3\%   & 16\%  & 33\% &  45\% \\
+\textsc{\small Imagem Faltante}                   &  5     & 2\% & 4\%   & 10\%  & 27\% &  57\% \\
+\textsc{\small Longo Recurso de Estilo}           &  4     & 2\% & 15\%  & 26\%  & 35\% &  20\% \\
+\textsc{\small Recurso de String Bagunçado}       &  4     & 9\% & 21\%  & 23\%  & 31\% &  16\% \\
+\textsc{\small Atributos de Estilo Repetidos}     &  4     & 1\% & 2\%   & 17\%  & 41\% &  38\% \\
 
 \textcolor{red}{\textsc{Reuso Inadequadro de String}} & \textcolor{red}{3} & \textcolor{red}{16\%} & \textcolor{red}{20\%} & \textcolor{red}{26\%} & \textcolor{red}{23\%} & \textcolor{red}{14\%} \\
 \textsc{Listener Escondido}                        & 5 & 7\% &  9\%  & 26\% & 24\% & 33\% \\
