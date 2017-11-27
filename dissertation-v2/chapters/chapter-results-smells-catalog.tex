@@ -22,10 +22,9 @@ Nesta seção apresentamos os 21 maus cheiros derivados sendo respectivamente 10 m
     \textsc{Componente de UI Zumbi}$^{2\star}$                            & Componente com referência a componentes de UI com ciclo de vida.  \\
     \textsc{Uso Excessivo de Fragments}$^{\star}$                        & Uso \textit{fragments} sem uma necessidade explícita. \\
     \textsc{Componente de UI Fazendo IO}$^{\star}$                          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
-    \textsc{Não Uso de Fragments}$^{\star}$                              & \textit{Não usar nenhum \textit{Fragment}}  \\
-    \textsc{Arquitetura Não Identificada}$^{\star}$                      & Aplicativos sem uma arquitetura conhecida.  \\
+    \textsc{Não Uso de Fragment}$^{\star}$                              & \textit{Não usar nenhum \textit{Fragment}}  \\
+    \textsc{Ausência de Arquitetura}$^{\star}$                      & Aplicativos sem uma arquitetura conhecida.  \\
     \textsc{Adapter Complexo}$^{\star}$                                  & \textit{Adapters} com condicionais e \textit{loops}. \\
-    \textsc{Listener Escondido}$^{\star}$                                & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
     \bottomrule
     \end{tabular}
     \label{tab:Smells-Java}
@@ -48,47 +47,53 @@ Nesta seção apresentamos os 21 maus cheiros derivados sendo respectivamente 10 m
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Usar muitos anônimos pode ser complicado. Às vezes nomear coisas torna mais fácil para depuração''} (P9). \textit{``Mantenha-os [Listeners] em classes separadas (esqueça sobre classes anônimas)''} (P4). \textit{``Muitas implementações de Listener com classes anônimas''} (P8). \textit{``Declarar como classe interna da Activity ou Fragment ou outro componente que contém um ciclo de vida. Isso pode fazer com que os aplicativos causem vazamentos de memória.''} (P42). \textit{``Eu não gosto quando os desenvolvedores fazem a activity implementar o Listener porque eles [os métodos] serão expostos e qualquer um pode chamá-lo de fora da classe. Eu prefiro instanciar ou então usar ButterKnife\footnote{Biblioteca de injeção de dependência de código aberto, \url{http://jakewharton.github.io/butterknife}} para injetar cliques.''} (P44). E sobre \textbf{boas práticas}: \textit{``Prefiro declarar os listeners com implements e sobrescrever os métodos (onClick, por exemplo) do que fazer um set listener no próprio objeto''} (P32). \textit{``Tome cuidade se a Activity/Fragment é um Listener uma vez que eles são destruídos quando as configurações mudam. Isso causa vazamentos de memória.''} (P6). \textit{``Use carregamento automático de view como ButterKnife e injeção de dependência como Dagger2''} (P10).
 
-    \noindent
-    \textsc{\textbf{{\small Entenda o Ciclo de Vida}}}$^{5\star}$ O Ciclo de Vida de \textit{Activities}$^{3\star}$ e \textit{Fragments}$^{3\star}$ é bem delicado e elaborado, logo o uso dele exige um conhecimento mais profundo, caso contrário pode resultar em \textit{memory leaks} e outros problemas. São indícios do mau cheiro ter estes elementos como \textit{callbacks} de processos assíncronos, efetivar a transação de \textit{Fragments} (através do \textit{FragmentTransaction.commit}) após o \textit{onPause} da \textsc{Activity} ou o não tratamento da restauração do estado de \textit{Activities} e \textit{Fragments} após por exemplo, rotação da tela.
+    % \noindent
+    % \textsc{\textbf{{\small Entenda o Ciclo de Vida}}}$^{5\star}$ O Ciclo de Vida de \textit{Activities}$^{3\star}$ e \textit{Fragments}$^{3\star}$ é bem delicado e elaborado, logo o uso dele exige um conhecimento mais profundo, caso contrário pode resultar em \textit{memory leaks} e outros problemas. São indícios do mau cheiro ter estes elementos como \textit{callbacks} de processos assíncronos, efetivar a transação de \textit{Fragments} (através do \textit{FragmentTransaction.commit}) após o \textit{onPause} da \textsc{Activity} ou o não tratamento da restauração do estado de \textit{Activities} e \textit{Fragments} após por exemplo, rotação da tela.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Não conhecer o enorme e complexo ciclo de vida de Fragment e não lidar com a restauração do estado''} (P42). \textit{``Não commitar fragmentos após o onPause e aprender o ciclo de vida se você quiser usá-los''} (P31). \textit{``Fazer Activities serem callbacks de processos assíncronos gerando memory leaks. Erros ao interpretar o ciclo de vida''} (P28). 
 
     \noindent
-    \textsc{\textbf{{\small Adapter Consumista}}}$^{5\star}$ São indícios do mau cheiro quando \textit{Adapters}$^{5\star}$ não reutilizam instâncias das \textit{views} que representam os campos a serem populados para cada item da coleção através do padrão \textit{View Holder} ou quando os mesmos possuem classes internas para reaproveitamento das \textit{views} porém não são estáticas.
+    \textsc{\textbf{{\small Adapter Consumista}}}$^{2\star}$ São indícios do mau cheiro quando \textit{Adapters}$^{2\star}$ não reutilizam instâncias das \textit{views} que representam os campos a serem populados para cada item da coleção através do padrão \textit{View Holder} ou quando os mesmos possuem classes internas para reaproveitamento das \textit{views} porém não são estáticas.
 
         % Alguns exemplos de frases sobre \textbf{boas práticas} que embasaram esse mau cheiro são: \textit{``Reutilizar a view utilizando ViewHolder.''} (P36). \textit{``Usar o padrão ViewHolder''} (P39). P45 sugere o uso do RecyclerView, um elemento Android para a construção de listas que já implementa o padrão ViewHolder \cite{AluraViewHolder}.
 
-    \noindent
-    \textsc{\textbf{{\small Uso Excessivo de Fragment}}}$^{3\star}$ \textit{Fragments}$^{3\star}$ devem ser evitados. São indícios do mau cheiro quando o aplicativo não é utilizado em Tablets ou não possuem \textit{ViewPagers} e ainda assim faz o uso de \textit{Fragments} ou quando existem \textit{Fragments} no projeto que não são utilizados em mais de uma tela do aplicativo.
-
-        % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Usar muitos Fragments é uma má prática''} (P2). E frases sobre \textbf{boas práticas}: \textit{``Evite-os. Use apenas com View Pagers''} (P7). \textit{``Eu tento usar o Fragment para lidar apenas com as visualizações, como a Activity, e eu o uso apenas quando preciso deles em um layout de Tablet ou para reutilizar em outra Activity. Caso contrário, eu não uso''} (P41).
 
     \noindent
-    \textsc{\textbf{{\small Não Uso de Fragment}}}$^{3\star}$ \textit{Fragments}$^{2\star}$ devem ser usados sempre que possível em conjunto com \textit{Activities}$^{2\star}$. É indício do mau cheiro a não existência de \textit{Fragments} na aplicação ou o uso de \textit{EditTexts}, \textit{Spinners} ou outras \textit{views} por \textit{Activities}.
-
-        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Não usar Fragments''} (P22). \textit{``Usar todas as view (EditTexts, Spinners, etc...) dentro de Activities e não dentro de Fragments''} (P45). E sobre \textbf{boas práticas}: \textit{``Utilizar fragments sempre que possível.''} (P19), \textit{``Use um Fragment para cada tela. Uma Activity para cada aplicativo.''} (P45).         
-
-    \noindent
-    \textsc{\textbf{{\small Classes de UI Fazendo IO}}}$^{3\star}$ \label{subsce:classes-ui-fazendo-io}
-        \textit{Activities}$^{2\star}$, \textit{Fragments}$^{1\star}$ e \textit{Adapters}$^{1\star}$ não devem ser responsáveis por operações de IO. São indícios do mau cheiro implementações de acesso a banco de dados ou internet a partir desses elementos.
-
-        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``[Activities e Fragments] fazerem requests e consultas a banco de dados''} (P26). \textit{``[Adapters] fazerem operações longas e requests de internet''} (P26). E sobre \textbf{boa prática}: \textit{``Elas [Activities] nunca devem fazer acesso a dados''} (P37).
-
-    \noindent
-    \textsc{\textbf{{\small Componente de UI Zumbi}}}$^{2\star}$ \textit{Activities}$^{2\star}$ podem deixar de existir a qualquer momento, tenha cuidado ao referenciá-las. São indícios do mau cheiro a existência de referências estáticas a \textit{Activities} ou classes internas a ela ou referências não estáticas por objetos que tenham o ciclo de vida independente dela.
+    \textsc{\textbf{{\small Componente de UI Zumbi}}}$^{2\star}$ \textit{Activities}$^{\star}$ podem deixar de existir a qualquer momento, tenha cuidado ao referenciá-las. São indícios do mau cheiro a existência de referências estáticas a \textit{Activities} ou classes internas a ela ou referências não estáticas por objetos que tenham o ciclo de vida independente dela.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Fazer Activities serem callbacks de processos assíncronos gerando memory leaks. Erros ao interpretar o ciclo de vida''} (P28). \textit{``Ter referência estática para Activities, resultando em vazamento de memória''} (P31). E sobre \textbf{boas práticas}: \textit{``Não manter referências estáticas para Activities (ou classes anônimas criadas dentro delas)''} (P31). \textit{``Deus mata um cachorro toda vez que alguém passa o contexto da Activity para um componente que tem um ciclo de vida independente dela. Vaza memória e deixa todos tristes.''} (P4).
 
-    \noindent
-    \textsc{\textbf{{\small Arquitetura Não Identificada}}}$^{2\star}$ São indícios do mau cheiro quando diferentes \textit{Activities}$^{2\star}$ e \textit{Fragments}$^{1\star}$ no projeto apresentam fluxos de código complexos, possivelmente são \textsc{Classe de UI Inteligente}, onde não é possível identificar uma organização padronizada entre eles que aponte para algum padrão arquitetural, como por exemplo, MVC (\textit{Model View Controller}), MVP (\textit{Model View Presenter}), MVVM (\textit{Model View ViewModel}) ou \textit{Clean Architecture}.
-
-        % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Não usar um design pattern''} (P45). E frases sobre \textbf{boas práticas}: \textit{``Usar algum modelo de arquitetura para garantir apresentação desacoplada do framework (MVP, MVVM, Clean Architecture, etc)''} (P28). \textit{``Sobre MVP. Eu acho que é o melhor padrão de projeto para usar com Android''} (P45).
 
     \noindent
-    \textsc{\textbf{{\small Adapter Complexo}}}$^{2\star}$ \textit{Adapters}$^{2\star}$ devem ser responsáveis por popular uma \textit{view} a partir de um único objeto, sem realizar lógicas ou tomadas de decisão. São indícios desse mau cheiro quando \textit{Adapters} contém muitos condicionais (\textit{if} ou \textit{switch}) ou cálculos no método \textit{getView}, responsável pela construção e preenchimento da \textit{view}. 
+    \textsc{\textbf{{\small Uso Excessivo de Fragment}}}$^{\star}$ \textit{Fragments}$^{\star}$ devem ser evitados. São indícios do mau cheiro quando o aplicativo não é utilizado em Tablets ou não possuem \textit{ViewPagers} e ainda assim faz o uso de \textit{Fragments} ou quando existem \textit{Fragments} no projeto que não são utilizados em mais de uma tela do aplicativo.
+
+        % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Usar muitos Fragments é uma má prática''} (P2). E frases sobre \textbf{boas práticas}: \textit{``Evite-os. Use apenas com View Pagers''} (P7). \textit{``Eu tento usar o Fragment para lidar apenas com as visualizações, como a Activity, e eu o uso apenas quando preciso deles em um layout de Tablet ou para reutilizar em outra Activity. Caso contrário, eu não uso''} (P41).
+
+
+    \noindent
+    \textsc{\textbf{{\small Componente de UI Fazendo IO}}}$^{\star}$ 
+        \textit{Activities}$^{\star}$, \textit{Fragments} e \textit{Adapters} não devem ser responsáveis por operações de IO. São indícios do mau cheiro implementações de acesso a banco de dados ou internet a partir desses elementos.
+
+        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``[Activities e Fragments] fazerem requests e consultas a banco de dados''} (P26). \textit{``[Adapters] fazerem operações longas e requests de internet''} (P26). E sobre \textbf{boa prática}: \textit{``Elas [Activities] nunca devem fazer acesso a dados''} (P37).
+
+
+    \noindent
+    \textsc{\textbf{{\small Não Uso de Fragment}}}$^{\star}$ \textit{Fragments}$^{\star}$ devem ser usados sempre que possível em conjunto com \textit{Activities}. É indício do mau cheiro a não existência de \textit{Fragments} na aplicação ou o uso de \textit{EditTexts}, \textit{Spinners} ou outras \textit{views} por \textit{Activities}.
+
+        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Não usar Fragments''} (P22). \textit{``Usar todas as view (EditTexts, Spinners, etc...) dentro de Activities e não dentro de Fragments''} (P45). E sobre \textbf{boas práticas}: \textit{``Utilizar fragments sempre que possível.''} (P19), \textit{``Use um Fragment para cada tela. Uma Activity para cada aplicativo.''} (P45).         
+
+
+    \noindent
+    \textsc{\textbf{{\small Adapter Complexo}}}$^{\star}$ \textit{Adapters}$^{\star}$ devem ser responsáveis por popular uma \textit{view} a partir de um único objeto, sem realizar lógicas ou tomadas de decisão. São indícios desse mau cheiro quando \textit{Adapters} contém muitos condicionais (\textit{if} ou \textit{switch}) ou cálculos no método \textit{getView}, responsável pela construção e preenchimento da \textit{view}. 
 
         % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Reutilizar um mesmo adapter para várias situações diferentes, com \textit{ifs} ou \textit{switches}. Código de lógica importante ou cálculos em Adapters.''} (P23). E sobre \textbf{boa prática}: \textit{``Um Adapter deve adaptar um único tipo de item ou delegar a Adapters especializados''} (P2).
 
+
+
+    \noindent
+    \textsc{\textbf{{\small Ausência de Arquitetura}}}$^{\star}$ São indícios do mau cheiro quando diferentes \textit{Activities} e \textit{Fragments} no projeto apresentam fluxos de código complexos, possivelmente são \textsc{Classe de UI Inteligente}, onde não é possível identificar uma organização padronizada entre eles que aponte para algum padrão arquitetural, como por exemplo, MVC (\textit{Model View Controller}), MVP (\textit{Model View Presenter}), MVVM (\textit{Model View ViewModel}) ou \textit{Clean Architecture}.
+
+        % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Não usar um design pattern''} (P45). E frases sobre \textbf{boas práticas}: \textit{``Usar algum modelo de arquitetura para garantir apresentação desacoplada do framework (MVP, MVVM, Clean Architecture, etc)''} (P28). \textit{``Sobre MVP. Eu acho que é o melhor padrão de projeto para usar com Android''} (P45).
     
 \subsubsection{Maus cheiros em recursos Android}
     A Tabelas \ref{tab:Smells-Resource} apresenta a lista dos maus cheiros em recursos Android, suas respectivas estrelas indicando a confiabilidade e uma breve descrição do sintoma relacionado. Em seguida, nesta seção é apresentado a descrição completa do mau cheiro.
@@ -106,81 +111,85 @@ Nesta seção apresentamos os 21 maus cheiros derivados sendo respectivamente 10 m
     \textsc{Nome de Recurso Despadronizado}$^{4\star}$                    & Recursos com nomes despadronizados.      \\
     \textsc{Recurso Mágico}$^{4\star}$                                    & Textos, números ou cores ``\textit{hardcoded}''.   \\
     \textsc{Layout Profundamente Aninhado}$^{3\star}$                     & Recurso de layout com mais de três níveis de \textit{Viwes} aninhadas.   \\
-    \textsc{Imagem Dispensável}$^{3\star}$                                & Imagens que poderiam ser transformadas em recurso gráfico.   \\
+    \textsc{Imagem Tradicional Dispensável}$^{3\star}$                    & Imagens que poderiam ser transformadas em recurso gráfico.   \\
     \textsc{Layout Longo ou Repetido}$^{2\star}$                          & Recurso de \textit{layout} muito longo ou com trechos de código similares ou repetidos.   \\
     \textsc{Imagem Faltante}$^{2\star}$                                   & Imagem sem todas as resoluções padrões.   \\
     \textsc{Longo Recurso de Estilo}$^{\star}$                           & Recurso de estilo único e longo.   \\
     \textsc{Recurso de String Bagunçado}$^{\star}$                       & Recursos de \textit{string} sem um padrão de nomenclatura.   \\
     \textsc{Atributos de Estilo Repetidos}$^{\star}$                     & Atributos de estilo repetidos em recursos de \textit{layout} ou \textit{string}.   \\
     \textsc{Reuso Inadequado de String}$^{\star}$                        & \textit{Strings} sendo reutilizadas indevidamente.    \\
+    \textsc{Listener Escondido}$^{\star}$                                & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
     \bottomrule
     \end{tabular}
     \label{tab:Smells-Resource}
     \end{table}
 
-    \noindent
-    \textbf{\textsc{{\small Recurso Mágico}}}$^{8\star}$
-        Todo recurso de cor, tamanho, texto ou estilo deve ser criado em seu respectivo arquivo e então ser usado. São indícios do mau cheiro quando recursos de \textit{layout}$^{2\star}$, recursos de \textit{string}$^{5\star}$ ou recursos de \textit{style}$^{1\star}$ usam alguma dessas informações diretamente no código ao invés de fazer referência para um recurso.
-
-        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Strings diretamente no código''} (P23). \textit{``Não extrair as strings e sobre não extrair os valores dos arquivos de layout''} (P31 e P35). E sobre \textbf{boas práticas}: \textit{``Sempre pegar valores de string ou dp de seus respectivos resources para facilitar''} (P7). \textit{``Sempre adicionar as strings em resources para traduzir em diversos idiomas''} (P36). 
 
     \noindent
-    \textbf{\textsc{{\small Nome de Recurso Despadronizado}}}$^{8\star}$
-        São indícios do mau cheiro quando recursos de \textit{layout}$^{2\star}$, recursos de \textit{string}$^{4\star}$, recursos de \textit{style}$^{2\star}$ e recursos \textit{drawables}$^{1\star}$ não possuem um padrão de nomenclatura.
+    \textbf{\textsc{{\small Nome de Recurso Despadronizado}}}$^{4\star}$
+        São indícios do mau cheiro quando recursos de \textit{layout}$^{\star}$, recursos de \textit{string}$^{2\star}$, recursos de \textit{style}$^{\star}$ e recursos \textit{drawables} não possuem um padrão de nomenclatura.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``O nome das strings sem um contexto''} (P8). \textit{``[Sobre Style Resources] Nada além de ter uma boa convenção de nomes''} (P37). \textit{``[Sobre Layout Resource] Mantenha uma convenção de nomes da sua escolha''} (P37). E sobre \textbf{boas práticas}: \textit{``Iniciar o nome de uma string com o nome da tela onde vai ser usada''} (P27). \textit{``[Sobre Layout Resource] Ter uma boa convenção de nomeação''} (P43). \textit{``[Sobre Style Resource] colocar um bom nome''} (P11). 
 
+
     \noindent
-    \textbf{\textsc{{\small Layout Profundamente Aninhado}}}$^{7\star}$
-        São indícios desse mau cheiro o uso de profundos aninhamentos na construção de recursos de \textit{layout}$^{7\star}$, ou seja, \texttt{ViewGroups} contendo outros \texttt{ViewGroups} sucessivas vezes. O site oficial do Android conta com informações e ferramentas automatizadas para lidar com esse sintoma \cite{OptmizingViewHierarchies}. 
+    \textbf{\textsc{{\small Recurso Mágico}}}$^{4\star}$
+        Todo recurso de cor, tamanho, texto ou estilo deve ser criado em seu respectivo arquivo e então ser usado. São indícios do mau cheiro quando recursos de \textit{layout}$^{\star}$, recursos de \textit{string}$^{3\star}$ ou recursos de \textit{style} usam alguma dessas informações diretamente no código ao invés de fazer referência para um recurso.
+
+        % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Strings diretamente no código''} (P23). \textit{``Não extrair as strings e sobre não extrair os valores dos arquivos de layout''} (P31 e P35). E sobre \textbf{boas práticas}: \textit{``Sempre pegar valores de string ou dp de seus respectivos resources para facilitar''} (P7). \textit{``Sempre adicionar as strings em resources para traduzir em diversos idiomas''} (P36). 
+
+
+    \noindent
+    \textbf{\textsc{{\small Layout Profundamente Aninhado}}}$^{3\star}$
+        São indícios desse mau cheiro o uso de profundos aninhamentos na construção de recursos de \textit{layout}$^{3\star}$, ou seja, \texttt{ViewGroups} contendo outros \texttt{ViewGroups} sucessivas vezes. O site oficial do Android conta com informações e ferramentas automatizadas para lidar com esse sintoma \cite{OptmizingViewHierarchies}. 
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Hierarquia de views longas''} (P26). \textit{``Estruturas profundamente aninhadas''} (P4). \textit{``Hierarquias desnecessárias''} (P39). \textit{``Criar muitos ViewGroups dentro de ViewGroups''} (P45). E sobre \textbf{boas práticas}: \textit{``Tento usar o mínimo de layout aninhado''} (P4). \textit{``Utilizar o mínimo de camadas possível''} (P19). \textit{``Não fazer uma hierarquia profunda de ViewGroups''} (P8).
 
     \noindent
-    \textbf{\textsc{{\small Imagem Dispensável}}}$^{6\star}$
-        O Android possui diversos tipos de recursos \textit{drawables}$^{6\star}$ que podem substituir imagens tradicionais como \texttt{.png}, \texttt{.jpg} ou \texttt{.gif} a um custo menor em termos de tamanho do arquivo e sem a necessidade de haver versões de diferentes tamanhos/resoluções. São indícios do mau cheiro a existência de imagens com, por exemplo, cores sólidas, degradês ou estado de botões, que poderiam ser substituídas por recursos \textit{drawables} de outros tipos como \textit{shapes}, \textit{state lists} ou \textit{nine-patch file} ou a não existência de imagens vetoriais, que podem ser redimensionadas sem a perda de qualidade.
+    \textbf{\textsc{{\small Imagem Tradicional Dispensável}}}$^{3\star}$
+        O Android possui diversos tipos de recursos \textit{drawables}$^{3\star}$ que podem substituir imagens tradicionais como \texttt{.png}, \texttt{.jpg} ou \texttt{.gif} a um custo menor em termos de tamanho do arquivo e sem a necessidade de haver versões de diferentes tamanhos/resoluções. São indícios do mau cheiro a existência de imagens com, por exemplo, cores sólidas, degradês ou estado de botões, que poderiam ser substituídas por recursos \textit{drawables} de outros tipos como \textit{shapes}, \textit{state lists} ou \textit{nine-patch file} ou a não existência de imagens vetoriais, que podem ser redimensionadas sem a perda de qualidade.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Uso de formatos não otimizados, uso de drawables onde recursos padrão do Android seriam preferíveis''} (P23). \textit{``Usar jpg ou png para formas simples é ruim, apenas as desenhe [através de Drawable Resources]''} (P37). E sobre \textbf{boas práticas}: \textit{``Quando possível, criar resources através de xml''} (P36). \textit{``Utilizar o máximo de Vector Drawables que for possível''} (P28). \textit{``Evite muitas imagens, use imagens vetoriais sempre que possível''} (P40).
 
     \noindent
-    \textbf{\textsc{{\small Layout Longo ou Repetido}}}$^{5\star}$
-        São indícios do mau cheiro quando recursos de \textit{layout}$^{5\star}$ é muito grande ou possue trechos de layout muito semelhantes ou iguais a outras telas. 
+    \textbf{\textsc{{\small Layout Longo ou Repetido}}}$^{2\star}$
+        São indícios do mau cheiro quando recursos de \textit{layout}$^{2\star}$ é muito grande ou possue trechos de layout muito semelhantes ou iguais a outras telas. 
 
         % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Copiar e colar layouts parecidos sem usar includes''} (P41). \textit{``Colocar muitos recursos no mesmo arquivo de layout.''} (P23). E sobre \textbf{boas práticas}: \textit{``Sempre quando posso, estou utilizando includes para algum pedaço de layout semelhante''} (P32). \textit{``Criar layouts que possam ser reutilizados em diversas partes''} (P36). \textit{``Separe um grande layout usando include ou merge''} (P42) 
 
     \noindent
-    \textbf{\textsc{{\small Imagem Faltante}}}$^{4\star}$
-        As imagens devem ser disponibilizadas em mais de um tamanho/resolução para que o Android possa realizar otimizações. São indícios do mau cheiro haver apenas uma versão de algum recurso \textsc{drawable}$^{4\star}$ do tipo png, jpg ou gif ou ainda, ter imagens em diretórios incorretos em termos de \texttt{dpi}.
+    \textbf{\textsc{{\small Imagem Faltante}}}$^{2\star}$
+        As imagens devem ser disponibilizadas em mais de um tamanho/resolução para que o Android possa realizar otimizações. São indícios do mau cheiro haver apenas uma versão de algum recurso \textsc{drawable}$^{2\star}$ do tipo png, jpg ou gif ou ainda, ter imagens em diretórios incorretos em termos de \texttt{dpi}.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Ter apenas uma imagem para multiplas densidades''} (P31). \textit{``Baixar uma imagem muito grande quando não é necessário. Há melhores formas de usar memória''} (P4). \textit{``Não criar imagens para todas as resoluções''} (P44).E sobre \textbf{boas prática}: \textit{``Nada especial, apenas mantê-las em seus respectivos diretórios e ter variados tamanhos delas''} (P34). \textit{``Criar as pastas para diversas resoluções e colocar as imagens corretas''} (P36). 
 
     \noindent
-    \textbf{\textsc{{\small Longo Recurso de Estilo}}}$^{3\star}$
-        É indício do mau cheiro haver apenas um recursos de \textit{style}$^{4\star}$ ou conter Recursos de Estilo muito longos.
+    \textbf{\textsc{{\small Longo Recurso de Estilo}}}$^{\star}$
+        É indício do mau cheiro haver apenas um recursos de \textit{style}$^{\star}$ ou conter Recursos de Estilo muito longos.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Deixar tudo no mesmo arquivo styles.xml''} (P28). \textit{``Arquivos de estilos grandes''} (P8). E sobre \textbf{boas práticas}: \textit{``Se possível, separar mais além do arquivo styles.xml padrão, já que é possível declarar múltiplos arquivos XML de estilo para a mesma configuração''} (P28). \textit{``Divida-os. Temas e estilos é uma escolha racional''} (P40).
 
     \noindent
-    \textbf{\textsc{{\small Recurso de String Bagunçado}}}$^{3\star}$
-        É indício do mau cheiro o uso de apenas um arquivo para todos os recursos de \textit{string}$^{3\star}$ do aplicativo e a não existência de um padrão de nomenclatura e separação para os recursos de \textit{string} de uma mesma tela. 
+    \textbf{\textsc{{\small Recurso de String Bagunçado}}}$^{\star}$
+        É indício do mau cheiro o uso de apenas um arquivo para todos os recursos de \textit{string}$^{\star}$ do aplicativo e a não existência de um padrão de nomenclatura e separação para os recursos de \textit{string} de uma mesma tela. 
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Usar o mesmo arquivo strings.xml para tudo''} (P28). \textit{``Não orgaizar as strings quando o strings.xml começa a ficar grande''} (P42). E sobre \textbf{boas práticas}: \textit{``Separar strings por tela em arquivos XML separados. Extremamente útil para identificar quais strings pertencentes a quais telas em projetos grandes''} (P28). \textit{``Sempre busco separar em blocos, cada bloco representa uma Activity e nunca aproveito uma String pra outra tela''} (P32).
 
     \noindent
-    \textbf{\textsc{{\small Atributos de Estilo Repetidos}}}$^{3\star}$
-        É indício do mau cheiro haver recursos de \textit{layout}$^{1\star}$ ou recursos de \textit{style}$^{2\star}$ com blocos de atributos de estilo repetidos. 
+    \textbf{\textsc{{\small Atributos de Estilo Repetidos}}}$^{\star}$
+        É indício do mau cheiro haver recursos de \textit{layout} ou recursos de \textit{style} com blocos de atributos de estilo repetidos. 
         % , onde poderiam ser extraídos para um novo estilo e substituir o bloco de atributos repetidos pelo estilo criado.
 
         % Um exemplo de frase sobre \textbf{má prática} que embasou esse mau cheiro é: \textit{``Utilizar muitas propriedades em um único componente. Se tiver que usar muitas, prefiro colocar no arquivo de styles.''} (P32). E sobre \textbf{boa prática}: \textit{``Sempre que eu noto que tenho mais de um recurso usando o mesmo estilo, eu tento movê-lo para o meu style resource.''} (P34).
 
     \noindent
-    \textbf{\textsc{{\small Reúso Inadequado de String}}}$^{2\star}$
-        Cada tela deve ter seu conjunto de recursos de \textit{string}$^{2\star}$. É indício do mau cheiro reutilizar o mesmo recurso de \textit{string} em diferentes telas do aplicativo apenas porque o texto coincide.
+    \textbf{\textsc{{\small Reúso Inadequado de String}}}$^{\star}$
+        Cada tela deve ter seu conjunto de recursos de \textit{string}$^{\star}$. É indício do mau cheiro reutilizar o mesmo recurso de \textit{string} em diferentes telas do aplicativo apenas porque o texto coincide.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Utilizar uma String pra mais de uma activity, pois se em algum momento, surja a necessidade de trocar em uma, vai afetar outra.''} (P32). \textit{``Reutilizar a string em várias telas''} (P6) \textit{``Reutilizar a string apenas porque o texto coincide, tenha cuidado com a semântica''} (P40). E sobre \textbf{boas práticas}: \textit{``Sempre busco separar em blocos, cada bloco representa uma activity e nunca aproveito uma String pra outra tela.''} (P32). \textit{``Não tenha medo de repetir strings''} (P9). 
 
     \noindent
-    \textbf{\textsc{{\small Listener Escondido}}}$^{2\star}$
-        recursos de \textit{layout}$^{2\star}$ devem ser responsáveis apenas por apresentar informações. É indício do mau cheiro o uso de atributos diretamente em recursos de \textit{layout}, como por exemplo o atributo \textit{onClick}, para configurar o \textit{Listener} que responderá ao evento.
+    \textbf{\textsc{{\small Listener Escondido}}}$^{\star}$
+        recursos de \textit{layout}$^{\star}$ devem ser responsáveis apenas por apresentar informações. É indício do mau cheiro o uso de atributos diretamente em recursos de \textit{layout}, como por exemplo o atributo \textit{onClick}, para configurar o \textit{Listener} que responderá ao evento.
 
         % Alguns exemplos de frases sobre \textbf{más práticas} que embasaram esse mau cheiro são: \textit{``Nunca crie um listener dentro do XML. Isso esconde o listener de outros desenvolvedores e pode causar problemas até que ele seja encontrado''} (P34, P39 e P41). E sobre \textbf{boa prática}: \textit{``XML de layout deve lidar apenas com a view e não com ações''} (P41).
