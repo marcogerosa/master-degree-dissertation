@@ -1,4 +1,87 @@
 % -*- root: dissertation.tex -*-
 \section{QP2. Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}
 
-\todo{Em desenvolvimento.}
+\begin{square}
+  \small
+  Nossos resultados mostraram a existência de uma percepção comum entre desenvolvedores Android sobre más práticas no desenvolvimento do \textit{front-end} Android. Considerando que maus cheiros derivam do conhecimento empírico de desenvolvedores, entendemos que faz sentido afirmar que \textbf{sim, existem maus cheiros no \textit{front-end} Android.}
+\end{square}
+
+
+As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respectivamente a moda e distribuição relativa de frequência e importância para cada um dos 21 maus cheiros derivados. Em vermelho são os que não atendem a condição mencionada acima e portanto, são desconsiderados para a etapa seguinte.
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}cccccc@{}}
+\toprule
+\textbf{Mau Cheiro}    & \textbf{Moda} & \textbf{1}    & \textbf{2}    & \textbf{3}    & \textbf{4}    & \textbf{5}    \\
+\toprule
+\textsc{\small Classe de UI Inteligente}          & 4     & 7\% & 19\%  & 27\% & 28\% & 19\%    \\
+\textsc{\small Classe de UI Acoplada}             & 3     & 7\% & 20\%  & 33\% & 24\% & 15\%    \\
+\textsc{\small Comportamento Suspeito}            & 3     & 11\%  & 14\%  & 33\% & 22\% & 19\%  \\
+\textsc{\small Componente de UI Zumbi}                  & 3     & 14\%  & 17\%  & 29\% & 26\% & 13\%  \\
+\textsc{\small Classes de UI Fazendo IO}          & 3     & 17\%  & 20\%  & 26\% & 23\% & 14\%  \\
+\textsc{\small Arquitetura Não Identificada}      & 3     & 13\%  & 20\%  & 27\% & 20\% & 18\%  \\
+\textsc{\small Adapter Complexo}                  & 3     & 7\% & 21\%  & 32\% & 25\% & 14\%    \\
+\textsc{\small Recurso Mágico}                  & 4     & 10\%  & 22\%  & 23\% & 28\% & 16\%  \\
+\textsc{\small Nome de Recurso Despadronizado}    & 3     & 11\%  & 22\%  & 26\% & 25\% & 16\%  \\
+\textsc{\small Layout Profundamente Aninhado}     & 4     & 2\% & 11\%  & 22\% & 36\% & 28\%    \\
+\textsc{\small Imagem Dispensável}                & 4     & 11\%  & 19\%  & 24\% & 30\% & 14\%  \\
+\textsc{\small Layout Longo ou Repetido}          & 4     & 4\% & 13\%  & 29\% & 37\% & 17\%    \\
+\textsc{\small Imagem Faltante}                   & 4     & 15\%  & 24\%  & 21\% & 29\% & 11\%  \\
+\textsc{\small Longo Recurso de Estilo}           & 5     & 5\% & 11\%  & 23\% & 28\% & 32\%    \\
+\textsc{\small Recurso de String Bagunçado}       & 5     & 6\% & 8\% & 20\% & 32\% & 33\%      \\
+\textsc{\small Atributos de Estilo Repetidos}     & 4     & 5\% & 13\%  & 31\% & 35\% & 15\%    \\
+
+\textsc{Reuso Inadequadro de String}               & 4 & 5\%  &  9\%   &   22\%   &  34\% &  29\%  \\   
+\textcolor{red}{\textsc{Listener Escondido}}                        & \textcolor{red}{2} & \textcolor{red}{24\%}   & \textcolor{red}{30\%}   & \textcolor{red}{ 19\%}  & \textcolor{red}{ 16\%} & \textcolor{red}{ 10\%}  \\   
+\textcolor{red}{\textsc{Adapter Consumista}}                        & \textcolor{red}{2} & \textcolor{red}{25\%}   & \textcolor{red}{29\%}   & \textcolor{red}{ 23\%}  & \textcolor{red}{ 17\%} & \textcolor{red}{ 5\%}  \\   
+\textsc{Uso Excessivo de Fragment}                 & 3 & 8\%  &  20\%  &  30\%  &  27\% &  15\%  \\   
+\textcolor{red}{\textsc{Não Uso de Fragment}}                       & \textcolor{red}{2} & \textcolor{red}{15\%}   & \textcolor{red}{32\%}   & \textcolor{red}{ 26\%}  & \textcolor{red}{ 16\%} & \textcolor{red}{ 10\%}  \\   
+
+\toprule
+\multicolumn{7}{@{}l}{1 = Nunca, 2 = Raramente, 3 = As vezes, 4 = Frequente e 5 = Muito frequente.} \\
+\bottomrule
+\end{tabular}
+\caption{Moda e distribuição relativa sobre percepção da frequência dos maus cheiros por desenvolvedores Android.}
+\label{tab:SmellFrequency}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{6cm}cccccc@{}}
+\toprule
+\textbf{Mau Cheiro}    & \textbf{Moda} & \textbf{1}    & \textbf{2}    & \textbf{3}    & \textbf{4}    & \textbf{5} \\
+\toprule
+\textsc{\small Classe de UI Inteligente}          &  5     & 3\% & 3\%   & 15\%  & 25\% &  53\% \\
+\textsc{\small Classe de UI Acoplada}             &  5     & 2\% & 6\%   & 21\%  & 33\% &  37\% \\
+\textsc{\small Comportamento Suspeito}            &  4     & 7\% & 17\%  & 27\%  & 28\% &  20\% \\
+\textsc{\small Componente de UI Zumbi}            &  5     & 1\% & 2\%   & 11\%  & 26\% &  59\% \\
+\textsc{\small Classes de UI Fazendo IO}          &  5     & 2\% & 6\%   & 13\%  & 19\% &  60\% \\
+\textsc{\small Arquitetura Não Identificada}      &  5     & 1\% & 2\%   & 9\%   & 18\% &  69\% \\
+\textsc{\small Adapter Complexo}                  &  5     & 1\% & 3\%   & 14\%  & 35\% &  46\% \\
+\textsc{\small Recurso Mágico}                    &  5     & 1\% & 6\%   & 15\%  & 30\% &  47\% \\
+\textsc{\small Nome de Recurso Despadronizado}    &  5     & 1\% & 3\%   & 11\%  & 25\% &  59\% \\
+\textsc{\small Layout Profundamente Aninhado}     &  4     & 5\% & 10\%  & 25\%  & 35\% &  23\% \\
+\textsc{\small Imagem Dispensável}                &  5     & 1\% & 5\%   & 13\%  & 33\% &  47\% \\
+\textsc{\small Layout Longo ou Repetido}          &  5     & 2\% & 3\%   & 16\%  & 33\% &  45\% \\
+\textsc{\small Imagem Faltante}                   &  5     & 2\% & 4\%   & 10\%  & 27\% &  57\% \\
+\textsc{\small Longo Recurso de Estilo}           &  4     & 2\% & 15\%  & 26\%  & 35\% &  20\% \\
+\textsc{\small Recurso de String Bagunçado}       &  4     & 9\% & 21\%  & 23\%  & 31\% &  16\% \\
+\textsc{\small Atributos de Estilo Repetidos}     &  4     & 1\% & 2\%   & 17\%  & 41\% &  38\% \\
+
+\textcolor{red}{\textsc{Reuso Inadequadro de String}} & \textcolor{red}{3} & \textcolor{red}{16\%} & \textcolor{red}{20\%} & \textcolor{red}{26\%} & \textcolor{red}{23\%} & \textcolor{red}{14\%} \\
+\textsc{Listener Escondido}                        & 5 & 7\% &  9\%  & 26\% & 24\% & 33\% \\
+\textsc{Adapter Consumista}                        & 5 & 1\% &  4\%  & 9\%  & 26\% & 58\% \\
+\textcolor{red}{\textsc{Uso Excessivo de Fragment}} & \textcolor{red}{3} & \textcolor{red}{21\%} & \textcolor{red}{14\%} & \textcolor{red}{28\%} & \textcolor{red}{20\%} & \textcolor{red}{16\%} \\
+\textsc{Não Uso de Fragment}                       & 4 & 19\% & 15\% & 24\% & 26\% & 15\% \\
+\toprule
+\multicolumn{7}{@{}p{12cm}}{1 = Não é importante, 2 = Pouco importante, 3 = Razoavelmente importante, 4 = Importante e 5 = Muito.} \\
+\bottomrule
+\end{tabular}
+\caption{Moda e distribuição relativa sobre percepção de importância dos maus cheiros por desenvolvedores Android.}
+\label{tab:SmellImportance}
+\end{table}
