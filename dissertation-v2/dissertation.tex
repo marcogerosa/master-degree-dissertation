@@ -27,11 +27,20 @@
 \usepackage{amsmath}
 \usepackage[autostyle]{csquotes}  
 
-% \usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
+
+
+% Usando pq é o mais simples por enquanto (com 'e' invés de 'and')
 \usepackage{natbib}
-% \bibliographystyle{abbrvnat}
-% \bibliographystyle{plainnat}  % [1], [2]
-% \setcitestyle{author,open={(},close={)}}
+\bibliographystyle{plain}         % [1], [2]
+
+% Funciona só que tenho que ajustar texto. Até quero usar essa mesmo, perfeita
+% \usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
+% \bibliographystyle{plainnat-ime}  % Chin et al. (2011)
+
+% Funciona mas com 'and' invés de 'e' / ver pq alpha-ime não rola talvez
+% \usepackage{natbib}
+% \bibliographystyle{alpha}           % [Adams93], precisa q tudo tenha o ano
+
 
 \usepackage{mdframed}
 % Barra lateral a citação direta
@@ -365,12 +374,8 @@
 % Bibliografia
 \backmatter \singlespacing   % espaçamento simples
 
-% \bibliographystyle{plainnat-ime}  % Chin et al. (2011)
-\bibliographystyle{plain}         % [1], [2]
-% \bibliographystyle{alpha}           % [Adams93], precisa q tudo tenha o ano
-
 % \bibliography{bib/android,bib/android-libs,bib/android-smells,bib/android-marketshare,bib/android-practices-posts,bib/android-researches,bib/aniche,bib/books,bib/mobile,bib/others,bib/qualitative-research,bib/related-work,bib/research,bib/smell-posts,bib/smell-researches,bib/ui,bib/code-quality,bib/android-ui,bib/patterns,bib/novos}
-\bibliography{bib/references,bib/novos}
+\bibliography{bib/references}
 
 % ---------------------------------------------------------------------------- %
 % Índice remissivo
