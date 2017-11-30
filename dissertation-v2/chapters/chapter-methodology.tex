@@ -171,45 +171,54 @@ Conseguimos atingir 3 continentes porém, a maior representatividade dos dados é 
 
 Dessa forma, podemos concluir que tivemos certa abrangência geográfica, no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros.
 
+% \begin{figure*}[!htb]
+% \centering
+% \begin{subfigure}{.49\textwidth}
+%   \centering
+%   \includegraphics[width=.85\textwidth]{phase1-participants-experience.png}
+%   \caption{Experiência}
+%   \label{fig:phase1-participants-experience}
+% \end{subfigure}
+% \begin{subfigure}{.49\textwidth}
+%   \centering
+%   \includegraphics[width=.94\textwidth]{phase1-participants-regions.png}
+%   \caption{Distribuição geográfica}
+%   \label{fig:phase1-participants-regions}
+% \end{subfigure}% 
+% \caption{Experiência com desenvolvimento de software, desenvolvimento Android e distribuição geográfica dos participantes de \emph{Q1}.}
+% \label{fig:all-resources}
+% \vspace{-.5cm} 
+% \end{figure*}
+
+ 
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=.6\textwidth]{phase1-participants-experience.png}
+  \caption{Experiência}
+  \label{fig:phase1-participants-experience}
+  \caption{Experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S1.}
+  \label{fig:all-resources}
+  \vspace{-.5cm} 
+\end{figure*}
+
 \begin{figure*}[!htb]
 \centering
 \begin{subfigure}{.49\textwidth}
   \centering
-  \includegraphics[width=.85\textwidth]{phase1-participants-experience.png}
-  \caption{Experiência}
+  \includegraphics[width=.75\textwidth]{phase-1-participants-region-mundial.png}
+  \caption{Distribuição geográfica global.}
   \label{fig:phase1-participants-experience}
 \end{subfigure}
 \begin{subfigure}{.49\textwidth}
   \centering
-  \includegraphics[width=.94\textwidth]{phase1-participants-regions.png}
-  \caption{Distribuição geográfica}
+  \includegraphics[width=.93\textwidth]{phase-1-participants-region-brasil.png}
+  \caption{Distribuição geográfica no Brasil.}
   \label{fig:phase1-participants-regions}
 \end{subfigure}% 
-\caption{Experiência com desenvolvimento de software, desenvolvimento Android e distribuição geográfica dos participantes de \emph{Q1}.}
+\caption{Distribuição geográfica global e no Brasil dos participantes de S1.}
 \label{fig:all-resources}
 \vspace{-.5cm} 
 \end{figure*}
-% \begin{table}[h]
-% \centering
-% \renewcommand*{\arraystretch}{1}
-% \footnotesize 
-% \begin{tabular}{@{}lcr@{}}
-% \toprule
-% \textbf{Anos de Experiência} & \textbf{Participantes} & \multicolumn{1}{c}{\textbf{\%}} \\
-% \toprule
-% 1 ano ou menos 	&	 6 		& 	13 \%	 \\
-% 2 anos 			& 	 7 		& 	  16 \%	 \\
-% 3 anos 			& 	 12		& 	  27 \%	 \\
-% 4 anos 			& 	 6 		& 	  13 \%	 \\
-% 5 anos 			& 	 3 		& 	   7 \%	 \\
-% 6 anos 			& 	 7 		& 	  16 \%	 \\
-% 7 anos 			& 	 2 		& 	   4 \%	 \\
-% 8 anos 			& 	 2 		& 	   4 \%	 \\
-% \bottomrule
-% \end{tabular}
-% \caption{Experiência dos participantes com desenvolvimento Android.}
-% \label{tab:DadosDemograficos}
-% \end{table}
 
 \subsubsection{Análise dos Dados}
 \label{etapa-1-analise}
@@ -280,7 +289,7 @@ Ao final da análise constavam 359 respostas sobre boas e más práticas individual
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 \label{etapa-2}
 
-Para responder a \textbf{\small QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de 17 países. Nossos resultados mostraram que todos os 16 maus cheiros, apesar de diferentes escalas, todos são considerados frequentes e importantes.
+Para responder a \textbf{\small QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de 17 países. Nossos resultados mostraram que os 16 maus cheiros, em diferentes escalas, são considerados frequentes e importantes.
 
 A seguir apresentamos detalhes sobre a concepção do questionário (Seção \ref{etapa-2-questionario}), sobre os participantes (Seção \ref{etapa-2-participantes}) e sobre o processo de análise dos dados (Seção \ref{etapa-2-analise}).
 
@@ -298,7 +307,7 @@ As frases foram baseadas nas respostas em \textbf{\small S1}, por exemplo, para 
   \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
 \end{itemize}
 
-Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Entenda o Ciclo de Vida}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em \textbf{\small S1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \textbf{\small S1}, sobre como implementar a resposta a eventos do usuário:
+Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em \textbf{\small S1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \textbf{\small S1}, sobre como implementar a resposta a eventos do usuário:
 
 \begin{itemize}
   \small
@@ -329,33 +338,39 @@ O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e L
 
 
 
-\subsubsection{Participantes}
-\label{etapa-2-participantes}
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=.6\textwidth]{phase-2-participants-experience.png}
+  \caption{Experiência}
+  \label{fig:phase1-participants-experience}
+  \caption{Experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S2.}
+  \label{fig:all-resources}
+  \vspace{-.5cm} 
+\end{figure*}
  
-\begin{figure*}[!t]
+\begin{figure*}[!htb]
 \centering
 \begin{subfigure}{.49\textwidth}
   \centering
-  \includegraphics[width=.85\textwidth]{phase2-participants-experience.png}
-  \caption{Experiência}
+  \includegraphics[width=.80\textwidth]{phase-2-participants-region-mundial.png}
+  \caption{Distribuição geográfica global.}
   \label{fig:phase1-participants-experience}
 \end{subfigure}
 \begin{subfigure}{.49\textwidth}
   \centering
-  \includegraphics[width=.94\textwidth]{phase2-participants-regions.png}
-  \caption{Distribuição geográfica}
+  \includegraphics[width=.90\textwidth]{phase-2-participants-region-brasil.png}
+  \caption{Distribuição geográfica no Brasil.}
   \label{fig:phase1-participants-regions}
 \end{subfigure}% 
-\caption{Experiência com desenvolvimento de software, desenvolvimento Android e distribuição geográfica dos participantes de \emph{Q2}.}
+\caption{Distribuição geográfica global e no Brasil dos participantes de S2.}
 \label{fig:all-resources}
 \vspace{-.5cm} 
 \end{figure*}
 
-
 \subsubsection{Análise dos Dados}
 \label{etapa-2-analise}
 
-Para análise dos dados extraímos a moda e distribuição relativa de cada frase das seções dois e três. Consideramos como maus cheiros \emph{percebidos} todos aqueles com \emph{moda de importância} ($I_{Moda}$) maior igual a 4 e \emph{moda de frequência} ($F_{Moda}$) maior igual a 3. Ou seja:
+Para análise dos dados extraímos a moda e distribuição relativa de cada frase das seções dois e três. Consideramos como maus cheiros \emph{percebidos} todos aqueles com \emph{moda de importância} ($I_{Moda}$) igual a 4 ou 5 (importante e muito importante) e \emph{moda de frequência} ($F_{Moda}$) também igual a 4 ou 5 (frequente ou muito frequente). Ou seja:
 
 \begin{center}
   $F_{Moda} \geq 4 \cup I_{Moda} \geq 4 \implies Mau Cheiro$ 
