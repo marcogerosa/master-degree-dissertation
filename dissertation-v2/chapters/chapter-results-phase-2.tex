@@ -3,9 +3,68 @@
 
 \begin{square}
   \small
-  Nossos resultados mostraram que dez dos maus cheiros são frequentes ou muito frequentes e considerados importantes ou muito importantes por desenvolvedores Android. 
+  Nossos resultados mostraram que desenvolvedores Android percebem todos os maus cheiros derivados no dia a dia do desenvolvimento do Android e que consideram importante mitigá-los. Mostrou também que, apesar de todos serem percebidos e importantes, alguns maus cheiros são mais frequentes e mais importantes de mitigar que outros.  
 \end{square}
 
+
+A Figura \ref{fig:phase2-survey-frequence-java} apresenta para cada sintoma dos maus cheiros em componentes do \textit{front-end} Android, o percentual de frequência em que ele é percebido no dia a dia de desenvolvimento. Podemos observar que os três maus cheiros mais percebidos frequente ou muito frequentemente por 40\% a 60\% dos respondentes são: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado} e \textsc{\small Comportamento Suspeito}. 
+
+Se considerarmos a partir de ``Ás vezes'', vemos que todos os maus cheiros derivados relacionados a componentes do \textit{front-end} Android são relevantes pois se apresentam pelo menos 60\% dos respondentes. 
+
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{phase2-survey-frequence-java.png}
+  \caption{Mais de 70\% dos 201 respondentes consideram 7 dos 10 maus cheiros em componentes do \textit{front-end} Android frequentes ou muito frequentes.}
+  \label{fig:phase2-survey-frequence-java}
+  % \vspace{-.5cm} 
+\end{figure*}
+
+
+A Figura \ref{fig:phase2-survey-frequence-java} apresenta para cada sintoma dos maus cheiros em recursos Android, o percentual de frequência em que é percebida no dia a dia. Podemos observar que esses maus cheiros são percebidos no dia a dia de desenvolvimento muito mais que os maus cheiros em componentes do \textit{front-end} Android. Com exceção do \textsc{\small Listener Escondido}, todos os demais maus cheiros são percebidos frequente ou muito frequentemente por pelo menos 40\% dos respondentes chegando até 65\%. Se considerarmos os que são percebidos ``As vezes'' esses percentuais sobem ainda mais, para pelo menos 60\% e chegando até 88\%.
+
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{phase2-survey-frequence-resource.png}
+  \caption{Mais de 56\% dos 201 respondentes consideram 9 dos 11 maus cheiros em recursos Android frequentes ou muito frequentes.}
+  \label{fig:phase2-survey-frequence-resource}
+  % \vspace{-.5cm} 
+\end{figure*}
+
+
+
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{phase2-survey-importance-java.png}
+  \caption{Percepção dos desenvolvedores sobre a importância de se mitigar os sintomas dos maus cheiros em componentes do \textit{front-end} Android.}
+  \label{fig:phase2-survey-importance-java}
+  \vspace{-.5cm} 
+\end{figure*}
+
+
+\begin{figure*}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{phase2-survey-importance-resource.png}
+  \caption{Percepção dos desenvolvedores sobre a importância de se mitigar os sintomas dos maus cheiros em recursos Android.}
+  \label{fig:phase2-survey-importance-resource}
+  \vspace{-.5cm} 
+\end{figure*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% COLOCAR DEPOIS 
 
 As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respectivamente a moda e distribuição relativa de frequência e importância para cada um dos 21 maus cheiros derivados. Em vermelho são os que não atendem a condição mencionada acima e portanto, são desconsiderados para a etapa seguinte.
 
