@@ -1,0 +1,64 @@
+% -*- root: dissertation.tex -*-
+\chapter{Afirmações sobre frequência dos maus cheiros e respectivos dados estatísticos}
+\label{appendix-phase2-frequence-table}
+Neste apêndice, ao final de cada afirmação, entre parênteses indicamos a qual mau cheiro ela se referia, entretanto esta informação (nome do mau cheiro) não foi apresentada no questionário online.
+
+\begin{table}[b]
+\centering
+\renewcommand*{\arraystretch}{1.3}
+\footnotesize 
+\caption{Desvio padrão, moda e média sobre a percepção de frequência dos maus cheiros relacionados a componentes do \textit{front-end} Android.}
+\begin{tabular}{@{}p{7.8cm}cccccccc@{}}
+\toprule
+\textbf{Afirmação} & \textbf{DP} & \textbf{MO} & \textbf{ME} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\bottomrule
+Activities, Fragments, Adapters ou Listeners com códigos de lógica de negócio, condicionais complexos ou conversão de dados. (\textsc{Componente de UI Inteligente}) & 1.19 & 4 & 3 & 7\% & 19\% & 27\% & 28\% & 19\% \\
+Fragments, Adapters ou Listeners com referência direta para quem os usa, como Activities ou outros Fragments. (\textsc{Componente de UI Acoplado}) & 1.15 & 3 & 3 & 7\% & 20\% & 33\% & 24\% & 15\% \\
+Activities, Fragments ou Adapters com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros. (\textsc{Comportamento Suspeito}) & 1.24 & 3 & 3 & 11\% & 14\% & 33\% & 22\% & 19\% \\
+Activities, Fragments ou Adapters com classes internas implementando algum listener para responder a eventos do usuário como clique, duplo clique e outros. (\textsc{Comportamento Suspeito}) & 1.12 & 4 & 3 & 6\% & 16\% & 29\% & 32\% & 17\% \\
+Activities, Fragments ou Adapters implementando algum listener, através de polimorfismo (implements), para responder a eventos do usuário como clique, duplo clique e outros. (\textsc{Comportamento Suspeito}) & 1.21 & 4 & 4 & 9\% & 12\% & 25\% & 33\% & 20\% \\
+Adapters que não se utilizam do padrão ViewHolder. (\textsc{Adapter Consumista}) & 1.20 & 2 & 2 & 25\% & 29\% & 23\% & 17\% & 5\% \\
+Fragments em apps que não são usados em tablets ou que não usam ViewPagers. Apps com Fragments que não são reutilizados em mais de uma tela do app. (\textsc{Uso Excessivo de Fragment}) & 1.17 & 3 & 3 & 8\% & 20\% & 30\% & 27\% & 15\% \\
+Apps que não utilizam nenhum Fragment. (\textsc{Não Uso de Fragment}) & 1.21 & 2 & 3 & 15\% & 32\% & 26\% & 16\% & 10\% \\
+Activities, Fragments ou Adapters com códigos que fazem acesso a banco de dados, arquivos locais ou internet. (\textsc{Classes de UI Fazendo IO}) & 1.29 & 3 & 3 & 17\% & 20\% & 26\% & 23\% & 14\% \\
+Objetos com ciclos de vida diferentes ao de Activities ou Fragments, referenciando-os diretamente, por exemplo, uma AsyncTask referenciar diretamente uma Activity ou Fragment. (\textsc{Componente de UI Zumbi}) & 1.16 & 3 & 3 & 16\% & 26\% & 30\% & 20\% & 7\% \\
+Projetos que não usam nenhum padrão arquitetural como MVC, MVP, MVVM, Clean Architecture ou outros. (\textsc{Ausência de Arquitetura}) & 1.30 & 3 & 3 & 13\% & 20\% & 27\% & 20\% & 18\% \\
+Adapters com muitas responsabilidades além de popular views, com condicionais complexos ou cálculos no método getView. (\textsc{Adapter Complexo}) & 1.15 & 3 & 3 & 7\% & 21\% & 32\% & 25\% & 14\% \\
+\toprule
+\multicolumn{9}{@{}l@{}}{DP = Desvio Padrão, MO = Moda e ME = Média.} \\
+\multicolumn{9}{@{}l@{}}{1 = Nunca, 2 = Raramente, 3 = Ás vezes, 4 = Frequente e 5 = Muito frequente.} \\
+\bottomrule
+\end{tabular}
+\label{tab:SmellFrequency}
+\end{table}
+
+\begin{table}[t]
+\centering
+\renewcommand*{\arraystretch}{1.3}
+\footnotesize 
+\caption{Desvio padrão, moda e média sobre a percepção de frequência dos maus cheiros relacionados a recursos Android.}
+\begin{tabular}{@{}p{7.8cm}cccccccc@{}}
+\toprule
+\textbf{Afirmação} & \textbf{DP} & \textbf{MO} & \textbf{ME} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\bottomrule
+Recursos de cor, tamanho ou texto sendo usados "hard coded", sem a criação de um novo recurso no arquivo de xml respectivo (colors.xml, dimens.xml ou strings.xml). (\textsc{Recurso Mágico}) & 1.24 & 4 & 3 & 10\% & 22\% & 23\% & 28\% & 16\% \\
+Projetos sem um padrão de nomenclatura para recursos de layout, texto, estilo ou gráficos (imagens e recursos gráficos - xmls). (\textsc{Nome de Recurso Despadronizado}) & 1.24 & 3 & 3 & 11\% & 22\% & 26\% & 25\% & 16\% \\
+Layouts com mais de 3 níveis de views aninhadas, por exemplo: um TextView dentro de um LinearLayout que está dentro de outro LinerarLayout. (\textsc{Layout Profundamente Aninhado}) & 1.06 & 4 & 4 & 2\% & 11\% & 22\% & 36\% & 28\% \\
+Imagens (jpg, jpeg, png e gif) sendo usadas quando podiam ser substituídas por recursos gráficos do Android (xmls), como por exemplo, background de cores sólidas ou degradês. (\textsc{Imagem Tradicional Dispensável}) & 1.23 & 4 & 3 & 11\% & 19\% & 24\% & 30\% & 14\% \\
+Recursos de layout muito grandes. (\textsc{Layout Longo ou Repetido}) & 1.05 & 4 & 4 & 4\% & 13\% & 29\% & 37\% & 17\% \\
+Recursos de layout com trechos que se repetem, igual ou muito semelhantes, vári3 ao longo do arquivo. (\textsc{Layout Longo ou Repetido}) & 1.09 & 3 & 3 & 7\% & 17\% & 34\% & 30\% & 12\% \\
+Projetos que possuem as imagens usadas em apenas uma resolução/densidade. (\textsc{Imagem Faltante}) & 1.25 & 4 & 3 & 15\% & 24\% & 21\% & 29\% & 11\% \\
+Projetos que possuem apenas um arquivo de estilo (styles.xml). (\textsc{Longo Recurso de Estilo}) & 1.19 & 5 & 4 & 5\% & 11\% & 23\% & 28\% & 32\% \\
+Projetos que possuem apenas um recurso de estilo (styles.xml) e este é muito grande. (\textsc{Longo Recurso de Estilo}) & 1.18 & 4 & 4 & 6\% & 16\% & 22\% & 33\% & 22\% \\
+Projetos que possuem apenas um arquivo de strings (strings.xml) e este é muito grande. (\textsc{Recurso de String Bagunçado}) & 1.18 & 5 & 4 & 6\% & 8\% & 20\% & 32\% & 33\% \\
+Arquivos de layout com alguns atributos de estilos repetidos em mais de uma view. (\textsc{Atributos de Estilo Repetidos}) & 1.07 & 4 & 4 & 5\% & 13\% & 31\% & 35\% & 15\% \\
+Arquivo de estilo com alguns atributos de estilos repetidos em mais de um estilo. (\textsc{Atributos de Estilo Repetidos}) & 1.16 & 4 & 3 & 9\% & 17\% & 28\% & 33\% & 13\% \\
+Usar uma mesma string em diferentes telas do aplicativo. (\textsc{Reuso Inadequado de String}) & 1.12 & 4 & 4 & 5\% & 9\% & 22\% & 34\% & 29\% \\
+Usar o atributo onClick ou outro similar, diretamente no xml de layout, para responder a eventos do usuário. (\textsc{Listener Escondido}) & 1.29 & 2 & 2 & 24\% & 30\% & 19\% & 16\% & 10\% \\
+\toprule
+\multicolumn{9}{@{}l@{}}{DP = Desvio Padrão, MO = Moda e ME = Média.} \\
+\multicolumn{9}{@{}l@{}}{1 = Nunca, 2 = Raramente, 3 = Ás vezes, 4 = Frequente e 5 = Muito frequente.} \\
+\bottomrule
+\end{tabular}
+\label{tab:SmellFrequency}
+\end{table}

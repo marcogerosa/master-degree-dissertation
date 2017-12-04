@@ -1,28 +1,27 @@
 \subsection{Etapa 2 - Frequência e importância dos maus cheiros}
 \label{etapa-2}
 
-Para responder a \textbf{\small QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados em seu dia a dia. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. Coletamos ao todo 201 respostas de desenvolvedores Android de 17 países. Nossos resultados mostraram que os 16 maus cheiros, em diferentes escalas, são considerados frequentes e importantes.
+Para responder a \textbf{\small QP2}, buscamos entender a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros derivados. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. 
 
-A seguir apresentamos detalhes sobre a concepção do questionário, sobre os participantes e sobre o processo de análise dos dados.
+Coletamos ao todo 201 respostas de desenvolvedores Android de 3 continentes e 14 países diferentes. Nossos resultados mostraram que os 21 maus cheiros são considerados de modo relevante, frequentes e importantes. A seguir apresentamos detalhes sobre a concepção do questionário, sobre os participantes e sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção \ref{phase2-results}.
 
 
 \subsubsection{Questionário}
 \label{etapa-2-questionario}
 
-Foram criadas duas versões do questionário, inglês e português, de forma que um apontava para o outro, possibilitando o respondente escolher o idioma mais apropriado a ele. O questionário (\textbf{\small S2}) continha 3 seções. A primeira seção, como em \textbf{\small S1}, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
+Foram criadas duas versões do questionário, inglês e português, de forma que de um era possível acessar o outro, possibilitando o participante escolher o idioma mais apropriado a ele. O questionário (S2) continha 3 seções. A primeira seção, como em S1, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
 
-A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de frases, onde cada frase descrevia o sintoma de um dos maus cheiros, e pedimos para o respondente \textbf{\small indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia}. Para cada frase o respondente podia escolher uma entre cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
+A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de afirmações, onde cada afirmação descrevia o sintoma de um dos maus cheiros, e pedimos para o participante indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia. Para cada afirmação o participante podia escolher uma entre cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
 
-As frases foram baseadas nas respostas em \textbf{\small S1}, por exemplo, para o mau cheiro \textbf{\textsc{\small Classes de UI Acopladas}} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nessas e outras respostas extraímos a seguinte frase para representar o sintoma do mau cheiro:
+As afirmações foram baseadas nas respostas em S1, por exemplo, para o mau cheiro \textsc{\small Classes de UI Acopladas} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nessas e outras respostas extraímos a seguinte frase para representar o sintoma do mau cheiro:
 
 \begin{itemize}
-  \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
+ \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
 \end{itemize}
 
-Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença do número total de maus cheiros vs. o número de frases se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em \textbf{\small S1}, mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma frase para eles, sendo que cada frase abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três frases, onde cada uma representou uma forma diferente, considerada má prática pelos respondentes de \textbf{\small S1}, sobre como implementar a resposta a eventos do usuário:
+Para contemplar os 21 maus cheiros foram apresentadas 26 afirmações, essa diferença do número total de maus cheiros, que somam 21, e o número de afirmações se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em S1 mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma afirmação para cada um deles, sendo que cada afirmação abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três afirmações, onde cada uma representou uma forma diferente, considerada como má prática pelos participantes de S1, sobre como implementar a resposta a eventos do usuário no Android:
 
 \begin{itemize}
-  \small
   \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.
 
   \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} implementando algum \textit{Listener}, através de polimorfismo (\textit{implements}), para responder a eventos do usuário como clique, duplo clique e outros.
@@ -30,29 +29,51 @@ Para contemplar os 21 maus cheiros foram apresentadas 27 frases, essa diferença 
   \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes internas implementando algum \textit{Listener} para responder a eventos do usuário como clique, duplo clique e outros.
 \end{itemize}
 
-A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que \textbf{\small indicasse o quão importante ele considerava as frases apresentadas}. Para contemplar os 21 maus cheiros apresentamos 25 frases que basicamente negavam a frase relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros vs. o total de frases apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Como exemplo, novamente sobre o mau cheiro \textsc{\small Classes de UI Acopladas}, apresentamos a seguinte frase:
+A terceira seção objetivou capturar a percepção dos desenvolvedores com relação a importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que indicasse o quão importante ele considerava as afirmações apresentadas. Para contemplar os 21 maus cheiros apresentamos 22 afirmações que basicamente negavam as afirmações relacionada a percepção de frequência do mau cheiro. A divergência do total de maus cheiros e o total de afirmações apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Para cada afirmação o participante podia escolher uma dentre as cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. A seguir apresentamos a afirmação apresentada nesta seção para o mau cheiro \textsc{\small Classes de UI Acopladas}:
 
 \begin{itemize}
   \item \textit{Fragments}, \textit{Adapters} e \textit{Listeners} não ter referência direta à quem os utiliza.
 \end{itemize}
 
-Para cada frase o respondente podia escolher uma dentre as cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. 
+Em nenhuma das seções indicamos que seriam apresentados sintomas de maus cheiros, nem mencionamos os nomes dos maus cheiros usados nesta dissertação, foram apresentadas somente as afirmações. Optamos por fazer desta forma para abstrair a ideia de que as frases representavam maus cheiros e portanto, não exigir do participante um conhecimento prévio sobre maus cheiros de código.
 
-Antes da divulgação do questionário realizamos a validação de cada uma das frases, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{Dev-A} e \emph{Dev-B}. \emph{Dev-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui grau escolar de bacharel. \emph{Dev-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui grau escolar de bacharel \todo{confirmar com o Cauê}. Ambos os desenvolvedores trabalham atualmente em \textit{startups} brasileiras com desenvolvimento mobile. 
+Antes da divulgação do questionário realizamos a validação de cada uma das afirmações, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{DEV-A} e \emph{DEV-B}. \emph{DEV-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui grau escolar de bacharel. \emph{DEV-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui grau escolar de bacharel. Ambos os desenvolvedores trabalham atualmente com desenvolvimento mobile em \textit{startups} brasileiras. 
 
-A entrevista seguiu de forma que o desenvolvedor validador procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o \textit{feedback} do validador. Após a discussão ele respondia, considerando a conclusão das discussões, e seguia para a próxima. Esta dinâmica segue até passar pro todas as frases e ao final o validador era incentivado a dar qualquer outro \textit{feedback} que considerasse relevante. Alguns importantes ajustes foram realizados após o primeiro validador. 
+A entrevista de validação das afirmações foi conduzida de modo que o desenvolvedor procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o \textit{feedback} dado. Após a discussão o desenvolvedor a respondia, considerando a conclusão das discussões, e seguia para a próxima. Esta dinâmica segue até passar pro todas as afirmações e ao final o desenvolvedor era incentivado a dar qualquer outro \textit{feedback} que considerasse relevante. 
 
-O principal ajuste foi relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, respondido por \emph{Dev-A}, foi usada tanto para validar importância quanto para validar frequência a mesma escala \textit{likert} de nível de concordância (concordo totalmente, concordo, não concordo nem discordo, discordo, discordo totalmente), deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. Durante a validação percebemos que as frases ficavam muito maiores de ler e difíceis de serem interpretadas então trocamos para escalas de frequência e importância e ajustamos as frases. Também foram sugeridas melhorias em algumas poucas frases. Com o segundo validador tivemos apenas dois ajustes em frases. Para efeitos de viés, as respostas dos validadores não foram consideradas.
+Alguns importantes ajustes foram realizados após a primeira entrevista de validação. O principal ajuste foi relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, respondido por \emph{DEV-A}, foi usada tanto para validar importância quanto para validar frequência a mesma escala \textit{likert} de nível de concordância (concordo totalmente, concordo, não concordo nem discordo, discordo, discordo totalmente), deixando para a frase a responsabilidade de indicar do que se tratava, frequência ou importância. Durante a validação percebemos que as afirmações ficavam muito maiores de ler e difíceis de serem interpretadas, então trocamos para escalas de frequência e importância e ajustamos as afirmações. Também foram sugeridas melhorias em algumas poucas afirmações. Com o segundo desenvolvedor, \emph{DEV-B}, tivemos apenas dois ajustes em afirmações. Para efeitos de viés, as respostas dos desenvolvedores que participaram das entrevistas de validação foram desconsideradas.
 
-Após a validação das frases, executamos um teste piloto com dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que o \textit{feedback} foi positivo e não houve necessidade de ajustes.
+Após a validação das afirmações, executamos um teste piloto com dois desenvolvedores, do qual, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas visto que o \textit{feedback} foi positivo e não houve necessidade de ajustes. O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como Android Dev Brasil\footnote{https://groups.google.com/forum/\#!forum/androidbrasil-dev}, Android Brasil Projetos\footnote{https://groups.google.com/forum/\#!forum/android-brasil--projetos} e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os participantes ofertamos o sorteio de um Google Chromecast Áudio. 
 
-O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e Linkedin, grupos de discussão sobre Android como Android Dev Brasil\footnote{https://groups.google.com/forum/\#!forum/androidbrasil-dev}, Android Brasil Projetos\footnote{https://groups.google.com/forum/\#!forum/android-brasil--projetos} e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os respondentes ofertamos o sorteio de um Google Chromecast Áudio. O questionário esteve aberto por aproximadamente 3 semanas em meados de Setembro de 2017. As questões eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice \ref{survey2}. 
+O questionário esteve aberto por aproximadamente três semanas em meados de Setembro de 2017. As afirmações eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice \ref{survey2}. 
 
 
 \subsubsection{Participantes}
 \label{etapa-2-participantes}
 
-Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% dos 201 respondentes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 74\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Este resultado pode nos indicar que conseguimos atingir desenvolvedores com experiência considerável em desenvolvimento de software e Android, entendemos este resultado de forma positiva. 
+Participaram desta etapa da pesquisa 201 desenvolvedores. 145 respostas vieram da versão em português do questionário e 56 da versão em inglês. Dos participantes, 15\% possuem uma ou mais pós-graduações e 61\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase2-participants-graduation}. A Figura \ref{fig:phase2-participants-age} apresenta o histograma de idade dos participantes, onde podemos observar que tivemos uma abrangência considerável de idade, onde a maior parte possui de 20 a 35 anos.  
+
+\begin{figure*}[!h]
+\centering
+\begin{subfigure}{.55\textwidth}
+  \centering
+  \includegraphics[width=.95\textwidth]{phase2-participants-graduation.png}
+  \caption{Distribuição de escolaridade.}
+  \label{fig:phase2-participants-graduation}
+\end{subfigure}
+\begin{subfigure}{.42\textwidth}
+  \centering
+  \includegraphics[width=.99\textwidth]{phase2-participants-age.png}
+  \caption{Distribuição de idade.}
+  \label{fig:phase2-participants-age}
+\end{subfigure}% 
+\caption{Escolaridade e distribuição de idade dos participantes em S2.}
+\label{fig:phase2-participants-experience}
+% \vspace{-.5cm} 
+\end{figure*}
+
+
+Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% participantes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 74\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Este resultado nos indica que atingimos desenvolvedores com experiência considerável em desenvolvimento de software e Android, entendemos este resultado de forma positiva. 
 
 \begin{figure*}[!htb]
 \centering
@@ -68,24 +89,24 @@ Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% do
   \caption{Desenvolvimento Android}
   \label{fig:phase1-participants-regions-brasil}
 \end{subfigure}% 
-\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos 201 participantes do questionário confirmatório (S2).}
+\caption{Experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S2.}
 \label{fig:phase2-participants-experience}
 % \vspace{-.5cm} 
 \end{figure*}
 
-Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas linguagens orientadas a objetos. Na Figura \ref{fig:phase2-participants-languages} podemos observar que mais de 80\% se consideram com conhecimento de intermediário a avançado em Java e Android. De 20\% a 58\% dos respondentes afirmam ter conhecimento de intermediário a avançado em outras linguagens orientadas a objetos. A linguagem de programação menos conhecida pelos desenvolvedores que responderam ao questionário é o Ruby, seguida por Objective-C, Swift e Python.
+Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas linguagens orientadas a objetos. Na Figura \ref{fig:phase2-participants-languages} podemos observar que mais de 80\% afirmam ter conhecimento de intermediário a avançado em Java e Android. De 20\% a 58\% dos participantes afirmam ter conhecimento de intermediário a avançado em outras linguagens orientadas a objetos. 
 
 \begin{figure*}[!htb]
   \centering
   \includegraphics[width=.7\textwidth]{phase2-participants-languages.png}
-  \caption{Nível de conhecimento em diversas linguagens de programação dos 201 participantes do questionário confirmatório (S2).}
+  \caption{Nível de conhecimento em diversas linguagens de programação orientada a objetos dos participantes de S2.}
   \label{fig:phase2-participants-languages}
   % \vspace{-.5cm} 
 \end{figure*}
  
- A Figura \ref{fig:phase2-participants-regions} apresenta a distribuição geográfica global e no Brasil dos respondentes. Nosso questionário confirmatório foi respondido por profissionais de 3 continentes diferentes, porém a maior representatividade dos dados é originada do Brasil com pouco mais de 78\% dos respondentes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 57\%, Rio de Janeiro e Minhas Gerais com quase 6\% e Rio Grande do Sul com quase 5\%. 10\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos apenas 2\%. 
+ Nosso questionário foi respondido por profissionais de 3 continentes e 14 países diferentes porém a maior representatividade dos dados é originada do Brasil, com pouco mais de 78\% dos participantes. Os brasileiros somam 157 profissionais de 18 estados diferentes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 57\%, Rio de Janeiro e Minhas Gerais com quase 6\% cada e Rio Grande do Sul com quase 5\%. 10\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos 2\% provindos da Califórnia, Pensilvânia, Indiana e Utah e 0,5\% (1 participante) de Ontário no Canadá. A Figura \ref{fig:phase2-participants-regions} apresenta a distribuição geográfica global e brasileira dos participantes.
 
-\begin{figure*}[!b]
+\begin{figure*}[!htb]
 \centering
 \begin{subfigure}{.49\textwidth}
   \centering
@@ -99,23 +120,25 @@ Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas lingu
   \caption{Distribuição geográfica brasileira.}
   \label{fig:phase2-participants-regions-brasil}
 \end{subfigure}% 
-\caption{201 profissionais de mais de 14 países diferentes responderam nosso questionário confirmatório (S2). Desses, 157 são profissionais brasileiros de 18 estados diferentes.}
+\caption{Distribuição geográfica global e brasileira dos participantes de S2.}
 \label{fig:phase2-participants-regions}
-\vspace{-.3cm} 
+% \vspace{-.5cm} 
 \end{figure*}
 
- Podemos concluir que tivemos certa abrangência geográfica, porém o padrão obtido em S1 voltou a se repetir em S2, de que apesar de termos tido esta abrangência, a maior representatividade é provinda do Brasil, logo, continuamos acreditando que o mais apropriado seja dizer que a confirmação de frequência e importância dos maus cheiros derivados representam a opinião de desenvolvedores brasileiros.
+ Podemos concluir que tivemos certa abrangência geográfica porém o padrão geográfico obtido em S1 se repetiu em S2, de que apesar de termos tido esta abrangência, a maior representatividade é provinda do Brasil, logo, continuamos acreditando que o mais apropriado seja dizer que a percepção de frequência e importância dos maus cheiros derivados representam a opinião de desenvolvedores brasileiros.
 
 
 
 \subsubsection{Análise dos Dados}
 \label{etapa-2-analise}
 
-Para análise dos dados extraímos a moda e distribuição relativa de cada frase das seções dois e três. Consideramos como maus cheiros \emph{percebidos} todos aqueles com \emph{moda de importância} ($I_{Moda}$) igual a 4 ou 5 (importante e muito importante) e \emph{moda de frequência} ($F_{Moda}$) também igual a 4 ou 5 (frequente ou muito frequente). Ou seja:
+Para análise dos dados, cada opção das escalas \textit{likert} de frequência e importância foi codificada em um número de 1 a 5. Por exemplo, as opções ``Nunca'' e ``Não é importante'' foram codificadas com 1, as opções ``Raramente'' e ``Pouco importante'' com 2, e assim sucessivamente até as opções ``Muito frequente'' e ``Muito importante'' que foram codificadas com~5.
 
-\begin{center}
-  $F_{Moda} \geq 4 \cup I_{Moda} \geq 4 \implies Mau Cheiro$ 
-\end{center} 
+De modo a avaliar a percepção dos desenvolvedores Android sobre a frequência e importância dos maus cheiros derivados, para análise dos dados extraímos de cada afirmação a média, moda, mediana e desvio padrão. Para os maus cheiros que apresentamos mais de uma afirmação, extraímos a média desses dados para representá-los. Por exemplo, foram apresentadas três afirmações de frequência sobre o mau cheiro \textsc{\small Comportamento Suspeito}, a moda que o representa é a média das modas de cada afirmação, que neste caso foi (3+4+4)/3 = 3,7, que arredondamos para 4.
+
+De modo a avaliar quais maus cheiros são considerados frequentes realizamos uma simplificação da escala \textit{likert} de frequência onde consideramos como \textbf{\small frequência não relevante} as resposta ``Nunca'' e ``Raramente'', codificadas respectivamente com 1 e 2, e \textbf{\small frequência relevante} as respostas ``Ás vezes'', ``Frequente'' e ``Muito frequente'', codificadas respectivamente com 3, 4 e 5.
+
+De modo similar, para avaliar quais maus cheiros são considerados importantes realizamos uma simplificação da escala \textit{likert} de importância onde consideramos como \textbf{\small importância não relevante} as resposta ``Não é importante'' e ``Pouco importante'', codificadas respectivamente com 1 e 2, e \textbf{\small importância relevante} as respostas ``Razoavelmente importante'', ``Importante'' e ``Muito importante'', codificadas respectivamente com 3, 4 e 5. Foram considerados maus cheiros percebidos e importantes os que se enquadraram com \textbf{\small frequência e importância relevantes}.
 
 % As Tabelas \ref{tab:SmellFrequency} e \ref{tab:SmellImportance} apresentam respectivamente a moda e distribuição relativa de frequência e importância para cada um dos 21 maus cheiros derivados. Em vermelho são os que não atendem a condição mencionada acima e portanto, são desconsiderados para a etapa seguinte.
 
