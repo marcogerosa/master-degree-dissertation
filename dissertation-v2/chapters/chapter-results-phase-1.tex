@@ -8,10 +8,13 @@
 \end{square}
 
 
-Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo.
+Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. 
+
+A seguir, na Seção \ref{phase1-general-results} apresentamos alguns resultados gerais. Na Seção \ref{phase1-code-smells-derivation} abordamos o processo de definição dos maus cheiros. Na Seção \ref{phase1-code-smells-reliability} abordamos sobre a confiabilidade do mau cheiro e por último, na Seção \ref{phase1-code-smells-catalog} apresentamos o catálogo derivado com 21 maus cheiros do \textit{front-end} Android.
 
 
 \subsection{Resultados gerais e descobertas}
+\label{phase1-general-results}
 
 Conforme apresentado na Figura \ref{fig:ElementsVSAnswers}, todos os elementos do \textit{front-end} Android receberam respostas sobre boas e más práticas. O elemento que recebeu menos respostas sobre boas práticas foi o recurso \textit{Style}, com 51\%, e o que menos recebeu respostas sobre más práticas foi o recurso \textit{Drawable}, com 47\%. Mesmo o elemento que recebeu menos respostas, esta chega muito próximo a 50\%. Esse resultado pode ser entendido como um indício de que desenvolvedores Android de fato possuem um arsenal pessoal de práticas de desenvolvimento Android que consideram boas e más. 
 
@@ -32,12 +35,13 @@ O processo de codificação resultou em 46 categorias, das quais consideramos para
 
 
 \subsection{Derivação dos maus cheiros}
+\label{phase1-code-smells-derivation}
 
-Cada uma das 21 categorias consideradas resultou em um mau cheiro de código no \textit{front-end} Android, dos quais 11 são relacionados a componentes do \textit{front-end} Android e 10 relacionados a recursos do aplicativo. As Tabelas \ref{tab:CategoriesVSFrequency-Java} (componentes) e \ref{tab:CategoriesVSFrequency-Resource} (recursos) apresentam os maus cheiros derivados, a ocorrência por elemento do \textit{front-end} Android, ou seja, de quais perguntas sobre boas e más práticas aquele mau cheiro originou, e sua ocorrência total, sendo a somatória das ocorrências em todos os elementos.
+Cada uma das 21 categorias consideradas resultou em um mau cheiro de código no \textit{front-end} Android, dos quais 11 são relacionados a componentes do \textit{front-end} Android e 10 relacionados a recursos do aplicativo. A descrição dos maus cheiros foram extraídas das respostas de S1, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Inteligente} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
 
-Na Tabela \ref{tab:CategoriesVSFrequency-Java} temos os 11 maus cheiros de componentes do \textit{front-end} Android. Podemos interpretar esta tabela do ponto de vista do componente. Se ele apresenta ocorrência em algum mau cheiro, significa que ele é suscetível a ser afetado por aquele mau cheiro. Ou seja, \textit{Activities} e \textit{Fragments} são os componentes mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 7. Já \textit{Adapters} estão pouco menos suscetíveis, aparecendo em 6 maus cheiros. Em contrapartida, \textit{Listeners} são os componentes do \textit{front-end} menos suscetíveis a maus cheiros, aparecendo em apenas 5.
+As Tabelas \ref{tab:CategoriesVSFrequency-Java} (componentes) e \ref{tab:CategoriesVSFrequency-Resource} (recursos) apresentam os maus cheiros derivados, o total de ocorrências por elemento do \textit{front-end} Android, ou seja, de quais perguntas sobre boas e más práticas aquele mau cheiro originou, e sua ocorrência total geral, sendo a somatória das ocorrências em todos os elementos. Na Tabela \ref{tab:CategoriesVSFrequency-Java} temos os 11 maus cheiros de componentes do \textit{front-end} Android. Podemos interpretar esta tabela do ponto de vista do componente. Se ele apresenta ocorrência em algum mau cheiro, significa que ele é suscetível a ser afetado por aquele mau cheiro. Ou seja, \textit{Activities} e \textit{Fragments} são os componentes mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 7. Já \textit{Adapters} estão pouco menos suscetíveis, aparecendo em 6 maus cheiros. Em contrapartida, \textit{Listeners} são os componentes do \textit{front-end} menos suscetíveis a maus cheiros, aparecendo em apenas~5.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \renewcommand*{\arraystretch}{1}
 \caption{Maus cheiros em componentes do \textit{front-end} Android, sua ocorrência em cada componente e ocorrência total.}
@@ -61,9 +65,7 @@ Na Tabela \ref{tab:CategoriesVSFrequency-Java} temos os 11 maus cheiros de compo
 \label{tab:CategoriesVSFrequency-Java}
 \end{table}
 
-Na Tabela \ref{tab:CategoriesVSFrequency-Resource} temos os 10 maus cheiros dos recursos do aplicativo. Novamente, interpretando a tabela do ponto de vista do elemento, temos que recursos de \textit{Layout} são os recursos mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 5, seguidos de \textit{Strings} e \textit{Styles} suscetíveis á 4 maus cheiros e \textit{Drawables} suscetíveis a apenas 3.
-
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \renewcommand*{\arraystretch}{1}
 \caption{Maus cheiros em recursos de aplicativos Android, sua ocorrência em cada componente e ocorrência total.}
@@ -88,12 +90,17 @@ Na Tabela \ref{tab:CategoriesVSFrequency-Resource} temos os 10 maus cheiros dos 
 \label{tab:CategoriesVSFrequency-Resource}
 \end{table}
 
+Na Tabela \ref{tab:CategoriesVSFrequency-Resource} temos os 10 maus cheiros dos recursos do aplicativo. Novamente, interpretando a tabela do ponto de vista do elemento, temos que recursos de \textit{Layout} são os recursos mais suscetíveis a diferentes maus cheiros do \textit{front-end} Android, totalizando 5, seguidos de \textit{Strings} e \textit{Styles} suscetíveis á 4 maus cheiros e \textit{Drawables} suscetíveis a apenas 3.
+
+
+
 \subsection{Confiabilidade dos maus cheiros}
+\label{phase1-code-smells-reliability}
 
 Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os padrões iremos indicar com um número e estrela sobrescrito ($^{60\star}$) o grau de confiabilidade. 
 
 Por exemplo, o mau cheiro \textsc{Componente de UI Inteligente} possui total de 60 ocorrências. Isso nos indica que foi originado de 60 respostas, logo, seu nível de confiabilidade é maior do que, por exemplo, o mau cheiro \textsc{Listener Escondido}, que apresenta total de apenas 5 ocorrências. Porém, colocar o número 60 ao lado de uma estrela pode ficar visualmente confuso de interpretar. Desta forma, nos baseamos novamente no número de Nielsen \cite{NielsenMagicNumber:00} e para cada 5 ocorrências, é atribuída uma estrela ao mau cheiro, ou seja, nosso exemplo seria apresentado da seguinte forma: \textsc{Componente de UI Inteligente}$^{12\star}$. 
 
-No catálogo completo, apresentado na Seção \ref{sec:smells-catalog}, esta mesma regra será usada na ocorrência por elementos do \textit{front-end} Android, pois, enquanto que a confiabilidade do mau cheiro \textsc{Componente de UI Inteligente} nos componentes \textit{Activity}, \textit{Fragment} e \textit{Adapter} são maiores, no \textit{Listener} é de apenas 1, logo, um grau de confiabilidade muito menor.
+No catálogo completo, apresentado na Seção \ref{phase1-code-smells-catalog}, esta mesma regra será usada na ocorrência por elementos do \textit{front-end} Android, pois, enquanto que a confiabilidade do mau cheiro \textsc{Componente de UI Inteligente} nos componentes \textit{Activity}, \textit{Fragment} e \textit{Adapter} são maiores, no \textit{Listener} é de apenas 1, logo, um grau de confiabilidade muito menor.
 
-Todo mau cheiro derivado recebe pelo menos uma estrela. Os maus cheiros que tiverem apenas uma estrela, esta será apresentada sem número. Vale ressaltar que, o critério para derivação do mau cheiro foi de pelo menos cinco ocorrências gerais, somatória dos elementos. Mas cada elemento individual pode ter tido menos que 5 ocorrências com relação a um dado mau cheiro. No catálogo \ref{sec:smells-catalog}, os elementos que não tiverem pelo menos 5 ocorrências serão apresentados sem estrela.
+Todo mau cheiro derivado recebe pelo menos uma estrela. Os maus cheiros que tiverem apenas uma estrela, esta será apresentada sem número. Vale ressaltar que, o critério para derivação do mau cheiro foi de pelo menos cinco ocorrências gerais, somatória dos elementos. Mas cada elemento individual pode ter tido menos que 5 ocorrências com relação a um dado mau cheiro. No catálogo \ref{phase1-code-smells-catalog}, os elementos que não tiverem pelo menos 5 ocorrências serão apresentados sem estrela.
