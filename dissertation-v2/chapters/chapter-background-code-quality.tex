@@ -44,74 +44,70 @@ O padrão ISO/IEC 9126 é considerado ainda como principal referência para a defin
 
 % \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
 
-A seguir introduzimos brevemente cada um dos conceitos e subconceitos do \acs{ISO}/\acs{IEC} 9126.
+Dentre os conceitos apresentados na Figura \ref{fig:QualityCharacteristics}, os mais relevantes nesta dissertação são: manutenibilidade, usabilidade e eficiência. Portanto apresentamos uma breve descrição sobre cada um destes três conceitos a seguir. \\
 
-\subsection{Funcionalidade} 
+% \subsection{Funcionalidade} 
+% A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
+% \begin{itemize}
+%   \item \emph{Adequação}, que mede o quanto o conjunto de funcionalidades é adequado às necessidades do usuário.
+%   \item \emph{Acurácia} (ou precisão) representa a capacidade do software de fornecer resultados precisos ou com a precisão dentro do que foi acordado/solicitado.
+%   \item \emph{Interoperabilidade} que trata da maneira como o software interage com outro(s) sistema(s) especificados.
+%   \item \emph{Segurança} mede a capacidade do sistema de proteger as informações do usuário e fornecê-las apenas (e sempre) às pessoas autorizadas. Segurança também pode estar dirigida em, processar gerar e armazenar as informações.
+%   \item \emph{Conformidade} trata da padronização, políticas e normas de um projeto.
+% \end{itemize}
 
-A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
+% \subsection{Confiabilidade}   
+% O produto se mantém no nível de desempenho nas condições estabelecidas. Seus sub-conceitos são: 
+% \begin{itemize}
+%   \item \emph{Maturidade}, entendida como sendo a capacidade do software em evitar falhas decorrentes de defeitos no software.
+%   \item \emph{Tolerância a Falhas} representando a capacidade do software em manter o funcionamento adequado mesmo quando ocorrem defeitos nele ou nas suas interfaces externas.
+%   \item \emph{Recuperabilidade} que foca na capacidade de um software se recuperar após uma falha, restabelecendo seus níveis de desempenho e recuperando os seus dados.
+%   \item \emph{Conformidade} tempo ou utilização de recursos.
+% \end{itemize}
+
+\noindent \textbf{\small Manutenibilidade} A capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Adequação}, que mede o quanto o conjunto de funcionalidades é adequado às necessidades do usuário.
-  \item \emph{Acurácia} (ou precisão) representa a capacidade do software de fornecer resultados precisos ou com a precisão dentro do que foi acordado/solicitado.
-  \item \emph{Interoperabilidade} que trata da maneira como o software interage com outro(s) sistema(s) especificados.
-  \item \emph{Segurança} mede a capacidade do sistema de proteger as informações do usuário e fornecê-las apenas (e sempre) às pessoas autorizadas. Segurança também pode estar dirigida em, processar gerar e armazenar as informações.
-  \item \emph{Conformidade} trata da padronização, políticas e normas de um projeto.
+  \itemsep0em 
+  \item \emph{Analisabilidade} Facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas.
+  \item \emph{Modificabilidade} Facilidade com que o comportamento do software pode ser modificado.
+  \item \emph{Estabilidade} Capacidade do software de evitar efeitos colaterais decorrentes de modificações introduzidas.
+  \item \emph{Testabilidade} Capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação.
 \end{itemize}
 
-\subsection{Confiabilidade}   
-
-O produto se mantém no nível de desempenho nas condições estabelecidas. Seus sub-conceitos são: 
-\begin{itemize}
-  \item \emph{Maturidade}, entendida como sendo a capacidade do software em evitar falhas decorrentes de defeitos no software.
-  \item \emph{Tolerância a Falhas} representando a capacidade do software em manter o funcionamento adequado mesmo quando ocorrem defeitos nele ou nas suas interfaces externas.
-  \item \emph{Recuperabilidade} que foca na capacidade de um software se recuperar após uma falha, restabelecendo seus níveis de desempenho e recuperando os seus dados.
-  \item \emph{Conformidade} tempo ou utilização de recursos.
-\end{itemize}
-
-\subsection{Usabilidade}   
-
+\noindent \textbf{\small Usabilidade}   
 A capacidade do produto de software ser compreendido, seu funcionamento aprendido, ser operado e ser atraente ao usuário. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Inteligibilidade} que representa a facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas.
-  \item \emph{Apreensibilidade} identifica a facilidade de aprendizado do sistema para os seus potenciais usuários.
-  \item \emph{Operacionalidade} é como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação.
-  \item \emph{Proteção frente a erros de usuários} como produto consegue prevenir erros dos usuários.
-  \item \emph{Atratividade} envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica.
-  \item \emph{Acessibilidade} refere-se a prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
+  \itemsep0em 
+  \item \emph{Inteligibilidade} Facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas.
+  \item \emph{Apreensibilidade} Facilidade de aprendizado do sistema para os seus potenciais usuários.
+  \item \emph{Operacionalidade} Como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação.
+  \item \emph{Proteção frente a erros de usuários} Como produto consegue prevenir erros dos usuários.
+  \item \emph{Atratividade} Envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica.
+  \item \textbf{\small Acessibilidade} Prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
 \end{itemize}
 
-\subsection{Eficiência}   
-
+\noindent \textbf{\small Eficiência}   
 O tempo de execução e os recursos envolvidos são compatíveis com o nível de desempenho do software. Seus sub-conceitos são:
 \begin{itemize}
-  \item \emph{Comportamento em Relação ao Tempo} que avalia se os tempos de resposta (ou de processamento) estão dentro das especificações.
-  \item \emph{Utilização de Recursos} que mede tanto os recursos consumidos quanto a capacidade do sistema em utilizar os recursos disponíveis.
+  \itemsep0em 
+  \item \emph{Comportamento em Relação ao Tempo} Avalia se os tempos de resposta (ou de processamento) estão dentro das especificações.
+  \item \emph{Utilização de Recursos} Mede tanto os recursos consumidos quanto a capacidade do sistema em utilizar os recursos disponíveis.
 \end{itemize}
 
-\subsection{Manutenibilidade}   
+% \subsection{Portabilidade}   
+% A capacidade do sistema ser transferido de um ambiente para outro. Seus sub-conceitos são: 
+% \begin{itemize}
+%   \item \emph{Adaptabilidade}, representando a capacidade do software se adaptar a diferentes ambientes sem a necessidade de ações adicionais (configurações). 
+%   \item \emph{Instalabilidade} identifica a facilidade com que pode se instalar o sistema em um novo ambiente. 
+%   \item \emph{Coexistência} mede o quão facilmente um software convive com outros instalados no mesmo ambiente. 
+%   \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade. 
+% \end{itemize}
 
-A capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
-\begin{itemize}
-  \item \emph{Analisabilidade} identifica a facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas.
-  \item \emph{Modificabilidade} caracteriza a facilidade com que o comportamento do software pode ser modificado.
-  \item \emph{Estabilidade} avalia a capacidade do software de evitar efeitos colaterais decorrentes de modificações introduzidas.
-  \item \emph{Testabilidade} representa a capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação.
-\end{itemize}
+Esta pesquisa está inserida no contexto de \emph{manutenibilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade}, pois, conforme descrito na Seção \ref{sec:back-maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, melhorando a manutenibilidade do software. 
 
-\subsection{Portabilidade}   
+Muito embora tenhamos ciência que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano\footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Manutenibilidade está relacionada às ``necessidades implícitas do software'' \cite{ISO9126:91}. 
 
-A capacidade do sistema ser transferido de um ambiente para outro. Seus sub-conceitos são: 
-\begin{itemize}
-  \item \emph{Adaptabilidade}, representando a capacidade do software se adaptar a diferentes ambientes sem a necessidade de ações adicionais (configurações). 
-  \item \emph{Instalabilidade} identifica a facilidade com que pode se instalar o sistema em um novo ambiente. 
-  \item \emph{Coexistência} mede o quão facilmente um software convive com outros instalados no mesmo ambiente. 
-  \item \emph{Substituibilidade} representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com instalabilidade. 
-\end{itemize}
-
-Esta pesquisa está inserida no contexto de \emph{manutenibilidade}, mais especificamente \emph{analisabilidade} e \emph{modificabilidade}, pois, conforme veremos na Seção \ref{sec:back-maus-cheiros}, maus cheiros de código visam apontar trechos de códigos possivelmente problemáticos que podem se beneficiar de refatorações, incrementando a manutenibilidade do software. 
-
-Muito embora tenha se provado que investir em qualidade pode reduzir os custos de um projeto, aumentar a satisfação dos usuários e desenvolvedores, qualidade de software costuma ser esquecido ou deixado em segundo plano\footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Manutenibilidade está relacionada as ``necessidades implícitas do software'' \cite{ISO9126:91}. 
-
-Focado nesse conceito, ao longo dos últimos anos diversas boas práticas de software vem sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro (\textit{Gang of Four} - GoF) documentam as \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos maiores exemplos de anti-padrão é o \textit{Singleton}, \todo{breve descrição de singleton}. 
+Focado nesse conceito, ao longo dos últimos anos, diversas boas práticas de software vêm sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro (\textit{Gang of Four} - GoF) documentam as \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos maiores exemplos de anti-padrão é o \textit{Singleton}, que visa limitar a instanciação de uma classe em um único objeto \cite{GoF:95}. 
 
 % Na Seção \ref{sec:back-maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintomas que podem indicar um problema mais profundo no software. 
 É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software}~\cite{CodeComplete:04}. 
@@ -146,9 +142,9 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   Para engenharia de software, a principal definição sobre ``padrões'' provém do livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um padrão como sendo uma regra de três partes que expressa ``a relação entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}''. Martin Fowler apresenta uma definição mais simples que diz que ``um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros'' \cite{AnalysysPattern:97}. 
 
-  Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, Design Patterns - GoF (1994) foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando X padrões. 
+  Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram estes resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, Design Patterns - GoF (1994) foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando 23 padrões de projetos. 
   
-  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada aspecto como problema, contexto ou solução será encontrado. Alguns formatos incluem uma série de outros informações além destes três bases de todos padrão. Ao longo dos anos, alguns formatos foram se destacando, a Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \ac{GoF} e Alexandrino, e foram plotadas no gráfico de acordo com seu nível de maturidade e clareza.
+  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada aspecto, como problema, contexto ou solução, será encontrado. Alguns formatos incluem uma série de outros informações além destes três bases de todos padrão. Ao longo dos anos, alguns formatos foram se destacando, a Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \ac{GoF} e Alexandrino, e foram posicionadas no gráfico de acordo com seu nível de maturidade e clareza.
 
   \begin{figure}[!htb]
     \centering
@@ -171,13 +167,11 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   Um anti-padrão é uma resposta comum a um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995 \cite{KoenigPatterns:98}, inspirado pelo livro GoF \cite{GoF:95}. 
 
-  O termo se popularizou 3 anos após, no livro de Brown (1998) \cite{AntiPatterns:98}. Segundo Brown \cite{AntiPatterns:98}, para diferenciar um anti-padrão de um mau hábito, má prática ou ideia ruim um anti-padrão deve apresentar dois elementos: 1) um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+  O termo se popularizou três anos após, no livro de Brown (1998) \cite{AntiPatterns:98}. Segundo Brown \cite{AntiPatterns:98}, para diferenciar um anti-padrão de um mau hábito, má prática ou ideia ruim 1) existe um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
 
-  É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código. O equívoco ocorre geralmente por ambos tratam de práticas que influenciam negativamente a manutenibilidade do software. Entretanto, anti-padrões se diferem de maus cheiros pois um mau cheiro não é, nem poderá se tornar um padrão, condição necessária para se tornar um anti-padrão. E ainda, segundo Brown \cite{AntiPatterns:98}, um anti-padrão deve apresentar os dois elementos acima citados.
+  É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código. O equívoco ocorre geralmente por ambos tratam de práticas que influenciam negativamente a manutenibilidade do software. Entretanto, anti-padrões se diferem de maus cheiros pois maus cheiros são sintomas que podem ou não indicar um problema mais profundo no código enquanto que um anti-padrão é uma solução com passos bem definidos para um problema específico, porém uma solução que deixou de ser recomendada.
 
 % \subsection{Débito Técnico}
-
-% ???
 
 \section{Maus Cheiros de Código}
 \label{sec:back-maus-cheiros}
@@ -188,14 +182,15 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   % \todo{Code smells are usually not bugs-they are not technically incorrect and do not currently prevent the program from functioning. Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future.}
 
-  % \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refactoring \cite{Webster:95}}}
+  % \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refatoração \cite{Webster:95}}}
 
-
+  \epigraph{``Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''}{--- \textup{Refactoring for Software Design Smells: Managing Rechnical Debt \cite{Refactoring:14}}}
+  
   Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante o dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de software, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 
 
   Entretanto, maus cheiros não são erros --- eles não estão tecnicamente incorretos e não impedem o funcionamento do software. Em vez disso, eles indicam deficiências no código que podem dificultar a manutenibilidade do software e aumentar o risco de erros ou falhas no futuro \cite{Yamashita:2013:EII:2486788.2486878, Sjoberg_Quantifying_2013, Yamashita6405287, Khomh:2009:ESI:1685994.1686210}.
 
-  Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o conceito de maus cheiros através do termo \emph{armadilha}. No livro são apresentadas 82 armadilhas no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na armadilha \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Há indícios informais de que o termo foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M 1999) \cite{Refactoring:99}. 
+  Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o conceito de maus cheiros através do termo \emph{armadilha}. No livro são apresentadas 82 armadilhas no Desenvolvimento Orientado a Objetos originadas da experiência do autor. Longos métodos e complexidade excessiva por exemplo são definidos na armadilha \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Há indícios informais de que o termo foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M. 1999) \cite{Refactoring:99}. 
 
   No livro são apresentados 22 maus cheiros e mais de 70 técnicas de refatoração. \textit{Código Duplicado} \cite[p.~63]{Refactoring:99} é um exemplo de mau cheiro que trata de problemas comuns que podem resultar na duplicação de código, por exemplo, ter a mesma expressão em dois métodos da mesma classe ou em duas subclasses irmãs. Para resolver este mau cheiro é indicada a refatoração \textit{Extrair Método} \cite[p.~89]{Refactoring:99}, ou seja, extrair a expressão duplicada para um novo método e substituí-lo nos lugares onde a expressão era usada. 
 
@@ -203,11 +198,11 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   % O termo mau cheiro de código é usado para explicar ao leitor o \emph{``quando''} uma refatoração deve ser aplicada. Segundo o livro, \textbf{\emph{``mau cheiro de código são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}}. 
 
-  Maus cheiros provém do profundo conhecimento e experiências de desenvolvedores experientes que ao longo dos anos desenvolveram um ``intuição'' para o bom \textit{design} possibilitando-os olhar para um \textit{design} ou código e obter imediatamente uma ``intuição'' sobre sua qualidade, sem ter que dar ``argumentos logicamente detalhados'' sobre o porquê de sua conclusão \cite{WardsWikiCodeSmell}. Ou seja, é por natureza subjetivo, baseado em opiniões e experiências \cite{JavaQADetectingSmells:02, JavascriptSmells}.
+  Maus cheiros provem do profundo conhecimento e experiências de desenvolvedores experientes que ao longo dos anos desenvolveram um ``intuição'' para o bom \textit{design} possibilitando-os olhar para um \textit{design} ou código e obter imediatamente uma ``intuição'' sobre sua qualidade, sem ter que dar ``argumentos logicamente detalhados'' sobre o porquê de sua conclusão \cite{WardsWikiCodeSmell}. Ou seja, é por natureza subjetivo, baseado em opiniões e experiências \cite{JavaQADetectingSmells:02, JavascriptSmells}.
 
   % Em uma postagem em seu site oficial em 2006 \cite{CodeSmell:06}, Fowler afrouxou um pouco mais a definição do termo dizendo que \emph{``mau cheiro de código são indicações superficiais que geralmente corresponde a um problema mais profundo no sistema''}.
 
-  Nos anos seguintes o termo mau cheiro se tornou frequente em livros \cite{CleanCode:08, Refactoring:14} e pesquisas acadêmicas. No livro \textit{Clean Code} (Martin, R 2008) \cite{CleanCode:08}, que se tornou muito popular entre desenvolvedores de software, são definidos novos maus cheiros além de citar alguns já apresentados por Fowler \cite{Refactoring:99}. Ele se apoia na definição de Fowler para explicar o conceito de mau cheiro.
+  Nos anos seguintes o termo mau cheiro se tornou frequente em livros \cite{CleanCode:08, Refactoring:14} e pesquisas acadêmicas. No livro \textit{Clean Code} (Martin, R. 2008) \cite{CleanCode:08}, que se tornou muito popular entre desenvolvedores de software, são definidos novos maus cheiros além de citar alguns já apresentados por Fowler \cite{Refactoring:99}. Ele se apoia na definição de Fowler para explicar o conceito de mau cheiro.
 
 
 % \subsection{Definindo Novos Maus Cheiros}
