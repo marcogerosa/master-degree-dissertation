@@ -2,7 +2,7 @@
 
 \emph{``Estamos cientes de que um bom código importa, pois já tivemos que lidar com a falta dele por muito tempo''} \cite{CleanCode:08}. De fato, estamos cientes de que bons códigos importam. Mas como saber se a qualidade de um código está baixa? Uma das formas de responder a essa pergunta é buscando por \emph{maus cheiros}\footnote{Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto. \cite[p.~258]{Refactoring:14}} no código. Maus cheiros de código auxiliam desenvolvedores na identificação de trechos de códigos problemáticos, de forma que possam ser melhorados e a qualidade do software incrementada \cite{Refactoring:99}. 
 
-Existem diversos maus cheiros catalogados, Método Longo e Classe Deus \cite{Refactoring:99, CleanCode:08, Refactoring:14, Webster:95}. Muitos desses maus cheiros foram definidos baseados em conceitos e tecnologias tradicionais, como orientação a objetos e Java \cite{Java}, que surgiram durante as décadas de 70 a 90. Nesta dissertação os denominamos de maus cheiros tradicionais. Entretanto, na última década surgiram  muitas novas tecnologias, como por exemplo o Android, que levantaram questões como: ``os maus cheiros tradicionais se aplicam às novas tecnologias?'' ou ``existem maus cheiros específicos às novas tecnologias, ainda não catalogados?''. Questões como essas instigaram a curiosidade de diversos pesquisadores que decidiram investigar maus cheiros em tecnologias específicas como por exemplo o CSS \cite{CSSCodeSmell}, o Javascript \cite{JavascriptSmells}, o arcabouço Spring MVC \cite{MvcSmells:16} e fórmulas de planilhas do Google \cite{SpreadsheetsSmells:12}.
+Existem diversos maus cheiros catalogados, Método Longo e Classe Deus são dois exemplos \cite{Refactoring:99, CleanCode:08, Refactoring:14, Webster:95}. Muitos desses maus cheiros foram definidos baseados em conceitos e tecnologias tradicionais, como orientação a objetos e Java \cite{Java}, que surgiram durante as décadas de 70 a 90. Nesta dissertação os denominamos de maus cheiros tradicionais. Entretanto, na última década surgiram  muitas novas tecnologias, como por exemplo o Android, que levantaram questões como: ``os maus cheiros tradicionais se aplicam às novas tecnologias?'' ou ``existem maus cheiros específicos às novas tecnologias, ainda não catalogados?''. Questões como essas instigaram a curiosidade de diversos pesquisadores que decidiram investigar maus cheiros em tecnologias específicas como por exemplo o CSS \cite{CSSCodeSmell}, o Javascript \cite{JavascriptSmells}, o arcabouço Spring MVC \cite{MvcSmells:16} e fórmulas de planilhas do Google \cite{SpreadsheetsSmells:12}.
 
 Android é uma plataforma móvel que foi lançada em 2008 pelo Google em parceria com diversas empresas \cite{OHAReleasesAndroidSDK:07}. Em 2011 se tornou mundialmente a principal plataforma móvel e desde então vem aumentando sua fatia de mercado, tendo em 2017 alcançado 86\% \cite{GlobalSmartphoneSales:09-17}. 
 
@@ -14,7 +14,7 @@ Nesta dissertação, investigamos a existência de maus cheiros de código relaciona
 
 Nossos dados foram obtidos por meio de dois questionários online. O primeiro foi um questionário exploratório onde questionamos desenvolvedores Android sobre boas e más práticas utilizadas no dia a dia do desenvolvimento da camada de apresentação e obtivemos 45 respostas, das quais derivamos 21 maus cheiros. O segundo foi um questionário confirmatório, onde validamos a percepção com 201 desenvolvedores Android sobre a frequência e importância dos 21 maus cheiros derivados. Por último realizamos um experimento de código presencial com 75 desenvolvedores Android com objetivo de validar a percepção dos maus cheiros no código. Ao todo, participaram da pesquisa 3XX \todo{ajustar número após experimento} desenvolvedores Android.
 
-Nossos resultados mostraram que existe uma percepção comum entre desenvolvedores sobre más práticas no desenvolvimento da camada de apresentação Android. Mostrou também, que essas más práticas são frequentes e consideradas importantes de se mitigar e que, são percebidas em códigos por desenvolvedores Android. Concluímos com: (i) um catálogo com 21 novos maus cheiros relacionados a camada de apresentação Android, (ii) uma análise estatística da percepção de desenvolvedores sobre 8 dos principais maus cheiros catalogados e (iii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para outros pesquisadores replicarem nossa pesquisa. 
+Nossos resultados mostram que existe uma percepção comum entre desenvolvedores sobre más práticas no desenvolvimento da camada de apresentação Android. Mostra também, que essas más práticas são frequentes e consideradas importantes de se mitigar e que, são percebidas em códigos por desenvolvedores Android. Concluímos com: (i) um catálogo com 21 novos maus cheiros relacionados a camada de apresentação Android, (ii) uma análise estatística da percepção de desenvolvedores sobre 8 dos principais maus cheiros catalogados e (iii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para outros pesquisadores replicarem nossa pesquisa. 
 
 Acreditamos que nossas contribuições dão um pequeno mas importante passo na busca por qualidade de software na plataforma Android e que poderá servir a pesquisadores e desenvolvedores. Aos pesquisadores serve como ponto de partida para a definição de heurísticas de identificação dos maus cheiros e implementação de ferramentas que os identifiquem de forma automática. Aos desenvolvedores serve como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
 
@@ -57,124 +57,7 @@ Acreditamos que nossas contribuições dão um pequeno mas importante passo na busc
 
 % Por fim, catalogamos 16 maus cheiros Android relacionados a manutenibilidade de código da camada de apresentação Android, extraídos através de 2 questionários online e 3 rodadas de um mesmo experimento contanto com a participação de mais de 3XX respondentes em 3 continentes.
 
-\section{Desafios no desenvolvimento Android}
 
-% No desenvolvimento Android, uma tela é composta basicamente por dois arquivos, uma classe Java responsável pela criação da tela e responder aos eventos do usuário e um recurso de \textit{layout}, arquivo XML responsável pela criação da interface visual (\acl{UI} - \acs{UI}).
-
-\textit{Activity} é um dos principais componentes de aplicativos Android. Ela representa uma tela com interface do usuário (\acl{UI} - \acs{UI}) pelo qual o usuário pode interagir através de botões, listagens, caixas de entrada de textos, dentre outros. Para implementar uma \textit{Activity} é necessário criar uma classe derivada de \texttt{Activity} e sobrescrever alguns métodos herdados, chamados de métodos de retorno. O principal método de retorno é o \textit{onCreate}, entre suas responsabilidades está a criação da tela e configuração da \acs{UI}. O Código-Fonte \ref{lst:BasicActivity} apresenta o código mínimo para a criação de uma \textit{Activity}, na linha 5 temos o código responsável pela configuração da \acs{UI} que indica o recurso de \textit{layout} ``main\_activity''.
-
-\begin{lstlisting}[
-  language=Java, 
-  caption={Código mínimo para a criação de uma \textit{Activity}}, 
-  label={lst:BasicActivity}
-]
-public class MainActivity extends Activity {
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      setContentView(R.layout.main_activity);
-  }
-}
-\end{lstlisting}
-
-A \acs{UI} de uma \textit{Activity} é construída por meio de recursos de \textit{layout}, arquivos XML cujo as \textit{tags} provém do kit de desenvolvimento Android (\acl{SDK} - \acs{SDK}) e representam \textit{Views} ou \textit{ViewGroups}. O Código-Fonte \ref{lst:SimpleLayout} apresenta um recurso de \textit{layout} com duas \textit{Views} e um \textit{ViewGroup}. As \textit{Views} são um \textit{TextView}, que representa uma caixa de entrada de texto e um \textit{Button}, que representa um botão. Essas duas \textit{Views} estão contidas dentro do \textit{ViewGroup} \textit{LinearLayout}, que as organiza verticalmente. 
-
-
-\begin{lstlisting}[
-  language=XML, 
-  caption={Exemplo de recurso de \textit{layout} com um campo de entrada de texto e um botão organizados um abaixo do outro.}, 
-  label={lst:SimpleLayout}
-]
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout ...
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
-
-    <TextView android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Um TextView" />
-
-    <Button android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Um Button" />
-</LinearLayout>
-\end{lstlisting}
-
-Os códigos apresentados são bem simples, mas comumente, estas telas e \acs{UI}s tendem a ser bem mais robustas e ricas de informações e interatividade. São em contextos como esses que os desafios no desenvolvimento da camada de apresentação Android surgem. \acs{UI}s ricas e robustas podem significar muitas \textit{Views} e \textit{ViewGroups}, resultando em recursos de \textit{layout} grandes e complexos. E ainda, quanto mais ricas e robustas são as \acs{UI}s, mais provavelmente o código das \textit{Activities} correspondentes também serão grandes e complexos, pois são pelas \textit{Activities} que \textit{Views} e \textit{ViewGroups} conseguem interagir com o usuário, também são pelas \textit{Activities} que os dados chegam até a \acs{UI} e vice-versa, dentre muitas outras responsabilidades que tendem a ficar com as \textit{Activities}.
-
-\subsection{Ciclo de Vida}
-
-Toda \textit{Activity}, bem como outros componentes Android, possui um ciclo de vida. O ciclo de vida de um componente é composto por um conjunto de métodos de retorno, que por sua vez, são métodos invocados pelo Android em uma ordem específica \cite{AndroidActivities2016}. Os componente da camada de apresentação Android possuem ciclos de vida mais extensos, e portanto, mais complexos. 
-
-Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities} e \textit{Fragments}, ambos relacionados a camada de apresentação e \textit{Services}, componente usado para longos processamento em segundo plano. Os métodos de retorno são representados pelos retângulos em cinza. É possível observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno enquanto que \textit{Services} possuem apenas quatro.
-
-\begin{figure*}[!htb]
-\centering
-  \begin{subfigure}[b]{.33\textwidth}
-    \centering
-    \includegraphics[width=.9\textwidth]{activity-lifecycle.png}
-    \caption{\textit{Activitiy}.}
-    \label{fig:activity-lifecycle}
-  \end{subfigure}
-  \begin{subfigure}[b]{.33\textwidth}
-    \centering
-    \includegraphics[width=.6\textwidth]{fragment-lifecycle.png}
-    \caption{\textit{Fragment}.}
-    \label{fig:activity-lifecycle}
-  \end{subfigure}
-  \begin{subfigure}[b]{.30\textwidth}
-    \centering
-    \includegraphics[width=.9\textwidth]{service-lifecycle.png}
-    \caption{\textit{Services}.}
-    \label{fig:service-lifecycle}
-  \end{subfigure}% 
-\caption{Comparativo do ciclo de vida de componentes Android que pertencem e não pertencem a camada de apresentação.}
-\label{fig:android-lifecycles}
-% \vspace{-.5cm} 
-\end{figure*}
-
-% \begin{lstlisting}[
-%   language=Java, 
-%   caption={Exemplo de código para a criação de uma \textit{Activity}}, 
-%   label={lst:Activity}
-% ]
-% public class MainActivity extends Activity {
-%   @Override
-%   public void onCreate(Bundle savedInstanceState) {
-%       super.onCreate(savedInstanceState);
-%       setContentView(R.layout.main_activity);
-%       // ...
-%   }
-%   @Override
-%   protected void onStart() {
-%       super.onStart();
-%       // ...
-%   }
-%   @Override
-%   protected void onResume() {
-%       super.onResume();
-%       // ...
-%   }
-%   @Override
-%   protected void onPause() {
-%       super.onPause();
-%       // ...
-%   }
-%   @Override
-%   protected void onStop() {
-%       super.onStop();
-%       // ...
-%   }
-%   @Override
-%   protected void onDestroy() {
-%       super.onDestroy();
-%       // ...
-%   }
-% }
-% \end{lstlisting}
 
 \section{Questões de Pesquisa}
 \label{sec:research-questions}
@@ -183,21 +66,29 @@ Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vid
 
 Maus cheiros são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Há ainda evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. Desta forma, dividimos a pesquisa em três questões principais, que apresentamos a seguir.
 
+
+
+
+
 \begin{center}
-\textbf{QP1: Existem maus cheiros que são específicos a camada de apresentação Android?}
+\textbf{QP1: Existem maus cheiros que são específicos a camada de apresentação de aplicativos Android?}
 \end{center}
 
-Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android e caso existam, documentá-los. Para isso precisamos explorar o conhecimento empírico de desenvolvedores Android \cite{JavaQADetectingSmells:02, JavascriptSmells}, tarefa que exige alguns passos, portanto dividimos esta questão em outras duas a seguir: \\
+% Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android e caso existam, documentá-los. Para isso precisamos explorar o conhecimento empírico de desenvolvedores Android \cite{JavaQADetectingSmells:02, JavascriptSmells}, tarefa que exige alguns passos, portanto dividimos esta questão em outras duas a seguir: \\
 
 % e contempla a execução de alguns passos para que possa ser respondida. Precisamos coletar informações empíricas de desenvolvedores sobre o desenvolvimento da camada de apresentação Android,a partir destas informações, investigar a existência de más práticas recorrentes e se existirem, derivar possíveis maus cheiros. Para isso, derivamos três sub-ques
 
-\textbf{QP1.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento da camada de apresentação Android?
+% \textbf{QP1.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento da camada de apresentação Android?
+% \textbf{QP1.2.} Desenvolvedores compartilham percepções sobre boas e más práticas no desenvolvimento da camada de apresentação Android?
 
-Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Esta questão nos fornece as primeiras ideias sobre maus cheiros na camada de apresentação Android a partir da percepção de desenvolvedores sobre o que são boas e más práticas. Buscamos respondê-la por meio de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que eles consideram boas e más práticas no desenvolvimento da camada de apresentação Android e recebemos um total de 45 respostas. \\
+% Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. 
 
-\textbf{QP1.2.} Desenvolvedores compartilham percepções sobre boas e más práticas no desenvolvimento da camada de apresentação Android?
+Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android e caso existam, documentá-los. A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Portanto é necessário explorar o conhecimento empírico de desenvolvedores Android \cite{JavascriptSmells, JavaQADetectingSmells:02}.
 
-A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Com o resultado de QP1.1, realizamos um processo de codificação pelo qual buscamos por más práticas recorrentes de modo a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para a derivação dos maus cheiros. Como resultado, derivamos 21 maus cheiros na camada de apresentação Android. 
+Esta questão nos fornece as primeiras ideias sobre maus cheiros na camada de apresentação Android. Buscamos respondê-la por meio de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que consideram boas e más práticas no desenvolvimento da camada de apresentação Android. 
+
+Recebemos um total de 45 respostas onde realizamos um processo de codificação buscando por más práticas recorrentes de modo a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para a derivação dos maus cheiros. Como resultado, derivamos 21 maus cheiros na camada de apresentação Android. 
+
 
 % \textbf{QP1.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?\\
 % A partir das 21 categorias recorrentes, extraímos 21 maus cheiros no \textit{front-end} Android. 
