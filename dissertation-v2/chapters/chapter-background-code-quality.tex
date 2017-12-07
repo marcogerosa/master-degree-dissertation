@@ -10,41 +10,42 @@ Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições 
 
 % Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \renewcommand*{\arraystretch}{1.5}
-\small
-\begin{tabular}{@{}p{5cm}p{11cm}@{}}
+\caption[Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. e McCall et al.]{Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77}.}
+\footnotesize
+\begin{tabular}{@{}p{4.5cm}p{11.5cm}@{}}
 \toprule
 \textbf{Nome do Modelo} & \textbf{Descrição} \\
-\hline
-\acs{ISO}/\acs{IEC} 9126 \cite{ISO9126:91} & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \ac{SQuaRE}. Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade.\\
-\acs{ISO}/\acs{IEC} 25010 (\acs{SQuaRE}) \cite{ISO25010:11} & Teve sua primeira publicação em 2005, revisado em 2011, quando passou a substituir a \acs{ISO}/\acs{IEC} 9126. Decompõe qualidade de software em 8 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade, usabilidade, compatibilidade e segurança.\\
-\acs{CISQ} \cite{CISQ} & Fundado em 2009 \cite{CISQAnnounce:09}, decompõe qualidade de software em 4 características: segurança, confiabilidade, desempenho/eficiência e manutenibilidade. Se baseia nas definições do \ac{SQuaRE}.\\
+\bottomrule
+\acs{ISO}/\acs{IEC} 9126 & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \ac{SQuaRE}. Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade \cite{ISO9126:91}.\\
+\acs{ISO}/\acs{IEC} 25010 (\acs{SQuaRE}) & Teve sua primeira publicação em 2005, revisado em 2011, quando passou a substituir a \acs{ISO}/\acs{IEC} 9126. Decompõe qualidade de software em 8 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade, usabilidade, compatibilidade e segurança \cite{ISO25010:11}.\\
+\acs{CISQ} & Fundado em 2009 \cite{CISQAnnounce:09}, decompõe qualidade de software em 4 características: segurança, confiabilidade, desempenho/eficiência e manutenibilidade. Se baseia nas definições do \ac{SQuaRE} \cite{CISQ}.\\
 % \acs{SWEBOK} \cite{SWEBOK:14} & Decompõe qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software. \\
-\acs{FURPS} \cite{ModelFURPS:87} & FURPS é um acrônimo para: Funcionalidade, Usabilidade, Confiabilidade (do inglês \textit{Reliability}), Desempenho (do inglês \textit{Performance}) e Suportabilidade. \\
-\toprule
+\acs{FURPS} & FURPS é um acrônimo para: Funcionalidade, Usabilidade, Confiabilidade (do inglês \textit{Reliability}), Desempenho (do inglês \textit{Performance}) e Suportabilidade \cite{ModelFURPS:87}. \\
+\bottomrule
 \end{tabular}
-\caption{Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77}.}
 \label{tab:QualityModels}
 \end{table}
 
-As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizaram de uma estratégia de decomposição hierárquica do conceito de qualidade em fatores como manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir. A Tabela \ref{tab:QualityModels} apresenta algumas dessas variações e uma breve descrição da forma como qualidade de software foi decomposta. Entretanto, o grande valor do modelo de decomposição hierárquica foi a ideia de decompor qualidade até um nível em que seja possível medir e estimar \cite{StefanSoftwareQuality:13}.
+As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizaram de uma estratégia de decomposição hierárquica do conceito de qualidade em fatores como manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir. A Tabela \ref{tab:QualityModels} apresenta algumas dessas variações e uma breve descrição da forma como qualidade de software foi decomposta. Entretanto, o grande valor do modelo de decomposição hierárquica foi a ideia de decompor qualidade até um nível em que seja possível medir e estimar~\cite{StefanSoftwareQuality:13}.
 
-O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas'' \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}.\\
+O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas'' \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}.
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
+
+% \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
+
+Dentre os conceitos apresentados na Figura \ref{fig:QualityCharacteristics}, os mais relevantes nesta dissertação são \textbf{\small manutenibilidade}, pois é onde esta pesquisa está inserida, e \textbf{\small usabilidade} e \textbf{\small eficiência}, pois é o contexto onde encontramos alguns trabalhos relacionados sobre maus cheiros de código Android \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Portanto apresentamos uma breve descrição sobre cada um destes três conceitos a seguir. \\
 
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
-  \caption{Características de Qualidade de Software segundo norma ISO/IEC 9126 \cite{ISO9126:91}.}
+  \caption[Características de Qualidade de Software segundo norma ISO/IEC 9126.]{Características de Qualidade de Software segundo norma ISO/IEC 9126 \cite{ISO9126:91}.}
   \label{fig:QualityCharacteristics}
 \end{figure}
 
-% \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
-
-Dentre os conceitos apresentados na Figura \ref{fig:QualityCharacteristics}, os mais relevantes nesta dissertação são: manutenibilidade, usabilidade e eficiência. Portanto apresentamos uma breve descrição sobre cada um destes três conceitos a seguir. \\
 
 % \subsection{Funcionalidade} 
 % A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
@@ -149,7 +150,7 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
   \begin{figure}[!htb]
     \centering
     \includegraphics[width=.7\textwidth]{formato-padroes.png}
-    \caption{Formatos de padrões de acordo com seu nível de maturidade e clareza segundo Joshua Kerievsky~\cite{PatternsFormats}.}
+    \caption[Formatos de padrões de acordo com seu nível de maturidade e clareza segundo Joshua Kerievsky.]{Formatos de padrões de acordo com seu nível de maturidade e clareza segundo Joshua Kerievsky~\cite{PatternsFormats}.}
     \label{fig:formato-padroes}
   \end{figure}
 
@@ -248,18 +249,18 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
 
 
-\subsection{Formato Adotado}
+% \subsection{Formato Adotado}
 
-Como apresentado na seção anterior, são muitos os formatos usados na literatura e em pesquisas para se catalogar maus cheiros. Com a evolução de pesquisas sobre o assunto, cada vez mais é possível refiná-los criando heurísticas, ferramentas automatizadas de detecção e inclusive propondo soluções padrões. 
+% Como apresentado na seção anterior, são muitos os formatos usados na literatura e em pesquisas para se catalogar maus cheiros. Com a evolução de pesquisas sobre o assunto, cada vez mais é possível refiná-los criando heurísticas, ferramentas automatizadas de detecção e inclusive propondo soluções padrões. 
 
-Entretanto, este trabalho é uma pesquisa exploratória sobre maus cheiros relacionados a manutenibilidade da camada de apresentação Android dando os primeiros passos nesse sentido, portanto optamos pelo formato mais simples de mau cheiro, contendo:
+% Entretanto, este trabalho é uma pesquisa exploratória sobre maus cheiros relacionados a manutenibilidade da camada de apresentação Android dando os primeiros passos nesse sentido, portanto optamos pelo formato mais simples de mau cheiro, contendo:
 
-\begin{itemize}
-  \item \emph{título}, 
+% \begin{itemize}
+%   \item \emph{título}, 
 
-  \item \emph{descrição dos sintomas},  
-  % \item e algumas \emph{frases de participantes} que nos levaram a conclusão dos sintomas definidos.
-\end{itemize}
+%   \item \emph{descrição dos sintomas},  
+%   % \item e algumas \emph{frases de participantes} que nos levaram a conclusão dos sintomas definidos.
+% \end{itemize}
  
 
 % Esta escolha de focar pelo formato textual, sem a definição de heurísticas, automatização de ferramentas e propôr soluções se dá pois consideramos cada um desses outros passos também muito complexos, sendo este primeiro passo muito 

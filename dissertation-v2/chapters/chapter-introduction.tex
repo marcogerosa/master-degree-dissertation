@@ -1,6 +1,6 @@
 % -*- root: dissertation.tex -*-
 
-\emph{``Estamos cientes de que um bom código importa, pois já tivemos que lidar com a falta dele por muito tempo''} \cite{CleanCode:08}. De fato, estamos cientes de que bons códigos importam. Mas como saber se a qualidade de um código está baixa? Uma das formas de responder a essa pergunta é buscando por \emph{maus cheiros}\footnote{Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto. \cite[p.~258]{Refactoring:14}} no código. Maus cheiros de código auxiliam desenvolvedores na identificação de trechos de códigos problemáticos, de forma que possam ser melhorados e a qualidade do software incrementada \cite{Refactoring:99}. 
+\emph{``Estamos cientes de que um bom código importa, pois já tivemos que lidar com a falta dele por muito tempo''} \cite{CleanCode:08}. De fato, estamos cientes de que bons códigos importam. Mas como saber se a qualidade de um código está baixa? Uma das formas de responder a essa pergunta é buscando por \emph{maus cheiros} no código. Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto \cite[p.~258]{Refactoring:14}. Maus cheiros auxiliam desenvolvedores na identificação de trechos de códigos problemáticos, de forma que possam ser melhorados e a qualidade do software incrementada \cite{Refactoring:99}. 
 
 Existem diversos maus cheiros catalogados, Método Longo e Classe Deus são dois exemplos \cite{Refactoring:99, CleanCode:08, Refactoring:14, Webster:95}. Muitos desses maus cheiros foram definidos baseados em conceitos e tecnologias tradicionais, como orientação a objetos e Java \cite{Java}, que surgiram durante as décadas de 70 a 90. Nesta dissertação os denominamos de maus cheiros tradicionais. Entretanto, na última década surgiram  muitas novas tecnologias, como por exemplo o Android, que levantaram questões como: ``os maus cheiros tradicionais se aplicam às novas tecnologias?'' ou ``existem maus cheiros específicos às novas tecnologias, ainda não catalogados?''. Questões como essas instigaram a curiosidade de diversos pesquisadores que decidiram investigar maus cheiros em tecnologias específicas como por exemplo o CSS \cite{CSSCodeSmell}, o Javascript \cite{JavascriptSmells}, o arcabouço Spring MVC \cite{MvcSmells:16} e fórmulas de planilhas do Google \cite{SpreadsheetsSmells:12}.
 
@@ -67,9 +67,6 @@ Acreditamos que nossas contribuições dão um pequeno mas importante passo na busc
 Maus cheiros são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Há ainda evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. Desta forma, dividimos a pesquisa em três questões principais, que apresentamos a seguir.
 
 
-
-
-
 \begin{center}
 \textbf{QP1: Existem maus cheiros que são específicos a camada de apresentação de aplicativos Android?}
 \end{center}
@@ -83,9 +80,9 @@ Maus cheiros são sintomas que podem indicar um problema mais profundo no código 
 
 % Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. 
 
-Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android e caso existam, documentá-los. A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Portanto é necessário explorar o conhecimento empírico de desenvolvedores Android \cite{JavascriptSmells, JavaQADetectingSmells:02}.
+Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android. A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Portanto, explorar o conhecimento empírico de desenvolvedores Android é relevante na busca por maus cheiros de código \cite{JavascriptSmells, JavaQADetectingSmells:02}.
 
-Esta questão nos fornece as primeiras ideias sobre maus cheiros na camada de apresentação Android. Buscamos respondê-la por meio de um questionário online submetido a desenvolvedores Android perguntando-os sobre o que consideram boas e más práticas no desenvolvimento da camada de apresentação Android. 
+Esta questão nos fornece as primeiras ideias sobre maus cheiros na camada de apresentação Android. Os dados foram coletados a partir de um questionário online submetido a desenvolvedores onde perguntamos sobre boas e más práticas no desenvolvimento da camada de apresentação Android. 
 
 Recebemos um total de 45 respostas onde realizamos um processo de codificação buscando por más práticas recorrentes de modo a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para a derivação dos maus cheiros. Como resultado, derivamos 21 maus cheiros na camada de apresentação Android. 
 
@@ -156,7 +153,7 @@ Evidências na literatura sugerem que maus cheiros são percebidos por desenvolved
 
 % Nossa pesquisa complementa as anteriores no sentido de que também buscamos por cheiros de código Android. E se difere delas pois buscamos cheiros de código relacionados à qualidade, em termos de manutenabilidade e legibilidade, específico dessa plataforma. Por exemplo \textsc{Activities}, \textsc{Fragments} e \textsc{Adapters} são classes usadas na construção de telas e \textsc{listeners} são responsáveis pelas interações com os usuários. Buscamos entender então quais são as \emph{boas e más} práticas no desenvolvimento da interface visual Android. 
 
-\section{Principais contribuições}
+\section{Principais Contribuições}
 
 As principais contribuições desta dissertação são:
 

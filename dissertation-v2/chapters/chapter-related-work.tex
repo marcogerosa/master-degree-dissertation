@@ -15,6 +15,11 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
 
 % Muitas pesquisas têm sido realizadas sobre a plataforma Android, muitas delas focam em vulnerabilidades \cite{Y, F, G, X, P, D, E}, autenticação \cite{T, Yamashita6405287, R} e testes \cite{J, M}. Diferentemente dessas pesquisas, nossa pesquisa tem foco na percepção dos desenvolvedores sobre boas e más práticas de desenvolvimento na plataforma Android. 
 
+\section{Maus Cheiros Tradicionais}
+\todo{Em construção.}
+% Dissertação do Aniche e Palomba e Bavota
+
+
 \section{Projetos Android vs. projetos de software tradicionais}
 \label{android-vs-tradicional}
 
@@ -23,9 +28,6 @@ Ao final desta seção pretende-se esclarecer os motivos pelo qual optamos por inv
   É interessante que para análise do código Android eles modelam o projeto em código núcleo e não núcleo, similar ao realizado por \cite{MobileSmells:13}, onde o código núcleo está relacionado a classes que herdam do Android SDK. Apesar disso, eles dizem coletar essa informação do Android Manifesto, considerando \textit{Activities} e \textit{Services}, entretanto, existem diversas outras classes em um projeto Android que herdam do Android SDK e não precisam ser declaradas no Android Manifesto, ou seja, a definição usada abrange muito mais código do que de fato analisado pela pesquisa.
 
   Os autores concluem com um conjunto de características de aplicativos Android e com um conjunto de hábitos dos desenvolvedores destes aplicativos que diferem de aplicações de software tradicionais. Dentre as características, afirmam que algumas vezes o código núcleo do app é composto por uma, ou algumas, \textit{God Classes} e que herança, para o uso de \textit{design} das classes, é algo quase inexistente em aplicativos Android. Estas constatações reforçam um mau cheiro por nós identificado sobre a falta de arquitetura padrão, visto que esta exige um conhecimento mais aprimorado de orientação a objetos.
-
-\section{Maus Cheiros Tradicionais}
-\todo{Em construção.}
 
 \section{Maus cheiros específicos a uma tecnologia}
 \label{maus-cheiros-especificos}
