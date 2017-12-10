@@ -2,18 +2,71 @@
 \label{etapa-3}
 
 % \todo{[Nota revisor SBES] Por que vocês resolveram incluir maus cheiros tradicionais na avaliação? Que maus cheiros tradicionais foram levados em conta? Como vocês determinaram os códigos que tinham maus cheiros tradicionais?}
+Para responder a QP3 realizamos um experimento de código com o objetivo de validar a percepção de desenvolvedores Android sobre os maus cheiros propostos. Elaboramos este experimento de modo que fosse possível validar os maus cheiros mais importantes e mais frequentes do ponto de vista dos respondentes da QP2 e que fosse possível em termos de participantes. Selecionamos os oito maus cheiros considerados mais importantes e frequentes pelos respondentes da QP2 para serem validados.
+
+Nesse experimento, cada desenvolvedor avaliou seis códigos dos quais, três deles são afetados por um dos 8 maus cheiros e os outros três são códigos limpos, ou seja, não afetado por nenhum mau cheiro. Os códigos foram apresentados de forma randômica e para cada código o desenvolvedor respondia três questões sobre a percepção de algum problema, qual seria o problema e a severidade. O experimento foi disponibilizado online por meio de um questionário desenvolvido especificamente para esta pesquisa, cujo o projeto é de código aberto\footnote{https://github.com/SuelenGC/code-experiment-survey-app}. 
+
+Este experimento equivale ao experimento realizado por Aniche et al. \cite{AnicheSmellsMVC:17} com o mesmo objetivo de validar a percepção de código sobre seis maus cheiros propostos pelos pesquisadores específicos a aplicações Spring MVC. 
+
 
 \subsection{Experimento}
-\todo{Ainda não escrito pois estamos finalizando como será feito.}
+
+De forma a obtermos pontos de dados o suficiente para a análise estatística dos maus cheiros devido ao número limitado de participantes no experimento, avaliamos um subconjunto contendo os 8 principais maus cheiros dentre os 21 propostos. Esses foram selecionados a partir do seguinte critério: todos os que apresentaram MO de importância e frequência 3, 4 ou 5 e DP inferior a 1,20. Ou seja, se um mau cheiro apresenta MO de importância 3, 4 ou 5 mas MO de frequência inferior a 3, mesmo que o DP seja inferior a 1,20 ainda assim ele não foi selecionado para participar do experimento. 
+
+A Tabela \ref{tab:SelectedSmellFrequencyImportance} apresenta os maus cheiros avaliados no experimento. Podemos observar que cinco deles são maus cheiros em componentes da camada de apresentação Android (\textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Adapter Complexo} e \textsc{\small Comportamento Suspeito}) e três são maus cheiros relacionados a recursos Android (\textsc{\small Longo Recurso de Estilo}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}).
+
+
+\begin{table}[!htb]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\caption{Maus cheiros selecionados para o experimento com MO de importância e frequência igual a 3, 4 ou 5 e DP menor que 1,20.}
+\begin{tabular}{@{}p{9cm}cccp{.5cm}ccc@{}}
+\toprule
+ \multirow{2}{*}{\textbf{Mau Cheiro}} & \multicolumn{3}{c}{\textbf{Importância}} & & \multicolumn{3}{c}{\textbf{Frequência}} \\ \cmidrule{2-4} \cmidrule{6-8}
+                                      & \textbf{ME} & \textbf{MO} & \textbf{DP} & & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
+\bottomrule
+\textsc{Componente de UI Inteligente} & 5 & 5 & 1,05 & & 3 & 4 & 1,19 \\ 
+\textsc{Componente de UI Acoplado} & 4 & 5 & 1,02 & & 3 & 3 & 1,15 \\ 
+\textsc{Componente de UI Zumbi} & 5 & 5 & 0,88 & & 3 & 3 & 1,16 \\ 
+\textsc{Adapter Complexo} & 4 & 5 & 0,91 & & 3 & 3 & 1,15 \\ 
+\textsc{Longo Recurso de Estilo} & 4 & 4 & 1,06 & & 4 & 5 & 1,18 \\ 
+\textsc{Comportamento Suspeito} & 3 & 4 & 1,19 & & 3 & 4 & 1,19 \\ 
+\textsc{Layout Profundamente Aninhado} & 4 & 4 & 1,12 & & 4 & 4 & 1,06 \\ 
+\textsc{Atributos de Estilo Repetidos} & 4 & 4 & 0,86 & & 4 & 4 & 1,11 \\ 
+\toprule
+\multicolumn{8}{@{}l@{}}{DP = Desvio Padrão, MO = Moda, ME = Média.} \\
+\bottomrule
+\end{tabular}
+\label{tab:SelectedSmellFrequencyImportance}
+\end{table}
+
+Os dados foram coletamos por meio de um questionário online composto por duas seções. A primeira teve o objetivo de coletar dados demográficos como experiência, total de aplicativos publicados e ocupação atual. A segunda seção apresentava seis códigos, três afetados por um dos oito maus cheiros e três limpos. Esses códigos eram selecionados randomicamente de duas listas de códigos pré-selecionados, uma lista de códigos ``maus cheirosos'' e outra de códigos ``limpos'', de modo que nunca eram apresentados códigos repetidos para um mesmo participante. Como nossa necessidade de questionário online era bem peculiar, não encontramos nenhuma ferramenta que nos atendesse plenamente e portanto desenvolvemos nossa própria ferramenta de questionário para a realização do experimento. Esta ferramenta é de código aberto e está disponível no GitHub.
+
+Os códigos das listas ``maus cheirosos'' e ``limpos'' foram selecionados manualmente de projetos de código aberto disponíveis no GitHub. Esses códigos foram ligeiramente modificados para não desfocar o participante do objetivo do experimento. Foram selecionados cinco códigos para cada um dos 8 maus cheiros avaliados, totalizando 40 códigos. Também foram selecionados cinco códigos limpos, ou seja, que não apresentavam nenhum mau cheiro, para cada mau cheiro avaliado, totalizando também 40 códigos limpos. Ou seja, se um dos maus cheiros afeta \textit{Activities}, então foram selecionados cinco códigos de \textit{Activities} que apresentassem o mau cheiro e cinco código de \textit{Activities} limpas. Por fim, para o experimento foram selecionados um total de 80 códigos, sendo 40 ``maus cheirosos'' e 40 ``limpos''. Para cada código selecionado foi criado um \textit{gist}, link para o código específico, também na plataforma do GitHub. A lista contendo todos os \textit{gists} dos códigos usados no experimento, segmentado por maus cheiro, pode ser consultada no Apêndice \ref{experiment-gists}.
+
+Todo código selecionado foi ligeiramente modificado de modo a apresentar apenas o mau cheiro que se buscava avaliar ou de modo a representar um código limpo. Os códigos limpos também foram ligeiramente modificados de modo a remover qualquer código que pudesse indicar a presença de algum mau cheiro ou desfocar o participante. As modificações realizadas tiveram o único objetivo de focar as atenções dos participantes do experimento em avaliar os maus cheiros propostos. Um exemplo de modificação é a total remoção de declarações \textit{packages} e \textit{imports}. Para cada código apresentado, o participante era solicitado a responder três questões, listadas a seguir:
+
+\begin{itemize}
+  \item Na sua opinião, este código apresenta algum problema de design e/ou implementação? (Sim/Não)
+  \item Se SIM, por favor explique quais são, na sua opinião, os problemas que afetam este código. (Pergunta aberta)
+  \item Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir: (Escala \textit{likert}: Muito baixa, Baixa, Média, Alta, Muito alta)
+\end{itemize}
+
+Com o objetivo de mitigar viés ou enganos na seleção manual de códigos que representassem os maus cheiros, realizamos a validação dos códigos com outros dois desenvolvedores Android experientes. \todo{qndo tiver info sobre o feedback colocar aqui}.
 
 \subsection{Participantes}
 \label{sub:perception-participants}
-\todo{Ainda não escrito pois estamos finalizando como será feito.}
+
 % Todos os participantes exceto 1, são atualmente desenvolvedores Android profissionais, ou seja, atuam profissionalmente com a plataforma Android. 70\% responderam com seu email para receber resultados da pesquisa, tal como em \textit{S1}, pode ser um indicativo de interesse legítimo da comunidade sobre esta temática. Questionamos da experiência com desenvolvimento de software, bem como com desenvolvimento Android, notamos que 55\% relataram ter mais de 5 aplicativos publicados e 47\% tinham mais de 4 anos de experiência com Android. A experiência dos desenvolvedores pode ser visualizada na Figura \ref{fig:ExpDevsS2}.
+
+
+
+
 
 \subsection{Análise dos Dados}
 \label{sub:perception-participants-analysis}
-\todo{Aguardando dois anteriores para ser escrito. Mas basicamente extrairemos dados estatísticos cliff e wilcoxon.}
+\todo{Aguardando resultado para análise. }
 
 % Nossa análise consistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
 

@@ -26,36 +26,36 @@ Entendemos este resultado de forma positiva pois, apesar de alguns sintomas não 
 \renewcommand*{\arraystretch}{1}
 \footnotesize 
 \caption{Média, moda e desvio padrão sobre a percepção da importância dos maus cheiros relacionados a componentes da camada de apresentação Android.}
-\begin{tabular}{@{}p{7cm}cccccc@{}}
+\begin{tabular}{@{}p{9cm}cccp{.5cm}ccc@{}}
 \toprule
- & \multicolumn{3}{c}{\textbf{Importância}} & \multicolumn{3}{c}{\textbf{Frequência}} \\
-\textbf{Mau Cheiro} & \textbf{ME} & \textbf{MO} & \textbf{DP} & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
+\multirow{2}{*}{\textbf{Mau Cheiro}} & \multicolumn{3}{c}{\textbf{Importância}} & & \multicolumn{3}{c}{\textbf{Frequência}} \\ \cmidrule{2-4} \cmidrule{6-8}
+                                      & \textbf{ME} & \textbf{MO} & \textbf{DP} & & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
 \bottomrule
-\textsc{Componente de UI Inteligente} & 5 & 5 & 1,05 & 3 & 4 & 1,19 \\ 
-\textsc{Recurso Mágico} & 4 & 5 & 1,00 & 3 & 4 & 1,24 \\ 
-\textsc{Imagem Tradicional Dispensável} & 4 & 5 & 0,95 & 3 & 4 & 1,23 \\ 
-\textsc{Layout Longo ou Repetido} & 4 & 5 & 0,95 & 4 & 4 & 1,07 \\ 
-\textsc{Imagem Faltante} & 5 & 5 & 0,95 & 3 & 4 & 1,25 \\ 
-\textsc{Componente de UI Acoplado} & 4 & 5 & 1,02 & 3 & 3 & 1,15 \\ 
-\textsc{Classes de UI Fazendo IO} & 5 & 5 & 1,03 & 3 & 3 & 1,29 \\ 
-\textsc{Componente de UI Zumbi} & 5 & 5 & 0,88 & 3 & 3 & 1,16 \\ 
-\textsc{Ausência de Arquitetura} & 5 & 5 & 0,82 & 3 & 3 & 1,30 \\ 
-\textsc{Adapter Complexo} & 4 & 5 & 0,91 & 3 & 3 & 1,15 \\ 
-\textsc{Nome de Recurso Despadronizado} & 5 & 5 & 0,88 & 3 & 3 & 1,24 \\ 
-\textsc{Adapter Consumista} & 5 & 5 & 0,93 & 2 & 2 & 1,20 \\ 
-\textsc{Listener Escondido} & 4 & 5 & 1,23 & 2 & 2 & 1,29 \\ 
-\textsc{Longo Recurso de Estilo} & 4 & 4 & 1,06 & 4 & 5 & 1,18 \\ 
-\textsc{Recurso de String Bagunçado} & 3 & 4 & 1,22 & 4 & 5 & 1,18 \\ 
-\textsc{Comportamento Suspeito} & 3 & 4 & 1,19 & 3 & 4 & 1,19 \\ 
-\textsc{Layout Profundamente Aninhado} & 4 & 4 & 1,12 & 4 & 4 & 1,06 \\ 
-\textsc{Atributos de Estilo Repetidos} & 4 & 4 & 0,86 & 4 & 4 & 1,11 \\ 
-\textsc{Não Uso de Fragment} & 3 & 4 & 1,34 & 3 & 2 & 1,21 \\ 
-\textsc{Reuso Inadequado de String} & 3 & 3 & 1,29 & 4 & 4 & 1,12 \\ 
-\textsc{Uso Excessivo de Fragment} & 3 & 3 & 1,36 & 3 & 3 & 1,17 \\ 
-\bottomrule
-\textbf{DP Médio} &  &  & 1.05 &  &  & 1.19 \\ 
+\textsc{Componente de UI Inteligente} & 5 & 5 & 1,05 & & 3 & 4 & 1,19 \\ 
+\textsc{Recurso Mágico} & 4 & 5 & 1,00 & & 3 & 4 & 1,24 \\ 
+\textsc{Imagem Tradicional Dispensável} & 4 & 5 & 0,95 & & 3 & 4 & 1,23 \\ 
+\textsc{Layout Longo ou Repetido} & 4 & 5 & 0,95 & & 4 & 4 & 1,07 \\ 
+\textsc{Imagem Faltante} & 5 & 5 & 0,95 & & 3 & 4 & 1,25 \\ 
+\textsc{Componente de UI Acoplado} & 4 & 5 & 1,02 & & 3 & 3 & 1,15 \\ 
+\textsc{Classes de UI Fazendo IO} & 5 & 5 & 1,03 & & 3 & 3 & 1,29 \\ 
+\textsc{Componente de UI Zumbi} & 5 & 5 & 0,88 & & 3 & 3 & 1,16 \\ 
+\textsc{Ausência de Arquitetura} & 5 & 5 & 0,82 & & 3 & 3 & 1,30 \\ 
+\textsc{Adapter Complexo} & 4 & 5 & 0,91 & & 3 & 3 & 1,15 \\ 
+\textsc{Nome de Recurso Despadronizado} & 5 & 5 & 0,88 & & 3 & 3 & 1,24 \\ 
+\textsc{Adapter Consumista} & 5 & 5 & 0,93 & & 2 & 2 & 1,20 \\ 
+\textsc{Listener Escondido} & 4 & 5 & 1,23 & & 2 & 2 & 1,29 \\ 
+\textsc{Longo Recurso de Estilo} & 4 & 4 & 1,06 & & 4 & 5 & 1,18 \\ 
+\textsc{Recurso de String Bagunçado} & 3 & 4 & 1,22 & & 4 & 5 & 1,18 \\ 
+\textsc{Comportamento Suspeito} & 3 & 4 & 1,19 & & 3 & 4 & 1,19 \\ 
+\textsc{Layout Profundamente Aninhado} & 4 & 4 & 1,12 & & 4 & 4 & 1,06 \\ 
+\textsc{Atributos de Estilo Repetidos} & 4 & 4 & 0,86 & & 4 & 4 & 1,11 \\ 
+\textsc{Não Uso de Fragment} & 3 & 4 & 1,34 & & 3 & 2 & 1,21 \\ 
+\textsc{Reuso Inadequado de String} & 3 & 3 & 1,29 & & 4 & 4 & 1,12 \\ 
+\textsc{Uso Excessivo de Fragment} & 3 & 3 & 1,36 & & 3 & 3 & 1,17 \\  
 \toprule
-\multicolumn{7}{@{}l@{}}{DP = Desvio Padrão, MO = Moda, ME = Média.} \\
+DP Médio &  &  & 1.05 &  & &  & 1.19 \\ 
+\toprule
+\multicolumn{8}{@{}l@{}}{DP = Desvio Padrão, MO = Moda, ME = Média.} \\
 \bottomrule
 \end{tabular}
 \label{tab:SmellFrequencyImportance}
