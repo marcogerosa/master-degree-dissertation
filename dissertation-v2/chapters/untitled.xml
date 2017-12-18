@@ -1,0 +1,21 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.Calculator.ButtonStyle.Widget">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Calculator.ButtonStyle.FloatingCalc" parent="Theme.Calculator.ButtonStyle.Widget">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Theme.Calculator.Display.Widget">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="Theme.Calculator.Display.FloatingCalc">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:padding">0dp</item>
+    </style>
+</resources>
