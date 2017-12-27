@@ -2,17 +2,47 @@
 \section{Etapa 3 - Percepção dos maus cheiros}
 \label{etapa-3}
 
-Para responder a \textbf{\small QP3}, buscamos validar a percepção de desenvolvedores Android sobre códigos afetados pelos maus cheiros propostos. Devido a limitações de tempo e quantidade de respondentes, foi possível coletar dados suficientes para validar a percepção sobre 7 dos 21 maus cheiros propostos. Foram avaliados no experimento os 7 maus cheiros considerados mais importantes e frequentes pelos respondentes de S2, são eles: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}.
+Para responder a \textbf{\small QP3} validamos a percepção de desenvolvedores Android sobre códigos afetados por sete maus cheiros, considerados mais importantes e frequentes (vide Tabela \ref{tab:selected-smells}), dos 21 propostos. Os dados foram coletados por meio de um experimento de código online onde cada participante era solicitado a avaliar a qualidade de seis códigos relativos a camada de apresentação Android. Obtivemos um total de 70 respostas. Vale ressaltar que este experimento já foi realizado em pesquisa similar, realizada por Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16}, relacionada a maus cheiros em aplicações com Spring MVC.  
 
-Coletamos os dados por meio de um experimento de código online onde cada participante era solicitado a avaliar a qualidade de seis códigos relativos a camada de apresentação Android. Obtivemos 54 respostas. É importante ressaltar que, este experimento já foi realizado em pesquisa similar feita por Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16}, relacionada a maus cheiros em aplicações com Spring MVC.  
 
-Nossos resultados confirmam estatisticamente a percepção por desenvolvedores Android de cinco dos sete maus cheiros avaliados. Não obtivemos dados suficientes para tirar conclusões estatísticas sobre os outros dois. A seguir, na Seção \ref{etapa-3-experimento} apresentamos detalhes sobre o experimento, na Seção \ref{etapa-3-participantes} detalhes sobre os participantes e na Seção \ref{etapa-3-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção~\ref{phase3-results}.
+% 54 respostas válidas, 16 descartadas
+
+% , são eles: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}.
+
+Nossos resultados confirmam estatisticamente que desenvolvedores Android percebem cinco dos sete maus cheiros avaliados. Não obtivemos dados suficientes para tirar conclusões estatísticas sobre os outros dois. A seguir, na Seção \ref{etapa-3-experimento} apresentamos detalhes sobre o experimento, na Seção \ref{etapa-3-participantes} detalhes sobre os participantes e na Seção \ref{etapa-3-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção~\ref{phase3-results}.
 
 
 \subsection{Experimento}
 \label{etapa-3-experimento}
 
-O experimento de código foi divulgado em redes sociais como Twitter e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org} e ficou aberto por 5 dias. O experimento continha duas seções principais. A primeira seção teve como objetivo coletar informações demográficas, principalmente com relação a experiência dos participantes. Na segunda seção os participantes foram solicitados a analisar seis códigos, quatro \textbf{\small \textit{``mau cheirosos''}}, ou seja, afetados por um dos sete maus cheiros avaliados e dois \textbf{\small \textit{``limpos''}}, ou seja, não afetado pelos maus cheiros avaliados. E para cada um deles, responder as seguintes perguntas:
+Devido a limitações de tempo e quantidade de respondentes, foi possível coletar dados suficientes para validar estatisticamente a percepção sobre 7 dos 21 maus cheiros propostos. Para definirmos quais maus cheiros seriam avaliados no experimento, usamos o seguinte critério: todos os maus cheiros com MO de importância e frequência maior ou igual a 3 e DP de importância e frequência inferior a 1,20. Conforme obtínhamos os dados, este critério poderia ser relaxado para acomodar mais maus cheiros. A Tabela \ref{tab:selected-smells} lista os maus cheiros avaliados no experimento.
+
+\begin{table}[!htb]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\caption{Sete maus cheiros avaliados no experimento de código sobre a percepção de desenvolvedores Android.}
+\begin{tabular}{@{}p{9cm}cccp{.5cm}ccc@{}}
+\toprule
+ \multirow{2}{*}{\textbf{Mau Cheiro}} & \multicolumn{3}{c}{\textbf{Importância}} & & \multicolumn{3}{c}{\textbf{Frequência}} \\ \cmidrule{2-4} \cmidrule{6-8}
+                                      & \textbf{ME} & \textbf{MO} & \textbf{DP} & & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
+\bottomrule
+\textsc{Componente de UI Inteligente} & 5 & 5 & 1,05 & & 3 & 4 & 1,19 \\ 
+\textsc{Componente de UI Acoplado} & 4 & 5 & 1,02 & & 3 & 3 & 1,15 \\ 
+% \textsc{Componente de UI Zumbi} & 5 & 5 & 0,88 & & 3 & 3 & 1,16 \\ 
+\textsc{Adapter Complexo} & 4 & 5 & 0,91 & & 3 & 3 & 1,15 \\ 
+\textsc{Longo Recurso de Estilo} & 4 & 4 & 1,06 & & 4 & 5 & 1,18 \\ 
+\textsc{Comportamento Suspeito} & 3 & 4 & 1,19 & & 3 & 4 & 1,19 \\ 
+\textsc{Layout Profundamente Aninhado} & 4 & 4 & 1,12 & & 4 & 4 & 1,06 \\ 
+\textsc{Atributos de Estilo Repetidos} & 4 & 4 & 0,86 & & 4 & 4 & 1,11 \\ 
+\toprule
+\multicolumn{8}{@{}l@{}}{DP = Desvio Padrão, MO = Moda, ME = Média.} \\
+\bottomrule
+\end{tabular}
+\label{tab:selected-smells}
+\end{table}
+
+O experimento de código foi divulgado em redes sociais como Twitter e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org} e ficou aberto por 8 dias. O experimento continha duas seções principais. A primeira seção teve como objetivo coletar informações demográficas, principalmente com relação a experiência dos participantes. Na segunda seção os participantes foram solicitados a analisar seis códigos, quatro \textbf{\small \textit{``mau cheirosos''}}, ou seja, afetados por um dos sete maus cheiros avaliados, e dois \textbf{\small \textit{``limpos''}}, ou seja, não afetado pelos maus cheiros avaliados. E para cada um deles, responder as seguintes perguntas:
 
 \noindent 
 \begin{itemize}
@@ -21,12 +51,13 @@ O experimento de código foi divulgado em redes sociais como Twitter e o grupo do
   \item[P3] Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir. Respostas possíveis sendo uma escala \textit{Likert} de 5 pontos de 1 (muito baixa) até 5 (muito alta).
 \end{itemize}
 
-Os seis códigos apresentados foram randomicamente selecionados de um conjunto de 50 códigos. Esse conjunto foi composto por 35 códigos mau cheirosos (cinco para cada mau cheiro avaliado) e 15 códigos limpos. Vale salientar que, para reduzirmos possíveis bias e viés de confundimento, nos dois grupos de códigos, selecionamos apenas \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, recursos de \textit{Layout}, \textit{String} e \textit{Style}, uma vez que são esses os elementos da camada de apresentação Android, cujo os maus cheiros propostos e avaliados tratam.
+Os seis códigos apresentados foram randomicamente selecionados de um conjunto de 50 códigos. Esse conjunto foi composto por 35 códigos mau cheirosos (cinco para cada mau cheiro avaliado) e 15 códigos limpos. Vale salientar que, para mitigar possíveis viés de confundimento, nos dois grupos de códigos, selecionamos apenas \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, recursos de \textit{Layout}, \textit{String} e \textit{Style}, uma vez que são esses os elementos da camada de apresentação Android, cujo os maus cheiros propostos e avaliados tratam.
 
 \begin{table}[h]
 \centering
 \renewcommand*{\arraystretch}{1}
-\footnotesize 
+\footnotesize
+\caption{Listagem dos nove projetos de software livre Android usados para coletar os códigos usados no experimento.} 
 \begin{tabular}{@{}p{9cm}lll@{}}
 \toprule
 \multirow{2}{*}{\textbf{Código-Fonte}} & \multicolumn{3}{c}{\textbf{Google Play Store}} \\ \cmidrule{2-4}
@@ -43,7 +74,6 @@ https://github.com/mkulesh/microMathematics & 4.7 &  500 - 1.000 & 2.15.6 \\
 https://github.com/openfoodfacts/openfoodfacts-androidapp & 4.0 &  1.000 - 5.000 & 0.7.4 \\
 \bottomrule
 \end{tabular}
-\caption{Listagem dos nove projetos de software livre Android usados para coletar os códigos usados no experimento.}
 \label{tab:android-projects}
 \end{table}
 
@@ -51,17 +81,17 @@ Os códigos usados no experimento foram extraídos de projetos de software livre A
 
 % A medida que não encontrávamos códigos para usar no experimento em um projeto, selecionávamos aleatoriamente outro projeto para buscar por códigos. Ao final, foram usados códigos de nove projetos diferentes. 
 
-A seleção dos códigos usados no experimento foi feita de forma manual, pois como os maus cheiros estão sendo propostos nesta pesquisa, ainda não existem heurísticas definidas ou ferramentas que os detectem automaticamente em projetos Android. Para cada mau cheiro a ser avaliado, buscamos nos projetos pelo tipo de código que poderia ser afetado por ele, por exemplo, o mau cheiro \textsc{\small Atributos de Estilo Repetidos} pode afetar recursos de \textit{Layout} ou \textit{Style}, mas não \textit{Activities}, logo, para encontrar códigos afetados por ele precisamos olhar em recursos de \textit{Layout} ou \textit{Style}. Após encontrado, o código era analisado de modo a verificar se apresentava algum dos sintomas do mau cheiro, conforme descritos na Seção \ref{phase1-code-smells-catalog}. Caso o código apresentasse o sintoma, o mesmo era separado para ser usado no experimento. 
+A seleção dos códigos usados no experimento foi feita de forma manual, pois como os maus cheiros estão sendo propostos nesta pesquisa, ainda não existem heurísticas definidas ou ferramentas que os detectem automaticamente em projetos Android. Para cada mau cheiro a ser avaliado, buscamos nos projetos pelo tipo de código que poderia ser afetado por ele. Por exemplo, o mau cheiro \textsc{\small Atributos de Estilo Repetidos} pode afetar recursos de \textit{Layout} ou \textit{Style}, mas não \textit{Activities}, logo, para encontrar códigos afetados por ele precisamos olhar em recursos de \textit{Layout} ou \textit{Style}. Após encontrado, o código era analisado de modo a verificar se apresentava algum dos sintomas do mau cheiro, conforme descritos na Seção \ref{phase1-code-smells-catalog}. Caso o código apresentasse o sintoma, o mesmo era separado para ser usado no experimento. 
 
 Repetimos esse procedimento para cada mau cheiro a ser avaliado, passando por cada um dos projetos selecionados. Quando não encontrávamos códigos nos projetos já selecionados, selecionávamos aleatoriamente outro projeto e repetíamos a busca pelo mau cheiro. Deste modo, nove projetos foram necessários para encontrarmos códigos exemplos, maus cheirosos e limpos, para os sete maus cheiros.
 
 % Para cada mau cheiro, buscamos em cada projeto, códigos afetados por ele, por exemplo, o mau cheiro \textsc{\small Atributos de Estilo Repetidos} afeta recursos de \textit{Layout} ou \textit{Style}. Para cada código encontrado, avaliamos se era apresentado algum dos sintomas do mau cheiro em questão, se sim, o código era separado para ser usado no experimento. 
 
-Para cada código separado para o experimento, foi criado um \textit{gist}\footnote{\textit{Gist} é uma forma de compartilhar conteúdo, inclusive trechos de código, pela plataforma GitHub \cite{Gists}.}, a lista com todos os \textit{gists} pode ser conferida no Apêndice \ref{experiment-gists}. Pequenas modificações foram feitas nos códigos com o objetivo de isolar o mau cheiro a ser avaliado e reduzir o esforço cognitivo do participante. Para reduzir esforço cognitivo, removemos declarações de \textit{packages}, \textit{imports} e comentários. Para isolar o mau cheiro a ser avaliado, diversas e variadas pequenas mudanças foram realizadas a depender do código e do mau cheiro a ser isolado. Deste modo, cada \textit{gist} com código mau cheiroso, apresentava apenas um dos maus cheiros avaliados. 
+Para cada código separado para o experimento, foi criado um \textit{gist}\footnote{\textit{Gist} é uma forma de compartilhar conteúdo, inclusive trechos de código, pela plataforma GitHub \cite{Gists}.}. A lista com todos os \textit{gists} pode ser visualizada no Apêndice \ref{experiment-gists}. Pequenas modificações foram feitas nos códigos com o objetivo de isolar o mau cheiro a ser avaliado e reduzir o esforço cognitivo do participante. Para reduzir esforço cognitivo, removemos declarações de \textit{packages}, \textit{imports} e comentários. Para isolar o mau cheiro a ser avaliado, diversas e variadas pequenas mudanças foram realizadas a depender do código e do mau cheiro a ser isolado. Deste modo, cada \textit{gist} com código mau cheiroso, apresentava apenas um dos maus cheiros avaliados. 
 
-Para reduzir bias e viés de seleção, foram criados cinco \textit{gists} diferentes para cada mau cheiro, totalizando 35 \textit{gists} mau cheirosos diferentes. Sobre os \textit{gists} com códigos limpos, selecionamos cinco códigos de componentes da camada de apresentação Android, dentre eles \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}, cinco recursos de \textit{Layout} e cinco recursos de \textit{Style}, totalizando 15 códigos limpos. Nenhum dos maus cheiros avaliados afetava recursos de \textit{String} ou \textit{Drawables}, por este motivos não foram selecionados códigos destes tipos.
+Para mitigar possíveis viés de seleção, foram criados cinco \textit{gists} diferentes para cada mau cheiro, totalizando 35 \textit{gists} mau cheirosos diferentes. Sobre os \textit{gists} com códigos limpos, selecionamos cinco códigos de componentes da camada de apresentação Android, dentre eles \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}, cinco recursos de \textit{Layout} e cinco recursos de \textit{Style}, totalizando 15 \textit{gists} com códigos limpos. Nenhum dos maus cheiros avaliados afetava recursos de \textit{String} ou \textit{Drawables}, por este motivo não foram selecionados códigos desses tipos.
 
-Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu os seis códigos randomicamente selecionados em ordem aleatória. Além disso, os participantes não foram informados de quais códigos pertenciam a quais grupos (maus cheirosos ou limpos). Os participantes foram informados apenas de que a pesquisa tinha como objetivo estudar a qualidade de códigos da camada de apresentação de aplicativos Android nativos. Não foi imposto nenhum limite de tempo para completar a tarefa.
+Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu os seis códigos randomicamente selecionados, em ordem aleatória. Como nossas necessidades para o experimento eram bem peculiares, foi desenvolvido um software específico\footnote{Repositório do software desenvolvido para aplicação do experimento de código: github.com/suelengc/code-experiment-survey-app} para aplicá-lo. Além disso, os participantes não foram informados de quais códigos pertenciam a quais grupos (maus cheirosos ou limpos). Os participantes foram informados apenas de que a pesquisa tinha como objetivo estudar a qualidade de códigos da camada de apresentação de aplicativos Android nativos. Não foi imposto nenhum limite de tempo para completar a tarefa.
 
 % 3. Justificativa do limite de smells validados. Poderíamos aumentar os smells conforme fossemos conseguindo a quantidade de respostas necessárias. (file:///Users/suelengc/Downloads/Pesquisa%20Survey%2001-2.pdf) Fink (1995) o tamanho da amostra se refere ao número de respondentes necessário para que os resultados obtidos sejam precisos e confiáveis, e que o aumento no tamanho da amostra diminui o erro. Fala tb sobre o número 30 observações. (https://www.mendeley.com/viewer/?fileId=0eaba507-ab72-66c7-7354-79aa49780aad&documentId=a744673b-5f59-397e-b37f-ad47d650bc51)
 
@@ -79,35 +109,8 @@ Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu 
 
 % \subsection{Experimento}
 
-% De forma a obtermos pontos de dados o suficiente para a análise estatística dos maus cheiros devido ao número limitado de participantes no experimento, avaliamos um subconjunto contendo os 8 principais maus cheiros dentre os 21 propostos. Esses foram selecionados a partir do seguinte critério: todos os que apresentaram MO de importância e frequência 3, 4 ou 5 e DP inferior a 1,20. Ou seja, se um mau cheiro apresenta MO de importância 3, 4 ou 5 mas MO de frequência inferior a 3, mesmo que o DP seja inferior a 1,20 ainda assim ele não foi selecionado para participar do experimento. 
-
 % A Tabela \ref{tab:SelectedSmellFrequencyImportance} apresenta os maus cheiros avaliados no experimento. Podemos observar que cinco deles são maus cheiros em componentes da camada de apresentação Android (\textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Adapter Complexo} e \textsc{\small Comportamento Suspeito}) e três são maus cheiros relacionados a recursos Android (\textsc{\small Longo Recurso de Estilo}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}).
 
-
-% \begin{table}[!htb]
-% \centering
-% \renewcommand*{\arraystretch}{1}
-% \footnotesize 
-% \caption{Maus cheiros selecionados para o experimento com MO de importância e frequência igual a 3, 4 ou 5 e DP menor que 1,20.}
-% \begin{tabular}{@{}p{9cm}cccp{.5cm}ccc@{}}
-% \toprule
-%  \multirow{2}{*}{\textbf{Mau Cheiro}} & \multicolumn{3}{c}{\textbf{Importância}} & & \multicolumn{3}{c}{\textbf{Frequência}} \\ \cmidrule{2-4} \cmidrule{6-8}
-%                                       & \textbf{ME} & \textbf{MO} & \textbf{DP} & & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
-% \bottomrule
-% \textsc{Componente de UI Inteligente} & 5 & 5 & 1,05 & & 3 & 4 & 1,19 \\ 
-% \textsc{Componente de UI Acoplado} & 4 & 5 & 1,02 & & 3 & 3 & 1,15 \\ 
-% \textsc{Componente de UI Zumbi} & 5 & 5 & 0,88 & & 3 & 3 & 1,16 \\ 
-% \textsc{Adapter Complexo} & 4 & 5 & 0,91 & & 3 & 3 & 1,15 \\ 
-% \textsc{Longo Recurso de Estilo} & 4 & 4 & 1,06 & & 4 & 5 & 1,18 \\ 
-% \textsc{Comportamento Suspeito} & 3 & 4 & 1,19 & & 3 & 4 & 1,19 \\ 
-% \textsc{Layout Profundamente Aninhado} & 4 & 4 & 1,12 & & 4 & 4 & 1,06 \\ 
-% \textsc{Atributos de Estilo Repetidos} & 4 & 4 & 0,86 & & 4 & 4 & 1,11 \\ 
-% \toprule
-% \multicolumn{8}{@{}l@{}}{DP = Desvio Padrão, MO = Moda, ME = Média.} \\
-% \bottomrule
-% \end{tabular}
-% \label{tab:SelectedSmellFrequencyImportance}
-% \end{table}
 
 % Os dados foram coletamos por meio de um questionário online composto por duas seções. A primeira teve o objetivo de coletar dados demográficos como experiência, total de aplicativos publicados e ocupação atual. A segunda seção apresentava seis códigos, três afetados por um dos oito maus cheiros e três limpos. Esses códigos eram selecionados randomicamente de duas listas de códigos pré-selecionados, uma lista de códigos ``maus cheirosos'' e outra de códigos ``limpos'', de modo que nunca eram apresentados códigos repetidos para um mesmo participante. Como nossa necessidade de questionário online era bem peculiar, não encontramos nenhuma ferramenta que nos atendesse plenamente e portanto desenvolvemos nossa própria ferramenta de questionário para a realização do experimento. Esta ferramenta é de código aberto e está disponível no GitHub.
 
@@ -139,7 +142,7 @@ Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu 
 
 % Para que fosse possível a validação estatística era necessário em média 30 respostas para cada mau cheiro, segundo fula 30 observações .... Deste modo lançamos o experimento de código com os sete maus cheiros mais importantes e frequentes segundo respondentes de S2. Conforme o número mínimo de respostas de um dos maus cheiros fosse alcançado, removíamos ele do experimento e adicionávamos outro. Desta forma foi possível coletar respostas o suficiente para sete maus cheiros serem analisados estatisticamente.
 
-Para comparar as distribuições de severidade indicada pelos respondentes para os dois grupos de códigos, utilizamos o teste não pareado de Mann-Whitney \cite{Conover:99}. Este teste é usado para analisar a significância estatística das diferenças entre a severidade atribuída pelos respondentes aos problemas que eles observam nos códigos mau cheirosos e limpos. Os resultados são considerados estatisticamente significativos em $\alpha \leq$  0,05. Também estimamos a magnitude das diferenças medidas usando o Cliff's Delta (\textit{d}), uma medida de tamanho de efeito não paramétrico \cite{EffectSize:05} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito, sendo: desprezível para | \textit{d} | < 0,14, pequeno para 0,14 $\leq$ | \textit{d} | < 0,33, médio para 0,33 $\leq$ | \textit{d} | < 0.474, e grande para | \textit{d} | $\geq$ 0,474 \cite{EffectSize:05}. Finalmente, relatamos resultados qualitativos derivados das respostas abertas dos participantes.
+Para comparar as distribuições de severidade indicada pelos respondentes para os dois grupos de códigos, utilizamos o teste não pareado de Mann-Whitney \cite{Conover:99}. Este teste é usado para analisar a significância estatística das diferenças entre a severidade atribuída pelos respondentes aos problemas que eles observaram nos códigos mau cheirosos e limpos. Os resultados são considerados estatisticamente significativos em $\alpha \leq$  0,05. Também estimamos a magnitude das diferenças medidas usando o Cliff's Delta (\textit{d}), uma medida de tamanho de efeito não paramétrico \cite{EffectSize:05} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito, sendo: desprezível para | \textit{d} | < 0,14, pequeno para 0,14 $\leq$ | \textit{d} | < 0,33, médio para 0,33 $\leq$ | \textit{d} | < 0.474, e grande para | \textit{d} | $\geq$ 0,474 \cite{EffectSize:05}. Finalmente, relatamos resultados qualitativos derivados das respostas abertas dos participantes.
 
 
 % Nossa análise consistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
