@@ -5,7 +5,7 @@
 
 % \todo{Pensar sobre este comentário: ``A recorrência da má prática foi determinada pelo número de respostas em que ela é citada. No entanto, um mesmo participante pode ter citado aquela mesma má prática nas duas perguntas a respeito de um mesmo elemento. Ocorreu essa situação? Se ocorreu, vocês contaram as duas respostas para calcular a recorrência? Se sim, acham justo, uma vez que descrevem a mesma situação, percebida pela mesma pessoa?'' pois não tenho certeza se ocorreu mas acredito que sim, logo, preciso entender se isso pode ser um problema ao estudo.}
 
-Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto exalando maus cheiros no desenvolvimento da camada de apresentação Android. Apesar de haver algumas hipóteses, com o objetivo de não limitar ou influenciar nesta primeira etapa, para responder a QP1, submetemos um questionário online com perguntas exploratórios sobre boas e más práticas em cada um dos componentes da camada de apresentação Android: \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, e recursos do aplicativo: \textit{Layout}, \textit{Strings}, \textit{Styles} e \textit{Drawables}. Obtivemos 45 respostas a partir do qual extraímos 46 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
+Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto possíveis sintomas de maus cheiros no desenvolvimento da camada de apresentação Android. Apesar de haver algumas hipóteses, com o objetivo de não limitar ou influenciar esta primeira etapa, para responder a QP1, submetemos um questionário online com perguntas exploratórias sobre boas e más práticas em cada um dos componentes da camada de apresentação Android: \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, e recursos do aplicativo: \textit{Layout}, \textit{Strings}, \textit{Styles} e \textit{Drawables}. Obtivemos 45 respostas a partir do qual extraímos 46 categorias que resultaram em 21 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
 
 A seguir, na Seção \ref{etapa-1-questionario} apresentamos detalhes sobre a concepção do questionário, na Seção \ref{etapa-1-participantes} os detalhes sobre os participantes e na Seção \ref{etapa-1-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção \ref{sec:resultado-etapa-1}.
 
@@ -22,20 +22,20 @@ A seguir, na Seção \ref{etapa-1-questionario} apresentamos detalhes sobre a conc
 
 % Antes da divulgação, realizamos um piloto com 3 desenvolvedores Android. Como \textit{feedback} do teste piloto, percebemos que nem sempre os desenvolvedores tinham alguma boa ou má prática referente a determinado elemento, desta forma, após o teste piloto configuramos as perguntas da segunda seção como opcionais. As respostas dos participantes piloto foram desconsideradas para efeitos de viés. O questionário completo pode ser encontrado no apêndice XX.
 
-Este questionário (\emph{S1}) foi baseado em um estudo anterior feito por Aniche et al. \cite{AnicheSmellsMVC:17, FinavaroAniche2016}, onde os autores buscaram por maus cheiros em aplicações \acs{MVC}. O questionário foi composto por 25 questões divididas em três seções. 
+Este questionário (\emph{S1}) foi baseado em um estudo anterior feito por Aniche et al. \cite{AnicheSmellsMVC:17, FinavaroAniche2016}, onde os autores buscaram por maus cheiros em aplicações \acs{MVC}. Elaboramos o questionário em inglês porém havia um texto informativo avisando que tanto respostas em inglês ou português eram aceitas. O questionário foi composto por 25 questões divididas em três seções.
 
 A primeira seção teve o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. A segunda seção teve como objetivo entender o que os desenvolvedores consideravam boas e más práticas no desenvolvimento da camada de apresentação Android. Foi composta por 16 questões opcionais e abertas, 8 sobre boas práticas em cada um dos 8 elementos da camada de apresentação Android e 8 sobre más práticas. O questionário completo pode ser visto no Apêndice \ref{ap:survey-1}. Por exemplo, para o elemento \textit{Activity} a segunda seção continha as seguintes perguntas: 
 
 \begin{itemize}
-  \item Você tem alguma boa prática para lidar com \textit{Activities}? (Pergunta aberta)
-  \item Você considera alguma coisa uma má prática ao lidar com \textit{Activities}? (Pergunta aberta)
+  \item[P1] Você tem alguma boa prática para lidar com \textit{Activities}? (Pergunta aberta)
+  \item[P2] Você considera alguma coisa uma má prática ao lidar com \textit{Activities}? (Pergunta aberta)
 \end{itemize}
 
 % \todo{por que boas E más práticas?}
 
 A terceira seção foi composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
-Antes da divulgação, realizamos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas por efeitos de viés. 
+Antes da divulgação, realizamos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os oito elementos questionados. Desta forma, removemos a obrigatoriedade das perguntas da segunda e terceira seções tornando-as opcionais e permitindo o participante responder apenas as boas e más práticas dos elementos que lhe faziam sentido. As respostas dos participantes piloto foram desconsideradas por efeitos de viés. 
 
 % \todo{O que responderam nas questões sobre OUTRAS boas e más práticas?}
 
@@ -94,61 +94,69 @@ O questionário foi divulgado em redes sociais como Facebook, Twitter e Linkedin,
 \label{etapa-1-participantes}
 
 % Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas sobre boas e más práticas no \textit{front-end} Android, sendo que 7 responderam de 3 a 6, 6 responderam de 8 a 10 e 23 responderam 13 ou mais, sendo que desses, 14 responderam todas. Apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) questão. A pergunta solicitando o email foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. A pergunta mais respondida foi a Q1 e a menos respondida foi a Q18, é possível ver detalhes desta análise na Tabela \ref{tab:RespostasXParticipantes}.
-Participaram desta etapa da pesquisa 45 desenvolvedores Android. Dos participantes, 12\% possui uma ou mais pós-graduações e 62\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase1-participants-graduation}. A Figura \ref{fig:phase1-participants-age} apresenta a distribuição de idade dos participantes, onde a maioria possui de 25 a 34 anos.  
+Participaram desta etapa da pesquisa 45 desenvolvedores Android. Dos participantes, 13\% possui uma ou mais pós-graduações e 62\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase1-participants-graduation}. A Figura \ref{fig:phase1-participants-age} apresenta a distribuição de idade dos participantes, onde a maioria possui de 25 a 34 anos.  
 
 \begin{figure*}[!h]
 \centering
-\begin{subfigure}{.50\textwidth}
+\begin{subfigure}{.48\textwidth}
   \centering
-  \includegraphics[width=.99\textwidth]{phase1-participants-graduation.png}
+  \includegraphics[width=1\textwidth]{phase1-participants-graduation.png}
   \caption{Distribuição de escolaridade.}
   \label{fig:phase1-participants-graduation}
 \end{subfigure}
 \begin{subfigure}{.48\textwidth}
   \centering
-  \includegraphics[width=.90\textwidth]{phase1-participants-age.png}
+  \includegraphics[width=1\textwidth]{phase1-participants-age.png}
   \caption{Distribuição de idade.}
   \label{fig:phase1-participants-age}
 \end{subfigure}% 
 \caption{Escolaridade e distribuição de idade dos participantes em S1.}
-\label{fig:phase2-participants-experience}
+\label{fig:phase1-participants-infos}
 % \vspace{-.5cm} 
 \end{figure*}
 
-Conforme apresentado na Figura \ref{fig:phase1-participants-experience}, 93\% dos 45 respondentes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 86\% dos indicaram 2 anos ou mais de experiência com desenvolvimento Android. Vale ressaltar que a plataforma Android completa 10 anos em 2018, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de existência dela desde seu anúncio em 2008. 
+Conforme apresentado na Figura \ref{fig:phase1-participants-experience}, 90\% dos respondentes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 71\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Vale ressaltar que a plataforma Android completa 10 anos em 2018, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de existência dela desde seu anúncio em 2008. 
 
-\begin{figure*}[!htb]
+% \begin{figure*}[!htb]
+% \centering
+% \begin{subfigure}{.49\textwidth}
+%   \centering
+%   \includegraphics[width=.93\textwidth]{phase1-participants-experience-software.png}
+%   \caption{Desenvolvimento de Software}
+%   \label{fig:phase1-participants-experience-software}
+% \end{subfigure}
+% \begin{subfigure}{.49\textwidth}
+%   \centering
+%   \includegraphics[width=.89\textwidth]{phase1-participants-experience-android.png}
+%   \caption{Desenvolvimento Android}
+%   \label{fig:phase1-participants-experience-android}
+% \end{subfigure}% 
+% \caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S1.}
+% \label{fig:phase1-participants-experience}
+% % \vspace{-.5cm} 
+% \end{figure*}
+
+\begin{figure*}[!t]
 \centering
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=.93\textwidth]{phase1-participants-experience-software.png}
-  \caption{Desenvolvimento de Software}
-  \label{fig:phase1-participants-experience-software}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=.89\textwidth]{phase1-participants-experience-android.png}
-  \caption{Desenvolvimento Android}
-  \label{fig:phase1-participants-experience-android}
-\end{subfigure}% 
+\includegraphics[width=.6\linewidth]{phase1-participants-experience.png}
 \caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S1.}
 \label{fig:phase1-participants-experience}
-% \vspace{-.5cm} 
 \end{figure*}
 
-Nosso questionário exploratório foi respondido por profissionais de 3 continentes e mais de 7 países diferentes porém, a maior representatividade dos dados é originada do Brasil com pouco mais de 81\% dos participantes de 11 estados diferentes. No Brasil, os estados com maior representatividade foram: São Paulo com 59\%, Rio de Janeiro e Goiás cada um com pouco mais de 8\% e Rio Grande do Sul e Santa Catarina, cada um com pouco mais de 5\%. 14\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos apenas 2\% (1 participante) da Califórnia. Estes dados são apresentados na Figura \ref{fig:phase1-participants-regions}. Podemos concluir que tivemos certa abrangência geográfica, no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros.
+
+Nosso questionário exploratório foi respondido por profissionais de 3 continentes e mais de 7 países diferentes porém, a maior representatividade dos dados é originada do Brasil com pouco mais de 81\% dos participantes de 11 estados diferentes. No Brasil, os estados com maior representatividade foram: São Paulo com 55\%, Rio de Janeiro e Goiás cada com 8\% e Rio Grande do Sul e Santa Catarina, cada um com pouco mais de 5\%. 14\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos apenas 2\% (1 participante) da Califórnia. Estes dados são apresentados na Figura \ref{fig:phase1-participants-regions}. Podemos concluir que tivemos certa abrangência geográfica, no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros, principalmente de São Paulo.
 
 \begin{figure*}[!htb]
 \centering
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.51\textwidth}
   \centering
-  \includegraphics[width=.80\textwidth]{phase-1-participants-region-mundial.png}
+  \includegraphics[width=.99\textwidth]{phase-1-participants-region-mundial.png}
   \caption{Distribuição geográfica global.}
   \label{fig:phase1-participants-regions-global}
 \end{subfigure}
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.47\textwidth}
   \centering
-  \includegraphics[width=.93\textwidth]{phase-1-participants-region-brasil.png}
+  \includegraphics[width=1\textwidth]{phase-1-participants-region-brasil.png}
   \caption{Distribuição geográfica brasileira.}
   \label{fig:phase1-participants-regions-brasil}
 \end{subfigure}% 
