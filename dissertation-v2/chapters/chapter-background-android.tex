@@ -59,17 +59,25 @@ O Android provê diversos componentes base para o desenvolvimento Android que não
 
 Cada componente do Android \ac{SDK} possui um conjunto de métodos de retorno que podem ou devem ser sobrescritos pelo desenvolvedor e que são chamados pelo sistema operacional Android. Ciclo de vida de um componente diz respeito a como ele é criado, mantido e destruído. O ciclo de vida é composto por um conjunto de métodos de retorno que são sempre chamados e em uma sequência específica \cite{AndroidActivities2016, AndroidDeveloperLifeCycle}. Componentes de \acs{UI} como \textit{Activities} costumam ter ciclos de vida mais extensos, e portanto mais complexos, que componentes que não lidam com a camada de apresentação. A Figura \ref{fig:android-lifecycles} apresenta como exemplo os ciclos de vida de \textit{Activities}, que estão diretamente relacionadas à camada de apresentação, e \textit{Services}, que não são relacionados à camada de apresentação.
 
+%\begin{figure*}[!htb]
+%	\centering
+%	\includegraphics[width=.9\textwidth]{activity-service-ciclodevida.png}
+%	\caption{Comparação do ciclo de vida de \textit{Activities} e \textit{Services}.}
+%	\label{fig:android-lifecycles}
+%	\vspace{-.5cm} 
+%\end{figure*}
+
 \begin{figure*}[!htb]
 \centering
-	\begin{subfigure}[b]{.55\textwidth}
+	\begin{subfigure}[b]{.49\textwidth}
 	  \centering
-	  \includegraphics[width=.9\textwidth]{activity-lifecycle.png}
+	  \includegraphics[width=.9\textwidth]{activity-ciclodevida.png}
 	  \caption{Principais métodos de retorno do ciclo de vida de \textit{Activities}.}
 	  \label{fig:activity-lifecycle}
 	\end{subfigure}
-	\begin{subfigure}[b]{.44\textwidth}
+	\begin{subfigure}[b]{.49\textwidth}
 	  \centering
-	  \includegraphics[width=.9\textwidth]{service-lifecycle.png}
+	  \includegraphics[width=.9\textwidth]{service-ciclodevida.png}
 	  \caption{Métodos de retorno do ciclo de vida de \textit{Services}.}
 	  \label{fig:service-lifecycle}
 	\end{subfigure}% 
@@ -137,13 +145,13 @@ A seguir introduzimos brevemente cada um dos oito elementos da camada de apresen
 % \centering
 % 	\begin{subfigure}{.45\textwidth}
 % 	  \centering
-% 	  \includegraphics[width=.8\textwidth]{fragment-lifecycle.png}
+% 	  \includegraphics[width=.8\textwidth]{fragment-ciclodevida.png}
 % 	  \caption{Ciclo de vida de \textit{Fragments}.}
 % 	  \label{fig:frament-lifecycle}
 % 	\end{subfigure}
 % 	\begin{subfigure}{.50\textwidth}
 % 	  \centering
-% 	  \includegraphics[width=.8\textwidth]{activity-fragment-lifecycle.png}
+% 	  \includegraphics[width=.8\textwidth]{activity-fragment-ciclodevida.png}
 % 	  \newline \newline \newline \newline \newline \newline
 % 	  \caption{Ciclo de vida do \textit{Fragment} com relação aos estados da \textit{Activity} que ele está contido.}
 % 	  \label{fig:activity-fragment-lifecycle}
@@ -260,19 +268,19 @@ Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vid
 \centering
   \begin{subfigure}[b]{.33\textwidth}
     \centering
-    \includegraphics[width=.9\textwidth]{activity-lifecycle.png}
+    \includegraphics[width=0.9\textwidth]{activity-ciclodevida.png}
     \caption{\textit{Activity}.}
     \label{fig:activity-lifecycle}
   \end{subfigure}
   \begin{subfigure}[b]{.33\textwidth}
     \centering
-    \includegraphics[width=.6\textwidth]{fragment-lifecycle.png}
+    \includegraphics[width=0.9\textwidth]{fragment-ciclodevida.png}
     \caption{\textit{Fragment}.}
     \label{fig:activity-lifecycle}
   \end{subfigure}
-  \begin{subfigure}[b]{.30\textwidth}
+  \begin{subfigure}[b]{.32\textwidth}
     \centering
-    \includegraphics[width=.9\textwidth]{service-lifecycle.png}
+    \includegraphics[width=.9\textwidth]{service-ciclodevida.png}
     \caption{\textit{Services}.}
     \label{fig:service-lifecycle}
   \end{subfigure}% 
