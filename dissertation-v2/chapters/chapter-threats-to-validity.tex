@@ -1,16 +1,20 @@
 % -*- root: dissertation.tex -*-
 \section{Ameaças à Validade}
 
-\subsection{Internas}
+Nesta seção, discutimos as ameaças à validade deste estudo, bem como as ações que tomamos para mitigar os mesmos. 
 
-Uma limitação desta pesquisa é que os dados foram coletados apenas a partir de questionários online e o processo de codificação foi realizado apenas por um dos autores. Alternativas a esses cenários seriam realizar a coleta de dados de outras formas como entrevistas ou consulta a especialistas, e que o processo de codificação fosse feito por mais de um autor de forma a reduzir possíveis viés.
+As ameaças a \textit{construção da validade} dizem respeito à relação entre a teoria e a observação, e neste trabalho são principalmente devido codificação realizada. Uma vez que a codificação foi realizada apenas por um dos pesquisadores, estamos cientes que imprecisões podem ser introduzidas. Para mitigar o problema, asseguramos, através de S2, que os sintomas definidos são percebidos por desenvolvedores Android. Vale lembrar que o processo de preparação de S2 incluiu duas validações com desenvolvedores experientes e dois pilotos.
 
-A seleção dos códigos usados em S3 foi feita buscando pelos sintomas que derivamos das respostas em S1. Estamos cientes de que essa seleção manual pode introduzir imprecisões. De modo a mitigar este problema, selecionamos cinco diferentes códigos maus cheirosos para cada mau cheiro analisado. Outras pesquisas precisam ser conduzidas de forma a automatizar esta detecção, removendo imprecisões de processos manuais. Entretanto, mesmo com a seleção manual pudemos validar a percepção correta do mau cheiro avaliado com base nas respostas dissertativas sobre o problema percebido no código.
+As ameaças à \textit{validade interna} dizem respeito a fatores externos que não consideramos que possam afetar as variáveis e as relações que estão sendo investigadas. Não consideramos importante controlar se um participante de uma etapa participou de outra. Logo, não podemos ignorar possíveis viés de uma etapa para a outra por parte de participantes recorrentes. As escalas \textit{likert} utilizadas em S2 não tinham uma opção neutra, para caso o participante não soubesse opinar sobre alguma afirmação. Apesar de ser possível utilizar outras escalas, até o momento não encontramos nenhuma pesquisa empírica sobre qual escala funciona melhor para o contexto de validar a importância e frequência de maus cheiros. 
 
+A seleção dos códigos usados em S3 foi realizada buscando pelos sintomas que derivamos das respostas em S1 e S2. Podem haver melhores maneiras de proceder com esta seleção. Pesquisas adicionais precisam ser conduzidas para otimizar este processo. No entanto, nossa seleção atual foi capaz detectar códigos percebidas como problemáticas pelos desenvolvedores. Entretanto, estamos cientes de que essa seleção manual pode introduzir imprecisões. De modo a mitigá-las, selecionamos cinco diferentes códigos maus cheirosos para cada mau cheiro analisado e cinco diferentes códigos para cada componentes, recursos de \textit{style} e \textit{laout}. Também é possível que imprecisões ocorram devido a algum erro de implementação no sistema desenvolvido por nós para o experimento de código. Para mitigar este risco, nosso código se trata de uma extensão do código desenvolvido para este mesmo fim, validar a percepção de maus cheiros, por Aniche et. al. \cite{AnicheSmellsMVC:17, MvcSmells:16}.
 
-% Nossa pesquisa tenta replicar o método utilizado por Aniche \cite{FinavaroAniche2016} ao investigar cheiros de código no framework Spring MVC. Entretanto, nos deparamos com situações diferentes, das quais, após a execução nos questionamos se aquele método seria o mais adequado para todos os contextos neste artigo. Por exemplo, nosso resultado com a má prática RM nos levou a conjecturar se desenvolvedores consideram problemas em códigos Java mais severos que problemas em recursos do aplicativo. O que nos levou a pensar sobre isso foi que, apesar do resultado, obtivemos muitas respostas que se aproximavam da deifnição da má prática RM. Desta forma, levantamos que de todos os recursos avaliados, 74\% receberam severidade igual ou inferior a 3, contra apenas 30\% com os mesmo níveis de severidade em código Java. Desta forma, uma alternativa é repensar a forma de avaliar a percepção dos desenvolvedores sobre más práticas que afetem recursos do aplicativo.
+Embora nossa pesquisa tenha sido realizada em três extensas etapas, estamos cientes que os dados foram todos coletados por questionários online, podendo trazer imprecisões devido ao uso de um único meio de coleta de dados. Para mitigar este problema, nossas etapas se basearam em metodologias já usadas em outras pesquisas similares e também realizamos validações e testes piloto antes de lançamos os questionários. 
 
-Dessa forma, podemos concluir que tivemos certa abrangência geográfica no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros.
+As ameaças à \textit{validade da conclusão} dizem respeito à relação entre o tratamento e o resultado. Embora este seja principalmente um estudo observacional, sempre que possível, utilizamos um suporte apropriado de procedimentos estatísticos, integrados com medidas de tamanho de efeito que, além da significância das diferenças encontradas, destacam a magnitude de tais diferenças. Embora de termos tido certa abrangência geográfica nas respostas, não afirmamos que nossos resultados são generalizáveis globalmente pois tivemos massiva participação de São Paulo/Brasil. 
+
+As ameaças à \textit{validade externa} referem-se à generalização dos resultados: (1) Definimos como camada de apresentação os oito elementos aqui pesquisados. Embora esta definição tenha se embasado na documentação oficial, sabemos que existem recursos não investigados e podem haver classes menos comumente usadas também não avaliadas. Logo, não afirmamos que camada de apresentação se limita apenas aos oito elementos aqui estudados; (2) Avaliamos a percepção dos maus cheiros com desenvolvedores Android. Embora seja uma forma comumente usada de avaliar a percepção sobre maus cheiros e tenhamos obtidos pontos, na maior parte dos maus cheiros, suficientes para a validação, não afirmamos que todo desenvolvedor Android irá perceber os maus cheiros avaliados; (3) Finalmente, nosso catálogo inclui 21 maus cheiros na camada de apresentação de aplicativos Android. Entretanto, coletamos poucas respostas em S1 e deste modo, não afirmamos que este é um catálogo abrangente. Pesquisas adicionais são necessárias para investigar outras possíveis práticas erradas na camada de apresentação de aplicativos Android. 
+
 
 % ETAPA 1
 % - codificação por apenas um dos autores
@@ -24,10 +28,10 @@ Dessa forma, podemos concluir que tivemos certa abrangência geográfica no entant
     % - mitigamos fazendo uma validação dos códigos com devs android experientes antes de lançar o survey 
 
 
-\subsection{Externas}
 
-\begin{itemize}
-  \item Majoritariamente brasileiros.
-  \item Não conseguimos garantir que desenvolvedores que participaram de uma das etapas não tenha participado das outras e vice e versa.
-\end{itemize}
+
+% \begin{itemize}
+%   \item Majoritariamente brasileiros.
+%   \item Não conseguimos garantir que desenvolvedores que participaram de uma das etapas não tenha participado das outras e vice e versa.
+% \end{itemize}
 
