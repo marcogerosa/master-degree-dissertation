@@ -22,7 +22,7 @@ vioplot(adapter_complexo_smelly, adapter_complexo_clean,
         componente_ui_inteligente_smelly, componente_ui_inteligente_clean,
         names=c("AC Mau Cheiroso", "AC Limpo", "CA Mau Cheiroso", "CA Limpo",
                 "CS Mau Cheiroso", "CS Limpo", "CI Mau Cheiro", "CI Limpo")
-        ,col="deepskyblue")
+        ,col="gold")
 
 # vioplot(adapter_complexo_smelly, adapter_complexo_clean, names=c("Mau Cheiroso", "Limpo"),col="deepskyblue")
 # title("Adapter Complexo")
@@ -51,7 +51,7 @@ vioplot(longo_recurso_estilo_smelly, longo_recurso_estilo_clean,
         layout_profundamente_aninhado_smelly, layout_profundamente_aninhado_clean,
         atributos_estilo_repetidos_smelly, atributos_estilo_repetidos_clean,
         names=c("LE Mau Cheiroso", "LE Limpo", "LA Mau Cheiroso", "LA Limpo", "AR Mau Cheiroso", "AR Limpo")
-        ,col="deepskyblue")
+        ,col="gold")
 
 # vioplot(longo_recurso_estilo_smelly, longo_recurso_estilo_clean, names=c("Mau Cheiroso", "LE Limpo") ,col="deepskyblue")
 # title("Longo Recurso de Estilo")
@@ -60,21 +60,22 @@ vioplot(longo_recurso_estilo_smelly, longo_recurso_estilo_clean,
 # vioplot(atributos_estilo_repetidos_smelly, atributos_estilo_repetidos_clean, names=c("Mau Cheiroso", "LE Limpo") ,col="deepskyblue")
 # title("Atributos de Estilo Repetidos")
 
+
 # GRAFICOS GERAL DE COMPONENTES E RECURSOS JUNTOS
 componentes_smelly <- c(adapter_complexo_smelly, componente_ui_acoplado_smelly, comportamento_suspeito_smelly, componente_ui_inteligente_smelly)
 componentes_clean <- c(adapter_complexo_clean, componente_ui_acoplado_clean, comportamento_suspeito_clean, componente_ui_inteligente_clean)
-vioplot(componentes_smelly, componentes_clean, names=c("Componentes Smelly", "Componentes Limpos") ,col="deepskyblue")
+vioplot(componentes_smelly, componentes_clean, names=c("Componentes Smelly", "Componentes Limpos") ,col="gold")
 
 recursos_smelly <- c(longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly, atributos_estilo_repetidos_smelly)
 recursos_clean <- c(longo_recurso_estilo_clean, layout_profundamente_aninhado_clean, atributos_estilo_repetidos_clean)
-vioplot(recursos_smelly, recursos_clean, names=c("Recursos Smelly", "Recursos Limpos") ,col="deepskyblue")
+vioplot(recursos_smelly, recursos_clean, names=c("Recursos Smelly", "Recursos Limpos") ,col="gold")
 
 # SOH SMELLIES
-# vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly, 
-#         comportamento_suspeito_smelly, componente_ui_inteligente_smelly, 
-#         longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly, 
-#         atributos_estilo_repetidos_smelly,
-#         names=c("AC", "CA", "CS", "CI", "LE", "LA", "AR") ,col="deepskyblue")
+vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly,
+        comportamento_suspeito_smelly, componente_ui_inteligente_smelly,
+        longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly,
+        atributos_estilo_repetidos_smelly,
+        names=c("AC", "CA", "CS", "CI", "LE", "LA", "AR") ,col="deepskyblue")
 
 # SOH LIMPOS
 # vioplot(adapter_complexo_clean, componente_ui_acoplado_clean, 

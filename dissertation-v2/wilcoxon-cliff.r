@@ -1,44 +1,72 @@
-# --------- XML smelly vs limpos por smell
-lpa_smelly <- c(5,4,1,3)
-lpa_clean <- c(2,0,0,0,0,2,0)
+library(vioplot)
+library(effsize)
 
-rm_smelly <- c(4,4,3,2,2,0,0,2,0,3,2)
-rm_clean <- c(4,3,2,2,1,0,0,0,0)
-
-nrd_smelly <- c(3,2,2,2,1,0,1,1,4,2,2)
-nrd_clean <- c(4,0,3,3,0,2,0,3,2)
-vioplot(lpa_smelly, lpa_clean, rm_smelly, rm_clean, nrd_smelly, nrd_clean,
-        names=c("LPA Cheiroso", "LPA Limpo", "RM Cheiroso", "RM Limpo", "NRD Cheiroso", "NRD Limpo"), col="gold")
-
-wilcox.test(lpa_smelly, lpa_clean)
-cliff.delta(lpa_smelly, lpa_clean)
-
-wilcox.test(rm_smelly, rm_clean)
-cliff.delta(rm_smelly, rm_clean)
-
-wilcox.test(nrd_smelly, nrd_clean)
-cliff.delta(nrd_smelly, nrd_clean)
-
-
-# --------- all XML smelly vs limpos por smell
-xml_smelly <- c(5,4,4,4,3,3,2,2,2,2,2,1,1,0,0,2,0,1,1,4,3,3,0,2,2,2)
-xml_clean <- c(3,3,3,2,2,2,1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,2)
-vioplot(xml_smelly, xml_clean, names=c("Resource Cheiroso", "Resource Limpo"), col="gold")
-
-wilcox.test(xml_smelly, xml_clean)
-cliff.delta(xml_smelly, xml_clean)
-
-# --------- LCUI Smelly vs LCUI limpo vs Smell Tradicionais
+adapter_complexo_smelly <- c(5,4,0,1,3,1,1,2,1,3,3,2,3,4,5,4,1,0,4,4,2,2,0,3,0,3,3,3,4,5,3,0,0,0,4,3)
+componente_ui_acoplado_smelly <- c(4,5,4,2,5,5,3,5,4,1,1,5,0,4,4,5,5,0,3,5,4,0,0,0,3,2)
+comportamento_suspeito_smelly <- c(2,0,2,3,3,2,2,5,4,5,3,3,3,5,3,0,4,5,0,1,2,5,3,0,0,2,2,0,4,1,0,4,1,3,4,0,0,5,3)
 lcui_smelly <- c(5,4,1,0,2,4,2,2)
+componente_ui_inteligente_smelly <- c(5,3,4,3,0,0,2,4,0,2,4,2,5,3,1,2,3,0,4,5,5,5,4,5,5,4,5,3,5,2,3,4,lcui_smelly)
+longo_recurso_estilo_smelly <- c(0,3,0,2,3,3,0,0,1,0,1,0,4,0,2,0,1,2,3,0,1,0,4,0,0)
+lpa_smelly <- c(5,4,1,3)
+layout_profundamente_aninhado_smelly <- c(4,2,0,2,2,0,1,3,3,2,0,2,2,5,5,1,0,0,0,0,0,1,0,lpa_smelly)
+atributos_estilo_repetidos_smelly <- c(5,0,0,3,2,3,0,2,1,3,4,3,4,0,0,0,2,4,2,3,4,3,1)
+
+# SOH SMELLIES
+vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly,
+        comportamento_suspeito_smelly, componente_ui_inteligente_smelly,
+        longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly,
+        atributos_estilo_repetidos_smelly,
+        names=c("AC", "CA", "CS", "CI", "LE", "LA", "AR") ,col="turquoise3")
+
+
+# SOH LIMPOS
 lcui_clean <- c(3,0,0,0,0,3,0,0,0,0,0,0)
-traditional_smelly <- c(5,5,4,4,3,3,3,2,2,1,3,5,5,5,3,3,5,5,4)
-vioplot(lcui_smelly, lcui_clean, traditional_smelly, names=c("LCUI Cheiroso", "LCUI Limpo", "Cheiros Tradicionais"), col="gold")
+componentes_clean <- c(4,5,0,3,4,0,0,5,0,2,4,3,1,1,0,0,0,0,2,0,2,0,0,4,2,2,0,0,0,3,0,0,4,0,0,1,lcui_clean)
+styles_clean <- c(2,3,5,2,0,0,2,3,0,1,0,2,0,0,0,0,3,0,0,2,0,0,0,0,4)
+lpa_clean <- c(2,0,0,0,0,2,0)
+layouts_clean <- c(0,2,3,4,0,0,1,3,0,0,0,0,0,2,3,2,2,0,0,0,0,0,0,0,3,1,0,2,0,0,0,0,0,0,0,0,1,2,0,lpa_clean)
 
-wilcox.test(lcui_smelly, lcui_clean)
-cliff.delta(lcui_smelly, lcui_clean)
+vioplot(componentes_clean, styles_clean, layouts_clean,
+        names=c("Componentes", "Styles", "Layouts") ,col="turquoise3")
 
-wilcox.test(lcui_smelly, traditional_smelly)
-cliff.delta(lcui_smelly, traditional_smelly)
 
-wilcox.test(lcui_clean, traditional_smelly)
-cliff.delta(lcui_clean, traditional_smelly)
+# SMELLIES VS CLEANS
+componentes_smelly <- c(adapter_complexo_smelly, componente_ui_acoplado_smelly, comportamento_suspeito_smelly, componente_ui_inteligente_smelly)
+vioplot(componentes_smelly, componentes_clean, names=c("Componentes Mau Cheirosos", "Componentes Limpos") ,col="turquoise3")
+
+recursos_smelly <- c(longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly, atributos_estilo_repetidos_smelly)
+vioplot(recursos_smelly, c(layouts_clean,styles_clean), names=c("Recursos Mau Cheirosos", "Recursos Limpos") ,col="turquoise3")
+
+
+# WILCOXON & DELTA CLIFF
+# por cada smell de componentes
+wilcox.test(adapter_complexo_smelly, componentes_clean)
+cliff.delta(adapter_complexo_smelly, componentes_clean)
+
+wilcox.test(componente_ui_acoplado_smelly, componentes_clean)
+cliff.delta(componente_ui_acoplado_smelly, componentes_clean)
+
+wilcox.test(comportamento_suspeito_smelly, componentes_clean)
+cliff.delta(comportamento_suspeito_smelly, componentes_clean)
+
+wilcox.test(componente_ui_inteligente_smelly, componentes_clean)
+cliff.delta(componente_ui_inteligente_smelly, componentes_clean)
+
+# por cada smell de recursos
+wilcox.test(longo_recurso_estilo_smelly, styles_clean)
+cliff.delta(longo_recurso_estilo_smelly, styles_clean)
+
+wilcox.test(layout_profundamente_aninhado_smelly, layouts_clean)
+cliff.delta(layout_profundamente_aninhado_smelly, layouts_clean)
+
+wilcox.test(atributos_estilo_repetidos_smelly, c(layouts_clean,styles_clean))
+cliff.delta(atributos_estilo_repetidos_smelly, c(layouts_clean,styles_clean))
+
+# por todos componentes
+wilcox.test(componentes_smelly, componentes_clean)
+cliff.delta(componentes_smelly, componentes_clean)
+
+# por todos recursos
+wilcox.test(recursos_smelly, c(layouts_clean,styles_clean))
+cliff.delta(recursos_smelly, c(layouts_clean,styles_clean))
+

@@ -2,3 +2,94 @@
 \section{QP3. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
 \label{phase3-results}
 
+Nossos resultados mostram que 6 dos 7 maus cheiros avaliados são percebidos por desenvolvedores Android. são eles: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Sobre o mau cheiro \textsc{\small Longo Recurso de Estilo}, não obtivemos dados suficientes para afirmar ou negar a percepção dele, mas o gráfico violino não apresenta grande diferença na percepção dos códigos afetados por ele contra os códigos limpos.
+
+A seguir, na Seção \ref{sec:results-phase3} apresentamos detalhes das percepção dos desenvolvedores sobre os maus cheiros avaliados.
+
+\subsection{Resultados Gerais}
+\label{sec:results-phase3}
+
+Na Figura \ref{fig:components-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em componentes da camada de apresentação Android (\textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito} e \textsc{\small Adapter Complexo}) e componentes limpos. De modo similar, na Figura \ref{fig:resources-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em recursos Android (\textsc{\small Layout Profundamente Aninhado}, \textsc{\small Atributos de Estilo Repetidos} e \textsc{\small Longo Recurso de Estilo}) e recursos limpos. Além disso, relatamos a percepção dos desenvolvedores sobre cada mau cheiro Android individualmente - Figura \ref{fig:smellys-violins} - bem como de componentes e recursos de \textit{Style} e \textit{Layout} limpos - Figura \ref{fig:clean-violins}. 
+
+No eixo y, 0 (zero) indica os códigos não percebidos pelos desenvolvedores como problemáticos (ou seja, responderam ``não'' à questão: \emph{Esta classe exibe algum problema de design e/ou implementação?}), enquanto que os valores de 1 a 5 indicam o nível de severidade para o problema percebido pelo desenvolvedor.
+
+\begin{figure*}[!htb]
+\centering
+\imagewidth=0.54\textwidth
+\captionsetup[subfigure]{width=.9\imagewidth,justification=raggedright}%
+\begin{subfigure}[t]{.49\textwidth}
+  \centering
+  \hspace*{-1cm}%
+  \includegraphics[width=.8\textwidth]{phase3-components-clean-smelly-violins-cutted.png}
+  \caption{Mau Cheirosos=Componentes da camada de apresentação afetados pelos maus cheiros Android. Limpos=Componentes da camada de apresentação limpos.}
+  \label{fig:components-violins}
+\end{subfigure}
+\begin{subfigure}[t]{.49\textwidth}
+  \centering
+  \includegraphics[width=.8\textwidth]{phase3-resources-clean-smelly-violins-cutted.png}
+  \caption{Mau Cheirosos=Recursos afetados pelos maus cheiros Android. Limpos=Recursos limpos.}
+  \label{fig:resources-violins}
+\end{subfigure}% 
+\caption{Percepção dos participantes sobre a severidade dos maus cheiros Android que afetam componentes e recursos da camada de apresentação Android.}
+\label{fig:smelly-clean-consolidado}
+% \vspace{-.5cm} 
+\end{figure*}
+
+Componentes afetados pelos maus cheiros Android tiveram mediana de severidade igual a 3 (Q3=4). Isso indica que, como esperado, desenvolvedores percebem códigos afetados pelos maus cheiros em componentes da camada de apresentação Android como problemáticos. Como comparação, componentes Android limpos tiveram mediana de severidade igual a 0 (Q3=2). A diferença na percepção dos desenvolvedores entre componentes Android mau cheirosos e componentes limpos é estatisticamente significante ($\alpha$ = 1,18e-06) com médio tamanho de efeito (\textit{d} = 0,46). Relativo a recursos afetados pelos maus cheiros Android, a mediana de severidade é igual a 2 (Q3=3). Isso mostra que, recursos afetados pelos maus cheiros Android são percebidos como problemáticos, ainda que menos que os maus cheiros Android em componentes. Como comparação, recursos Android limpos tiveram mediana de severidade igual a 0 (Q3=2). A diferença na percepção dos desenvolvedores entre os recursos mau cheirosos e recursos limpos também é estatisticamente significante ($\alpha$ = 1,24e-03) com pequeno tamanho de efeito (\textit{d} = 0,29).  
+
+\begin{figure*}[!htb]
+\centering
+\imagewidth=0.54\textwidth
+\captionsetup[subfigure]{width=.9\imagewidth,justification=raggedright}%
+\begin{subfigure}[t]{.48\textwidth}\centering
+  \hspace*{-1cm}%
+  \includegraphics[width=.76\textwidth]{phase3-clean-violins-cutted.png}
+  \caption{Componentes=\textit{Activities}, \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} limpos. Styles=Recursos de \textit{Style} limpos. Layout=Recursos de \textit{Layout} limpos.}
+  % \hspace*{-1cm}%
+  \label{fig:clean-violins}
+\end{subfigure}
+\begin{subfigure}[t]{.48\textwidth}\centering
+  % \hspace*{-1cm}%
+  \includegraphics[width=1\textwidth]{phase3-smellys-violins-cutted.png}
+  \caption{AC=Adapter Complexo, CA=Componente de UI Acoplado, CS=Comportamento Suspeito, CI=Componente de UI Inteligente, LE=Longo Recurso de Estilo, LA=Layout Profundamente Aninhado, AR=Atributos de Estilo Repetidos.}
+  % \hspace*{-1cm}%
+  \label{fig:smellys-violins}
+\end{subfigure}% 
+\caption{Percepção dos participantes sobre a severidade dos códigos limpos e dos códigos afetados pelos maus cheiros avaliados.}
+\label{fig:}
+% \vspace{-.5cm} 
+\end{figure*}
+
+\textsc{\small Componente de UI Acoplado} (CA) é o mau cheiro Android mais percebido pelos desenvolvedores e com grave severidade, mediana igual a 4 (Q3=5). Em seguida temos os maus cheiros \textsc{\small Componente de UI Inteligente} (CI), \textsc{\small Adapter Complexo} (AC) e \textsc{\small Comportamento Suspeito} (CS) todos com mediana igual a 3. Isso indica que, como esperado, são percebidos pelos desenvolvedores como sendo seriamente problemáticos. Podemos notar que, de modo geral, recursos afetados pelos maus cheiros foram percebidos com menor severidade, mediana 1 e 2, do que componentes afetados pelos maus cheiros, todos com mediana de severidade maior ou igual a 3. 
+
+Muitos desenvolvedores, sem conhecer nosso catálogo de maus cheiros Android, foram capazes de identificar corretamente o mau cheiro, dando uma descrição do problema percebido muito próxima a definição do mau cheiro. Por exemplo, um deles ao se deparar com um \textsc{\small Adapter Complexo} relatou: \textit{``O método getView é muito longo, com muitos ifs. Dificultando testes, debug e entendimento. me parece que muitas variações de tela podem ser desenhadas nesse método.''}. Outro participante disse simplesmente: \textit{``getView faz muitas coisas. Isso é perigoso para manter.''}. Também o mau cheiro \textsc{\small Longo Recurso de Estilo}, foi corretamente identificado. Por exemplo, um dos participantes relatou: \textit{``Os temas e estilos poderiam ser separados em arquivos diferentes como por exemplo styles\_dialog.xml, styles\_text\_view.xml, etc inclusive em diretórios de recursos de acordo com nível de API do Android. Também poderia usar herança.''}. Outro participante disse apenas: \textit{``Muitos estilos no mesmo arquivo.''}. Um outro participante ao se deparar com \textsc{\small Componente de UI Acoplado}, relatou: \textit{``Adapter está acoplado a MainActivity, uma vez que a recebe no construtor. O ideal seria abstrair quem está usando o Adapter para que ele possa ser usado por outras activities ou fragments.''}. Outros dois disseram simplesmente: \textit{``Cast direto à MainActivity.''} e \textit{``O DrawerAdapter está acoplado com a MainActivity.''}. Sobre o mau cheiro \textsc{\small Atributos de Estilo Repetidos}, um participante relatou: \textit{``1. Muitas dimensões repetidas que tem o mesmo propósito. Elas deveriam estar num lugar centralizado e nomeadas para facilidade de manutenção. 2. Mesma definição de estilo para várias text views. Deveria ser extraídas para styles para melhor manutenção...''}. Outro participante disse: \textit{``Muitos textViews com a mesma estilização, mas não se utiliza um arquivo de de styles para auxiliar.''}.
+
+Foi possível confirmar estatisticamente a percepção dos desenvolvedores em 6 dos 7 maus cheiros Android avaliados. A Tabela \ref{tab:smells-avaliados} apresenta os valor de $\alpha$ e \textit{d} para todos eles, bem como informações de mediana e Q3. Apesar de haver respostas que identificaram corretamente o mau cheiro \textsc{\small Longo Recurso de Estilo} e do gráfico violino apresentar uma leve diferença de severidade dos recursos afetados pelo mau cheiro, com mediana 1 (Q3=2), contra os recursos limpos, não foi possível validá-lo estatisticamente. Portanto não podemos afirmar que desenvolvedores percebem códigos afetados por esse mau cheiro como problemáticos. Acreditamos que um do motivos para este resultado possa ser a baixa quantidade de pontos de observação sobre os códigos com este mau cheiro (28 participantes).
+
+\begin{table}[t]
+\centering
+\renewcommand*{\arraystretch}{1}
+\footnotesize 
+\begin{tabular}{@{}p{7cm}clcc@{}}
+\toprule
+\textbf{Mau Cheiro} & \multicolumn{1}{c}{\textbf{Valor de p ($\alpha$)}} & \multicolumn{1}{c}{\textbf{Delta de Cliff (\textit{d})}} & \textbf{Mediana} & \textbf{Q3} \\
+\toprule
+
+\textsc{\small Componente de UI Acoplado}       &  1,13e-04  &    0,52 (grande) & 4,00         & 5,00 \\
+\textsc{\small Comportamento Suspeito}          &  1,37e-03  &    0,38 (médio)  & 3,00         & 4,00 \\
+\textsc{\small Componente de UI Inteligente}    &  4,58e-06  &    0,55 (grande) & 3,00         & 4,25 \\
+\textsc{\small Adapter Complexo}                &  1,11e-03  &    0,40 (médio)  & 3,00         & 4,00 \\
+\textsc{\small Longo Recurso de Estilo}         &  7,61e-01  &    0,05 (insignificante) & 1,00 & 2,00 \\
+\textsc{\small Layout Profundamente Aninhado}   &  6,17e-03  &    0,35 (médio)  & 2,00         & 3,00 \\
+\textsc{\small Atributos de Estilo Repetidos}   &  5,84e-04  &    0,44 (médio)  & 2,00         & 3,00 \\
+
+\bottomrule
+\end{tabular}
+\caption{Confirmamos estatisticamente a percepção de seis dos sete maus cheiros Android avaliados. Aqui constam os dados do valor de p ($\alpha$) e Delta de Cliff (\textit{d}) respectivos a cada mau cheiro Android.}
+\label{tab:smells-avaliados}
+\end{table}
+
+\begin{square}
+  \small
+  Códigos afetados pelos maus cheiros propostos e avaliados são percebidos como problemáticos por desenvolvedores Android se comparados com códigos limpos (QP3).
+\end{square}

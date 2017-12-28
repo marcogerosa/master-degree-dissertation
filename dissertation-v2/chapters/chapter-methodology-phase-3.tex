@@ -2,20 +2,20 @@
 \section{Etapa 3 - Percepção dos maus cheiros}
 \label{etapa-3}
 
-Para responder a \textbf{\small QP3} validamos a percepção de desenvolvedores Android sobre códigos afetados por sete maus cheiros, considerados mais importantes e frequentes (vide Tabela \ref{tab:selected-smells}), dos 21 propostos. Os dados foram coletados por meio de um experimento de código online onde cada participante era solicitado a avaliar a qualidade de seis códigos relativos a camada de apresentação Android. Obtivemos um total de 70 respostas. Vale ressaltar que este experimento já foi realizado em pesquisa similar, realizada por Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16}, relacionada a maus cheiros em aplicações com Spring MVC.  
+Para responder a \textbf{\small QP3} validamos a percepção de desenvolvedores Android sobre códigos afetados por sete maus cheiros, considerados mais importantes e frequentes (vide Tabela \ref{tab:selected-smells}), dos 21 propostos. Os dados foram coletados por meio de um experimento de código online (\textbf{\small S3}) onde cada participante era solicitado a avaliar a qualidade de seis códigos relativos a camada de apresentação Android. Obtivemos um total de 70 respostas. Vale ressaltar que este experimento já foi realizado em pesquisa similar, realizada por Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16}, relacionada a maus cheiros em aplicações com Spring MVC.  
 
 
 % 54 respostas válidas, 16 descartadas
 
 % , são eles: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}.
 
-Nossos resultados confirmam estatisticamente que desenvolvedores Android percebem cinco dos sete maus cheiros avaliados. Não obtivemos dados suficientes para tirar conclusões estatísticas sobre os outros dois. A seguir, na Seção \ref{etapa-3-experimento} apresentamos detalhes sobre o experimento, na Seção \ref{etapa-3-participantes} detalhes sobre os participantes e na Seção \ref{etapa-3-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção~\ref{phase3-results}.
+Nossos resultados confirmam estatisticamente que desenvolvedores Android percebem cinco dos sete maus cheiros avaliados. Não obtivemos dados suficientes para tirar conclusões estatísticas sobre os outros dois. A seguir, na Seção \ref{etapa-3-experimento} apresentamos detalhes sobre o experimento e na Seção \ref{etapa-3-participantes-analise} detalhes sobre os participantes e como realizamos a análise dos dados. Os resultados desta etapa podem ser conferidos na Seção~\ref{phase3-results}.
 
 
 \subsection{Experimento}
 \label{etapa-3-experimento}
 
-Devido a limitações de tempo e quantidade de respondentes, foi possível coletar dados suficientes para validar estatisticamente a percepção sobre 7 dos 21 maus cheiros propostos. Para definirmos quais maus cheiros seriam avaliados no experimento, usamos o seguinte critério: todos os maus cheiros com MO de importância e frequência maior ou igual a 3 e DP de importância e frequência inferior a 1,20. Conforme obtínhamos os dados, este critério poderia ser relaxado para acomodar mais maus cheiros. A Tabela \ref{tab:selected-smells} lista os maus cheiros avaliados no experimento.
+Foi possível coletar dados suficientes para validar estatisticamente a percepção sobre 7 dos 21 maus cheiros propostos. Para definirmos quais maus cheiros seriam avaliados no experimento, usamos o seguinte critério: todos os maus cheiros com MO de importância e frequência maior ou igual a 3 e DP de importância e frequência inferior a 1,20. Conforme obtínhamos os dados, este critério poderia ser relaxado para acomodar mais maus cheiros. A Tabela \ref{tab:selected-smells} lista os maus cheiros avaliados no experimento.
 
 \begin{table}[!htb]
 \centering
@@ -42,7 +42,7 @@ Devido a limitações de tempo e quantidade de respondentes, foi possível coletar 
 \label{tab:selected-smells}
 \end{table}
 
-O experimento de código foi divulgado em redes sociais como Twitter e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org} e ficou aberto por 8 dias. O experimento continha duas seções principais. A primeira seção teve como objetivo coletar informações demográficas, principalmente com relação a experiência dos participantes. Na segunda seção os participantes foram solicitados a analisar seis códigos, quatro \textbf{\small \textit{``mau cheirosos''}}, ou seja, afetados por um dos sete maus cheiros avaliados, e dois \textbf{\small \textit{``limpos''}}, ou seja, não afetado pelos maus cheiros avaliados. E para cada um deles, responder as seguintes perguntas:
+O questionário do experimento foi elaborado no idioma português, foi divulgado em redes sociais como Twitter, Linkedin e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org} e ficou aberto por 8 dias. O experimento continha duas seções principais. A primeira seção teve como objetivo coletar informações demográficas, principalmente com relação a experiência dos participantes. Na segunda seção os participantes foram solicitados a analisar seis códigos, quatro \textbf{\small \textit{``mau cheirosos''}}, ou seja, afetados por um dos sete maus cheiros avaliados, e dois \textbf{\small \textit{``limpos''}}, ou seja, não afetado pelos maus cheiros avaliados. E para cada um deles, responder as seguintes perguntas:
 
 \noindent 
 \begin{itemize}
@@ -126,23 +126,30 @@ Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu 
 
 % Com o objetivo de mitigar viés ou enganos na seleção manual de códigos que representassem os maus cheiros, realizamos a validação dos códigos com outros dois desenvolvedores Android experientes. \todo{qndo tiver info sobre o feedback colocar aqui}.
 
-\subsection{Participantes}
-\label{etapa-3-participantes}
+\subsection{Participantes e Análise dos Dados}
+\label{etapa-3-participantes-analise}
+
+Participaram desta etapa da pesquisa 70 desenvolvedores. Dos participantes, 86\% possui 2 anos ou mais de experiência com desenvolvimento de software e 44\% possui 2 anos ou mais com desenvolvimento Android. Esses dados podem ser observados na Figura \ref{fig:phase3-participants-experience}. Perguntamos aos participantes quantos aplicativos Android nativo eles já haviam publicado, 55\% dos participantes afirmam ter publicado pelo menos um aplicativo, destes, 25\% já publicou afirma já ter publicado mais que cinco aplicativos.
 
 % Todos os participantes exceto 1, são atualmente desenvolvedores Android profissionais, ou seja, atuam profissionalmente com a plataforma Android. 70\% responderam com seu email para receber resultados da pesquisa, tal como em \textit{S1}, pode ser um indicativo de interesse legítimo da comunidade sobre esta temática. Questionamos da experiência com desenvolvimento de software, bem como com desenvolvimento Android, notamos que 55\% relataram ter mais de 5 aplicativos publicados e 47\% tinham mais de 4 anos de experiência com Android. A experiência dos desenvolvedores pode ser visualizada na Figura \ref{fig:ExpDevsS2}.
 
+\begin{figure*}[!htb]
+\centering
+\includegraphics[width=.7\linewidth]{phase2-participants-experience.png}
+\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S3.}
+\label{fig:phase3-participants-experience}
+\end{figure*}
 
 
 
-
-\subsection{Análise dos Dados}
-\label{etapa-3-analise}
+% \subsection{Análise dos Dados}
+% \label{etapa-3-analise}
 
 % Obtivemos 66 respostas, ou seja 
 
 % Para que fosse possível a validação estatística era necessário em média 30 respostas para cada mau cheiro, segundo fula 30 observações .... Deste modo lançamos o experimento de código com os sete maus cheiros mais importantes e frequentes segundo respondentes de S2. Conforme o número mínimo de respostas de um dos maus cheiros fosse alcançado, removíamos ele do experimento e adicionávamos outro. Desta forma foi possível coletar respostas o suficiente para sete maus cheiros serem analisados estatisticamente.
 
-Para comparar as distribuições de severidade indicada pelos respondentes para os dois grupos de códigos, utilizamos o teste não pareado de Mann-Whitney \cite{Conover:99}. Este teste é usado para analisar a significância estatística das diferenças entre a severidade atribuída pelos respondentes aos problemas que eles observaram nos códigos mau cheirosos e limpos. Os resultados são considerados estatisticamente significativos em $\alpha \leq$  0,05. Também estimamos a magnitude das diferenças medidas usando o Cliff's Delta (\textit{d}), uma medida de tamanho de efeito não paramétrico \cite{EffectSize:05} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito, sendo: desprezível para | \textit{d} | < 0,14, pequeno para 0,14 $\leq$ | \textit{d} | < 0,33, médio para 0,33 $\leq$ | \textit{d} | < 0.474, e grande para | \textit{d} | $\geq$ 0,474 \cite{EffectSize:05}. Finalmente, relatamos resultados qualitativos derivados das respostas abertas dos participantes.
+Para comparar as distribuições de severidade indicada pelos respondentes para os dois grupos de códigos, utilizamos o teste não pareado de Mann-Whitney \cite{Conover:99}. Este teste é usado para analisar a significância estatística das diferenças entre a severidade atribuída pelos respondentes aos problemas que eles observaram nos códigos mau cheirosos e limpos. Os resultados são considerados estatisticamente significativos em ``valor p'' ou $\alpha \leq$  0,05. Também estimamos a magnitude das diferenças medidas usando o Delta de Cliff (\textit{d}), uma medida de tamanho de efeito não paramétrico \cite{EffectSize:05} para dados ordinais. Seguimos diretrizes bem estabelecidas para interpretar os valores do tamanho do efeito, sendo: desprezível para | \textit{d} | < 0,14, pequeno para 0,14 $\leq$ | \textit{d} | < 0,33, médio para 0,33 $\leq$ | \textit{d} | < 0.474, e grande para | \textit{d} | $\geq$ 0,474 \cite{EffectSize:05}. Finalmente, relatamos resultados qualitativos derivados das respostas abertas dos participantes.
 
 
 % Nossa análise consistiu em investigar a percepção dos desenvolvedores sobre códigos limpos, códigos afetados pelas más práticas e códigos afetados por maus cheiros tradicionais, exemplo, Classe Deus/Longa ou Método Longo. Dividimos a análise da percepção em dois grupos: más práticas que afetam apenas códigos Java, no caso apenas a LCUI, e más práticas que afetam apenas recursos da aplicação, no caso LPA, NRD e RM.
