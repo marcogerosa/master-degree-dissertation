@@ -18,7 +18,7 @@
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="533.5"/>
+          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="829.0000000000001"/>
           <y:Fill color="#E5E5E5" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.443359375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="129.67138671875" x="47.664306640625" y="8.2783203125">onCreate()<y:LabelModel>
@@ -36,7 +36,7 @@
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="637.0"/>
+          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="932.5000000000001"/>
           <y:Fill color="#E5E5E5" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.443359375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.33251953125" x="58.833740234375" y="8.2783203125">onStart()<y:LabelModel>
@@ -54,7 +54,7 @@
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="740.5"/>
+          <y:Geometry height="50.0" width="225.0" x="905.4999999999999" y="1036.0"/>
           <y:Fill color="#E5E5E5" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.443359375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="146.39501953125" x="39.302490234375" y="8.2783203125">onResume()<y:LabelModel>
@@ -202,7 +202,7 @@ para a activity<y:LabelModel>
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.0" width="225.0" x="1347.726100151745" y="637.0"/>
+          <y:Geometry height="50.0" width="225.0" x="1347.726100151745" y="932.5000000000001"/>
           <y:Fill color="#E5E5E5" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.443359375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.3486328125" x="44.32568359375" y="8.2783203125">onRestart()<y:LabelModel>
@@ -259,7 +259,7 @@ mais memória<y:LabelModel>
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="60.0" width="200.0" x="587.9999999999999" y="528.5"/>
+          <y:Geometry height="60.0" width="200.0" x="587.9999999999999" y="824.0000000000001"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.88671875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="200.435546875" x="-0.2177734375" y="-1.443359375">Usuário retorna 
@@ -278,7 +278,7 @@ para a activity<y:LabelModel>
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.terminator">
-          <y:Geometry height="100.0" width="275.0" x="880.4999999999999" y="380.0"/>
+          <y:Geometry height="100.0" width="275.0" x="880.4999999999999" y="675.5000000000001"/>
           <y:Fill color="#99CCFF" color2="#00CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="25" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.88671875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="101.119140625" x="86.9404296875" y="18.556640625">Activity 
@@ -521,7 +521,7 @@ Finalizada<y:LabelModel>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="1308.0" y="765.5"/>
+            <y:Point x="1308.0" y="1061.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
