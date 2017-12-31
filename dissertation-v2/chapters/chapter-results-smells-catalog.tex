@@ -17,20 +17,26 @@ Nesta seção apresentamos os 21 maus cheiros propostos sendo respectivamente 10 m
     \toprule
     \textbf{Mau Cheiro} & \textbf{Breve descrição} \\ 
     \toprule
-    \textsc{Componente de UI Inteligente}$^{12\star}$                      & Componentes de UI com lógicas de negócio.  \\
-    \textsc{Componente de UI Acoplado}$^{3\star}$                           & Componentes de UI com referência concretas um para o outro.  \\
-    \textsc{Comportamento Suspeito}$^{3\star}$                            & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
-    \textsc{Adapter Consumista}$^{2\star}$                                & Adapters que não usam o padrão \textit{ViewHolder}.  \\
-    \textsc{Componente de UI Zumbi}$^{2\star}$                            & Componente com referência a componentes de UI com ciclo de vida.  \\
-    \textsc{Uso Excessivo de Fragments}$^{\star}$                        & Uso \textit{fragments} sem uma necessidade explícita. \\
-    \textsc{Componente de UI Fazendo IO}$^{\star}$                          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
-    \textsc{Não Uso de Fragment}$^{\star}$                              & \textit{Não usar nenhum \textit{Fragment}}  \\
-    \textsc{Ausência de Arquitetura}$^{\star}$                      & Aplicativos sem uma arquitetura conhecida.  \\
-    \textsc{Adapter Complexo}$^{\star}$                                  & \textit{Adapters} com condicionais e \textit{loops}. \\
+    \textsc{Componente de UI Inteligente}$^{12\star}$       & Componentes de UI com lógicas de negócio.  \\
+    \textsc{Componente de UI Acoplado}$^{3\star}$           & Componentes de UI com referência concretas um para o outro.  \\
+    \textsc{Comportamento Suspeito}$^{3\star}$              & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
+    \textsc{Adapter Consumista}$^{2\star}$                  & Adapters que não usam o padrão \textit{ViewHolder}.  \\
+    \textsc{Componente de UI Zumbi}$^{2\star}$              & Componentes com referência a componentes de UI com ciclo de vida.  \\
+    \textsc{Uso Excessivo de Fragments}$^{\star}$           & Uso de \textit{fragments} sem uma necessidade explícita. \\
+    \textsc{Componente de UI Fazendo IO}$^{\star}$          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
+    \textsc{Não Uso de Fragment}$^{\star}$                  & Não usar nenhum \textit{Fragment}.  \\
+    \textsc{Ausência de Arquitetura}$^{\star}$              & Aplicativos sem uma arquitetura conhecida.  \\
+    \textsc{Adapter Complexo}$^{\star}$                     & \textit{Adapters} com condicionais e \textit{loops}. \\
     \bottomrule
     \end{tabular}
     \label{tab:Smells-Java}
     \end{table}
+
+
+    % \noindent
+    % \textsc{\textbf{{\small Componente de UI Inteligente}}}$^{12\star}$ \\
+    % \textbf{\small Elementos afetados:} \textit{Activities}$^{5\star}$, \textit{Fragments}$^{3\star}$, \textit{Adapters}$^{2\star}$ e \textit{Listeners}. \\
+    % \textbf{\small Sintomas:} os elementos afetados podem apresentar códigos relacionados a lógica de negócio, operações de IO\footnote{Ver mau cheiro \textsc{Classes de UI Fazendo IO}.}, conversão de dados ou campos estáticos nesses elementos ao invés de apresentarem apenas códigos responsáveis por apresentar, interagir e atualizar a UI.
 
 
     % \subsubsection{\textsc{Classe de UI Inteligente (SML-J1)$^{20\star}$}}
@@ -118,7 +124,7 @@ Nesta seção apresentamos os 21 maus cheiros propostos sendo respectivamente 10 m
     \textsc{Imagem Faltante}$^{2\star}$                                   & Imagem sem todas as resoluções padrões.   \\
     \textsc{Longo Recurso de Estilo}$^{\star}$                           & Recurso de estilo único e longo.   \\
     \textsc{Recurso de String Bagunçado}$^{\star}$                       & Recursos de \textit{string} sem um padrão de nomenclatura.   \\
-    \textsc{Atributos de Estilo Repetidos}$^{\star}$                     & Atributos de estilo repetidos em recursos de \textit{layout} ou \textit{string}.   \\
+    \textsc{Atributos de Estilo Repetidos}$^{\star}$                     & Atributos de estilo repetidos em recursos de \textit{layout} ou \textit{style}.   \\
     \textsc{Reuso Inadequado de String}$^{\star}$                        & \textit{Strings} sendo reutilizadas indevidamente.    \\
     \textsc{Listener Escondido}$^{\star}$                                & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
     \bottomrule

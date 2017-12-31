@@ -22,7 +22,7 @@ vioplot(adapter_complexo_smelly, adapter_complexo_clean,
         componente_ui_inteligente_smelly, componente_ui_inteligente_clean,
         names=c("AC Mau Cheiroso", "AC Limpo", "CA Mau Cheiroso", "CA Limpo",
                 "CS Mau Cheiroso", "CS Limpo", "CI Mau Cheiro", "CI Limpo")
-        ,col="gold")
+        ,col="#00bfc4")
 
 # vioplot(adapter_complexo_smelly, adapter_complexo_clean, names=c("Mau Cheiroso", "Limpo"),col="deepskyblue")
 # title("Adapter Complexo")
@@ -51,7 +51,7 @@ vioplot(longo_recurso_estilo_smelly, longo_recurso_estilo_clean,
         layout_profundamente_aninhado_smelly, layout_profundamente_aninhado_clean,
         atributos_estilo_repetidos_smelly, atributos_estilo_repetidos_clean,
         names=c("LE Mau Cheiroso", "LE Limpo", "LA Mau Cheiroso", "LA Limpo", "AR Mau Cheiroso", "AR Limpo")
-        ,col="gold")
+        ,col="#00bfc4")
 
 # vioplot(longo_recurso_estilo_smelly, longo_recurso_estilo_clean, names=c("Mau Cheiroso", "LE Limpo") ,col="deepskyblue")
 # title("Longo Recurso de Estilo")

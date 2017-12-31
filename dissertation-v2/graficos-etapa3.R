@@ -20,5 +20,6 @@ ggplot(software, aes(x = fct_inorder(Anos), y = value, fill = variable, label = 
         legend.position = "bottom", legend.title = element_blank()) +
   geom_text(position = position_stack(vjust = 0.5), size=2.5, data=subset(software,value != 0 & value != 1)) +
   scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
-  coord_cartesian(ylim=c(0,45))
+  coord_cartesian(ylim=c(0,45)) + 
+  
 
