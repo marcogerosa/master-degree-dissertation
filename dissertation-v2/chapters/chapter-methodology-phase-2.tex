@@ -1,24 +1,24 @@
 \section{Etapa 2 - Frequência e importância dos maus cheiros}
 \label{etapa-2}
 
-Para responder a \textbf{\small QP2}, buscamos generalizar os maus cheiros encontrados na QP1 entendendo a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. 
+Para responder a QP$_2$, buscamos generalizar os maus cheiros encontrados na QP$_1$ entendendo a percepção dos desenvolvedores com relação a frequência e importância dos maus cheiros. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. 
 
 Coletamos ao todo 201 respostas de desenvolvedores Android de 3 continentes e 14 países diferentes. Nossos resultados mostraram que os 21 maus cheiros são considerados de modo relevante, frequentes e importantes. A seguir, na Seção \ref{etapa-2-questionario} apresentamos detalhes sobre a concepção do questionário, na Seção \ref{etapa-2-participantes} detalhes sobre os participantes e na Seção \ref{etapa-2-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção \ref{phase2-results}.
 
 \subsection{Questionário}
 \label{etapa-2-questionario}
 
-Foram criadas duas versões do questionário, inglês e português, de forma que de um era possível acessar o outro, possibilitando o participante escolher o idioma mais apropriado a ele. No cabeçalho do questionário inserimos algumas informações para o participante, dentre elas, informamos que o questionário fazia parte de uma pesquisa sobre qualidade de código Android e que os dados fornecidos poderiam futuramente ser publicados de forma anônima. O questionário (S2) continha 3 seções. A primeira seção, como em S1, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
+Foram criadas duas versões do questionário, inglês e português, de forma que de um era possível acessar o outro, possibilitando o participante escolher o idioma mais apropriado a ele. No cabeçalho do questionário inserimos algumas informações para o participante, dentre elas, informamos que o questionário fazia parte de uma pesquisa sobre qualidade de código Android e que os dados fornecidos poderiam futuramente ser publicados de forma anônima. O questionário (S$_2$) continha 3 seções. A primeira seção, como em S$_1$, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 questões. 
 
 A segunda seção objetivou capturar a percepção dos desenvolvedores com relação a frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de afirmações, onde cada afirmação descrevia o sintoma de um dos maus cheiros, e pedimos para o participante indicar com qual frequência ele percebia cada uma das situações listadas no seu dia a dia. Para cada afirmação o participante podia escolher uma entre cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, as vezes, raramente e nunca. 
 
-As afirmações foram baseadas nas respostas em S1, por exemplo, para o mau cheiro \textsc{\small Classes de UI Acopladas} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nessas e outras respostas extraímos a seguinte frase para representar o sintoma do mau cheiro:
+As afirmações foram baseadas nas respostas em S$_1$, por exemplo, para o mau cheiro \textsc{\small Classes de UI Acopladas} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nessas e outras respostas extraímos a seguinte frase para representar o sintoma do mau cheiro:
 
 \begin{itemize}
  \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
 \end{itemize}
 
-Para contemplar os 21 maus cheiros foram apresentadas 26 afirmações, essa diferença do número total de maus cheiros, que somam 21, e o número de afirmações se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em S1 mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma afirmação para cada um deles, sendo que cada afirmação abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três afirmações, onde cada uma representou uma forma diferente, considerada como má prática pelos participantes de S1, sobre como implementar a resposta a eventos do usuário no Android:
+Para contemplar os 21 maus cheiros foram apresentadas 26 afirmações, essa diferença do número total de maus cheiros, que somam 21, e o número de afirmações se dá pois, para os maus cheiros \textsc{\small Comportamento Suspeito}, \textsc{\small Componente de UI Zumbi}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} identificamos nas respostas em S$_1$ mais de um sintoma que os representavam. Com o objetivo de entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor, optamos por apresentar mais de uma afirmação para cada um deles, sendo que cada afirmação abordou um dos sintomas. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três afirmações, onde cada uma representou uma forma diferente, considerada como má prática pelos participantes de S$_1$, sobre como implementar a resposta a eventos do usuário no Android:
 
 \begin{itemize}
   \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.
@@ -65,7 +65,7 @@ Participaram desta etapa da pesquisa 201 desenvolvedores. 145 respostas vieram d
   \caption{Distribuição de idade.}
   \label{fig:phase2-participants-age}
 \end{subfigure}% 
-\caption{Escolaridade e distribuição de idade dos participantes em S2.}
+\caption{Escolaridade e distribuição de idade dos participantes em S$_2$.}
 \label{fig:phase2-participants-experience}
 % \vspace{-.5cm} 
 \end{figure*}
@@ -87,7 +87,7 @@ Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% pa
 %   \caption{Desenvolvimento Android}
 %   \label{fig:phase1-participants-regions-brasil}
 % \end{subfigure}% 
-% \caption{Experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S2.}
+% \caption{Experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_2$.}
 % \label{fig:phase2-participants-experience}
 % % \vspace{-.5cm} 
 % \end{figure*}
@@ -95,7 +95,7 @@ Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% pa
 \begin{figure*}[!b]
 \centering
 \includegraphics[width=.7\linewidth]{phase2-participants-experience.png}
-\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S2.}
+\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_2$.}
 \label{fig:phase2-participants-experience}
 \end{figure*}
 
@@ -106,13 +106,13 @@ Nosso questionário foi respondido por profissionais de 3 continentes e 14 países
 \begin{figure*}[!htb]
   \centering
   \includegraphics[width=.7\textwidth]{phase2-participants-languages.png}
-  \caption{Nível de conhecimento em diversas linguagens de programação orientada a objetos dos participantes de S2.}
+  \caption{Nível de conhecimento em diversas linguagens de programação orientada a objetos dos participantes de S$_2$.}
   \label{fig:phase2-participants-languages}
   % \vspace{-.5cm} 
 \end{figure*}
 
 
-Podemos concluir que tivemos certa abrangência geográfica porém o padrão geográfico obtido em S1 se repetiu em S2, de que apesar de termos tido esta abrangência, a maior representatividade é provinda do Brasil, logo, continuamos acreditando que o mais apropriado seja dizer que a percepção de frequência e importância dos maus cheiros derivados representam a opinião de desenvolvedores brasileiros.
+Podemos concluir que tivemos certa abrangência geográfica porém o padrão geográfico obtido em S$_1$ se repetiu em S$_2$, de que apesar de termos tido esta abrangência, a maior representatividade é provinda do Brasil, logo, continuamos acreditando que o mais apropriado seja dizer que a percepção de frequência e importância dos maus cheiros derivados representam a opinião de desenvolvedores brasileiros.
 
 \begin{figure*}[!htb]
 \centering
@@ -128,7 +128,7 @@ Podemos concluir que tivemos certa abrangência geográfica porém o padrão geográf
   \caption{Distribuição geográfica brasileira.}
   \label{fig:phase2-participants-regions-brasil}
 \end{subfigure}% 
-\caption{Distribuição geográfica global e brasileira dos participantes de S2.}
+\caption{Distribuição geográfica global e brasileira dos participantes de S$_2$.}
 \label{fig:phase2-participants-regions}
 % \vspace{-.5cm} 
 \end{figure*}

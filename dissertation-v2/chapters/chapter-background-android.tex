@@ -5,12 +5,12 @@
 \section{Android}
 \label{sec:Android}
 
-O Android é uma plataforma para desenvolvimento móvel, baseada no Kernel do Linux, lançada em 2008 pelo Google em parceria com diversas empresas \cite{OHAReleasesAndroidSDK:07, AndroidPlatformArchitecture}. No início de 2011 tomou a liderança, se tornando a plataforma móvel com maior participação no mercado global. A Figura \ref{fig:MobileMarketShare09-17} apresenta a participação de mercado das principais plataformas móveis de 2009 a 2017 \cite{GlobalSmartphoneSales:09-17}. Desde 2011, o Android se mantém líder e aumenta sua participação a cada ano, tendo em 2017 atingido mais de 86\% de participação de mercado \cite{GlobalSmartphoneSales:09-17}. Seus principais concorrentes são iOS da Apple, com participação de mercado de aproximadamente 13\% e o Windows Phone, oficialmente descontinuado pela Microsoft em 2017\footnote{https://support.microsoft.com/en-us/help/4001737/products-reaching-end-of-support-for-2017}. 
+O Android é uma plataforma para desenvolvimento móvel, baseada no Kernel do Linux, lançada em 2008 pelo Google em parceria com diversas empresas \cite{OHAReleasesAndroidSDK:07, AndroidPlatformArchitecture}. A Figura \ref{fig:MobileMarketShare09-17} apresenta a participação de mercado das principais plataformas móveis desde o 1º quadrimestre (Q1) de 2009 ao 2º quadrimestre (Q2) de 2017 \cite{GlobalSmartphoneSales:09-17}. Podemos observar que, no início de 2011 o Android tomou a liderança, ultrapassando a Symbian, sua principal concorrente na época, e se tornando a plataforma móvel com maior participação no mercado global. Desde então, se mantém líder e aumenta sua participação a cada ano, tendo em 2017 atingido mais de 87\% de participação de mercado. Em 2017, seus principais concorrentes são iOS da Apple, com participação de mercado de aproximadamente 13\% e o Windows Phone, oficialmente descontinuado pela Microsoft\footnote{https://support.microsoft.com/en-us/help/4001737/products-reaching-end-of-support-for-2017} nesse ano. 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.8\textwidth]{android-marketshare-09-17.png}
-	\caption[Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q1 de 2017.]{Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q1 de 2017 \cite{GlobalSmartphoneSales:09-17}.}
+	\includegraphics[width=.9\textwidth]{android-marketshare-09-17.png}
+	\caption[Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q1 de 2017.]{Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q2 de 2017 \cite{GlobalSmartphoneSales:09-17}.}
 	\label{fig:MobileMarketShare09-17}
 \end{figure}
 
@@ -18,7 +18,7 @@ Enquanto que o iOS só é utilizado por iPhones e iPads, que são fabricados pela A
 
 % comentar sobre andrid wears, auto, etc
 
-As seções seguintes apresentam os fundamentos e bases do desenvolvimento de aplicativos Android. Todos os códigos de exemplo na dissertação foram implementados e testados utilizando a linguagem Java.
+As seções seguintes apresentam os fundamentos e principais conceitos do desenvolvimento de aplicativos Android. Todos os códigos de exemplo na dissertação foram implementados e testados utilizando a linguagem Java.
 
 % \subsection{Arquitetura da Plataforma}
 
@@ -51,13 +51,17 @@ As seções seguintes apresentam os fundamentos e bases do desenvolvimento de apli
 
 \subsection{Fundamentos do Desenvolvimento Android}
 
-O Android Studio \cite{AndroidStudio} é o ambiente integrado de desenvolvimento (\acl{IDE} - \acs{IDE}) oficial e gratuito, mantido pelo Google e comumente usado para o desenvolvimento Android. Juntamente com o Android Studio vem instalado o kit de desenvolvimento Android (\acl{SDK} - \acs{SDK}). O Android \acs{SDK} é um conjunto de ferramentas para o desenvolvimento Android. Entre as ferramentas, podemos encontrar o compilador, depurador de código, emulador, bibliotecas de componentes base para a criação de aplicativos Android e outras. O arquivo instalável de um aplicativo Android possui a extensão \texttt{.apk}, acrônimo para \emph{Android PacKage} \cite{AndroidFundamentals}. 
+O Android Studio \cite{AndroidStudio} é o ambiente integrado de desenvolvimento (\acs{IDE}, do inglês \acl{IDE}) oficial e gratuito, mantido pelo Google e comumente usado para o desenvolvimento Android. Juntamente com o Android Studio vem instalado o kit de desenvolvimento Android (\acs{SDK}, do inglês \acl{SDK}). O Android \acs{SDK} é um conjunto de ferramentas para o desenvolvimento Android. Entre as ferramentas, podemos encontrar o compilador, depurador de código, emulador, bibliotecas de componentes base para a criação de aplicativos Android e outras. O arquivo instalável de um aplicativo Android possui a extensão \texttt{.apk}, acrônimo para \emph{Android PacKage} \cite{AndroidFundamentals}. 
 
-Na estrutura de um projeto Android existem dois diretórios e um arquivo principais. O diretório \texttt{src} (de \textit{source}) contém todo o código Java, o diretório \texttt{res} (de \textit{resource}) contém todos os recursos da aplicação, que são códigos \emph{``não java''}, como imagens, XMLs de layout, dentre outros. Por fim, o arquivo \texttt{AndroidManifest.xml} contém configurações gerais do aplicativo, como permissões, declarações de componentes, dentre outras \cite{AndroidDevProjectStructure}.
+A estrutura básica de um projeto Android é composta por dois diretórios e um arquivo. O diretório \texttt{src} (\textit{source}) contém todo o código Java, o diretório \texttt{res} (\textit{resource}) contém todos os recursos da aplicação, que são códigos \emph{``não java''}, como imagens, XMLs de \textit{layout}, dentre outros. Por fim, o arquivo \texttt{AndroidManifest.xml} contém configurações gerais do aplicativo, como permissões, declarações de componentes, dentre outras \cite{AndroidDevProjectStructure}.
+
+% Na estrutura de um projeto Android existem dois diretórios e um arquivo principais. O diretório \texttt{src} (de \textit{source}) contém todo o código Java, o diretório \texttt{res} (de \textit{resource}) contém todos os recursos da aplicação, que são códigos \emph{``não java''}, como imagens, XMLs de layout, dentre outros. Por fim, o arquivo \texttt{AndroidManifest.xml} contém configurações gerais do aplicativo, como permissões, declarações de componentes, dentre outras \cite{AndroidDevProjectStructure}.
 
 O Android provê diversos componentes base para o desenvolvimento Android que não estão disponíveis no desenvolvimento Java tradicional \cite{AndroidUI1:17}. Alguns componentes são utilizados na camada de apresentação, outros para processamentos em segundo plano, outros para persistência em banco de dados local, dentre outros. Por exemplo, \textit{Activities} são usadas para a criação de telas com \acs{UI} pelo qual usuários podem interagir \cite{AndroidActivities2016}. \textit{Services} são usados para longos processamentos em segundo plano e não possuem \acs{UI} \cite{AndroidDevServices}. \textit{BroadcastReceivers} são usados como ouvintes, registrando interesse por mensagens enviadas pelo sistema operacional Android, como bateria baixa, ou por outros componentes \cite{AndroidDevBroadcast}. \textit{AsyncTasks} são usadas para curtos processamentos em segundo plano de forma assíncrona, com o objetivo de não bloquear a \acs{UI} \textit{Thread}, principal \textit{Thread} em um aplicativo Android \cite{AndroidDevAsyncTask, AndroidDeveloperMainThread}. 
 
-Cada componente do Android \ac{SDK} possui um conjunto de métodos de retorno que podem ou devem ser sobrescritos pelo desenvolvedor e que são chamados pelo sistema operacional Android. Ciclo de vida de um componente diz respeito a como ele é criado, mantido e destruído. O ciclo de vida é composto por um conjunto de métodos de retorno que são sempre chamados e em uma sequência específica \cite{AndroidActivities2016, AndroidDeveloperLifeCycle}. Componentes de \acs{UI} como \textit{Activities} costumam ter ciclos de vida mais extensos, e portanto mais complexos, que componentes que não lidam com a camada de apresentação. A Figura \ref{fig:android-lifecycles} apresenta como exemplo os ciclos de vida de \textit{Activities}, que estão diretamente relacionadas à camada de apresentação, e \textit{Services}, que não são relacionados à camada de apresentação.
+Cada componente do Android \acs{SDK} possui um conjunto de métodos de retorno que podem ou devem ser sobrescritos pelo desenvolvedor e que são chamados pelo sistema operacional Android. Ciclo de vida de um componente diz respeito a como ele é criado, mantido e destruído. O ciclo de vida é composto por um conjunto de métodos de retorno que são sempre chamados e em uma sequência específica \cite{AndroidActivities2016, AndroidDeveloperLifeCycle}. Componentes de \acs{UI} como \textit{Activities} costumam ter ciclos de vida mais extensos, e portanto mais complexos, que componentes que não lidam com a camada de apresentação. 
+
+% A Figura \ref{fig:android-lifecycles} apresenta como exemplo os ciclos de vida de \textit{Activities}, que estão diretamente relacionadas à camada de apresentação, e \textit{Services}, que não são relacionados à camada de apresentação.
 
 %\begin{figure*}[!htb]
 %	\centering
@@ -67,39 +71,39 @@ Cada componente do Android \ac{SDK} possui um conjunto de métodos de retorno que
 %	\vspace{-.5cm} 
 %\end{figure*}
 
-\begin{figure*}[!htb]
-\centering
-\imagewidth=0.54\textwidth
-\captionsetup[subfigure]{width=.9\imagewidth,justification=raggedright}%
-\begin{subfigure}[t]{.49\textwidth}
-  \centering
-  \includegraphics[width=1.13\textwidth]{activity-ciclodevida2.png}
-  \caption{Principais métodos de retorno do ciclo de vida de \textit{Activities}.}
-  \label{fig:activity-lifecycle}
-\end{subfigure}
-\begin{subfigure}[t]{.49\textwidth}
-  \centering
-  \includegraphics[width=0.34\textwidth]{service-ciclodevida2.png}
-  \caption{Métodos de retorno do ciclo de vida de \textit{Services}.}
-  \label{fig:service-lifecycle}
-\end{subfigure}% 
-\caption{Comparação do ciclo de vida de \textit{Activities} e \textit{Services}.}
-\label{fig:android-lifecycles}
-\vspace{-.5cm} 
-\end{figure*}
+% \begin{figure*}[!htb]
+% \centering
+% \imagewidth=0.54\textwidth
+% \captionsetup[subfigure]{width=.9\imagewidth,justification=raggedright}%
+% \begin{subfigure}[t]{.49\textwidth}
+%   \centering
+%   \includegraphics[width=1.13\textwidth]{activity-ciclodevida2.png}
+%   \caption{Principais métodos de retorno do ciclo de vida de \textit{Activities}.}
+%   \label{fig:activity-lifecycle}
+% \end{subfigure}
+% \begin{subfigure}[t]{.49\textwidth}
+%   \centering
+%   \includegraphics[width=0.34\textwidth]{service-ciclodevida2.png}
+%   \caption{Métodos de retorno do ciclo de vida de \textit{Services}.}
+%   \label{fig:service-lifecycle}
+% \end{subfigure}% 
+% \caption{Comparação do ciclo de vida de \textit{Activities} e \textit{Services}.}
+% \label{fig:android-lifecycles}
+% \vspace{-.5cm} 
+% \end{figure*}
 
-O ciclo de vida de \textit{Activities} é complexo, com mais de dez métodos de retorno \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais métodos de retorno representados pelos retângulos em cinza. Além desses principais, as \textit{Activities} possuem outros, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. 
+% O ciclo de vida de \textit{Activities} é complexo, com mais de dez métodos de retorno \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais métodos de retorno representados pelos retângulos em cinza. Além desses sete principais, \textit{Activities} possuem outros métodos de retorno, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities}, contendo até quatro métodos de retorno. A Figura \ref{fig:service-lifecycle} apresenta a versão mais longa do ciclo de vida de \textit{Services}, que varia de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. 
 
-O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities}, contendo até quatro métodos de retorno. A Figura \ref{fig:service-lifecycle} apresenta os dois possíveis ciclos de vida de \textit{Services}, que variam de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. Em ambos os casos, os métodos de retorno \textit{onCreate} e \textit{onDestroy} são chamados, a depender de como ele foi criado, no primeiro caso será chamado o \textit{onStartCommand} e no segundo o \textit{onBind} e \textit{onUnbind}.
+% Em ambos os casos, os métodos de retorno \textit{onCreate} e \textit{onDestroy} são chamados, a depender de como ele foi criado, no primeiro caso será chamado o \textit{onStartCommand} e no segundo o \textit{onBind} e \textit{onUnbind}.
 
-Recursos são arquivos ``não Java'', utilizados na construção da \acs{UI} e necessários para a criação de aplicativos Android \cite{AndroidFundamentals}. Recursos podem ser imagens, arquivos de áudio ou arquivos XML, sendo as \textit{tags} e atributos usados no XML, derivados do Android \ac{SDK}. Recursos de \textit{Layout} são XMLs responsáveis pela estrutura da \acs{UI} como posicionamento, botões e caixas de textos. Recursos de \textit{String} são XMLs responsáveis pelo armazenamento dos textos usados no aplicativo e possibilitam a internacionalização, ou seja, traduzir o aplicativo em outros idiomas. Recursos de \textit{Style} são XMLs responsáveis pelo armazenamento dos estilos usados nos recursos de \textit{layout}. Recursos \textit{Drawable} são gráficos que podem ser imagens ou arquivos XML que criam animações ou efeitos de estado de botões, como pressionado ou desabilitado. Apesar de ser possível implementar os recursos via código Java, é fortemente recomendado pela plataforma que isso não seja feito \cite{AndroidProvidingResources}.
+Recursos são arquivos ``não Java'', utilizados na construção da \acs{UI} e necessários para a criação de aplicativos Android \cite{AndroidFundamentals}. Recursos podem ser imagens, arquivos de áudio ou arquivos XML, sendo as marcações e atributos usados no XML, derivados do Android \ac{SDK}. Recursos de \textit{Layout} são XMLs responsáveis pela estrutura da \acs{UI} como posicionamento, botões e caixas de textos. Recursos de \textit{String} são XMLs responsáveis pelo armazenamento dos textos usados no aplicativo e possibilitam a internacionalização, ou seja, traduzir o aplicativo em outros idiomas. Recursos de \textit{Style} são XMLs responsáveis pelo armazenamento dos estilos usados nos recursos de \textit{layout}. Recursos \textit{Drawable} são gráficos que podem ser imagens ou arquivos XML que criam animações ou efeitos de estado de botões, como pressionado ou desabilitado. Apesar de ser possível implementar muitos recursos via código, é fortemente recomendado pela plataforma que isso não seja feito \cite{AndroidProvidingResources}.
 
 
 \subsection{Elementos da Camada de Apresentação Android}
 
-São muitos os componentes e recursos disponibilizados pelo Android \ac{SDK}. Nosso estudo objetiva analisar os que estão relacionados à camada de apresentação Android. Em termos de \textbf{\small componentes da camada de apresentação Android}, fizemos uma extensa revisão na documentação oficial do Android \cite{AndroidDeveloperSite2016} e chegamos a quatro, são eles: \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}. 
+São muitos os componentes e recursos disponibilizados pelo Android \acs{SDK}. Nosso pesquisa tem foco em analisar os elementos relacionados à camada de apresentação. Em termos de \textbf{\small componentes da camada de apresentação Android}, fizemos uma extensa revisão na documentação oficial do Android \cite{AndroidDeveloperSite2016} e chegamos a quatro, são eles: \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}. 
 
-Em termos de \textbf{\small recursos Android}, todos são por natureza relacionados à camada de apresentação. O Android provê mais de quinze diferentes tipos de recursos \cite{AndroidResourceType}. Com o objetivo de focar a pesquisa, optamos por selecionar os principais recursos. Para isso, nos baseamos no projeto padrão criado pelo Android Studio \cite{FirstApp2017}, são eles: recursos de \textit{Layout}, recursos de \textit{Strings}, recursos de \textit{Style} e recursos \textit{Drawable}. Quando estivermos nos referindo a ambos, \textbf{\small componentes} e \textbf{\small recursos} aqui definidos, chamaremos de \textbf{\small elementos da camada de apresentação Android}. 
+Em termos de \textbf{\small recursos Android}, todos são por natureza relacionados à camada de apresentação \cite{AndroidFundamentals}. O Android provê mais de quinze diferentes tipos de recursos \cite{AndroidResourceType}. Com o objetivo de focar a pesquisa, optamos por selecionar os recursos principais. Para isso, nos baseamos nos recursos existentes no projeto criado a partir do modelo padrão pelo Android Studio \cite{FirstApp2017}\footnote{Até o Android Studio 3.0, o modelo de projeto padrão, que aparece pré-selecionado na criação de um novo projeto, é o \textit{Empty Activity}.}, são eles: recursos de \textit{Layout}, recursos de \textit{Strings}, recursos de \textit{Style} e recursos \textit{Drawable}. Quando estivermos nos referindo a ambos, \textbf{\small componentes} e \textbf{\small recursos} aqui definidos, chamaremos de \textbf{\small elementos da camada de apresentação Android}. 
 
 % Quando dissermos \textbf{\small componentes da camada de apresentação Android}, estaremos nos referindo aos componentes Java Android mencionadas no parágrafo anterior, quando falarmos \textbf{\small recursos Android}, estaremos nos referindo aos recursos mencionados neste parágrafo, e quando falarmos \textbf{\small elementos da camada de apresentação Android}, estaremos nos referindo a ambos.
 
@@ -209,20 +213,19 @@ A seguir introduzimos brevemente cada um dos oito elementos da camada de apresen
 
 \noindent \textbf{\textit{Recursos de Drawable}} são arquivos gráficos utilizados na \acs{UI}. Esses arquivos podem ser imagens tradicionais, \texttt{.png}, \texttt{.jpg} ou \texttt{.gif}, ou XMLs gráficos. A principal vantagem dos XMLs gráficos está no tamanho do arquivo que é comumente bem menor do que imagens tradicionais e, diferente das imagens tradicionais onde é recomendado que tenha mais de uma versão da mesma em resolução diferentes, para XMLs gráficos só é necessário uma versão~\cite{AndroidDrawableResources}.
 
-
-
-
-
-
 \subsection{Desafios no Desenvolvimento da Camada de Apresentação Android}
+
+Nesta seção, para exemplificarmos o problema de pesquisa, tratamos de dois desafios no desenvolvimento da camada de apresentação Android. O primeiro trata do desenvolvimento de uma tela e o segundo trata da alta complexidade do ciclo de vida de componentes da camada de apresentação em comparação com outros componentes.
+
+\subsubsection{Desenvolvimento de Activities}
 
 % No desenvolvimento Android, uma tela é composta basicamente por dois arquivos, uma classe Java responsável pela criação da tela e responder aos eventos do usuário e um recurso de \textit{layout}, arquivo XML responsável pela criação da interface visual (\acl{UI} - \acs{UI}).
 
-\textit{Activity} é um dos principais componentes de aplicativos Android. Ele representa uma tela com \acs{UI} pelo qual o usuário pode interagir através de botões, listagens, caixas de entrada de textos, dentre outros. Para implementar uma \textit{Activity} é necessário criar uma classe derivada de \texttt{Activity} e sobrescrever alguns métodos herdados, chamados de métodos de retorno. O principal método de retorno é o \textit{onCreate}. Entre suas responsabilidades está a criação da tela e configuração da \acs{UI}. O Código-Fonte \ref{lst:BasicActivity} apresenta o código mínimo para a criação de uma \textit{Activity}. Na linha 5 temos o código responsável pela configuração da \acs{UI} que indica o recurso de \textit{layout} ``main\_activity''.
+\textit{Activity} é um dos principais componentes de aplicativos Android. Ela representa uma tela com \acs{UI} pelo qual o usuário pode interagir através de botões, listagens, caixas de entrada de textos, dentre outros. Para implementar uma \textit{Activity} é necessário criar uma classe derivada de \texttt{Activity} e sobrescrever alguns métodos herdados, chamados de métodos de retorno. O principal método de retorno é o \textit{onCreate}. Entre suas responsabilidades estão a criação da tela e configuração da \acs{UI}. O Código-Fonte \ref{lst:BasicActivity} apresenta o código mínimo para a criação de uma \textit{Activity}. Na linha 5 temos o código responsável pela configuração da \acs{UI} que indica o recurso de \textit{layout} ``main\_activity''. \\
 
 \begin{lstlisting}[
   language=Java, 
-  caption={Código mínimo para a criação de uma \textit{Activity}}, 
+  caption={Código mínimo para a criação de uma \textit{Activity}.}, 
   label={lst:BasicActivity}
 ]
 public class MainActivity extends Activity {
@@ -234,8 +237,7 @@ public class MainActivity extends Activity {
 }
 \end{lstlisting}
 
-A \acs{UI} de uma \textit{Activity} é construída por meio de recursos de \textit{layout}, arquivos XML cujas marcações provêm do kit de desenvolvimento Android (\acl{SDK} - \acs{SDK}) e representam \textit{Views} ou \textit{ViewGroups}. O Código-Fonte \ref{lst:SimpleLayout} apresenta um recurso de \textit{layout} com duas \textit{Views} e um \textit{ViewGroup}. As \textit{Views} são um \textit{TextView}, que representa uma caixa de entrada de texto, e um \textit{Button}, que representa um botão. Essas duas \textit{Views} estão contidas dentro do \textit{ViewGroup} \textit{LinearLayout}, que as organiza verticalmente. 
-
+A \acs{UI} de uma \textit{Activity} é construída por meio de recursos de \textit{layout}, arquivos XML cujas marcações provêm do Android \acs{SDK} e representam \textit{Views} ou \textit{ViewGroups}. O Código-Fonte \ref{lst:SimpleLayout} apresenta um recurso de \textit{layout} com duas \textit{Views} e um \textit{ViewGroup}. As \textit{Views} são: um \textit{TextView} (linhas 7 a 10), que representa uma caixa de entrada de texto, e um \textit{Button} (linhas 12 a 15), que representa um botão. Essas duas \textit{Views} estão contidas dentro do \textit{ViewGroup} \textit{LinearLayout} (linhas 2 a 5 e marcação de fechamento na linha 16), que as organiza verticalmente (conforme valor do atributo \texttt{\small android:orientation} na linha 5). \\
 
 \begin{lstlisting}[
   language=XML, 
@@ -262,11 +264,11 @@ A \acs{UI} de uma \textit{Activity} é construída por meio de recursos de \textit
 
 Os códigos apresentados são bem simples, mas comumente as telas e \acs{UI}s tendem a ser bem mais robustas e ricas de informações e interatividade. São em contextos como esses que os desafios no desenvolvimento da camada de apresentação Android surgem. \acs{UI}s ricas e robustas podem significar muitas \textit{Views} e \textit{ViewGroups}, resultando em recursos de \textit{layout} grandes e complexos. E ainda, quanto mais ricas e robustas são as \acs{UI}s, mais provavelmente o código das \textit{Activities} correspondentes também serão grandes e complexos, pois são pelas \textit{Activities} que \textit{Views} e \textit{ViewGroups} conseguem interagir com o usuário. Também são pelas \textit{Activities} que os dados chegam até a \acs{UI} e vice-versa, dentre muitas outras responsabilidades que tendem a ficar com as \textit{Activities}.
 
-\subsubsection{Ciclo de Vida}
+\subsubsection{Ciclo de Vida de Componentes}
 
-Toda \textit{Activity}, bem como outros componentes Android, possui um ciclo de vida. O ciclo de vida de um componente é composto por um conjunto de métodos de retorno, que por sua vez, são métodos chamados pelo Android em uma ordem específica \cite{AndroidActivities2016}. Os componente da camada de apresentação Android possuem ciclos de vida mais extensos, e portanto, mais complexos. 
+Toda \textit{Activity}, bem como outros componentes Android, possui um ciclo de vida. O ciclo de vida de um componente é composto por um conjunto de métodos de retorno, que por sua vez, são métodos chamados pelo sistema operacional Android em uma ordem específica \cite{AndroidActivities2016} e são responsáveis por criar, manter e destruir o componente. 
 
-Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities} e \textit{Fragments}, ambos relacionados à camada de apresentação e \textit{Services}, componente usado para longos processamento em segundo plano. Os métodos de retorno são representados pelos retângulos em cinza. É possível observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno, enquanto que \textit{Services} possuem apenas quatro.
+Os componente da camada de apresentação Android possuem ciclos de vida mais extensos, e portanto, mais complexos. Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities} e \textit{Fragments}, ambos relacionados diretamente à camada de apresentação e \textit{Services}, componente usado para longos processamentos em segundo plano e portanto, não relacionado diretamente à camada de apresentação. Os métodos de retorno são representados pelos retângulos em cinza. Podemos observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno, enquanto que \textit{Services} possuem apenas quatro.
 
 \begin{figure*}[!htb]
 \centering
@@ -277,15 +279,15 @@ Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vid
     \caption{\textit{Activity}.}
     \label{fig:activity-lifecycle}
   \end{subfigure}
-  \begin{subfigure}[b]{.34\textwidth}
+  \begin{subfigure}[b]{.39\textwidth}
     \centering
-    \hspace*{-0.6cm}
+    \hspace*{-0.7cm}
     \includegraphics[scale=0.47]{fragment-ciclodevida.png}
     \caption{\textit{Fragment}.}
-    \label{fig:activity-lifecycle}
+    \label{fig:fragment-lifecycle}
   \end{subfigure}
-  \begin{subfigure}[b]{.25\textwidth}
-    \hspace*{-1.3cm}
+  \begin{subfigure}[b]{.20\textwidth}
+    \hspace*{-2.4cm}
     \includegraphics[scale=0.47]{service-ciclodevida.png}
     \caption{\textit{Services}.}
     \label{fig:service-lifecycle}
@@ -294,6 +296,9 @@ Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vid
 \label{fig:android-lifecycles}
 % \vspace{-.5cm} 
 \end{figure*}
+
+O ciclo de vida de \textit{Activities} e \textit{Fragments} são complexos, com mais de dez métodos de retorno \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais métodos de retorno de \textit{Activities}. Além desses sete principais, \textit{Activities} possuem outros métodos de retorno, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities} ou \textit{Fragments}, contendo até quatro métodos de retorno. A Figura \ref{fig:service-lifecycle} apresenta a versão mais longa, das duas possíveis, do ciclo de vida de \textit{Services}, que varia de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. 
+
 
 % \begin{lstlisting}[
 %   language=Java, 

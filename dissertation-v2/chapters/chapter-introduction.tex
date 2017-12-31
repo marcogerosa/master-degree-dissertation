@@ -8,15 +8,15 @@ Android é uma plataforma móvel que foi lançada em 2008 pelo Google em parceria c
 
 O Android também chamou a atenção de pesquisadores da área de qualidade de software. Alguns investigaram a existência de maus cheiros tradicionais em aplicativos Android \cite{Hecht:15, DomainMatters, MobileSmells:13}. Outros investigaram a existência de maus cheiros específicos ao Android relacionados a eficiência (boa utilização de recursos como memória e processamento) e usabilidade (capacidade do software em ser compreendido) \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Outros pesquisadores focaram em entender características do desenvolvimento Android que os diferenciam do desenvolvimento de software tradicional \cite{Mantyla2013}.
 
-Dentre as descobertas realizadas pelos pesquisadores, notou-se que maus cheiros específicos são muito mais frequentes em aplicativos Android do que maus cheiros tradicionais \cite{Hecht:15}. Os componentes Android mais afetados por maus cheiros tradicionais fazem parte da camada de apresentação, como \textit{Activities} e \textit{Adapters} \cite{Hecht:15, Mantyla2013, MobileSmells:13}, e em alguns aplicativos Android, códigos relacionados à camada de apresentação são maioria, em termos de linhas de código (\acl{LoC} - \acs{LoC}) \cite{Mantyla2013}. Vale ressaltar que à camada de apresentação Android também é composta por arquivos \texttt{XML}, chamados de recursos da aplicação, que são usados para a construção da interface com o usuário (\acl{UI} - \acs{UI}) \cite{AndroidFundamentals}. Nenhuma das pesquisas mencionadas considerou esses arquivos em suas análises. 
+Dentre as descobertas realizadas pelos pesquisadores, notou-se que maus cheiros específicos são muito mais frequentes em aplicativos Android do que maus cheiros tradicionais \cite{Hecht:15}. Os componentes Android mais afetados por maus cheiros tradicionais fazem parte da camada de apresentação, como \textit{Activities} e \textit{Adapters} \cite{Hecht:15, Mantyla2013, MobileSmells:13}, e em alguns aplicativos Android, códigos relacionados à camada de apresentação são maioria, em termos de linhas de código (\acs{LoC}, do inglês \acl{LoC}) \cite{Mantyla2013}. Vale ressaltar que à camada de apresentação Android também é composta por arquivos XML, chamados de recursos da aplicação, que são usados para a construção da interface com o usuário (\acs{UI}, do inglês \acl{UI}) \cite{AndroidFundamentals}. Nenhuma das pesquisas mencionadas considerou esses arquivos em suas análises. 
 
 Nesta dissertação, investigamos a existência de maus cheiros de código relacionados à camada de apresentação Android. Enquanto outras pesquisas investigaram maus cheiros em termos de eficiência e usabilidade, nós buscamos por maus cheiros relacionados à manutenibilidade, que trata da facilidade do software de ser modificado ou aprimorado. Complementamos as pesquisas anteriores pois focamos na camada de apresentação Android considerando inclusive os recursos da aplicação. 
 
-Nossos dados foram obtidos por meio de dois questionários online. O primeiro foi um questionário exploratório onde perguntamos desenvolvedores Android sobre boas e más práticas utilizadas no dia a dia do desenvolvimento da camada de apresentação e obtivemos 45 respostas, das quais derivamos 21 maus cheiros. O segundo foi um questionário confirmatório, onde validamos a percepção com 201 desenvolvedores Android sobre a frequência e importância dos 21 maus cheiros derivados. Por último, realizamos um experimento de código com 70 desenvolvedores Android com objetivo de validar a percepção dos maus cheiros no código. Ao todo, participaram da pesquisa 316 desenvolvedores Android.
+Nossos dados foram obtidos por meio de dois questionários e um experimento de código online. O primeiro questionário foi de cunho exploratório onde perguntamos a desenvolvedores sobre boas e más práticas utilizadas no dia a dia do desenvolvimento da camada de apresentação Android. Obtivemos 45 respostas, das quais derivamos 21 maus cheiros Android. O segundo, foi um questionário confirmatório, onde validamos a percepção com 201 desenvolvedores Android sobre a frequência e importância dos 21 maus cheiros propostos. Por último, realizamos um experimento de código com 70 desenvolvedores Android com o objetivo de validar se códigos afetados pelos maus cheiros eram percebidos como códigos problemáticos. Ao todo, participaram da pesquisa 316 desenvolvedores.
 
-Nossos resultados mostram que existe uma percepção comum entre desenvolvedores sobre más práticas no desenvolvimento da camada de apresentação Android. Mostram também que essas más práticas são frequentes e consideradas importantes de se mitigar e são percebidas em códigos por desenvolvedores Android. Concluímos com: (i) um catálogo com 21 novos maus cheiros relacionados à camada de apresentação Android, (ii) uma análise estatística da percepção de desenvolvedores sobre 7 dos principais maus cheiros catalogados e (iii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para outros pesquisadores replicarem nossa pesquisa. 
+Nossos resultados mostram que, existem maus cheiros específicos à camada de apresentação Android, que eles são considerados frequentes e importantes de se mitigar e que são percebidos como problemas por desenvolvedores Android quando identificados em códigos. Nossas principais contribuições são: (i) um catálogo com 21 novos maus cheiros relacionados à camada de apresentação Android, (ii) uma análise estatística da percepção de desenvolvedores sobre 7 dos principais maus cheiros catalogados e (iii) um apêndice \textit{online} \cite{apendice} com as informações necessárias para outros pesquisadores replicarem nossa pesquisa. 
 
-Acreditamos que nossas contribuições dão um pequeno mas importante passo na busca por qualidade de software na plataforma Android e que poderá servir a pesquisadores e desenvolvedores. Aos pesquisadores serve como ponto de partida para a definição de heurísticas de identificação dos maus cheiros e implementação de ferramentas que os identifiquem de forma automática. Aos desenvolvedores serve como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
+Acreditamos que nossas contribuições dão um pequeno mas importante passo na busca por qualidade de código na plataforma Android e que poderá servir a pesquisadores e desenvolvedores. Aos pesquisadores serve como ponto de partida para a definição de heurísticas de identificação dos maus cheiros e implementação de ferramentas que os identifiquem de forma automática. Aos desenvolvedores serve como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
 
 
 % Os maus cheiros tradicionais surgiram a partir do conhecimento empírico de desenvolvedores experientes. Webster \cite{Webster:95} documentou 82 \emph{armadilhas} no desenvolvimento de software orientado a objetos baseado em sua experiência ao longo de mais de 20 anos. ``Tio Bob'' \cite{CleanCode:08}, de modo similar, documentou práticas que ajudam a manter o \emph{código limpo}, ou seja, simples e inteligível, baseado em décadas de experiência, repetidos testes e erros. Enquanto que há diversos maus cheiros tradicionais, são poucos os específicos ao Android. Pesquisas em torno da plataforma Android são poucas no geral, não apenas sobre maus cheiros. Umme et al. \cite{Mannan_Dig_Ahmed_Jensen_Abdullah_Almurshed} levantaram que no período de 2008 a 2015, nas principais conferências de manutenção de software (ICSE, FSE, OOPSLA/SPLASH, ASE, ICSM/ICSME, MRS e ESEM) apenas 10\% dos artigos consideraram projetos Android em suas pesquisas e nenhuma outra plataforma móvel foi considerada.
@@ -64,47 +64,47 @@ Acreditamos que nossas contribuições dão um pequeno mas importante passo na busc
 % Abordagem de Solução pq abordou dessa forma? Está tentando responder quais perguntas?
 % Nesta seção apresentamos as questões de pesquisa e as respectivas motivações.
 
-Maus cheiros são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Há ainda evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. Desta forma, dividimos a pesquisa em três questões principais, que apresentamos a seguir.
+Maus cheiros são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. Há ainda evidências na literatura que sugerem que maus cheiros são percebidos por desenvolvedores \cite{Palomba_Do_2014}. Desta forma, dividimos a pesquisa em três questões principais, que apresentamos a seguir.\\
 
 
-\begin{center}
-\textbf{QP1: Existem maus cheiros que são específicos à camada de apresentação de aplicativos Android?}
-\end{center}
+% \begin{center}
+\textbf{QP$_1$ Existem maus cheiros que são específicos à camada de apresentação de aplicativos Android?}
+% \end{center}
 
 % Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android e caso existam, documentá-los. Para isso precisamos explorar o conhecimento empírico de desenvolvedores Android \cite{JavaQADetectingSmells:02, JavascriptSmells}, tarefa que exige alguns passos, portanto dividimos esta questão em outras duas a seguir: \\
 
 % e contempla a execução de alguns passos para que possa ser respondida. Precisamos coletar informações empíricas de desenvolvedores sobre o desenvolvimento da camada de apresentação Android,a partir destas informações, investigar a existência de más práticas recorrentes e se existirem, derivar possíveis maus cheiros. Para isso, derivamos três sub-ques
 
-% \textbf{QP1.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento da camada de apresentação Android?
-% \textbf{QP1.2.} Desenvolvedores compartilham percepções sobre boas e más práticas no desenvolvimento da camada de apresentação Android?
+% \textbf{QP$_1$.1:} O que desenvolvedores consideram boas e más práticas no desenvolvimento da camada de apresentação Android?
+% \textbf{QP$_1$.2.} Desenvolvedores compartilham percepções sobre boas e más práticas no desenvolvimento da camada de apresentação Android?
 
 % Maus cheiro são sintomas que podem indicar um problema mais profundo no código \cite{Refactoring:99}. Geralmente são derivados da experiência e opinião de desenvolvedores \cite{JavaQADetectingSmells:02} ou seja, são por natureza subjetivos \cite{JavascriptSmells}. 
 
-Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android. A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}. Portanto, explorar o conhecimento empírico de desenvolvedores Android é relevante na busca por maus cheiros de código \cite{JavascriptSmells, JavaQADetectingSmells:02}.
+Como principal questão de pesquisa, objetiva investigar a existência de maus cheiros no desenvolvimento da camada de apresentação Android. A percepção de desenvolvedores é sempre importante quando lidamos com manutenção de software \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers} e explorar o conhecimento empírico de desenvolvedores é relevante na busca por maus cheiros de código \cite{JavascriptSmells, JavaQADetectingSmells:02}. Portanto, coletamos os dados a partir de um questionário exploratório online, submetido a desenvolvedores Android, pelo qual perguntamos sobre boas e más práticas no desenvolvimento da camada de apresentação Android. 
 
-Esta questão nos fornece as primeiras ideias sobre maus cheiros na camada de apresentação Android. Os dados foram coletados a partir de um questionário online submetido a desenvolvedores onde perguntamos sobre boas e más práticas no desenvolvimento da camada de apresentação Android. 
-
-Recebemos um total de 45 respostas onde realizamos um processo de codificação buscando por más práticas recorrentes de modo a ser a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para a derivação dos maus cheiros. Como resultado, derivamos 21 maus cheiros na camada de apresentação Android. 
+Esse questionário nos forneceu as primeiras ideias sobre maus cheiros na camada de apresentação Android. Recebemos 45 respostas a partir do qual realizamos um processo de codificação, buscando por más práticas recorrentes, de modo a serem a base para derivação dos maus cheiros. Esse processo resultou em 46 categorias das quais, 21 apresentaram-se recorrente o suficiente, com base no número de Nielsen \cite{NielsenMagicNumber:00}, para a derivação dos maus cheiros. Como resultado, propomos 21 maus cheiros específicos à camada de apresentação Android. \\
 
 
-% \textbf{QP1.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?\\
+% \textbf{QP$_1$.3.} Quais maus cheiros podemos derivar a partir das boas e más práticas coletadas?\\
 % A partir das 21 categorias recorrentes, extraímos 21 maus cheiros no \textit{front-end} Android. 
 
-\begin{center}
-\textbf{QP2. Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}
-% \textbf{QP2. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
-% \textbf{QP2. Quão frequente e importante são os maus cheiros?}
-\end{center}
+% \begin{center}
+\textbf{QP$_2$ Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}
+% \textbf{QP$_2$. Quais maus cheiros são vistos com mais frequência e quais são considerados mais importantes?}
+% \textbf{QP$_2$. Quão frequente e importante são os maus cheiros?}
+% \end{center}
 
 % Entretanto, precisamos validar com desenvolvedores se os sintomas documentados são percebidos no dia a dia de desenvolvimento e se são considerados pontos importantes a se evitar no código. Para isso, elaboramos a seguinte pergunta:
 
-Com o objetivo de validar os maus cheiros derivados em QP1, por meio de um questionário online, perguntamos a desenvolvedores Android com qual frequência os maus cheiros são percebidos no seu dia a dia e o quão importante é mitigá-los. Obtivemos 201 respostas dos quais validamos positivamente que 26 maus cheiros são considerados importantes e percebidos frequentemente no dia a dia.
+Com o objetivo de validar os maus cheiros propostos em QP$_1$, por meio de um questionário online, perguntamos a desenvolvedores Android com qual frequência os maus cheiros eram percebidos no seu dia a dia e o quão importante era mitigá-los. Recebemos um total de 201 respostas das quais confirmamos que todos os maus cheiros propostos são considerados, em algum nível, importantes de se mitigar e frequentes no dia a dia de desenvolvimento.\\
 
-\begin{center}
-\textbf{QP3. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
-\end{center}
+\newpage 
 
-Evidências na literatura sugerem que maus cheiros são percebidos por desenvolvedores~\cite{Palomba_Do_2014}. A fim de validar a percepção dos maus cheiros pelos desenvolvedores Android, realizamos um experimento de código com 70 desenvolvedores. Com os resultados pudemos validar estatisticamente a percepção dos desenvolvedores sobre 7 principais dos 21 maus cheiros derivados.
+% \begin{center}
+\textbf{QP$_3$ Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
+% \end{center}
+
+Evidências na literatura sugerem que maus cheiros são percebidos por desenvolvedores~\cite{Palomba_Do_2014}. A fim de validar a percepção de desenvolvedores Android sobre os maus cheiros propostos, realizamos um experimento de código pelo qual foi possível validar a percepção de 6 dos 21 maus cheiros. Recebemos 70 respostas a partir do qual, extraímos dados estatísticos que confirmam que desenvolvedores percebem os códigos afetados pelos maus cheiros como códigos problemáticos.
 
 
 % onde apresentamos randomicamente códigos Android afetados pelos maus cheiros e códigos limpos e perguntávamos a cada código, se o participante percebia aquele código como problemático, se sim, qual a gravidade do problema e qual o problema percebido. Ao final deste processo descartamos mais 3 maus cheiros pois não se mostraram percebidos por desenvolvedores e concluímos com 19. A partir deste experimento extraímos análises estatísticas que confirmaram a percepção de desenvolvedores com relação aos maus cheiros identificados.
@@ -162,9 +162,9 @@ As principais contribuições desta dissertação são:
   
   \item A validação da percepção de frequência e importância dos 21 maus cheiros no dia a dia de desenvolvimento Android.
 
-  \item Uma análise estatística confirmando a percepção em códigos por desenvolvedores Android dos 7 principais maus cheiros catalogados.
+  \item Uma análise estatística confirmando que códigos afetados por 6 dos 21 maus cheiros são percebidos como problemáticos por desenvolvedores Android.
 
-  \item Um apêndice online com todos os relatórios e dados produzidos durante a pesquisa.
+  \item Um apêndice online \cite{apendice} com todos os relatórios e dados produzidos durante a pesquisa.
 \end{itemize}
 
 
@@ -173,18 +173,18 @@ Os próximos capítulos desta dissertação estão organizadas da seguinte forma:
 
 \begin{itemize}
   
-  \item O Capítulo \ref{fundamentacao} introduz os conceitos chave para este trabalho, a saber: Android, Qualidade de Software e Maus Cheiros de Código.
+  \item O Capítulo \ref{fundamentacao} introduz os principais temas envolvidos nesta pesquisa, a saber: Android, Qualidade de Software, Boas Práticas de Software e Maus Cheiros de Código.
 
-  \item O Capítulo \ref{relacionados} discute trabalhos relacionados a características que diferem o desenvolvimento Android de projetos de software tradicionais, maus cheiros específicos a uma tecnologia, maus cheiros tradicionais em aplicativos Android e maus cheiros específicos ao Android.
+  \item O Capítulo \ref{relacionados} discute os trabalhos relacionados a (i) características que diferem o desenvolvimento Android de projetos de software tradicionais, (ii) maus cheiros específicos a uma tecnologia, (iii) maus cheiros tradicionais em aplicativos Android e (iv) maus cheiros específicos ao Android.
 
-  \item O Capítulo \ref{metodologia} aborda em detalhes os métodos usados em cada uma das etapas de pesquisa.
+  \item O Capítulo \ref{metodologia} aborda a estrutura da pesquisa bem como os detalhes dos métodos e processos de análise utilizados para responder cada questão de pesquisa.
 
-  \item O Capítulo \ref{cap:results} apresenta os resultados que responde a cada questão principal de pesquisa, sendo que a Seção \ref{phase1-results} apresenta a resposta da QP1, incluindo o catálogo com 21 maus cheiros derivados relacionados à camada de apresentação Android. A Seção \ref{phase2-results} apresenta a resposta da QP2 e a Seção \ref{phase3-results} apresenta a resposta da QP3.
+  \item O Capítulo \ref{cap:results} apresenta os resultados e ameaças a validade da pesquisa. A Seção \ref{phase1-results} apresenta a resposta da QP$_1$, incluindo o catálogo com os 21 maus cheiros propostos relacionados à camada de apresentação Android (Seção \ref{phase1-code-smells-catalog}). A Seção \ref{phase2-results} apresenta a resposta da QP$_2$ sobre importância e frequência dos maus cheiros. A Seção \ref{phase3-results} apresenta a resposta da QP$_3$ sobre a percepção dos maus cheiros e a Seção \ref{ameacas} trata das ameaças a validade bem como, o que fizemos para mitigá-las. 
 
   % \item A Seção \ref{ameacas} aborda as ameaças à validade do estudo.
 
   % \item E por fim, o Capítulo \ref{conclusao} é onde discutimos nossas descobertas, concluímos e sugerimos trabalhos futuros.
-  \item E por fim, no Capítulo \ref{conclusao} concluímos.
+  \item Por fim, no Capítulo \ref{conclusao} concluímos e sugerimos algumas ideias de trabalhos futuros.
 \end{itemize}
 
 
