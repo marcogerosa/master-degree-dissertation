@@ -1,21 +1,33 @@
+
+
+
+
+Pendencias das revisões
+- pq boas práticas tb?
+- seção sobre smells tradicionais
+- software -> sistema
+- seção 3.2 só tem um trabalho
+- Rever citações de livros
+- Rever tudo que for inglês
+- et. al. -> et al.
+- threats to validity -> experiencia dos desenvolvedores não foi limitada e Palomba_Do_2014 notou que isso impacta na percepção dos maus cheiros 
+- resultados fase 3 adicionar smells identificados, quais são mais severos? conforme realizado por Palomba_Do_2014
+- app -> aplicativo
+- do inglês...
+- ANALISAR RESPOSTAS S3 E VER QUEM "IDENTIFICOU" OS SMELLS (DIEFERENTE DE PERCEBER)
+    Isso foi feito por https://www.mendeley.com/viewer/?fileId=37d6f4af-807f-c157-74a1-5a8837a751a1&documentId=9ce4c507-4803-38c2-8501-4f41e66946cb (Do They Really Bad Smell?)
+
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+
 https://infogram.com/app/#/edit/c1367fab-9ea0-4590-b70a-996fa8809610
 
 
 Gráficos violinos em R
 https://www.r-bloggers.com/facilitating-exploratory-data-visualization-application-to-tcga-genomic-data/
 http://tryr.codeschool.com/levels/8/challenges/1
-
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-
-Pendencias das revisões
-- traduzir imagens
-- mais trabalhos no relacionados sobre diferenças de projetos android vs. projetos tradicionais
-- seção sobre smells tradicionais
-- software -> sistema
-- seção 3.2 só tem um trabalho
-- seção maus cheiros tradicionais
-
 
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
