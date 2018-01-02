@@ -33,7 +33,7 @@ A seguir revisitamos cada questão de pesquisa e suas respostas: \\
   \textbf{QP$_1$ Existem maus cheiros que são específicos a camada de apresentação Android?}
 % \end{center}
 
-Certamente existem diversas formas de se implementar códigos em elementos da camada de apresentação Android. Algumas destas formas são consideradas melhores e outras piores por desenvolvedores Android. Partindo desta percepção, propomos 20 maus cheiros de código específicos à elementos da camada de apresentação Android. Estes elementos compreendem componentes Java derivados do Android SDK como: \textsc{\small Activities}, \textsc{\small Fragments}, \textsc{\small Listeners} e \textsc{\small Adapters} e os principais recursos da aplicação: \textsc{\small Layout}, \textsc{\small Styles}, \textsc{\small String} e \textsc{\small Drawable}. \\
+Certamente existem diversas formas de se implementar códigos em elementos da camada de apresentação Android. Algumas destas formas são consideradas melhores e outras piores por desenvolvedores Android. Partindo dessa percepção, propomos 20 maus cheiros de código específicos a elementos da camada de apresentação Android. Estes elementos compreendem componentes Java derivados do Android SDK como: \textit{Activities}, \textit{Fragments}, \textit{Listeners} e \textit{Adapters} e os principais recursos do aplicativo: \textit{Layout}, \textit{Styles}, \textit{String} e \textit{Drawable}. \\
 
 
 % \begin{center}
@@ -47,12 +47,12 @@ Todos os maus cheiros propostos foram considerados com algum nível de frequência
  \textbf{QP$_3$ Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
 % \end{center}
 
-Pudemos validar a percepção do mau cheiro em código para 7 dos 20 maus cheiros propostos, são ele: \textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Nossos resultados mostram que desenvolvedores percebem os códigos afetados pelos maus cheiros como problemáticos. Foi possível validar estatisticamente a percepção em seis maus cheiros, apenas o mau cheiro \textsc{\small Longo Recurso de Estilo} não obteve dados o suficiente.\\
+Validamos a percepção de desenvolvedores sobre 7 dos 20 maus cheiros propostos, são ele: \textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Nossos resultados mostram que desenvolvedores percebem os códigos afetados pelos maus cheiros como problemáticos. Foi possível validar estatisticamente a percepção em 6 maus cheiros. Sobre o mau cheiro \textsc{\small Longo Recurso de Estilo}, não obtivemos dados o suficiente para afirmar ou não a percepção de desenvolvedores sobre ele.\\
 
 \subsection{Trabalhos Futuros}
 
 Acreditamos que nossas contribuições representam um pequeno, porém importante passo, na busca por mais qualidade de código na plataforma Android. Pesquisadores e desenvolvedores Android já podem se beneficiar dos nossos resultados. Pesquisadores podem utilizar nossos resultados como ponto de partida para a definição de heurísticas de identificação dos maus cheiros, propor refatorações viáveis, validar os outros maus cheiros aqui não validados, revalidar os maus cheiros validados a partir de códigos diferentes ou mesmo implementar ferramentas que os identifiquem de automaticamente. 
 
-Desenvolvedores Android já podem utilizar nossos catálogo de maus cheiros como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
+Desenvolvedores Android já podem utilizar nossos catálogo de maus cheiros Android como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.
 
 % Notamos que muitas vezes as respostas para as questões sobre sobre boas práticas apresentada no 1o questionário, sobre boas e más práticas em elementos Android, vieram na forma de sugestões de como solucionar o que o participante indicou como má prática para aquele elemento. Como não foi o foco desta pesquisa validar se a sugestões dadas como soluções ao mau cheiro de fato se aplica, não exploramos a fundo estas informações. Entretando, disponibilizamos uma tabela que indica a boa prática sugerida para cada mau cheiro definido no apêndice \ref{appendix:smells-purpose-of-solution}.
