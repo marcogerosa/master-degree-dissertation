@@ -55,17 +55,17 @@ Indique com qual frequência você percebe as situações abaixo no seu dia a dia (E
 	\item Activities, Fragments ou Adapters com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.  
 	\item Activities, Fragments ou Adapters com classes internas implementando algum listener para responder a eventos do usuário como clique, duplo clique e outros.  
 	\item Activities, Fragments ou Adapters implementando algum listener, através de polimorfismo (implements), para responder a eventos do usuário como clique, duplo clique e outros.
-	\item Activities ou Fragments sendo usados como callbacks ao final de processos assíncronos, como por exemplo no onPostExecute de uma AsyncTask.
-	\item Transações de Fragments sendo efetivadas (FragmentTransaction\#commit) após o onPause de Activities.
+	% \item Activities ou Fragments sendo usados como callbacks ao final de processos assíncronos, como por exemplo no onPostExecute de uma AsyncTask.
+	% \item Transações de Fragments sendo efetivadas (FragmentTransaction\#commit) após o onPause de Activities.
 	\item Adapters que não se utilizam do padrão ViewHolder.
 	\item Fragments em aplicativos que não são usados em tablets ou que não usam ViewPagers. aplicativos com Fragments que não são reutilizados em mais de uma tela do app.
-	\item aplicativos que não utilizam nenhum Fragment.
+	\item Aplicativos que não utilizam nenhum Fragment.
 	\item Activities, Fragments ou Adapters com códigos que fazem acesso a banco de dados, arquivos locais ou internet.
 	\item Projetos que não usam nenhum padrão arquitetural como MVC, MVP, MVVM, Clean Architecture ou outros.
 	\item Adapters com muitas responsabilidades além de popular views, com condicionais complexos ou cálculos no método getView. 
-	\item Fragments aninhados uns aos outros. 
-	\item Códigos que sobrescrevem o comportamento do botão voltar do Android.
-	\item Projetos que contém Activities em pacotes com nomes que não são nem activity nem view.
+	% \item Fragments aninhados uns aos outros. 
+	% \item Códigos que sobrescrevem o comportamento do botão voltar do Android.
+	% \item Projetos que contém Activities em pacotes com nomes que não são nem activity nem view.
 	\item Recursos de cor, tamanho ou texto sendo usados ``hard coded'', sem a criação de um novo recurso no arquivo de xml respectivo (colors.xml, dimens.xml ou strings.xml).
 	\item Projetos sem um padrão de nomenclatura para recursos de layout, texto, estilo ou gráficos (imagens e xmls gráficos).
 	\item Layouts com mais de 3 níveis de views aninhadas, por exemplo: um TextView dentro de um LinearLayout que está dentro de outro LinerarLayout.
@@ -92,16 +92,16 @@ Indique quão importante você considera as situações abaixo (Escala Likert Muito 
 	\item Activities, Fragments, Adapters e Listeners não ter códigos de lógica de negócio, condicionais complexos ou conversão de dados.
 	\item Fragments, Adapters e Listeners não tenham referência direta à quem os utiliza.
 	\item Listeners devem ser implementados em suas próprias classes ao invés de implementá-los através de classes anônimas, classes internas ou polimorfismo (uso de implements) em Activities, Fragments ou Adapters.
-	\item Cuidado ao usar referências diretas a objetos com ciclo de vida como Activities ou Fragments, em objetos sem ciclo de vida ou com ciclo de vida diferente.
+	% \item Cuidado ao usar referências diretas a objetos com ciclo de vida como Activities ou Fragments, em objetos sem ciclo de vida ou com ciclo de vida diferente.
 	\item Usar o padrão ViewHolder em Adapters.
 	\item Evitar o uso de Fragments. Usar Fragments apenas se não houver outra alternativa.
 	\item Usar Fragments sempre que possível. Por exemplo, pelo menos um Fragment por Activity, etc.
 	\item Activities, Fragments e Adapters não terem códigos de acesso a banco de dados, acesso a arquivos locais ou internet.
 	\item Usar padrões arquiteturais como MVC, MVP, MVVM, Clean Architecture ou outros.
 	\item Adapters responsáveis apenas por popular a view, sem códigos de lógicas de negócio, cálculos ou conversões de dados/objetos.
-	\item Não aninhar Fragments, nem pela view, nem via código.
-	\item Não sobrescrever o comportamento do botão voltar do Android.
-	\item Activities em pacotes com nomes activity ou view.
+	% \item Não aninhar Fragments, nem pela view, nem via código.
+	% \item Não sobrescrever o comportamento do botão voltar do Android.
+	% \item Activities em pacotes com nomes activity ou view.
 	\item Criar um recurso de tamanho, cor ou texto, em seu respectivo arquivo (dimens.xml, colors.xml, strings.xml) antes de utilizá-lo.
 	\item Utilizar um padrão de nomenclatura para arquivos de layout, recursos de texto, estilos e gráficos (imagens ou xmls gráficos).
 	\item Não utilizar mais de 3 níveis de views aninhadas em xmls de layout.
