@@ -1,121 +1,171 @@
 % -*- root: dissertation.tex -*- 
-\section{QP$_1$: Existem maus cheiros que são específicos a camada de apresentação Android?} 
+\section{QP$_1$ Existem maus cheiros que são específicos a camada de apresentação Android?} 
 \label{phase1-results}
 
-\begin{square}
-  \small
-  Existem maus cheiros específicos à camada de apresentação Android (QP$_1$).
-\end{square}
+% Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. 
 
-Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. 
+Nesta seção apresentamos alguns resultados gerais (Seção \ref{phase1-general-results}), a lista dos maus cheiros propostos (Seção \ref{phase1-code-smells-derivation}) e por último, o catálogo com as definições textuais dos 20 maus cheiros da camada de apresentação Android (Seção \ref{phase1-code-smells-catalog}).
 
-A seguir, na Seção \ref{phase1-general-results} apresentamos alguns resultados gerais. Na Seção \ref{phase1-code-smells-derivation} abordamos o processo de definição dos maus cheiros. E por último, na Seção \ref{phase1-code-smells-catalog} apresentamos o catálogo derivado com 21 maus cheiros da camada de apresentação Android.
-
-
-\subsection{Resultados gerais e descobertas}
+\subsection{Resultados Gerais e Descobertas}
 \label{phase1-general-results}
 
-Todas as perguntas da segunda seção de S$_1$ eram opcionais, de modo que umas receberam mais respostas do que outras. A Figura \ref{fig:ElementsVSAnswers} apresenta o total de respostas recebidas por cada uma das 16 perguntas sobre boas e más práticas apresentadas na segunda seção de S$_1$. Por exemplo, as duas colunas sobre \textit{Activities} representam Q1 e Q2, respectivamente perguntando sobre boas e más práticas em \textit{Activities}. Podemos observar que 36 dos 45 participantes responderam a pergunta sobre \textbf{\small boas práticas} em \textit{Activities}, enquanto que 35 responderam sobre \textbf{\small más práticas}. O elemento que recebeu menos respostas sobre \textbf{\small boas práticas} foi o recurso \textit{Style}, sendo respondida por 23 dos participantes. O elemento que menos recebeu respostas sobre \textbf{\small más práticas} foi o recurso \textit{Drawable}, sendo respondido por 21 dos participantes. Todas as perguntas obtiveram respostas. Esse resultado é um indício de que desenvolvedores Android possuem um arsenal pessoal de práticas no desenvolvimento da camada de apresentação Android que consideram boas e más. 
+Todas as 16 perguntas sobre boas e más práticas, nos elementos da camada de apresentação Android (segunda seção de S$_1$) foram opcionais, de modo que algumas receberam mais respostas do que outras. A Figura \ref{fig:ElementsVSAnswers} apresenta o total de respostas recebidas por cada pergunta. Podemos observar que 35 dos 45 participantes responderam a pergunta sobre boas práticas em \textit{Activities}: ``\textit{Do you have any good practices to deal with Activities?}''. Enquanto que 38 responderam sobre más práticas em \textit{Activities}: ``\textit{Do you have anything you consider a bad practice when dealing with Activities?}''. 
 
 \begin{figure*}[!htb]
 \centering
-\includegraphics[width=.9\linewidth]{phase1-survey-answers2.png}
-\caption{Total de respostas para cada pergunta sobre boas e más práticas nos oito elementos da camada de apresentação Android, apresentadas na segunda seção de S$_1$.}
+% \hspace*{-0.7cm}
+\includegraphics[width=1\linewidth]{phase1-survey-answers3.png}
+\caption{Total de respostas para cada pergunta sobre boas e más práticas nos oito elementos da camada de apresentação Android.}
 \label{fig:ElementsVSAnswers}
 \end{figure*}
 
+O elemento que recebeu menos respostas sobre \textbf{\small boas práticas} foi o \textit{Listener}, sendo respondida por 10 dos 45 participantes. Os elementos que receberam menos respostas sobre \textbf{\small más práticas} foram os recursos de \textit{Style} e \textit{Drawable}, sendo que ambos foram respondidos por apenas 9 dos 45 participantes. Dentre os componentes, os que receberam mais respostas foram \textit{Activities} e \textit{Fragments}, todos sendo respondidos por pelo menos 27 participantes. Dentre os recursos, o que recebeu mais resposta foi o recurso de \textit{Layout}, sendo respondido por pelo menos 22 dos 45 participantes. De modo geral, perguntas sobre boas práticas foram mais respondidas do que as perguntas sobre más práticas, exceto sobre \textit{Activities} e \textit{Listeners}.
 
-% \begin{table}[!htb]
-% \centering
-% \renewcommand*{\arraystretch}{1}
-% \footnotesize 
-% \caption{Maus cheiros selecionados para o experimento com MO de importância e frequência igual a 3, 4 ou 5 e DP menor que 1,20.}
-% \begin{tabular}{@{}lp{13.5cm}cc@{}}
-% \toprule
-% \multicolumn{2}{l}{\multirow{2}{*}{\textbf{Pergunta}}}  & \multicolumn{2}{c}{\textbf{Respostas}} \\ \cmidrule{3-4}
-%                                                       & & \textbf{\#} & \textbf{\%} \\ 
-% \bottomrule
-% Q1 & Do you have any good practices to deal with Activities? & 36 & 80\% \\
-% Q2 & Do you have anything you consider a bad practice when dealing with Activities? & 35 & 78\% \\
-% \bottomrule
-% \end{tabular}
-% \label{tab:SelectedSmellFrequencyImportance}
-% \end{table}
-
-Componentes da camada de apresentação Android (\textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}), receberam de modo geral, mais respostas do que recursos da aplicação (\textit{Layouts}, \textit{Styles}, \textit{Strings} e \textit{Drawables}). Dentre os componentes, os que mais receberam respostas foram \textit{Activities} e \textit{Fragments}, ambos tendo recebido respostas tanto de boas e más práticas de mais de 31 dos 45 participantes. Dentre os recursos da aplicação, os que mais obteve respostas foram os recursos de \textit{Layout} e \textit{String}, ambos tendo recebido respostas tanto de boas e más práticas de mais de 23 dos 45 participantes. Notamos também que as perguntas sobre boas práticas foram mais respondidas do que as perguntas sobre más práticas em todos os elementos Android.
-
-O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros, todas as que apresentaram ocorrência maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Com base nesse critério, 23 categorias foram consideradas. Dessas, desconsideramos mais duas por se tratarem de 1) um mau cheiro tradicional (\textit{Large Class}) e 2) um aspecto da orientação a objetos (Herança). Resultando em 21 categorias para a derivação dos maus cheiros da camada de apresentação Android. 
+O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros, todas as que apresentaram ocorrência maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Com base nesse critério, 22 categorias foram consideradas. Dessas, desconsideramos mais duas por se tratarem de 1) um mau cheiro tradicional (\textit{Large Class}) e 2) um aspecto da orientação a objetos (Herança). Resultando em 20 categorias para a derivação dos maus cheiros da camada de apresentação Android. 
 
 % A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. 
 
 É interessante notar que nosso processo de codificação também resultou em conclusões {\small \textbf{similares}} as de algumas pesquisas anteriores, de que aplicativos Android são fortemente afetados pelo mau cheiro tradicional \textit{Large Class} conforme citado por Verloop \cite{MobileSmells:13}, e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código, conforme citado por Minelli e Lanza \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em aplicativos Android, não trabalhamos em cima desses resultados. 
 
+% Cada uma das 20 categorias consideradas resultou em um mau cheiro de código Android, dos quais 9 são relacionados a componentes da camada de apresentação Android e 11 relacionados a recursos Android. A definição dos maus cheiros foram embasadas nas respostas de S$_1$, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Inteligente} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{phase1-code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
 
-\subsection{Recorrência dos Maus Cheiros}
+A Tabela \ref{tab:CategoriesVSFrequency} apresenta o total de ocorrências por elemento da camada de apresentação Android das 20 categorias que se tornaram maus cheiros. Por exemplo, a categoria \textsc{\small Componente de UI Inteligente} apresenta 29 na coluna \textit{Activity}, 16 na coluna \textit{Fragment}, 14 na coluna \textit{Adapter} e 1 na coluna \textit{Listener}, isso significa que 29 ocorrências foram em respostas sobre boas e más práticas em \textit{Activities}, 16 ocorrências foram em respostas sobre boas e más práticas em \textit{Fragments} e assim por diante. O número sobrescrito, entre parênteses, ao lado do nome da categoria indica o total de ocorrências, ou seja, a soma das ocorrências em todos os elementos Android.
+
+Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más práticas em \textit{Activities} é de 73 (somatória das colunas Q1 e Q2), e na Tabela \ref{tab:CategoriesVSFrequency} o total de respostas na coluna \textit{Activity} é de 49. Esta diferença ocorre pois, na figura estamos considerando as respostas de todas as 46 categorias, enquanto que na tabela estamos consideramos apenas as respostas das categorias que se tornaram um mau cheiro.
+
+\begin{table}[!htb]
+\centering
+\renewcommand*{\arraystretch}{1}
+\caption{Total de ocorrências dos maus cheiros por elemento da camada de apresentação Android.}
+\footnotesize 
+\begin{tabular}{@{}p{7cm}@{}cccccccccp{3cm}}
+\toprule
+\textbf{Mau Cheiro} & \rot[32][2em]{\textbf{Activity}} & \rot[32][2em]{\textbf{Fragment}} & \rot[32][2em]{\textbf{Adapter}} & \rot[32][2em]{\textbf{Listener}} & \rot[32][2em]{\textbf{Layout}} & \rot[32][2em]{\textbf{String}} & \rot[32][2em]{\textbf{Style}} & \rot[32][2em]{\textbf{Drawable}} \\ 
+\toprule
+\textsc{Componente de UI Inteligente}$^{(60)}$   & 29  & 16  & 14  & 1   & -    & -   & -   & -  &  \\
+\textsc{Componente de UI Acoplado}$^{(18)}$      & 2   & 10  & 3   & 3   & -    & -   & -   & -  &  \\
+\textsc{Comportamento Suspeito}$^{(17)}$         & 4   & -   & 3   & 10  & -    & -   & -   & -  &  \\
+\textsc{Adapter Consumista}$^{(13)}$             & -   & -   & 13  & -   & -    & -   & -   & -  &  \\
+\textsc{Uso Excessivo de Fragments}$^{(9)}$      & -   & 9   & -   & -   & -    & -   & -   & -  &  \\
+\textsc{Componente de UI Fazendo IO}$^{(9)}$     & 5   & 3   & 1   & -   & -    & -   & -   & -  &  \\
+\textsc{Não Uso de Fragment}$^{(8)}$             & 4   & 4   & -   & -   & -    & -   & -   & -  &  \\
+\textsc{Ausência de Arquitetura}$^{(6)}$         & 4   & 2   & -   & -   & -    & -   & -   & -  &  \\
+\textsc{Adapter Complexo}$^{(6)}$                & -   & -   & 5   & -   & 1    & -   & -   & -  &  \\
+\textsc{Nome de Recurso Despadronizado}$^{(24)}$ & -   & -   & -   & -   & 5    & 10  & 5   & 3  &  \\ 
+\textsc{Recurso Mágico}$^{(23)}$                 & -   & -   & -   & -   & 6    & 15  & 2   & -  &  \\ 
+\textsc{Layout Profundamente Aninhado}$^{(19)}$  & -   & -   & 1   & -   & 18   & -   & -   & -  &  \\ 
+\textsc{Imagem Tradicional Dispensável}$^{(18)}$ & -   & -   & -   & -   & 1    & -   & -   & 17 &  \\ 
+\textsc{Layout Longo ou Repetido}$^{(14)}$       & -   & -   & -   & -   & 14   & -   & -   & -  &  \\ 
+\textsc{Imagem Faltante}$^{(12)}$                & -   & -   & -   & -   & 2    & -   & -   & 10 &  \\ 
+\textsc{Longo Recurso de Estilo}$^{(8)}$         & -   & -   & -   & -   & -    & -   & 8   & -  &  \\ 
+\textsc{Recurso de String Bagunçado}$^{(8)}$     & -   & -   & -   & -   & -    & 8   & -   & -  &  \\ 
+\textsc{Atributos de Estilo Repetidos}$^{(7)}$   & -   & -   & -   & -   & 3    & -   & 4   & -  &  \\ 
+\textsc{Reuso Inadequado de String}$^{(6)}$      & -   & -   & -   & -   & -    & 6   & -   & -  &  \\ 
+\textsc{Listener Escondido}$^{(5)}$              & -   & -   & -   & 5   & -    & -   & -   & -  &  \\ 
+\bottomrule
+\end{tabular}
+\label{tab:CategoriesVSFrequency}
+\end{table}
+
+Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Para alguns maus cheiros, os elementos que ele apresenta ocorrência também são os elementos que ele pode afetar, como por exemplo, \textsc{\small Componente de UI Inteligente} se apresenta nos 4 componentes (\textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}) e pode afetar os mesmos 4. 
+
+Entretanto, para outros maus cheiros essa afirmação não é verdade. Por exemplo, o mau cheiro \textsc{\small Layout Profundamente Aninhado} tem uma ocorrência em \textit{Adapter}, porém, este mau cheiro não afeta \textit{Adapters}. A resposta que originou esta ocorrência indicava na verdade uma boa prática em recurso de layout: \textit{``Criar layouts realmente leves.''}~(P36).
+
+
+\subsection{Maus Cheiros Propostos}
 \label{phase1-code-smells-derivation}
 
-% Cada uma das 21 categorias consideradas resultou em um mau cheiro de código Android, dos quais 11 são relacionados a componentes da camada de apresentação Android e 10 relacionados a recursos do aplicativo. A descrição dos maus cheiros foram extraídas das respostas de S1, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Inteligente} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{phase1-code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
 
-As Tabelas \ref{tab:CategoriesVSFrequency-Java} (componentes) e \ref{tab:CategoriesVSFrequency-Resource} (recursos) apresentam os maus cheiros derivados, o total de ocorrências por elemento da camada de apresentação Android, ou seja, de quais perguntas sobre boas e más práticas aquele mau cheiro originou, e sua ocorrência total geral, sendo a somatória das ocorrências em todos os elementos. 
+A Tabela \ref{tab:Smells} apresenta a lista com uma breve descrição dos 20 maus cheiros Android propostos derivados das 46 categorias resultante do processo de codificação. Os 9 primeiros maus cheiros afetam componentes da camada de apresentação Android, os 11 seguintes afetam recursos Android. Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.
 
-Na Tabela \ref{tab:CategoriesVSFrequency-Java} temos os 11 maus cheiros de componentes da camada de apresentação Android. Podemos interpretar esta tabela do ponto de vista do componente. Se ele apresenta ocorrência em algum mau cheiro, significa que ele é suscetível a ser afetado por aquele mau cheiro. Ou seja, \textit{Activities} e \textit{Fragments} são os componentes mais suscetíveis a diferentes maus cheiros da camada de apresentação Android, totalizando 7. Já \textit{Adapters} estão pouco menos suscetíveis, aparecendo em 6 maus cheiros. Em contrapartida, \textit{Listeners} são os componentes da camada de apresentação menos suscetíveis a maus cheiros, aparecendo em apenas~5.
-
-\begin{table}[!htb]
+\begin{table}[h!]
 \centering
 \renewcommand*{\arraystretch}{1}
-\caption{Maus cheiros em componentes da camada de apresentação Android, sua ocorrência em cada componente e ocorrência total.}
+\caption{Lista dos 20 maus cheiros Android propostos.}
 \footnotesize 
-\begin{tabular}{@{}p{6cm}ccccc@{}}
+\begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
 \toprule
-\textbf{Mau Cheiro} & \textbf{Activity} & \textbf{Fragment} & \textbf{Adapter} & \textbf{Listener} & \textbf{\#Total} \\ 
+\textbf{Nome} & \textbf{Descrição} \\ 
 \toprule
-\textsc{Componente de UI Inteligente}      & 29  & 16  & 14  & 1   & 60  \\        
-\textsc{Componente de UI Acoplado}         & 2   & 10  & 3   & 3   & 18  \\          
-\textsc{Comportamento Suspeito}            & 4   & -   & 3   & 10  & 17  \\      
-\textsc{Adapter Consumista}                & -   & -   & 13  & -   & 13  \\
-\textsc{Componente de UI Zumbi}            & 7   & 3   & -   & -   & 10  \\      
-\textsc{Uso Excessivo de Fragments}        & -   & 9   & -   & -   & 9   \\      
-\textsc{Componente de UI Fazendo IO}       & 5   & 3   & 1   & -   & 9   \\      
-\textsc{Não Uso de Fragment}               & 4   & 4   & -   & -   & 8   \\
-\textsc{Adapter Complexo}                  & -   & -   & 5   & -   & 6   \\
-\textsc{Ausência de Arquitetura}           & 4   & 2   & -   & -   & 6   \\            
+\textsc{Componente de UI Inteligente}$^{(60)}$       & Componentes de UI com lógicas de negócio.  \\
+\textsc{Componente de UI Acoplado}$^{(18)}$           & Componentes de UI com referência concretas um para o outro.  \\
+\textsc{Comportamento Suspeito}$^{(17)}$              & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
+\textsc{Adapter Consumista}$^{(13)}$                  & Adapters que não usam o padrão \textit{ViewHolder}.  \\
+\textsc{Uso Excessivo de Fragments}$^{(9)}$           & Uso de \textit{fragments} sem uma necessidade explícita. \\
+\textsc{Componente de UI Fazendo IO}$^{(9)}$          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
+\textsc{Não Uso de Fragment}$^{(8)}$                  & Não usar nenhum \textit{Fragment}.  \\
+\textsc{Ausência de Arquitetura}$^{(6)}$              & Aplicativos sem uma arquitetura conhecida.  \\
+\textsc{Adapter Complexo}$^{(6)}$                     & \textit{Adapters} com condicionais e \textit{loops}. \\
+\textsc{Nome de Recurso Despadronizado}$^{(24)}$      & Recursos com nomes despadronizados.      \\
+\textsc{Recurso Mágico}$^{(23)}$                      & Textos, números ou cores ``\textit{hardcoded}''.   \\
+\textsc{Layout Profundamente Aninhado}$^{(19)}$       & Recurso de layout com mais de três níveis de \textit{Viwes} aninhadas.   \\
+\textsc{Imagem Tradicional Dispensável}$^{(18)}$      & Imagens que poderiam ser transformadas em recurso gráfico.   \\
+\textsc{Layout Longo ou Repetido}$^{(14)}$            & Recurso de \textit{layout} muito longo ou com trechos de código similares ou repetidos.   \\
+\textsc{Imagem Faltante}$^{(12)}$                     & Imagem sem todas as resoluções padrões.   \\
+\textsc{Longo Recurso de Estilo}$^{(8)}$              & Recurso de estilo único e longo.   \\
+\textsc{Recurso de String Bagunçado}$^{(8)}$          & Recursos de \textit{string} sem um padrão de nomenclatura.   \\
+\textsc{Atributos de Estilo Repetidos}$^{(7)}$        & Atributos de estilo repetidos em recursos de \textit{layout} ou \textit{style}.   \\
+\textsc{Reuso Inadequado de String}$^{(6)}$           & \textit{Strings} sendo reutilizadas indevidamente.    \\
+\textsc{Listener Escondido}$^{(5)}$                   & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
 \bottomrule
 \end{tabular}
-\label{tab:CategoriesVSFrequency-Java}
+\label{tab:Smells}
 \end{table}
 
-Vale observar que um mesmo mau cheiro pode afetar mais de um componente da camada da apresentação Android. Por exemplo, o mau cheiro \textsc{\small Componente de UI Zumbi} afeta os componentes \textit{Activities} e \textit{Fragments}.
-
-\begin{table}[!htb]
-\centering
-\renewcommand*{\arraystretch}{1}
-\caption{Maus cheiros em recursos de aplicativos Android, sua ocorrência em cada componente e ocorrência total.}
-\footnotesize 
-\begin{tabular}{@{}p{7cm}ccccc@{}}
-\toprule
-\textbf{Mau Cheiro} & \textbf{Layout} & \textbf{String} & \textbf{Style} & \textbf{Drawable} & \textbf{\#Total} \\ 
-\toprule
-\textsc{Nome de Recurso Despadronizado}                & 5     & 10    & 5   & 3   & 24 \\ 
-\textsc{Recurso Mágico}                                & 6     & 15    & 2   & -   & 23 \\ 
-\textsc{Layout Profundamente Aninhado}                 & 18    & -     & -   & -   & 19 \\ 
-\textsc{Imagem Tradicional Dispensável}                & -     & -     & -   & 17  & 17 \\ 
-\textsc{Layout Longo ou Repetido}                      & 14    & -     & -   & -   & 14 \\ 
-\textsc{Imagem Faltante}                               & -     & -     & -   & 10  & 10 \\ 
-\textsc{Longo Recurso de Estilo}                       & -     & -     & 8   & -   & 8  \\  
-\textsc{Recurso de String Bagunçado}                   & -     & 8     & -   & -   & 8  \\
-\textsc{Atributos de Estilo Repetidos}                 & 3     & -     & 4   & -   & 7  \\  
-\textsc{Reuso Excessivo de String}                     & -     & 6     & -   & -   & 6  \\
-\textsc{Listener Escondido}                            & 5     & -     & -   & -   & 5  \\
-\bottomrule
-\end{tabular}
-\label{tab:CategoriesVSFrequency-Resource}
-\end{table}
-
-Na Tabela \ref{tab:CategoriesVSFrequency-Resource} temos os 10 maus cheiros dos recursos do aplicativo. Novamente, interpretando a tabela do ponto de vista do elemento, temos que recursos de \textit{Layout} são os recursos mais suscetíveis a diferentes maus cheiros da camada de apresentação Android, totalizando 5, seguidos de \textit{Strings} e \textit{Styles} suscetíveis á 4 maus cheiros e \textit{Drawables} suscetíveis a apenas 3.
 
 
+% \begin{table}[!htb]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \caption{Total de ocorrências por componente dos maus cheiros Android.}
+% \footnotesize 
+% \begin{tabular}{@{}p{6cm}ccccc@{}}
+% \toprule
+% \textbf{Mau Cheiro} & \textbf{Activity} & \textbf{Fragment} & \textbf{Adapter} & \textbf{Listener} \\ 
+% \toprule
+% \textsc{Componente de UI Inteligente}      & 29  & 16  & 14  & 1   \\ %& 60  \\        
+% \textsc{Componente de UI Acoplado}         & 2   & 10  & 3   & 3   \\ %& 18  \\          
+% \textsc{Comportamento Suspeito}            & 4   & -   & 3   & 10  \\ %& 17  \\      
+% \textsc{Adapter Consumista}                & -   & -   & 13  & -   \\ %& 13  \\
+% % \textsc{Componente de UI Zumbi}            & 7   & 3   & -   & -   \\ %& 10  \\      
+% \textsc{Uso Excessivo de Fragments}        & -   & 9   & -   & -   \\ %& 9   \\      
+% \textsc{Componente de UI Fazendo IO}       & 5   & 3   & 1   & -   \\ %& 9   \\      
+% \textsc{Não Uso de Fragment}               & 4   & 4   & -   & -   \\ %& 8   \\
+% \textsc{Adapter Complexo}                  & -   & -   & 5   & -   \\ %& 6   \\
+% \textsc{Ausência de Arquitetura}           & 4   & 2   & -   & -   \\ %& 6   \\            
+% \bottomrule
+% \end{tabular}
+% \label{tab:CategoriesVSFrequency-Java}
+% \end{table}
 
-Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os maus cheiros iremos indicar ao lado do nome um número sobrescrito indicando o número de ocorrências em respostas. Por exemplo, o mau cheiro \textsc{Componente de UI Inteligente}$^60$. Esta mesma notação será usada na ocorrência por elementos da camada de apresentação Android.
+
+% \begin{table}[!htb]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \caption{Total de ocorrências por recurso dos maus cheiros Android.}
+% \footnotesize 
+% \begin{tabular}{@{}p{7cm}ccccc@{}}
+% \toprule
+% \textbf{Mau Cheiro} & \textbf{Layout} & \textbf{String} & \textbf{Style} & \textbf{Drawable}  \\ 
+% \toprule
+% \textsc{Nome de Recurso Despadronizado}                & 5     & 10    & 5   & 3   \\ %& 24 \\ 
+% \textsc{Recurso Mágico}                                & 6     & 15    & 2   & -   \\ %& 23 \\ 
+% \textsc{Layout Profundamente Aninhado}                 & 18    & -     & -   & -   \\ %& 19 \\ 
+% \textsc{Imagem Tradicional Dispensável}                & -     & -     & -   & 17  \\ %& 17 \\ 
+% \textsc{Layout Longo ou Repetido}                      & 14    & -     & -   & -   \\ %& 14 \\ 
+% \textsc{Imagem Faltante}                               & -     & -     & -   & 10  \\ %& 10 \\ 
+% \textsc{Longo Recurso de Estilo}                       & -     & -     & 8   & -   \\ %& 8  \\  
+% \textsc{Recurso de String Bagunçado}                   & -     & 8     & -   & -   \\ %& 8  \\
+% \textsc{Atributos de Estilo Repetidos}                 & 3     & -     & 4   & -   \\ %& 7  \\  
+% \textsc{Reuso Excessivo de String}                     & -     & 6     & -   & -   \\ %& 6  \\
+% \textsc{Listener Escondido}                            & 5     & -     & -   & -   \\ %& 5  \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:CategoriesVSFrequency-Resource}
+% \end{table}
+
+
+% Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os maus cheiros iremos indicar ao lado do nome um número sobrescrito indicando o número de ocorrências em respostas. Por exemplo, o mau cheiro \textsc{Componente de UI Inteligente}$^{60}$. Esta mesma notação será usada na ocorrência por elementos da camada de apresentação Android.
 
 
 % \subsection{Confiabilidade dos maus cheiros}

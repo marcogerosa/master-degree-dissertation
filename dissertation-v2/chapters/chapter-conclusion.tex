@@ -24,27 +24,27 @@ No primeiro questionários, respondido por 45 desenvolvedores Android, mapeamos 2
 
 % Respondemos a \textbf{QP$_1$} com um catálogo com 23 más práticas no \textit{front-end} Android. Respondemos a \textbf{QP$_2$} através da validação com sucesso da percepção de desenvolvedores sobre 2 das más práticas de alta recorrência.
 
-A seguir respondemos cada uma das questões de pesquisas:
+A seguir respondemos cada uma das questões de pesquisas: \\
 
-\begin{center}
-  \textbf{QP$_1$: Existem maus cheiros que são específicos a camada de apresentação Android?}
-\end{center}
+% \begin{center}
+  \textbf{QP$_1$ Existem maus cheiros que são específicos a camada de apresentação Android?}
+% \end{center}
 
-Certamente existem diversas formas de se implementar códigos em elementos da camada de apresentação Android. Algumas destas formas são consideradas melhores e outras piores por desenvolvedores Android. Partindo desta percepção, propomos 21 maus cheiros de código específicos à elementos da camada de apresentação Android. Estes elementos compreendem componentes Java derivados do Android SDK como: \textsc{\small Activities}, \textsc{\small Fragments}, \textsc{\small Listeners} e \textsc{\small Adapters} e os principais recursos da aplicação: \textsc{\small Layout}, \textsc{\small Styles}, \textsc{\small String} e \textsc{\small Drawable}. 
-
-
-\begin{center}
-  \textbf{QP$_2$. Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}
-\end{center}
-
-Todos os maus cheiros propostos foram considerados com algum nível de frequência no dia a dia de desenvolvimento, alguns mais frequentes que outros. Dentre os elementos da camada de apresentação, notamos que os desenvolvedores percebem mais frequentemente a presença de maus cheiros relacionados a recursos do que aos componentes da camada de apresentação Android. A percepção de importância em mitigá-los é alta em todos os maus cheiros. 
+Certamente existem diversas formas de se implementar códigos em elementos da camada de apresentação Android. Algumas destas formas são consideradas melhores e outras piores por desenvolvedores Android. Partindo desta percepção, propomos 21 maus cheiros de código específicos à elementos da camada de apresentação Android. Estes elementos compreendem componentes Java derivados do Android SDK como: \textsc{\small Activities}, \textsc{\small Fragments}, \textsc{\small Listeners} e \textsc{\small Adapters} e os principais recursos da aplicação: \textsc{\small Layout}, \textsc{\small Styles}, \textsc{\small String} e \textsc{\small Drawable}. \\
 
 
-\begin{center}
- \textbf{QP$_3$. Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
-\end{center}
+% \begin{center}
+  \textbf{QP$_2$ Com qual frequência os maus cheiros são percebidos e o quão importante são considerados pelos desenvolvedores?}
+% \end{center}
 
-Pudemos validar a percepção do mau cheiro em código para 7 dos 21 maus cheiros propostos, são ele: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Nossos resultados mostram que desenvolvedores percebem os códigos afetados pelos maus cheiros como problemáticos. Foi possível validar estatisticamente a percepção em seis maus cheiros, apenas o mau cheiro \textsc{\small Longo Recurso de Estilo} não obteve dados o suficiente.
+Todos os maus cheiros propostos foram considerados com algum nível de frequência no dia a dia de desenvolvimento, alguns mais frequentes que outros. Dentre os elementos da camada de apresentação, notamos que os desenvolvedores percebem mais frequentemente a presença de maus cheiros relacionados a recursos do que aos componentes da camada de apresentação Android. A percepção de importância em mitigá-los é alta em todos os maus cheiros. \\
+
+
+% \begin{center}
+ \textbf{QP$_3$ Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
+% \end{center}
+
+Pudemos validar a percepção do mau cheiro em código para 7 dos 21 maus cheiros propostos, são ele: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Nossos resultados mostram que desenvolvedores percebem os códigos afetados pelos maus cheiros como problemáticos. Foi possível validar estatisticamente a percepção em seis maus cheiros, apenas o mau cheiro \textsc{\small Longo Recurso de Estilo} não obteve dados o suficiente.\\
 
 
 Acreditamos que nossas contribuições representam um pequeno, porém importante passo, na busca por mais qualidade de código na plataforma Android. Pesquisadores e desenvolvedores Android já podem se beneficiar dos nossos resultados. Pesquisadores podem utilizar nossos resultados como ponto de partida para a definição de heurísticas de identificação dos maus cheiros, propor refatorações viáveis, validar os outros maus cheiros aqui não validados, revalidar os maus cheiros validados a partir de códigos diferentes ou mesmo implementar ferramentas que os identifiquem de automaticamente. Desenvolvedores Android já podem utilizar nossos catálogo de maus cheiros como auxílio na identificação de códigos problemáticos para serem melhorados, ainda que de forma manual.

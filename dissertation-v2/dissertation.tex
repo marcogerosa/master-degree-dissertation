@@ -28,6 +28,10 @@
 \usepackage[autostyle]{csquotes}  
 
 
+\usepackage{graphicx} % http://ctan.org/pkg/graphicx
+\usepackage{booktabs} % http://ctan.org/pkg/booktabs
+\usepackage{xparse}   % http://ctan.org/pkg/xparse
+\NewDocumentCommand{\rot}{O{45} O{1em} m}{\makebox[#2][l]{\rotatebox{#1}{#3}}}%
 
 % Usando pq é o mais simples por enquanto (com 'e' invés de 'and')
 \usepackage{natbib}

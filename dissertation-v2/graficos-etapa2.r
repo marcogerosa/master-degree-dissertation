@@ -15,8 +15,7 @@ ggplot(software, aes(x = fct_inorder(Idade), y = value, fill = variable)) +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
         legend.position = " ", legend.title = element_blank()) +
   scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
-  coord_cartesian(ylim=c(0,60)) + 
-  scale_fill_manual(values=c("#f8766d", "#00bfc4"))
+  coord_cartesian(ylim=c(0,60))
 
 # ETAPA 2 - ESCOLARIDADE PARTICIPANTES
 software <- read.table(text="Grau valor
@@ -31,8 +30,7 @@ ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
   geom_bar(stat = "identity") +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
         legend.position = " ", legend.title = element_blank()) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") }) + 
-  scale_fill_manual(values=c("#f8766d", "#00bfc4"))
+  scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 # ETAPA 2 EXPERIENCIA COM SOFTWARE E ANDROID
 software <- read.table(text="Anos Software  Android
@@ -51,8 +49,7 @@ ggplot(software, aes(x = fct_inorder(Anos), y = value, fill = variable, label = 
         legend.position = "bottom", legend.title = element_blank()) +
   geom_text(position = position_stack(vjust = 0.5), size=2.5, data=subset(software,value != 0 & value != 1)) +
   scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
-  coord_cartesian(ylim=c(0,50)) + 
-  scale_fill_manual(values=c("#f8766d", "#00bfc4"))
+  coord_cartesian(ylim=c(0,50))
 
 
 # ETAPA 2 - PAISES
@@ -69,8 +66,7 @@ ggplot(software, aes(x = fct_inorder(Pais), y = value, fill = variable)) +
   geom_bar(stat = "identity") +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
         legend.position = " ", legend.title = element_blank()) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") }) + 
-  scale_fill_manual(values=c("#f8766d", "#00bfc4"))
+  scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 
 # ETAPA 2 - ESTADOS
@@ -92,60 +88,63 @@ ggplot(software, aes(x = fct_inorder(Estado), y = value, fill = variable)) +
   geom_bar(stat = "identity") +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
         legend.position = " ", legend.title = element_blank()) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") }) + 
-  scale_fill_manual(values=c("#f8766d", "#00bfc4"))
+  scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 
-library(sjPlot)
-library(sjmisc)
-# load sample data set.
-data(efc)
-# set theme
-# set_theme(geom.outline.color = "black", 
-#           geom.outline.size = 1, 
-#           geom.label.size = 2,
-#           geom.label.color = "black",
-#           title.color = "red", 
-#           title.size = 1.5, 
-#           axis.angle.x = 45, 
-#           axis.textcolor = "blue")
-sjp.setTheme(theme = "539",
-             geom.label.color = "black", 
-             geom.label.size = 2.5,
-             axis.textsize = .8, 
-             axis.title.size = .9,
-             legend.size = .7,
-             legend.item.size = .5)
-
-# seed
-set.seed(1)
 
 
-mydf <- data.frame(Java = as.factor(sample(1:5, 500, replace=T, prob=c(0.04, 0.01, 0.25, 0.47, 0.23))),
-                   Android = as.factor(sample(1:5, 500, replace=T, prob=c(0.11, 0.20, 0.28, 0.36, 0.22))),
-                   C = as.factor(sample(1:5, 500, replace=T, prob=c(0.34, 0.34, 0.17, 0.10, 0.04))),
-                   Javascript = as.factor(sample(1:5, 500, replace=T, prob=c(0.32, 0.12, 0.35, 0.16, 0.04))),
-                   PHP = as.factor(sample(1:5, 500, replace=T, prob=c(0.39, 0.34, 0.15, 0.08, 0.02))),
-                   ObjectiveC = as.factor(sample(1:5, 500, replace=T, prob=c(0.26, 0.55, 0.11, 0.04, 0.02))),
-                   CPlus = as.factor(sample(1:5, 500, replace=T, prob=c(0.40, 0.25, 0.25, 0.08, 0.02))),
-                   Kotlin = as.factor(sample(1:5, 500, replace=T, prob=c(0.38, 0.29, 0.20, 0.12, 0.01))),
-                   Swift = as.factor(sample(1:5, 500, replace=T, prob=c(0.32, 0.48, 0.15, 0.03, 0.01))),
-                   Python = as.factor(sample(1:5, 500, replace=T, prob=c(0.41, 0.36, 0.20, 0.02, 0.00))),
-                   Ruby = as.factor(sample(1:5, 500, replace=T, prob=c(0.27, 0.64, 0.07, 0.01, 0.00))))
-# create labels
-labels <- c("N??o Conhe??o", "Iniciante", "Intermediario", "Avancado", "Especialista")
-# create item labels
-items <- c("Java", "Android", "C#", "Javascript", "PHP", "Objective-C", "C/C++", "Kotlin", "Swift", "Python", "Ruby")
 
-sjp.likert(mydf)
-sjp.likert(mydf, axis.labels = items, legend.labels = labels)
-
-sjp.likert(mydf,
-           axis.labels = items,
-           legend.labels = labels,
-           values = "sum.outside", # labels outside bars
-           geom.colors = "PRGn",   # purple (agree) to green (disagree)
-           reverse.colors = TRUE)  # reverse colors, so agree is green
-
-
-# http://strengejacke.de/sjPlot/sjp.likert/
+# LIKERT GRAPH
+# library(sjPlot)
+# library(sjmisc)
+# # load sample data set.
+# data(efc)
+# # set theme
+# # set_theme(geom.outline.color = "black", 
+# #           geom.outline.size = 1, 
+# #           geom.label.size = 2,
+# #           geom.label.color = "black",
+# #           title.color = "red", 
+# #           title.size = 1.5, 
+# #           axis.angle.x = 45, 
+# #           axis.textcolor = "blue")
+# sjp.setTheme(theme = "539",
+#              geom.label.color = "black", 
+#              geom.label.size = 2.5,
+#              axis.textsize = .8, 
+#              axis.title.size = .9,
+#              legend.size = .7,
+#              legend.item.size = .5)
+# 
+# # seed
+# set.seed(1)
+# 
+# 
+# mydf <- data.frame(Java = as.factor(sample(1:5, 500, replace=T, prob=c(0.04, 0.01, 0.25, 0.47, 0.23))),
+#                    Android = as.factor(sample(1:5, 500, replace=T, prob=c(0.11, 0.20, 0.28, 0.36, 0.22))),
+#                    C = as.factor(sample(1:5, 500, replace=T, prob=c(0.34, 0.34, 0.17, 0.10, 0.04))),
+#                    Javascript = as.factor(sample(1:5, 500, replace=T, prob=c(0.32, 0.12, 0.35, 0.16, 0.04))),
+#                    PHP = as.factor(sample(1:5, 500, replace=T, prob=c(0.39, 0.34, 0.15, 0.08, 0.02))),
+#                    ObjectiveC = as.factor(sample(1:5, 500, replace=T, prob=c(0.26, 0.55, 0.11, 0.04, 0.02))),
+#                    CPlus = as.factor(sample(1:5, 500, replace=T, prob=c(0.40, 0.25, 0.25, 0.08, 0.02))),
+#                    Kotlin = as.factor(sample(1:5, 500, replace=T, prob=c(0.38, 0.29, 0.20, 0.12, 0.01))),
+#                    Swift = as.factor(sample(1:5, 500, replace=T, prob=c(0.32, 0.48, 0.15, 0.03, 0.01))),
+#                    Python = as.factor(sample(1:5, 500, replace=T, prob=c(0.41, 0.36, 0.20, 0.02, 0.00))),
+#                    Ruby = as.factor(sample(1:5, 500, replace=T, prob=c(0.27, 0.64, 0.07, 0.01, 0.00))))
+# # create labels
+# labels <- c("N??o Conhe??o", "Iniciante", "Intermediario", "Avancado", "Especialista")
+# # create item labels
+# items <- c("Java", "Android", "C#", "Javascript", "PHP", "Objective-C", "C/C++", "Kotlin", "Swift", "Python", "Ruby")
+# 
+# sjp.likert(mydf)
+# sjp.likert(mydf, axis.labels = items, legend.labels = labels)
+# 
+# sjp.likert(mydf,
+#            axis.labels = items,
+#            legend.labels = labels,
+#            values = "sum.outside", # labels outside bars
+#            geom.colors = "PRGn",   # purple (agree) to green (disagree)
+#            reverse.colors = TRUE)  # reverse colors, so agree is green
+# 
+# 
+# # http://strengejacke.de/sjPlot/sjp.likert/
