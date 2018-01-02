@@ -1,5 +1,5 @@
 % -*- root: dissertation.tex -*- 
-\section{QP$_1$ Existem maus cheiros que são específicos a camada de apresentação Android?} 
+\section{QP$_1$ Maus Cheiros Específicos à Camada de Apresentação Android} 
 \label{phase1-results}
 
 % Recebemos um total de 45 respostas. 80\% dos participantes responderam pelo menos 3 perguntas, apenas 20\% responderam uma (2 participantes) ou nenhuma (7 participantes) pergunta. A questão do email era opcional, mas foi respondida por 53\% dos participantes, o que pode indicar um interesse legítimo da comunidade de desenvolvedores Android pelo tema, reforçando a relevância do estudo. 
@@ -27,9 +27,9 @@ O processo de codificação resultou em 46 categorias, das quais consideramos para
 
 É interessante notar que nosso processo de codificação também resultou em conclusões {\small \textbf{similares}} as de algumas pesquisas anteriores, de que aplicativos Android são fortemente afetados pelo mau cheiro tradicional \textit{Large Class} conforme citado por Verloop \cite{MobileSmells:13}, e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código, conforme citado por Minelli e Lanza \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em aplicativos Android, não trabalhamos em cima desses resultados. 
 
-% Cada uma das 20 categorias consideradas resultou em um mau cheiro de código Android, dos quais 9 são relacionados a componentes da camada de apresentação Android e 11 relacionados a recursos Android. A definição dos maus cheiros foram embasadas nas respostas de S$_1$, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Inteligente} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{phase1-code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
+% Cada uma das 20 categorias consideradas resultou em um mau cheiro de código Android, dos quais 9 são relacionados a componentes da camada de apresentação Android e 11 relacionados a recursos Android. A definição dos maus cheiros foram embasadas nas respostas de S$_1$, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Cérebro} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{phase1-code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
 
-A Tabela \ref{tab:CategoriesVSFrequency} apresenta o total de ocorrências por elemento da camada de apresentação Android das 20 categorias que se tornaram maus cheiros. Por exemplo, a categoria \textsc{\small Componente de UI Inteligente} apresenta 29 na coluna \textit{Activity}, 16 na coluna \textit{Fragment}, 14 na coluna \textit{Adapter} e 1 na coluna \textit{Listener}, isso significa que 29 ocorrências foram em respostas sobre boas e más práticas em \textit{Activities}, 16 ocorrências foram em respostas sobre boas e más práticas em \textit{Fragments} e assim por diante. O número sobrescrito, entre parênteses, ao lado do nome da categoria indica o total de ocorrências, ou seja, a soma das ocorrências em todos os elementos Android.
+A Tabela \ref{tab:CategoriesVSFrequency} apresenta o total de ocorrências por elemento da camada de apresentação Android das 20 categorias que se tornaram maus cheiros. Por exemplo, a categoria \textsc{\small Componente de UI Cérebro} apresenta 29 na coluna \textit{Activity}, 16 na coluna \textit{Fragment}, 14 na coluna \textit{Adapter} e 1 na coluna \textit{Listener}, isso significa que 29 ocorrências foram em respostas sobre boas e más práticas em \textit{Activities}, 16 ocorrências foram em respostas sobre boas e más práticas em \textit{Fragments} e assim por diante. O número sobrescrito, entre parênteses, ao lado do nome da categoria indica o total de ocorrências, ou seja, a soma das ocorrências em todos os elementos Android.
 
 Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más práticas em \textit{Activities} é de 73 (somatória das colunas Q1 e Q2), e na Tabela \ref{tab:CategoriesVSFrequency} o total de respostas na coluna \textit{Activity} é de 49. Esta diferença ocorre pois, na figura estamos considerando as respostas de todas as 46 categorias, enquanto que na tabela estamos consideramos apenas as respostas das categorias que se tornaram um mau cheiro.
 
@@ -42,7 +42,7 @@ Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más prát
 \toprule
 \textbf{Mau Cheiro} & \rot[32][2em]{\textbf{Activity}} & \rot[32][2em]{\textbf{Fragment}} & \rot[32][2em]{\textbf{Adapter}} & \rot[32][2em]{\textbf{Listener}} & \rot[32][2em]{\textbf{Layout}} & \rot[32][2em]{\textbf{String}} & \rot[32][2em]{\textbf{Style}} & \rot[32][2em]{\textbf{Drawable}} \\ 
 \toprule
-\textsc{Componente de UI Inteligente}$^{(60)}$   & 29  & 16  & 14  & 1   & -    & -   & -   & -  &  \\
+\textsc{Componente de UI Cérebro}$^{(60)}$   & 29  & 16  & 14  & 1   & -    & -   & -   & -  &  \\
 \textsc{Componente de UI Acoplado}$^{(18)}$      & 2   & 10  & 3   & 3   & -    & -   & -   & -  &  \\
 \textsc{Comportamento Suspeito}$^{(17)}$         & 4   & -   & 3   & 10  & -    & -   & -   & -  &  \\
 \textsc{Adapter Consumista}$^{(13)}$             & -   & -   & 13  & -   & -    & -   & -   & -  &  \\
@@ -67,7 +67,7 @@ Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más prát
 \label{tab:CategoriesVSFrequency}
 \end{table}
 
-Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Para alguns maus cheiros, os elementos que ele apresenta ocorrência também são os elementos que ele pode afetar, como por exemplo, \textsc{\small Componente de UI Inteligente} se apresenta nos 4 componentes (\textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}) e pode afetar os mesmos 4. 
+Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Para alguns maus cheiros, os elementos que ele apresenta ocorrência também são os elementos que ele pode afetar, como por exemplo, \textsc{\small Componente de UI Cérebro} se apresenta nos 4 componentes (\textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}) e pode afetar os mesmos 4. 
 
 Entretanto, para outros maus cheiros essa afirmação não é verdade. Por exemplo, o mau cheiro \textsc{\small Layout Profundamente Aninhado} tem uma ocorrência em \textit{Adapter}, porém, este mau cheiro não afeta \textit{Adapters}. A resposta que originou esta ocorrência indicava na verdade uma boa prática em recurso de layout: \textit{``Criar layouts realmente leves.''}~(P36).
 
@@ -87,7 +87,7 @@ A Tabela \ref{tab:Smells} apresenta a lista com uma breve descrição dos 20 maus 
 \toprule
 \textbf{Nome} & \textbf{Descrição} \\ 
 \toprule
-\textsc{Componente de UI Inteligente}$^{(60)}$       & Componentes de UI com lógicas de negócio.  \\
+\textsc{Componente de UI Cérebro}$^{(60)}$       & Componentes de UI com lógicas de negócio.  \\
 \textsc{Componente de UI Acoplado}$^{(18)}$           & Componentes de UI com referência concretas um para o outro.  \\
 \textsc{Comportamento Suspeito}$^{(17)}$              & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
 \textsc{Adapter Consumista}$^{(13)}$                  & Adapters que não usam o padrão \textit{ViewHolder}.  \\
@@ -123,7 +123,7 @@ A Tabela \ref{tab:Smells} apresenta a lista com uma breve descrição dos 20 maus 
 % \toprule
 % \textbf{Mau Cheiro} & \textbf{Activity} & \textbf{Fragment} & \textbf{Adapter} & \textbf{Listener} \\ 
 % \toprule
-% \textsc{Componente de UI Inteligente}      & 29  & 16  & 14  & 1   \\ %& 60  \\        
+% \textsc{Componente de UI Cérebro}      & 29  & 16  & 14  & 1   \\ %& 60  \\        
 % \textsc{Componente de UI Acoplado}         & 2   & 10  & 3   & 3   \\ %& 18  \\          
 % \textsc{Comportamento Suspeito}            & 4   & -   & 3   & 10  \\ %& 17  \\      
 % \textsc{Adapter Consumista}                & -   & -   & 13  & -   \\ %& 13  \\
@@ -165,16 +165,16 @@ A Tabela \ref{tab:Smells} apresenta a lista com uma breve descrição dos 20 maus 
 % \end{table}
 
 
-% Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os maus cheiros iremos indicar ao lado do nome um número sobrescrito indicando o número de ocorrências em respostas. Por exemplo, o mau cheiro \textsc{Componente de UI Inteligente}$^{60}$. Esta mesma notação será usada na ocorrência por elementos da camada de apresentação Android.
+% Entendemos que o total de ocorrências desempenha um papel importante na análise dos maus cheiros pois, mais respostas indicam mais desenvolvedores com a mesma percepção, logo, maior confiabilidade de que dado mau cheiro o é de fato. Logo, {\small \textbf{quanto maior o número de ocorrências, maior a confiabilidade do mau cheiro}}. Deste modo, ao descrever os maus cheiros iremos indicar ao lado do nome um número sobrescrito indicando o número de ocorrências em respostas. Por exemplo, o mau cheiro \textsc{Componente de UI Cérebro}$^{60}$. Esta mesma notação será usada na ocorrência por elementos da camada de apresentação Android.
 
 
 % \subsection{Confiabilidade dos maus cheiros}
 % \label{phase1-code-smells-reliability}
 
 
-% possui total de 60 ocorrências. Isso nos indica que foi originado de 60 respostas, logo, seu nível de confiabilidade é maior do que, por exemplo, o mau cheiro \textsc{Listener Escondido}, que apresenta total de apenas 5 ocorrências. Porém, colocar o número 60 ao lado de uma estrela pode ficar visualmente confuso de interpretar. Desta forma, nos baseamos novamente no número de Nielsen \cite{NielsenMagicNumber:00} e para cada 5 ocorrências, é atribuída uma estrela ao mau cheiro, ou seja, nosso exemplo seria apresentado da seguinte forma: \textsc{Componente de UI Inteligente}$^{12\star}$. 
+% possui total de 60 ocorrências. Isso nos indica que foi originado de 60 respostas, logo, seu nível de confiabilidade é maior do que, por exemplo, o mau cheiro \textsc{Listener Escondido}, que apresenta total de apenas 5 ocorrências. Porém, colocar o número 60 ao lado de uma estrela pode ficar visualmente confuso de interpretar. Desta forma, nos baseamos novamente no número de Nielsen \cite{NielsenMagicNumber:00} e para cada 5 ocorrências, é atribuída uma estrela ao mau cheiro, ou seja, nosso exemplo seria apresentado da seguinte forma: \textsc{Componente de UI Cérebro}$^{12\star}$. 
 
-% No catálogo completo, apresentado na Seção \ref{phase1-code-smells-catalog}, esta mesma regra será usada na ocorrência por elementos da camada de apresentação Android, pois, enquanto que a confiabilidade do mau cheiro \textsc{Componente de UI Inteligente} nos componentes \textit{Activity}, \textit{Fragment} e \textit{Adapter} são maiores, no \textit{Listener} é de apenas 1, logo, um grau de confiabilidade muito menor.
+% No catálogo completo, apresentado na Seção \ref{phase1-code-smells-catalog}, esta mesma regra será usada na ocorrência por elementos da camada de apresentação Android, pois, enquanto que a confiabilidade do mau cheiro \textsc{Componente de UI Cérebro} nos componentes \textit{Activity}, \textit{Fragment} e \textit{Adapter} são maiores, no \textit{Listener} é de apenas 1, logo, um grau de confiabilidade muito menor.
 
 % Todo mau cheiro derivado recebe pelo menos uma estrela. Os maus cheiros que tiverem apenas uma estrela, esta será apresentada sem número. Vale ressaltar que, o critério para derivação do mau cheiro foi de pelo menos cinco ocorrências gerais, somatória dos elementos. Mas cada elemento individual pode ter tido menos que 5 ocorrências com relação a um dado mau cheiro. No catálogo \ref{phase1-code-smells-catalog}, os elementos que não tiverem pelo menos 5 ocorrências serão apresentados sem estrela.
 

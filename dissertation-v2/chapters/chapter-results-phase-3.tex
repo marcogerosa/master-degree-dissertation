@@ -1,15 +1,15 @@
 % -*- root: dissertation.tex -*-
-\section{QP$_3$ Desenvolvedores Android percebem os códigos afetados pelos maus cheiros como problemáticos?}
+\section{QP$_3$ Percepção de Desenvolvedores sobre os Maus Cheiros Android}
 \label{phase3-results}
 
-Nossos resultados mostram que códigos afetados por 6 dos 7 maus cheiros avaliados são percebidos como códigos problemáticos por desenvolvedores Android, são eles: \textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito}, \textsc{\small Adapter Complexo}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Sobre o mau cheiro \textsc{\small Longo Recurso de Estilo}, não obtivemos dados suficientes para afirmar ou negar a percepção dele, mas é possível verificar no gráfico violino que não há diferença significativa na percepção dos códigos afetados por ele contra os códigos de \textit{layout} limpos.
+Nossos resultados mostram que códigos afetados por 6 dos 7 maus cheiros avaliados são percebidos como códigos problemáticos por desenvolvedores Android, são eles: \textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito}, \textsc{\small Adapter Complexo}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Sobre o mau cheiro \textsc{\small Longo Recurso de Estilo}, não obtivemos dados suficientes para afirmar ou negar a percepção dele, mas é possível verificar no gráfico violino que não há diferença significativa na percepção dos códigos afetados por ele contra os códigos de \textit{layout} limpos.
 
 A seguir, na Seção \ref{sec:results-phase3} apresentamos detalhes das percepção dos desenvolvedores sobre os maus cheiros avaliados.
 
 \subsection{Resultados Gerais}
 \label{sec:results-phase3}
 
-Na Figura \ref{fig:components-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em componentes da camada de apresentação Android (\textsc{\small Componente de UI Inteligente}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito} e \textsc{\small Adapter Complexo}) e componentes limpos. De modo similar, na Figura \ref{fig:resources-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em recursos Android (\textsc{\small Layout Profundamente Aninhado}, \textsc{\small Atributos de Estilo Repetidos} e \textsc{\small Longo Recurso de Estilo}) e recursos limpos. Além disso, relatamos a percepção dos desenvolvedores sobre cada mau cheiro Android individualmente - Figura \ref{fig:smellys-violins} - bem como de componentes e recursos de \textit{Style} e \textit{Layout} limpos - Figura \ref{fig:clean-violins}. 
+Na Figura \ref{fig:components-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em componentes da camada de apresentação Android (\textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Comportamento Suspeito} e \textsc{\small Adapter Complexo}) e componentes limpos. De modo similar, na Figura \ref{fig:resources-violins}, apresentamos gráficos de violino da percepção dos desenvolvedores sobre os maus cheiros em recursos Android (\textsc{\small Layout Profundamente Aninhado}, \textsc{\small Atributos de Estilo Repetidos} e \textsc{\small Longo Recurso de Estilo}) e recursos limpos. Além disso, relatamos a percepção dos desenvolvedores sobre cada mau cheiro Android individualmente - Figura \ref{fig:smellys-violins} - bem como de componentes e recursos de \textit{Style} e \textit{Layout} limpos - Figura \ref{fig:clean-violins}. 
 
 \begin{figure*}[!b]
 \centering
@@ -52,8 +52,8 @@ Relativo a recursos afetados pelos maus cheiros Android, a mediana de severidade
 \end{subfigure}
 \begin{subfigure}[t]{.48\textwidth}\centering
   % \hspace*{-1cm}%
-  \includegraphics[width=1\textwidth]{phase3-smellys-violins-cutted.png}
-  \caption{AC=Adapter Complexo, CA=Componente de UI Acoplado, CS=Comportamento Suspeito, CI=Componente de UI Inteligente, LE=Longo Recurso de Estilo, LA=Layout Profundamente Aninhado, AR=Atributos de Estilo Repetidos.}
+  \includegraphics[width=1\textwidth]{phase3-smellys-violins2-cutted.png}
+  \caption{AC=Adapter Complexo, CA=Componente de UI Acoplado, CS=Comportamento Suspeito, CC=Componente de UI Cérebro, LE=Longo Recurso de Estilo, LA=Layout Profundamente Aninhado, AR=Atributos de Estilo Repetidos.}
   % \hspace*{-1cm}%
   \label{fig:smellys-violins}
 \end{subfigure}% 
@@ -62,7 +62,7 @@ Relativo a recursos afetados pelos maus cheiros Android, a mediana de severidade
 % \vspace{-.5cm} 
 \end{figure*}
 
-\textsc{\small Componente de UI Acoplado} (CA) é o mau cheiro Android mais percebido pelos desenvolvedores e com grave severidade, mediana igual a 4 (Q3=5). Em seguida temos os maus cheiros \textsc{\small Componente de UI Inteligente} (CI), \textsc{\small Adapter Complexo} (AC) e \textsc{\small Comportamento Suspeito} (CS) todos com mediana igual a 3. Isso indica que, como esperado, são percebidos pelos desenvolvedores como sendo seriamente problemáticos. Podemos notar que, de modo geral, recursos afetados pelos maus cheiros foram percebidos com menor severidade, mediana 1 e 2, do que componentes afetados pelos maus cheiros, todos com mediana de severidade maior ou igual a 3. 
+\textsc{\small Componente de UI Acoplado} (CA) é o mau cheiro Android mais percebido pelos desenvolvedores e com grave severidade, mediana igual a 4 (Q3=5). Em seguida temos os maus cheiros \textsc{\small Componente de UI Cérebro} (CC), \textsc{\small Adapter Complexo} (AC) e \textsc{\small Comportamento Suspeito} (CS) todos com mediana igual a 3. Isso indica que, como esperado, são percebidos pelos desenvolvedores como sendo seriamente problemáticos. Podemos notar que, de modo geral, recursos afetados pelos maus cheiros foram percebidos com menor severidade, mediana 1 e 2, do que componentes afetados pelos maus cheiros, todos com mediana de severidade maior ou igual a 3. 
 
 Muitos desenvolvedores, sem conhecer nosso catálogo de maus cheiros Android, foram capazes de identificar corretamente o mau cheiro, dando uma descrição do problema percebido muito próxima a definição do mau cheiro. Por exemplo, um deles ao se deparar com um \textsc{\small Adapter Complexo} relatou: \textit{``O método getView é muito longo, com muitos ifs. Dificultando testes, debug e entendimento. me parece que muitas variações de tela podem ser desenhadas nesse método.''}. Outro participante disse simplesmente: \textit{``getView faz muitas coisas. Isso é perigoso para manter.''}. 
 
@@ -80,7 +80,7 @@ Outro participante ao se deparar com \textsc{\small Componente de UI Acoplado}, 
 \toprule
 \textsc{\small Componente de UI Acoplado}       &  1,13e-04  &    0,52 (grande) & 4,00         & 5,00 \\
 \textsc{\small Comportamento Suspeito}          &  1,37e-03  &    0,38 (médio)  & 3,00         & 4,00 \\
-\textsc{\small Componente de UI Inteligente}    &  4,58e-06  &    0,55 (grande) & 3,00         & 4,25 \\
+\textsc{\small Componente de UI Cérebro}    &  4,58e-06  &    0,55 (grande) & 3,00         & 4,25 \\
 \textsc{\small Adapter Complexo}                &  1,11e-03  &    0,40 (médio)  & 3,00         & 4,00 \\
 \textsc{\small Longo Recurso de Estilo}         &  7,61e-01  &    0,05 (insignificante) & 1,00 & 2,00 \\
 \textsc{\small Layout Profundamente Aninhado}   &  6,17e-03  &    0,35 (médio)  & 2,00         & 3,00 \\

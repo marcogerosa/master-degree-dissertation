@@ -30,7 +30,7 @@ vioplot(adapter_complexo_smelly, adapter_complexo_clean,
         names=c("Adapter Complexo Smelly", "Adapter Complexo Limpo",
                 "Componente de UI Acoplado Smelly", "Componente de UI Acoplado Limpo",
                 "Comportamento Suspeito Smelly", "Comportamento Suspeito Limpo",
-                "Componente de UI Inteligente Smelly", "Componente de UI Inteligente Limpo")
+                "Componente de UI Cérebro Smelly", "Componente de UI Cérebro Limpo")
         ,col="gold")
 
 

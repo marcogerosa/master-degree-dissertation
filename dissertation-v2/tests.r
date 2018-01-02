@@ -31,7 +31,7 @@ vioplot(adapter_complexo_smelly, adapter_complexo_clean,
 # vioplot(comportamento_suspeito_smelly, comportamento_suspeito_clean, names=c("Mau Cheiroso", "Limpo"),col="deepskyblue")
 # title("Comportamento Suspeito")
 # vioplot(componente_ui_inteligente_smelly, componente_ui_inteligente_clean, names=c("Mau Cheiroso", "Limpo"),col="deepskyblue")
-# title("Componente de UI Inteligente")
+# title("Componente de UI Cérebro")
 
 # gr??ficos violino recursos
 longo_recurso_estilo_smelly <- c(0,3,0,2,3,3,0,0,1,0,1,0,4,0,2,0,1,2,3,0,1,0,4,0,0)
