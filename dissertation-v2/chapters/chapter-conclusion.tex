@@ -1,7 +1,7 @@
 % -*- root: dissertation.tex -*-
 Nesta seção nós revisitamos as questões de pesquisa e sugerimos trabalhos futuros.
 
-\subsection{Questões de Pesquisa Revisitadas}
+\section{Questões de Pesquisa Revisitadas}
 
 Boas práticas e cheiros de código são um grande recurso para desenvolvedores aumentarem a qualidade e a manutenibilidade de seus sistemas. No entanto, a maioria dos catálogos de maus cheiros mais populares surgiram em meados da década de 70, quando muitas tecnologias ainda não existiam, inclusive o Android, foco desta pesquisa. Neste estudo, definimos e validamos empiricamente um catálogo com 20 maus cheiros específicos à camada de apresentação Android. Ou seja, podem afetar códigos como: \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, recursos de \textit{Layout}, \textit{Style}, \textit{String} ou \textit{Drawables}. Fizemos isso a partir de dois questionários online e um experimento de código também online. 
 
@@ -49,7 +49,21 @@ Todos os maus cheiros propostos foram considerados com algum nível de frequência
 
 Validamos a percepção de desenvolvedores sobre 7 dos 20 maus cheiros propostos, são eles: \textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo}, \textsc{\small Longo Recurso de Estilo}, \textsc{\small Comportamento Suspeito}, \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos}. Nossos resultados mostram que desenvolvedores percebem os códigos afetados por 6 maus cheiros como problemáticos. Foi possível validar estatisticamente a percepção sobre esses maus cheiros. Sobre o mau cheiro \textsc{\small Longo Recurso de Estilo}, não obtivemos dados o suficiente para afirmar ou não a percepção estatística sobre ele.
 
-\subsection{Trabalhos Futuros}
+\section{Discussão}
+
+
+\subsection{Refatorações dos Maus Cheiros Propostos}
+Notamos que muitas vezes as respostas para as questões sobre boas práticas coletadas de S$_1$, vieram na forma de sugestões de como solucionar o que o participante indicou como má prática para aquele elemento, ou seja, uma sugestão de refatoração para remover o mau cheiro. Como não foi o foco desta pesquisa validar se a sugestões dadas como soluções ao mau cheiro de fato se aplicavam, não exploramos a fundo estas informações. Entretanto, disponibilizamos uma tabela que indica essas respostas, bem como respostas sobre as más práticas, para cada mau cheiro definido no apêndice \ref{appendix:smells-purpose-of-solution}. Ainda é possível consulta os dados puros obtidos em nosso apêndice online \cite{apendice}.
+
+\subsection{Kotlin}
+Aplicativos Android, desde seu lançamento em 2008, são desenvolvidos utilizando a linguagem de programação Java. Recentemente, em Maio de 2017, o Google anunciou o Kotlin como linguagem oficial do Android\footnote{https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official}. Para efeitos desta dissertação, utilizamos todos os códigos na linguagem Java, pois a pesquisa já havia iniciado antes desse anúncio. Acreditamos que essa inclusão não interfere na relevância da pesquisa pois: 
+
+\textbf{\small Durante quase uma década aplicativos Android foram desenvolvidos em Java}, de modo que certamente existe uma grande base de códigos de aplicativos Android nessa linguagem que precisaram ser mantidos e evoluídos até que sejam substituídos. Além disso, \textbf{\small Kotlin é interoperável com Java}, deste modo, o código antes escritos em Java não precisam necessariamente serem migrados para Kotlin. Como \textbf{\small este anúncio ainda é muito recente} (no ano em que esta dissertação é finalizada), acreditamos que será necessário ainda algum tempo para que empresas comecem a adotar esta nova linguagem.
+
+Vale ressaltar ainda que o Kotlin vem como uma opção à linguagem Java, entretanto, os recursos Android, arquivos XML também estudados aqui, não serão sobrepostos por essa linguagem. Deste modo, os maus cheiros sobre recursos aqui discutidos continuam sendo relevantes mesmo no desenvolvimento de aplicativos Android com Kotlin, bem como já o é com Java.
+
+
+\section{Trabalhos Futuros}
 
 Acreditamos que nossas contribuições representam um pequeno, porém importante passo, na busca por mais qualidade de código na plataforma Android. Pesquisadores e desenvolvedores Android já podem se beneficiar dos nossos resultados. Pesquisadores podem utilizar nossos resultados como ponto de partida para a definição de heurísticas de identificação dos maus cheiros, propor refatorações viáveis, validar os outros maus cheiros aqui não validados, revalidar os maus cheiros validados a partir de códigos diferentes ou mesmo implementar ferramentas que os identifiquem de automaticamente. 
 
