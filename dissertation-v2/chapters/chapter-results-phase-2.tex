@@ -4,14 +4,14 @@
 
 % Participaram desta etapa da pesquisa 201 desenvolvedores de 3 continentes e 14 países diferentes. Brasileiros representam 78\%, e vieram de 18 estados diferentes. Deste modo, apesar da abrangência geográfica, entendemos que os resultados expressam majoritariamente a percepção de desenvolvedores brasileiros. 15\% dos participantes possuem uma ou mais pós-graduações e 61\% são graduados. 57\% possuem de 20 a 35 anos. 
 
-Nossos resultados mostraram que os 20 maus cheiros propostos são considerados, em diferentes níveis, como importantes e se apresentam com diferentes frequências no dia a dia do desenvolvimento Android. As distribuições relativas de frequência e importância sobre cada afirmação pode ser conferida nos Apêndices \ref{appendix-phase2-frequence-table} (afirmações de frequência) e \ref{appendix-phase2-importance-table} (afirmações de importância).
+Nossos resultados mostraram que os 20 maus cheiros propostos são considerados, em diferentes níveis, importantes e se apresentam com diferentes frequências no dia a dia do desenvolvimento Android. As distribuições relativas de frequência e importância, sobre cada afirmação apresentada no questionário, pode ser conferida nos Apêndices \ref{appendix-phase2-frequence-table} (afirmações de frequência) e \ref{appendix-phase2-importance-table} (afirmações de importância).
 
 % Para os maus cheiros que foram apresentadas no questionário mais de uma afirmação de importância ou frequência, se mostraram com distribuição relativa muito semelhantes, variando de 6\% a no máximo 10\% de uma afirmação a outra.
 
-\subsection{Resultados gerais}
+\subsection{Resultados Gerais}
 \label{phase2-general-results} 
 
-Para análise dos maus cheiros extraímos dados estatísticos de moda (MO), média (ME) e desvio padrão (DP) de importância e frequência para cada um dos maus cheiros derivados. Utilizamos a MO como um classificador do mau cheiro, ou seja, se ele recebeu majoritariamente a resposta ``importante'', o classificamos como importante. Estes dados são apresentados na Tabela \ref{tab:SmellFrequencyImportance} onde podemos observar que todos os maus cheiros apresentam MO de importância maior ou igual a 3, ou seja, de ``razoavelmente importante'' a ``muito importante''. Em contrapartida, com relação a frequência, três maus cheiros, \textsc{\small Adapter Consumista}, \textsc{\small Listener Escondido} e \textsc{\small Não Uso de Fragment}, apresentaram MO igual a 2, ``raramente'', todos os demais apresentaram MO maior ou igual a 3, ou seja, de ``ás vezes'' até ``muito frequente''. 
+Para análise dos maus cheiros extraímos dados estatísticos de moda (MO), média (ME) e desvio padrão (DP) de importância e frequência para cada um dos maus cheiros derivados. Utilizamos a MO como um classificador do mau cheiro, ou seja, se ele recebeu majoritariamente a resposta ``importante'', o classificamos como importante. Estes dados são apresentados na Tabela \ref{tab:SmellFrequencyImportance} onde podemos observar que todos os maus cheiros apresentam MO de importância maior ou igual a 3, ou seja, de ``razoavelmente importante'' a ``muito importante''. Em contrapartida, com relação a frequência, três maus cheiros (\textsc{\small Adapter Consumista}, \textsc{\small Listener Escondido} e \textsc{\small Não Uso de Fragment}) apresentaram MO igual a 2, ``raramente'', todos os demais apresentaram MO maior ou igual a 3, ou seja, de ``ás vezes'' até ``muito frequente''. 
 
 \begin{table}[!htb]
 \centering
@@ -56,12 +56,18 @@ DP Médio &  &  & 1.05 &  & &  & 1.19 \\
 
 Entendemos este resultado de forma positiva pois, apesar de alguns sintomas não serem tão frequentes, ainda assim são considerados com algum nível de importância de se mitigar, reforçando também a relevância desta pesquisa pois damos os primeiros passos no sentido da automatização da identificação desses maus cheiros. Com base no DP, podemos observar que, de modo geral, existe uma concordância maior sobre a importância dos maus cheiros do que sobre a frequência, pois a média do DP de importância é de 1,05, ligeiramente menor que a média do DP de frequência, que é de 1,19. 
 
+Quando menor o DP maior a concordância entre os participantes sobre a importância de determinado mau cheiro. Podemos observar que os maus cheiros que tiveram maior concordância com relação a sua importância foram: \textsc{\small Adapter Complexo}, \textsc{\small Adapter Consumista}, \textsc{\small Atributos de Estilo Repetidos}, \textsc{\small Ausência de Arquitetura}, \textsc{\small Imagem Faltante}, \textsc{\small Imagem Tradicional Dispensável}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Nome de Recurso Despadronizado}, todos com DP menor que 1.
+
 
 \subsection{Importância dos Maus Cheiros}
 
-Para análise dos dados, simplificamos a escala \textit{likert} de importância de modo que, os maus cheiros de MO 3, ``razoavelmente importante'', são classificados de \textbf{\small importância moderada}, os maus cheiros de MO 4 ou 5, respectivamente ``importante'' e ``muito importante'', são classificados de \textbf{\small importância alta}. Nenhum mau cheiro teve MO 1 ou 2, respectivamente ``não é importante'' e ``pouco importante'', logo, não criamos classificações para essas opções. A Tabela \ref{tab:SmellImportance} apresenta a lista dos maus cheiros de acordo com seu nível de importância, alta ou moderada. 
+Para análise dos dados, simplificamos a escala \textit{likert} de importância de modo que, os maus cheiros de MO 3, ``razoavelmente importante'', são classificados como sendo de \textbf{\small importância moderada}, os maus cheiros de MO 4 ou 5, respectivamente ``importante'' e ``muito importante'', são classificados de \textbf{\small importância alta}. Nenhum mau cheiro teve MO 1 ou 2, respectivamente ``não é importante'' e ``pouco importante'', logo, não criamos classificações para essas opções. 
 
-\begin{table}[!t]
+A Tabela \ref{tab:SmellImportance} apresenta a lista dos maus cheiros de acordo com seu nível de importância, alta ou moderada. Podemos observar que as duas primeiras colunas contém os 18 maus cheiros classificados com \textbf{\small importância alta}. Dentre eles, a maioria dos maus cheiros (10) afetam recursos Android: \textsc{\small Longo Recurso de Estilo}, \textsc{\small Layout Profundamente Aninhado}, \textsc{\small Atributos de Estilo Repetidos}, \textsc{\small Nome de Recurso Despadronizado}, \textsc{\small Recurso Mágico}, \textsc{\small Imagem Faltante}, \textsc{\small Imagem Tradicional Dispensável}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Recurso de String Bagunçado} e \textsc{\small Listener Escondido}.
+
+Enquanto que 8 dos maus cheiros de \textbf{\small importância alta} afetam componentes da camada de apresentação Android: \textsc{\small Adapter Complexo}, \textsc{\small Adapter Consumista}, \textsc{\small Ausência de Arquitetura}, \textsc{\small Classes de UI Fazendo IO}, \textsc{\small Componente de UI Cérebro}, \textsc{\small Atributos de Estilo Repetidos}, \textsc{\small Comportamento Suspeito} e \textsc{\small Não Uso de Fragment}. Apenas 2 maus cheiros: \textsc{\small Reuso Inadequado de String} e \textsc{\small Uso Excessivo de Fragment}, listados na última coluna da tabela, são de \textbf{\small importância moderada}, sendo 1 relacionado a recursos e outro componentes da camada de apresentação Android. 
+
+\begin{table}[!htb]
 \centering
 \renewcommand*{\arraystretch}{1}
 \footnotesize 
@@ -87,8 +93,8 @@ Para análise dos dados, simplificamos a escala \textit{likert} de importância de
 \label{tab:SmellImportance}
 \end{table}
 
-A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa de importância dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado as respostas ``não é importante''. Podemos observar que 18 dos maus cheiros são de \textbf{\small importância alta}, com mais de 47\% das respostas sendo ``importante'' ou ``muito importante''. Apenas 2 maus cheiros são de \textbf{\small importância moderada}, e mesmo quando esta ocorre, a diferença para serem de \textbf{\small importância alta} é baixa. Os maus cheiros que tiveram maior concordância com relação a sua importância, ou seja, DP menor que 1, foram: \textsc{\small Adapter Complexo}, \textsc{\small Adapter Consumista}, \textsc{\small Atributos de Estilo Repetidos}, \textsc{\small Ausência de Arquitetura}, \textsc{\small Imagem Faltante}, \textsc{\small Imagem Tradicional Dispensável}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Nome de Recurso Despadronizado}. .
 
+A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa de importância dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado as respostas ``não é importante''. 
 \begin{figure*}[!htb]
   \centering
   \includegraphics[width=.85\textwidth]{phase2-results-importance.png}
