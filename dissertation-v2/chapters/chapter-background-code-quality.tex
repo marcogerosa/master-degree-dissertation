@@ -2,13 +2,15 @@
 \section{Qualidade de Software}
 \label{sec:software-quality}
 
-Antes de falarmos sobre qualidade de software, é importante falarmos brevemente sobre qualidade. Há décadas, diversos autores e organizações vem trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00} desenvolvido pela Organização Internacional de Normalização (\acs{ISO}, do inglês \acl{ISO}), qualidade é ``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, qualidade está relacionado ``as características dos produtos que atendem as necessidades dos clientes, e assim, proporcionam a satisfação do mesmo'' e a ``ausência de deficiências''. Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas é possível identificar uma mesma ideia central sobre qualidade: todas elas apontam para ``requisitos que precisam ser satisfeitos para ter qualidade''. 
+Antes de falarmos sobre qualidade de software, é importante falarmos brevemente sobre qualidade. Há décadas, diversos autores e organizações vem trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00} desenvolvido pela Organização Internacional de Normalização (\acs{ISO}, do inglês \acl{ISO}), qualidade é \textit{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. 
+
+Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, qualidade está relacionado \textit{``as características dos produtos que atendem as necessidades dos clientes, e assim, proporcionam a satisfação do mesmo''} e a \textit{``ausência de deficiências''}. Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas é possível identificar uma mesma ideia central sobre qualidade: todas elas apontam para \textit{``requisitos que precisam ser satisfeitos para ter qualidade''}. 
 
 % \emph{Qualidade de software} é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais, o quanto o software atende as necessidades de negócio, ou estruturais, o quão bem o software funciona. Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
 
 % Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
 
-\begin{table}[!htb]
+\begin{table}[!b]
 \centering
 \renewcommand*{\arraystretch}{1.5}
 \caption[Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. e McCall et al.]{Modelos de qualidade de software baseados no modelo de decomposição hierárquica de Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77}.}
@@ -17,7 +19,7 @@ Antes de falarmos sobre qualidade de software, é importante falarmos brevemente 
 \toprule
 \textbf{Nome do Modelo} & \textbf{Descrição} \\
 \bottomrule
-\acs{ISO}/\acs{IEC} 9126 & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \ac{SQuaRE}. Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade \cite{ISO9126:91}.\\
+\acs{ISO}/\acs{IEC} 9126 & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \acs{SQuaRE} (do inglês \acl{SQuaRE}). Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade \cite{ISO9126:91}.\\
 \acs{ISO}/\acs{IEC} 25010 (\acs{SQuaRE}) & Teve sua primeira publicação em 2005, revisado em 2011, quando passou a substituir a \acs{ISO}/\acs{IEC} 9126. Decompõe qualidade de software em 8 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade, usabilidade, compatibilidade e segurança \cite{ISO25010:11}.\\
 \acs{CISQ} & Fundado em 2009 \cite{CISQAnnounce:09}, decompõe qualidade de software em 4 características: segurança, confiabilidade, desempenho/eficiência e manutenibilidade. Se baseia nas definições do \ac{SQuaRE} \cite{CISQ}.\\
 % \acs{SWEBOK} \cite{SWEBOK:14} & Decompõe qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software. \\
@@ -29,14 +31,14 @@ Antes de falarmos sobre qualidade de software, é importante falarmos brevemente 
 
 As primeiras contribuições referente a qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e subconceitos. Ambos se utilizaram de uma estratégia de decomposição hierárquica do conceito de qualidade em fatores como manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir. A Tabela \ref{tab:QualityModels} apresenta algumas dessas variações e uma breve descrição da forma como qualidade de software foi decomposta. Entretanto, o grande valor do modelo de decomposição hierárquico foi a ideia de decompor qualidade até um nível em que seja possível medir e estimar~\cite{StefanSoftwareQuality:13}.
 
-O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como ``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas'' \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}.
+O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como \textit{``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''} \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}. Dentre os conceitos apresentados, os mais relevantes nesta dissertação são \textbf{\small manutenibilidade}, pois é onde esta pesquisa está inserida, e \textbf{\small usabilidade} e \textbf{\small eficiência}, pois é o contexto onde encontramos alguns trabalhos relacionados sobre maus cheiros de código Android \cite{RemovingEnergySmells:12, 30QualitySmells:14}. 
+
+Apresentamos uma breve descrição sobre cada um desses três conceitos a seguir:\\
+
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
 
 % \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
-
-Entre os conceitos apresentados na Figura \ref{fig:QualityCharacteristics}, os mais relevantes nesta dissertação são \textbf{\small manutenibilidade}, pois é onde esta pesquisa está inserida, e \textbf{\small usabilidade} e \textbf{\small eficiência}, pois é o contexto onde encontramos alguns trabalhos relacionados sobre maus cheiros de código Android \cite{RemovingEnergySmells:12, 30QualitySmells:14}. Apresentamos uma breve descrição sobre cada um destes três conceitos a seguir. \\
-
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
@@ -82,7 +84,7 @@ A capacidade do produto de software ser compreendido, seu funcionamento aprendid
   \item \emph{Operacionalidade} Como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação.
   \item \emph{Proteção frente a erros de usuários} Como produto consegue prevenir erros dos usuários.
   \item \emph{Atratividade} Envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica.
-  \item \textbf{\small Acessibilidade} Prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
+  \item \emph{\small Acessibilidade} Prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
 \end{itemize}
 
 \noindent \textbf{\small Eficiência}   
@@ -106,10 +108,18 @@ Esta pesquisa está inserida no contexto de \emph{manutenibilidade}, mais especif
 
 Muito embora tenhamos ciência de que investir em qualidade pode reduzir os custos de um projeto \cite{Boehm:76} e aumentar a satisfação dos usuários \cite{Bevan:95}, qualidade de software costuma ser esquecida ou deixada em segundo plano\footnote{http://www.ifsq.org/resources/level-2/booklet.pdf}. Frases como ``depois eu testo'' ou ``depois eu refatoro'' são comuns no dia a dia de desenvolvimento. Segundo Slaughter et al. \cite{Slaughter:98}, investimentos em qualidade são importantes porque cada quantia e hora de trabalho não gasto na correção de problemas podem ser usados para fazer melhores produtos mais rapidamente ou para melhorar produtos e processos existentes. Manutenibilidade está relacionada às ``necessidades implícitas do software'' \cite{ISO9126:91}. 
 
-Focado em manutenibilidade, ao longo das últimas décadas, diversas boas práticas de software vêm sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro \cite{GoF:95} (GoF, do inglês \textit{Gang of Four}) documentam as \emph{melhores soluções para problemas comuns} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos mais notáveis exemplos de anti-padrão é o \textit{Singleton}, que visa limitar a instanciação de uma classe em um único objeto \cite{GoF:95}. 
+\section{Boas Práticas de Software}
+\label{sec:good-practices}
 
-% Na Seção \ref{sec:back-maus-cheiros} abordaremos \emph{maus cheiros}, que apontam sintomas que podem indicar um problema mais profundo no software. 
-É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software}~\cite{CodeComplete:04}. 
+No desenvolvimento de software, \emph{boas práticas de código} são um conjunto de regras que a comunidade de desenvolvimento de software aprendeu ao longo do tempo, e que pode ajudar a melhorar a qualidade do software \cite{CodeComplete:04}. 
+
+Focado em manutenibilidade, ao longo das últimas décadas, diversas boas práticas de software vêm sendo documentadas objetivando servir de ferramenta a desenvolvedores menos experientes para aumentar a qualidade do software. Por exemplo, os padrões de projeto da Gangue dos Quatro \cite{GoF:95} (GoF, do inglês \textit{Gang of Four}) documentam as \textit{``melhores soluções para problemas comuns''} originadas a partir do conhecimento empírico de desenvolvedores de software experientes. 
+
+Em contrapartida, anti-padrões são padrões antes recomendados que passaram a ser evitados, pois percebeu-se que os problemas em usá-los superavam os benefícios \cite{AntiPatterns:98}. Um dos mais notáveis exemplos de anti-padrão é o \textit{Singleton}, que visa limitar a instanciação de uma classe em um único objeto \cite{GoF:95}. É relevante destacar que, enquanto que padrões de projetos são conceitos que indicam \textit{``o que fazer''}, anti-padrões e maus cheiros são conceitos que servem como alertas sobre \textit{``o que não fazer''} ou sobre \textit{``o que evitar''}. 
+
+% Esse conjunto de documentos são comumente generalizados entre os desenvolvedores simplesmente pelo termo \emph{boas práticas de software}~\cite{CodeComplete:04}. 
+
+A seguir introduzimos conceitos sobre as seguintes boas práticas: Padrões de Projetos, Anti-Padrões e Maus Cheiros de Código.
 
 % \todo{breve desc de singleton}
 
@@ -120,13 +130,9 @@ Focado em manutenibilidade, ao longo das últimas décadas, diversas boas práticas
 
 % Para melhor entendimento sobre o contexto desta pesquisa, nesta seção apresentamos a definição dos principais termos que se confundem: boas práticas, padrões de projeto, anti-padrões e maus cheiros de código. Ao final, concluímos com uma reflexão das semelhanças e diferenças entre eles.
 
-\section{Boas Práticas de Software}
-\label{sec:good-practices}
+
 
 % Segundo o dicionário Aurélio \cite{AurelioPratica}, \textit{prática} significa ``maneira habitual de proceder''. O termo não é restrito a uma área do conhecimento, e a depender da área em que é usado, englobará um conjunto diferente de maneiras habituais. 
-
-No desenvolvimento de software, \emph{boas práticas de código} são um conjunto de regras que a comunidade de desenvolvimento de software aprendeu ao longo do tempo, e que pode ajudar a melhorar a qualidade do software \cite{CodeComplete:04}. A seguir introduzimos conceitos de boas práticas: padrões de projetos, anti-padrões e maus cheiros de código.
-
 
 \subsection{Padrões de Projeto}
 
@@ -137,13 +143,13 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
 
 
-  Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é \emph{algo que serve como modelo, um exemplo para os outros seguirem} \cite{PetternByOxford}. Padrões não são invenção de algo novo, são uma forma de organizar o conhecimento proveniente de experiências \cite{PadroesAgeisSuelen:11}.
+  Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é ``\emph{algo que serve como modelo, um exemplo para os outros seguirem}'' \cite{PetternByOxford}. Padrões não são invenção de algo novo, são uma forma de organizar o conhecimento proveniente de experiências \cite{PadroesAgeisSuelen:11}.
 
-  Para engenharia de software, a principal definição sobre ``padrões'' provém do livro Uma Linguagem de Padrões do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um padrão como sendo uma regra de três partes que expressa ``a relação entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}''. Fowler apresenta uma definição mais simples que diz que ``um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros'' \cite{AnalysysPattern:97}. 
+  Para engenharia de software, a principal definição sobre padrões provém do livro do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um padrão como sendo uma regra de três partes que expressa a relação entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Fowler \cite{AnalysysPattern:97} apresenta uma definição mais simples que diz que \textit{``um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros''}. 
 
-  Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram os resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, Padrões de Projeto (1994) \cite{GoF:95} foi o primeiro livro sobre padrões de projeto de software a ser lançado, documentando 23 padrões de projetos. 
+  Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram os resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, o livro Padrões de Projeto (1994) \cite{GoF:95} foi o primeiro a ser lançado sobre padrões relacionados a software, documentando 23 padrões de projetos. 
   
-  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada aspecto, como problema, contexto ou solução, será encontrado. Alguns formatos incluem uma série de outras informações além dessas três. Ao longo dos anos, alguns formatos foram se destacando. A Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \acs{GoF} e Alexandrino, e foram posicionadas no gráfico de acordo com seu nível de maturidade e clareza.
+  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada informação, por exemplo: problema, contexto ou solução, serão formatadas. Alguns formatos incluem uma série de outras informações além dessas três. Ao longo dos anos, alguns formatos foram se destacando. A Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \acs{GoF} e Alexandrino, e foram posicionadas no gráfico de acordo com seu nível de maturidade e clareza.
 
   \begin{figure}[!htb]
     \centering
@@ -167,7 +173,13 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   Um anti-padrão é uma resposta comumente usada para um problema recorrente que geralmente é ineficaz e corre o risco de ser altamente contraproducente. O termo foi cunhado por Andrew Koenig em um artigo publicado em 1995 \cite{KoenigPatterns:98}, inspirado pelo livro GoF \cite{GoF:95}. 
 
-  O termo se popularizou três anos após, no livro \textit{AntiPatterns: Refactoring Software, Architectures, and Projects in Crisis} (Brown et al., 1998) \cite{AntiPatterns:98}. Segundo o autor, para diferenciar um anti-padrão de um mau hábito, má prática ou ideia ruim 1) existe um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+  O termo se popularizou três anos após, no livro de Brown et al. (1998) \cite{AntiPatterns:98}. Segundo os autores, para diferenciar um anti-padrão de um mau hábito, má prática ou ideia ruim é necessário que o anti-padrão apresente dois elementos principais: 
+  %1) existe um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas, 2) existe outra solução que é documentada, repetitiva e provada ser eficaz.
+
+  \begin{enumerate}
+    \item Existe um processo, estrutura ou padrão de ação comumente usado que, apesar de inicialmente parecer ser uma resposta adequada e efetiva a um problema, tem mais consequências ruins do que as boas;
+    \item Existe outra solução que é documentada, repetitiva e provada ser eficaz.
+  \end{enumerate}
 
   É muito comum ver o termo anti-padrão ser equivocadamente usado para indicar mau cheiro de código. O equívoco ocorre geralmente por ambos tratarem de práticas que influenciam negativamente a manutenibilidade do software. Entretanto, anti-padrões se diferem de maus cheiros pois maus cheiros são sintomas que podem ou não indicar um problema mais profundo no código enquanto que um anti-padrão é uma solução com passos bem definidos para um problema específico, porém uma solução que deixou de ser recomendada.
 
@@ -184,21 +196,21 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
 
   % \epigraph{``Se cheirar mau, troque-o.''}{--- \textup{Citação da avó Beck no Livro Refatoração \cite{Webster:95}}}
 
-  \epigraph{\emph{``Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''}}{\footnotesize -- \textup{Refactoring for Software Design Smells: Managing Technical Debt \cite{Refactoring:14}}}
+  \epigraph{\emph{``Maus cheiros são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''}}{\footnotesize -- Refactoring for Software Design Smells: Managing Technical Debt \cite{Refactoring:14}}
   
   Um mau cheiro de código é uma sugestão de que algo não está certo no código, semelhante ao dito popular ``Algo não cheira bem!'' quando alguém desconfia de que há algum problema em dada situação. Segundo Fowler \cite{Refactoring:14}, maus cheiros \emph{``são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}. Do ponto de vista de qualidade de software, \emph{``são certas estruturas no código que indicam a violação de princípios fundamentais de \textit{design} e impactam negativamente a qualidade do projeto.''} \cite[p.~258]{Refactoring:14}. 
 
   Entretanto, maus cheiros não são erros --- eles não estão tecnicamente incorretos e não impedem o funcionamento do software. Em vez disso, eles indicam deficiências no código que podem dificultar a manutenibilidade do software e aumentar o risco de erros ou falhas no futuro \cite{Khomh:2009:ESI:1685994.1686210, Sjoberg_Quantifying_2013, Yamashita6405287, Yamashita:2013:EII:2486788.2486878}.
 
-  \textit{Pitfalls of Object-Oriented Development} \cite{Webster:95}, escrito por Webster em 1995, foi um dos primeiros livros a usar o conceito de maus cheiros através do termo ``armadilha''. No livro são apresentadas 82 armadilhas no desenvolvimento orientado a objetos originadas da experiência do autor. Método Longo e Complexidade Excessiva, por exemplo, são definidos na armadilha \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Há indícios informais de que o termo ``maus cheiros de código'' foi cunhado em meados da década de 90 por Kent Beck \cite{WikiCodeSmell, WardsWikiCodeSmell}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro \textit{Refatoração: Aperfeiçoando o Projeto de Código Existente} (Fowler, M. 1999) \cite{Refactoring:99}. 
+  O livro de Webster (1995) \cite{Webster:95} foi um dos primeiros livros a usar o conceito de maus cheiros através do termo ``armadilha''. No livro são apresentadas 82 armadilhas no desenvolvimento orientado a objetos originadas da experiência do autor. Método Longo e Complexidade Excessiva, por exemplo, são definidos na armadilha \textit{Letting objects Become Bloated} \cite[p.~180]{Webster:95}. Há indícios informais de que o termo ``maus cheiros de código'' foi cunhado em meados da década de 90 por Kent Beck \cite{WardsWikiCodeSmell, WikiCodeSmell}. Apesar do conceito já permear em livros e publicações sobre desenvolvimento de software desde o começo da década de 90, o termo só se popularizou após o livro de Fowler (1999) \cite{Refactoring:99}. 
 
-  No livro são apresentados 22 maus cheiros e mais de 70 técnicas de refatoração. \textit{Código Duplicado} \cite[p.~63]{Refactoring:99} é um exemplo de mau cheiro que trata de problemas comuns que podem resultar na duplicação de código como por exemplo, ter a mesma expressão em dois métodos da mesma classe ou em duas subclasses irmãs. Para resolver este mau cheiro é indicada a refatoração \textit{Extrair Método} \cite[p.~89]{Refactoring:99}, ou seja, extrair a expressão duplicada para um novo método e substituí-lo nos lugares onde a expressão era usada. 
+  No livro de Fowler \cite{Refactoring:99} são apresentados 22 maus cheiros e mais de 70 técnicas de refatoração. \textit{Código Duplicado} \cite[p.~63]{Refactoring:99} é um exemplo de mau cheiro que trata de problemas comuns que podem resultar na duplicação de código, por exemplo, ter a mesma expressão em dois métodos da mesma classe ou em duas subclasses irmãs. Para resolver este mau cheiro é indicada a refatoração \textit{Extrair Método} \cite[p.~89]{Refactoring:99}, ou seja, extrair a expressão duplicada para um novo método e substituí-lo nos lugares onde a expressão era usada. 
 
   % Refatoração, segundo Fowler, é o ato de ``\emph{alterarmos o código sem alterar seu comportamento com o objetivo de torná-lo mais fácil de ser entendido e menos custoso de ser modificado}''. No livro são apresentadas diversas técnicas de  refatoração. 
 
   % O termo mau cheiro de código é usado para explicar ao leitor o \emph{``quando''} uma refatoração deve ser aplicada. Segundo o livro, \textbf{\emph{``mau cheiro de código são indicações de que existe um problema que pode ser resolvido por meio de uma refatoração''}}. 
 
-  Maus cheiros provêm do profundo conhecimento e experiências de desenvolvedores experientes que ao longo dos anos desenvolveram a ``intuição'' para o bom \textit{design} possibilitando-os olhar para um \textit{design} ou código e obter imediatamente uma ``intuição'' sobre sua qualidade, sem ter que dar ``argumentos logicamente detalhados'' sobre o porquê de sua conclusão \cite{WardsWikiCodeSmell}. Ou seja, é por natureza subjetivo, baseado em opiniões e experiências \cite{JavascriptSmells, JavaQADetectingSmells:02}. No livro Código Limpo (Martin, R. 2008) \cite{CleanCode:08}, que se tornou muito popular entre desenvolvedores de software, são definidos novos maus cheiros além de citar alguns já apresentados por Fowler \cite{Refactoring:99}. O autor se apoia na definição de Fowler para explicar o conceito de mau cheiro.
+  Maus cheiros provêm do profundo conhecimento e experiências de desenvolvedores experientes que, ao longo dos anos, desenvolveram a ``intuição'' para a boa arquitetura possibilitando-os olhar para uma arquitetura ou código e obter imediatamente uma intuição sobre sua qualidade, sem ter que dar argumentos logicamente detalhados sobre o porquê de sua conclusão \cite{WardsWikiCodeSmell}. Ou seja, maus cheiros são por natureza subjetivos, baseados em opiniões e experiências \cite{JavascriptSmells, JavaQADetectingSmells:02}. No livro de Martin (2008) \cite{CleanCode:08}, que se tornou muito popular entre desenvolvedores de software, são definidos novos maus cheiros além de citar alguns já apresentados por Fowler \cite{Refactoring:99}. O autor se apoia na definição de Fowler para explicar o conceito de mau cheiro.
 
   % Em uma postagem em seu site oficial em 2006 \cite{CodeSmell:06}, Fowler afrouxou um pouco mais a definição do termo dizendo que \emph{``mau cheiro de código são indicações superficiais que geralmente corresponde a um problema mais profundo no sistema''}.
 
@@ -242,7 +254,7 @@ No desenvolvimento de software, \emph{boas práticas de código} são um conjunto d
     Insista para que as decisões do projeto baseiem-se em estrutura acima de convenção (1). Convenções de nomenclaturas são boas, mas são inferiores a estruturas, que forçam um certo cumprimento (2). Por exemplo, \texttt{switch/case} com enumerações bem nomeadas são inferiores a classes base com métodos abstratos (3). Ninguém é obrigado a implementar a estrutura \texttt{switch/case} da mesma forma o tempo todo; mas as classes bases obrigam a implementação de todos os métodos abstratos das classes concretas (4).
   \end{square}
 
-  Em pesquisas que definem novos maus cheiros, observamos um formato similar aos mencionados porém, adicionado uma estratégia de detecção, com foco em automatizar a identificação do mau cheiro \cite{MvcSmells:16, CSSCodeSmell}. 
+  Em pesquisas que definem novos maus cheiros, observamos um formato similar aos mencionados porém, adicionado uma estratégia de detecção, com foco em automatizar a identificação do mau cheiro \cite{MvcSmells:16, CSSCodeSmell}. Nesta pesquisa os maus cheiros serão de modo textual simples, com título e descrição.
 
   % Estas estratégias comumente se baseiam em métricas de software já existentes, como as métricas CK \todo{ref}.
 
