@@ -16,7 +16,7 @@ vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly,
         comportamento_suspeito_smelly, componente_ui_inteligente_smelly,
         longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly,
         atributos_estilo_repetidos_smelly,
-        names=c("AC", "CA", "CS", "CI", "LE", "LA", "AR") ,col="#00bfc4")
+        names=c("AC", "CA", "CS", "CC", "LE", "LA", "AR") ,col="#00bfc4")
 
 
 # SOH LIMPOS
