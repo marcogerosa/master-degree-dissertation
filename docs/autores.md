@@ -6,5 +6,5 @@ title: Apêndice - Agradecimentos
 <hr/>
 
 Aluna: Ms. Suelen Goularte Carvalho - <a href="http://suelengc.com" target="_blank">site</a> <br>
-Orietanção: Prof. Dr. Marco Aurélio Geroso - <a href="https://www.ime.usp.br/~gerosa" target="_blank">site</a> <br>
-Co-Orietanção (informal): Dr. Maurício F. Aniche - <a href="http://www.mauricioaniche.com" target="_blank">site</a>
+Orientador: Prof. Dr. Marco Aurélio Geroso - <a href="https://www.ime.usp.br/~gerosa" target="_blank">site</a> <br>
+Co-Orientador (informal): Dr. Maurício F. Aniche - <a href="http://www.mauricioaniche.com" target="_blank">site</a>
