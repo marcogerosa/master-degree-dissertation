@@ -1,4 +1,4 @@
-[<b>Home</b>](/master-degree-dissertation) | [Etapa 1](etapa-1) | [Etapa 2](etapa-2) | [Etapa 3](etapa-3) | [Agradecimentos](agradecimentos) | [Contato](contato)
+[<b>Home</b>](/master-degree-dissertation) | [Etapa 1](etapa-1) | [Etapa 2](etapa-2) | [Etapa 3](etapa-3) | [Autores](autores) | [Agradecimentos](agradecimentos) | [Contato](contato)
 <hr/>
 
 **Título:** Anomalias na Camada de Apresentação de Aplicativos Android
