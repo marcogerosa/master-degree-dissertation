@@ -77,12 +77,17 @@ Entretanto, para outros maus cheiros essa afirmação não é verdade. Por exemplo, 
 \label{phase1-code-smells-derivation}
 
 
-A Tabela \ref{tab:Smells} apresenta a lista e uma breve descrição dos 20 maus cheiros Android propostos derivados das 20 categorias com cinco ocorrências ou mais, resultante do processo de codificação. Os 9 primeiros maus cheiros afetam componentes da camada de apresentação Android, os 11 seguintes afetam recursos Android. Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.
+A Tabela \ref{tab:Smells} apresenta a lista e uma breve descrição dos 20 maus cheiros Android propostos derivados das 20 categorias com cinco ocorrências ou mais, resultante do processo de codificação. Os 9 primeiros maus cheiros afetam componentes da camada de apresentação Android, os 11 seguintes afetam recursos Android. 
+
+As definições foram embasadas nas respostas obtidas. Por exemplo, algumas respostas que embasaram o mau cheiro \textsc{\small Componente de UI Cérebro} foram: \textit{``Fazer lógica de negócio [em Activities]''}\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). \textit{``Colocar regra de negócio no Adapter''} (P19), \textit{``Manter lógica de negócio em Fragments''} (P11), \textit{``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe''} (P16) onde de P1 a P45 representam cada um dos 45 respondente. Com o objetivo de tornar a leitura mais simples, as respostas usadas para embasá-los está disponível no Apêndice \ref{appendix:smells-purpose-of-solution}.
+
+
+Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.\\
 
 \begin{table}[h!]
 \centering
 \renewcommand*{\arraystretch}{1}
-\caption{Lista dos 20 maus cheiros Android propostos.}
+\caption{Lista dos 20 maus cheiros na camada de apresentação Android e breve descrição dos sintomas.}
 \footnotesize 
 \begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
 \toprule
