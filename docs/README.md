@@ -1,4 +1,4 @@
-[Home](/android-code-smells-article) | [Tabelas](tables) | [Survey 1 (S1)](survey1) | [Survey 2 (S2)](survey2)
+[Home](/master-degree-dissertation) | [Etapa 1](etapa-1) | [Etapa 2](etapa-2) | [Etapa 3](etapa-3) | [Agradecimentos](agradecimentos) | [Contato](contato)
 <hr/>
 
 **Título:** Anomalias na Camada de Apresentação de Aplicativos Android
