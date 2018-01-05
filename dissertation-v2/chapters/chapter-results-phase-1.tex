@@ -21,7 +21,7 @@ Todas as 16 perguntas sobre boas e más práticas, nos elementos da camada de apre
 
 O elemento que recebeu menos respostas sobre \textbf{\small boas práticas} foi o \textit{Listener}, sendo respondida por 10 dos 45 participantes. Os elementos que receberam menos respostas sobre \textbf{\small más práticas} foram os recursos de \textit{Style} e \textit{Drawable}, sendo que ambos foram respondidos por apenas 9 dos 45 participantes. Dentre os componentes, os que receberam mais respostas foram \textit{Activities} e \textit{Fragments}, ambos sendo respondidos por pelo menos 27 participantes. Dentre os recursos, o que recebeu mais resposta foi o recurso de \textit{Layout}, sendo respondido por pelo menos 22 dos 45 participantes. De modo geral, perguntas sobre boas práticas foram mais respondidas do que as perguntas sobre más práticas, exceto sobre \textit{Activities} e \textit{Listeners}.
 
-O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros, todas as que apresentaram ocorrências maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Deste modo, 22 categorias foram consideradas. Dessas 22, desconsideramos mais 2 por se tratarem de (i) um mau cheiro tradicional (Classe Grande) e (ii) um aspecto da orientação a objetos (Herança). Resultando em 20 categorias para a derivação dos maus cheiros da camada de apresentação Android. 
+O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros todas as que apresentaram ocorrências maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Deste modo, 22 categorias foram consideradas. Dessas 22, desconsideramos mais 2 por se tratarem de (i) um mau cheiro tradicional (Classe Grande) e (ii) um aspecto da orientação a objetos (Herança). Resultando em 20 categorias para a derivação dos maus cheiros da camada de apresentação Android. 
 
 % A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}. 
 
@@ -32,7 +32,7 @@ O processo de codificação resultou em 46 categorias, das quais consideramos para
 
 A Tabela \ref{tab:CategoriesVSFrequency} apresenta o total de ocorrências segmentadas por elemento da camada de apresentação Android das 20 categorias consideradas para a derivação dos maus cheiros. Por exemplo, a categoria \textsc{\small Componente de UI Cérebro} apresenta 29 na coluna \textit{Activity}, 16 na coluna \textit{Fragment}, 14 na coluna \textit{Adapter} e 1 na coluna \textit{Listener}, isso significa que 29 ocorrências foram em respostas sobre boas e más práticas em \textit{Activities}, 16 ocorrências foram em respostas sobre boas e más práticas em \textit{Fragments} e assim por diante. O número sobrescrito, entre parênteses, ao lado do nome da categoria indica o total de ocorrências, ou seja, a soma das ocorrências em todos os elementos Android.
 
-Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más práticas em \textit{Activities} é de 73 (somatória das colunas Q1 e Q2), e na Tabela \ref{tab:CategoriesVSFrequency} o total de respostas na coluna \textit{Activity} é de 49. Essa diferença ocorre pois, na figura estamos considerando as respostas de todas as 46 categorias, enquanto que na tabela estamos consideramos apenas as respostas das 20 categorias consideradas, .
+Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más práticas em \textit{Activities} é de 73 (somatória das colunas Q1 e Q2), e na Tabela \ref{tab:CategoriesVSFrequency} o total de respostas na coluna \textit{Activity} é de 49. Essa diferença ocorre pois, na figura estamos considerando as respostas de todas as 46 categorias, enquanto que na tabela estamos consideramos apenas as respostas às 20 categorias consideradas.
 
 \begin{table}[!htb]
 \centering
@@ -68,9 +68,9 @@ Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más prát
 \label{tab:CategoriesVSFrequency}
 \end{table}
 
-Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Para alguns maus cheiros, os elementos que ele apresenta ocorrência também são os elementos que ele pode afetar, como por exemplo, \textsc{\small Componente de UI Cérebro} se apresenta nos 4 componentes (\textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}) e pode afetar os mesmos 4. 
+Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Por meio da Tabela \ref{tab:CategoriesVSFrequency}, podemos obter sugestões sobre quais elementos Android um mau cheiro afeta através do cruzamento do número de ocorrências, ou seja, se há ocorrências, possivelmente o mau cheiro respectivo afeta o elemento respectivo. Por exemplo, o mau cheiro \textsc{\small Componente de UI Cérebro} se apresenta em 4 componentes: \textit{Activities} com 29 ocorrência, \textit{Fragments} com 16, \textit{Adapters} com 14 e \textit{Listeners} com 1, e de fato, esse mau cheiro pode afetar todos esses componentes. 
 
-Entretanto, para outros maus cheiros essa afirmação não é verdade. Por exemplo, o mau cheiro \textsc{\small Layout Profundamente Aninhado} tem uma ocorrência em \textit{Adapter}, porém, este mau cheiro não afeta \textit{Adapters}. A resposta que originou esta ocorrência indicava na verdade uma boa prática em recurso de layout: \textit{``Criar layouts realmente leves.''}~(P36).
+Entretanto, para outros maus cheiros, essa sugestão não é verdade. Por exemplo, no caso do mau cheiro \textsc{\small Layout Profundamente Aninhado}, apesar de haver 1 ocorrência em \textit{Adapter}, esse mau cheiro não o afeta. A resposta que originou essa ocorrência indicou na verdade, uma boa prática em recursos de \textit{layout}: \textit{``Criar layouts realmente leves.''}~(P36). Esse tipo de análise da resposta foi cuidadosamente realizado para a escrita da definição textual dos maus cheiros a serem apresentados na próxima seção.
 
 
 \subsection{Maus Cheiros Propostos}
@@ -79,10 +79,10 @@ Entretanto, para outros maus cheiros essa afirmação não é verdade. Por exemplo, 
 
 A Tabela \ref{tab:Smells} apresenta a lista e uma breve descrição dos 20 maus cheiros Android propostos derivados das 20 categorias com cinco ocorrências ou mais, resultante do processo de codificação. Os 9 primeiros maus cheiros afetam componentes da camada de apresentação Android, os 11 seguintes afetam recursos Android. 
 
-As definições foram embasadas nas respostas obtidas. Por exemplo, algumas respostas que embasaram o mau cheiro \textsc{\small Componente de UI Cérebro} foram: \textit{``Fazer lógica de negócio [em Activities]''}\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). \textit{``Colocar regra de negócio no Adapter''} (P19), \textit{``Manter lógica de negócio em Fragments''} (P11), \textit{``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe''} (P16) onde de P1 a P45 representam cada um dos 45 respondente. Com o objetivo de tornar a leitura mais simples, as respostas usadas para embasá-los está disponível no Apêndice \ref{appendix:smells-purpose-of-solution}.
+As definições foram embasadas nas respostas obtidas. Por exemplo, algumas respostas que embasaram o mau cheiro \textsc{\small Componente de UI Cérebro} foram: \textit{``Fazer lógica de negócio [em Activities]''}\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). \textit{``Colocar regra de negócio no Adapter''} (P19), \textit{``Manter lógica de negócio em Fragments''} (P11), \textit{``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe''} (P16) onde de P1 a P45 representam cada um dos 45 respondente. Com o objetivo de tornar a leitura mais simples, as respostas usadas para embasá-los estão disponíveis no Apêndice \ref{appendix:smells-purpose-of-solution}.
 
 
-Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.\\
+Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.
 
 \begin{table}[h!]
 \centering
