@@ -10,7 +10,7 @@ O Android é uma plataforma para desenvolvimento móvel, baseada no Kernel do Linu
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=.9\textwidth]{android-marketshare-09-17.png}
-	\caption[Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q1 de 2017.]{Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q2 de 2017 \cite{GlobalSmartphoneSales:09-17}.}
+	\caption[Participação de mercado global de sistemas operacionais móveis do Q1 (1º quadrimestre) de 2009 até o Q1 de 2017.]{Participação de mercado global de sistemas operacionais móveis do Q1 (1º~quadrimestre) de 2009 até o Q2 de 2017 \cite{GlobalSmartphoneSales:09-17}.}
 	\label{fig:MobileMarketShare09-17}
   % \vspace{-.5cm} 
 \end{figure}
@@ -183,10 +183,11 @@ Os códigos apresentados são bem simples, entretanto, as telas e \acs{UI}s tendem
 
 Toda \textit{Activity}, bem como outros componentes Android, possui um ciclo de vida. O ciclo de vida de um componente é composto por um conjunto de métodos de retorno, que por sua vez, são métodos chamados pelo sistema operacional Android em uma ordem específica \cite{AndroidActivities2016} e são responsáveis por criar, manter e destruir o componente. 
 
-Os componentes da camada de apresentação Android possuem ciclos de vida mais extensos, e portanto, mais complexos. Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities} e \textit{Fragments}, ambos relacionados diretamente à camada de apresentação e \textit{Services}, componente usado para longos processamentos em segundo plano e portanto, não relacionado diretamente à camada de apresentação. Os métodos de retorno são representados pelos retângulos em cinza. Podemos observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno, enquanto que \textit{Services} possuem apenas quatro.
+Os componentes da camada de apresentação Android possuem ciclos de vida mais extensos, e portanto, mais complexos. Como exemplo, na Figura \ref{fig:android-lifecycles} apresentamos o ciclo de vida de três componentes Android: \textit{Activities}\footnote{A imagem do ciclo de vida de \textit{Activities} ilustra apenas os métodos de retorno principais conforme a documentação oficial: https://developer.android.com/guide/components/activities/activity-lifecycle.html} e \textit{Fragments}, ambos relacionados diretamente à camada de apresentação e \textit{Services}, componente usado para longos processamentos em segundo plano e portanto, não relacionado diretamente à camada de apresentação. Os métodos de retorno são representados pelos retângulos em cinza. Podemos observar que \textit{Activities} e \textit{Fragments} possuem respectivamente sete e onze métodos de retorno, enquanto que \textit{Services} possuem apenas quatro.
 
 \begin{figure*}[!htb]
 \centering
+  \vspace{-.5cm} 
   \begin{subfigure}[b]{.39\textwidth}
     \centering
     \hspace*{-0.7cm}
@@ -209,10 +210,10 @@ Os componentes da camada de apresentação Android possuem ciclos de vida mais ext
   \end{subfigure}% 
 \caption{Comparativo do ciclo de vida de componentes Android que pertencem e não pertencem à camada de apresentação.}
 \label{fig:android-lifecycles}
-% \vspace{-.5cm} 
+\vspace{-.5cm} 
 \end{figure*}
 
-O ciclo de vida de \textit{Activities} e \textit{Fragments} são complexos, com mais de dez métodos de retorno \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais métodos de retorno de \textit{Activities}. Além desses sete principais, \textit{Activities} possuem outros métodos de retorno, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities} ou \textit{Fragments}, contendo até quatro métodos de retorno. A Figura \ref{fig:service-lifecycle} apresenta a versão mais longa, das duas possíveis, do ciclo de vida de \textit{Services}, que varia de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. 
+O ciclo de vida de \textit{Activities} e \textit{Fragments} são complexos, com mais de dez métodos de retorno \cite{AndroidDevActivityReference}. A Figura \ref{fig:activity-lifecycle} apresenta os sete principais métodos de retorno de \textit{Activities}. Além desses sete principais, \textit{Activities} possuem outros métodos de retorno, dentre eles, \textit{onUserLeaveHint}, \textit{onPostCreate} e \textit{onPostResume}. O ciclo de vida de \textit{Services} é bem menor se comparado com o de \textit{Activities} ou \textit{Fragments}, contendo até quatro métodos de retorno. A Figura \ref{fig:service-lifecycle} apresenta a versão mais longa, dentre duas possíveis, do ciclo de vida de \textit{Services}, que varia de acordo com o método usado na sua criação, podendo ser \textit{startService} ou \textit{bindService}. 
 
 
 % \begin{lstlisting}[

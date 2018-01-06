@@ -65,12 +65,10 @@ O questionário esteve aberto por aproximadamente três semanas em meados de Setem
 \end{subfigure}% 
 \caption{Escolaridade e distribuição de idade dos participantes em S$_2$.}
 \label{fig:phase2-participants-graduation-age}
-% \vspace{-.5cm} 
+\vspace{-.5cm} 
 \end{figure*}
 
-
 Participaram desta etapa da pesquisa 201 desenvolvedores. 145 respostas vieram da versão em português do questionário e 56 da versão em inglês. Dos participantes, 15\% possuem uma ou mais pós-graduações e 61\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase2-participants-graduation}. A Figura \ref{fig:phase2-participants-age} apresenta o histograma de idade dos participantes, onde podemos observar que tivemos uma abrangência considerável de idade, onde a maior parte possui de 20 a 35 anos.  
-
 
 
 Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% participantes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 74\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Esse resultado nos indica que atingimos desenvolvedores com experiência considerável em desenvolvimento de software e Android. 
@@ -80,24 +78,25 @@ Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% pa
 \includegraphics[width=.7\linewidth]{phase2-participants-experience.png}
 \caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_2$.}
 \label{fig:phase2-participants-experience}
+% \vspace{-.5cm} 
 \end{figure*}
 
 \begin{figure*}[!b]
   \centering
-  \includegraphics[width=.7\textwidth]{phase2-participants-languages.png}
+  \vspace{-.5cm} 
+  \includegraphics[width=.75\textwidth]{phase2-participants-languages.png}
   \caption{Nível de conhecimento em diversas linguagens de programação orientada a objetos dos participantes de S$_2$.}
   \label{fig:phase2-participants-languages}
   \vspace{-.5cm} 
 \end{figure*}
 
-Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas linguagens orientadas a objetos. Na Figura \ref{fig:phase2-participants-languages} podemos observar que mais de 80\% afirmam ter conhecimento de intermediário a especialista em Java e Android. De 20\% a 58\% dos participantes afirmam ter conhecimento de intermediário a especialista em outras linguagens orientadas a objetos. 5 participantes (2\%) afirmaram não ter conhecimento sobre Android e portanto, desconsideramos suas respostas. 
+Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas linguagens orientadas a objetos. Na Figura \ref{fig:phase2-participants-languages} podemos observar que mais de 80\% afirmam ter conhecimento de intermediário a especialista em Java e Android. De 20\% a 58\% dos participantes afirmam ter conhecimento de intermediário a especialista em outras linguagens orientadas a objetos. 5 participantes (2\%) afirmaram não ter conhecimento sobre Android, por este motivo suas respostas foram desconsideradas da análise. 
 
-
-
-Nosso questionário foi respondido por profissionais de 3 continentes e 14 países diferentes porém a maior representatividade dos dados é originada do Brasil, com pouco mais de 78\% dos participantes. Os brasileiros somam 157 profissionais de 18 estados diferentes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 57\%, Rio de Janeiro e Minhas Gerais com quase 6\% cada e Rio Grande do Sul com quase 5\%. 10\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos 2\% provenientes da Califórnia, Pensilvânia, Indiana e Utah e 0,5\% (1 participante) de Ontário no Canadá. A Figura \ref{fig:phase2-participants-regions} apresenta a distribuição geográfica global e brasileira dos participantes.\\
+A Figura \ref{fig:phase2-participants-regions} apresenta a distribuição geográfica global e brasileira dos participantes. Nosso questionário foi respondido por profissionais de 3 continentes e 14 países diferentes porém a maior representatividade dos dados é originada do Brasil, com pouco mais de 78\% dos participantes. Os brasileiros somam 157 profissionais de 18 estados diferentes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 57\%, Rio de Janeiro e Minhas Gerais com quase 6\% cada e Rio Grande do Sul com quase 5\%. 10\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos 2\% provenientes da Califórnia, Pensilvânia, Indiana e Utah e 0,5\% (1 participante) de Ontário no Canadá. \\
 
 \begin{figure*}[!htb]
 \centering
+\vspace{-.3cm} 
 \begin{subfigure}{.52\textwidth}
   \centering
   \includegraphics[width=.99\textwidth]{phase-2-participants-region-mundial.png}
@@ -123,7 +122,7 @@ Podemos concluir que tivemos certa abrangência geográfica, porém o padrão geográ
 
 Para análise dos dados, as opções das escalas \textit{likert} de \textbf{\small frequência} e \textbf{\small importância} foram codificadas em números de 1 a 5. Por exemplo, as opções ``Nunca'' (da escala de frequência) e ``Não é importante'' (da escala de importância) foram codificadas com 1, as opções ``Raramente'' (frequência) e ``Pouco importante'' (importância) com 2, e assim sucessivamente até as opções ``Muito frequente'' (frequência) e ``Muito importante'' (importância) que foram codificadas com~5.
 
-De modo a avaliar a percepção dos desenvolvedores Android sobre a frequência e importância dos maus cheiros propostos, para análise dos dados extraímos de cada afirmação a mediana, moda e desvio padrão. Para os maus cheiros que apresentamos mais de uma afirmação, extraímos a média desses dados para representá-los. Por exemplo, foram apresentadas três afirmações de frequência sobre o mau cheiro \textsc{\small Comportamento Suspeito}, a moda que o representa é a média das modas de cada afirmação, que neste caso foi (3+4+4)/3 = 3,7, que arredondamos para 4.
+De modo a avaliar a percepção dos desenvolvedores Android sobre a frequência e importância dos maus cheiros propostos, para análise dos dados extraímos de cada afirmação a mediana, moda e desvio padrão. Para os maus cheiros que apresentamos mais de uma afirmação, extraímos a média desses dados para representá-los. Por exemplo, foram apresentadas três afirmações de frequência sobre o mau cheiro \textsc{\small Comportamento Suspeito}, a moda que o representa é a média das modas de cada afirmação, que neste caso foi $(3 + 4 + 4) \div 3 = 3,7 \approx 4$.
 
 De modo a avaliar quais maus cheiros são considerados frequentes realizamos uma simplificação da escala \textit{likert} de \textbf{\small frequência}. Classificamos de \textbf{\small frequência baixa} as resposta ``Raramente'', de \textbf{\small frequência moderada} as respostas ``Às vezes'' e por último, classificamos de \textbf{\small frequência alta} as respostas ``Frequente'' e ``Muito frequente''. Não obtivemos nenhuma afirmação com moda (MO) igual 1, ou seja, ``Nunca'', e por isso não criamos uma classificação para ela.
 

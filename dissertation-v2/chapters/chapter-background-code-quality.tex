@@ -2,13 +2,7 @@
 \section{Qualidade de Software}
 \label{sec:software-quality}
 
-Antes de falarmos sobre qualidade de software, é importante falarmos brevemente sobre qualidade. Há décadas, diversos autores e organizações vêm trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00} desenvolvido pela Organização Internacional de Normalização (\acs{ISO}, do inglês \acl{ISO}), qualidade é \textit{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. 
-
-Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, qualidade está relacionado \textit{``as características dos produtos que atendem as necessidades dos clientes, e assim, proporcionam a satisfação do mesmo''} e a \textit{``ausência de deficiências''}. Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas é possível identificar uma mesma ideia central sobre qualidade: todas elas apontam para \textit{``requisitos que precisam ser satisfeitos para ter qualidade''}. 
-
-% \emph{Qualidade de software} é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais, o quanto o software atende as necessidades de negócio, ou estruturais, o quão bem o software funciona. Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
-
-% Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
+Antes de entrarmos no tema qualidade de software, é importante abordarmos brevemente sobre qualidade. Há décadas, diversos autores e organizações vêm trabalhando em suas próprias definições de qualidade. Segundo o ISO 9000 \cite{ISO9000:00} desenvolvido pela Organização Internacional de Normalização (\acs{ISO}, do inglês \acl{ISO}), qualidade é \textit{``o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''}. 
 
 \begin{table}[!b]
 \centering
@@ -22,30 +16,35 @@ Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunt
 \acs{ISO}/\acs{IEC} 9126 & Teve sua primeira publicação em 1991, foi revisado em 2001 e em 2011 substituído pela \acs{ISO}/\acs{IEC} 25010, conhecida por \acs{SQuaRE} (do inglês \acl{SQuaRE}). Decompõe qualidade de software em 6 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade e usabilidade \cite{ISO9126:91}.\\
 \acs{ISO}/\acs{IEC} 25010 (\acs{SQuaRE}) & Teve sua primeira publicação em 2005, revisado em 2011, quando passou a substituir a \acs{ISO}/\acs{IEC} 9126. Decompõe qualidade de software em 8 áreas: manutenibilidade, eficiência, portabilidade, confiabilidade, funcionalidade, usabilidade, compatibilidade e segurança \cite{ISO25010:11}.\\
 \acs{CISQ} & Fundado em 2009 \cite{CISQAnnounce:09}, decompõe qualidade de software em 4 características: segurança, confiabilidade, desempenho/eficiência e manutenibilidade. Se baseia nas definições do \ac{SQuaRE} \cite{CISQ}.\\
-% \acs{SWEBOK} \cite{SWEBOK:14} & Decompõe qualidade de software em 4 áreas e considera que qualidade está envolvido com as qualidades estáticas do software. \\
 \acs{FURPS} & FURPS é um acrônimo para: Funcionalidade, Usabilidade, Confiabilidade (do inglês \textit{Reliability}), Desempenho (do inglês \textit{Performance}) e Suportabilidade \cite{ModelFURPS:87}. \\
 \bottomrule
 \end{tabular}
 \label{tab:QualityModels}
 \end{table}
 
+Segundo Juran \cite{JuranQuality:1998}, um dos principais autores sobre o assunto, qualidade está relacionado \textit{``as características dos produtos que atendem as necessidades dos clientes, e assim, proporcionam a satisfação do mesmo''} e a \textit{``ausência de deficiências''}. Stefan \cite[p~6]{StefanSoftwareQuality:13} também examinou diversas definições e identificou que na maioria delas é possível identificar uma mesma ideia central sobre qualidade: todas elas apontam para \textit{``requisitos que precisam ser satisfeitos para ter qualidade''}. 
+
+% \emph{Qualidade de software} é uma área do conhecimento da engenharia de software que trata das características desejadas em um projeto de software, sejam elas funcionais, o quanto o software atende as necessidades de negócio, ou estruturais, o quão bem o software funciona. Diversas características são desejáveis em um software, dentre elas confiabilidade, eficiência e manutenibilidade. A área de conhecimento sobre qualidade de software nos serve justamente para definir conceitos que suportam a criação de práticas e ferramentas que visam aumentar a qualidade de softwares. Muitos estudos já mostraram que problemas de qualidade em software demandam altos custos a empresas. Desta forma, essa área do conhecimento orienta nossos esforços para melhorar a qualidade de projetos de software visando, dentre outras coisas, reduzir os custos.
+
+% Muitas são as definições dadas ao termo qualidade de software. Segundo a norma ISO 9000 (versão 2000), ``qualidade é o grau em que um conjunto de características inerentes a um produto, processo ou sistema cumpre os requisitos inicialmente estipulados para estes''. Já Juran, um dos principais autores sobre o assunto, tem duas definições para qualidade ``a característica dos produtos que atendem as necessidades dos clientes, e, assim, proporcionar a satisfação do mesmo[2]'' e ``qualidade é a ausência de deficiências[2]''. 
+
+
+
 As primeiras contribuições referentes à qualidade em termos de software foram publicadas no fim da década de 70. Boehm et al. \cite{Boehm:78} e McCall et al. \cite{McCall:77} descrevem modelos de qualidade de software através de conceitos e sub-conceitos. Ambos se utilizaram de uma estratégia de decomposição hierárquica do conceito de qualidade em fatores como manutenibilidade e confiabilidade \cite[p~29-30]{StefanSoftwareQuality:13}. Com o tempo, diversas variações desse modelo começaram a surgir. A Tabela \ref{tab:QualityModels} apresenta algumas dessas variações e uma breve descrição da forma como qualidade de software foi decomposta. Entretanto, o grande valor do modelo de decomposição hierárquico foi a ideia de decompor qualidade até um nível em que seja possível medir e estimar~\cite{StefanSoftwareQuality:13}.
 
-O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como \textit{``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''} \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 subdivide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}. Dentre os conceitos apresentados, os mais relevantes nesta dissertação são \textbf{\small manutenibilidade}, pois é onde esta pesquisa está inserida, e \textbf{\small usabilidade} e \textbf{\small eficiência}, pois é o contexto onde encontramos alguns trabalhos relacionados sobre maus cheiros de código Android \cite{RemovingEnergySmells:12, 30QualitySmells:14}. 
-
-Apresentamos uma breve descrição sobre cada um desses três conceitos a seguir:\\
-
+O padrão ISO/IEC 9126 é considerado ainda como principal referência para a definição de qualidade de software e a define como \textit{``a capacidade do produto de software satisfazer as necessidades implícitas e explícitas quando usado em condições específicas''} \cite[p~10]{StefanSoftwareQuality:13}. O \acs{ISO}/\acs{IEC} 9126 divide qualidade de software em seis conceitos, cada qual contendo um conjunto de sub-conceitos, conforme apresentado na Figura \ref{fig:QualityCharacteristics}. Dentre os conceitos apresentados, os mais relevantes nesta dissertação são \textbf{\small manutenibilidade}, pois é onde esta pesquisa está inserida, e \textbf{\small usabilidade} e \textbf{\small eficiência}, pois é o contexto onde encontramos alguns trabalhos relacionados sobre maus cheiros de código Android \cite{RemovingEnergySmells:12, 30QualitySmells:14}.
 
 % Segundo o SWEBOK (\textit{Software Engineering Body of Knowledge}) qualidade de software pode se referir ``as características desejadas de produtos de software, a extensão em que um produto de software em particular possui essas características e aos processos, ferramentas e técnicas que são usadas para garantir essas características'' \cite[p.~174]{SWEBOK:14}.
 
 % \todo{para embasar as truduções na imagem https://pt.wikipedia.org/wiki/Qualidade\_de\_software\#/media/File:Qualidade\_de\_Produto\_de\_Sistemas\_e\_Software.jpg}
-\begin{figure}[!htb]
+\begin{figure}[!t]
   \centering
   \includegraphics[width=1\textwidth]{caracteristicas-software-qualidade-pt.png}
   \caption[Características de qualidade de software segundo norma ISO/IEC 9126.]{Características de qualidade de software segundo norma ISO/IEC 9126 \cite{ISO9126:91}.}
   \label{fig:QualityCharacteristics}
 \end{figure}
 
+Apresentamos uma breve descrição sobre cada um desses três conceitos a seguir:\\
 
 % \subsection{Funcionalidade} 
 % A capacidade de um software prover funcionalidades que satisfaçam o usuário em suas necessidades declaradas e implícitas, dentro de um determinado contexto de uso. Seus sub-conceitos são: 
@@ -66,7 +65,8 @@ Apresentamos uma breve descrição sobre cada um desses três conceitos a seguir:\\
 %   \item \emph{Conformidade} tempo ou utilização de recursos.
 % \end{itemize}
 
-\noindent \textbf{\small Manutenibilidade} A capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
+
+\noindent 1. \textbf{\small Manutenibilidade} é a capacidade (ou facilidade) do produto de software ser modificado, incluindo tanto as melhorias ou extensões de funcionalidade quanto as correções de defeitos, falhas ou erros. Seus sub-conceitos são:
 \begin{itemize}
   \itemsep0em 
   \item \emph{Analisabilidade} Facilidade em se diagnosticar eventuais problemas e identificar as causas das deficiências ou falhas.
@@ -75,8 +75,7 @@ Apresentamos uma breve descrição sobre cada um desses três conceitos a seguir:\\
   \item \emph{Testabilidade} Capacidade de se testar o sistema modificado, tanto quanto as novas funcionalidades quanto as não afetadas diretamente pela modificação.
 \end{itemize}
 
-\noindent \textbf{\small Usabilidade}   
-A capacidade do produto de software ser compreendido, seu funcionamento aprendido, ser operado e ser atraente ao usuário. Seus sub-conceitos são:
+\noindent 2. \textbf{\small Usabilidade} é a capacidade do produto de software ser compreendido, seu funcionamento aprendido, ser operado e ser atraente ao usuário. Os sub-conceitos são:
 \begin{itemize}
   \itemsep0em 
   \item \emph{Inteligibilidade} Facilidade com que o usuário pode compreender as suas funcionalidades e avaliar se o mesmo pode ser usado para satisfazer as suas necessidades específicas.
@@ -84,11 +83,10 @@ A capacidade do produto de software ser compreendido, seu funcionamento aprendid
   \item \emph{Operacionalidade} Como o produto facilita a sua operação por parte do usuário, incluindo a maneira como ele tolera erros de operação.
   \item \emph{Proteção frente a erros de usuários} Como produto consegue prevenir erros dos usuários.
   \item \emph{Atratividade} Envolve características que possam atrair um potencial usuário para o sistema, o que pode incluir desde a adequação das informações prestadas para o usuário até os requintes visuais utilizados na sua interface gráfica.
-  \item \emph{\small Acessibilidade} Prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
+  \item \emph{Acessibilidade} Prática inclusiva de fazer softwares que possam ser utilizados por todas as pessoas que tenham deficiência ou não. Quando os softwares são corretamente concebidos, desenvolvidos e editados, todos os usuários podem ter igual acesso à informação e funcionalidades.  
 \end{itemize}
 
-\noindent \textbf{\small Eficiência}   
-O tempo de execução e os recursos envolvidos são compatíveis com o nível de desempenho do software. Seus sub-conceitos são:
+\noindent 3. \textbf{\small Eficiência} é o tempo de execução e os recursos envolvidos são compatíveis com o nível de desempenho do software. Seus sub-conceitos são:
 \begin{itemize}
   \itemsep0em 
   \item \emph{Comportamento em Relação ao Tempo} Avalia se os tempos de resposta (ou de processamento) estão dentro das especificações.
@@ -145,11 +143,11 @@ A seguir introduzimos conceitos sobre as seguintes boas práticas: Padrões de Pro
 
   Não podemos falar sobre \emph{padrões de projetos} sem antes falarmos sobre \emph{padrões}. Segundo o dicionário Oxford um padrão é ``\emph{algo que serve como modelo, um exemplo para os outros seguirem}'' \cite{PetternByOxford}. Padrões não são invenção de algo novo, são uma forma de organizar o conhecimento proveniente de experiências \cite{PadroesAgeisSuelen:11}.
 
-  Para engenharia de software, a principal definição sobre padrões provém do livro do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um padrão como sendo uma regra de três partes que expressa a relação entre um certo \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Fowler \cite{AnalysysPattern:97} apresenta uma definição mais simples que diz que \textit{``um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros''}. 
+  Para engenharia de software, a principal definição sobre padrões provém do livro do arquiteto Christopher Alexander (1977) \cite{PatternAlexander:77} onde ele define um padrão como sendo uma regra de três partes que expressa a relação entre um \textbf{contexto}, um \textbf{problema} e uma \textbf{solução}. Fowler \cite{AnalysysPattern:97} apresenta uma definição mais simples que diz que \textit{``um padrão é uma ideia que foi útil em algum contexto prático e provavelmente será útil em outros''}. 
 
   Inspirados por Alexander \cite{PatternAlexander:77}, Kent Beck e Ward Cunnigham fizeram alguns experimentos do uso de padrões na área de desenvolvimento de software e apresentaram os resultados na OOPSLA em 1987. Apoiando-se na definição de padrões de Alexander \cite{PatternAlexander:77}, o livro Padrões de Projeto (1994) \cite{GoF:95} foi o primeiro a ser lançado sobre padrões relacionados a software, documentando 23 padrões de projetos. 
   
-  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada informação, por exemplo: problema, contexto ou solução, serão formatadas. Alguns formatos incluem uma série de outras informações além dessas três. Ao longo dos anos, alguns formatos foram se destacando. A Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \acs{GoF} e Alexandrino, e foram posicionadas no gráfico de acordo com seu nível de maturidade e clareza.
+  Para se documentar um padrão, é comum seguir um formato específico. O formato indica onde e como cada uma das informações (problema, contexto ou solução) serão formatadas. Alguns formatos incluem uma série de outras informações além dessas três. Ao longo dos anos, alguns formatos foram se destacando. A Figura \ref{fig:formato-padroes} apresenta a tradução de um gráfico criado por Joshua Kerievsky \cite{PatternsFormats} contendo quatro formatos existentes de se escrever padrões. Os formatos são nomeados como Portland, Coplien, \acs{GoF} e Alexandrino, e foram posicionadas no gráfico de acordo com seu nível de maturidade e clareza.
 
   \begin{figure}[!b]
     \centering

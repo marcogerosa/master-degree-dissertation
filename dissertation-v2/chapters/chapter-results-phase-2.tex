@@ -137,7 +137,7 @@ A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa d
   % \vspace{-.5cm} 
 \end{figure*}
 
-Os três maus cheiros que obtiveram mais respostas de ``não é importante'' foram: \textsc{\small Reúso Inadequado de String}, \textsc{\small Não Uso de Fragment}, \textsc{\small Uso Excessivo de Fragment}. São os mesmos que tiveram menor concordância com relação à sua importância, todos com DP acima de 1,28.
+Os três maus cheiros considerados menos importantes foram \textsc{\small Reúso Inadequado de String}, \textsc{\small Não Uso de Fragment} e \textsc{\small Uso Excessivo de Fragment}, com mais de 16\% dos participantes indicando ``não é importante'', menos de 26\% indicando ``importante'' e menos de 16\% indicando ``muito importante''. São os mesmos que tiveram menor concordância com relação à sua importância, todos com DP acima de 1,28. Esses dados sugerem que desenvolvedores Android ainda têm dúvidas sobre o impacto negativo desses maus cheiros no código.
 
 
 \subsection{Frequência dos Maus Cheiros}
@@ -184,9 +184,9 @@ Nos demais níveis de frequência, essa situação se inverte, sendo os maus cheiros
 
 A Figura \ref{fig:phase2-survey-frequence} apresenta a distribuição relativa de frequência dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado às respostas ``nunca''. Os maus cheiros menos percebidos (com mais de 20\% de respostas ``nunca'') foram \textsc{\small Adapter Consumista} (25\%) e \textsc{\small Listener Escondido} (24\%). Todos os demais maus cheiros são percebidos no dia a dia, com frequência moderada ou alta, por pelo menos 75\% dos participantes.
 
-\textsc{\small Adapter Consumista} foi o mau cheiro menos percebido no dia a dia por desenvolvedores Android (25\% dos participantes indicaram ``nunca''). Entretanto ele é o segundo considerado mais importante (58\% dos participantes indicaram ``muito importante'' e 26\% indicaram ``importante''). Esse resultado sugere que desenvolvedores já estão cientes dos benefícios do uso do padrão \textit{ViewHolder} \cite{AluraViewHolder} e encontraram formas de mitigar este mau cheiro. Na seção \ref{sec:discussoes} realizamos uma breve discussão sobre esse resultado. \\
+\textsc{\small Adapter Consumista} foi o mau cheiro menos percebido no dia a dia por desenvolvedores Android (25\% dos participantes indicaram ``nunca''). Entretanto ele é o segundo considerado mais importante (58\% dos participantes indicaram ``muito importante'' e 26\% indicaram ``importante''). Esses dados sugerem que desenvolvedores já estão cientes dos benefícios do uso do padrão \textit{ViewHolder} \cite{AluraViewHolder} e encontraram formas de mitigar este mau cheiro. Na seção \ref{sec:discussoes} realizamos uma breve discussão sobre esse resultado. 
 
-\textsc{\small Listener Escondido} foi o segundo mau cheiro menos percebido no dia a dia por desenvolvedores Android (24\% dos participantes indicaram ``nunca''). Entretanto se apresenta dentre os maus cheiros considerados mais importantes (33\% dos participantes indicaram ``muito importante'' e 24\% indicaram ``importante''). Esse resultado sugere que os desenvolvedores consideram importante evitar o uso do atributo \textit{onClick} em XMLs de \textit{layout} e aparentemente, muitos desenvolvedores já estão cientes disso no dia a dia, uma vez que ele se apresenta dentre os 6 menos percebidos. \\
+\textsc{\small Listener Escondido} foi o segundo mau cheiro menos percebido no dia a dia por desenvolvedores Android (24\% dos participantes indicaram ``nunca''). Entretanto se apresenta dentre os maus cheiros considerados mais importantes (33\% dos participantes indicaram ``muito importante'' e 24\% indicaram ``importante''). Esses dados sugerem que os desenvolvedores consideram importante evitar o uso do atributo \textit{onClick} em XMLs de \textit{layout} e aparentemente, muitos desenvolvedores já estão cientes disso no dia a dia, uma vez que ele se apresenta dentre os 6 menos percebidos. \\
 
 
 \begin{square}
