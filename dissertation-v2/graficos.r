@@ -20,36 +20,36 @@ library(forcats)
 
 
 # ETAPA 1 - IDADE DOS PARTICIPANTES
-software <- read.table(text="Idade    valor
-                            '19-24 anos'	18
-                       '25-34 anos'	74
-                       '35-44 anos'	4
-                       '45-54 anos'	2
-                       'Nao respondeu' 2", header=TRUE)
-software <- melt(software, id.var="Idade")
-ggplot(software, aes(x = fct_inorder(Idade), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank(),
-        text=element_text(size=14)) +
-  coord_cartesian(ylim=c(0,80)) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") })
+# software <- read.table(text="Idade    valor
+#                             '19-24 anos'	18
+#                        '25-34 anos'	74
+#                        '35-44 anos'	4
+#                        '45-54 anos'	2
+#                        'Nao respondeu' 2", header=TRUE)
+# software <- melt(software, id.var="Idade")
+# ggplot(software, aes(x = fct_inorder(Idade), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank(),
+#         text=element_text(size=14)) +
+#   coord_cartesian(ylim=c(0,80)) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") })
 #
 # # ETAPA 1 - ESCOLARIDADE PARTICIPANTES
-software <- read.table(text="Grau valor
-                              Estudante	18
-                              Graduacao 62
-                              Mestrado  11
-                              Doutorado 2
-                              Outros  7", header=TRUE)
-software <- melt(software, id.var="Grau")
-ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank(),
-        text=element_text(size=14)) +
-  coord_cartesian(ylim=c(0,80)) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") })
+# software <- read.table(text="Grau valor
+#                               Estudante	18
+#                               Graduacao 62
+#                               Mestrado  11
+#                               Doutorado 2
+#                               Outros  7", header=TRUE)
+# software <- melt(software, id.var="Grau")
+# ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank(),
+#         text=element_text(size=14)) +
+#   coord_cartesian(ylim=c(0,80)) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 # ETAPA 1 EXPERIENCIA COM SOFTWARE E ANDROID
 # software <- read.table(text="Anos	Software	Android
@@ -70,44 +70,44 @@ ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
 #   coord_cartesian(ylim=c(0,60))
 
 
-ETAPA 1 - PAISES
-software <- read.table(text="Pais  Freq
-                              'EUA'	2.22
-                              Alemanha	2.22
-                              Irlanda   6.67
-                              Polonia   2.22
-                              Suica   2.22
-                              Brasil  80.00
-                              'Reino Unido' 2.22
-                              Outros	2.22", header=TRUE)
-software <- melt(software, id.var="Pais")
-ggplot(software, aes(x = fct_inorder(Pais), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank(), text=element_text(size=14)) +
-  coord_cartesian(ylim=c(0,80)) +
-    scale_y_continuous(labels = function(x){ paste0(x, "%") })
+# ETAPA 1 - PAISES
+# software <- read.table(text="Pais  Freq
+#                               'EUA'	2.22
+#                               Alemanha	2.22
+#                               Irlanda   6.67
+#                               Polonia   2.22
+#                               Suica   2.22
+#                               Brasil  80.00
+#                               'Reino Unido' 2.22
+#                               Outros	2.22", header=TRUE)
+# software <- melt(software, id.var="Pais")
+# ggplot(software, aes(x = fct_inorder(Pais), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank(), text=element_text(size=14)) +
+#   coord_cartesian(ylim=c(0,80)) +
+#     scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 # ETAPA 1 - ESTADOS
-software <- read.table(text="Estado  Freq
-                           'AM' 3
-                           'ES'  3
-                           'GO' 8
-                           'MG'  3
-                           'PR'  3
-                           'PE'  3
-                           'TO' 3
-                           'RJ'  8
-                           'SP' 55
-                           'SC'  5
-                           'RS' 6", header=TRUE)
-software <- melt(software, id.var="Estado")
-ggplot(software, aes(x = fct_inorder(Estado), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank(), text=element_text(size=14)) +
-  coord_cartesian(ylim=c(0,80)) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") })
+# software <- read.table(text="Estado  Freq
+#                            'AM' 3
+#                            'ES'  3
+#                            'GO' 8
+#                            'MG'  3
+#                            'PR'  3
+#                            'PE'  3
+#                            'TO' 3
+#                            'RJ'  8
+#                            'SP' 55
+#                            'SC'  5
+#                            'RS' 6", header=TRUE)
+# software <- melt(software, id.var="Estado")
+# ggplot(software, aes(x = fct_inorder(Estado), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank(), text=element_text(size=14)) +
+#   coord_cartesian(ylim=c(0,80)) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") })
 #   
   
   

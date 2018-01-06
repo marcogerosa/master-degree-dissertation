@@ -4,52 +4,52 @@ library(reshape2)
 library(forcats)
 
 # ETAPA 2 - IDADE DOS PARTICIPANTES
-software <- read.table(text="Idade    valor
-                       '19-24 anos'   25
-                       '25-34 anos'   57
-                       '35-44 anos'   16
-                       '45-54 anos'   2", header=TRUE)
-software <- melt(software, id.var="Idade")
-ggplot(software, aes(x = fct_inorder(Idade), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank()) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
-  coord_cartesian(ylim=c(0,60))
-
-# ETAPA 2 - ESCOLARIDADE PARTICIPANTES
-software <- read.table(text="Grau valor
-                       'Superior incompleto' 1
-                       Estudante  23
-                       Graduacao 61
-                       Pos-graduacao 5
-                       Mestrado  9
-                       Doutorado 1", header=TRUE)
-software <- melt(software, id.var="Grau")
-ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank()) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") })
-
-# ETAPA 2 EXPERIENCIA COM SOFTWARE E ANDROID
-software <- read.table(text="Anos Software  Android
-                       'sem exp.'   0 7
-                       '< 1 ano'   5 19
-                       '1-2 anos'  11  19
-                       '2-4 anos'  22  27
-                       '4-6 anos'  19  16
-                       '6-8 anos'  13  10
-                       '8-10 anos' 4 1
-                       '> 10 anos' 25  0", header=TRUE)
-software <- melt(software, id.var="Anos")
-ggplot(software, aes(x = fct_inorder(Anos), y = value, fill = variable, label = value)) +
-  geom_bar(stat = "identity") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = "bottom", legend.title = element_blank()) +
-  geom_text(position = position_stack(vjust = 0.5), size=2.5, data=subset(software,value != 0 & value != 1)) +
-  scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
-  coord_cartesian(ylim=c(0,50))
+# software <- read.table(text="Idade    valor
+#                        '19-24 anos'   25
+#                        '25-34 anos'   57
+#                        '35-44 anos'   16
+#                        '45-54 anos'   2", header=TRUE)
+# software <- melt(software, id.var="Idade")
+# ggplot(software, aes(x = fct_inorder(Idade), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank()) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
+#   coord_cartesian(ylim=c(0,60))
+# 
+# # ETAPA 2 - ESCOLARIDADE PARTICIPANTES
+# software <- read.table(text="Grau valor
+#                        'Superior incompleto' 1
+#                        Estudante  23
+#                        Graduacao 61
+#                        Pos-graduacao 5
+#                        Mestrado  9
+#                        Doutorado 1", header=TRUE)
+# software <- melt(software, id.var="Grau")
+# ggplot(software, aes(x = fct_inorder(Grau), y = value, fill = variable)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = " ", legend.title = element_blank()) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") })
+# 
+# # ETAPA 2 EXPERIENCIA COM SOFTWARE E ANDROID
+# software <- read.table(text="Anos Software  Android
+#                        'sem exp.'   0 7
+#                        '< 1 ano'   5 19
+#                        '1-2 anos'  11  19
+#                        '2-4 anos'  22  27
+#                        '4-6 anos'  19  16
+#                        '6-8 anos'  13  10
+#                        '8-10 anos' 4 1
+#                        '> 10 anos' 25  0", header=TRUE)
+# software <- melt(software, id.var="Anos")
+# ggplot(software, aes(x = fct_inorder(Anos), y = value, fill = variable, label = value)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+#         legend.position = "bottom", legend.title = element_blank()) +
+#   geom_text(position = position_stack(vjust = 0.5), size=2.5, data=subset(software,value != 0 & value != 1)) +
+#   scale_y_continuous(labels = function(x){ paste0(x, "%") }) +
+#   coord_cartesian(ylim=c(0,50))
 
 
 # ETAPA 2 - PAISES
@@ -65,7 +65,9 @@ software <- melt(software, id.var="Pais")
 ggplot(software, aes(x = fct_inorder(Pais), y = value, fill = variable)) +
   geom_bar(stat = "identity") +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank()) +
+        legend.position = " ", legend.title = element_blank(),
+        text=element_text(size=14)) +
+  coord_cartesian(ylim=c(0,80)) +
   scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 
@@ -86,8 +88,10 @@ software <- read.table(text="Estado  Freq
 software <- melt(software, id.var="Estado")
 ggplot(software, aes(x = fct_inorder(Estado), y = value, fill = variable)) +
   geom_bar(stat = "identity") +
+  coord_cartesian(ylim=c(0,80)) +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
-        legend.position = " ", legend.title = element_blank()) +
+        legend.position = " ", legend.title = element_blank(),
+        text=element_text(size=14)) +
   scale_y_continuous(labels = function(x){ paste0(x, "%") })
 
 
