@@ -127,7 +127,7 @@ A Tabela \ref{tab:SmellImportance} apresenta a lista dos maus cheiros de acordo 
 
 Enquanto que 8 dos maus cheiros de \textbf{\small importância alta} afetam componentes da camada de apresentação Android: \textsc{\small Adapter Complexo}, \textsc{\small Adapter Consumista}, \textsc{\small Ausência de Arquitetura}, \textsc{\small Classes de UI Fazendo IO}, \textsc{\small Componente de UI Cérebro}, \textsc{\small Atributos de Estilo Repetidos}, \textsc{\small Comportamento Suspeito} e \textsc{\small Não Uso de Fragment}. Apenas 2 maus cheiros: \textsc{\small Reúso Inadequado de String} e \textsc{\small Uso Excessivo de Fragment}, listados na última coluna da tabela, são de \textbf{\small importância moderada}, sendo 1 relacionado a recursos e outro componentes da camada de apresentação Android. 
 
-A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa de importância dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado as respostas ``não é importante''. 
+A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa de importância dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado às respostas ``não é importante''. 
 
 \begin{figure*}[!htb]
   \centering
@@ -182,12 +182,11 @@ Nos demais níveis de frequência, essa situação se inverte, sendo os maus cheiros
   % \vspace{-.5cm} 
 \end{figure*}
 
-A Figura \ref{fig:phase2-survey-frequence} apresenta a distribuição relativa de frequência dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado as respostas ``nunca''. Os maus cheiros que obtiveram mais respostas de ``nunca'' foram: \textsc{\small Adapter Consumista} (25\%) seguido por \textsc{\small Listener Escondido} (24\%). Em todo caso, é possível notar que todos os maus cheiros nunca foram vistos por uma parcela, no geral pequena, de desenvolvedores. Mas para a maioria dos desenvolvedores, todos os maus cheiros estão em algum nível de frequência, presentes no seu dia a dia.
+A Figura \ref{fig:phase2-survey-frequence} apresenta a distribuição relativa de frequência dos maus cheiros. Apresentamos negativo (em vermelho) o percentual relacionado às respostas ``nunca''. Os maus cheiros menos percebidos (com mais de 20\% de respostas ``nunca'') foram \textsc{\small Adapter Consumista} (25\%) e \textsc{\small Listener Escondido} (24\%). Todos os demais maus cheiros são percebidos no dia a dia, com frequência moderada ou alta, por pelo menos 75\% dos participantes.
 
+\textsc{\small Adapter Consumista} foi o mau cheiro menos percebido no dia a dia por desenvolvedores Android (25\% dos participantes indicaram ``nunca''). Entretanto ele é o segundo considerado mais importante (58\% dos participantes indicaram ``muito importante'' e 26\% indicaram ``importante''). Esse resultado sugere que desenvolvedores já estão cientes dos benefícios do uso do padrão \textit{ViewHolder} \cite{AluraViewHolder} e encontraram formas de mitigar este mau cheiro. Na seção \ref{sec:discussoes} realizamos uma breve discussão sobre esse resultado. \\
 
-% \subsection{Discussões}
-
-% É poss
+\textsc{\small Listener Escondido} foi o segundo mau cheiro menos percebido no dia a dia por desenvolvedores Android (24\% dos participantes indicaram ``nunca''). Entretanto se apresenta dentre os maus cheiros considerados mais importantes (33\% dos participantes indicaram ``muito importante'' e 24\% indicaram ``importante''). Esse resultado sugere que os desenvolvedores consideram importante evitar o uso do atributo \textit{onClick} em XMLs de \textit{layout} e aparentemente, muitos desenvolvedores já estão cientes disso no dia a dia, uma vez que ele se apresenta dentre os 6 menos percebidos. \\
 
 
 \begin{square}
