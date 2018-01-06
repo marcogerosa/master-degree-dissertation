@@ -112,65 +112,7 @@ A seguir introduzimos brevemente cada um dos 8 elementos da camada de apresentaç
 
 \noindent \textbf{\textit{Activity}} é um dos principais componentes de aplicativos Android e representa uma tela pelo qual o usuário pode interagir com a \acs{UI}. Possui um ciclo de vida, como mencionado na seção anterior. Toda \textit{Activity} deve indicar no método de retorno \textit{onCreate} o recurso de \textit{layout} que deve ser usado para a construção de sua \acs{UI} \cite{AndroidActivities2016, AndroidDevActivityReference}. 
 
-% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
-% \noindent \textbf{\textit{Activity}} é um dos principais componentes de aplicações Android e representa uma tela pelo qual o usuário pode interagir com a UI. Possui um ciclo de vida, como mencionado na seção anterior. Tipicamente cada \textit{Activity} representa uma funcionalidade única, por exemplo a tela para redigir um \textit{e-mail}, a câmera para tirar uma foto, etc. Toda \textit{Activity} deve indicar no \textit{callback onCreate} o recurso de \textit{layout} que deve ser exibido. O Código-Fonte \ref{lst:Activity} apresenta o código para a criação de uma \textit{Activity}, na linha 5 é indicado o recurso de \textit{layout} que deve ser usado para a construção da UI \cite{AndroidActivities2016}.\\ 
-
-% \begin{lstlisting}[
-% 	language=Java, 
-% 	caption={Exemplo de código para a criação de uma \textit{Activity}}, 
-% 	label={lst:Activity}
-% ]
-% public class MainActivity extends Activity {
-%     @Override
-%     public void onCreate(Bundle savedInstanceState) {
-%         super.onCreate(savedInstanceState);
-%         setContentView(R.layout.main_activity);
-%     }
-% }
-% \end{lstlisting}
-% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
-
 \noindent \textbf{\textit{Fragments}} representam parte de uma \textit{Activity} e também devem indicar seu recurso de \textit{layout} correspondente. \textit{Fragments} só podem ser usados dentro de \textit{Activities}. Podemos pensar neles como ``sub-Activities''. \textit{Fragments} possuem um ciclo de vida extenso, com mais de dez métodos de retorno. Seu ciclo de vida está diretamente ligado ao ciclo de vida da \textit{Activity} ao qual ele está contido. O principal uso de \textit{Fragments} é para o reaproveitamento de trechos de \acs{UI} e comportamento em diferentes \textit{Activities}~\cite{AndroidFragments}.
-
-% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
-% \noindent \textbf{\textit{Fragments}} são como \textit{Sub-Activities}, representam parte da UI de uma \textit{Activity} e também devem indicar seu recurso de \textit{layout} correspondente. \textit{Fragments} possuem um ciclo de vida extenso, com mais de dez \textit{callbacks}, demonstrado pelas caixas cinza na Figura \ref{fig:frament-lifecycle}. Seu ciclo de vida está diretamente ligado ao ciclo de vida da \textit{Activity} ao qual ele está contido, esta relação é apresentada na Figura \ref{fig:activity-fragment-lifecycle}. A principal uso de \textit{Fragments} é para o reaproveitamento de trechos de UI e comportamento em \textit{Activities} diferentes \cite{AndroidFragments}. A imagem apresenta seu ciclo de vida com mais de dez \textit{callbacks}. O Código-Fonte \ref{lst:Fragment} apresenta o código para a criação de uma \textit{Fragment}. \\
-
-% \begin{lstlisting}[
-% 	language=Java, 
-% 	caption={Exemplo de código para a criação de uma \textit{Activity}}, 
-% 	label={lst:Fragment}
-% ]
-% public static class MainFragment extends Fragment {
-%     @Override
-%     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-%                              Bundle savedInstanceState) {
-%         return inflater.inflate(R.layout.main_fragment, container, false);
-%     }
-% }
-% \end{lstlisting}
-
-
-% \begin{figure*}[!htb]
-% \centering
-% 	\begin{subfigure}{.45\textwidth}
-% 	  \centering
-% 	  \includegraphics[width=.8\textwidth]{fragment-ciclodevida.png}
-% 	  \caption{Ciclo de vida de \textit{Fragments}.}
-% 	  \label{fig:frament-lifecycle}
-% 	\end{subfigure}
-% 	\begin{subfigure}{.50\textwidth}
-% 	  \centering
-% 	  \includegraphics[width=.8\textwidth]{activity-fragment-ciclodevida.png}
-% 	  \newline \newline \newline \newline \newline \newline
-% 	  \caption{Ciclo de vida do \textit{Fragment} com relação aos estados da \textit{Activity} que ele está contido.}
-% 	  \label{fig:activity-fragment-lifecycle}
-% 	\end{subfigure}% 
-% \caption{Ciclo de vida de \textit{Fragments} e sua relação com o ciclo de vida de \textit{Activities}.}
-% \label{fig:android-lifecycles}
-% \vspace{-.5cm} 
-% \end{figure*}
-
-% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
 
 
 \noindent \textbf{\textit{Adapters}} são utilizados para popular a \acs{UI} com coleções de dados, como por exemplo, uma lista de \textit{e-mails}, onde o \textit{layout} é o mesmo para cada item da lista mas o conteúdo é diferente~\cite{AndroidLayouts}. 
@@ -179,40 +121,14 @@ A seguir introduzimos brevemente cada um dos 8 elementos da camada de apresentaç
 
 \noindent \textbf{\textit{Recursos de Layout}} são XMLs utilizados para o desenvolvimento da estrutura da \acs{UI} dos componentes Android. O desenvolvimento é feito utilizando uma hierarquia de \textit{Views} e \textit{ViewGroups}. \textit{Views} são caixas de texto, botões, dentre outros. \textit{ViewGroups} são \textit{Views} especiais pois podem conter outras \textit{Views}. Cada \textit{ViewGroup} organiza suas \textit{Views} filhas de uma forma específica, por exemplo: horizontalmente, em tabela, posicionamento relativo, dentre outros. Esta hierarquia pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples, melhor o desempenho~\cite{AndroidLayoutResources, AndroidLayouts}. 
 
-% ============================= início OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
-% \noindent \textbf{\textit{Recursos de Layout}} são XMLs utilizados para o desenvolvimento da UI dos componentes Android. O desenvolvimento é feito utilizando uma hierarquia de \textit{Views} e \textit{ViewGroups}. \textit{Views} são caixas de texto, botões, dentre outros elementos de interface. \textit{ViewGroups} são \textit{Views} especiais pois podem conter outras \textit{Views}. Cada \textit{ViewGroup} organiza suas \textit{Views} filhas de uma forma específica, por exemplo o \textit{LinearLayout} é um \textit{ViewGroup} que organizar suas \textit{Views} filhas verticalmente, uma abaixo da outra ou horizontalmente, uma ao lado direito da outra. Esta árvore hierárquica pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples melhor o desempenho. O Código-Fonte \ref{lst:LayoutSample} apresenta um recurso de \textit{layout} simples com uma caixa de texto e um botão \cite{AndroidUIOverview}. \\
-
-
-% \begin{lstlisting}[
-% 	language=XML, 
-% 	caption={Arquivo exemplo de layout.}, 
-% 	label={lst:LayoutSample}
-% ]
-% <?xml version="1.0" encoding="utf-8"?>
-% <LinearLayout ...
-%     android:layout_width="fill_parent"
-%     android:layout_height="fill_parent"
-%     android:orientation="vertical">
-
-%     <TextView android:id="@+id/text"
-% 	      android:layout_width="wrap_content"
-% 	      android:layout_height="wrap_content"
-% 	      android:text="I am a TextView" />
-
-%     <Button android:id="@+id/button"
-%         android:layout_width="wrap_content"
-%         android:layout_height="wrap_content"
-%         android:text="I am a Button" />
-% </LinearLayout>
-% \end{lstlisting}
-% ============================= fim OPÇÃO MAIS DETALHADA E COM CÓDIGO =========
-
-
 \noindent \textbf{\textit{Recursos de String}} são XMLs utilizados para definir textos, conjunto de textos usados no aplicativo. As principais vantagens de se usar recursos de \textit{String} é o reaproveitamento dos textos em diferentes \acs{UI}s e a facilidade para internacionalizar~\cite{AndroidStringResources}.
 
 \noindent \textbf{\textit{Recursos de Style}} são XMLs utilizados para a definição de estilos a serem aplicados nos XMLs de \textit{layout}. As principais vantagens em se utilizar recursos \textit{Styles} é separar o código de estrutura da \acs{UI} do código que define sua aparência e forma, e também possibilitar a reutilização de estilos em diferentes \acs{UI}s~\cite{AndroidStyleResources}.
 
 \noindent \textbf{\textit{Recursos de Drawable}} são arquivos gráficos utilizados na \acs{UI}. Esses arquivos podem ser imagens tradicionais, \texttt{.png}, \texttt{.jpg} ou \texttt{.gif}, ou XMLs gráficos. A principal vantagem dos XMLs gráficos está no tamanho do arquivo que é comumente bem menor do que imagens tradicionais e, diferente das imagens tradicionais onde é recomendado que se tenha mais de uma versão da mesma em resoluções diferentes, para XMLs gráficos só é necessário uma versão~\cite{AndroidDrawableResources}.
+
+
+
 
 \subsection{Desafios no Desenvolvimento da Camada de Apresentação Android}
 

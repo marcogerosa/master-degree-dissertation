@@ -5,7 +5,8 @@ PDFLATEX  = pdflatex
 BIBTEX    = bibtex
 MAKEINDEX = makeindex
 
-all: pdflatex clean view
+all: pdflatex clean
+# all: pdflatex clean view
 
 pdflatex:
 	# PdfLaTeX + BibTex + (2x) PdfLaTeX 
