@@ -1,0 +1,70 @@
+O QUE AVALIAM
+  - conteúdo
+  - domínio do tema
+  - relacionar as perguntas com a pesquisa
+
+
+O QUE NÃO SEI RESPONDER
+  - os maus cheiros definidos se relacionam com os tradicionais, poderia ser substituido por um tradicional? (sobreposicao)
+
+
+
+
+SLIDES
+======
+
+
+INTRODUÇÃO, CONTEXTO...
+  Anomalias
+    O que é
+    Existem várias...
+    Entretanto, são baseadas em práticas e tecnologias das décadas de 70 a 90 (OO e Java) 
+    Na útlima década surgiram novas tecnologias...
+
+  Android
+    Foco em Mobile, esta é a principal plataforma (Market Share)
+    Open Source, Java 
+    Surgiu em 2008
+
+  "Qualidade é importante!"
+
+TRABALHOS RELACIONADOS
+  Maus cheiros tradicionais tem se pesquisado...
+  
+  Tecnologias diferentes apresentam maus cheiros diferentes...
+    Linguagens OO no geral se beneficiam de maus cheiros tradicionais por compartilharem o mesmo paradígma em que os mau cheiros tradicionais foram embasados
+    Tecnologias não necessariamente OO podem apresentar outros maus cheiros específicos (Spring MVC, JavaScript, CSS, Google Sheets...)
+    Muitas dessas são usadas para implementar a camada de apresentação web (ou seja, a interface com o usuário)
+
+  Mas Android é desenvolvido com Java, logo pode se beneficiar de maus cheiros tradicionais
+    Pesquisas provam que sim, para alguns maus cheiros
+    No geral, todas elas identificaram que as classes mais afetadas por maus cheiros são classes utilizadas também para o desenolvimento da camada de apresentação (por exemplo Activities e Adapters).
+
+  Vimos que pesquisas em torno de maus cheiros android tem-se focado em eficiencia e usabilidade, mas não em manutenibilidade. 
+
+DISCUSSÕES
+  Nenhuma pesquisa em torno de manutenibilidade de código android
+
+  Nenhuma das pesquisas que analisamos consideraram em suas análises os recursos Android (XMLs, imagens, dentre outros) que são usados também para a camada de apresentação e, como visto antes, não se beneficiam de maus cheiros tradicionais por não se basear no OO
+
+  Todas elas segmentam em códigos "núcleo" e "não núcleo" no sentido de definir quais códigos serão analisados, pois projetos android são compostos de classes java puro e classes java que herdam de classes do Android SDK. Da mesma forma fizemos isso afunilando um pouco mais para focar apenas nos códigos usados para construção e interação com a interface do usuário, que foi o tipo de código onde se percebeu mais maus cheiros tradicionais.
+
+CARACTERIZAÇÃO DA PESQUISA
+  empírica, quali-quanti, etc
+  objetivos da pesquisa
+  contribuições
+  posição da pesquisa na literatura sobre qualidade de código
+
+ESTRUTURA DA PESQUISA
+  ETAPA 1, 2, 3
+    objetivo
+    metodologia
+    resultados
+
+  CONCLUSÃO
+
+
+
+
+
+
