@@ -1,0 +1,117 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{xparse}
+\usepackage[pdftex]{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs}
+\usepackage[autostyle]{csquotes}
+\usepackage{subcaption}
+\usepackage{epigraph}
+\usepackage{multirow}
+\usepackage[pdftex]{hyperref}
+\usepackage[strings]{underscore}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+
+\newlength{\imagewidth}
+
+\graphicspath{{../dissertation-v2/figures/}}
+
+\newcommand{\acs}[1]{\textit{#1}}
+\newcommand{\acl}[1]{\textit{#1}}
+
+\NewDocumentCommand{\rot}{O{45} O{1em} m}{\makebox[#2][l]{\rotatebox{#1}{#3}}}%
+
+\usepackage{mdframed}
+% Barra lateral a citação direta
+\newmdenv[
+  leftmargin        = 1.5em,
+  innerleftmargin   = 1em,
+  innertopmargin    = 0pt,
+  innerbottommargin = 0pt,
+  innerrightmargin  = 0pt,
+  rightmargin       = 0pt,
+  linewidth         = 2pt,
+  topline           = false,
+  rightline         = false,
+  bottomline        = false
+]{leftbar}
+
+\definecolor{lightgray}{gray}{0.97}
+
+\newmdenv[
+  innerleftmargin   = 1em,
+  innertopmargin    = 1em,
+  innerbottommargin = 1em,
+  innerrightmargin  = 1em,
+  linecolor         = gray,
+  backgroundcolor   = lightgray,
+  rightmargin       = 0pt,
+  linewidth         = 0.5pt
+]{square}
+
+\begin{document}
+
+\title{An Empirical Study on the Presentation Layer of Android Apps}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+}
+
+\maketitle
+
+\begin{abstract} 
+A task that constantly software developers need to do is
+identify problematic code snippets so they can refactor, with the ultimate
+goal to have constantly a base code easy to be maintained and evolved. For
+this, developers often make use of code smells detection strategies. Although
+there are many code smells cataloged, such as \textit{God Class}, \textit{Long
+Method}, among others, they do not take into account the nature of the
+project. However, Android projects have relevant features and untested to
+date, for example the \texttt{res} directory that stores all resources used in
+the application or an \textsc{Activity} by nature, accumulates various
+responsibilities. Research in this direction, specific on Android projects,
+are still in their infancy. In this dissertation we intend to identify,
+validate and document code smells of Android regarding the presentation layer,
+where major distinctions when compared to traditional designs. In other works
+on Android code smells, were identified code smells related to security,
+intelligent consumption of device's resources or somehow influenced the
+experience or user expectation. Unlike them, our proposal is to catalog
+Android code smells which influence the quality of the code. It developers
+will have another ally tool for quality production code. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+component, formatting, style, styling, insert
+\end{IEEEkeywords}
+
+\input sec-intro
+\input sec-background
+\input sec-methodology
+\input sec-results
+\input sec-related-work
+\input sec-conclusion
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,refs}
+
+
+
+\end{document}
