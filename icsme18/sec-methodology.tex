@@ -1,124 +1,81 @@
 \section{Methodology}
 
-O objetivo desta pesquisa é catalogar maus cheiros da camada de apresentação Android. Deste modo, optamos por realizar uma pesquisa exploratória de gênero empírico e de abordagem mista~\cite{CreswellResearch:13}. Segundo pesquisas \cite{arcoverde2011understanding, Palomba_Do_2014, yamashita2013developers}, a percepção empírica desempenha um importante papel na definição de maus cheiros de código relacionados a uma tecnologia específica, principalmente considerando a natureza subjetiva intrínseca a maus cheiros \cite{JavascriptSmells, JavaQADetectingSmells:02}.
+The purpose of this research is to catalog code smells of the Android presentation layer. Thus, we conducted a mixed study~\cite{CreswellResearch:13}. According to research~\cite{arcverde2011understanding, Palomba_Do_2014, yamashita2013developers}, empirical perception plays an important role in the definition of code smells related to a specific technology, especially considering their intrinsic subjective nature~\cite{JavascriptSmells, JavaQADetectingSmells:02}.
 
-Nossa abordagem mista se apresenta de modo que os maus cheiros são originados a partir de dados qualitativos coletados por meio de dois questionários online respondidos por 246 desenvolvedores Android. Enquanto os dados quantitativos provêm de um experimento de código online onde obtivemos 70 respostas. Nesse experimento buscamos avaliar a percepção negativa dos maus cheiros propostos, por desenvolvedores Android, pelo qual, devido a quantidade de participantes, foi possível avaliar 7 maus cheiros. Os resultados mostraram que desenvolvedores percebem os códigos afetados por 6 dos maus cheiros avaliados como problemáticos.
+Our mixed approach comes in such a way that the code smells are collected by means of two online questionnaires, answered by 246 Android developers. We then performed an online code experiment about the perceptions of developers on the proposed smells, where we obtained 70 responses. 
 
-Esta pesquisa foi realizada em três etapas conforme apresentado na Figura \ref{fig:ResearchPhases}. Cada qual objetivando responder a uma questão de pesquisa. Nesta seção apresentamos detalhes sobre cada etapa bem como a qual questão de pesquisa pretendia-se responder.
+We explain the three parts of this research in the following sub-sections.
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=.7\textwidth]{etapas-pesquisa.png}
-  \caption{Etapas da pesquisa.}
-  \label{fig:ResearchPhases}
-\end{figure}
-
-\subsection{Etapa 1 - Boas e más práticas na camada de apresentação Android}
+\subsection{Part 1 - Best and bad practices in the presentation layers of Android apps}
 \label{etapa-1}
 
-Iniciamos nossa pesquisa com algumas hipóteses de quais práticas poderiam ser consideradas más práticas, e portanto possíveis sintomas de maus cheiros no desenvolvimento da camada de apresentação Android. Apesar de haver algumas hipóteses, com o objetivo de não limitar ou influenciar esta primeira etapa, para responder a QP$_1$, submetemos um questionário online com perguntas exploratórias sobre boas e más práticas em cada um dos componentes da camada de apresentação Android: \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, e recursos do aplicativo: \textit{Layout}, \textit{Strings}, \textit{Styles} e \textit{Drawables}. Obtivemos 45 respostas a partir do qual extraímos 46 categorias que resultaram em 20 maus cheiros, dentre os quais, estavam maus cheiros que confirmaram nossas hipóteses iniciais.
+The goal of this part was to collect the best and the bad programming practices 
+that developers perceive when developing the presentation layer of Android apps.
+To that aim, we devised an online questionnaire composed of exploratory questions
+about each one of the components in Android's presentation layer 
+(\textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}) 
+as well as application resources (\textit{Layout}, \textit{Strings}, 
+\textit{Styles} and \textit{Drawables}). 
 
-A seguir, na Seção \ref{etapa-1-questionario} apresentamos detalhes sobre a concepção do questionário, na Seção \ref{etapa-1-participantes} os detalhes sobre os participantes e na Seção \ref{etapa-1-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção \ref{sec:resultado-etapa-1}.
-
-
-
-\subsubsection{Questionário}
+\subsubsection{Questionnaire}
 \label{etapa-1-questionario}
 
+This questionnaire was based on an earlier study by Aniche et al.~\cite{AnicheSmellsMVC:17, FinavaroAniche2016}, where authors searched for code smells in \acs{MVC} applications. 
+We informed participants that this was part of a research on Android code quality and that the data provided would be published anonymously. The questionnaire was composed of 25 separate questions in three sections.
 
-Este questionário (S$_1$) foi baseado em um estudo anterior feito por Aniche et al. \cite{AnicheSmellsMVC:17, FinavaroAniche2016}, onde os autores buscaram por maus cheiros em aplicações \acs{MVC}. Elaboramos o questionário em inglês porém havia um texto informativo avisando que tanto respostas em inglês ou português eram aceitas. No cabeçalho do questionário inserimos algumas informações para o participante, dentre elas, informamos que o questionário fazia parte de uma pesquisa sobre qualidade de código Android e que os dados fornecidos poderiam futuramente ser publicados de forma anônima. O questionário foi composto por 25 questões separadas em três seções.
-
-A primeira seção teve o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 perguntas. A segunda seção teve como objetivo entender o que os desenvolvedores consideravam boas e más práticas no desenvolvimento da camada de apresentação Android. Foi composta por 16 perguntas opcionais e abertas, 8 sobre boas práticas em cada um dos 8 elementos da camada de apresentação Android e 8 sobre más práticas. O questionário completo pode ser visto no Apêndice \ref{ap:survey-1}. Por exemplo, para o elemento \textit{Activity} a segunda seção continha as seguintes perguntas: 
+The first section had the goal of tracing the participant's demographic profile (age, state of residence, experience in software development, experience with Android development and schooling) and was composed of 6 questions. The second section aimed at understanding what developers considered best and bad practices in the development of the Android presentation layer. It consisted of 16 optional and open questions, 8 on best practices for each of the 8 elements of the Android presentation layer, and 8 on bad practices. The complete questionnaire can be seen in Appendix~\ref{ap: survey-1}. 
+For example, for the \textit{Activity} element, the second section contained the following questions:
 
 \begin{itemize}
-  \item[P1] \textit{Do you have any good practices to deal with Activities?} (Você tem alguma boa prática para lidar com \textit{Activities}?) Pergunta aberta.
-  \item[P2] \textit{Do you have anything you consider a bad practice when dealing with Activities?} (Você considera alguma coisa uma má prática ao lidar com \textit{Activities}?) Pergunta aberta.
+  \item[Q1] Do you have any good practices to deal with Activities? (Open question)
+  \item[Q2] Do you have anything you consider a bad practice when dealing with Activities? (Open question)
 \end{itemize}
 
-A terceira seção foi composta por 3 perguntas opcionais e abertas, 2 para captar qualquer última ideia sobre boas e más práticas não captadas nas questões anteriores e 1 solicitando o email do participante caso o mesmo tivesse interesse em participar de etapas futuras da pesquisa. 
 
-Antes da divulgação, realizamos um teste piloto com 3 desenvolvedores Android. Na primeira configuração do questionário, todas as perguntas, de todas as seções com exceção do email, eram obrigatórias. Com o resultado do teste piloto, percebemos que nem sempre o desenvolvedor tem alguma boa ou má prática para comentar sobre todos os 8 elementos questionados. Deste modo, removemos a obrigatoriedade das perguntas da segunda e terceira seção tornando-as opcionais e permitindo que o participante respondesse apenas as boas e más práticas sobre os elementos que lhe fizesse sentido. As respostas dos participantes piloto foram desconsideradas para mitigar efeitos de viés. 
+The third section consisted of three optional open questions, 
+two to capture any last ideas that we did not capture in the previous questions, and one requesting the participant's email, if he or she had an interest in participating in future research steps.
 
-O questionário foi divulgado em redes sociais como Facebook, Twitter e LinkedIn, em grupos de discussão sobre Android como Android Dev Brasil\footnote{https://groups.google.com/forum/\#!forum/androidbrasil-dev}, Android Brasil Projetos\footnote{https://groups.google.com/forum/\#!forum/android-brasil--projetos} e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita\footnote{Dado verificado em 25/11/2017.}. O questionário esteve aberto por aproximadamente 3 meses e meio, de 9 de Outubro de 2016 até 18 de Janeiro de 2017 e foi respondido por 45 desenvolvedores. 
+Before the release, we conducted a pilot test with three Android developers. In the first configuration of the questionnaire, all questions, from all sections except email, were mandatory. With the result of the pilot test, we realized that developers not always have some best or bad practice to comment on all components. Thus, we made such questions optional. Responses from pilot participants were disregarded to mitigate bias effects.
 
+The questionnaire was released on social networks like Facebook, Twitter, Slack, and LinkedIn\footnote{We will give more information about communities we share in the camera ready, as it could reveal authors' identities}. The questionnaire was open for approximately 3.5 months, from October 9, 2016 until January 18, 2017.
 
-
-\subsubsection{Participantes}
+\subsubsection{Participants}
 \label{etapa-1-participantes}
 
-Participaram desta etapa da pesquisa 45 desenvolvedores Android. Dos participantes, 13\% possui uma ou mais pós-graduações e 62\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase1-participants-graduation}. A Figura \ref{fig:phase1-participants-age} apresenta a distribuição de idade dos participantes, onde a maioria possui de 25 a 34 anos.  
+We obtained 45 responses from Android developers. 
+90\% of the respondents have two years or more of software development experience, 
+and 71\% have two years or more of experience with Android development. 
+It is noteworthy that the Android platform completes 10 years in 2018, i.e., 
+five years of experience in this platform represents 50\% of Android's lifetime
+since its announcement in 2008.
 
-\begin{figure*}[!htb]
-\centering
-\begin{subfigure}{.44\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{phase1-participants-graduation2.png}
-  \caption{Distribuição de escolaridade.}
-  \label{fig:phase1-participants-graduation}
-\end{subfigure}
-\begin{subfigure}{.54\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{phase1-participants-age2.png}
-  \caption{Distribuição de idade.}
-  \label{fig:phase1-participants-age}
-\end{subfigure}% 
-\caption{Escolaridade e distribuição de idade dos participantes em S$_1$.}
-\label{fig:phase1-participants-infos}
-% \vspace{-.5cm} 
-\end{figure*}
+\textcolor{red}{suelen: descrever os graficos aqui em palavras. apenas um paragrafo curto.}
 
-Conforme apresentado na Figura \ref{fig:phase1-participants-experience}, 90\% dos respondentes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 71\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Vale ressaltar que a plataforma Android completa 10 anos em 2018, ou seja, 5 anos de experiência nessa plataforma representa 50\% do tempo de existência dela desde seu anúncio em 2008. 
+The questionnaire was replied by professionals from 3 continents and 7 different countries.
+However, most participants come from BLINDED, with a little more than 81\% of participants.
+Thus, we believe that it is more appropriate to say that code smells may better reflect the opinions of BLINDED developers. In future research, we plan to collect more answers from
+different regions of the globe.
 
-
-\begin{figure*}[!htb]
-\centering
-\includegraphics[width=.65\linewidth]{phase1-participants-experience.png}
-\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_1$.}
-\label{fig:phase1-participants-experience}
-\end{figure*}
-
-
-Nosso questionário exploratório foi respondido por profissionais de 3 continentes e mais de 7 países diferentes porém, a maior representatividade dos dados é originada do Brasil com pouco mais de 81\% dos participantes de 11 estados diferentes. No Brasil, os estados com maior representatividade foram: São Paulo com 55\%, Rio de Janeiro e Goiás cada com 8\% e Rio Grande do Sul e Santa Catarina, cada um com pouco mais de 5\%. 14\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos apenas 2\% (1 participante) da Califórnia. Estes dados são apresentados na Figura \ref{fig:phase1-participants-regions}. Podemos concluir que tivemos certa abrangência geográfica, no entanto, acreditamos que o mais apropriado seja dizer que os maus cheiros derivados das boas e más práticas representam a opinião de desenvolvedores brasileiros, principalmente de São Paulo.
-
-\begin{figure*}[!htb]
-\centering
-\begin{subfigure}{.52\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{phase-1-participants-region-mundial2.png}
-  \caption{Distribuição geográfica global.}
-  \label{fig:phase1-participants-regions-global}
-\end{subfigure}
-\begin{subfigure}{.46\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{phase-1-participants-region-brasil2.png}
-  \caption{Distribuição geográfica brasileira.}
-  \label{fig:phase1-participants-regions-brasil}
-\end{subfigure}% 
-\caption{Distribuição geográfica global e brasileira dos participantes de S$_1$.}
-\label{fig:phase1-participants-regions}
-\vspace{-.5cm} 
-\end{figure*}
-
-
-
-\subsubsection{Análise dos Dados}
+\subsubsection{Data analysis}
 \label{etapa-1-analise}
 
-Para análise dos dados nos inspiramos na abordagem \textit{Ground Theory} (GT), um método de pesquisa originado nas ciências sociais \cite{Strauss2007, GlaserStrauss1999}, mas cada vez mais popular em pesquisas de engenharia de software \cite{Adolph2011}. A GT é uma abordagem indutiva, pelo qual dados provenientes, por exemplo, de entrevistas ou questionários, são analisadas para derivar uma teoria. O objetivo é descobrir novas perspectivas mais do que confirmar alguma já existente. O processo de análise partiu da listagem das 45 respostas do questionário e se deu em 4 passos: \textit{verticalização}, \textit{limpeza dos dados}, \textit{codificação} e \textit{divisão}, detalhados a seguir.
+Our analysis process was inspired by the Ground Theory approach (GT), a research method originated in the social sciences~\cite{Strauss2007, GlaserStrauss1999}, but increasingly popular in software engineering research~\cite{Adolph2011}. 
+GT is an inductive approach, whereby data from, e.g., interviews or questionnaires, are analyzed to derive a theory. The goal is to discover new perspectives rather than confirm any existing ones. The analysis process started from the list of 45 responses of the questionnaire and was given in 4 steps: \textit{verticalization}, \textit {data cleaning}, \textit {codification}, and \textit {division}, detailed below.
 
-O processo que denominamos de \textit{verticalização} consistiu em considerar cada resposta de boa ou má prática como um registro individual a ser analisado. Ou seja, cada participante respondeu 18 perguntas sobre boas e más práticas na camada de apresentação Android (2 perguntas para cada elemento e mais duas perguntas genéricas). Com o processo de \textit{verticalização}, cada uma dessas respostas se tornou um registro, ou seja, cada participante resultava em 18 respostas a serem analisadas, totalizando 810 respostas (18 perguntas multiplicado por 45 participantes) sobre boas e más práticas.
+The process we called \textit{verticalization} consisted of considering each best or bad practice response as an individual record to be analyzed. That is, each participant answered 18 questions about good and bad practices in the Android presentation layer (2 questions for each element and 2 more generic questions). With the process of verticalization, each of these answers became a record, that is, each participant resulted in 18 answers to be analyzed, totaling 810 answers.
 
-O passo seguinte foi realizar a \textit{limpeza dos dados}. Esse passo consistiu em remover respostas obviamente não úteis como respostas em branco, respostas contendo frases como \textit{"Não"}, \textit{"Não que eu saiba"}, \textit{"Eu não me lembro"} e similares, as consideradas vagas como \textit{"Eu não tenho certeza se são boas praticas mas uso o que vejo por ai"}, as consideradas genéricas como \textit{"Como todo código java..."} e as que não eram relacionadas a boas ou más práticas de código. Das 810 boas e más práticas, 352 foram consideradas e 458 desconsideradas. Das 352, 45\% foram apontadas como más práticas e 55\% como boas práticas. 
+The next step was to perform the \textit{data cleaning}. This step consisted of removing obviously non-useful answers as blank answers, answers containing phrases like "No", "Not that I know", "I do not remember"}, the ones considered vague as \textit {"I'm not sure if they are good practices but I use what I see there"}, those considered generic as \textit{"Like all Java code ..."}, and those not related to best or bad code practices. Of the 810 answers, 352 were considered and 458 were disregarded. Of the 352, 45\% were related to bad practices, and 55\% to best practices.
 
-Em seguida, realizamos a \textit{codificação} sobre as boas e más práticas \cite{Strauss2007,Saldana2013}. Codificação é o processo pelo qual são extraídos categorias de um conjunto de afirmações através da abstração de ideias centrais e relações entre as afirmações \cite{Strauss2007}. Durante esse processo, cada resposta recebeu uma ou mais categorias. Neste passo desconsideramos mais algumas respostas, isso ocorreu pois não eram respostas ``obviamente'' descartáveis como as do passo anterior e foi necessária a análise para chegarmos a essa conclusão de desconsiderá-las. Para cada resposta desconsiderada nesse passo registramos o motivo, que pode ser conferido nos arquivos em nosso apêndice online \cite{apendice}.
+Next, we performed \textit{codification} on best and bad practices~\cite{Strauss2007, Saldana2013}. Codification is the process by which categories are extracted from a set of statements through the abstraction of central ideas and relations between the statements~\ cite{Strauss2007}. During this process, each response received one or more categories. In this step we disregarded some more answers: this occurred because they were not `` obviously '' disposable responses like those of the previous step, and deeper analysis was necessary to arrive at this conclusion. For each response not considered in this step we recorded the reason, which can be checked in the files in our online appendix~\cite{apendice}.
 
-Por último, realizamos o passo de \textit{divisão}. Esse passo consistiu em dividir as respostas que receberam mais de uma categoria em duas ou mais respostas, de acordo com o número de categorias identificadas, de modo a resultar em uma categoria por resposta. Por exemplo, a resposta \textit{"Não fazer Activities serem callbacks de execuções assíncronas. Herdar sempre das classes fornecidas pelas bibliotecas de suporte, nunca diretamente da plataforma"} indica na primeira oração uma categoria e na segunda oração, outra categoria. Ao dividi-la, mantivemos apenas o trecho da resposta relativo à categoria, como se fossem duas respostas distintas e válidas. Em algumas divisões realizadas, a resposta completa era necessária para entender ambas as categorizações, nesses casos, mantivemos a resposta original, mesmo que duplicada, e categorizamos cada uma de modo diferente. 
+Finally, we performed the \textit {split} step. This step consisted in dividing responses that belonged to more than one category into two or more responses.
+As an example, \textit{``Do not make Activities to be callbacks of assynchronous executions. Always inherit from support classes, never directly from the platform.''} indicates in the first sentence a category and in the second sentence, another category. By dividing it, we kept only the segment of the response relative to the category, as if they were two distinct and valid answers. In some cases, the complete response was necessary to understand both categorizations, in which case we maintained the original response, even if duplicated, and categorized each one differently.
 
-Ao final da análise constavam 359 respostas sobre boas e más práticas individualmente categorizadas em 46 categorias. Para derivação dos maus cheiros foram consideradas 20 categorias que apresentaram frequência de recorrência maior ou igual a cinco. Segundo Nielsen \cite{NielsenMagicNumber:00}, cinco repetições é o suficiente para se obter dados necessários para definir um problema, as repetições seguintes tendem a não agregar novas informações relevantes, se não as já observadas. Cada categoria considerada resultou em um mau cheiro de código Android, dos quais 9 são relacionados a componentes da camada de apresentação Android e 11 relacionados a recursos do aplicativo, totalizando 20 maus cheiros na camada de apresentação Android. 
-
-
-
-
+At the end of the analysis, there were 359 responses on best and bad practices individually categorized into 46 categories. 
+To be considered a code smells, we collected all categories in which the number
+of responses were greater than or equal to five.
+According to Nielsen~\cite{NielsenMagicNumber: 00}, five repetitions is enough to obtain the data required to define a problem, and the following repetitions tend not to aggregate new relevant information. We then considered each of these categories as a code smell.
+We obtained 20 code smells, of which nine are related to the components of the Android presentation layer, and 11 related to application features.
 
 \subsection{Etapa 2 - Importância e Frequência dos Maus Cheiros Android}
 
