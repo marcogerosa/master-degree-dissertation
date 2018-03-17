@@ -53,8 +53,6 @@ since its announcement in 2008.
 
 The questionnaire was replied by professionals from 3 continents and 7 different countries.
 However, most participants come from BLINDED, with a little more than 81\% of participants.
-Thus, we believe that it is more appropriate to say that code smells may better reflect the opinions of BLINDED developers. In future research, we plan to collect more answers from
-different regions of the globe.
 
 \subsubsection{Data analysis}
 \label{etapa-1-analise}
@@ -77,313 +75,99 @@ of responses were greater than or equal to five.
 According to Nielsen~\cite{NielsenMagicNumber:00}, five repetitions is enough to obtain the data required to define a problem, and the following repetitions tend not to aggregate new relevant information. We then considered each of these categories as a code smell.
 We obtained 20 code smells, of which nine are related to the components of the Android presentation layer, and 11 related to application features.
 
-\subsection{Etapa 2 - Importância e Frequência dos Maus Cheiros Android}
+\subsection{Step 2 - Importance and Frequency of the Code Smells}
 
+To answer RQ$_2$, we seek to generalize the bad smells 
+found in the previous RQ, by understanding the perception of the developers regarding the frequency and importance of bad smells. We collected this perception through an online survey.
 
+We collected 201 responses from Android developers from 3 continents and 14 different countries. In the following, we better explain the methodology.
 
-Para responder a QP$_2$, buscamos generalizar os maus cheiros encontrados na QP$_1$ entendendo a percepção dos desenvolvedores com relação à frequência e importância dos maus cheiros. Coletamos esta percepção por meio de um questionário online com três seções sendo a primeira para coleta de dados demográficos da mesma forma da etapa 1, a segunda para coleta da percepção de frequência dos maus cheiros no dia a dia de desenvolvimento e a terceira para coleta da percepção de importância. 
-
-Coletamos 201 respostas de desenvolvedores Android de 3 continentes e 14 países diferentes. Nossos resultados mostraram que os 20 maus cheiros são considerados, de algum modo, frequentes e importantes. A seguir, na Seção \ref{etapa-2-questionario} apresentamos detalhes sobre a concepção do questionário, na Seção \ref{etapa-2-participantes} detalhes sobre os participantes e na Seção \ref{etapa-2-analise} detalhes sobre o processo de análise dos dados. Os resultados desta etapa podem ser conferidos na Seção \ref{phase2-results}.
-
-\subsubsection{Questionário}
+\subsubsection{Survey}
 \label{etapa-2-questionario}
 
-Foram criadas duas versões do questionário, inglês e português, de forma que de um era possível acessar o outro, possibilitando o participante escolher o idioma mais apropriado a ele. No cabeçalho do questionário inserimos algumas informações para o participante, dentre elas, informamos que o questionário fazia parte de uma pesquisa sobre qualidade de código Android e que os dados fornecidos poderiam futuramente ser publicados de forma anônima. O questionário (S$_2$) continha 3 seções. A primeira seção, como em S$_1$, tinha o objetivo de traçar o perfil demográfico do participante (idade, estado de residência, experiência em desenvolvimento de software, experiência com desenvolvimento Android e escolaridade) e foi composta de 6 perguntas. 
+The survey (S$_2$) contained 3 sections. 
+The first section, as in S$_1$, was designed to draw the participant's demographic profile 
+(age, state of residence, software development experience, Android development experience and education) and was composed of 6 questions.
+The second section aimed at capturing the developers' perceptions of how often they perceived the bad smells in their daily lives. We did this by presenting a list of statements derived from RQ$_1$ where each statement described a symptom of one of the bad smells. For each statement the participant could choose one of five Likert-scale options from the frequency range: very common, frequent, sometimes, rarely, and never.
 
-A segunda seção objetivou capturar a percepção dos desenvolvedores com relação à frequência em que eles percebiam os maus cheiros no seu dia a dia. Fizemos isso apresentando uma lista de afirmações onde cada afirmação descrevia um sintoma de um dos maus cheiros. Para cada afirmação o participante podia escolher uma entre cinco opções da escala \textit{likert} de frequência: muito frequente, frequente, às vezes, raramente e nunca. 
 
-As afirmações foram baseadas nas respostas de S$_1$, por exemplo, para o mau cheiro \textsc{\small Classes de UI Acopladas} algumas das respostas sobre más práticas foram \textit{``Acoplar o \textit{Fragment} a \textit{Activity} ao invés de utilizar interfaces é uma prática ruim''} (P19) e \textit{``Acoplar o \textit{Fragment} com a \textit{Activity}''} (P10, P31 e P45), e boa prática foi \textit{``Seja um componente de UI reutilizável. Então evite dependência de outros componentes da aplicação''} (P6). Com base nessas e outras respostas extraímos a seguinte frase para representar o sintoma do mau cheiro:
+In order to contemplate the 20 code smells we found in the first RQ, 25 statements about were presented. This difference in the total number of code smells and the number of sentences occurred because, for 4 of the code smells, \textsc{Suspicious Behavior}, 
+\textsc{Long or Repeated Layout}, \textsc{Long Style Resource}, and \textsc{Repeated Style}), more than one statement was presented, each addressing one of the symptoms it presents. We chose to separate the symptoms into statements to understand which ones were perceived by the developer on a daily basis. 
 
-\begin{itemize}
- \item \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} com referência direta para quem os usa, como \textit{Activities} ou outros \textit{Fragments}.
-\end{itemize}
 
-Para contemplar os 20 maus cheiros, foram apresentadas 25 afirmações sobre frequência. Essa diferença do número total de maus cheiros e o número de afirmações ocorreu pois, para 4 dos maus cheiros (\textsc{\small Comportamento Suspeito}, \textsc{\small Layout Longo ou Repetido}, \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos}), foram apresentadas mais de uma afirmação, cada qual abordando um dos sintomas apresentados por ele. Optamos por separar os sintomas em afirmações para entender qual(is) sintoma(s) era percebido no dia a dia pelo desenvolvedor. Por exemplo, para o mau cheiro \textsc{\small Comportamento Suspeito} apresentamos três afirmações, onde cada uma representou uma forma diferente, considerada má prática pelos participantes de S$_1$, sobre como implementar a resposta a eventos do usuário no Android:
+The third section aimed at capturing the perception of the developers regarding the importance of mitigating the symptoms of code smells, for which they were asked to indicate how important they considered the presented statements. In order to contemplate the 20 code smells, we presented 21 important statements that basically denied the affirmations related to the perceived frequency of the bad smell. The divergence of the total of bad smells and the total of presented affirmations can be explained by the same reason in the previous section of the questionnaire. For each statement the participant could choose one of the five options of the likety scale of importance: very important, important, reasonably important, not important, not important.
 
-\begin{itemize}
-  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes anônimas para responder a eventos do usuário, como clique, duplo clique e outros.
+In none of the sections did we indicate that symptoms of code odors would be presented, nor did we mention the names of the code smells used in this research. We chose to do this in order to abstract the idea that the sentences represented code smells, and therefore participants do not require prior knowledge on these code smells.
 
-  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} implementando algum \textit{Listener}, através de polimorfismo (\textit{implements}), para responder a eventos do usuário como clique, duplo clique e outros.
+Before the questionnaire was published, we validated each of the statements by means of an individual interview with two experienced Android developers, \emph{DEV-A} and \emph{DEV-B}. 
+\emph{DEV-A} has 10 years of software development experience and 5 years of experience with Android development, considers himself proficient in Java, Objective C, Swift and Android technologies and holds a bachelor's degree in Information Technology. \emph {DEV-B} has 7 years of software development experience and 6 years of experience with Android development, is proficient in Java, Objective C and Android technologies and has a postgraduate degree in Service Oriented Software Engineering. 
 
-  \item \textit{Activities}, \textit{Fragments} ou \textit{Adapters} com classes internas implementando algum \textit{Listener} para responder a eventos do usuário como clique, duplo clique e outros.
-\end{itemize}
+The questionnaire was opened for approximately three weeks in mid-September 2017. The statements were presented in a random fashion. In the end, the questionnaire was answered by 201 developers. The full version of the questionnaire can be found in Appendix \ref{survey2}.
 
-A terceira seção objetivou capturar a percepção dos desenvolvedores com relação à importância em mitigar os sintomas dos maus cheiros, para isso foi solicitado que indicasse o quão importante ele considerava as afirmações apresentadas. Para contemplar os 20 maus cheiros, apresentamos 21 afirmações de importância que basicamente negavam as afirmações relacionada à percepção de frequência do mau cheiro. A divergência do total de maus cheiros e o total de afirmações apresentadas se dá pelo mesmo motivo encontrado na seção anterior do questionário, sobre percepção de frequência. Para cada afirmação o participante podia escolher uma dentre as cinco opções da escala \textit{likert} de importância: muito importante, importante, razoavelmente importante, pouco importante, não é importante. A seguir apresentamos a afirmação apresentada nesta seção para o mau cheiro \textsc{\small Classes de UI Acopladas}:
 
-\begin{itemize}
-  \item \textit{Fragments}, \textit{Adapters} e \textit{Listeners} não ter referência direta à quem os utiliza.
-\end{itemize}
-
-Em nenhuma das seções indicamos que seriam apresentados sintomas de maus cheiros, nem mencionamos os nomes dos maus cheiros usados nesta dissertação, foram apresentadas somente as afirmações. Optamos por fazer desta forma para abstrair a ideia de que as frases representavam maus cheiros e portanto, não exigir do participante um conhecimento prévio sobre maus cheiros de código.
-
-Antes da divulgação do questionário realizamos a validação de cada uma das afirmações, por meio de entrevista individual, com dois desenvolvedores Android experientes, \emph{DEV-A} e \emph{DEV-B}. \emph{DEV-A} possui 10 anos de experiência com desenvolvimento de software e 5 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C, Swift e Android e possui bacharel em Tecnologia de Informação. \emph{DEV-B} possui 7 anos de experiência com desenvolvimento de software e 6 anos de experiência com desenvolvimento Android, se considera proficiente nas tecnologias Java, Objective C e Android e possui pós-graduação em Engenharia de Software Orientada a Serviços. Ambos os desenvolvedores trabalham atualmente com desenvolvimento de aplicativos móveis em \textit{startups} brasileiras. 
-
-A entrevista de validação das afirmações foi conduzida de modo que o desenvolvedor procedia respondendo o questionário e quando tinha dúvida sobre uma frase, o mesmo questionava e então ela era discutida e quando necessário, reestruturada ou reescrita, de acordo com o comentário dado. Após a discussão, o desenvolvedor a respondia, considerando a conclusão das discussões, e seguia para a próxima. Essa dinâmica seguiu até passar por todas as afirmações e ao final o desenvolvedor era incentivado a dar qualquer outro comentário que considerasse relevante. 
-
-Alguns importantes ajustes foram realizados após a primeira entrevista de validação. O principal ajuste foi relacionado a escala \textit{likert} utilizada, sendo que, na primeira versão do questionário, respondido por \emph{DEV-A}, foi usada tanto para validar importância quanto para validar frequência a mesma escala \textit{likert} de nível de concordância (concordo totalmente, concordo, não concordo nem discordo, discordo, discordo totalmente), deixando para com a frase a responsabilidade de indicar do que se tratava, frequência ou importância. Durante a validação percebemos que as afirmações ficavam muito maiores de ler e difíceis de serem interpretadas, então trocamos para escalas de frequência e importância e ajustamos as afirmações. Também foram sugeridas melhorias em algumas poucas afirmações. Com o segundo desenvolvedor, \emph{DEV-B}, tivemos apenas dois ajustes em afirmações. Para efeitos de viés, as respostas dos desenvolvedores que participaram das entrevistas de validação foram desconsideradas.
-
-Após a validação das afirmações, executamos um teste piloto com dois desenvolvedores, dos quais, não solicitaram alterações no questionário, considerando-o apropriado para lançamento. Essas respostas foram consideradas nas análises pois não houve necessidade de ajustes no questionário após elas ocorrerem. O questionário foi divulgado em redes sociais como Reddit, Facebook, Twitter e LinkedIn, grupos de discussão sobre Android como Android Dev Brasil\footnote{https://groups.google.com/forum/\#!forum/androidbrasil-dev}, Android Brasil Projetos\footnote{https://groups.google.com/forum/\#!forum/android-brasil--projetos} e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org}, maior grupo de desenvolvedores Android do Brasil com 2622 participantes até o momento desta escrita. Para engajar os participantes ofertamos o sorteio de um Google Chromecast Áudio. 
-
-O questionário esteve aberto por aproximadamente três semanas em meados de Setembro de 2017. As afirmações eram apresentadas de forma randômica. Ao final, o questionário foi respondido por 201 desenvolvedores. A versão completa do questionário pode ser conferida no Apêndice \ref{survey2}. 
-
-\subsubsection{Participantes}
+\subsubsection{Participants}
 \label{etapa-2-participantes}
 
-\begin{figure*}[!b]
-\centering
-\begin{subfigure}{.62\textwidth}
-  \centering
-  \includegraphics[width=.99\textwidth]{phase2-participants-graduation.png}
-  \caption{Distribuição de escolaridade.}
-  \label{fig:phase2-participants-graduation}
-\end{subfigure}
-\begin{subfigure}{.36\textwidth}
-  \centering
-  \includegraphics[width=.99\textwidth]{phase2-participants-age.png}
-  \caption{Distribuição de idade.}
-  \label{fig:phase2-participants-age}
-\end{subfigure}% 
-\caption{Escolaridade e distribuição de idade dos participantes em S$_2$.}
-\label{fig:phase2-participants-graduation-age}
-\vspace{-.5cm} 
-\end{figure*}
-
-Participaram desta etapa da pesquisa 201 desenvolvedores. 145 respostas vieram da versão em português do questionário e 56 da versão em inglês. Dos participantes, 15\% possuem uma ou mais pós-graduações e 61\% são graduados, esses dados podem ser observados na Figura \ref{fig:phase2-participants-graduation}. A Figura \ref{fig:phase2-participants-age} apresenta o histograma de idade dos participantes, onde podemos observar que tivemos uma abrangência considerável de idade, onde a maior parte possui de 20 a 35 anos.  
+201 developers answered our survey. 15\% of them have one or more post-graduation degrees and 61\% have a bachelors degree. The majority of participants are between 20 and 35 years old.
+94\% participants indicated to have two years or more experience with software development and 74\% indicated two years or more of experience with Android development. We thus conjecture that we have reached developers with considerable experience in software development and Android.
 
 
-Conforme apresentado na Figura \ref{fig:phase2-participants-experience}, 94\% participantes indicaram ter 2 anos ou mais de experiência com desenvolvimento de software e 74\% indicaram 2 anos ou mais de experiência com desenvolvimento Android. Esse resultado nos indica que atingimos desenvolvedores com experiência considerável em desenvolvimento de software e Android. 
-
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=.7\linewidth]{phase2-participants-experience.png}
-\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_2$.}
-\label{fig:phase2-participants-experience}
-% \vspace{-.5cm} 
-\end{figure*}
-
-\begin{figure*}[!b]
-  \centering
-  \vspace{-.5cm} 
-  \includegraphics[width=.75\textwidth]{phase2-participants-languages.png}
-  \caption{Nível de conhecimento em diversas linguagens de programação orientada a objetos dos participantes de S$_2$.}
-  \label{fig:phase2-participants-languages}
-  \vspace{-.5cm} 
-\end{figure*}
-
-Perguntamos aos desenvolvedores qual seu nível de conhecimento em diversas linguagens orientadas a objetos. Na Figura \ref{fig:phase2-participants-languages} podemos observar que mais de 80\% afirmam ter conhecimento de intermediário a especialista em Java e Android. De 20\% a 58\% dos participantes afirmam ter conhecimento de intermediário a especialista em outras linguagens orientadas a objetos. 5 participantes (2\%) afirmaram não ter conhecimento sobre Android, por este motivo suas respostas foram desconsideradas da análise. 
-
-A Figura \ref{fig:phase2-participants-regions} apresenta a distribuição geográfica global e brasileira dos participantes. Nosso questionário foi respondido por profissionais de 3 continentes e 14 países diferentes porém a maior representatividade dos dados é originada do Brasil, com pouco mais de 78\% dos participantes. Os brasileiros somam 157 profissionais de 18 estados diferentes. Desse total, os estados com maior representatividade foram, na ordem: São Paulo com 57\%, Rio de Janeiro e Minhas Gerais com quase 6\% cada e Rio Grande do Sul com quase 5\%. 10\% dos participantes são originados de países Europeus. Nos Estados Unidos tivemos 2\% provenientes da Califórnia, Pensilvânia, Indiana e Utah e 0,5\% (1 participante) de Ontário no Canadá. \\
-
-\begin{figure*}[!htb]
-\centering
-\vspace{-.3cm} 
-\begin{subfigure}{.52\textwidth}
-  \centering
-  \includegraphics[width=.99\textwidth]{phase-2-participants-region-mundial.png}
-  \caption{Distribuição geográfica global.}
-  \label{fig:phase2-participants-regions-global}
-\end{subfigure}
-\begin{subfigure}{.46\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{phase-2-participants-region-brasil.png}
-  \caption{Distribuição geográfica brasileira.}
-  \label{fig:phase2-participants-regions-brasil}
-\end{subfigure}% 
-\caption{Distribuição geográfica global e brasileira dos participantes de S$_2$.}
-\label{fig:phase2-participants-regions}
-% \vspace{-.5cm} 
-\end{figure*}
-
-Podemos concluir que tivemos certa abrangência geográfica, porém o padrão geográfico obtido em S$_1$ se repetiu em S$_2$, e apesar de termos tido certa abrangência global, a maior representatividade é proveniente do Brasil, logo, continuamos acreditando que o mais apropriado seja dizer que a percepção de frequência e importância dos maus cheiros propostos representam a opinião de desenvolvedores brasileiros, principalmente de São Paulo.
+We asked participants about their level of knowledge in various object-oriented languages. More than 80\% claim to have intermediate or expert knowledge in Java and Android. Five participants (2\%) stated that they did not know about Android, so their answers were disregarded in the analysis.
+As with the previous survey, 78\% of participants are also originally from BLINDED. 
 
 
-\subsubsection{Análise dos Dados}
-\label{etapa-2-analise}
-
-Para análise dos dados, as opções das escalas \textit{likert} de \textbf{\small frequência} e \textbf{\small importância} foram codificadas em números de 1 a 5. Por exemplo, as opções ``Nunca'' (da escala de frequência) e ``Não é importante'' (da escala de importância) foram codificadas com 1, as opções ``Raramente'' (frequência) e ``Pouco importante'' (importância) com 2, e assim sucessivamente até as opções ``Muito frequente'' (frequência) e ``Muito importante'' (importância) que foram codificadas com~5.
-
-De modo a avaliar a percepção dos desenvolvedores Android sobre a frequência e importância dos maus cheiros propostos, para análise dos dados extraímos de cada afirmação a mediana, moda e desvio padrão. Para os maus cheiros que apresentamos mais de uma afirmação, extraímos a média desses dados para representá-los. Por exemplo, foram apresentadas três afirmações de frequência sobre o mau cheiro \textsc{\small Comportamento Suspeito}, a moda que o representa é a média das modas de cada afirmação, que neste caso foi $(3 + 4 + 4) \div 3 = 3,7 \approx 4$.
-
-De modo a avaliar quais maus cheiros são considerados frequentes realizamos uma simplificação da escala \textit{likert} de \textbf{\small frequência}. Classificamos de \textbf{\small frequência baixa} as resposta ``Raramente'', de \textbf{\small frequência moderada} as respostas ``Às vezes'' e por último, classificamos de \textbf{\small frequência alta} as respostas ``Frequente'' e ``Muito frequente''. Não obtivemos nenhuma afirmação com moda (MO) igual 1, ou seja, ``Nunca'', e por isso não criamos uma classificação para ela.
-
-De modo similar, para avaliar quais maus cheiros são considerados importantes, também realizamos uma simplificação da escala \textit{likert} de \textbf{\small importância}. Classificamos de \textbf{\small importância baixa} as resposta ``Pouco importante'', de \textbf{\small importância moderada} as respostas ``Razoavelmente importante'' e classificamos de \textbf{\small importância alta} as respostas de ``Importante'' e ``Muito importante''. Também não foi necessário criar uma classificação para respostas ``Não é importante'' pois nenhuma das afirmações obteve MO igual a 1.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection[Etapa 3 - Percepção de Desenvolvedores sobre os Maus Cheiros]{Etapa 3 - Percepção de Desenvolvedores sobre os Maus Cheiros Android}
+\subsection{Step 3 - Developers' Perceptions}
 \label{etapa-3}
 
-Para responder a S$_3$ validamos a percepção de desenvolvedores Android sobre códigos afetados por 7 maus cheiros, os considerados mais frequentes (vide Tabela \ref{tab:selected-smells}) pelos respondentes de S$_2$. Os dados foram coletados por meio de um experimento de código online (S$_3$) onde cada participante foi solicitado a avaliar a qualidade de 6 códigos-fontes relativos à camada de apresentação Android. Recebemos 70 respostas. Vale ressaltar que esse experimento já foi realizado em pesquisas similares, como as de Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16} e Palomba et al. \cite{Palomba_Do_2014}, com o mesmo objetivo de validar a percepção de desenvolvedores sobre maus cheiros de código.  
 
+We captured the perception of Android developers on codes affected by seven of the proposed code smells, which were considered most frequent in the previous RQ (see \textcolor{red}{table in results}). The data was collected through an online code experiment where each participant was asked to evaluate the quality of six pieces of codes related to the Android presentation layer. We received 70 responses. 
 
-Nossos resultados confirmam estatisticamente que desenvolvedores Android percebem 6 dos 7 maus cheiros avaliados. Não obtivemos dados suficientes para tirar conclusões estatísticas sobre um dos maus cheiros. A seguir, na Seção \ref{etapa-3-experimento}, apresentamos detalhes sobre o experimento e na Seção \ref{etapa-3-participantes-analise}, detalhes sobre os participantes e como realizamos a análise dos dados. Os resultados desta etapa podem ser conferidos na Seção~\ref{phase3-results}.
+It is worth mentioning that this type of experiment has already been carried out in similar researches, such as those of Aniche et al.~\cite{AnicheSmellsMVC:17, MvcSmells:16} and Palomba et al.~\cite{Palomba_Do_2014}.
 
-
-\subsubsection{Experimento}
+\subsubsection{Experiment}
 \label{etapa-3-experimento}
 
-O questionário do experimento foi elaborado no idioma português, divulgado em redes sociais como Twitter e LinkedIn e o grupo do Slack Android Dev Br\footnote{http://slack.androiddevbr.org} e esteve disponível por 1 mês. No cabeçalho informamos que o experimento fazia parte de uma pesquisa sobre qualidade de código Android e que os dados fornecidos poderiam futuramente ser publicados de forma anônima. 
+The experiment contained two main sections. The first section aimed to collect demographic information, mainly in relation to the participants' experience. In the second section the participants were asked to analyze six pieces of codes: four of them affected by one of the code smells, and two of them not affected by any of the code smells. For each piece of code, the participant was asked to answer the following questions:
 
-O experimento continha duas seções principais ambas com todas as perguntas sendo opcionais. A primeira seção teve como objetivo coletar informações demográficas, principalmente com relação à experiência dos participantes. Na segunda seção os participantes foram solicitados a analisar 6 códigos-fontes, 4 \textbf{\small \textit{``mau cheirosos''}}, ou seja, afetados por um dos maus cheiros avaliados, e 2 \textbf{\small \textit{``limpos''}}, ou seja, não afetado pelos maus cheiros avaliados. Para cada código, o participante também foi solicitado a responder as seguintes perguntas:
-
-\noindent 
 \begin{itemize}
-  \item[P1] Na sua opinião, este código apresenta algum problema de design e/ou implementação? (SIM/NÃO)
-  \item[P2] Se SIM, por favor explique quais são, na sua opinião, os problemas que afetam este código. (Pergunta aberta)
-  \item[P3] Se SIM, por favor avalie a severidade do problema de design e/ou implementação selecionando dentre as opções a seguir. (Escala \textit{Likert} de 5 pontos de 1, muito baixa, até 5, muito alta).
+
+	\item[Q1.] 
+	In your opinion, does this code have any design and / or implementation problems? (YES NO)
+
+	\item[Q2.] If YES, please explain what are, in your opinion, the problems that affect this code. (Open Question)
+
+	\item[Q3.] If YES, please evaluate the severity of the design and / or implementation problem by selecting from the following options. (Likert scale of 5 points from 1, very low, to 5, very high).
+
 \end{itemize}
 
-Segundo Fink (1995) \cite{Fink:95}, o tamanho da amostra se refere ao número de respondentes necessários para que os resultados obtidos sejam precisos e confiáveis, e que o aumento no tamanho da amostra diminui o erro. Moscarola (1990) \cite{Moscarola:90} resume essa ideia com ``\textit{a lei dos grandes números}'', segundo a qual ele argumenta que ``\textit{com uma amostra inferior a 30 observações se tem chances de encontrar tanto um valor errôneo ou defasado como um valor se aproximando da realidade}''. Sendo assim, para termos maior confiabilidade sobre os resultados, objetivamos coletar em média 30 pontos por mau cheiro avaliado. Isso significa cada mau cheiro ter em média 30 desenvolvedores avaliando um código afetado por ele. Portanto, o cálculo necessário para obter o número total de participantes necessários para avaliar todos os maus cheiros é (MC remete a Mau Cheiro): 
 
-\begin{center}
-  $(MC_{total} \times MC_{pontos}) \div MC_{avaliados}$
-\end{center}
-
-Onde $MC_{total}$ indica o total de maus cheiros a serem avaliados, $MC_{pontos}$ indica o total de pontos que se deseja obter para cada mau cheiro e $MC_{avaliados}$ indica o total de maus cheiros avaliados por cada participante, ou seja, quantos códigos mau cheirosos serão apresentados, que no nosso caso são 4. Aplicando esse cálculo ao nosso contexto, concluímos que seriam necessários aproximadamente 150 participantes:
-
-\begin{center}
-  $(20 \times 30) \div 4 = 150$
-\end{center}
- 
-Visto que este experimento exige um esforço maior dos participantes (analisar 6 códigos-fontes) optamos por iniciá-lo com um subconjunto menor de maus cheiros objetivando obter 30 pontos por mau cheiro rapidamente. 
-
-Iniciamos o experimento com 7 maus cheiros, considerados mais frequentes (maior somatória de frequência alta e moderada), conforme apresentamos na Tabela \ref{tab:selected-smells}. Entendemos que este foco agrega mais valor do que focar nos mais importantes pois, segundo Taibi et al. \cite{Taibi:17} apesar de alguns maus cheiros serem considerados na teoria muito críticos por desenvolvedores, na prática eles são mais toleráveis. O experimento foi elaborado de modo que, conforme um mau cheiro alcançasse os 30 pontos, era possível substituí-lo ou mesmo removê-lo do experimento.
+According to Fink~\cite{Fink:95}, sample size refers to the number of respondents required to be accurate and reliable, and that increasing sample size decreases error. Moscarola~\cite{Moscarola:90} summarizes this idea with ``\textit{the law of large numbers}'', according to which he argues that ``\textit{with a sample of less than 30 observations if there are chances to find either an erroneous or lagged value as a value approaching reality.}'' Therefore, in order to have greater reliability on the results, we aim to collect on average 30 points per bad smell evaluated.
 
 
+The six pieces of code were randomly selected from a set of 50 piees. This set was composed of 35 smelling codes (five for each evaluated code smell) and 15 clean codes. It is worth mentioning that, in order to mitigate possible biases of confusion, in the two groups of codes (bad smell and clean) we only select \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, \textit{Layout resources}, \textit{String}, and \textit{Style}, since these are the elements of the Android presentation layer, whose the proposed and evaluated code smells deal with.
 
-\begin{table}
-\centering
-\renewcommand*{\arraystretch}{1}
-\footnotesize 
-\caption{Sete maus cheiros avaliados no experimento de código sobre a percepção de desenvolvedores Android.}
-\begin{tabular}{@{}lp{7cm}c@{}}
-\toprule
-\# & \multirow{1}{*}{\textbf{Mau Cheiro}} & \multirow{1}{*}{\textbf{Frequência Alta + Moderada}}  \\
-\toprule
-1 & \textsc{\small Longo Recurso de Estilo}          & 74.38\% \\
-2 & \textsc{\small Adapter Complexo}                 & 70.65\% \\
-3 & \textsc{\small Componente de UI Acoplado}        & 69.65\% \\
-4 & \textsc{\small Layout Profundamente Aninhado}    & 66.67\% \\
-5 & \textsc{\small Componente de UI Cérebro}         & 66.67\% \\
-6 & \textsc{\small Atributos de Estilo Repetidos}    & 65.92\% \\
-7 & \textsc{\small Comportamento Suspeito}           & 65.67\% \\
-\bottomrule
-\end{tabular}
-\label{tab:selected-smells}
-\end{table}
+The pieces of code used in the experiment were extracted from randomly selected Android free software projects from the F-Droid repository. 
+The selection of the codes was done manually, because there are still no defined heuristics or tools that automatically detect the bad smells proposed in this research.
+
+We performed small modifications to the snippets in order to reduce the participant's cognitive effort, e.g., we removed statements from packages, and comments. We also made sure that each snippet only contained a single smell.
+
+To mitigate possible selection biases, five different snippets were created for each code odor, totaling 35 different smelly snippets. For the clean codes snippets, we selected five classes from the Android presentation layer's components, totaling 15 gists of clean codes. 
+To reduce learning effects and order bias, each participant received the six randomly selected codes in random order. In addition, participants were not informed of which codes belonged to which groups (smelly or clean). Participants were only informed that the research was aimed at studying the quality of presentation layer codes for native Android applications. 
+
+As our needs for the experiment were very peculiar, a specific software was developed for the experiment. No time limit was imposed to complete the task.
+The experiment was open from December 5th, 2017 to January 5th, 2018.
 
 
-Os 6 códigos apresentados foram randomicamente selecionados de um conjunto de 50 códigos. Esse conjunto foi composto por 35 códigos mau cheirosos (cinco para cada mau cheiro avaliado) e 15 códigos limpos. Vale salientar que, para mitigar possíveis vieses de confundimento, nos dois grupos de códigos (mau cheirosos e limpos) selecionamos apenas \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, recursos de \textit{Layout}, \textit{String} e \textit{Style}, uma vez que são esses os elementos da camada de apresentação Android, cujo os maus cheiros propostos e avaliados tratam.
-
-\begin{table}
-\centering
-\renewcommand*{\arraystretch}{1}
-\footnotesize
-\caption{Listagem dos nove projetos de software livre Android utilizados para coletar os códigos do experimento.} 
-\begin{tabular}{@{}p{9cm}lll@{}}
-\toprule
-\multirow{2}{*}{\textbf{Código-Fonte}} & \multicolumn{3}{c}{\textbf{Google Play Store}} \\ \cmidrule{2-4}
-                                       & \textbf{Estrelas}    & \textbf{Instalações}    & \textbf{Versão} \\
-\bottomrule
-https://github.com/uberspot/2048-android & 4.2 &  1.000.000 - 5.000.000 & 2.08 \\
-https://github.com/jereksel/Bucket & 4.2 &  1.000 - 5.000 & 0.2.1-play \\
-https://github.com/TeamAmaze/AmazeFileManager & 4.3 &  500.000 - 1.000.000 & 3.2.1 \\
-https://gitlab.com/cfabio/AltcoinPrices &  &   &  \\
-https://github.com/pinetum/AirUnlock-for-Android &  &   &  \\
-https://github.com/SecUSo/privacy-friendly-weather & 3.8 &  1.000 - 5.000 & 1.1 \\
-https://github.com/Xlythe/Calculator &  &   &  \\
-https://github.com/mkulesh/microMathematics & 4.7 &  500 - 1.000 & 2.15.6 \\
-https://github.com/openfoodfacts/openfoodfacts-androidapp & 4.0 &  1.000 - 5.000 & 0.7.4 \\
-\bottomrule
-\end{tabular}
-\label{tab:android-projects}
-\end{table}
-
-Os códigos utilizados no experimento foram extraídos de projetos de software livre Android selecionados aleatoriamente do repositório F-Droid\footnote{f-droid.org é um repositório que lista projetos gratuitos e software livre Android (FOOS, do inglês \textit{Free and Open Source Software}).}. A Tabela \ref{tab:android-projects} apresenta esses projetos, bem como informações sobre avaliação (estrelas), total de instalações e versão atual do aplicativo na Google Play Store, loja oficial de aplicativos Android, para os aplicativos que lá estão disponíveis. 
-
-
-A seleção dos códigos foi feita de forma manual, pois como os maus cheiros estão sendo propostos nesta pesquisa, ainda não existem heurísticas definidas ou ferramentas que os detectem automaticamente em projetos Android. Para cada mau cheiro a ser avaliado, buscamos nos projetos pelo tipo de código que poderia ser afetado por ele. Por exemplo, o mau cheiro \textsc{\small Atributos de Estilo Repetidos} pode afetar recursos de \textit{Layout} ou \textit{Style}, mas não \textit{Activities}, deste modo, para encontrar códigos afetados por ele, buscamos nos projetos por recursos de \textit{Layout} ou \textit{Style}. Após encontrado, o código era analisado de modo a verificar se apresentava algum dos sintomas do mau cheiro (o catálogo com a definição dos sintomas dos maus cheiros Android pode ser conferido na Seção \ref{phase1-code-smells-derivation}). Caso o código apresentasse o sintoma, ele era separado para ser usado no experimento. 
-
-Repetimos esse procedimento para cada mau cheiro a ser avaliado, passando por cada um dos projetos selecionados. Quando não encontrávamos códigos nos projetos já selecionados, selecionávamos aleatoriamente outro projeto e repetíamos a busca pelo mau cheiro. Deste modo, 9 projetos foram necessários para encontrarmos códigos exemplos, maus cheirosos e limpos, para os 7 maus cheiros.
-
-
-Para cada código separado para o experimento, foi criado um \textit{gist}\footnote{\textit{Gist} é uma forma de compartilhar conteúdo, inclusive trechos de código, pela plataforma GitHub \cite{Gists}.}. A lista com todos os \textit{gists} pode ser conferida no Apêndice \ref{experiment-gists}. Pequenas modificações foram feitas nos códigos com o objetivo de reduzir o esforço cognitivo do participante ao ler o código-fonte apresentado e isolar o mau cheiro a ser avaliado. Desse modo, reduzimos o esforço cognitivo através da remoção de declarações de \textit{packages}, \textit{imports} e comentários. Para isolar o mau cheiro, diversas e variadas pequenas mudanças foram realizadas a depender do código e do mau cheiro a ser isolado. Deste modo, cada \textit{gist} com código mau cheiroso, apresentava apenas um dos maus cheiros avaliados. 
-
-Para mitigar possíveis viés de seleção, foram criados cinco \textit{gists} diferentes para cada mau cheiro, totalizando 35 \textit{gists} mau cheirosos diferentes. Sobre os \textit{gists} com códigos limpos, selecionamos cinco códigos de componentes da camada de apresentação Android, dentre eles \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}, cinco recursos de \textit{Layout} e cinco recursos de \textit{Style}, totalizando 15 \textit{gists} de códigos limpos. Nenhum dos maus cheiros avaliados afetava recursos de \textit{String} ou \textit{Drawables}, e por este motivo não foram selecionados códigos desses~tipos.
-
-Para reduzir efeitos de aprendizagem e viés de ordem, cada participante recebeu os seis códigos randomicamente selecionados, em ordem aleatória. Como nossas necessidades para o experimento eram bem peculiares, foi desenvolvido um software específico\footnote{Repositório do software desenvolvido para aplicação do experimento de código: github.com/suelengc/code-experiment-survey-app} para aplicá-lo. Além disso, os participantes não foram informados de quais códigos pertenciam a quais grupos (maus cheirosos ou limpos). Os participantes foram informados apenas de que a pesquisa tinha como objetivo estudar a qualidade de códigos da camada de apresentação de aplicativos Android nativos. Não foi imposto nenhum limite de tempo para completar a tarefa.
-
-Durante o tempo em que o experimento esteve aberto, de 05 de Dezembro à 5 de Janeiro, obtivemos respostas suficientes para avaliar os 7 maus cheiros lançados inicialmente.
-
-
-\subsubsection{Participantes e Análise dos Dados}
+\subsubsection{Participants}
 \label{etapa-3-participantes-analise}
 
-Participaram desta etapa da pesquisa 70 desenvolvedores. Dos participantes, 82\% possui 2 anos ou mais de experiência com desenvolvimento de software e 52\% possui 2 anos ou mais de experiência com desenvolvimento Android. Das 70 respostas, 14 foram desconsideradas ou pelo desenvolvedor não ter experiência com desenvolvimento Android (11\%) ou ter respondido não à pergunta ``\textit{Na sua opinião, este código apresenta algum problema de design e/ou implementação?}'' para todos os 6 códigos apresentados. Estes dados podem ser observados na Figura \ref{fig:phase3-participants-experience}. Perguntamos aos participantes quantos aplicativos Android nativo eles já haviam publicado, 55\% dos participantes afirmam ter publicado pelo menos um aplicativo, destes, 25\% afirmam já terem publicado mais de cinco aplicativos.
+70 developers participated in this research. Of the participants, 82\% have 2 years or more of experience with software development and 52\% have 2 years or more of experience with Android development. Of the 70 responses, 14 were either disregarded or the developer had no experience with Android development (11\%) or left all answers blank.
+
+We asked participants how many native Android applications they had published, 55\% of participants claim to have published at least one application, and 25\% say they have published more than five applications.
 
 
-\begin{figure*}[!b]
-\centering
-\includegraphics[width=.7\linewidth]{phase3-participants-experience2.png}
-\caption{Tempo de experiência com desenvolvimento de software e desenvolvimento Android dos participantes de S$_3$.}
-\label{fig:phase3-participants-experience}
-\vspace{-.5cm} 
-\end{figure*}
+\subsubsection{Data analysis}
 
-Para comparar as distribuições de severidade para os dois grupos de códigos (mau cheirosos e limpos), utilizamos o teste não pareado de Mann-Whitney \cite{Conover:99}. Esse teste é usado para analisar a significância estatística das diferenças entre a severidade atribuída pelos respondentes aos problemas que eles observaram nos códigos. Os resultados são considerados estatisticamente significativos em ``valor p'' ou $\alpha \leq$  0,05. Também estimamos a magnitude das diferenças usando o Delta de Cliff (\textit{d}), uma medida de tamanho de efeito não paramétrico \cite{EffectSize:05} para dados ordinais. Seguimos diretrizes bem estabelecidas \cite{EffectSize:05} para interpretar os valores do tamanho do efeito, sendo: desprezível para | \textit{d} | < 0,14, pequeno para 0,14 $\leq$ | \textit{d} | < 0,33, médio para 0,33 $\leq$ | \textit{d} | < 0.474, e grande para | \textit{d} | $\geq$ 0,474. Finalmente, relatamos resultados qualitativos derivados das respostas abertas dos participantes.
-
-Para medir a significância estatística das diferenças, comparamos as severidades dos códigos mau cheirosos às severidades dos códigos limpos. Os códigos limpos foram segmentados em três grupos: componentes limpos, ou seja, \textit{Activities}, \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} limpos, recursos de \textit{style} limpos e recursos de \textit{layout} limpos. As severidades dos maus cheiros que afetam componentes, ou seja: \textsc{\small Componente de UI Cérebro}, \textsc{\small Componente de UI Acoplado}, \textsc{\small Adapter Complexo} e \textsc{\small Comportamento Suspeito}, foram comparadas às severidades do grupo de componentes limpos. 
-
-As severidades dos maus cheiros que afetam recursos de \textit{layout}, ou seja: \textsc{\small Layout Profundamente Aninhado} e \textsc{\small Atributos de Estilo Repetidos} foram comparada às severidades do grupo de recursos de \textit{layout} limpos. As severidades dos maus cheiros que afetam recursos de \textit{style}, ou seja: \textsc{\small Longo Recurso de Estilo} e \textsc{\small Atributos de Estilo Repetidos} foram comparadas com às severidades do grupo de recursos de \textit{style} limpos.
-
-Fizemos também duas análises consolidativas. Uma consolidou a percepção sobre maus cheiros que afetam componentes Android, ou seja, comparamos as severidades de todos os maus cheiros que afetam componentes da camada de apresentação Android com componentes limpos. De modo similar, consolidamos a percepção sobre maus cheiros que afetam recursos Android, comparando as severidades de todos os maus cheiros que afetam recursos às severidades dos grupos de recursos de \textit{layout} e \textit{style} limpos.
-
-
-
+To compare the severity distributions for the two groups of codes (smelly and clean), we used the unpaired Mann-Whitney\cite{Conover:99} test. This test is used to analyze the statistical significance of the differences between the severity attributed by the respondents to the problems they observed in the codes. The results are considered statistically significant at ``p value'' or $\alpha \leq  0.05$. We also estimated the magnitude of the differences using the Cliff Delta (\textit{d}), a measure of non-parametric effect size \cite{EffectSize:05} for ordinal data. We follow well-established guidelines \cite {EffectSize:05} to interpret effect size values, being: negligible for |\textit{d}|<0.14, small to 0.14 $\leq$ |\textit{d}| < 0.33, medium to 0.33 $\leq$ |\textit{d}| < 0.474, and large for |\textit{d}| $\geq$ 0.474. 
 
 % -*- root: dissertation.tex -*-
-\subsection{Ameaças à Validade}
-\label{ameacas}
-
-Nesta seção, apresentamos as ameaças à validade seguindo os critérios de validade definidos por Claes et al. \cite{Wohlin:00}.
-
-% conclusão
-As ameaças à \textit{validade de conclusão} dizem respeito à relação entre o tratamento e o resultado. Embora este seja principalmente um estudo observacional, sempre que possível, utilizamos um suporte apropriado de procedimentos estatísticos, integrados com medidas de tamanho de efeito que, além da significância das diferenças encontradas, destacam a magnitude de tais diferenças. 
-
-% interna
-As ameaças à \textit{validade interna} dizem respeito a fatores externos que não consideramos que possam afetar as variáveis e as relações que estão sendo investigadas. Utilizamos escalas padrões de importância e frequência em S$_2$, mesmo não tendo uma opção neutra, para caso o participante não soubesse opinar sobre alguma afirmação. Apesar de ser possível utilizar outras escalas, até o momento não encontramos nenhuma pesquisa sobre qual escala é mais apropriada para o contexto de validar a importância e frequência de maus cheiros. De modo a mitigar esse problema, o processo de preparação de S$_2$ incluiu a validação com 2 desenvolvedores experientes e 2 testes piloto.
-
-Na literatura, maus cheiros são derivados do conhecimento empírico de desenvolvedores experientes \cite{Refactoring:99, Riel:96, CleanCode:08, Webster:95}. Pesquisas também mostraram que a experiência e conhecimento desempenham um importante papel na percepção de maus cheiros \cite{Palomba_Do_2014, Taibi:17}. Embora não tenhamos restringido nenhum dos questionários (S$_1$ e S$_2$) ou experimento (S$_3$) a desenvolvedores com determinado tempo de experiência, todos eles possuíam perguntas que nos possibilitou avaliar a experiência dos respondentes. Por fim, obtivemos a maioria das respostas de desenvolvedores com 2 anos ou mais de experiência em desenvolvimento de software e Android.
-
-Não controlamos se um participante de uma etapa da pesquisa participou de outra, deste modo, não podemos ignorar possíveis vieses de participantes recorrentes. Entretanto, ambos os questionários e experimento eram independentes e não faziam qualquer referência um ao outro.
-
-Também é possível que imprecisões ocorram devido a algum erro de implementação no sistema desenvolvido por nós para o experimento de código. Para mitigar esse risco, nosso sistema foi desenvolvido com base no sistema de software livre desenvolvido por Aniche et al. \cite{AnicheSmellsMVC:17, MvcSmells:16} para validar a percepção de maus cheiros relacionados ao arcabouço Spring MVC. 
-
-Embora nossa pesquisa tenha sido realizada em três etapas, estamos cientes que os dados foram todos coletados por questionários online, podendo trazer imprecisões devido ao uso de um único meio de coleta de dados. Para mitigar esse problema, nossas etapas se basearam em metodologias já usadas em outras pesquisas similares e também realizamos validações e testes piloto antes de lançarmos os questionários. 
-
-% constructo
-As ameaças à \textit{validade do constructo} dizem respeito à relação entre a teoria e a observação, e neste trabalho são principalmente devido à codificação realizada. Uma vez que a codificação das respostas de S$_1$ foi realizada apenas pelo autor, estamos cientes que imprecisões podem ser introduzidas. Para mitigar esse problema, validamos por meio de S$_2$, que os sintomas extraídos são considerados frequentes e importantes por desenvolvedores Android. Vale lembrar que o processo de preparação de S$_2$ incluiu duas validações com desenvolvedores experientes e dois pilotos. Além disso, os dados usados para a codificação, bem como as categorias derivadas estão disponíveis para inspeção no apêndice online \cite{apendice}.
-
-A seleção dos códigos usados em S$_3$ foi feita manualmente buscando pelos sintomas dos maus cheiros detalhados na seção \ref{phase1-code-smells-derivation}. Podem haver melhores maneiras de proceder com essa seleção. Pesquisas adicionais precisam ser conduzidas para otimizar esse processo. No entanto, nossa seleção atual foi capaz de detectar códigos percebidos como problemáticos pelos desenvolvedores. Entretanto, estamos cientes de que essa seleção manual pode introduzir imprecisões. De modo a mitigá-las, selecionamos cinco diferentes códigos maus cheirosos para cada mau cheiro analisado e cinco diferentes códigos para cada componente Android e recursos de \textit{style} e \textit{layout}. 
-
-% externa
-As ameaças à \textit{validade externa} referem-se à generalização dos resultados. Definimos como camada de apresentação os oito elementos aqui pesquisados. Embora essa definição tenha sido embasada na documentação oficial, sabemos que existem recursos não investigados e podem haver classes menos comumente usadas também não avaliadas que de alguma forma se relacionem também à camada de apresentação. Logo, não afirmamos que camada de apresentação se limita apenas aos oito elementos aqui estudados.
-
-Validamos com sucesso a percepção de forma negativa de 6 maus cheiros com desenvolvedores Android por meio de um experimento de código online. Embora este experimento tenha sido usado em outras pesquisas similares com o mesmo objetivo \cite{AnicheSmellsMVC:17, MvcSmells:16, Palomba_Do_2014} e tenhamos obtido pontos por mau cheiro suficientes para ter confiabilidade estatística, não afirmamos que todo desenvolvedor Android irá perceber os maus cheiros validados. 
-
-Embora tenhamos tido certa abrangência geográfica nas respostas de S$_1$ e S$_2$, nossos resultados foram majoritariamente de brasileiros, principalmente de São Paulo. Logo, não afirmamos que nossos resultados são generalizáveis globalmente. Mais pesquisas precisam ser conduzidas neste sentido para verificar a validade dos maus cheiros por desenvolvedores de outras regiões. 
-
-Nosso catálogo é composto de 20 maus cheiros na camada de apresentação Android. Entretanto, coletamos poucas respostas em S$_1$ e deste modo, não afirmamos que este é um catálogo abrangente ou mesmo completo. Pesquisas adicionais são necessárias para investigar outras possíveis más práticas na camada de apresentação de aplicativos Android e mesmo validar se os maus cheiros aqui definidos, porém não validados, são realmente percebidos e relevantes. 
-
