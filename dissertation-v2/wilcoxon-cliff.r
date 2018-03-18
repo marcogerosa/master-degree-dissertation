@@ -12,11 +12,18 @@ layout_profundamente_aninhado_smelly <- c(4,2,0,2,2,0,1,3,3,2,0,2,2,5,5,1,0,0,0,
 atributos_estilo_repetidos_smelly <- c(5,0,0,3,2,3,0,2,1,3,4,3,4,0,0,0,2,4,2,3,4,3,1)
 
 # SOH SMELLIES
+# PORTUGUES
+# vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly,
+#         comportamento_suspeito_smelly, componente_ui_inteligente_smelly,
+#         longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly,
+#         atributos_estilo_repetidos_smelly,
+#         names=c("AC", "CA", "CS", "CC", "LE", "LA", "AR") ,col="#00bfc4")
+# INGLES
 vioplot(adapter_complexo_smelly, componente_ui_acoplado_smelly,
         comportamento_suspeito_smelly, componente_ui_inteligente_smelly,
         longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly,
         atributos_estilo_repetidos_smelly,
-        names=c("AC", "CA", "CS", "CC", "LE", "LA", "AR") ,col="#00bfc4")
+        names=c("FA", "CC", "SB", "BC", "GR", "DL", "RA") ,col="#00bfc4")
 
 
 # SOH LIMPOS

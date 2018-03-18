@@ -85,26 +85,26 @@ In the following paragraphs we present in a textual way the definition of code s
 \toprule
 \textbf{Nome} & \textbf{Descrição} \\
 \toprule
-\textsc{Brain UI Component}$^{(60)}$            & Componentes de UI com lógicas de negócio.  \\
-\textsc{Coupled UI Component}$^{(18)}$           & Componentes de UI com referência concretas um para o outro.  \\
-\textsc{Suspicious Behavior}$^{(17)}$              & \textit{Listener} sendo implementado dentro de outro componente de UI.  \\
-\textsc{Fool Adapter}$^{(13)}$                  & Adapters que não usam o padrão \textit{ViewHolder}.  \\
-\textsc{Excessive Use Of Fragments}$^{(9)}$           & Uso de \textit{fragments} sem uma necessidade explícita. \\
-\textsc{UI Component Doing IO}$^{(9)}$          & Componentes de UI fazendo acesso a internet ou banco de dados.  \\
-\textsc{No Fragment Usage}$^{(8)}$                  & Não usar nenhum \textit{Fragment}.  \\
-\textsc{Absence of Architecture}$^{(6)}$              & Aplicativos sem uma arquitetura conhecida.  \\
-\textsc{Flex Adapter}$^{(6)}$                     & \textit{Adapters} com condicionais e \textit{loops}. \\
-\textsc{Resource Name Non Patterned}$^{(24)}$      & Recursos com nomes despadronizados.      \\
-\textsc{Magic Resource}$^{(23)}$                      & Textos, números ou cores ``\textit{hardcoded}''.   \\
-\textsc{Deep Nested Layout}$^{(19)}$       & Recurso de layout com mais de três níveis de \textit{Viwes} aninhadas.   \\
-\textsc{Avoid Tradicional Images}$^{(18)}$      & Imagens que poderiam ser transformadas em recurso gráfico.   \\
-\textsc{Layout Long or Repeated}$^{(14)}$            & Recurso de \textit{layout} muito longo ou com trechos de código similares ou repetidos.   \\
-\textsc{Missing Image}$^{(12)}$                     & Imagem sem todas as resoluções padrões.   \\
-\textsc{God Style Resource}$^{(8)}$              & Recurso de estilo único e longo.   \\
-\textsc{Messy String Resource}$^{(8)}$          & Recursos de \textit{string} sem um padrão de nomenclatura.   \\
-\textsc{Repeated Style Attributes}$^{(7)}$        & Repeated Style Attributes em recursos de \textit{layout} ou \textit{style}.   \\
-\textsc{Inappropriate String Reuse}$^{(6)}$           & \textit{Strings} sendo reutilizadas indevidamente.    \\
-\textsc{Hided Listener}$^{(5)}$                   & Atributo \textit{onClick} em recursos de \textit{layout}.  \\
+\textsc{Brain UI Component}$^{(60)}$            & UI components with business logic.  \\
+\textsc{Coupled UI Component}$^{(18)}$           & UI components with concrete reference to each other.  \\
+\textsc{Suspicious Behavior}$^{(17)}$              & \textit{Listener} being implemented within another UI component.  \\
+\textsc{Fool Adapter}$^{(13)}$                  & \textit{Adapters} that do not use the \textit{ViewHolder} pattern.  \\
+\textsc{Excessive Use Of Fragments}$^{(9)}$           & Use of \textit{fragments} without an explicit need. \\
+\textsc{UI Component Doing IO}$^{(9)}$          & UI components making access to the internet or database.  \\
+\textsc{No Fragment Usage}$^{(8)}$                  & Do not use any \textit{Fragment}.  \\
+\textsc{Absence of Architecture}$^{(6)}$              & Applications without a known architecture.  \\
+\textsc{Flex Adapter}$^{(6)}$                     & \textit{Adapters} with conditionals and loops. \\
+\textsc{Resource Name Non Patterned}$^{(24)}$      & Resources with non-standard names.      \\
+\textsc{Magic Resource}$^{(23)}$                      & Strings, number or colors hardcoded.   \\
+\textsc{Deep Nested Layout}$^{(19)}$            & Layout resources with more than three levels of nested Views.   \\
+\textsc{Avoid Tradicional Images}$^{(18)}$      & Images that could be transformed into a graphic resource.   \\
+\textsc{Layout Long or Repeated}$^{(14)}$            & \textit{Layout} resources too long or with similar or repeated code snippets.   \\
+\textsc{Missing Image}$^{(12)}$                     & Image without all standard resolutions.   \\
+\textsc{God Style Resource}$^{(8)}$              & Unique or god \textit{Style} resource.   \\
+\textsc{Messy String Resource}$^{(8)}$          & \textit{String} resource without a nomenclature pattern.   \\
+\textsc{Repeated Style Attributes}$^{(7)}$        & Repeated attributes in \textit{layout} or \textit{style} resources.   \\
+\textsc{Inappropriate String Reuse}$^{(6)}$           & \textit{Strings} being reused improperly.    \\
+\textsc{Hided Listener}$^{(5)}$                   & Attribute \textit{onClick} in \textit{layout} resources.  \\
 \bottomrule
 \end{tabular}
 \label{tab:Smells}
@@ -305,7 +305,7 @@ Para análise dos maus cheiros extraímos dados estatísticos de moda (MO), medi
 \renewcommand*{\arraystretch}{1}
 \footnotesize
 \caption{Mediana (ME), moda (MO) e desvio padrão (DP) sobre a percepção da importância dos maus cheiros relacionados a componentes da camada de apresentação Android.}
-\begin{tabular}{@{}p{9cm}cccp{.5cm}ccc@{}}
+\begin{tabular}{@{}p{5cm}cccp{.5cm}ccc@{}}
 \toprule
 \multirow{2}{*}{\textbf{Mau Cheiro}} & \multicolumn{3}{c}{\textbf{Importância}} & & \multicolumn{3}{c}{\textbf{Frequência}} \\ \cmidrule{2-4} \cmidrule{6-8}
                                       & \textbf{ME} & \textbf{MO} & \textbf{DP} & & \textbf{ME} & \textbf{MO} & \textbf{DP} \\
@@ -383,7 +383,7 @@ A Figura \ref{fig:phase2-results-importance} apresenta a distribuição relativa
 
 \begin{figure*}[!htb]
   \centering
-  \includegraphics[width=1\textwidth]{phase2-results-importance2.png}
+  \includegraphics[width=1\textwidth]{phase2-results-importance3-en.png}
   \caption{Distribuição relativa de importância dos maus cheiros propostos.}
   \label{fig:phase2-results-importance}
   % \vspace{-.5cm}
@@ -428,7 +428,7 @@ Nos demais níveis de frequência, essa situação se inverte, sendo os maus che
 
 \begin{figure*}[!htb]
   \centering
-  \includegraphics[width=1\textwidth]{phase2-results-frequence.png}
+  \includegraphics[width=1\textwidth]{phase2-results-frequence-en.png}
   \caption{Distribuição relativa de frequência dos maus cheiros propostos.}
   \label{fig:phase2-survey-frequence}
   % \vspace{-.5cm}
@@ -470,17 +470,17 @@ Na Figura \ref{fig:components-violins}, apresentamos os gráficos violino que co
 \begin{subfigure}[t]{.49\textwidth}
   \centering
   \hspace*{-1cm}%
-  \includegraphics[width=.8\textwidth]{phase3-components-clean-smelly-violins-cutted.png}
-  \caption{Componentes.}
+  \includegraphics[width=.8\textwidth]{phase3-components-clean-smelly-violins-cutted-en.png}
+  \caption{Components.}
   \label{fig:components-violins}
 \end{subfigure}
 \begin{subfigure}[t]{.49\textwidth}
   \centering
-  \includegraphics[width=.8\textwidth]{phase3-resources-clean-smelly-violins-cutted.png}
-  \caption{Recursos.}
+  \includegraphics[width=.8\textwidth]{phase3-resources-clean-smelly-violins-cutted-en.png}
+  \caption{Resources.}
   \label{fig:resources-violins}
 \end{subfigure}%
-\caption{Análise de severidade em componentes e recursos mau cheirosos e limpos.}
+\caption{Analysis of severity in components and resourcecs smelly and clean.}
 \label{fig:smelly-clean-consolidado}
 % \vspace{-.5cm}
 \end{figure*}
@@ -501,20 +501,20 @@ Além disso, relatamos a percepção dos desenvolvedores sobre cada mau cheiro A
 \captionsetup[subfigure]{width=.9\imagewidth,justification=raggedright}%
 \begin{subfigure}[t]{.48\textwidth}\centering
   \hspace*{-1cm}%
-  \includegraphics[width=.76\textwidth]{phase3-clean-violins-cutted.png}
-  \caption{Componentes=\textit{Activities}, \textit{Fragments}, \textit{Adapters} ou \textit{Listeners} limpos. Styles=Recursos de \textit{Style} limpos. Layout=Recursos de \textit{Layout} limpos.}
+  \includegraphics[width=.82\textwidth]{phase3-clean-violins-cutted-en.png}
+  \caption{Components=\textit{Activities}, \textit{Fragments}, \textit{Adapters} or \textit{Listeners} cleans. Styles=Clean \textit{style} resources. Layout= Clean \textit{layout} resources.}
   % \hspace*{-1cm}%
   \label{fig:clean-violins}
 \end{subfigure}
 \begin{subfigure}[t]{.48\textwidth}\centering
   % \hspace*{-1cm}%
-  \includegraphics[width=1\textwidth]{phase3-smellys-violins2-cutted.png}
-  \caption{AC=Flex Adapter, CA=Coupled UI Component, CS=Suspicious Behavior, CC=Brain UI Component, LE=God Style Resource, LA=Deep Nested Layout
+  \includegraphics[width=1\textwidth]{phase3-smellys-violins2-cutted-en.png}
+  \caption{FA=Flex Adapter, CC=Coupled UI Component, SB=Suspicious Behavior, BC=Brain UI Component, GR=God Style Resource, DL=Deep Nested Layout
 , AR=Repeated Style Attributes.}
   % \hspace*{-1cm}%
   \label{fig:smellys-violins}
 \end{subfigure}%
-\caption{Análise de severidade dos códigos limpos segmentados por grupos e dos códigos afetados pelos maus cheiros avaliados.}
+\caption{Analysis of severity of clean codes segmented by groups and codes affected by code smells evaluated.}
 \label{fig:}
 % \vspace{-.5cm}
 \end{figure*}
