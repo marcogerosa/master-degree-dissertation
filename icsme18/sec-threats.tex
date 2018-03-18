@@ -1,11 +1,6 @@
 \section{Threats to Validity}
 \label{ameacas}
 
-Nesta seção, apresentamos as ameaças à validade seguindo os critérios de validade definidos por Claes et al.\cite{Wohlin:00}.
-
-% conclusão
-As ameaças à \textit{validade de conclusão} dizem respeito à relação entre o tratamento e o resultado. Embora este seja principalmente um estudo observacional, sempre que possível, utilizamos um suporte apropriado de procedimentos estatísticos, integrados com medidas de tamanho de efeito que, além da significância das diferenças encontradas, destacam a magnitude de tais diferenças. 
-
 % interna
 As ameaças à \textit{validade interna} dizem respeito a fatores externos que não consideramos que possam afetar as variáveis e as relações que estão sendo investigadas. 
 Na literatura, maus cheiros são derivados do conhecimento empírico de desenvolvedores experientes \cite{Refactoring:99, Riel:96, CleanCode:08, Webster:95}. Pesquisas também mostraram que a experiência e conhecimento desempenham um importante papel na percepção de maus cheiros \cite{Palomba_Do_2014, Taibi:17}. Embora não tenhamos restringido nenhum dos questionários (S$_1$ e S$_2$) ou experimento (S$_3$) a desenvolvedores com determinado tempo de experiência, todos eles possuíam perguntas que nos possibilitou avaliar a experiência dos respondentes. Por fim, obtivemos a maioria das respostas de desenvolvedores com 2 anos ou mais de experiência em desenvolvimento de software e Android.
@@ -14,19 +9,12 @@ Não controlamos se um participante de uma etapa da pesquisa participou de outra
 
 
 % constructo
-As ameaças à \textit{validade do constructo} dizem respeito à relação entre a teoria e a observação, e neste trabalho são principalmente devido à codificação realizada. Uma vez que a codificação das respostas de S$_1$ foi realizada apenas pelo autor, estamos cientes que imprecisões podem ser introduzidas. Para mitigar esse problema, validamos por meio de S$_2$, que os sintomas extraídos são considerados frequentes e importantes por desenvolvedores Android. Vale lembrar que o processo de preparação de S$_2$ incluiu duas validações com desenvolvedores experientes e dois pilotos. Além disso, os dados usados para a codificação, bem como as categorias derivadas estão disponíveis para inspeção no apêndice online \cite{apendice}.
+As ameaças à \textit{validade do constructo} dizem respeito à relação entre a teoria e a observação, e neste trabalho são principalmente devido à codificação realizada. Uma vez que a codificação das respostas de S$_1$ foi realizada apenas pelo primeiro autor, estamos cientes que imprecisões podem ser introduzidas. Para mitigar esse problema, validamos por meio de S$_2$, que os sintomas extraídos são considerados frequentes e importantes por desenvolvedores Android. Vale lembrar que o processo de preparação de S$_2$ incluiu duas validações com desenvolvedores experientes e dois pilotos. Além disso, os dados usados para a codificação, bem como as categorias derivadas estão disponíveis para inspeção no apêndice online \cite{apendice}.
 
 A seleção dos códigos usados em S$_3$ foi feita manualmente buscando pelos sintomas dos maus cheiros detalhados na seção \ref{phase1-code-smells-derivation}. Podem haver melhores maneiras de proceder com essa seleção. Pesquisas adicionais precisam ser conduzidas para otimizar esse processo. No entanto, nossa seleção atual foi capaz de detectar códigos percebidos como problemáticos pelos desenvolvedores. Entretanto, estamos cientes de que essa seleção manual pode introduzir imprecisões. De modo a mitigá-las, selecionamos cinco diferentes códigos maus cheirosos para cada mau cheiro analisado e cinco diferentes códigos para cada componente Android e recursos de \textit{style} e \textit{layout}. 
-
-Utilizamos escalas padrões de importância e frequência em S$_2$, mesmo não tendo uma opção neutra, para caso o participante não soubesse opinar sobre alguma afirmação. Apesar de ser possível utilizar outras escalas, até o momento não encontramos nenhuma pesquisa sobre qual escala é mais apropriada para o contexto de validar a importância e frequência de maus cheiros. De modo a mitigar esse problema, o processo de preparação de S$_2$ incluiu a validação com 2 desenvolvedores experientes e 2 testes piloto.
 
 
 % externa
 As ameaças à \textit{validade externa} referem-se à generalização dos resultados. Definimos como camada de apresentação os oito elementos aqui pesquisados. Embora essa definição tenha sido embasada na documentação oficial, sabemos que existem recursos não investigados e podem haver classes menos comumente usadas também não avaliadas que de alguma forma se relacionem também à camada de apresentação. Logo, não afirmamos que camada de apresentação se limita apenas aos oito elementos aqui estudados.
 
 Validamos com sucesso a percepção de forma negativa de 6 maus cheiros com desenvolvedores Android por meio de um experimento de código online. Embora este experimento tenha sido usado em outras pesquisas similares com o mesmo objetivo \cite{AnicheSmellsMVC:17, MvcSmells:16, Palomba_Do_2014} e tenhamos obtido pontos por mau cheiro suficientes para ter confiabilidade estatística, não afirmamos que todo desenvolvedor Android irá perceber os maus cheiros validados. 
-
-Embora tenhamos tido certa abrangência geográfica nas respostas de S$_1$ e S$_2$, nossos resultados foram majoritariamente de brasileiros, principalmente de São Paulo. Logo, não afirmamos que nossos resultados são generalizáveis globalmente. Mais pesquisas precisam ser conduzidas neste sentido para verificar a validade dos maus cheiros por desenvolvedores de outras regiões. 
-
-Nosso catálogo é composto de 20 maus cheiros na camada de apresentação Android. Entretanto, coletamos poucas respostas em S$_1$ e deste modo, não afirmamos que este é um catálogo abrangente ou mesmo completo. Pesquisas adicionais são necessárias para investigar outras possíveis más práticas na camada de apresentação de aplicativos Android e mesmo validar se os maus cheiros aqui definidos, porém não validados, são realmente percebidos e relevantes. 
-
