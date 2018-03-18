@@ -6,38 +6,32 @@
 
 In this section we present general results on the process of deriving code smells (Section \ref{phase1-general-results}) and the catalog with 20 proposed code smells related to the Android presentation layer (Section \ref{phase1-code-smells-derivation}).
 
-\subsubsection{Resultados Gerais e Descobertas}
+\subsubsection{General Results and Findings}
 \label{phase1-general-results}
 
-Todas as 16 perguntas sobre boas e más práticas, nos elementos da camada de apresentação Android (segunda seção de S$_1$) foram opcionais, de modo que algumas receberam mais respostas do que outras. A Figura \ref{fig:ElementsVSAnswers} apresenta o total de respostas recebidas por cada pergunta. Podemos observar que 35 dos 45 participantes responderam a pergunta sobre boas práticas em \textit{Activities}: ``\textit{Do you have any good practices to deal with Activities?}''. Enquanto que 38 responderam sobre más práticas em \textit{Activities}: ``\textit{Do you have anything you consider a bad practice when dealing with Activities?}''.
+All 16 questions about good and bad practices in the elements of the Android presentation layer (second section of S$_1$) were optional, so some received more answers than others. The figure \ref{fig:ElementsVSAnswers} displays the total answers received for each question. We can observe that 35 of the 45 respondents answered the question about good practices in \textit{Activities}: ``\textit{Do you have any good practices to deal with Activities?}''. While 38 responded answered the question about bad practices in \textit{Activities}: ``\textit{Do you have anything you consider bad practice when dealing with Activities?}''.
 
 \begin{figure*}[!htb]
 \centering
 % \hspace*{-0.7cm}
 \includegraphics[width=1\linewidth]{phase1-survey-answers3.png}
-\caption{Total de respostas para cada pergunta sobre boas e más práticas nos oito elementos da camada de apresentação Android.}
+\caption{Total answers for each question about good and bad practices in the eight elements of the Android presentation layer.}
 \label{fig:ElementsVSAnswers}
 \end{figure*}
 
-O elemento que recebeu menos respostas sobre \textbf{\small boas práticas} foi o \textit{Listener}, sendo respondida por 10 dos 45 participantes. Os elementos que receberam menos respostas sobre \textbf{\small más práticas} foram os recursos de \textit{Style} e \textit{Drawable}, sendo que ambos foram respondidos por apenas 9 dos 45 participantes. Dentre os componentes, os que receberam mais respostas foram \textit{Activities} e \textit{Fragments}, ambos sendo respondidos por pelo menos 27 participantes. Dentre os recursos, o que recebeu mais resposta foi o recurso de \textit{Layout}, sendo respondido por pelo menos 22 dos 45 participantes. De modo geral, perguntas sobre boas práticas foram mais respondidas do que as perguntas sobre más práticas, exceto sobre \textit{Activities} e \textit{Listeners}.
+The element that received the least answers about \textbf{\small good practices} was \textit{Listener}, being answered by 10 of the 45 participants. The elements that received the least responses over \textbf{\small bad practices} were the \textit{Style} resources and \textit{Drawable}, both of which were answered by only 9 of the 45 participants. Among the components, the ones that received the most responses were \textit{Activities} and \textit{Fragments}, both being answered by at least 27 participants. Among the resources, the one that received the most response was the \textit{Layout} resource, being answered by at least 22 of the 45 participants. Overall, good practice questions were answered more than the bad practice questions, except for \textit{Activities} and \textit{Listeners}.
 
-O processo de codificação resultou em 46 categorias, das quais consideramos para a derivação dos maus cheiros todas as que apresentaram ocorrências maior ou igual a cinco, com base no número de Nielsen \cite{NielsenMagicNumber:00}. Deste modo, 22 categorias foram consideradas. Dessas 22, desconsideramos mais 2 por se tratar de (i) um mau cheiro tradicional (Classe Grande) e (ii) um aspecto da orientação a objetos (Herança). Resultando em 20 categorias para a derivação dos maus cheiros da camada de apresentação Android.
+The coding process resulted in 46 categories, from which we considered for the derivation of bad smells all those that presented occurrences greater than or equal to five, based on the number of Nielsen \cite{NielsenMagicNumber:00}. Thus, 22 categories were considered. Of these 22, we disregarded 2 more because they were (i) a traditional bad smell (Large Class) and (ii) one aspect of object orientation (Inheritance). Resulting in 20 categories for deriving the bad smells of the Android presentation layer.
 
-% A escolha do número três como número mínimo de repetições para se derivar um mau cheiro é porque evita a invariabilidade do número 1, a coincidência do número 2 e já representa alguma variação \cite{campos2001estatistica}.
+The Table \ref{tab:CategoriesVSFrequency} displays the total number of occurrences segmented by element of the Android presentation layer of the 20 categories considered for the derivation of bad smells. For example, the category \textsc{\small Brain UI Component} displays 29 in the \textit{Activity} column, 16 in the \textit{Fragment} column, 14 in the \textit{Adapter} column, and 1 in the \textit{Listener}, this means that 29 occurrences were in responses on good and bad practices in \textit{Activities}, 16 occurrences were in responses on good and bad practices in \textit{Fragments}, and so on. The superscript number, in parentheses, next to the category name indicates the total number of occurrences, that is, the sum of occurrences on all Android elements.
 
-% MOVIDO PARA DISCUSSÕES
-% É interessante notar que nosso processo de codificação também resultou em conclusões {\small \textbf{similares}} as de algumas pesquisas anteriores, de que aplicativos Android são fortemente afetados pelo mau cheiro tradicional \textit{Large Class} conforme citado por Verloop \cite{MobileSmells:13}, e que é pouco ou quase nada usado herança para estruturar o \textit{design} do código, conforme citado por Minelli e Lanza \cite{Mantyla2013}. Como nosso foco não estava em avaliar a presença de maus cheiro tradicionais ou práticas de orientações a objetos em aplicativos Android, não trabalhamos em cima desses resultados.
 
-% Cada uma das 20 categorias consideradas resultou em um mau cheiro de código Android, dos quais 9 são relacionados a componentes da camada de apresentação Android e 11 relacionados a recursos Android. A definição dos maus cheiros foram embasadas nas respostas de S$_1$, por exemplo, algumas respostas que embasaram o mau cheiro \textsc{Componente de UI Cérebro} foram ``Fazer lógica de negócio [em Activities]''\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação} (P16). ``Colocar regra de negócio no Adapter'' (P19), ``Manter lógica de negócio em Fragments'' (P11), ``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe'' (P16) onde de P1 a P45 representam cada um dos 45 respondente. De modo a tornar a leitura dos maus cheiros mais enxuta, na Seção \ref{phase1-code-smells-catalog} apresentamos a descrições derivadas e no compilamos no Apêndice \ref{appendix:smells-purpose-of-solution} algumas respostas de exemplo que foram usadas para embasá-las.
+In Figure \ref{fig:ElementsVSAnswers} the total responses on good and bad practices in Activities is 73 (summation of columns Q1 and Q2), and in Table \ref{tab:CategoriesVSFrequency} the total responses in the Activity column is 49. This difference occurs because in the figure we are considering the answers of all 46 categories, while in the table we consider only the answers to the 20 categories considered.
 
-A Tabela \ref{tab:CategoriesVSFrequency} apresenta o total de ocorrências segmentadas por elemento da camada de apresentação Android das 20 categorias consideradas para a derivação dos maus cheiros. Por exemplo, a categoria \textsc{\small Componente de UI Cérebro} apresenta 29 na coluna \textit{Activity}, 16 na coluna \textit{Fragment}, 14 na coluna \textit{Adapter} e 1 na coluna \textit{Listener}, isso significa que 29 ocorrências foram em respostas sobre boas e más práticas em \textit{Activities}, 16 ocorrências foram em respostas sobre boas e más práticas em \textit{Fragments} e assim por diante. O número sobrescrito, entre parênteses, ao lado do nome da categoria indica o total de ocorrências, ou seja, a soma das ocorrências em todos os elementos Android.
-
-Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más práticas em \textit{Activities} é de 73 (somatória das colunas Q1 e Q2), e na Tabela \ref{tab:CategoriesVSFrequency} o total de respostas na coluna \textit{Activity} é de 49. Essa diferença ocorre pois, na figura estamos considerando as respostas de todas as 46 categorias, enquanto na tabela estamos consideramos apenas as respostas às 20 categorias consideradas.
-
-\begin{table}[!htb]
+\begin{table*}[!htb]
 \centering
 \renewcommand*{\arraystretch}{1}
-\caption{Total de respostas sobre boas e más práticas em cada elemento da camada de apresentação Android.}
+\caption{Total responses on good and bad practices in each element of the Android presentation layer.}
 \footnotesize
 \begin{tabular}{@{}p{7cm}@{}cccccccccp{3cm}}
 \toprule
@@ -66,28 +60,26 @@ Na Figura \ref{fig:ElementsVSAnswers} o total de respostas sobre boas e más pr�
 \bottomrule
 \end{tabular}
 \label{tab:CategoriesVSFrequency}
-\end{table}
+\end{table*}
 
-Vale observar que um mesmo mau cheiro pode afetar mais de um elemento da camada de apresentação Android. Por meio da Tabela \ref{tab:CategoriesVSFrequency}, podemos obter sugestões sobre quais elementos Android um mau cheiro afeta através do cruzamento do número de ocorrências, ou seja, se há ocorrências, possivelmente o mau cheiro respectivo afeta o elemento respectivo. Por exemplo, o mau cheiro \textsc{\small Componente de UI Cérebro} se apresenta em 4 componentes: \textit{Activities} com 29 ocorrência, \textit{Fragments} com 16, \textit{Adapters} com 14 e \textit{Listeners} com 1, e de fato, esse mau cheiro pode afetar todos esses componentes.
+It is worth noting that the same code smell can affect more than one element of the Android presentation layer. By means of the table \ref{tab:CategoriesVSFrequency}, we can get suggestions on what Android elements a code smell affects by crossing the number of occurrences, that is, if there are occurrences, possibly the respective code smell affects the respective element. For example, the code smell \textsc{\small UI Brain Component} is presented in 4 components: \textit{Activities} with 29 occurrences, \textit{Fragments} with 16, \textit{Adapters} with 14 and \textit{Listeners} with 1, and in fact, that code smell can affect all those components.
 
-Entretanto, para outros maus cheiros, essa sugestão não é verdade. Por exemplo, no caso do mau cheiro \textsc{\small Layout Profundamente Aninhado}, apesar de haver 1 ocorrência em \textit{Adapter}, esse mau cheiro não o afeta. A resposta que originou essa ocorrência indicou na verdade, uma boa prática em recursos de \textit{layout}: \textit{``Criar layouts realmente leves.''}~(P36). Esse tipo de análise da resposta foi cuidadosamente realizado para a escrita da definição textual dos maus cheiros a serem apresentados na próxima seção.
+However, for other code smells, this suggestion is not true. For example, in the case of the code smell \textsc{\small Deep Nested Layout}, although there is 1 occurrence in \textit{Adapter}, that code smell does not affect it. The response that gave rise to this occurrence actually indicated good practice in layouts: \textit{``Create really light layouts.''}~(P36). This type of analysis of the response was carefully performed for writing the textual definition of code smells to be presented in the next section.
 
 
-\subsubsection{Maus Cheiros Propostos}
+\subsubsection{Proposed Code Smells}
 \label{phase1-code-smells-derivation}
 
+Table \ref{tab:Smells} presents the list and a brief description of the 20 proposed Android code smells derived from the 20 categories with five occurrences or more, resulting from the coding process. The first 9 code smells affect Android presentation layer components, the next 11 affect Android resources.
 
-A Tabela \ref{tab:Smells} apresenta a lista e uma breve descrição dos 20 maus cheiros Android propostos derivados das 20 categorias com cinco ocorrências ou mais, resultante do processo de codificação. Os 9 primeiros maus cheiros afetam componentes da camada de apresentação Android, os 11 seguintes afetam recursos Android.
+Definitions were based on the answers obtained \footnote{All English text has been translated freely throughout the dissertation}. For example, some responses that supported the code smell \textsc{\small UI Brain Component} were: \textit{``Do Business Logic [in Activities]''} (P16). ``\textit{Putting business rule on Adapter}'' (P19), \textit{``Keep business logic in Fragments''} (P11), \textit{``Activities represent a single screen and only interact with the UI, any logic must be delegated to another class''} (P16) where P1 to P45 represent each of the respondents. In order to make the reading simpler, the answers used to base them are available in Appendix \ref{appendix:smells-purpose-of-solution}.
 
-As definições foram embasadas nas respostas obtidas\footnote{Todo texto em inglês foi traduzido livremente ao longo da dissertação}. Por exemplo, algumas respostas que embasaram o mau cheiro \textsc{\small Componente de UI Cérebro} foram: \textit{``Fazer lógica de negócio [em Activities]''} (P16). \textit{``Colocar regra de negócio no Adapter''} (P19), \textit{``Manter lógica de negócio em Fragments''} (P11), \textit{``Elas [Activities] representam uma única tela e apenas interagem com a UI, qualquer lógica deve ser delegada para outra classe''} (P16) onde de P1 a P45 representam cada um dos 45 respondente. Com o objetivo de tornar a leitura mais simples, as respostas usadas para embasá-los estão disponíveis no Apêndice \ref{appendix:smells-purpose-of-solution}.
+In the following paragraphs we present in a textual way the definition of code smells, as well as the elements affected by each code smell and related symptoms.
 
-
-Nos parágrafos seguintes apresentamos de forma textual a definição dos maus cheiros, bem como os elementos afetados por cada mau cheiro e os sintomas relacionados.
-
-\begin{table}[h!]
+\begin{table*}[htb!]
 \centering
 \renewcommand*{\arraystretch}{1}
-\caption{Lista dos 20 maus cheiros na camada de apresentação Android e breve descrição dos sintomas.}
+\caption{List of 20 code smells in the Android presentation layer and brief description of the symptoms.}
 \footnotesize
 \begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
 \toprule
@@ -116,7 +108,7 @@ Nos parágrafos seguintes apresentamos de forma textual a definição dos maus c
 \bottomrule
 \end{tabular}
 \label{tab:Smells}
-\end{table}
+\end{table*}
 
 
 % -*- root: dissertation.tex -*-
