@@ -27,15 +27,15 @@ lpa_clean <- c(2,0,0,0,0,2,0)
 layouts_clean <- c(0,2,3,4,0,0,1,3,0,0,0,0,0,2,3,2,2,0,0,0,0,0,0,0,3,1,0,2,0,0,0,0,0,0,0,0,1,2,0,lpa_clean)
 
 vioplot(componentes_clean, styles_clean, layouts_clean,
-        names=c("Componentes", "Styles", "Layouts") ,col="#00bfc4")
+        names=c("Components", "Styles", "Layouts") ,col="#00bfc4")
 
 
 # SMELLIES VS CLEANS
 componentes_smelly <- c(adapter_complexo_smelly, componente_ui_acoplado_smelly, comportamento_suspeito_smelly, componente_ui_inteligente_smelly)
-vioplot(componentes_smelly, componentes_clean, names=c("Mau Cheirosos", "Limpos") ,col="#00bfc4")
+vioplot(componentes_smelly, componentes_clean, names=c("Smelly", "Clean") ,col="#00bfc4")
 
 recursos_smelly <- c(longo_recurso_estilo_smelly, layout_profundamente_aninhado_smelly, atributos_estilo_repetidos_smelly)
-vioplot(recursos_smelly, c(layouts_clean,styles_clean), names=c("Mau Cheirosos", "Limpos") ,col="#00bfc4")
+vioplot(recursos_smelly, c(layouts_clean,styles_clean), names=c("Smelly", "Clean") ,col="#00bfc4")
 
 
 # WILCOXON & DELTA CLIFF

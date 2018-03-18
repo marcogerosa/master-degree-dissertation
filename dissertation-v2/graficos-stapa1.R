@@ -48,6 +48,6 @@ ggplot(data=df, aes(x=fct_inorder(Questao), y=Total, fill=Tipo)) +
   coord_cartesian(ylim=c(0,45)) +
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
         legend.position = "bottom", legend.title = element_blank()) +
-  scale_fill_manual(values=c("#00bfc4", "#f8766d")) +
+  scale_fill_manual(values=c("#f8766d", "#00bfc4")) +
   geom_text(aes(label=Total), size=2.5, position=position_dodge(width=0.9), vjust=-0.55) +
   facet_grid(.~fct_inorder(Elemento),scales="free")
