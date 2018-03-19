@@ -1,26 +1,28 @@
 \section{Background: Android's Presentation Layer}
 
-São muitos os componentes e recursos disponibilizados pelo Android \acs{SDK}. Nossa pesquisa tem foco em analisar os elementos relacionados à camada de apresentação. Deste modo, para delimitarmos quais elementos Android seriam investigados, em termos de \textbf{\small componentes da camada de apresentação Android} (códigos Java que derivam do Android SDK) fizemos uma extensa revisão na documentação oficial do Android \cite{AndroidDeveloperSite2016} e chegamos em quatro: \textit{Activities}, \textit{Fragments}, \textit{Adapters} e \textit{Listeners}.
+There are many components and features available from Android \acs{SDK}. Our research focuses on analyzing the elements related to the presentation layer. So in order to delimit which Android elements would be investigated,
+we did an extensive review of the official Android documentation \cite{AndroidDeveloperSite2016} and we arrived at four: Activities, Fragments, Adapters, and Listeners.
 
-Em termos de \textbf{\small recursos Android}, todos são por natureza relacionados à camada de apresentação \cite{AndroidFundamentals}. O Android provê mais de quinze diferentes tipos de recursos \cite{AndroidResourceType}. Com o objetivo de focar a pesquisa, optamos por selecionar os recursos principais. Para isso, nos baseamos nos recursos existentes no projeto criado a partir do modelo padrão pelo Android Studio \cite{FirstApp2017}\footnote{Até a versão 3.0 do Android Studio, versão mais atual no momento desta escrita, o modelo de projeto padrão, que é pré-selecionado na criação de um novo projeto Android, é o \textit{Empty Activity}.}, são eles: recursos de \textit{Layout}, recursos de \textit{Strings}, recursos de \textit{Style} e recursos \textit{Drawable}.
+In terms of resources, they are all by nature related to the presentation layer \cite{AndroidFundamentals}. Android provides more than fifteen different resource types \cite{AndroidResourceType}. In order to focus the research, we chose to select the main resources. To do this, we rely on the existing features in the project created from the default template by Android Studio \cite{FirstApp2017} \footnote{Up to version 3.0 of Android Studio, most current version at the time of this writing, the standard design template, which is pre-selected in the creation of a new Android project is Empty Activity.}}, which are: Layout features, Strings features, Style textures, and resources \ textit {Drawable}.
 
-A seguir introduzimos brevemente cada um dos 8 elementos da camada de apresentação Android, investigados nesta pesquisa:
+Here, we briefly introduce each of the eight elements of the Android presentation layer:
 
 \begin{enumerate}
-  \item \textbf{\textit{Activity}} é um dos principais componentes de aplicativos Android e representa uma tela pelo qual o usuário pode interagir com a \acs{UI}. Possui um ciclo de vida, como mencionado na seção anterior. Toda \textit{Activity} deve indicar no método de retorno \textit{onCreate} o recurso de \textit{layout} que deve ser usado para a construção de sua \acs{UI} \cite{AndroidActivities2016, AndroidDevActivityReference}.
 
-  \item \textbf{\textit{Fragments}} representam parte de uma \textit{Activity} e também devem indicar seu recurso de \textit{layout} correspondente. \textit{Fragments} só podem ser usados dentro de \textit{Activities}. Podemos pensar neles como ``sub-Activities''. \textit{Fragments} possuem um ciclo de vida extenso, com mais de dez métodos de retorno. Seu ciclo de vida está diretamente ligado ao ciclo de vida da \textit{Activity} ao qual ele está contido. O principal uso de \textit{Fragments} é para o reaproveitamento de trechos de \acs{UI} e comportamento em diferentes \textit{Activities}~\cite{AndroidFragments}.
+	\item \textbf{\textit{Activity}} is one of the major components of Android applications and represents a screen by which the user can interact with \acs {UI}. 
 
-  \item \textbf{\textit{Adapters}} são utilizados para popular a \acs{UI} com coleções de dados, como por exemplo, uma lista de \textit{e-mails}, onde o \textit{layout} é o mesmo para cada item da lista mas o conteúdo é diferente~\cite{AndroidLayouts}.
+	\item \textbf{\textit{Fragments}} represent part of an \textit{Activity} and should also indicate their corresponding \textit{layout} feature. Fragments can only be used within Activities. 
 
-  \item \textbf{\textit{Listeners}} são interfaces Java que representam eventos do usuário, por exemplo, o \textit{OnClickListener} captura o clique pelo usuário. Essas interfaces costumam ter apenas um método, onde é implementado o comportamento desejado para responder a interação do usuário~\cite{AndroidUIEvents}.
+	\item \textbf{\textit{Adapters}} are used to populate the \acs{UI} with collections of data.
 
-  \item \textbf{\textit{Recursos de Layout}} são XMLs utilizados para o desenvolvimento da estrutura da \acs{UI} dos componentes Android. O desenvolvimento é feito utilizando uma hierarquia de \textit{Views} e \textit{ViewGroups}. \textit{Views} são caixas de texto, botões, dentre outros. \textit{ViewGroups} são \textit{Views} especiais pois podem conter outras \textit{Views}. Cada \textit{ViewGroup} organiza suas \textit{Views} filhas de uma forma específica, por exemplo: horizontalmente, em tabela, posicionamento relativo, dentre outros. Esta hierarquia pode ser tão simples ou complexa quanto se precisar, mas quanto mais simples, melhor o desempenho~\cite{AndroidLayoutResources, AndroidLayouts}.
+	\item \textbf{\textit{Listeners}} are Java interfaces that represent user events, e.g., the \textit{OnClickListener} event captures the user click. These interfaces usually have only one method, where the desired behavior is implemented to respond to user interaction.
 
-  \item \textbf{\textit{Recursos de String}} são XMLs utilizados para definir textos, conjunto de textos usados no aplicativo. As principais vantagens de se usar recursos de \textit{String} é o reaproveitamento dos textos em diferentes \acs{UI}s e a facilidade para internacionalizar~\cite{AndroidStringResources}.
+	\item \textbf{\textit{Layout Resources}} are XML files used for the development of the \acs{UI} structure of Android components. The development is done using a hierarchy of \textit {Views} and \textit {ViewGroups}. \textit{Views} are text boxes, buttons, and etc. \textit {ViewGroups} are a collection of \textit{Views} together with a definition of how these \textit {Views} should be shown.
 
-  \item \textbf{\textit{Recursos de Style}} são XMLs utilizados para a definição de estilos a serem aplicados nos XMLs de \textit{layout}. As principais vantagens em se utilizar recursos \textit{Styles} é separar o código de estrutura da \acs{UI} do código que define sua aparência e forma, e também possibilitar a reutilização de estilos em diferentes \acs{UI}s~\cite{AndroidStyleResources}.
+	\item \textbf{\textit{String Resources}} are XMLs used to define sets of texts to be used in the application for, e.g., internationalization.
 
-  \item \textbf{\textit{Recursos de Drawable}} são arquivos gráficos utilizados na \acs{UI}. Esses arquivos podem ser imagens tradicionais, \texttt{.png}, \texttt{.jpg} ou \texttt{.gif}, ou XMLs gráficos. A principal vantagem dos XMLs gráficos está no tamanho do arquivo que é comumente bem menor do que imagens tradicionais e, diferente das imagens tradicionais onde é recomendado que se tenha mais de uma versão da mesma em resoluções diferentes, para XMLs gráficos só é necessário uma versão~\cite{AndroidDrawableResources}.
+	\item \textbf{\textit{Style Resources}} are XMLs used to define styles to be applied in \textit {layout} XMLs. Their goal is to separate the structure code of \acs {UI} from the code that defines their appearance and shape.
+
+	\item \textbf{\textit{Drawable Resources}} are graphical files used in the \acs{UI}. These files can be traditional images, \texttt {.png}, \texttt{.jpg} or \texttt {.gif}, or graphic XMLs. 
+
 \end{enumerate}
-
