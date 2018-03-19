@@ -78,24 +78,29 @@ email address}
 \maketitle
 
 \begin{abstract} 
-A task that constantly software developers need to do is
-identify problematic code snippets so they can refactor, with the ultimate
-goal to have constantly a base code easy to be maintained and evolved. For
-this, developers often make use of code smells detection strategies. Although
-there are many code smells cataloged, such as \textit{God Class}, \textit{Long
-Method}, among others, they do not take into account the nature of the
-project. However, Android projects have relevant features and untested to
-date, for example the \texttt{res} directory that stores all resources used in
-the application or an \textsc{Activity} by nature, accumulates various
-responsibilities. Research in this direction, specific on Android projects,
-are still in their infancy. In this dissertation we intend to identify,
-validate and document code smells of Android regarding the presentation layer,
-where major distinctions when compared to traditional designs. In other works
-on Android code smells, were identified code smells related to security,
-intelligent consumption of device's resources or somehow influenced the
-experience or user expectation. Unlike them, our proposal is to catalog
-Android code smells which influence the quality of the code. It developers
-will have another ally tool for quality production code. 
+
+Software developers aim for an easy to be maintained and evolved
+code base.
+To that goal, a recurring task in their daily jobs is to
+identify problematic pieces of code that need to be refactored
+by means of, for example, code smells detection strategies. Although
+practitioners and researchers have already catalogued several code smells, 
+such as \textit{God Class}, \textit{Long Method}, work still needs to be
+done to take into account the nature and context of different
+types of systems. In particular, Android apps are a special kind of software
+when it comes to its presentation layer:
+any app needs to implement specific architectural decisions from the Android
+platform itself (such as to model Activities, Fragments, and Listeners to events) 
+as well as to deal with and integrate different types of resources (such as layouts, and images).
+In this paper, we investigate what code smells developers perceive in the presentation
+layer of Android apps. By means of a three-step research that involved 316 Android developers,
+we devised 20 specific code smells, and measured the developers' perceptions on their frequency and importance,
+as well as how problematic they are in comparison to clean code.
+Our findings suggest that 1) there exist code smells specific to the Android presentation layer, 
+2) developers consider them to happen frequently, and that they deserve to be mitigated, and 
+3) classes affected by the smells are perceived as more problematic than when compared to clean
+classes. 
+
 \end{abstract}
 
 \begin{IEEEkeywords}

@@ -77,8 +77,8 @@ We obtained 20 code smells, of which nine are related to the components of the A
 
 \subsection{Step 2 - Importance and Frequency of the Code Smells}
 
-To answer RQ$_2$, we seek to generalize the bad smells 
-found in the previous RQ, by understanding the perception of the developers regarding the frequency and importance of bad smells. We collected this perception through an online survey.
+To answer RQ$_2$, we seek to generalize the code smells 
+found in the previous RQ, by understanding the perception of the developers regarding the frequency and importance of code smells. We collected this perception through an online survey.
 
 We collected 201 responses from Android developers from 3 continents and 14 different countries. In the following, we better explain the methodology.
 
@@ -88,14 +88,14 @@ We collected 201 responses from Android developers from 3 continents and 14 diff
 The survey (S$_2$) contained 3 sections. 
 The first section, as in S$_1$, was designed to draw the participant's demographic profile 
 (age, state of residence, software development experience, Android development experience and education) and was composed of 6 questions.
-The second section aimed at capturing the developers' perceptions of how often they perceived the bad smells in their daily lives. We did this by presenting a list of statements derived from RQ$_1$ where each statement described a symptom of one of the bad smells. For each statement the participant could choose one of five Likert-scale options from the frequency range: very common, frequent, sometimes, rarely, and never.
+The second section aimed at capturing the developers' perceptions of how often they perceived the code smells in their daily lives. We did this by presenting a list of statements derived from RQ$_1$ where each statement described a symptom of one of the code smells. For each statement the participant could choose one of five Likert-scale options from the frequency range: very common, frequent, sometimes, rarely, and never.
 
 
 In order to contemplate the 20 code smells we found in the first RQ, 25 statements about were presented. This difference in the total number of code smells and the number of sentences occurred because, for 4 of the code smells, \textsc{Suspicious Behavior}, 
 \textsc{Long or Repeated Layout}, \textsc{Long Style Resource}, and \textsc{Repeated Style}), more than one statement was presented, each addressing one of the symptoms it presents. We chose to separate the symptoms into statements to understand which ones were perceived by the developer on a daily basis. 
 
 
-The third section aimed at capturing the perception of the developers regarding the importance of mitigating the symptoms of code smells, for which they were asked to indicate how important they considered the presented statements. In order to contemplate the 20 code smells, we presented 21 important statements that basically denied the affirmations related to the perceived frequency of the bad smell. The divergence of the total of bad smells and the total of presented affirmations can be explained by the same reason in the previous section of the questionnaire. For each statement the participant could choose one of the five options of the likety scale of importance: very important, important, reasonably important, not important, not important.
+The third section aimed at capturing the perception of the developers regarding the importance of mitigating the symptoms of code smells, for which they were asked to indicate how important they considered the presented statements. In order to contemplate the 20 code smells, we presented 21 important statements that basically denied the affirmations related to the perceived frequency of the code smell. The divergence of the total of code smells and the total of presented affirmations can be explained by the same reason in the previous section of the questionnaire. For each statement the participant could choose one of the five options of the likety scale of importance: very important, important, reasonably important, not important, not important.
 
 In none of the sections did we indicate that symptoms of code odors would be presented, nor did we mention the names of the code smells used in this research. We chose to do this in order to abstract the idea that the sentences represented code smells, and therefore participants do not require prior knowledge on these code smells.
 
@@ -141,13 +141,13 @@ The experiment contained two main sections. The first section aimed to collect d
 \end{itemize}
 
 
-According to Fink~\cite{Fink:95}, sample size refers to the number of respondents required to be accurate and reliable, and that increasing sample size decreases error. Moscarola~\cite{Moscarola:90} summarizes this idea with ``\textit{the law of large numbers}'', according to which he argues that ``\textit{with a sample of less than 30 observations if there are chances to find either an erroneous or lagged value as a value approaching reality.}'' Therefore, in order to have greater reliability on the results, we aim to collect on average 30 points per bad smell evaluated.
+According to Fink~\cite{Fink:95}, sample size refers to the number of respondents required to be accurate and reliable, and that increasing sample size decreases error. Moscarola~\cite{Moscarola:90} summarizes this idea with ``\textit{the law of large numbers}'', according to which he argues that ``\textit{with a sample of less than 30 observations if there are chances to find either an erroneous or lagged value as a value approaching reality.}'' Therefore, in order to have greater reliability on the results, we aim to collect on average 30 points per code smell evaluated.
 
 
-The six pieces of code were randomly selected from a set of 50 piees. This set was composed of 35 smelling codes (five for each evaluated code smell) and 15 clean codes. It is worth mentioning that, in order to mitigate possible biases of confusion, in the two groups of codes (bad smell and clean) we only select \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, \textit{Layout resources}, \textit{String}, and \textit{Style}, since these are the elements of the Android presentation layer, whose the proposed and evaluated code smells deal with.
+The six pieces of code were randomly selected from a set of 50 piees. This set was composed of 35 smelling codes (five for each evaluated code smell) and 15 clean codes. It is worth mentioning that, in order to mitigate possible biases of confusion, in the two groups of codes (code smell and clean) we only select \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, \textit{Layout resources}, \textit{String}, and \textit{Style}, since these are the elements of the Android presentation layer, whose the proposed and evaluated code smells deal with.
 
 The pieces of code used in the experiment were extracted from randomly selected Android free software projects from the F-Droid repository. 
-The selection of the codes was done manually, because there are still no defined heuristics or tools that automatically detect the bad smells proposed in this research.
+The selection of the codes was done manually, because there are still no defined heuristics or tools that automatically detect the code smells proposed in this research.
 
 We performed small modifications to the snippets in order to reduce the participant's cognitive effort, e.g., we removed statements from packages, and comments. We also made sure that each snippet only contained a single smell.
 
