@@ -1,0 +1,33 @@
+% \begin{table*}[htb!]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \caption{The proposed code smells in the Android presentation layer and a brief description of the symptoms.}
+% \footnotesize
+% \begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
+% \toprule
+% \textbf{Name} & \textbf{Summary} \\
+% \toprule
+% \textsc{Brain UI Component}$^{(60)}$            & UI components with business logic.  \\
+% \textsc{Coupled UI Component}$^{(18)}$           & UI components with concrete reference to each other.  \\
+% \textsc{Suspicious Behavior}$^{(17)}$              & \textit{Listener} being implemented within another UI component.  \\
+% \textsc{Fool Adapter}$^{(13)}$                  & \textit{Adapters} that do not use the \textit{ViewHolder} pattern.  \\
+% \textsc{Excessive Use Of Fragments}$^{(9)}$           & Use of \textit{fragments} without an explicit need. \\
+% \textsc{UI Component Doing IO}$^{(9)}$          & UI components making access to the internet or database.  \\
+% \textsc{No Fragment Usage}$^{(8)}$                  & Do not use any \textit{Fragment}.  \\
+% \textsc{Absence of Architecture}$^{(6)}$              & Applications without a known architecture.  \\
+% \textsc{Flex Adapter}$^{(6)}$                     & \textit{Adapters} with conditionals and loops. \\
+% \textsc{Resource Name Non Patterned}$^{(24)}$      & Resources with non-standard names.      \\
+% \textsc{Magic Resource}$^{(23)}$                      & Strings, number or colors hardcoded.   \\
+% \textsc{Deep Nested Layout}$^{(19)}$            & Layout resources with more than three levels of nested Views.   \\
+% \textsc{Avoid Tradicional Images}$^{(18)}$      & Images that could be transformed into a graphic resource.   \\
+% \textsc{Layout Long or Repeated}$^{(14)}$            & \textit{Layout} resources too long or with similar or repeated code snippets.   \\
+% \textsc{Missing Image}$^{(12)}$                     & Image without all standard resolutions.   \\
+% \textsc{God Style Resource}$^{(8)}$              & Unique or god \textit{Style} resource.   \\
+% \textsc{Messy String Resource}$^{(8)}$          & \textit{String} resource without a nomenclature pattern.   \\
+% \textsc{Repeated Style Attributes}$^{(7)}$        & Repeated attributes in \textit{layout} or \textit{style} resources.   \\
+% \textsc{Inappropriate String Reuse}$^{(6)}$           & \textit{Strings} being reused improperly.    \\
+% \textsc{Hided Listener}$^{(5)}$                   & Attribute \textit{onClick} in \textit{layout} resources.  \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:Smells}
+% \end{table*}
