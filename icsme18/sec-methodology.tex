@@ -1,30 +1,28 @@
-\section{Methodology}
+\section{Method}
 
 The goal of this research is to catalog code smells that occur in Android presentation layer source code. We employed a mixed method study to understand perceptions of developers. Developers point of view plays an important role in the definition of code smells related to a specific technology~\cite{arcverde2011understanding, Palomba_Do_2014, yamashita2013developers}, especially considering the smells' intrinsic subjective nature~\cite{JavascriptSmells, JavaQADetectingSmells:02}.
 
-The investigate the following research questions:
+We investigate the following research questions:
 
-\newcommand{\rqone}{What code smells do developers propose in the presentation layer of Android apps?}
+\newcommand{\rqone}{What code smells do developers observe in the presentation layer of Android apps?}
 \newcommand{\rqtwo}{How often do developers observe and what importance do they give to the proposed code smells in their Android apps?}
 \newcommand{\rqthree}{Do Android developers perceive classes affected by the proposed smells as problematic?}
 
 \begin{itemize}
-	\item[RQ$_1$:] \rqone
+    \item[RQ$_1$:] \rqone
 
-	\item[RQ$_2$:] \rqtwo
+    \item[RQ$_2$:] \rqtwo
 
-	\item[RQ$_3$:] \rqthree
+    \item[RQ$_3$:] \rqthree
 \end{itemize}
 
-To that aim, we employed two open online questionnaires to collect and confirm the smells, which were answered by 45 and 201 developers respectively. We then performed an online code experiment (n=70) about the perceptions of developers on the proposed smells. 
+We employed two open online questionnaires to collect and confirm the smells, which were answered by 45 and 201 developers respectively. We then performed an online code experiment (n=70) about the perceptions of developers on the proposed smells. 
 We explain the three parts of this research in the following sub-sections.
 
-\subsection{Part 1 - Best and bad practices in the presentation layers of Android apps}
+\subsection{Part 1 - Best and bad practices in the presentation layer of Android apps}
 \label{etapa-1}
 
-The goal of this part was to collect the best and the bad programming practices 
-that developers perceive when developing the presentation layer of Android apps.
-To that aim, we devised an online questionnaire comprising exploratory questions
+We devised an online questionnaire comprising exploratory questions
 about each one of the components of the Android's presentation layer 
 (\textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}) 
 as well as application resources (\textit{Layout}, \textit{Strings}, 
@@ -36,7 +34,7 @@ as well as application resources (\textit{Layout}, \textit{Strings},
 This questionnaire was based on an instrument used by Aniche et al.~\cite{AnicheSmellsMVC:17, FinavaroAniche2016} to search for code smells in \acs{MVC} applications. 
 After the informed consent, the questionnaire presented 25  questions organized into three sections.
 
-The first section had the goal of tracing the participant's demographic profile (age, residence, experience in software development, experience with Android development, and schooling) and was composed of 6 questions. The second section aimed at understanding what developers consider best and bad practices in the development of the presentation layer of an Android app. It consisted of 16 optional and open questions: 8 on best practices for each of the 8 elements of the Android presentation layer, and 8 on bad practices. The complete questionnaire can be seen in Appendix~\ref{ap: survey-1}. 
+The first section had the goal of tracing the participant's demographic profile (age, residence, experience in software development, experience with Android development, and schooling) and comprised 6 questions. The second section aimed at understanding what developers consider best and bad practices in the development of the presentation layer of an Android app. It comprised 16 optional and open questions: 8 on best practices for each of the 8 elements of the Android presentation layer, and 8 on bad practices. The complete questionnaire can be seen in Appendix~\ref{ap: survey-1}. 
 For example, for the \textit{Activity} element, the second section contained the following questions:
 
 \begin{itemize}
@@ -44,9 +42,8 @@ For example, for the \textit{Activity} element, the second section contained the
   \item[Q2] Do you have anything you consider a bad practice when dealing with Activities? (Open question)
 \end{itemize}
 
-
-The third section consisted of three optional open questions, 
-two to capture any last ideas that we did not capture in the previous questions, and one inviting participants to provide the email if they wanted to participate in future research steps.
+The third section comprised three optional open questions, 
+two to capture any last ideas that we did not capture in the previous questions, and one inviting participants to provide the email if they wanted to participate in future steps.
 
 % Before the release, we conducted a pilot test with three Android developers. In the first configuration of the questionnaire, all questions, from all sections except email, were mandatory. With the result of the pilot test, we realized that developers not always have some best or bad practice to comment on all components. Thus, we made such questions optional. Responses from pilot participants were disregarded to mitigate bias effects.
 
@@ -71,13 +68,13 @@ However, most participants come from BLINDED, with a little more than 81\% of pa
 \label{etapa-1-analise}
 
 Our analysis process was inspired by the Ground Theory approach (GT), a research method originated in the social sciences~\cite{Strauss2007, GlaserStrauss1999}, but increasingly popular in software engineering research~\cite{Adolph2011}. 
-GT is an inductive approach, whereby data from, e.g., interviews or questionnaires, are analyzed to derive a theory. The goal is to discover new perspectives rather than confirm any existing ones. The analysis process started from the list of 45 responses of the questionnaire and was given in 4 steps: \textit{verticalization}, \textit {data cleaning}, \textit {codification}, and \textit {division}, detailed below.
+GT is an inductive approach, whereby data from, e.g., interviews or questionnaires, are analyzed to derive a theory. The goal is to discover new perspectives rather than confirm any existing ones. The analysis process started from the list of 45 responses of the questionnaire and was occured in 4 steps: \textit{verticalization}, \textit {data cleaning}, \textit {codification}, and \textit {split}, detailed below.
 
-The process we called \textit{verticalization} consisted of considering each best or bad practice response as an individual record to be analyzed. That is, each participant answered 18 questions about good and bad practices in the Android presentation layer (2 questions for each element and 2 more generic questions). With the process of verticalization, each of these answers became a record, that is, each participant resulted in 18 answers to be analyzed, totaling 810 answers.
+The process we called \textit{verticalization} consisted of considering each best or bad practice response as an individual record to be analyzed. That is, each participant answered 18 questions about good and bad practices in the Android presentation layer (2 questions for each element and 2 more generic questions). With the process of verticalization, each of these answers became a record, i.e., each participant resulted in 18 answers to be analyzed, totaling 810 answers.
 
-The next step was to perform the \textit{data cleaning}. This step consisted of removing obviously non-useful answers as blank answers, answers containing phrases like \textit{``No'', ``Not that I know'', ``I do not remember''}, the ones considered vague as \textit{``I'm not sure if they are good practices but I use what I see there''}, those considered generic as \textit{``Like all Java code ...''}, and those not related to best or bad code practices. Of the 810 answers, 352 were considered, and 458 were disregarded. Of the 352, 45\% were related to bad practices, and 55\% to best practices.
+The next step was to perform \textit{data cleaning}. This step consisted of removing obviously non-useful answers as blank answers, answers containing phrases like \textit{``No'', ``Not that I know'', ``I do not remember''}, the ones considered vague as \textit{``I'm not sure if they are good practices but I use what I see there''}, those considered generic as \textit{``Like all Java code ...''}, and those not related to best or bad code practices. Of the 810 answers, 352 were considered, and 458 were disregarded. Of the 352, 45\% were related to bad practices, and 55\% to best practices.
 
-Next, we performed \textit{codification} on best and bad practices~\cite{Strauss2007, Saldana2013}. Codification is the process by which categories are extracted from a set of statements through the abstraction of central ideas and relations between the statements~\ cite{Strauss2007}. During this process, each response received one or more categories. In this step, we disregarded some more answers: this occurred because they were not `` obviously '' disposable responses like those of the previous step, and deeper analysis was necessary to arrive at this conclusion. For each response not considered in this step we recorded the reason, which can be checked in the files in our online appendix~\cite{apendice}.
+Next, we performed \textit{codification} on best and bad practices~\cite{Strauss2007, Saldana2013}. Codification is the process by which categories are extracted from a set of statements through the abstraction of central ideas and relations between the statements~\ cite{Strauss2007}. During this process, each response received one or more categories. In this step, we disregarded more answers: this occurred because they were not `` obviously '' disposable responses like those of the previous step, and deeper analysis was necessary to arrive at this conclusion. For each response not considered in this step, we recorded the reason, which can be checked in the files in our online appendix~\cite{apendice}.
 
 Finally, we performed the \textit {split} step. This step consisted in dividing responses that belonged to more than one category into two or more responses.
 As an example, \textit{``Do not make Activities to be callbacks of asynchronous executions. Always inherit from support classes, never directly from the platform.''} indicates a category in the first sentence and another one in the second. In some cases, the complete response was necessary to understand both categorizations, in which case we maintained the original response.
@@ -90,8 +87,7 @@ We obtained 20 code smells, of which nine are related to the components of the A
 
 \subsection{Step 2 - Importance and Frequency of the Code Smells}
 
-To answer RQ$_2$, we seek to generalize the code smells 
-found in the previous RQ, by understanding the perception of the developers regarding the frequency and importance of code smells. We collected this perception through an online survey.
+To answer RQ$_2$, we seek to understand the perception of the developers regarding the frequency and importance of the code smells. We collected this perception through an online survey.
 
 We collected 201 responses from Android developers from 3 continents and 14 different countries. In the following, we better explain the methodology.
 
@@ -99,29 +95,31 @@ We collected 201 responses from Android developers from 3 continents and 14 diff
 \label{etapa-2-questionario}
 
 The survey (S$_2$) contained 3 sections. 
-The first section, as in S$_1$, was designed to draw the participant's demographic profile 
-(age, state of residence, software development experience, Android development experience and education) and was composed of 6 questions.
-The second section aimed at capturing the developers' perceptions of how often they perceived the code smells in their daily lives. We did this by presenting a list of statements derived from RQ$_1$ where each statement described a symptom of one of the code smells. For each statement the participant could choose one of five Likert-scale options from the frequency range: very common, frequent, sometimes, rarely, and never.
+The first section, as in S$_1$, was designed to identify the participant's demographic profile 
+(age, residence, software development experience, Android development experience, and education) and comprised 6 questions.
+The second section aimed at capturing the developers' perceptions of how often they perceived the code smells in their development experience. We presented a list of statements derived from RQ$_1$ where each statement described a symptom of one of the code smells. For each statement, the participant could choose one of five Likert-scale options from the frequency range: very common, frequent, sometimes, rarely, and never.
 
 
-In order to contemplate the 20 code smells we found in the first RQ, 25 statements about were presented. This difference in the total number of code smells and the number of sentences occurred because, for 4 of the code smells, \textsc{Suspicious Behavior}, 
-\textsc{Long or Repeated Layout}, \textsc{Long Style Resource}, and \textsc{Repeated Style}), more than one statement was presented, each addressing one of the symptoms it presents. We chose to separate the symptoms into statements to understand which ones were perceived by the developer on a daily basis. 
+To contemplate the 20 code smells we found in the first RQ, 25 statements were presented. This difference in the total number of code smells and the number of sentences occurred because, for 4 of the code smells, \textsc{Suspicious Behavior}, 
+\textsc{Long or Repeated Layout}, \textsc{Long Style Resource}, and \textsc{Repeated Style}), more than one statement was presented, each addressing one of the symptoms. We chose to separate the symptoms into statements to understand which ones were frequently perceived by developers. 
 
 
-The third section aimed at capturing the perception of the developers regarding the importance of mitigating the symptoms of code smells, for which they were asked to indicate how important they considered the presented statements. In order to contemplate the 20 code smells, we presented 21 important statements that basically denied the affirmations related to the perceived frequency of the code smell. The divergence of the total of code smells and the total of presented affirmations can be explained by the same reason in the previous section of the questionnaire. For each statement the participant could choose one of the five options of the likety scale of importance: very important, important, reasonably important, not important, not important.
+The third section aimed at capturing the perception of the developers regarding the importance of mitigating the symptoms of code smells, for which they were asked to indicate how important they considered the presented statements. To contemplate the 20 code smells, we present 21 statements that denied the affirmations related to the perceived frequency of the code smell. The divergence of the total of code smells, and the total of presented statements can be explained by the same reason in the previous section of the questionnaire. For each statement, the participant could choose one of the five options of the Likert scale of importance: very important, important, reasonably important, not important, and not important.
 
-In none of the sections did we indicate that symptoms of code odors would be presented, nor did we mention the names of the code smells used in this research. We chose to do this in order to abstract the idea that the sentences represented code smells, and therefore participants do not require prior knowledge on these code smells.
+% Not important está repetido 2 x !!!!!!!!!!!!
 
-% Before the questionnaire was published, we validated each of the statements by means of an individual interview with two experienced Android developers, \emph{DEV-A} and \emph{DEV-B}.  \emph{DEV-A} has 10 years of software development experience and 5 years of experience with Android development, considers himself proficient in Java, Objective C, Swift and Android technologies and holds a bachelor's degree in Information Technology. \emph {DEV-B} has 7 years of software development experience and 6 years of experience with Android development, is proficient in Java, Objective C and Android technologies and has a postgraduate degree in Service Oriented Software Engineering. 
+In none of the sections we indicated that symptoms of code smells would be presented, nor did we mention the names of the  smells used in this research. We chose to do this to abstract the idea that the sentences represented code smells, and therefore participants do not require prior knowledge of these code smells.
 
-The questionnaire was opened for approximately three weeks in mid-September 2017. The statements were presented in a random fashion. In the end, the questionnaire was answered by 201 developers. The full version of the questionnaire can be found in Appendix \ref{survey2}.
+% Before the questionnaire was published, we validated each of the statements by means of an individual interview with two experienced Android developers, \emph{DEV-A} and \emph{DEV-B}.  \emph{DEV-A} has 10 years of software development experience and 5 years of experience with Android development, considers himself proficient in Java, Objective C, Swift, and Android technologies and holds a bachelor's degree in Information Technology. \emph {DEV-B} has 7 years of software development experience and 6 years of experience with Android development, is proficient in Java, Objective C, and Android technologies and has a postgraduate degree in Service Oriented Software Engineering. 
+
+The questionnaire was open for approximately three weeks in mid-September 2017. The statements were presented randomly. The questionnaire was answered by 201 developers. The full version of the questionnaire can be found in Appendix \ref{survey2}.
 
 
 \subsubsection{Participants}
 \label{etapa-2-participantes}
 
-201 developers answered our survey. 15\% of them have one or more post-graduation degrees and 61\% have a bachelors degree. The majority of participants are between 20 and 35 years old.
-94\% participants indicated to have two years or more experience with software development and 74\% indicated two years or more of experience with Android development. We thus conjecture that we have reached developers with considerable experience in software development and Android.
+201 developers answered our survey. 15\% of them have one or more post-graduation degrees, and 61\% have a bachelor degree. The majority of participants are between 20 and 35 years old.
+94\% participants indicated to have two years or more of experience with software development, and 74\% indicated two years or more of experience with Android development. We thus conjecture that we have reached developers with considerable experience in software development and Android.
 
 
 We asked participants about their level of knowledge in various object-oriented languages. More than 80\% claim to have intermediate or expert knowledge in Java and Android. Five participants (2\%) stated that they did not know about Android, so their answers were disregarded in the analysis.
@@ -132,14 +130,14 @@ As with the previous survey, 78\% of participants are also originally from BLIND
 \label{etapa-3}
 
 
-We captured the perception of Android developers on codes affected by seven of the proposed code smells, which were considered most frequent in the previous RQ (see \textcolor{red}{table in results}). The data was collected through an online code experiment where each participant was asked to evaluate the quality of six pieces of codes related to the Android presentation layer. We received 70 responses. 
+We captured the perception of Android developers on codes affected by seven of the proposed code smells, which were considered most frequent in the previous RQ (see \textcolor{red}{table in results}). The data was collected through an online experiment where each participant was asked to evaluate the quality of six pieces of codes related to the Android presentation layer. We received 70 responses. 
 
-It is worth mentioning that this type of experiment has already been carried out in similar researches, such as those of Aniche et al.~\cite{AnicheSmellsMVC:17, MvcSmells:16} and Palomba et al.~\cite{Palomba_Do_2014}.
+It is worth mentioning that this type of experiment has already been carried out in similar studies, such as those of Aniche et al.~\cite{AnicheSmellsMVC:17, MvcSmells:16} and Palomba et al.~\cite{Palomba_Do_2014}.
 
 \subsubsection{Experiment}
 \label{etapa-3-experimento}
 
-The experiment contained two main sections. The first section aimed to collect demographic information, mainly in relation to the participants' experience. In the second section the participants were asked to analyze six pieces of codes: four of them affected by one of the code smells, and two of them not affected by any of the code smells. For each piece of code, the participant was asked to answer the following questions:
+The form contained two main sections. The first section aimed to collect demographic information, mainly about the participants' experience. In the second section, the participants were asked to analyze six pieces of codes: four of them affected by one of the code smells, and two of them not affected by any of the code smells. For each piece of code, the participant was asked to answer the following questions:
 
 \begin{itemize}
 
@@ -153,27 +151,22 @@ The experiment contained two main sections. The first section aimed to collect d
 \end{itemize}
 
 
-According to Fink~\cite{Fink:95}, sample size refers to the number of respondents required to be accurate and reliable, and that increasing sample size decreases error. Moscarola~\cite{Moscarola:90} summarizes this idea with ``\textit{the law of large numbers}'', according to which he argues that ``\textit{with a sample of less than 30 observations if there are chances to find either an erroneous or lagged value as a value approaching reality.}'' Therefore, in order to have greater reliability on the results, we aim to collect on average 30 points per code smell evaluated.
+The six pieces of code were randomly selected from a set of 50 pieces. This set was composed of 35 smelling codes (five for each evaluated code smell) and 15 clean codes. It is worth mentioning that, in order to mitigate possible biases of confusion, in the two groups of codes (code smell and clean) we only select \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, \textit{Layout resources}, \textit{String}, and \textit{Style}, since these are the elements of the Android presentation layer, whose the proposed and evaluated code smells deal with. The pieces of code used in the experiment were extracted from randomly selected Android open source software projects from the F-Droid repository. 
+The selection of the code was done manually because there are still no defined heuristics or tools that automatically detect the code smells proposed in this research.
 
+We performed small modifications to the snippets to reduce the participant's cognitive effort, e.g., we removed statements from packages and comments. We also made sure that each snippet only contained a single smell.
 
-The six pieces of code were randomly selected from a set of 50 piees. This set was composed of 35 smelling codes (five for each evaluated code smell) and 15 clean codes. It is worth mentioning that, in order to mitigate possible biases of confusion, in the two groups of codes (code smell and clean) we only select \textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}, \textit{Layout resources}, \textit{String}, and \textit{Style}, since these are the elements of the Android presentation layer, whose the proposed and evaluated code smells deal with.
+To mitigate possible selection biases, five different snippets were created for each code smells, totaling 35 different smelly snippets. For the clean codes snippets, we selected five classes from the Android presentation layer's components, totaling 15 gists of clean code. 
+To reduce learning effects and order bias, each participant received the six randomly selected codes in random order. In addition, participants were not informed of which snippets belonged to which groups (smelly or clean). Participants were only informed that the research was aimed at studying the quality of presentation layer code for native Android applications. No time limit was imposed to complete the task.
 
-The pieces of code used in the experiment were extracted from randomly selected Android free software projects from the F-Droid repository. 
-The selection of the codes was done manually, because there are still no defined heuristics or tools that automatically detect the code smells proposed in this research.
-
-We performed small modifications to the snippets in order to reduce the participant's cognitive effort, e.g., we removed statements from packages, and comments. We also made sure that each snippet only contained a single smell.
-
-To mitigate possible selection biases, five different snippets were created for each code odor, totaling 35 different smelly snippets. For the clean codes snippets, we selected five classes from the Android presentation layer's components, totaling 15 gists of clean codes. 
-To reduce learning effects and order bias, each participant received the six randomly selected codes in random order. In addition, participants were not informed of which codes belonged to which groups (smelly or clean). Participants were only informed that the research was aimed at studying the quality of presentation layer codes for native Android applications. 
-
-As our needs for the experiment were very peculiar, a specific software was developed for the experiment. No time limit was imposed to complete the task.
-The experiment was open from December 5th, 2017 to January 5th, 2018.
+As our needs for the experiment were very peculiar, a specific software was developed for the experiment. 
+The experiment was open from December 5th, 2017 to January 5th, 2018.  To improve the reliability of our results, following Moscarola~\cite{Moscarola:90} recommendation, we aimed at having at least  30 points per code smell evaluated. 
 
 
 \subsubsection{Participants}
 \label{etapa-3-participantes-analise}
 
-70 developers participated in this research. Of the participants, 82\% have 2 years or more of experience with software development and 52\% have 2 years or more of experience with Android development. Of the 70 responses, 14 were either disregarded or the developer had no experience with Android development (11\%) or left all answers blank.
+70 developers participated in this research, 82\% have 2 years or more of experience with software development and 52\% have 2 years or more of experience with Android development. Out of the 70 responses, 14 were either disregarded since the developer had no experience with Android development (11\%) or left all answers blank.
 
 We asked participants how many native Android applications they had published, 55\% of participants claim to have published at least one application, and 25\% say they have published more than five applications.
 
