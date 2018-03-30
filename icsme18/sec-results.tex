@@ -1,114 +1,98 @@
-% -*- root: dissertation.tex -*-
 \section{Findings}
 
-\subsection{QP$_1$ Code smells specific to the Android Presentation Layer}
+\subsection{RQ$_1$: Code smells specific to the Android Presentation Layer}
 \label{phase1-results}
 
-In this section we present general results on the process of deriving code smells (Section \ref{phase1-general-results}) and the catalog with 20 proposed code smells related to the Android presentation layer (Section \ref{phase1-code-smells-derivation}).
+\textit{Activities} were the most mentioned element in the answers. 35 of the 45 respondents answered its question about good practices, while 38 respondents answered its question about bad practices.
+The element that received the least number of responses about good practices was \textit{Listener}, being answered by 10 of the 45 participants. The elements that received the least number of responses about bad practices were \textit{Style} resources and \textit{Drawable}, both of which were answered by only 9 of the 45 participants. 
 
-\subsubsection{General Results and Findings}
-\label{phase1-general-results}
+The coding process resulted in 46 categories. To derive a code smell, we considered 
+all the 22 categories that presented occurrences greater than or equal to five, based on the number of Nielsen \cite{NielsenMagicNumber:00}.
+Of the 22, we disregarded 2 more because they were (i) a traditional code smell (Large Class) and (ii) one aspect of object orientation (Inheritance). 
 
-All 16 questions about good and bad practices in the elements of the Android presentation layer (second section of S$_1$) were optional, so some received more answers than others. The figure \ref{fig:ElementsVSAnswers} displays the total answers received for each question. We can observe that 35 of the 45 respondents answered the question about good practices in \textit{Activities}: ``\textit{Do you have any good practices to deal with Activities?}''. While 38 responded answered the question about bad practices in \textit{Activities}: ``\textit{Do you have anything you consider bad practice when dealing with Activities?}''.
+% \begin{table*}[!htb]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \caption{Total responses on good and bad practices in each element of the Android presentation layer.}
+% \footnotesize
+% \begin{tabular}{@{}p{7cm}@{}cccccccccp{3cm}}
+% \toprule
+% \textbf{Mau Cheiro} & \rot[32][2em]{\textbf{Activity}} & \rot[32][2em]{\textbf{Fragment}} & \rot[32][2em]{\textbf{Adapter}} & \rot[32][2em]{\textbf{Listener}} & \rot[32][2em]{\textbf{Layout}} & \rot[32][2em]{\textbf{String}} & \rot[32][2em]{\textbf{Style}} & \rot[32][2em]{\textbf{Drawable}} \\
+% \toprule
+% \textsc{Brain UI Component}$^{(60)}$       & 29  & 16  & 14  & 1   & -    & -   & -   & -  &  \\
+% \textsc{Coupled UI Component}$^{(18)}$      & 2   & 10  & 3   & 3   & -    & -   & -   & -  &  \\
+% \textsc{Suspicious Behavior}$^{(17)}$         & 4   & -   & 3   & 10  & -    & -   & -   & -  &  \\
+% \textsc{Fool Adapter}$^{(13)}$             & -   & -   & 13  & -   & -    & -   & -   & -  &  \\
+% \textsc{Excessive Use Of Fragments}$^{(9)}$      & -   & 9   & -   & -   & -    & -   & -   & -  &  \\
+% \textsc{UI Component Doing IO}$^{(9)}$     & 5   & 3   & 1   & -   & -    & -   & -   & -  &  \\
+% \textsc{No Fragment Usage}$^{(8)}$             & 4   & 4   & -   & -   & -    & -   & -   & -  &  \\
+% \textsc{Absence of Architecture}$^{(6)}$         & 4   & 2   & -   & -   & -    & -   & -   & -  &  \\
+% \textsc{Flex Adapter}$^{(6)}$                & -   & -   & 5   & -   & 1    & -   & -   & -  &  \\
+% \textsc{Resource Name Non Patterned}$^{(24)}$ & -   & -   & -   & -   & 5    & 10  & 5   & 3  &  \\
+% \textsc{Magic Resource}$^{(23)}$                 & -   & -   & -   & -   & 6    & 15  & 2   & -  &  \\
+% \textsc{Deep Nested Layout}$^{(19)}$  & -   & -   & 1   & -   & 18   & -   & -   & -  &  \\
+% \textsc{Avoid Tradicional Images}$^{(18)}$ & -   & -   & -   & -   & 1    & -   & -   & 17 &  \\
+% \textsc{Layout Long or Repeated}$^{(14)}$       & -   & -   & -   & -   & 14   & -   & -   & -  &  \\
+% \textsc{Missing Image}$^{(12)}$                & -   & -   & -   & -   & 2    & -   & -   & 10 &  \\
+% \textsc{God Style Resource}$^{(8)}$         & -   & -   & -   & -   & -    & -   & 8   & -  &  \\
+% \textsc{Messy String Resource}$^{(8)}$     & -   & -   & -   & -   & -    & 8   & -   & -  &  \\
+% \textsc{Repeated Style Attributes}$^{(7)}$   & -   & -   & -   & -   & 3    & -   & 4   & -  &  \\
+% \textsc{Inappropriate String Reuse}$^{(6)}$      & -   & -   & -   & -   & -    & 6   & -   & -  &  \\
+% \textsc{Hided Listener}$^{(5)}$              & -   & -   & -   & 5   & -    & -   & -   & -  &  \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:CategoriesVSFrequency}
+% \end{table*}
 
-\begin{figure*}[!htb]
-\centering
-% \hspace*{-0.7cm}
-\includegraphics[width=.8\linewidth]{phase1-survey-answers3-en.png}
-\caption{Total answers for each question about good and bad practices in the eight elements of the Android presentation layer.}
-\label{fig:ElementsVSAnswers}
-\end{figure*}
+% It is worth noting that the same code smell can affect more than one element of the Android presentation layer. By means of the table \ref{tab:CategoriesVSFrequency}, we can get suggestions on what Android elements a code smell affects by crossing the number of occurrences, that is, if there are occurrences, possibly the respective code smell affects the respective element. For example, the code smell \textsc{\small UI Brain Component} is presented in 4 components: \textit{Activities} with 29 occurrences, \textit{Fragments} with 16, \textit{Adapters} with 14 and \textit{Listeners} with 1, and in fact, that code smell can affect all those components.
 
-The element that received the least answers about \textbf{\small good practices} was \textit{Listener}, being answered by 10 of the 45 participants. The elements that received the least responses over \textbf{\small bad practices} were the \textit{Style} resources and \textit{Drawable}, both of which were answered by only 9 of the 45 participants. Among the components, the ones that received the most responses were \textit{Activities} and \textit{Fragments}, both being answered by at least 27 participants. Among the resources, the one that received the most response was the \textit{Layout} resource, being answered by at least 22 of the 45 participants. Overall, good practice questions were answered more than the bad practice questions, except for \textit{Activities} and \textit{Listeners}.
-
-The coding process resulted in 46 categories, from which we considered for the derivation of bad smells all those that presented occurrences greater than or equal to five, based on the number of Nielsen \cite{NielsenMagicNumber:00}. Thus, 22 categories were considered. Of these 22, we disregarded 2 more because they were (i) a traditional bad smell (Large Class) and (ii) one aspect of object orientation (Inheritance). Resulting in 20 categories for deriving the bad smells of the Android presentation layer.
-
-The Table \ref{tab:CategoriesVSFrequency} displays the total number of occurrences segmented by element of the Android presentation layer of the 20 categories considered for the derivation of bad smells. For example, the category \textsc{\small Brain UI Component} displays 29 in the \textit{Activity} column, 16 in the \textit{Fragment} column, 14 in the \textit{Adapter} column, and 1 in the \textit{Listener}, this means that 29 occurrences were in responses on good and bad practices in \textit{Activities}, 16 occurrences were in responses on good and bad practices in \textit{Fragments}, and so on. The superscript number, in parentheses, next to the category name indicates the total number of occurrences, that is, the sum of occurrences on all Android elements.
-
-
-In Figure \ref{fig:ElementsVSAnswers} the total responses on good and bad practices in Activities is 73 (summation of columns Q1 and Q2), and in Table \ref{tab:CategoriesVSFrequency} the total responses in the Activity column is 49. This difference occurs because in the figure we are considering the answers of all 46 categories, while in the table we consider only the answers to the 20 categories considered.
-
-\begin{table*}[!htb]
-\centering
-\renewcommand*{\arraystretch}{1}
-\caption{Total responses on good and bad practices in each element of the Android presentation layer.}
-\footnotesize
-\begin{tabular}{@{}p{7cm}@{}cccccccccp{3cm}}
-\toprule
-\textbf{Mau Cheiro} & \rot[32][2em]{\textbf{Activity}} & \rot[32][2em]{\textbf{Fragment}} & \rot[32][2em]{\textbf{Adapter}} & \rot[32][2em]{\textbf{Listener}} & \rot[32][2em]{\textbf{Layout}} & \rot[32][2em]{\textbf{String}} & \rot[32][2em]{\textbf{Style}} & \rot[32][2em]{\textbf{Drawable}} \\
-\toprule
-\textsc{Brain UI Component}$^{(60)}$       & 29  & 16  & 14  & 1   & -    & -   & -   & -  &  \\
-\textsc{Coupled UI Component}$^{(18)}$      & 2   & 10  & 3   & 3   & -    & -   & -   & -  &  \\
-\textsc{Suspicious Behavior}$^{(17)}$         & 4   & -   & 3   & 10  & -    & -   & -   & -  &  \\
-\textsc{Fool Adapter}$^{(13)}$             & -   & -   & 13  & -   & -    & -   & -   & -  &  \\
-\textsc{Excessive Use Of Fragments}$^{(9)}$      & -   & 9   & -   & -   & -    & -   & -   & -  &  \\
-\textsc{UI Component Doing IO}$^{(9)}$     & 5   & 3   & 1   & -   & -    & -   & -   & -  &  \\
-\textsc{No Fragment Usage}$^{(8)}$             & 4   & 4   & -   & -   & -    & -   & -   & -  &  \\
-\textsc{Absence of Architecture}$^{(6)}$         & 4   & 2   & -   & -   & -    & -   & -   & -  &  \\
-\textsc{Flex Adapter}$^{(6)}$                & -   & -   & 5   & -   & 1    & -   & -   & -  &  \\
-\textsc{Resource Name Non Patterned}$^{(24)}$ & -   & -   & -   & -   & 5    & 10  & 5   & 3  &  \\
-\textsc{Magic Resource}$^{(23)}$                 & -   & -   & -   & -   & 6    & 15  & 2   & -  &  \\
-\textsc{Deep Nested Layout}$^{(19)}$  & -   & -   & 1   & -   & 18   & -   & -   & -  &  \\
-\textsc{Avoid Tradicional Images}$^{(18)}$ & -   & -   & -   & -   & 1    & -   & -   & 17 &  \\
-\textsc{Layout Long or Repeated}$^{(14)}$       & -   & -   & -   & -   & 14   & -   & -   & -  &  \\
-\textsc{Missing Image}$^{(12)}$                & -   & -   & -   & -   & 2    & -   & -   & 10 &  \\
-\textsc{God Style Resource}$^{(8)}$         & -   & -   & -   & -   & -    & -   & 8   & -  &  \\
-\textsc{Messy String Resource}$^{(8)}$     & -   & -   & -   & -   & -    & 8   & -   & -  &  \\
-\textsc{Repeated Style Attributes}$^{(7)}$   & -   & -   & -   & -   & 3    & -   & 4   & -  &  \\
-\textsc{Inappropriate String Reuse}$^{(6)}$      & -   & -   & -   & -   & -    & 6   & -   & -  &  \\
-\textsc{Hided Listener}$^{(5)}$              & -   & -   & -   & 5   & -    & -   & -   & -  &  \\
-\bottomrule
-\end{tabular}
-\label{tab:CategoriesVSFrequency}
-\end{table*}
-
-It is worth noting that the same code smell can affect more than one element of the Android presentation layer. By means of the table \ref{tab:CategoriesVSFrequency}, we can get suggestions on what Android elements a code smell affects by crossing the number of occurrences, that is, if there are occurrences, possibly the respective code smell affects the respective element. For example, the code smell \textsc{\small UI Brain Component} is presented in 4 components: \textit{Activities} with 29 occurrences, \textit{Fragments} with 16, \textit{Adapters} with 14 and \textit{Listeners} with 1, and in fact, that code smell can affect all those components.
-
-However, for other code smells, this suggestion is not true. For example, in the case of the code smell \textsc{\small Deep Nested Layout}, although there is 1 occurrence in \textit{Adapter}, that code smell does not affect it. The response that gave rise to this occurrence actually indicated good practice in layouts: \textit{``Create really light layouts.''}~(P36). This type of analysis of the response was carefully performed for writing the textual definition of code smells to be presented in the next section.
+% However, for other code smells, this suggestion is not true. For example, in the case of the code smell \textsc{\small Deep Nested Layout}, although there is 1 occurrence in \textit{Adapter}, that code smell does not affect it. The response that gave rise to this occurrence actually indicated good practice in layouts: \textit{``Create really light layouts.''}~(P36). This type of analysis of the response was carefully performed for writing the textual definition of code smells to be presented in the next section.
 
 
-\subsubsection{Proposed Code Smells}
-\label{phase1-code-smells-derivation}
+% \subsubsection{Proposed Code Smells}
+% \label{phase1-code-smells-derivation}
 
-Table \ref{tab:Smells} presents the list and a brief description of the 20 proposed Android code smells derived from the 20 categories with five occurrences or more, resulting from the coding process. The first 9 code smells affect Android presentation layer components, the next 11 affect Android resources.
+\textcolor{red}{if we have space, put back the tab:smells with their summaries}
+% Table \ref{tab:Smells} presents the list and a brief description of the 20 proposed Android code smells. The first 9 code smells affect Android presentation layer components, the next 11 affect Android resources.
 
-Definitions were based on the answers obtained \footnote{All English text has been translated freely throughout the dissertation}. For example, some responses that supported the code smell \textsc{\small UI Brain Component} were: \textit{``Do Business Logic [in Activities]''} (P16). ``\textit{Putting business rule on Adapter}'' (P19), \textit{``Keep business logic in Fragments''} (P11), \textit{``Activities represent a single screen and only interact with the UI, any logic must be delegated to another class''} (P16) where P1 to P45 represent each of the respondents. In order to make the reading simpler, the answers used to base them are available in Appendix \ref{appendix:smells-purpose-of-solution}.
+In the following paragraphs we present in a textual way the definition of code smells, as well as the elements affected by each code smell and related symptoms. 
+Definitions were based on the answers obtained. For example, some responses that supported the code smell \textsc{\small UI Brain Component} were: \textit{``Do Business Logic [in Activities]''} (P16). ``\textit{Putting business rule on Adapter}'' (P19), \textit{``Keep business logic in Fragments''} (P11), \textit{``Activities represent a single screen and only interact with the UI, any logic must be delegated to another class''} (P16) where P1 to P45 represent each of the respondents. 
+The number in parenthesis shows the number of times that smell appeared in the answers.
+In the appendix, we show the the entire coding results~\ref{appendix:smells-purpose-of-solution}.
 
-In the following paragraphs we present in a textual way the definition of code smells, as well as the elements affected by each code smell and related symptoms.
-
-\begin{table*}[htb!]
-\centering
-\renewcommand*{\arraystretch}{1}
-\caption{List of 20 code smells in the Android presentation layer and brief description of the symptoms.}
-\footnotesize
-\begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
-\toprule
-\textbf{Nome} & \textbf{Descrição} \\
-\toprule
-\textsc{Brain UI Component}$^{(60)}$            & UI components with business logic.  \\
-\textsc{Coupled UI Component}$^{(18)}$           & UI components with concrete reference to each other.  \\
-\textsc{Suspicious Behavior}$^{(17)}$              & \textit{Listener} being implemented within another UI component.  \\
-\textsc{Fool Adapter}$^{(13)}$                  & \textit{Adapters} that do not use the \textit{ViewHolder} pattern.  \\
-\textsc{Excessive Use Of Fragments}$^{(9)}$           & Use of \textit{fragments} without an explicit need. \\
-\textsc{UI Component Doing IO}$^{(9)}$          & UI components making access to the internet or database.  \\
-\textsc{No Fragment Usage}$^{(8)}$                  & Do not use any \textit{Fragment}.  \\
-\textsc{Absence of Architecture}$^{(6)}$              & Applications without a known architecture.  \\
-\textsc{Flex Adapter}$^{(6)}$                     & \textit{Adapters} with conditionals and loops. \\
-\textsc{Resource Name Non Patterned}$^{(24)}$      & Resources with non-standard names.      \\
-\textsc{Magic Resource}$^{(23)}$                      & Strings, number or colors hardcoded.   \\
-\textsc{Deep Nested Layout}$^{(19)}$            & Layout resources with more than three levels of nested Views.   \\
-\textsc{Avoid Tradicional Images}$^{(18)}$      & Images that could be transformed into a graphic resource.   \\
-\textsc{Layout Long or Repeated}$^{(14)}$            & \textit{Layout} resources too long or with similar or repeated code snippets.   \\
-\textsc{Missing Image}$^{(12)}$                     & Image without all standard resolutions.   \\
-\textsc{God Style Resource}$^{(8)}$              & Unique or god \textit{Style} resource.   \\
-\textsc{Messy String Resource}$^{(8)}$          & \textit{String} resource without a nomenclature pattern.   \\
-\textsc{Repeated Style Attributes}$^{(7)}$        & Repeated attributes in \textit{layout} or \textit{style} resources.   \\
-\textsc{Inappropriate String Reuse}$^{(6)}$           & \textit{Strings} being reused improperly.    \\
-\textsc{Hided Listener}$^{(5)}$                   & Attribute \textit{onClick} in \textit{layout} resources.  \\
-\bottomrule
-\end{tabular}
-\label{tab:Smells}
-\end{table*}
+% \begin{table*}[htb!]
+% \centering
+% \renewcommand*{\arraystretch}{1}
+% \caption{The proposed code smells in the Android presentation layer and a brief description of the symptoms.}
+% \footnotesize
+% \begin{tabular}{@{}p{6.6cm}@{}p{10cm}@{}}
+% \toprule
+% \textbf{Name} & \textbf{Summary} \\
+% \toprule
+% \textsc{Brain UI Component}$^{(60)}$            & UI components with business logic.  \\
+% \textsc{Coupled UI Component}$^{(18)}$           & UI components with concrete reference to each other.  \\
+% \textsc{Suspicious Behavior}$^{(17)}$              & \textit{Listener} being implemented within another UI component.  \\
+% \textsc{Fool Adapter}$^{(13)}$                  & \textit{Adapters} that do not use the \textit{ViewHolder} pattern.  \\
+% \textsc{Excessive Use Of Fragments}$^{(9)}$           & Use of \textit{fragments} without an explicit need. \\
+% \textsc{UI Component Doing IO}$^{(9)}$          & UI components making access to the internet or database.  \\
+% \textsc{No Fragment Usage}$^{(8)}$                  & Do not use any \textit{Fragment}.  \\
+% \textsc{Absence of Architecture}$^{(6)}$              & Applications without a known architecture.  \\
+% \textsc{Flex Adapter}$^{(6)}$                     & \textit{Adapters} with conditionals and loops. \\
+% \textsc{Resource Name Non Patterned}$^{(24)}$      & Resources with non-standard names.      \\
+% \textsc{Magic Resource}$^{(23)}$                      & Strings, number or colors hardcoded.   \\
+% \textsc{Deep Nested Layout}$^{(19)}$            & Layout resources with more than three levels of nested Views.   \\
+% \textsc{Avoid Tradicional Images}$^{(18)}$      & Images that could be transformed into a graphic resource.   \\
+% \textsc{Layout Long or Repeated}$^{(14)}$            & \textit{Layout} resources too long or with similar or repeated code snippets.   \\
+% \textsc{Missing Image}$^{(12)}$                     & Image without all standard resolutions.   \\
+% \textsc{God Style Resource}$^{(8)}$              & Unique or god \textit{Style} resource.   \\
+% \textsc{Messy String Resource}$^{(8)}$          & \textit{String} resource without a nomenclature pattern.   \\
+% \textsc{Repeated Style Attributes}$^{(7)}$        & Repeated attributes in \textit{layout} or \textit{style} resources.   \\
+% \textsc{Inappropriate String Reuse}$^{(6)}$           & \textit{Strings} being reused improperly.    \\
+% \textsc{Hided Listener}$^{(5)}$                   & Attribute \textit{onClick} in \textit{layout} resources.  \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:Smells}
+% \end{table*}
 
 
 % -*- root: dissertation.tex -*-
