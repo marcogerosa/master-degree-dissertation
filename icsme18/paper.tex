@@ -79,16 +79,15 @@ email address}
 
 \begin{abstract} 
 
-Aiming for improving evolvability, developers frequently look for problematic pieces of code that need to be refactored by means of strategies such as code smells. Although
-practitioners and researchers have already cataloged several code smells, such as \textit{God Class}, \textit{Long Method}, work still needs to be done to take into account the nature and context of different types of systems. In particular, Android apps are a special kind of software
+Developers frequently look for problematic pieces of code that need to be refactored to improve software evolvability, leveraging strategies such as code smells. Although
+the literature presents several code smells, such as \textit{God Class}, \textit{Long Method}, work still needs to be done to take into account the specificities of different types of systems. In particular, Android apps are a special kind of software
 when it comes to its presentation layer:
 any app needs to implement specific architectural decisions from the Android
 platform itself (such as to model Activities, Fragments, and Listeners to events) 
 as well as to deal with and integrate different types of resources (such as layouts, and images).
 In this paper, we investigate what code smells developers perceive in the presentation
 layer of Android apps. By means of a three-step research that involved 316 Android developers,
-we devised 20 specific code smells and measured the developers' perceptions on their frequency and importance,
-as well as how problematic they are in comparison to clean code.
+we devised 20 specific code smells and measured the developers' perceptions of their frequency and importance.
 Our findings suggest that 1) there exist code smells specific to the Android presentation layer, 
 2) developers consider them to happen frequently, and that they deserve to be mitigated, and 
 3) classes affected by the smells are perceived as more problematic than when compared to clean
