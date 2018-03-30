@@ -1,8 +1,8 @@
 \section{Methodology}
 
-The purpose of this research is to catalog code smells of the Android presentation layer. Thus, we conducted a mixed study~\cite{CreswellResearch:13}. According to research~\cite{arcverde2011understanding, Palomba_Do_2014, yamashita2013developers}, empirical perception plays an important role in the definition of code smells related to a specific technology, especially considering their intrinsic subjective nature~\cite{JavascriptSmells, JavaQADetectingSmells:02}.
+The purpose of this research is to catalog code smells that occur in Android presentation layer source code. We employed a mixed method study to understand perceptions of developers. Developers point of view plays an important role in the definition of code smells related to a specific technology~\cite{arcverde2011understanding, Palomba_Do_2014, yamashita2013developers}, especially considering the smells' intrinsic subjective nature~\cite{JavascriptSmells, JavaQADetectingSmells:02}.
 
-Our mixed approach comes in such a way that the code smells are collected by means of two online questionnaires, answered by 246 Android developers. We then performed an online code experiment about the perceptions of developers on the proposed smells, where we obtained 70 responses. 
+We employed two open online questionnaires to collect and confirm the smells, which were answered by 45 and 201 developers respectively. We then performed an online code experiment (n=70) about the perceptions of developers on the proposed smells. 
 
 We explain the three parts of this research in the following sub-sections.
 
@@ -11,8 +11,8 @@ We explain the three parts of this research in the following sub-sections.
 
 The goal of this part was to collect the best and the bad programming practices 
 that developers perceive when developing the presentation layer of Android apps.
-To that aim, we devised an online questionnaire composed of exploratory questions
-about each one of the components in Android's presentation layer 
+To that aim, we devised an online questionnaire comprising exploratory questions
+about each one of the components of the Android's presentation layer 
 (\textit{Activities}, \textit{Fragments}, \textit{Adapters}, \textit{Listeners}) 
 as well as application resources (\textit{Layout}, \textit{Strings}, 
 \textit{Styles} and \textit{Drawables}). 
@@ -20,10 +20,10 @@ as well as application resources (\textit{Layout}, \textit{Strings},
 \subsubsection{Questionnaire}
 \label{etapa-1-questionario}
 
-This questionnaire was based on an earlier study by Aniche et al.~\cite{AnicheSmellsMVC:17, FinavaroAniche2016}, where authors searched for code smells in \acs{MVC} applications. 
-We informed participants that this was part of a research on Android code quality and that the data provided would be published anonymously. The questionnaire was composed of 25 separate questions in three sections.
+This questionnaire was based on an instrument used by Aniche et al.~\cite{AnicheSmellsMVC:17, FinavaroAniche2016} to search for code smells in \acs{MVC} applications. 
+After the informed consent, the questionnaire presented 25  questions organized into three sections.
 
-The first section had the goal of tracing the participant's demographic profile (age, state of residence, experience in software development, experience with Android development and schooling) and was composed of 6 questions. The second section aimed at understanding what developers considered best and bad practices in the development of the Android presentation layer. It consisted of 16 optional and open questions, 8 on best practices for each of the 8 elements of the Android presentation layer, and 8 on bad practices. The complete questionnaire can be seen in Appendix~\ref{ap: survey-1}. 
+The first section had the goal of tracing the participant's demographic profile (age, residence, experience in software development, experience with Android development, and schooling) and was composed of 6 questions. The second section aimed at understanding what developers consider best and bad practices in the development of the presentation layer of an Android app. It consisted of 16 optional and open questions: 8 on best practices for each of the 8 elements of the Android presentation layer, and 8 on bad practices. The complete questionnaire can be seen in Appendix~\ref{ap: survey-1}. 
 For example, for the \textit{Activity} element, the second section contained the following questions:
 
 \begin{itemize}
@@ -33,7 +33,7 @@ For example, for the \textit{Activity} element, the second section contained the
 
 
 The third section consisted of three optional open questions, 
-two to capture any last ideas that we did not capture in the previous questions, and one requesting the participant's email, if he or she had an interest in participating in future research steps.
+two to capture any last ideas that we did not capture in the previous questions, and one inviting participants to provide the email if they wanted to participate in future research steps.
 
 Before the release, we conducted a pilot test with three Android developers. In the first configuration of the questionnaire, all questions, from all sections except email, were mandatory. With the result of the pilot test, we realized that developers not always have some best or bad practice to comment on all components. Thus, we made such questions optional. Responses from pilot participants were disregarded to mitigate bias effects.
 
@@ -62,12 +62,12 @@ GT is an inductive approach, whereby data from, e.g., interviews or questionnair
 
 The process we called \textit{verticalization} consisted of considering each best or bad practice response as an individual record to be analyzed. That is, each participant answered 18 questions about good and bad practices in the Android presentation layer (2 questions for each element and 2 more generic questions). With the process of verticalization, each of these answers became a record, that is, each participant resulted in 18 answers to be analyzed, totaling 810 answers.
 
-The next step was to perform the \textit{data cleaning}. This step consisted of removing obviously non-useful answers as blank answers, answers containing phrases like \textit{``No'', ``Not that I know'', ``I do not remember''}, the ones considered vague as \textit{``I'm not sure if they are good practices but I use what I see there''}, those considered generic as \textit{``Like all Java code ...''}, and those not related to best or bad code practices. Of the 810 answers, 352 were considered and 458 were disregarded. Of the 352, 45\% were related to bad practices, and 55\% to best practices.
+The next step was to perform the \textit{data cleaning}. This step consisted of removing obviously non-useful answers as blank answers, answers containing phrases like \textit{``No'', ``Not that I know'', ``I do not remember''}, the ones considered vague as \textit{``I'm not sure if they are good practices but I use what I see there''}, those considered generic as \textit{``Like all Java code ...''}, and those not related to best or bad code practices. Of the 810 answers, 352 were considered, and 458 were disregarded. Of the 352, 45\% were related to bad practices, and 55\% to best practices.
 
-Next, we performed \textit{codification} on best and bad practices~\cite{Strauss2007, Saldana2013}. Codification is the process by which categories are extracted from a set of statements through the abstraction of central ideas and relations between the statements~\ cite{Strauss2007}. During this process, each response received one or more categories. In this step we disregarded some more answers: this occurred because they were not `` obviously '' disposable responses like those of the previous step, and deeper analysis was necessary to arrive at this conclusion. For each response not considered in this step we recorded the reason, which can be checked in the files in our online appendix~\cite{apendice}.
+Next, we performed \textit{codification} on best and bad practices~\cite{Strauss2007, Saldana2013}. Codification is the process by which categories are extracted from a set of statements through the abstraction of central ideas and relations between the statements~\ cite{Strauss2007}. During this process, each response received one or more categories. In this step, we disregarded some more answers: this occurred because they were not `` obviously '' disposable responses like those of the previous step, and deeper analysis was necessary to arrive at this conclusion. For each response not considered in this step we recorded the reason, which can be checked in the files in our online appendix~\cite{apendice}.
 
 Finally, we performed the \textit {split} step. This step consisted in dividing responses that belonged to more than one category into two or more responses.
-As an example, \textit{``Do not make Activities to be callbacks of assynchronous executions. Always inherit from support classes, never directly from the platform.''} indicates in the first sentence a category and in the second sentence, another category. By dividing it, we kept only the segment of the response relative to the category, as if they were two distinct and valid answers. In some cases, the complete response was necessary to understand both categorizations, in which case we maintained the original response, even if duplicated, and categorized each one differently.
+As an example, \textit{``Do not make Activities to be callbacks of asynchronous executions. Always inherit from support classes, never directly from the platform.''} indicates a category in the first sentence and another one in the second. In some cases, the complete response was necessary to understand both categorizations, in which case we maintained the original response.
 
 At the end of the analysis, there were 359 responses on best and bad practices individually categorized into 46 categories. 
 To be considered a code smells, we collected all categories in which the number
@@ -131,12 +131,12 @@ The experiment contained two main sections. The first section aimed to collect d
 
 \begin{itemize}
 
-	\item[Q1.] 
-	In your opinion, does this code have any design and / or implementation problems? (YES NO)
+    \item[Q1.] 
+    In your opinion, does this code have any design and / or implementation problems? (YES NO)
 
-	\item[Q2.] If YES, please explain what are, in your opinion, the problems that affect this code. (Open Question)
+    \item[Q2.] If YES, please explain what are, in your opinion, the problems that affect this code. (Open Question)
 
-	\item[Q3.] If YES, please evaluate the severity of the design and / or implementation problem by selecting from the following options. (Likert scale of 5 points from 1, very low, to 5, very high).
+    \item[Q3.] If YES, please evaluate the severity of the design and / or implementation problem by selecting from the following options. (Likert scale of 5 points from 1, very low, to 5, very high).
 
 \end{itemize}
 
