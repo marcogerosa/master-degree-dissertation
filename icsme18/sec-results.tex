@@ -22,11 +22,44 @@ In the appendix, we show the the entire coding results~\ref{appendix:smells-purp
 \noindent
 \textsc{\textbf{{\small Brain UI Component}}}$^{(60)}$: \textit{Activities}, \textit{Fragments}, \textit{Adapters}, and \textit{Listeners} should contain only code responsible for presenting, interacting and updating the UI. The existence of code related to business logic, IO operations, conversion of data or static fields in these elements are signs of code smell.
 
+
+\noindent
+\textbf{\textsc{{\small Obscure names}}}$^{(24)}$:
+The smell happens when resources (\textit{layout}, \textit{string}, \textit{style}, \textit{drawables}) do not follow a naming pattern. This may happen in the file name as well as in the names used internally in the resource. 
+
+
+\noindent
+\textbf{\textsc{{\small Magic Resource}}}$^{(23)}$:
+The smell happens when resources are hard-coded instead of pointing
+to an existing resource.
+
+
+\noindent
+\textbf{\textsc{{\small Deep Nested Layout}}}$^{(19)}$:
+Deep nesting when constructing \textit{layout} resources is considered 
+a code smell. Interestingly, the official Android website has more
+information and even provides automated tools to deal with such
+problem~\cite{OptmizingViewHierarchies}.
+
+\noindent
+\textbf{\textsc{{\small Unnecessary Image}}}$^{(18)}$:
+Android has several resources that can replace some images. The smell
+emerges when the system has images with, for example, 
+pure solid colors or gradients, that could be replaced by
+Android's native \textit{shapes}.
+
 \noindent
 \textbf{\textsc{{\small Coupled UI Component}}}$^{(18)}$: \textit{Fragments}, \textit{Adapters}, and \textit{Listeners}, so that they can be reused, they should not have direct reference to who uses them. The existence of direct reference to \textit{Activities} or \textit{Fragments} in these elements is an evidence of code smell.
 
 \noindent
 \textsc{\textbf{{\small Suspicious Behavior}}}$^{(17)}$: \textit{Activities}, \textit{Fragments}, and \textit{Adapters} should not be responsible for implementing event behavior. The use of anonymous classes, internal classes, or polymorphism (via implements) to implement \textit{Listeners} to respond to user events is a sign of code smell.
+ 
+
+\noindent
+\textbf{\textsc{{\small Long or Repeated Layout}}}$^{(14)}$:
+The code smell emerges when 
+long or duplicated \textit{layout} resources (instead of good reuse) 
+happen in the source code.
 
 
 \noindent
@@ -34,6 +67,14 @@ In the appendix, we show the the entire coding results~\ref{appendix:smells-purp
 It happens when \textit{Adapters} do not reuse instances of the \textit{views} that
 represent the fields that will be populated for each item of a collection by means
 of the \textit{View Holder} pattern. 
+
+\noindent
+\textbf{\textsc{{\small Missing Image}}}$^{(12)}$:
+The code smell happens when the system contains only a single
+version of its .png, .jpg, or .gif images. The Android platform
+requires images to be available in more than one size or resolution
+to perform optimizations.
+
 
 \noindent
 \textsc{\textbf{{\small Excessive Use of Fragments}}}$^{(9)}$: 
@@ -53,56 +94,6 @@ The code smell emerges when view components such as
 \textit{EditTexts}, \textit{Spinners}, are directly used by an \textit{Activity};
 in such cases, a \textit{Fragment} should be introduced.
 
-\noindent
-\textsc{\textbf{{\small Flex Adapter}}}$^{(6)}$ \textit{Adapters} 
-should be responsible for populating a \textit{view} from a single object.
-The code smell emerges when \textit{Adapters} contain
-business logic and takes business decisions. 
-
-
-\noindent
-\textsc{\textbf{{\small Absence of an Architecture}}}$^{(6)}$: 
-The smell emerges when one can not easily identify how the components
-are organized. Developers can not identify whether the application
-makes use of Model View Controller (MVC), Model View Presenter (MVP),
-or Model View ViewModel (MVVM).
-
-\noindent
-\textbf{\textsc{{\small Obscure names}}}$^{(24)}$:
-The smell happens when resources (\textit{layout}, \textit{string}, \textit{style}, \textit{drawables}) do not follow a naming pattern. This may happen in the file name as well as in the names used internally in the resource. 
-
-
-\noindent
-\textbf{\textsc{{\small Magic Resource}}}$^{(23)}$:
-The smell happens when resources are hard-coded instead of pointing
-to an existing resource.
-
-\noindent
-\textbf{\textsc{{\small Deep Nested Layout}}}$^{(19)}$:
-Deep nesting when constructing \textit{layout} resources is considered 
-a code smell. Interestingly, the official Android website has more
-information and even provides automated tools to deal with such
-problem~\cite{OptmizingViewHierarchies}.
-
-\noindent
-\textbf{\textsc{{\small Unnecessary Image}}}$^{(18)}$:
-Android has several resources that can replace some images. The smell
-emerges when the system has images with, for example, 
-pure solid colors or gradients, that could be replaced by
-Android's native \textit{shapes}. 
-
-\noindent
-\textbf{\textsc{{\small Long or Repeated Layout}}}$^{(14)}$:
-The code smell emerges when 
-long or duplicated \textit{layout} resources (instead of good reuse) 
-happen in the source code.
-
-\noindent
-\textbf{\textsc{{\small Missing Image}}}$^{(12)}$:
-The code smell happens when the system contains only a single
-version of its .png, .jpg, or .gif images. The Android platform
-requires images to be available in more than one size or resolution
-to perform optimizations.
 
 \noindent
 \textbf{\textsc{{\small God Style Resource}}}$^{(8)}$:
@@ -119,6 +110,21 @@ resources according to some rule, e.g., one string resource per screen.
 The existence of duplicated style attributes in \textit{layout} or
 \textit{style} resources, when they could be reused, is an indication
 of this code smell.
+
+\noindent
+\textsc{\textbf{{\small Flex Adapter}}}$^{(6)}$ \textit{Adapters} 
+should be responsible for populating a \textit{view} from a single object.
+The code smell emerges when \textit{Adapters} contain
+business logic and takes business decisions. 
+
+
+\noindent
+\textsc{\textbf{{\small Absence of an Architecture}}}$^{(6)}$: 
+The smell emerges when one can not easily identify how the components
+are organized. Developers can not identify whether the application
+makes use of Model View Controller (MVC), Model View Presenter (MVP),
+or Model View ViewModel (MVVM).
+
 
 \noindent
 \textbf{\textsc{{\small Inappropriate String Reuse}}}$^{(6)}$:
