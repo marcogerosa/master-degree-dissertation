@@ -14,7 +14,7 @@ $(BASE_NAME).pdf: $(BASE_NAME).tex $(INPUTS)
 	$(BIBTEX) $(BASE_NAME) 
 	$(PDFLATEX) $< 
 	$(PDFLATEX) $<
-	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -sDEVICE=pdfwrite -sOutputFile=$(BASE_NAME)wfonts.pdf $(BASE_NAME).pdf
+	#gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -sDEVICE=pdfwrite -sOutputFile=$(BASE_NAME)wfonts.pdf $(BASE_NAME).pdf
 
 clean:
 	rm -f $(BASE_NAME)*.ps $(BASE_NAME)*.dvi *.log \
